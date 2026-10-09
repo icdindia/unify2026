@@ -1,0 +1,251 @@
+/* ----------------------------------------------------------------------------
+   question-card — DS "Copilot_Question Card"
+   Figma: 905:283982 (760x264, the variant this prototype renders) and
+          875:165812 (760x224, with the "N of M" pager) · get_design_context + get_metadata
+   Top bar 48 = 12 + 24 + 12: question Text md/Medium 15/24 text-secondary-700,
+     right group gap 6 (Small Icon Button 16 · "2 of 4" Text xs/Regular · Small
+     Icon Button 16), then gap 12 and the close Small Icon Button.
+   Citation body: pad 8, gap 2; option rows ("Lines States") 36 tall, pad 8,
+     radius-md, gap 8: 20x20 radius-xs utility-gray-50 badge + Text sm/Regular
+     text-secondary-700. Line 29/30/28 between rows: 1px border-tertiary (#f2f0ee).
+   Last row 40 tall: pl 8 pr 0 py 8, edit badge (radius-xxs), placeholder
+     13/20 text-placeholder, Skip = Button Neutral secondary xs (min-w 52, 24).
+   Card: bg-primary, 1px border-secondary drawn INSIDE (top bar spans the full
+     760), radius-4xl, Shadows/shadow-md (0 4 8 -2 gray-200, 0 2 4 -2 gray-200).
+   The body carries its own drop shadow in the file (0 12 8 rgba(16,24,40,.08),
+     0 4 3 rgba(16,24,40,.03)); reproduced.
+
+   Skip and the small icon buttons come from the `button` atom.
+   No extensions: the question's evidence sentence is posted into the thread
+   as the agent's line above the card, and each option's detail is joined onto
+   the option label after an em dash, so the rows stay the frame's single line.
+---------------------------------------------------------------------------- */
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  background: var(--colors-background-bg-primary);
+  box-shadow:
+    inset 0 0 0 1px var(--colors-border-border-secondary),
+    0 4px 8px -2px var(--colors-utility-gray-utility-gray-200),
+    0 2px 4px -2px var(--colors-utility-gray-utility-gray-200);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+
+/* Figma 12007:449191 (Copilot_Question Card · Top bar): bg-secondary,
+   py: lg (12) px: xl (16), lead is a column stack (Medium 15/24 question above
+   Regular 12/16 subtitle in text-quaternary), nav + close on the right. */
+.question-card__top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: var(--colors-background-bg-secondary);
+}
+.question-card__lead {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-none);
+  min-width: 0;
+}
+.question-card__q {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+}
+.question-card__question {
+  font-family: var(--text-md-medium-font-family);
+  font-weight: 500;
+  font-size: var(--text-md-medium-font-size);   /* 15 */
+  line-height: var(--text-md-medium-line-height);   /* 24 */
+  color: var(--colors-text-text-secondary-700);
+  overflow-wrap: break-word;
+}
+.question-card__evidence {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);   /* 12 */
+  line-height: var(--text-xs-regular-line-height);   /* 16 */
+  color: var(--colors-text-text-quaternary-500);
+  overflow-wrap: break-word;
+}
+.question-card__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: none;
+}
+/* the frame's Small Icon Buttons here are 16x16 with NO padding (metadata) */
+.question-card__nav .btn--icon-sm,
+.question-card__close.btn--icon-sm {
+  padding: var(--spacing-none);
+  color: var(--colors-text-text-secondary-700);
+}
+.question-card__nav .btn--icon-sm:hover,
+.question-card__close:hover { background: var(--component-buttons-neutral-secondary-button-neutral-secondary-bg-hover); }
+.question-card__count {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Figma 12007:449200 (Citation): white bg, gap xxs (2), px: md (8) py: xs (4),
+   no shadow. Rows 40h, p: md, radius-md. Row text 13/20 Regular text-secondary. */
+.question-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--colors-background-bg-primary);
+}
+.question-card__option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);   /* 13 */
+  line-height: var(--text-sm-regular-line-height);   /* 20 */
+  color: var(--colors-text-text-secondary-700);
+}
+.question-card__text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* hover / keyboard row — 905:283992: bg-workspace fill, solid brand badge, trailing arrow-right 16 */
+.question-card__option:hover,
+.question-card__option:focus-visible,
+.question-card__option[data-force="hover"] { background: var(--colors-background-bg-workspace); }
+.question-card__option:hover .question-card__badge,
+.question-card__option:focus-visible .question-card__badge,
+.question-card__option[data-force="hover"] .question-card__badge {
+  background: var(--colors-utility-brand-utility-brand-500);
+  color: var(--colors-text-text-white);
+}
+.question-card__arrow {
+  display: none;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  color: var(--colors-icon-icon-secondary);
+}
+.question-card__arrow svg { display: block; width: 100%; height: 100%; }
+.question-card__option:hover .question-card__arrow,
+.question-card__option:focus-visible .question-card__arrow,
+.question-card__option[data-force="hover"] .question-card__arrow { display: block; }
+.question-card__option:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: -2px;
+}
+/* Featured logo tile — Figma sets 20x20, radius-xs, bg utility-gray-50, glyph 16. */
+.question-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-xs);
+  background: var(--colors-utility-gray-utility-gray-50);
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: 500;
+  font-size: var(--text-xs-medium-font-size);   /* 12 */
+  line-height: var(--text-xs-medium-line-height);   /* 16 */
+}
+.question-card__badge svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.question-card__badge--edit { border-radius: var(--radius-xxs); }
+.question-card__text {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.question-card__sub {
+  display: block;
+  font-family: var(--text-md-regular-font-family);
+  font-weight: var(--text-md-regular-font-weight);
+  font-size: var(--text-md-regular-font-size);
+  line-height: var(--text-md-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.question-card__rule {
+  width: 100%;
+  height: 1px;
+  background: var(--colors-border-border-tertiary);
+}
+
+/* Free row — Figma 12007:449205: 40h, pl: md, pr: none, py: md, radius-md.
+   Input text 13/20 in text-placeholder; Skip button on the right. */
+.question-card__free {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: var(--spacing-md) var(--spacing-none) var(--spacing-md) var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+.question-card__free-in {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+.question-card__free input {
+  flex: 1 0 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);   /* 13 */
+  line-height: var(--text-sm-regular-line-height);   /* 20 */
+  color: var(--colors-text-text-primary-900);
+}
+.question-card__free input::placeholder { color: var(--colors-text-text-placeholder); }
+
+
+/* Skip and any button inside the card — Figma 12007:449205 button:
+   min-width 52, py: xs px: md, 12/16 Medium, neutral-secondary. */
+.question-card .btn--xs {
+  min-width: 52px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-family: var(--text-xs-medium-font-family);
+  font-size: var(--text-xs-medium-font-size);   /* 12 */
+  line-height: var(--text-xs-medium-line-height);   /* 16 */
+  font-weight: 500;
+}

@@ -1,0 +1,16 @@
+{
+  "id": "chat-questions",
+  "title": "Chat questions",
+  "card": "6944:511588",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6944-511588",
+  "steps": [
+    {
+      "step": "01", "nodeId": "5873:530156", "file": "01-5873-530156.png", "kind": "step",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "bottom of chat column, pushed down by question card", "artifactPanel": "split", "sidePanel": null, "modal": null,
+      "shows": "Split view; agent question card 'Where should it land when it is done?' with 4 numbered options (option 3 hovered), free-text 'Describe the shape you want' + Skip, close X",
+      "changedFrom": "single-frame journey (chat-artifact split view + question card above the composer)",
+      "action": "agent asks a follow-up question; user picks an option, types an answer, skips or closes",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=with Icon", "Copilot_Question Card / Property 1=hover", "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No", "Arifact Header", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm", "Cursor / State=Arrow"]
+    }
+  ]
+}

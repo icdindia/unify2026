@@ -1,0 +1,612 @@
+/* ----------------------------------------------------------------------------
+   main-nav — DS "Main_nav" (dark product rail), items are "Nav_menu/Main"
+   Figma: 7489:272502 · file lqKjNjyifEXCeywg69Knr2 (Enterprise Search Base 2026)
+   Screen: Artifacts 7489:272501
+
+   NOT the same atom as components/nav-rail/ — that is the LIGHT platform rail
+   ("New_Platform Navigation", #efebe5) from the UnifyApps Platform file. This
+   one is the dark brand rail. Same width (56), different component.
+
+   DRIFT (token): the surface is TWO stacked linear-gradients — a flat
+   rgba(0,0,0,0.30) scrim over utility-brand-500. The scrim has no token.
+   DRIFT (token): item-active / avatar / divider use alpha-white at .17 / .20 /
+   .15 / .70. The DS only exposes these as `--palette-alpha-colors-white-*`
+   PRIMITIVES, and .17 and .15 have no entry at all. Stated literally rather
+   than laundered into a semantic (design-rules; FIGMA-TO-HTML §3.3, pitfall 11).
+---------------------------------------------------------------------------- */
+
+.main-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: none;
+  box-sizing: border-box;
+  width: 56px;
+  min-width: 56px;
+  height: 100%;   /* the Figma instance is a fixed 56x900 */
+  overflow: hidden;
+  /* DRIFT: 30% black scrim over utility-brand-500 — no token for the scrim */
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(90deg, var(--colors-utility-brand-utility-brand-500) 0%, var(--colors-utility-brand-utility-brand-500) 100%);
+}
+
+.main-nav__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;   /* DRIFT: 16 is spacing-xl, but the frame states a raw 16 gap here */
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-block: var(--spacing-lg);
+}
+
+.main-nav__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;   /* DRIFT: off-scale (8 -> 12) */
+  flex: none;
+  width: 100%;
+}
+
+.main-nav__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: none;
+  width: 32px;
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-xxs);
+}
+.main-nav__logo svg { display: block; width: 32px; height: 32px; }
+
+.main-nav__group {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  min-height: 0;
+  padding-bottom: var(--spacing-lg);
+  padding-inline: 10px;   /* DRIFT: off-scale (8 -> 12) */
+}
+
+.main-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex: none;
+  box-sizing: border-box;
+  width: 32px;
+  padding: var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+}
+.main-nav__item svg { display: block; width: 16px; height: 16px; }
+.main-nav__item { color: var(--colors-icon-icon-white); }
+
+/* DRIFT: alpha-white-17 has no token — DS exposes alpha whites as primitives only */
+.main-nav__item[aria-current="page"] { background: rgba(255, 255, 255, 0.17); }
+
+.main-nav__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 56px;
+  height: 52px;
+  padding-inline: 10px;   /* DRIFT: off-scale (8 -> 12) */
+  /* DRIFT: alpha-white-15 has no token */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.main-nav__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  /* DRIFT: alpha-white-20 / alpha-white-70 exist only as --palette-* primitives */
+  background: rgba(255, 255, 255, 0.2);
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  font-weight: var(--text-sm-medium-font-weight);
+  line-height: var(--text-sm-medium-line-height);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* ============================================================================
+   EXPANDED variant — DS "Main_nav" expanded, 280 x 900
+   Figma: 1731:251990 (expanded) · 7134:273616 (collapsed, 56) · 967:349250
+          (all states, carries the Hover bg layers) · file lqKjNjyifEXCeywg69Knr2
+   Read with get_metadata + get_design_context on 2026-09-16; leaf components
+   Nav_menu/Main I…;419:152019 · Nav_menu/Subheader I…;6661:242278 ·
+   Nav_menu/Agent I…;419:151751 · Nav_menu/Chat_history I…;292:88498 ·
+   Nav_menu/Footer I…;292:88513 · Nav_menu/Header I…;323:103182.
+
+   Geometry (metadata, absolute inside the 280 frame):
+     root px 2 -> inner 276 · Navigation pt 12, gap 16 · Header block px 8,
+     Nav_menu/Header 260x40 (logo pl 4 pr 8: 32 mark pt 6 pb 2 + 99x32 gold
+     wordmark; right: two 36x36 Button Neutral, pad 8, radius button-md, 18 icon)
+     body starts at y 68 · Primary items px 10, gap 4, pb 4 -> rows 256x32 at
+     x 12, 36 pitch · item px 8 py 6 radius 8, Icon Text gap 12, icon 16, label
+     Text sm/Medium · Hover bg 260x32 centred rgba(255,255,255,.17) (bleeds 2
+     each side) · dividers 250 wide, 8 above (wrapper gap/pt) and 8 below
+     (pb 4 + next section py 4) · Agents px 10 py 4; Subheader pl 8 py 6, h 32,
+     Text sm/Regular at 40% white, Small Icon Button pad 2 radius xs, icon 16 ·
+     Agent rows 0-gap, 32 pitch, Icon Text gap 10, avatar 20 radius-sm with the
+     AI Avatar glyph inset 16.67% · History px 10 pt 8, groups gap 16, rows
+     h 32 pl 8 pr 2/4 py 6, Text sm/Regular at 60% (Navigation/text_tertiary),
+     hover bg rgba(255,255,255,.10) + white label, timestamps Text xs/Regular
+     at 30% (text_quarternary) · Footer 276x48 at y 852: border-top .15,
+     px 10 py 8, gap 8, avatar 32 round on .30 with a 13/20 Medium letter at
+     .70, name Text sm/Medium at .60, chevron-up-sm 16.
+
+   Collapsed (7134:273616): 56 wide, items 32x32 at x 12, same 36 pitch, same
+   y 68 start; labels clamp to width 0, sections to height 0. The state lives on
+   the root as data-state="expanded|collapsed" (one mechanism, §7).
+
+   DRIFT (token): every alpha-white here (.17 .10 .15 .30 .40 .60 .70) is a
+   palette primitive or has no token at all (DRIFT-LOG §11). Stated literally.
+   DRIFT (token): the header icon-button hover (rgba 255,255,255,.09) was read
+   off 967:349250 by the previous build of this screen, not re-probed here.
+   One deliberate departure, standing constraint from the product: labels WRAP
+   instead of the frame's text-ellipsis. Nothing else differs.
+   ========================================================================== */
+
+.main-nav--expanded {
+  width: 280px;
+  min-width: 280px;
+  padding-inline: var(--spacing-xxs);
+  align-items: stretch;
+  transition: width 220ms cubic-bezier(.2, 0, 0, 1), min-width 220ms cubic-bezier(.2, 0, 0, 1);
+}
+.main-nav--expanded[data-state="collapsed"] {
+  width: 56px;
+  min-width: 56px;
+}
+
+.main-nav__x-nav {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  min-height: 0;
+  padding-top: var(--spacing-lg);
+}
+
+/* ---- header block: 260x40 at y 12 ---- */
+.main-nav__x-head {
+  position: relative;
+  flex: none;
+  padding-inline: var(--spacing-md);
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-head {
+  padding-inline: 10px;   /* DRIFT: lands the mark at x 12, off-scale */
+}
+.main-nav__x-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 32px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.main-nav__x-brand {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-width: 0;
+  padding-left: var(--spacing-xs);
+  padding-right: var(--spacing-md);
+  text-decoration: none;
+  color: var(--colors-utility-brand-tertiary-utility-brand-tertiary-600);   /* the mark is "RGB-UnifyLogo-Gold" */
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-brand {
+  padding: 0;
+  flex: none;
+}
+.main-nav__x-logo {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: 32px;
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-xxs);
+}
+.main-nav__x-logo svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.main-nav__x-wordmark {
+  display: flex;
+  align-items: center;
+  flex: none;
+  width: 99px;
+  height: 40px;
+  overflow: hidden;
+  transition: width 220ms cubic-bezier(.2, 0, 0, 1), opacity 120ms;
+}
+.main-nav__x-wordmark svg {
+  display: block;
+  width: 99px;
+  height: 32px;
+  flex: none;
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-wordmark {
+  width: 0;
+  opacity: 0;
+}
+
+.main-nav__x-head-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex: none;
+}
+.main-nav__x-head-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  padding: var(--spacing-md);
+  border: 0;
+  border-radius: var(--button-md);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);   /* DRIFT: alpha-white-40, primitive only */
+  transition: background 120ms, color 120ms;
+}
+.main-nav__x-head-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.main-nav__x-head-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--colors-icon-icon-white);   /* DRIFT: no token; see header */
+}
+/* collapsed: search goes away, the collapse toggle floats over the mark on hover */
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-head-btn--search { display: none; }
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-head-btn--toggle {
+  position: absolute;
+  left: 10px;   /* DRIFT: sits over the 32x32 mark at x 12 (root 2 + 10) */
+  top: 0;
+  width: 32px;
+  height: 32px;
+  padding: var(--spacing-md);
+  opacity: 0;
+  pointer-events: none;
+  background: var(--colors-utility-brand-utility-brand-500);
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-head:hover .main-nav__x-head-btn--toggle {
+  opacity: 1;
+  pointer-events: auto;
+  color: var(--colors-icon-icon-white);
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-head:hover .main-nav__x-brand { opacity: 0; }
+
+/* ---- scrolling body ---- */
+.main-nav__x-body {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.main-nav__x-body::-webkit-scrollbar { display: none; }
+
+.main-nav__x-primary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px var(--spacing-xs);   /* DRIFT: px-[10px], off-scale (8 -> 12) */
+}
+.main-nav__x-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.6);   /* DRIFT: Navigation/text_tertiary = alpha-white-60 */
+  transition: color 120ms;
+}
+/* Hover bg: 260x32, centred on the 256 row so it bleeds 2px each side */
+.main-nav__x-item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 260px;
+  height: 32px;
+  transform: translate(-50%, -50%);
+  border-radius: var(--radius-md);
+  background: transparent;
+  transition: background 120ms;
+}
+.main-nav__x-item > * { position: relative; }
+.main-nav__x-item:hover::before,
+.main-nav__x-item[aria-current="page"]::before,
+.main-nav__x-item[data-force="hover"]::before {
+  background: rgba(255, 255, 255, 0.17);   /* DRIFT: no token */
+}
+.main-nav__x-item:hover,
+.main-nav__x-item[aria-current="page"],
+.main-nav__x-item--new { color: var(--colors-text-text-white); }
+.main-nav__x-item:focus-visible {
+  outline: 2px solid var(--colors-utility-brand-secondary-utility-brand-secondary-300);
+  outline-offset: -2px;
+}
+
+.main-nav__x-icon-text {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-lg);
+  min-width: 0;
+}
+.main-nav__x-icon-text > svg {
+  display: block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.main-nav__x-label {
+  flex: 1 0 0;
+  min-width: 0;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  overflow-wrap: break-word;   /* standing constraint: wrap, never ellipsis */
+  transition: opacity 120ms;
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-item {
+  width: 32px;
+  padding: var(--spacing-md);
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-item::before { width: 32px; }
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-icon-text { gap: 0; }
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-label,
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-meta { display: none; }   /* a 0-wide label still carries its 20px line; the collapsed item is 8+16+8 = 32 */
+
+/* nested item (this product's addition: Playbooks under Artifacts) — 28px indent, 1px guide */
+.main-nav__x-sub {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding-left: calc(var(--spacing-xl) + var(--spacing-lg));
+  overflow: hidden;
+}
+.main-nav__x-sub::before {
+  content: "";
+  position: absolute;
+  left: var(--spacing-xl);
+  top: var(--spacing-xxs);
+  bottom: var(--spacing-xxs);
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);   /* DRIFT: no token */
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-sub { padding-left: 0; }
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-sub::before { display: none; }
+
+/* divider: 250 wide, 8 above (owner's gap), 8 below (pb 4 + py 4). Figma's Line 111
+   is 0 tall with its stroke drawn at inset -1, so it takes no layout height: the
+   1px here is pulled back with a -1px bottom margin. */
+.main-nav__x-divider {
+  flex: none;
+  width: 250px;
+  height: 1px;
+  margin: var(--spacing-md) auto -1px;   /* DRIFT: -1px cancels the hairline's layout height */
+  background: rgba(255, 255, 255, 0.15);   /* DRIFT: no token */
+}
+/* inside Primary items the owner's flex gap already supplies 4 of the 8 */
+.main-nav__x-primary > .main-nav__x-divider { margin-top: var(--spacing-xs); }
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-divider { width: 32px; }
+
+/* sections: Agents (px 10 py 4) · History (px 10 pt 8, groups gap 16) */
+.main-nav__x-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-xs) 10px;   /* DRIFT: px-[10px] */
+  transition: opacity 120ms;
+}
+.main-nav__x-section--history {
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md) 10px var(--spacing-lg);   /* DRIFT: px-[10px] */
+}
+.main-nav__x-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-section { display: none; }
+
+.main-nav__x-subheader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: rgba(255, 255, 255, 0.4);   /* DRIFT: alpha-white-40 */
+}
+.main-nav__x-subheader-text {
+  flex: 1 0 0;
+  min-width: 0;
+}
+.main-nav__x-subheader-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex: none;
+}
+.main-nav__x-small-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxs);
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);   /* DRIFT: alpha-white-40 */
+}
+.main-nav__x-small-btn svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.main-nav__x-small-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--colors-icon-icon-white);   /* DRIFT: no token */
+}
+
+/* agent row: Icon Text gap 10, 20px radius-sm avatar with the AI Avatar glyph inset 16.67% */
+.main-nav__x-item--agent .main-nav__x-icon-text {
+  gap: 10px;   /* DRIFT: gap-[10px], off-scale (8 -> 12) */
+}
+.main-nav__x-agent-avatar {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  color: var(--colors-icon-icon-white);
+}
+.main-nav__x-agent-avatar svg {
+  position: absolute;
+  inset: 16.67%;
+  width: auto;
+  height: auto;
+}
+.main-nav__x-agent-avatar--1 { background: var(--colors-utility-brand-tertiary-utility-brand-tertiary-700); }
+.main-nav__x-agent-avatar--2 { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-600); }
+.main-nav__x-agent-avatar--3 { background: var(--colors-utility-terracotta-utility-terracotta-600); }
+
+/* history row: h 32, pl 8 pr 4 py 6, Regular label at .6, hover .10, meta 12/16 at .3 */
+.main-nav__x-item--history {
+  height: 32px;
+  padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-sm) var(--spacing-md);
+}
+.main-nav__x-item--history .main-nav__x-label { font-weight: var(--text-sm-regular-font-weight); }
+.main-nav__x-item--history:hover::before {
+  background: rgba(255, 255, 255, 0.1);   /* DRIFT: no token; lighter than the nav's .17 */
+}
+.main-nav__x-meta {
+  flex: none;
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: rgba(255, 255, 255, 0.3);   /* DRIFT: text_quarternary = alpha-white-30 */
+  white-space: nowrap;
+}
+
+/* ---- footer: 276x48 — border-top .15, px 10 py 8, gap 8 ---- */
+.main-nav__x-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex: none;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-md) 10px;   /* DRIFT: px-[10px] */
+  border: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);   /* DRIFT: no token; drawn inside so the footer stays 48 (metadata 276x48 at y 852) */
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.6);   /* DRIFT: alpha-white-60 */
+}
+.main-nav__x-footer:hover {
+  background: rgba(255, 255, 255, 0.09);   /* DRIFT: no token */
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-footer {
+  padding: 10px;   /* DRIFT: collapsed footer is 52 tall (7134:273616): 10 + 32 + 10 */
+}
+.main-nav__x-user-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.3);   /* DRIFT: alpha-white-30 */
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: rgba(255, 255, 255, 0.7);   /* DRIFT: alpha-white-70 */
+}
+.main-nav__x-name {
+  flex: 1 0 0;
+  min-width: 0;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  overflow-wrap: break-word;
+}
+.main-nav__x-footer > svg {
+  display: block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-name,
+.main-nav--expanded[data-state="collapsed"] .main-nav__x-footer > svg { display: none; }
+
+
+/* items with no hover plate (New Session, Template Studio — designer instruction 2026-09-17) */
+.main-nav__x-item--nohover:hover::before,
+.main-nav__x-item--nohover:hover { background: transparent; color: rgba(255, 255, 255, 0.6); }

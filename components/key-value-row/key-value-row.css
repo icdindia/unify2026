@@ -1,0 +1,77 @@
+/* ----------------------------------------------------------------------------
+   key-value-row — DS "Key Value Horizontal"
+   Figma: 16740:306337 · 306340 · 306343 · 306346 (Governance controls)
+   Screen: Dashboard 16740:306222
+   Label + sub-label on the left, badge cluster on the right half.
+---------------------------------------------------------------------------- */
+
+.key-value-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 24px;
+  padding-inline: var(--spacing-xl);
+}
+
+.key-value-row__content { display: flex; align-items: center; gap: var(--spacing-lg); width: 100%; }
+
+.key-value-row__label-body {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-lg);
+  min-width: 0;
+}
+
+.key-value-row__label-wrap {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.key-value-row__label {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+
+.key-value-row__sublabel {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+
+.key-value-row__body {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+
+.key-value-row__badges { display: flex; align-items: center; gap: var(--spacing-xs); }
+
+/* full-bleed rule between rows (Figma "Divider" frames 306338 / 306341 / 306344) */
+.key-value-divider {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 24px;
+  padding-inline: var(--spacing-lg);
+}
+.key-value-divider::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--colors-border-border-secondary);
+}

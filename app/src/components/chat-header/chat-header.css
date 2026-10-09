@@ -1,0 +1,128 @@
+/* ES Breadcrumb of a chat (set 1097:162688; instance 1731:255804 in chat-artifact 10, 6424:330601 in the split column),
+   read via figma-console 2026-10-09 and measured from the 1440 reference PNGs (steps 03, 08-20, header-dropdowns c06/c07):
+     strip     40 = 6 + 28 + 6, 12 each side, bg-workspace; "container" gap 40 between the title and the right group
+     title     Buttons/Button Neutral sm tertiary: padding 4, gap 2, "Text padding" 0 2, Text sm/Medium 13/20 text-primary,
+               chevron-down 14 (4 x 2 vector) icon-secondary. HUG in the full strip, FILL (and ellipsis) in the split.
+               Hover (c07): bg-tertiary, 1px border-primary inside, label text-secondary. Menu open (03): bg-tertiary.
+     right     Avatar group xs (24, -4 overlap) + 6 + Actions (gap 2):
+               cost   padding 6 8 4 8, gap 2, cost_loader ring 14, Spectral SemiBold 14/18 text-tertiary
+               share  padding 6 8, gap 2, lock-03 / users-01 14 icon-secondary, label 13/16 Medium
+               files, comments  28 x 28 icon buttons, padding 6, 16px icons
+     badge     the "2" on files (16) and comments (collab 10): a 12px steel-blue-400 circle, top-right of the button */
+.chh {
+  container-type: inline-size;
+  flex: none; width: 100%; min-width: 0; height: 40px; /* DRIFT: ES Breadcrumb strip height */
+  display: flex; align-items: center; gap: var(--spacing-5xl);
+  padding: var(--spacing-sm) var(--spacing-lg); background: var(--colors-background-bg-workspace);
+}
+.chh__content { flex: 1 1 0; min-width: 0; display: flex; align-items: center; }
+
+/* ---- title ---- */
+.chh-title {
+  display: inline-flex; align-items: center; gap: var(--spacing-xxs); max-width: 100%; min-width: 56px; /* DRIFT: Button min width */
+  padding: var(--spacing-xs); border-radius: var(--button-sm); color: var(--colors-text-text-primary-900);
+}
+.chh-title__t {
+  min-width: 0; padding: 0 var(--spacing-xxs); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight);
+  line-height: var(--text-sm-medium-line-height);
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+}
+.chh-title__chev { flex: none; width: 14px; height: 14px; color: var(--colors-icon-icon-secondary); } /* DRIFT: icon */
+.chh-title:is(:hover, .is-hover) {
+  background: var(--colors-background-bg-tertiary); box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+  color: var(--colors-text-text-secondary-700);
+}
+.chh-title:not(.chh-title--steady):is(:hover, .is-hover):not(.is-open) .chh-title__t { font-size: var(--text-xs-medium-font-size); } /* c07 draws the hovered label in Text xs 12px (fix title-hover-keeps-size) */
+.chh-title.is-open { background: var(--colors-background-bg-tertiary); box-shadow: none; color: var(--colors-text-text-primary-900); }
+.chh--split .chh-title { flex: 1 1 auto; }
+.chh--split .chh-title__t { flex: 1 1 auto; }
+
+/* ---- right group ---- */
+.chh__right { flex: none; display: flex; align-items: center; gap: var(--spacing-sm); }
+.chh__actions { display: flex; align-items: center; gap: var(--spacing-xxs); }
+.chh-people { display: flex; border-radius: var(--radius-full); }
+.chh-people .avatar-group__faces { cursor: pointer; }
+
+/* cost pill */
+.chh-cost {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--spacing-xxs); min-width: 56px; /* DRIFT: Button min width */
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-xs); border-radius: var(--button-sm);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.chh-cost__ring { flex: none; width: 14px; height: 14px; } /* DRIFT: icon */
+.chh-ring__track { stroke: var(--colors-border-border-primary); }
+.chh-cost--within .chh-cost__ring { color: var(--colors-border-border-brand-solid); } /* cost 01 / 04: dark arc */
+.chh-cost--approaching .chh-cost__ring { color: var(--colors-border-border-warning-solid); } /* chat-artifact 03-20, cost 02 / 05 */
+.chh-cost--over .chh-cost__ring { color: var(--colors-border-border-error-solid); } /* cost 03 / 06 */
+.chh-cost__t {
+  padding: 0 var(--spacing-xxs); white-space: nowrap; font-variant-numeric: tabular-nums;
+  min-width: 38px; /* DRIFT: Figma's "Text padding" around "$1.23" is 38 wide; Chrome sets it 0.3px narrower */
+  font-family: var(--font-family-display); font-weight: 600; /* DRIFT: Spectral SemiBold, no 14px display style */
+  font-size: 14px; line-height: 18px; /* DRIFT: Spectral SemiBold 14/18 (I1731:255804;5865:363673;17992:18392) */
+}
+.chh-cost:is(:hover, .is-hover), .chh-cost[aria-expanded="true"] { background: var(--colors-background-bg-tertiary); }
+
+/* share */
+.chh-share {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--spacing-xxs);
+  padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--button-sm);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.chh-share__i { flex: none; width: 14px; height: 14px; color: var(--colors-icon-icon-secondary); } /* DRIFT: icon */
+.chh-share__t {
+  padding: 0 var(--spacing-xxs); white-space: nowrap;
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight);
+  line-height: 16px; /* DRIFT: the label's text box is 13 / 16 (I1731:255804;5865:363674;17992:18392) */
+  min-width: 40px; position: relative; top: 1px; /* DRIFT: Figma's "Text padding" is 40 wide (Chrome sets "Share" 0.4px narrower); Chrome seats Geist 13px 1px higher */
+}
+.chh-share:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+
+/* files / comments */
+.chh-icon {
+  position: relative; flex: none; display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; /* DRIFT: Button Neutral sm icon only */
+  padding: var(--spacing-sm); border-radius: var(--button-sm); color: var(--colors-icon-icon-secondary);
+}
+.chh-icon svg { flex: none; width: 16px; height: 16px; } /* DRIFT: icon */
+.chh-icon:is(:hover, .is-hover), .chh-icon.is-open { background: var(--colors-background-bg-tertiary); }
+/* panel open as step 17 draws it (5975:413714): the clipboard turns pigeon-blue-500 */
+.chh-icon.is-selected { color: var(--colors-utility-pigeon-blue-utility-pigeon-blue-500); }
+
+/* the count on files / comments: Pill solid resized to 12, fill overridden to steel-blue-400 (1809:363799, 8222:494135) */
+.chh-badge.pill-solid {
+  position: absolute; top: var(--spacing-xxs); right: var(--spacing-xxs);
+  min-width: 12px; height: 12px; /* DRIFT: badge drawn at 12 x 12 */
+  padding: 0; border-radius: var(--radius-full);
+  background: var(--colors-utility-steel-blue-utility-steel-blue-400); color: var(--colors-text-text-white);
+  font-size: var(--text-xxxs-medium-font-size); line-height: var(--text-xxxs-medium-line-height);
+}
+
+/* ---- people with access (AccessPopover): right edge 7px in from the stack's (1016-1241 under 1184-1248) ---- */
+.chh-access { translate: -7px 0; } /* DRIFT: measured offset of 1809:365546 from the avatar group */
+.chh-access__card {
+  display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius-sm); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary), 0 4px 12px -2px #e6e4e0, 0 12px 12px -80px #e6e4e0; /* DRIFT: Input Menu Dropdown shadow (as .om) */
+}
+.chh-access__card .om { box-shadow: none; border-radius: 0; background: none; }
+.chh-access__manage {
+  margin: 0 var(--spacing-xs) var(--spacing-xs); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-sm); text-align: left;
+  box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary);
+  color: var(--colors-text-text-secondary-700);
+  font-family: var(--text-xs-medium-font-family); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight);
+  line-height: var(--text-xs-medium-line-height);
+}
+.chh-access__manage:hover { background: var(--colors-background-bg-workspace); }
+
+/* ---- narrower than the frames (not drawn; BUILD-PLAN appendix B): the full-width header keeps one line ----
+   The title ellipsizes first. Under 520 Share keeps only its icon (its name stays for assistive tech); under 420 the
+   avatar stack gives way (the access list stays in the share modal) and the title-to-actions gap tightens to 12.
+   The split column (360-650) fits its controls at every width and never compacts. */
+@container (max-width: 520px) {
+  .chh--default .chh-share__t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* DRIFT: visually hidden */
+  .chh--default .chh-share { padding: var(--spacing-sm); }
+}
+@container (max-width: 420px) {
+  .chh--default .chh-people { display: none; }
+  .chh--default .chh__right { margin-left: calc(var(--spacing-lg) - var(--spacing-5xl)); }
+}

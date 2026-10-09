@@ -1,0 +1,40 @@
+/* Tag — sm Icon=Avatar, Action=X close (set 166:43302; instances 11991:750617 Solid, 11991:750619 Outline) and
+   xs Outline, X close (89:89891). Read via figma-console 2026-10-08.
+     sm  radius 6, padding 4, gap 2; content: 16px avatar + 4 + Text xs/Medium; X: 12px Small Icon Button (2px pad, r4), 8px x
+     xs  radius 4, padding 2 / 4 / 2 / 6, gap 2; Text xs/Medium; same X button
+   Solid  utility-pigeon-blue-50 fill, pigeon-blue-700 label and x; white avatar (gray-500 letter)
+   Outline bg-primary (xs: bg-workspace), 1px border-secondary inside, text-secondary label, icon-secondary x; gray avatar */
+.tag {
+  display: inline-flex; align-items: center; flex: none; max-width: 100%; gap: var(--spacing-xxs);
+  font-family: var(--text-xs-medium-font-family); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+}
+.tag--sm { height: 24px; } /* DRIFT: Tag sm */
+.tag--sm { padding: var(--spacing-xs); border-radius: var(--radius-sm); }
+.tag--xs { height: 20px; } /* DRIFT: Tag xs */
+.tag--xs { padding: var(--spacing-xxs) var(--spacing-xs) var(--spacing-xxs) var(--spacing-sm); border-radius: var(--radius-xs); }
+.tag__content { display: inline-flex; align-items: center; gap: var(--spacing-xs); min-width: 0; }
+.tag__t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.tag__av {
+  flex: none; width: 16px; height: 16px; border-radius: var(--radius-full); /* DRIFT: Avatar Size=xs resized to 16 in the tag */
+  display: inline-flex; align-items: center; justify-content: center; font-weight: var(--text-xs-medium-font-weight);
+}
+.tag__av { font-size: 8px; line-height: 11px; } /* DRIFT: the 16px tag avatar sets its letter at 8 / 10.67, no DS style */
+
+.tag__x {
+  flex: none; width: 12px; height: 12px; display: inline-flex; align-items: center; justify-content: center; /* DRIFT: Small Icon Button xxs */
+  padding: var(--spacing-xxs); border-radius: var(--radius-xs);
+}
+.tag__x svg { display: block; }
+
+.tag--solid { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-50); color: var(--colors-utility-pigeon-blue-utility-pigeon-blue-700); }
+.tag--solid .tag__av { background: var(--colors-background-bg-white); color: var(--colors-utility-gray-utility-gray-500); }
+.tag--solid .tag__x { color: var(--colors-utility-pigeon-blue-utility-pigeon-blue-700); }
+.tag--solid .tag__x:hover { background: var(--colors-background-bg-primary); } /* not in the file: remove hover */
+
+.tag--outline { background: var(--colors-background-bg-primary); color: var(--colors-text-text-secondary-700); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.tag--xs.tag--outline { background: var(--colors-background-bg-workspace); }
+.tag--outline .tag__av { background: var(--colors-utility-gray-utility-gray-200); color: var(--colors-text-text-tertiary-600); }
+.tag--outline .tag__x { color: var(--colors-icon-icon-secondary); }
+.tag--outline .tag__x:hover { background: var(--colors-background-bg-tertiary); color: var(--colors-icon-icon-primary); } /* not in the file: remove hover */
+.tag__x:focus-visible { outline-offset: 0; }

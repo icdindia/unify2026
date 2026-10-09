@@ -1,0 +1,23 @@
+/* Chat title menu (chat-artifact 03; instance 6405:329854 of the local component "Frame 2147266815"), read via
+   figma-console 2026-10-09:
+     menu     Dropdown Menu Type=Full 190 x 213 at 104,40: items 4 / 0 / 4, rows Size=sm 32 (content 4 out, 8 / 6 in,
+              14 x 20 icon wrap, 8 gap, Text xs) — the shared .dd / .ddi geometry.
+              Add to Project is drawn with its submenu open (Selected=On fill); Archive is a Size=md row (36, Text sm,
+              16 x 20 placeholder circle; fix title-menu-archive-row); divider Size=md 9; Delete in error red.
+     submenu  Dropdown Menu 240 x 277 at 296,146: "Dropdown list header search" 40 (6 around a 28 Search_solid),
+              items 4 / 0 / 4: six project rows, divider Size=sm 5, "Start a New Project". Full shadow. */
+
+/* Archive as drawn: Dropdown list item Size=md (I6405:329854;6052:427308;61348:43733), 36 tall, label Text sm 13/20 at x 140 */
+.ctm .ddi.ctm__archive-md { height: 36px; } /* DRIFT: Dropdown list item Size=md row height */
+.ctm .ctm__archive-md .ddi__i { width: 16px; } /* DRIFT: Size=md icon wrap 16 x 20 */
+.ctm .ctm__archive-md .ddi__t { font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+
+/* The search header is 40 tall (6px under the field too), so the first project row starts 44px down */
+.ctm-sub .dd__search { padding-bottom: var(--spacing-sm); }
+
+/* Add to Project is drawn as the Selected=On row: its Start+Text runs to the content's right edge (116-290), so the
+   chevron sits 6px further right than on a plain submenu row (glyph centred at x 280) */
+.ctm .ctm__add .ddi__in { padding-right: 0; }
+
+/* Search_solid Size=sm (I6405:329854;4770:196325;43474:46235): icon and placeholder 4 apart (the Projects field draws 8) */
+.ctm-sub .dd__input { gap: var(--spacing-xs); }

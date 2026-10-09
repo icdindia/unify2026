@@ -1,0 +1,5 @@
+/* Overlay layer (layer.ts): one element at the end of <body> for modals, toasts and tooltips. It has no box of its
+   own; every overlay inside it is position: fixed. The layer is one stacking context above the app (the shell's nav
+   overlay is 20 / 21); inside it: modals 1 (a later modal paints over an earlier one by DOM order), toasts 2,
+   tooltips 3. */
+.ov-layer { position: relative; z-index: 1000; }

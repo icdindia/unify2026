@@ -1,0 +1,75 @@
+/* Avatar — component set "Avatar" 8007:428847 (Size × Type × Colour × State), read via figma-console 2026-10-08.
+   Port of the measured atom components/avatar/avatar.css, extended to the whole set:
+     Size   xxs 20 · xs 24 · sm 32 · md 40 · lg 48; letter Text xxs/xs/sm/md Medium (lg 17/20)
+     Colour Brand Solid  bg-brand-solid + text-white
+            Gray         utility-gray-200 + text-tertiary (icon gray-600)
+            Brand Secondary utility-brand-secondary-200 + utility-gray-500 (#e3d8c2 / #8f8a85 live, see below)
+            White        bg-white, 1px border-secondary inside, utility-gray-500 (#8f8a85 live)
+            Brand Subtle (older set 250:177364) utility-brand-50, 1px utility-brand-100 inside, utility-brand-500
+            per person   Brand Solid with the fill overridden to a utility token (src/fixtures/people.ts AVATAR_FILL)
+     State  Hover / Selected: a 1px ring 2px outside the face (Hover Ring / Select Ring frames, 38px around 32)
+   Classes are .avatar*, not .av*: the Projects chat table owns .chat-table .av. */
+.avatar {
+  position: relative; flex: none; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-full); overflow: hidden; user-select: none;
+  font-family: var(--font-family-body); white-space: nowrap;
+}
+.avatar__t { display: block; text-align: center; }
+.avatar__img { width: 100%; height: 100%; object-fit: cover; }
+.avatar__icon { display: block; flex: none; }
+
+/* ---- size ---- */
+.avatar--xxs { width: 20px; height: 20px; } /* DRIFT: Avatar Size=xxs */
+.avatar--xxs { font-size: var(--text-xxs-medium-font-size); font-weight: var(--text-xxs-medium-font-weight); line-height: var(--text-xxs-medium-line-height); }
+.avatar--xs { width: 24px; height: 24px; } /* DRIFT: Avatar Size=xs */
+.avatar--xs { font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height); }
+.avatar--sm { width: 32px; height: 32px; } /* DRIFT: Avatar Size=sm */
+.avatar--sm { font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height); }
+.avatar--md { width: 40px; height: 40px; } /* DRIFT: Avatar Size=md */
+.avatar--md { font-size: var(--text-md-medium-font-size); font-weight: var(--text-md-medium-font-weight); line-height: var(--text-md-medium-line-height); }
+.avatar--lg { width: 48px; height: 48px; } /* DRIFT: Avatar Size=lg */
+.avatar--lg { font-size: var(--text-lg-medium-font-size); font-weight: var(--text-lg-medium-font-weight); }
+.avatar--lg { line-height: 20px; } /* DRIFT: Avatar Size=lg letter is 17/20, no DS style */
+
+/* ---- colour (the set's axis) ---- */
+.avatar--brand-solid { background: var(--colors-background-bg-brand-solid); color: var(--colors-text-text-white); }
+.avatar--gray { background: var(--colors-utility-gray-utility-gray-200); color: var(--colors-text-text-tertiary-600); }
+.avatar--gray .avatar__icon { color: var(--colors-utility-gray-utility-gray-600); }
+/* Brand Secondary and White: the set binds utility-brand-secondary-200 and utility-gray-500, which resolve to #e3d8c2 and
+   #8f8a85 in this file (8007:428908, 8007:428909, every size); tokens.css has #efe8dc and #9f9993 for them. */
+.avatar--brand-secondary { background: #e3d8c2; color: #8f8a85; } /* DRIFT: utility-brand-secondary-200 / utility-gray-500 live values */
+.avatar--white { background: var(--colors-background-bg-white); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.avatar--white { color: #8f8a85; } /* DRIFT: utility-gray-500 live value */
+.avatar--brand-subtle { background: var(--colors-utility-brand-utility-brand-50); color: var(--colors-utility-brand-utility-brand-500); box-shadow: inset 0 0 0 1px var(--colors-utility-brand-utility-brand-100); }
+
+/* ---- per-person fills (Colour=Brand Solid with the fill overridden; white letter) ---- */
+.avatar--brand-500 { background: var(--colors-utility-brand-utility-brand-500); color: var(--colors-text-text-white); }
+.avatar--brand-300 { background: var(--colors-utility-brand-utility-brand-300); color: var(--colors-text-text-white); }
+.avatar--plum-700 { background: var(--colors-utility-plum-utility-plum-700); color: var(--colors-text-text-white); }
+.avatar--plum-300 { background: var(--colors-utility-plum-utility-plum-300); color: var(--colors-text-text-white); }
+.avatar--error-600 { background: var(--colors-utility-error-utility-error-600); color: var(--colors-text-text-white); }
+.avatar--error-300 { background: var(--colors-utility-error-utility-error-300); color: var(--colors-text-text-white); }
+.avatar--warm-blue-700 { background: var(--colors-utility-warm-blue-utility-warm-blue-700); color: var(--colors-text-text-white); }
+.avatar--warm-blue-300 { background: var(--colors-utility-warm-blue-utility-warm-blue-300); color: var(--colors-text-text-white); }
+.avatar--steel-blue-200 { background: var(--colors-utility-steel-blue-utility-steel-blue-200); color: var(--colors-text-text-white); }
+.avatar--rose-300 { background: var(--colors-utility-rose-utility-rose-300); color: var(--colors-text-text-white); }
+.avatar--success-300 { background: var(--colors-utility-success-utility-success-300); color: var(--colors-text-text-white); }
+.avatar--success-400 { background: var(--colors-utility-success-utility-success-400); color: var(--colors-text-text-white); }
+.avatar--lime-300 { background: var(--colors-utility-lime-utility-lime-300); color: var(--colors-text-text-white); }
+.avatar--warning-300 { background: var(--colors-utility-warning-utility-warning-300); color: var(--colors-text-text-white); }
+.avatar--brand-secondary-500 { background: var(--colors-utility-brand-secondary-utility-brand-secondary-500); color: var(--colors-text-text-white); }
+.avatar--brand-tertiary-800 { background: var(--colors-utility-brand-tertiary-utility-brand-tertiary-800); color: var(--colors-text-text-white); }
+.avatar--brand-tertiary-500 { background: var(--colors-utility-brand-tertiary-utility-brand-tertiary-500); color: var(--colors-text-text-white); }
+.avatar--pigeon-blue-400 { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-400); color: var(--colors-text-text-white); }
+.avatar--royal-violet-300 { background: var(--colors-utility-royal-violet-utility-royal-violet-300); color: var(--colors-text-text-white); }
+
+/* ---- state: Hover Ring / Select Ring (1px, 2px gap; outline follows the circle) ---- */
+.avatar--ring-hover, .avatar--ring-selected { overflow: visible; }
+.avatar--ring-hover .avatar__img, .avatar--ring-selected .avatar__img { border-radius: var(--radius-full); }
+.avatar--ring-hover { outline: 1px solid var(--colors-border-border-tertiary); outline-offset: 2px; } /* DRIFT: ring geometry */
+.avatar--ring-selected { outline: 1px solid var(--colors-border-border-brand-solid); outline-offset: 2px; } /* DRIFT: ring geometry */
+
+/* ---- inside an Avatar group (8020:431296): white separating stroke ---- */
+.avatar--stacked.avatar--xxs, .avatar--stacked.avatar--xs { box-shadow: inset 0 0 0 1px var(--colors-border-border-white); } /* DRIFT: 1px inside stroke */
+.avatar--stacked.avatar--sm, .avatar--stacked.avatar--md { overflow: visible; box-shadow: 0 0 0 1.5px var(--colors-border-border-white); } /* DRIFT: 1.5px outside stroke */
+.avatar--stacked.avatar--white { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }

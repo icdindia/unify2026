@@ -1,0 +1,38 @@
+/* ----------------------------------------------------------------------------
+   avatar — DS "Avatar" (initial fallback)
+   Figma: 16740:306466 (20px, rail) · I…;59783:74906 (32px, nav footer)
+   Screen: Dashboard 16740:306222
+---------------------------------------------------------------------------- */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-200);
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--font-family-body);
+  text-transform: uppercase;
+  user-select: none;
+  overflow: hidden;
+}
+
+.avatar--sm {
+  width: 20px;                                     /* component geometry, not spacing */
+  height: 20px;
+  font-size: var(--text-xs-semibold-font-size);
+  font-weight: var(--text-xs-semibold-font-weight);
+  line-height: var(--text-xs-semibold-line-height);
+}
+.avatar--md {
+  width: 32px;                                     /* component geometry, not spacing */
+  height: 32px;
+  font-size: var(--text-sm-medium-font-size);
+  font-weight: var(--text-sm-medium-font-weight);
+  line-height: var(--text-sm-medium-line-height);
+  background: var(--colors-utility-gray-utility-gray-300);
+}
+
+.avatar img { width: 100%; height: 100%; object-fit: cover; }

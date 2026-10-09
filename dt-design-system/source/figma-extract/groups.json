@@ -1,0 +1,69 @@
+{
+"Actions": [
+"Button",
+"FloatingActionButton",
+"SegmentedButton",
+"Segments"
+],
+"Inputs": [
+"Checkbox",
+"CheckboxGroup",
+"CheckboxIcon",
+"ChipSet",
+"DismissibleChip",
+"DropdownSelect",
+"FileUpload",
+"FilterChip",
+"FilterChipDropdownItem",
+"Search",
+"Slider",
+"Switch",
+"SwitchIcon",
+"TextArea",
+"TextField",
+"TimePicker",
+"ToggleChip",
+"UploadBox"
+],
+"Feedback": [
+"BadgeIcon",
+"BadgeNumber",
+"Banner",
+"Dim",
+"InlineNotification",
+"TagDismissible",
+"TagStatic",
+"Toast",
+"Tooltip"
+],
+"Navigation": [
+"Breadcrumb",
+"CarouselNavigation",
+"CarouselTimer",
+"FlyoutMenu",
+"ProfileMenu",
+"ProfileMenuListItem",
+"SideNavigation",
+"TabElement",
+"Tabs"
+],
+"Containers": [
+"Accordion",
+"ActionCard",
+"ChoiceCard",
+"ContainerCard",
+"Dialog",
+"Divider",
+"TextBody"
+],
+"Data": [
+"Sparkline",
+"Speedometer",
+"Table",
+"TableHeadCell",
+"TableRowCell"
+],
+"Content": [
+"Avatar"
+]
+}

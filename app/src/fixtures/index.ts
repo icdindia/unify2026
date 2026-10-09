@@ -1,0 +1,20 @@
+// Fixtures: the prototype's data, read from the Figma file (lqKjNjyifEXCeywg69Knr2, page Chat + Artifacts).
+// Pure data and small helpers; no UI. Values that differ between Figma frames are Drift (see drift.ts) and resolve
+// against the review bar's "As designed / With fixes" switch.
+export * from './drift'
+export * from './people'
+export * from './artifacts'
+export * from './script'
+export * from './copy'
+export * from './charts'
+export * from './cost'
+export * from './comments'
+export * from './queue'
+export * from './pins'
+export * from './share'
+export * from './memory'
+export * from './compose'
+export * from './chats'
+export * from './seeds'
+export * from './scripts'
+export { SCRIPT_FIXES } from './fixCandidates'

@@ -1,0 +1,58 @@
+{
+  "id": "graphs",
+  "title": "Graphs in Chat",
+  "card": "1707:125117",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1707-125117",
+  "steps": [
+    {
+      "step": "01", "nodeId": "2556:378637", "file": "01-2556-378637.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing empty focused", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Landing page with I-beam cursor in the empty composer",
+      "changedFrom": "start of journey",
+      "action": "click into the landing composer",
+      "components": ["Main_nav / types=collapsed", "EB-Assistant/AI", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No", "Cursor / State=Text", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "02", "nodeId": "1707:126556", "file": "02-1707-126556.png", "kind": "step",
+      "nav": "dark expanded", "composer": "landing filled", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Landing with expanded rail and the business-units question typed; hand cursor on Send",
+      "changedFrom": "prompt typed, send button, rail expanded",
+      "action": "type the question and click Send",
+      "components": ["Main_nav / types=Expanded", "EB-Assistant/AI", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No", "Cursor / State=Pointer Hand", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "03", "nodeId": "1707:125119", "file": "03-1707-125119.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Chat 'Business units led' with user bubble and 'Thinking...'",
+      "changedFrom": "prompt sent, chat layout, rail collapsed",
+      "action": "click Send",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Agent COT / Type=Step 1", "Copilot desktop Input Box / Type=Bottom small, State=Generating, Tools & Sources=Yes, Text=Placeholder, Attachment=No"]
+    },
+    {
+      "step": "04", "nodeId": "1707:125400", "file": "04-1707-125400.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Answer: serif headline, 3 KPI tiles, two-ring sunburst '$100M Total portfolio' (more content below the fold)",
+      "changedFrom": "thinking replaced by KPI + chart answer",
+      "action": "none (answer streams in)",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Agent COT / Type=Complete 1", "Feedback Array / Type=Full screen", "Suggested prompts / Type=Lines", "Lines States", "Copilot desktop Input Box / Type=Bottom small, State=Default"],
+      "detachedLayers": ["portfolio-allocation-chart 1707:125411", "KPI Tiles Row", "kpi-card", "Chart Container 1707:125430", "Sunburst Frame"]
+    },
+    {
+      "step": "05", "nodeId": "1707:125678", "file": "05-1707-125678.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Second, long data prompt (FY2023 revenue vs gross margin) and 'Thinking...'",
+      "changedFrom": "follow-up sent; first answer scrolled out",
+      "action": "type the follow-up prompt in the bottom composer and send",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "All COT / Property 1=6", "Feedback Array / Type=Full screen", "Suggested prompts / Type=Lines", "Agent COT / Type=Step 1", "Copilot desktop Input Box / Type=Bottom small, State=Generating"]
+    },
+    {
+      "step": "06", "nodeId": "1707:125957", "file": "06-1707-125957.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Answer: serif headline, 4 KPI tiles with delta chips, legend, dual-axis bar + line chart",
+      "changedFrom": "thinking replaced by combo-chart answer",
+      "action": "none (answer streams in)",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "All COT / Property 1=6", "Agent COT / Type=Complete 1", "Feedback Array / Type=Full screen", "Suggested prompts / Type=Lines", "Copilot desktop Input Box / Type=Bottom small, State=Default"],
+      "detachedLayers": ["kpi-card", "Revenue Legend 1707:126110", "Margin Legend 1707:126113", "Chart Container 1707:126116", "Container:margin 1707:126223"]
+    }
+  ]
+}

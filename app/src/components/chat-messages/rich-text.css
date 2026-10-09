@@ -1,0 +1,7 @@
+/* Runs inside message and answer text (Text md/Regular para 15/26). SemiBold runs are the answers' bullet lead-ins
+   (Geist SemiBold in 1809:501331). The mention pill is the With Tag "Sources" frame (7489:275033): HORIZONTAL, p 0/4,
+   radius 8, bg-primary, the label in steel-blue-400; the frame's 6px gap separates it from the text after it. */
+.cm-b { font-weight: var(--text-md-semibold-para-font-weight); }
+
+.cm-mention { display: inline-block; margin-right: var(--spacing-sm); color: var(--colors-utility-steel-blue-utility-steel-blue-400); }
+.cm-mention--pill { padding: 0 var(--spacing-xs); border-radius: var(--radius-md); background: var(--colors-background-bg-primary); }

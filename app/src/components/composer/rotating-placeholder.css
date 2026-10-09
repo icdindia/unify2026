@@ -1,0 +1,12 @@
+/* _Text animate Desktop (5546:212948): the four hints are stacked in one 15/26 placeholder line; only one is opaque.
+   Smart animate between prop=0N and BreakN is opacity 1 <-> 0 plus a 2px drop (the text box moves y2 -> y4), 300ms
+   ease-in-out. The composer positions .crot over its field. */
+.crot { position: absolute; inset: 0; display: block; pointer-events: none; overflow: hidden; }
+.crot__hint {
+  position: absolute; top: 0; left: 0; right: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--colors-text-text-placeholder);
+  opacity: 0; transform: translateY(2px); /* DRIFT: the 2px drop of the Break states */
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+.crot__hint.is-on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .crot__hint { transition: none; transform: none; } }

@@ -1,0 +1,22 @@
+/* Composer gallery page: stages sized like the frames (640 landing, 760 docked) that shrink with the page. Prototype chrome. */
+.cg-landing { width: min(640px, 100%); } /* DRIFT: landing composer width from the frames */
+.cg-bottom { width: min(760px, 100%); } /* DRIFT: chat column width from the frames */
+.cg-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-xs); }
+.cg-thumb { padding: var(--spacing-sm) var(--spacing-sm) 0 0; max-width: 100%; }
+.cg-hint { position: relative; display: block; width: min(368px, 100%); font-size: var(--text-md-regular-para-font-size); line-height: var(--text-md-regular-para-line-height); } /* DRIFT: _Text animate width */
+.cg-hint { height: 26px; } /* DRIFT: one placeholder line */
+
+.cg-trigger { position: relative; display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.cg-picker {
+  position: fixed; z-index: 10; margin: 0; padding: var(--spacing-xs); list-style: none; transform: translateY(-100%) translateY(calc(-1 * var(--spacing-xs)));
+  min-width: 200px; border-radius: var(--radius-md); background: var(--colors-background-bg-primary); /* DRIFT: demo picker width */
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 12px rgba(21, 20, 20, 0.08); /* DRIFT: demo picker shadow */
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-primary-900);
+}
+.cg-picker li { padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-sm); cursor: pointer; }
+.cg-picker li.is-active, .cg-picker li:hover { background: var(--colors-background-bg-tertiary); }
+.cg-out {
+  margin: 0; padding: var(--spacing-md) var(--spacing-lg); border-radius: var(--radius-md); background: var(--colors-background-bg-secondary);
+  font-family: var(--font-family-code); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-secondary-700); white-space: pre-wrap; overflow-wrap: anywhere;
+}

@@ -1,0 +1,68 @@
+/* Text fields — "Input field_outline" 1407:188084, "Textarea input field" 172:61281, read via figma-console 2026-10-08.
+     label     "Label" Text sm Regular, text-tertiary; 6px between label, field and hint
+     field     bg-primary, 1px border-tertiary inside; Text sm (lg / md) or Text xs (sm / xs), text-primary,
+               placeholder text-placeholder; leading icon 16, icon-secondary
+     sizes     lg 36 · md 32 (radius 8, gap 8) · sm 28 · xs 24 (radius 6, gap 4); 8px side padding
+     content   "Content" frame (leading icon + text): gap 6 at lg / md (1407:188105), 4 at sm / xs (1407:188262)
+     focused   input: no border, 2px utility-gray-200 spread + shadow-xs
+               textarea: border-brand-secondary + 2px utility-brand-secondary-200 spread + shadow-xs
+     disabled  bg-disabled, border-disabled, text-disabled · destructive border-error + alert-circle (icon-error)
+     hint      Text xs Regular, text-tertiary (error: text-error-primary) */
+.field { display: flex; flex-direction: column; gap: var(--spacing-sm); min-width: 0; width: 100%; }
+.field__label {
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+}
+.field__hint {
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.field__hint.is-error { color: var(--colors-text-text-error-primary-600); }
+
+/* ---- input ---- */
+.field__control {
+  display: flex; align-items: center; gap: var(--spacing-md); padding: 0 var(--spacing-md); min-width: 0;
+  border-radius: var(--radius-md); background: var(--colors-background-bg-primary); cursor: text;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+  font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+}
+.field--lg .field__control { height: 36px; } /* DRIFT: Input field_outline lg */
+.field--md .field__control { height: 32px; } /* DRIFT: Input field_outline md */
+.field--sm .field__control { height: 28px; } /* DRIFT: Input field_outline sm */
+.field--xs .field__control { height: 24px; } /* DRIFT: Input field_outline xs */
+.field--sm .field__control, .field--xs .field__control {
+  gap: var(--spacing-xs); border-radius: var(--radius-sm);
+  font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.field__content { flex: 1 1 auto; display: flex; align-items: center; gap: var(--spacing-sm); min-width: 0; height: 100%; }
+.field--sm .field__content, .field--xs .field__content { gap: var(--spacing-xs); }
+.field__input {
+  flex: 1 1 auto; min-width: 0; width: 0; height: 100%; margin: 0; padding: 0; border: 0; outline: 0; background: none; appearance: none;
+  font: inherit; color: var(--colors-text-text-primary-900);
+}
+.field__input::placeholder { color: var(--colors-text-text-placeholder); opacity: 1; }
+.field__icon { flex: none; display: flex; color: var(--colors-icon-icon-secondary); }
+.field__icon svg, .field__icon img { display: block; width: 16px; height: 16px; } /* DRIFT: icon */
+.field__alert { flex: none; color: var(--colors-icon-icon-error-600); }
+
+.field__control:focus-within { box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-200), 0 1px 1px 1px rgba(16, 24, 40, .05); } /* DRIFT: Focused spread + shadow-xs (#101828 5%) */
+.field__control.is-readonly:focus-within { box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary), 0 0 0 2px var(--colors-utility-gray-utility-gray-200); }
+.field__control.is-error, .field__control.is-error:focus-within { box-shadow: inset 0 0 0 1px var(--colors-border-border-error); }
+.field__control.is-error:focus-within { box-shadow: inset 0 0 0 1px var(--colors-border-border-error), 0 0 0 2px var(--colors-utility-error-utility-error-100); } /* not in the file: destructive + focus */
+.field__control.is-disabled { cursor: default; background: var(--colors-background-bg-disabled); box-shadow: inset 0 0 0 1px var(--colors-border-border-disabled); }
+.field__control.is-disabled .field__input { color: var(--colors-text-text-disabled); }
+.field__control.is-disabled .field__icon { color: var(--colors-icon-icon-disabled); }
+
+/* ---- textarea ---- */
+.field__textarea {
+  display: block; width: 100%; margin: 0; padding: var(--spacing-md); border: 0; outline: 0; resize: none; appearance: none;
+  border-radius: var(--radius-md); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+  font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.field__textarea::placeholder { color: var(--colors-text-text-placeholder); opacity: 1; }
+.field__textarea:focus { box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-secondary), 0 0 0 2px var(--colors-utility-brand-secondary-utility-brand-secondary-200), 0 1px 1px 1px rgba(16, 24, 40, .05); } /* DRIFT: Focused spread + shadow-xs (#101828 5%) */
+.field__textarea.is-error, .field__textarea.is-error:focus { box-shadow: inset 0 0 0 1px var(--colors-border-border-error); }
+.field__textarea:disabled { background: var(--colors-background-bg-disabled); box-shadow: inset 0 0 0 1px var(--colors-border-border-disabled); color: var(--colors-text-text-disabled); }
+.field__textarea:disabled::placeholder { color: var(--colors-text-text-disabled); }

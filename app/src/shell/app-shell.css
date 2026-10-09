@@ -1,0 +1,49 @@
+/* App shell: nav column beside the main area (40px breadcrumb strip over the scrolling page).
+   Fluid, not a scaled artboard: at a 1440x900 viewport it lays out exactly like the 1440x900 Figma frames
+   (nav 0-280, strip 280-1440 x 0-40, page column centred in the main area); at other sizes the main area
+   reflows around the nav. Below 1200 the nav shows as the rail, and expanding it overlays the page. */
+.shell { display: flex; height: 100%; min-height: 0; }
+
+/* the column takes the width of what it holds: Nav 280, Rail 56 (both fill the full height) */
+.shell__nav { flex: none; height: 100%; min-height: 0; display: flex; }
+
+/* Main area: a 2x2 grid. Row 1 is the 40px strip: the breadcrumb on the left, at its natural width while it fits, and
+   the prototype tools on the right in whatever is left. The tools column never gets less than its min-content, which
+   the review bar keeps to its lone "Review ▾" button (review-bar.css): a breadcrumb too long for the rest shrinks
+   instead (its current crumb ellipsizes), so the button never covers it or pushes the page sideways. Row 2 is the
+   page's scroll area across both columns. The tools come last in the DOM, after the page, so they are last in the Tab
+   order too. */
+.shell__main {
+  flex: 1 1 0; min-width: 0; min-height: 0; display: grid;
+  grid-template-columns: minmax(0, max-content) minmax(min-content, 1fr); grid-template-rows: 40px minmax(0, 1fr); /* DRIFT: ES Breadcrumb strip height */
+  background: var(--colors-background-bg-workspace);
+}
+.shell__bar { grid-area: 1 / 1 / 2 / 2; min-width: 0; display: flex; flex-direction: column; }
+.shell__bar > * { min-width: 0; }
+
+/* prototype tools (the review bar): right end of the strip, 16px in, like the HTML prototype's demo switch, so they can
+   never cover a page control, a menu or the nav footer */
+.shell__tools { grid-area: 1 / 2 / 2 / 3; min-width: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 var(--spacing-xl) 0 var(--spacing-md); }
+
+/* the page's own scroll area, and the positioned layer its menus render into. It spans both columns, so inline-size
+   containment keeps the page's min-content out of their sizing: the page scrolls or reflows inside the width it gets
+   and never widens the tools column (or the document) itself. */
+.shell__scroll { grid-area: 2 / 1 / 3 / 3; position: relative; min-height: 0; overflow: auto; overscroll-behavior: contain; contain: inline-size; }
+
+/* nav expanded below 1200: it floats over the rail and the page, behind a scrim; click the scrim or press Esc to close */
+.shell__scrim { position: fixed; inset: 0; z-index: 20; background: rgba(0,0,0,.3); } /* DRIFT: scrim; the DS has no overlay token */
+.shell__overlay { position: fixed; left: 0; top: 0; bottom: 0; z-index: 21; display: flex; }
+
+/* Full-bleed pages (AppShell `fill`: the chat, the artifact split, the landing): no strip. The page spans the whole main
+   area (it draws its own 40px header, as the Figma frames do), and the prototype tools float at the bottom-right corner,
+   in the 27px under the docked composer, folded to "‹ › Review ▾" (their popover opens upwards). */
+.shell--fill .shell__main { position: relative; grid-template-rows: minmax(0, 1fr); }
+.shell--fill .shell__scroll { grid-area: 1 / 1 / 2 / 3; overflow: hidden; }
+.shell--fill .shell__tools {
+  position: absolute; right: var(--spacing-xl); bottom: var(--spacing-xxs); z-index: 30; grid-area: auto; padding: 0;
+  width: min(180px, calc(100% - 2 * var(--spacing-xl))); /* DRIFT: prototype chrome, room for the "‹ › Review ▾" fold */
+}
+.shell--fill .review-bar__toggle, .shell--fill .review-fold > .review-step { height: 24px; } /* DRIFT: prototype chrome, fits the 27px under the composer */
+.shell--fill .review-fold > .review-step { padding: 0 var(--spacing-xxs); }
+.shell--fill .review-bar--pop { top: auto; bottom: calc(100% + var(--spacing-xs)); max-height: calc(100vh - 48px); } /* DRIFT: opens upwards from the corner */
+.shell--fill .review-vp__note { top: auto; bottom: calc(100% + var(--spacing-md)); }

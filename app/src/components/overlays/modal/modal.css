@@ -1,0 +1,95 @@
+/* Modal: values read from the file (lqKjNjyifEXCeywg69Knr2) through the Desktop Bridge.
+     Modal Unit 11933:738629 / "Modal" frames: bg-primary, Shadows/shadow-xs = 0 1 2 0 utility-gray-200, clips content.
+     Body (frame "Body"): vertical, gap spacing-xs (Size=xs) or 0 (Size=sm, Ask for more Usage 6802:236148).
+   Width (min(<width>px, 100%)) and a fixed height are set inline by the component. The card never exceeds the
+   viewport minus 16px each side; past that its body scrolls, so header and actions stay in reach at 390px. */
+
+/* ---- live modal: full-screen layer, scrim, centred card ---- */
+.mdl-root {
+  position: fixed; inset: 0; z-index: 1;
+  display: grid; place-items: center; padding: var(--spacing-xl);
+}
+.mdl-scrim { position: absolute; inset: 0; }
+.mdl-scrim--black-25 { background: rgba(0, 0, 0, .25); } /* DRIFT: scrim Rectangle 5645 (1819:316166) and Modal Full Screen 6802:236145, black 25%; the DS has no overlay token */
+.mdl-scrim--slate-25 { background: rgba(50, 56, 62, .25); } /* DRIFT: Modal Full Screen 12057:581131 fill #32383E at 25%; no DS token */
+.mdl-scrim--slate-35 { background: rgba(50, 56, 62, .35); } /* DRIFT: Settings > Memory 10112:408460 scrim #32383E at 35%; no DS token */
+
+/* ---- the card ---- */
+.mdl {
+  position: relative; display: flex; flex-direction: column; gap: var(--spacing-xs);
+  max-height: 100%;
+  overflow: hidden; background: var(--colors-background-bg-primary);
+  box-shadow: 0 1px 2px var(--colors-utility-gray-utility-gray-200); /* Shadows/shadow-xs, colour bound to utility-gray-200 */
+  text-align: left;
+}
+.mdl--sm { gap: var(--spacing-none); }
+.mdl--r10 { border-radius: var(--radius-3xl); } /* "Modal" frame radius, bound to radius-3xl (Delete Artifact 12057:581132) */
+.mdl--r12 { border-radius: var(--radius-4xl); } /* Modal Unit frame radius-4xl, clipping (Publish units 1969:507322) */
+.mdl--r16 { border-radius: 16px; } /* DRIFT: Modal Unit component 11933:738629 radius 16, clips; off the DS radius scale */
+.mdl--live { outline: none; } /* the card itself takes focus only as a fallback target; its controls draw the rings */
+@media (prefers-reduced-motion: no-preference) {
+  .mdl--live { animation: mdl-in 140ms cubic-bezier(.2, 0, 0, 1); }
+  .mdl-scrim { animation: mdl-fade 140ms ease-out; }
+}
+@keyframes mdl-in { from { opacity: 0; transform: translateY(4px) scale(.99); } }
+@keyframes mdl-fade { from { opacity: 0; } }
+
+/* ---- Modal header (set 12294:613120) ----
+   Default xs 48 = 8 + 32 + 8, padding 8 8 8 12; back=yes padding-left 2.
+   Subtext Single line xs 56 = 12 + 36 + 8; Size=sm 52 / 62 with 12 8 8 12.
+   Row: content (gap 4: back icon wrap 24, text) + 12 gap + close (Button Neutral md tertiary icon-only, 32). */
+.mdl-hd { flex: none; padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-lg); }
+.mdl-hd--sub, .mdl-hd--sm { padding-top: var(--spacing-lg); }
+.mdl-hd--back { padding-left: var(--spacing-xxs); }
+/* The Publish Artifact units (radius 12, c02-c10) seat the back chevron 2px further in: chevron at x 14-17 and title at
+   33 against 12-15 / 31 in the Modal Unit modals (share 08). Keyed to the radius as drawn, so "With fixes" (radius 16
+   everywhere) leaves it alone. */
+.mdl--drawn-r12 .mdl-hd--back { padding-left: var(--spacing-xs); }
+.mdl-hd--div { box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary); } /* stroke inside, bottom 1 (Ask for more Usage 6802:236149) */
+.mdl-hd__row { display: flex; align-items: center; gap: var(--spacing-lg); }
+.mdl-hd__row { min-height: 32px; } /* DRIFT: the close button's height */
+.mdl-hd__content { flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: var(--spacing-xs); }
+.mdl-hd--sub .mdl-hd__content { align-items: flex-start; }
+.mdl-hd__text { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+.mdl-hd__title {
+  font-family: var(--font-family-display); font-weight: var(--text-lg-medium-font-weight);
+  font-size: var(--text-lg-medium-font-size); line-height: 20px; /* DRIFT: Spectral Medium 17/20, no DS text style is 17/20 */
+  color: var(--colors-text-text-primary-900); overflow-wrap: anywhere;
+}
+.mdl-hd__title--regular { font-weight: var(--text-lg-regular-font-weight); } /* Delete Artifact overrides the title to Spectral Regular */
+.mdl-hd--sm .mdl-hd__title { font-size: var(--text-xl-medium-font-size); line-height: 26px; } /* DRIFT: Spectral Medium 20/26 (Size=sm), no DS style */
+.mdl-hd__sub {
+  font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.mdl-hd__back, .mdl-hd__close { flex: none; }
+
+/* ---- body: the frame between header and actions ----
+   xs: padding 0 12 (Publish "Frame 2147266717", Share "Content"); sm: 12 16 8 (Ask for more Usage "Content").
+   2px of padding is traded for 2px of negative margin so focus rings on the first and last rows are not clipped by
+   the scroll box; the content sits exactly where the file puts it. */
+.mdl-bd {
+  flex: 1 1 auto; min-height: 0; overflow: auto; display: flex; flex-direction: column;
+  padding: var(--spacing-xxs) var(--spacing-lg); margin: calc(-1 * var(--spacing-xxs)) 0;
+}
+.mdl-bd--sm { padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-md); margin: 0; }
+.mdl-bd--gap0 { gap: var(--spacing-none); }
+.mdl-bd--gap16 { gap: var(--spacing-xl); }
+.mdl-bd--gap24 { gap: var(--spacing-3xl); }
+
+/* ---- Modal actions (set 12024:449614) ----
+   xs 46 = 6 + 28 + 12: padding-top 6, content 0 12 12 8 (right aligned) or 0 12 12 12 (fill container), gap 12.
+   sm 54 = 6 + 32 + 16: content 0 16 16 16. The actions group is right aligned; fill makes the buttons share the row. */
+.mdl-ft { flex: none; padding-top: var(--spacing-sm); }
+.mdl-ft__content {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-lg);
+  padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+}
+.mdl-ft--fill .mdl-ft__content { padding-left: var(--spacing-lg); }
+.mdl-ft--sm .mdl-ft__content { padding: 0 var(--spacing-xl) var(--spacing-xl); }
+.mdl-ft--div { box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary); } /* Divider=Yes */
+.mdl-ft__lead { flex: none; display: flex; align-items: center; min-width: 0; }
+.mdl-ft__acts { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: var(--spacing-lg); }
+.mdl-ft--fill .mdl-ft__acts > * { flex: 1 1 0; }
+
+/* ---- footer buttons: ModalButton is the shared Button (components/buttons/button.css) at the modal's size ---- */

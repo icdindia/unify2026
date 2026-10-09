@@ -1,0 +1,532 @@
+{
+  "id": "queue-1",
+  "title": "Chat in queue (option 1)",
+  "card": "8142:470830",
+  "cardFigma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8142-470830",
+  "page": "Chat + Artifacts",
+  "section": "Collaborative Chat flow (7830:372599)",
+  "annotation": "Option 1 (text 8289:225703); Option 2 row exists at y~5566 (8289:225704) and is excluded",
+  "queueComponentSet": {
+    "name": "Text Queue Card",
+    "variants": [
+      "Collapsed=No, State=In queue",
+      "Collapsed=No, State=Paused",
+      "Collapsed=Yes, State=In queue",
+      "Collapsed=Yes, State=Paused"
+    ],
+    "widths": {
+      "fullChat": 758,
+      "narrowChat": 408
+    }
+  },
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "8222:498555",
+      "file": "01-8222-498555.png",
+      "tooltip": "Stop generating",
+      "shows": "Assistant 'Thinking...' after Matt's @Assistant request; empty composer; send button is a Stop button hovered with 'Stop generating' tooltip",
+      "changedFrom": "Entry step",
+      "action": "Entry: a participant sent an @Assistant prompt; hover the Stop button",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8222-498555",
+      "nav": "dark, collapsed; New chat selected",
+      "open": []
+    },
+    {
+      "step": "02",
+      "nodeId": "8237:502068",
+      "file": "02-8237-502068.png",
+      "tooltip": "Add message to queue",
+      "shows": "User types 'AI-generated insights based on |' during generation; new Add-to-queue button next to Stop with tooltip 'Add message to queue'",
+      "changedFrom": "Composer has text; Add-to-queue button appears",
+      "action": "Type a follow-up while the assistant is generating, hover the queue button",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8237-502068",
+      "nav": "dark, collapsed; New chat selected",
+      "open": []
+    },
+    {
+      "step": "03",
+      "nodeId": "8237:503500",
+      "file": "03-8237-503500.png",
+      "shows": "Queue card 'Queue [1]' above the composer with item 'Keep the design minimal'; composer cleared",
+      "changedFrom": "Message moved from composer into a new Queue card (In queue state)",
+      "action": "Click 'Add message to queue' (or press Enter)",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Cursor / State=Text",
+        "Text / State=Default",
+        "Text / State=Hover",
+        "Pill solid / Size=xxs, Type=Pill color, Icon=False, Color=Gray",
+        "Small Icon Button / Size=sm, State=Default",
+        "Small Icon Button / Size=md, State=Default"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8237-503500",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "04",
+      "nodeId": "8255:522209",
+      "file": "04-8255-522209.png",
+      "shows": "Tall composer with image attachment uploading (spinner) and text 'Use the attached image as a reference for data graphs.'; queue button disabled; queue card overlaps Thinking row",
+      "changedFrom": "Composer grows with attachment loading; queue card pushed up",
+      "action": "Click +, attach an image, type a second follow-up",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom large, State=Default, Tools & Sources=Yes, Text=One line, Attachment=Yes",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Cursor / State=Text"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-522209",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "05",
+      "nodeId": "8237:500570",
+      "file": "05-8237-500570.png",
+      "shows": "Attachment uploaded (thumbnail visible); Add-to-queue button enabled",
+      "changedFrom": "Attachment loading -> loaded; queue button disabled -> enabled",
+      "action": "Wait for upload to finish (system)",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom large, State=Default, Tools & Sources=Yes, Text=One line, Attachment=Yes",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Cursor / State=Text"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8237-500570",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "06",
+      "nodeId": "8237:505695",
+      "file": "06-8237-505695.png",
+      "shows": "'Queue [2]': 'Keep the design minimal' + 'Use the attached image...' (with thumbnail); composer reset",
+      "changedFrom": "Second message queued; composer reset to small placeholder",
+      "action": "Click 'Add message to queue'",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Text / State=Default",
+        "Text / State=Hover",
+        "Pill solid / Size=xxs, Type=Pill color, Icon=False, Color=Gray",
+        "Small Icon Button / Size=sm, State=Default",
+        "Small Icon Button / Size=md, State=Default"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8237-505695",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "07",
+      "nodeId": "8255:508680",
+      "file": "07-8255-508680.png",
+      "tooltip": "Send now",
+      "shows": "Queue row 2 hovered showing thumbnail, send-now arrow and more button; 'Send now' tooltip",
+      "changedFrom": "Row hover actions appear",
+      "action": "Hover queue item 2, then hover the send-now arrow",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow",
+        "Text / State=Default",
+        "Text / State=Hover",
+        "Pill solid / Size=xxs, Type=Pill color, Icon=False, Color=Gray",
+        "Small Icon Button / Size=sm, State=Default",
+        "Small Icon Button / Size=md, State=Default"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-508680",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "08",
+      "nodeId": "8255:510294",
+      "file": "08-8255-510294.png",
+      "shows": "Row 1 overflow menu open downward: Edit, Copy, Remove",
+      "changedFrom": "Hover moves to row 1; overflow menu opens",
+      "action": "Click the more (...) button on queue item 1",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Dropdown Menu / Type=Small",
+        "Cursor / State=Pointer Hand"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-510294",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "09",
+      "nodeId": "8255:520722",
+      "file": "09-8255-520722.png",
+      "shows": "Row 2 (with attachment) overflow menu opens upward: Copy, Remove (no Edit)",
+      "changedFrom": "Menu on row 2, flipped upward, Edit removed",
+      "action": "Click the more (...) button on queue item 2",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Dropdown Menu / Type=Small",
+        "Cursor / State=Pointer Hand"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-520722",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "10",
+      "nodeId": "8255:512773",
+      "file": "10-8255-512773.png",
+      "tooltip": "Pause processing queued messages",
+      "shows": "Pause icon in queue header hovered with tooltip 'Pause processing queued messages'",
+      "changedFrom": "Menu closed; tooltip on pause",
+      "action": "Hover the pause button in the Queue header",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-512773",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "11",
+      "nodeId": "8255:514316",
+      "file": "11-8255-514316.png",
+      "tooltip": "Resume processing queued messages",
+      "shows": "Queue paused: header shows clear (x), resume (play) and collapse; resume hovered with tooltip",
+      "changedFrom": "In queue -> Paused; header actions change to clear/resume/collapse",
+      "action": "Click pause",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=Paused",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-514316",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "12",
+      "nodeId": "8255:515827",
+      "file": "12-8255-515827.png",
+      "tooltip": "Clear queue",
+      "shows": "Paused queue, clear (x) hovered with tooltip 'Clear queue'",
+      "changedFrom": "Hover moves to clear",
+      "action": "Hover the clear button",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=Paused",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-515827",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "13",
+      "nodeId": "8255:517909",
+      "file": "13-8255-517909.png",
+      "tooltip": "Collapse queue",
+      "shows": "Paused queue, collapse chevron hovered with tooltip 'Collapse queue'",
+      "changedFrom": "Hover moves to collapse",
+      "action": "Hover the collapse button",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=Paused",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-517909",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "14",
+      "nodeId": "8255:519307",
+      "file": "14-8255-519307.png",
+      "tooltip": "Expand queue",
+      "shows": "Queue collapsed to a single bar 'Queue [1]' (2 items queued) with clear, resume and expand; 'Expand queue' tooltip",
+      "changedFrom": "Card collapsed (Collapsed=Yes, Paused); rows hidden",
+      "action": "Click collapse",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=Yes, State=Paused",
+        "Tooltip / Supporting text=False, Arrow=Bottom center",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-519307",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "15",
+      "nodeId": "8255:524125",
+      "file": "15-8255-524125.png",
+      "shows": "Queue expanded with 4 items, still paused; card grows upward overlapping the last user bubble and Thinking row",
+      "changedFrom": "Expanded; two more messages queued; taller card",
+      "action": "Click expand, then queue two more follow-ups",
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=With Tag",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Agent COT / Type=Complete 2",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Links / State=No Hover",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=Default, Users=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=Paused",
+        "Text / State=Default",
+        "Text / State=Hover",
+        "Pill solid / Size=xxs, Type=Pill color, Icon=False, Color=Gray",
+        "Small Icon Button / Size=sm, State=Default",
+        "Small Icon Button / Size=md, State=Default"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8255-524125",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "queue card"
+      ]
+    },
+    {
+      "step": "16",
+      "nodeId": "8451:366278",
+      "file": "16-8451-366278.png",
+      "shows": "Artifact-open layout: narrow chat with 408px Queue [4] (In queue, row 2 hovered, wrapped rows) and 'John and Matt Rivera are typing'; artifact panel 'Untitled.xls' on the right",
+      "changedFrom": "Layout switches to chat + artifact split; rail selects apps item; queue back to In queue and narrow width",
+      "action": "Open the artifact (click inline 'Pipeline Command' card) while messages are queued",
+      "overlays": [
+        {
+          "nodeId": "8451:366460",
+          "note": "12px grey dot (Pill solid xxs Gray) over the chat-header comment icon at frame (471,7)"
+        }
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=with Icon",
+        "COT / Type=Main, State=Default, Running=No",
+        "Thoughts / State=Closed",
+        "Agent COT / Type=Step 1",
+        "Suggested prompts / Type=Lines",
+        "Inline Artifact Cards / State=Application-HTML",
+        "Attachments / Type=Image Thumbnail, Size=md, State=Default, Placement=With Message",
+        "Attachments / Type=File, Size=md, State=Default, Placement=With Reply Box",
+        "Tag / Icon=False, Action=X close, Checkbox=False, Size=xs, Type=Outline, State=Default",
+        "Collaborative chat-large / State=User Typing, User=Max Users",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Text Queue Card / Collapsed=No, State=In queue",
+        "Arifact Header",
+        "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm",
+        "Cursor / State=Arrow",
+        "Text / State=Default",
+        "Text / State=Hover",
+        "Pill solid / Size=xxs, Type=Pill color, Icon=False, Color=Gray",
+        "Small Icon Button / Size=sm, State=Default",
+        "Small Icon Button / Size=md, State=Default"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8451-366278",
+      "nav": "dark, collapsed; apps item selected",
+      "open": [
+        "artifact panel",
+        "queue card"
+      ]
+    }
+  ]
+}

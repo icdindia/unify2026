@@ -1,0 +1,30 @@
+/* Gallery chrome for the chat message pages (not part of the design). */
+.cmg-col { display: flex; flex-direction: column; width: 100%; max-width: 760px; min-width: 0; } /* DRIFT: chat column 760 */
+.cmg-col--hang { padding-left: var(--spacing-4xl); }
+.cmg-stack { display: flex; flex-direction: column; gap: var(--spacing-xl); width: 100%; min-width: 0; }
+
+/* stand-in for the agent components' collapsed chain-of-thought row */
+.cmg-cot {
+  display: flex; align-items: center; gap: var(--spacing-lg); color: var(--colors-text-text-tertiary-600); white-space: nowrap;
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  min-width: 0; max-width: 100%; overflow: hidden; /* a phone-width gallery column clips the one-line stand-in instead of scrolling sideways */
+}
+.cmg-cot__av { width: 20px; height: 20px; border-radius: var(--radius-full); background: var(--colors-background-bg-brand-solid); } /* DRIFT: stand-in avatar */
+
+/* stand-in for the inline artifact card */
+.cmg-card {
+  display: flex; align-items: center; width: min(520px, 100%); height: 60px; padding: 0 var(--spacing-xl); /* DRIFT: Inline Artifact Cards 520 x 60 */
+  border-radius: var(--radius-4xl); color: var(--colors-text-text-tertiary-600);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+}
+
+/* Replica sheets: a 1440 x 900 white canvas over the page, items placed at the frame's coordinates */
+.cmg-canvas { position: fixed; left: 0; top: 0; z-index: 100; width: 1440px; height: 900px; overflow: hidden; background: var(--colors-background-bg-primary); } /* DRIFT: frame size */
+.cmg-canvas__col { position: absolute; display: flex; flex-direction: column; width: 760px; } /* DRIFT: chat column 760 */
+.cmg-canvas__composer { position: absolute; left: 368px; top: 825px; width: 760px; } /* DRIFT: composer at (368, 825) */
+.cmg-canvas__typing { position: absolute; left: 368px; top: 797px; width: 760px; } /* DRIFT: typing row at (368, 797) */
+.cmg-canvas__back {
+  position: absolute; left: var(--spacing-md); bottom: var(--spacing-md); color: var(--colors-text-text-tertiary-600);
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+}
+.cmg-col--pad { padding-top: var(--spacing-11xl); } /* room for the list above the composer */

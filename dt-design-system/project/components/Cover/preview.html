@@ -1,0 +1,37 @@
+<!-- @dsCard height=300 -->
+<style>
+  html, body { margin: 0; background: var(--colours-basic-background); }
+  .cover { position: relative; width: 960px; height: 300px; overflow: hidden; background: var(--colours-basic-background); font-family: var(--font-sans); }
+  .cover svg { position: absolute; inset: 0; }
+  .brand { fill: var(--dt-magenta); }
+  .ink { fill: var(--colours-basic-accent-secondary); }
+  .tint { fill: var(--dt-magenta-subtle); }
+  .grey { fill: var(--colours-shades-neutral-shades-200); }
+  .digit { fill: var(--dt-white); }
+  .name { position: absolute; left: 40px; bottom: 76px; max-width: 440px; margin: 0; font-weight: 800; font-size: 80px; line-height: 0.95; color: var(--colours-basic-text); letter-spacing: 0; }
+  .tag { position: absolute; left: 40px; bottom: 40px; max-width: 440px; margin: 0; font-weight: 500; font-size: 14px; line-height: 1.3; color: var(--colours-basic-text-recessive); }
+</style>
+<div class="cover">
+  <svg viewBox="0 0 960 300" width="960" height="300" aria-hidden="true">
+    <!--
+      blocks: dt-magenta slab 360x300 (bleeds top, right, bottom); accent-secondary ink square 72 (sizing-component-16); dt-magenta-subtle tint 72x120; neutral-200 bar 72x40
+      arrangement: one tall slab with satellites stacked in a 72px column at x=504, gaps of spacing-component-5 (16px)
+      pattern: square "digits" as in the T mark's side squares; modular, square-cornered brand, so square units on a grid (radius-zero)
+      steps: digit 16px (spacing-component-5) at a 32px pitch (spacing-component-8); column gap 16px; radius-zero everywhere
+    -->
+    <rect class="brand" x="600" y="0" width="360" height="300" />
+    <rect class="tint" x="504" y="0" width="72" height="120" />
+    <rect class="ink" x="504" y="136" width="72" height="72" />
+    <rect class="grey" x="504" y="224" width="72" height="40" />
+    <g class="digit">
+      <rect x="648" y="40" width="16" height="16" /><rect x="680" y="40" width="16" height="16" /><rect x="712" y="40" width="16" height="16" /><rect x="744" y="40" width="16" height="16" />
+      <rect x="648" y="72" width="16" height="16" /><rect x="744" y="72" width="16" height="16" />
+      <rect x="648" y="104" width="16" height="16" /><rect x="744" y="104" width="16" height="16" />
+      <rect x="648" y="136" width="16" height="16" /><rect x="680" y="136" width="16" height="16" /><rect x="712" y="136" width="16" height="16" /><rect x="744" y="136" width="16" height="16" />
+      <rect x="840" y="200" width="48" height="48" />
+      <rect x="904" y="200" width="48" height="48" />
+    </g>
+  </svg>
+  <p class="name">DT Design<br>System</p>
+  <p class="tag">Telekom's ODS web foundations and components, in light and dark.</p>
+</div>

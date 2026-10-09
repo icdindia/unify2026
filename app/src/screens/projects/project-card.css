@@ -1,0 +1,44 @@
+/* Project card (prototype: .pcard), Projects list 11657:386523. 150 tall; the width follows the grid track
+   (298.67 at a 1440 viewport, three to a row). */
+.pcard {
+  position: relative; height: 150px; display: flex; flex-direction: column; padding: var(--spacing-sm) 0 var(--spacing-xl); /* DRIFT: card height */
+  background: var(--colors-background-bg-primary); border-radius: var(--radius-4xl); overflow: clip; text-align: left;
+}
+.pcard::before { content: ""; position: absolute; left: 0; right: 0; top: 1px; height: 5px; background: var(--colors-utility-brand-utility-brand-500); } /* DRIFT: 5px top rule (Line 2, outside stroke) */
+.pcard::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); pointer-events: none; } /* DRIFT: 1px inside stroke, drawn as an inset ring (not a border) */
+
+/* the link that opens the project covers the whole card; the ⋯ sits above it */
+.pcard__open { position: absolute; inset: 0; z-index: 1; border-radius: inherit; cursor: pointer; }
+.pcard__open:focus-visible { outline: none; }
+.pcard:has(.pcard__open:focus-visible) { outline: 2px solid var(--colors-utility-brand-utility-brand-500); outline-offset: 2px; } /* DRIFT: focus ring, as :focus-visible in base.css */
+
+.pcard__body { display: flex; flex-direction: column; gap: var(--spacing-md); padding: var(--spacing-2xl) var(--spacing-xl) 0; }
+.pcard__icon { height: 32px; } /* DRIFT: icon row */
+.pcard__icon { padding-left: 1px; } /* DRIFT: the Folder-Icon-Solid instance sits at x414 (card + 18); the export's folder starts 1px into its bleed */
+.pcard__icon img { width: 35px; height: 32px; } /* DRIFT: export includes the drop-shadow bleed */
+.pcard__txt { display: flex; flex-direction: column; gap: var(--spacing-xl); min-width: 0; }
+.pcard__title {
+  font-family: var(--font-family-display); font-weight: 500; font-size: 17px; line-height: 20px; /* DRIFT: Spectral Medium 17/20, no DS text style */
+  color: var(--colors-text-text-primary-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pcard__count { font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height); color: #8f8a85; } /* DRIFT: Palette/Gray (light mode)/500 is #8f8a85 in this file (measured on the frame); tokens.css resolves it to #9f9993 */
+.pcard__meta { height: 16px; } /* DRIFT: row height */
+.pcard__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-md); }
+.pcard__who { min-width: 0; display: flex; align-items: center; gap: 5px; white-space: nowrap; font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); } /* DRIFT: off-scale gap */
+.pcard__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; color: var(--colors-text-text-secondary-700); }
+.pcard__dot { color: var(--palette-gray-light-mode-500); } /* DRIFT: #9f9993 */
+/* the file's text boxes (Chrome sets "Ajeetabh Narayan" 1.2px narrower, which moved the dot and date): the name keeps
+   98px while the card has room and still ellipsises when it has not */
+.pcard__name { flex: 0 1 auto; width: 98px; } /* DRIFT: the file's 98px name box (a width, so the row's intrinsic size counts it) */
+.pcard__dot { flex: none; width: 3px; } /* DRIFT: the file's 3px "·" box */
+.pcard__date { font-weight: var(--text-xs-medium-font-weight); color: #8f8a85; } /* DRIFT: Palette/Gray (light mode)/500 is #8f8a85 in this file (measured on the frame); tokens.css resolves it to #9f9993 */
+.pcard__icons { flex: none; display: flex; align-items: center; gap: var(--spacing-xs); }
+.pcard__icons img:nth-child(1), .pcard__icons img:nth-child(2) { width: 12px; height: 12px; } /* DRIFT: icon */
+.pcard__icons img:nth-child(3) { width: 11px; height: 11px; } /* DRIFT: icon */
+.pcard__icons img:nth-child(4) { width: 10px; height: 10px; } /* DRIFT: icon */
+
+/* Property 1=hover: a ⋯ button appears top-right (20px slot, 24px export). The file puts it at x266 in the
+   298.67 card; it is anchored to the right edge so it follows the card's width. */
+.pcard__more { position: absolute; z-index: 2; right: 12.67px; top: 16px; width: 20px; height: 20px; display: none; } /* DRIFT: x266 / y16 in the 1440 card */
+.pcard__more img { position: absolute; left: -2px; top: -2px; width: 24px; height: 24px; max-width: none; } /* DRIFT: export bleed */
+.pcard:is(:hover, .is-hover, .is-active, :focus-within) .pcard__more { display: block; }

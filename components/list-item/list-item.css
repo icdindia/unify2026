@@ -1,0 +1,46 @@
+/* ----------------------------------------------------------------------------
+   list-item — DS "List Item" (connected-system row)
+   Figma: 905:302681 / 905:302699 in frame 9 905:301453 — 760 x 68
+   1px border-secondary, radius-4xl, px 12 py 16, min-h 68, gap 4.
+   Content gap 12: Featured icon 32 (mark inset ~7.5%) · text (Text sm/Medium
+   primary + Text xs/Regular tertiary, gap 4) · trailing "Pill solid" status:
+   success-500, white Text xs/Medium, px 8 py 4, radius-sm. Items 4 apart.
+---------------------------------------------------------------------------- */
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 68px;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);   /* 760 outer, 736 content at x 12: stroke inside */
+  border-radius: var(--radius-4xl);
+}
+.list-item + .list-item { margin-top: var(--spacing-xs); }
+.list-item__content { display: flex; flex: 1 0 0; align-items: center; gap: var(--spacing-lg); min-width: 0; }
+.list-item__icon { position: relative; flex: none; width: 32px; height: 32px; overflow: hidden; color: var(--colors-icon-icon-secondary); }
+.list-item__icon svg { position: absolute; inset: 7.47%; width: auto; height: auto; }   /* DRIFT: mark inset 7.47% in the file */
+.list-item__text { display: flex; flex: 1 0 0; flex-direction: column; gap: 0; min-width: 0; }   /* 56494:2062: title 20 + sub 16 = 36 */
+.list-item__title {
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.list-item__sub {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  overflow-wrap: break-word;
+}
+
+
+/* --interactive: the whole card is a button, no trailing action */
+.list-item--interactive { border: 0; background: var(--colors-background-bg-primary); appearance: none; cursor: pointer; text-align: left; }
+.list-item--interactive:hover { background: var(--colors-background-bg-secondary); }

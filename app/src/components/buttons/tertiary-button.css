@@ -1,0 +1,12 @@
+/* Buttons/Button Neutral, Hierarchy=Tertiary, Size=sm, with a label (prototype: .tbtn, the breadcrumb crumbs).
+   28px tall: 4px padding + the 20px Text sm line. Hover = bg-tertiary, inferred from "All Chats" State=Hover. */
+.tbtn { display: flex; align-items: center; justify-content: center; gap: var(--spacing-xxs); min-width: 56px; padding: var(--spacing-xs); border-radius: var(--button-sm); } /* DRIFT: min width */
+.tbtn__t {
+  padding: 0 var(--spacing-xxs); white-space: pre; /* pre: keeps a text box's trailing space, which Figma counts in the width */
+  font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+}
+.tbtn--strong .tbtn__t { color: var(--colors-text-text-primary-900); }
+.tbtn__i14 { width: 14px; height: 14px; flex: none; } /* DRIFT: icon */
+.tbtn:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); } /* inferred: tertiary hover from All Chats */

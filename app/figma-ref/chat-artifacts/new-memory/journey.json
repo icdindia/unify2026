@@ -1,0 +1,34 @@
+{
+  "id": "new-memory",
+  "title": "New Memory via Chat",
+  "card": "9860:711733",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9860-711733",
+  "fullFlow": { "nodeId": "10112:406770", "name": "Memory", "page": "Settings (3612:185217)" },
+  "steps": [
+    {
+      "step": "01", "nodeId": "9915:762550", "file": "01-9915-762550.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Completed answer with inline source pills; grey 'Memory update: Tricon, Areas and 2 more' bar with 'View Memory' and close above composer",
+      "changedFrom": "start of journey (answer done, memory written)",
+      "action": "send a question; agent answers and saves memories",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Complete 2", "Feedback Array / Type=Full screen", "Alert / Size=md, Color=Grey, Double Stack=Off", "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No"]
+    },
+    {
+      "step": "02", "nodeId": "10112:411197", "file": "02-10112-411197.png", "kind": "step", "canvasOpacity": 0.2,
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Same screen with the small (sm) memory bar; frame dimmed on canvas",
+      "changedFrom": "memory bar size md -> sm",
+      "action": "none (size variant)",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Complete 2", "Feedback Array / Type=Full screen", "Alert / Size=sm, Color=Grey, Double Stack=Off", "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No"]
+    },
+    {
+      "step": "03", "nodeId": "10112:408460", "file": "03-10112-408460.png", "kind": "step",
+      "nav": "dark collapsed (under scrim)", "composer": "landing (under scrim)", "artifactPanel": false, "sidePanel": null, "modal": "Settings > Memory",
+      "shows": "Settings modal on Memory tab: generate-memory toggle, import, Profile / Topics / Areas lists with 'New' tags, 'Tell Unify's AI what to change or remove' input",
+      "changedFrom": "Settings > Memory modal opened",
+      "action": "click 'View Memory' in the memory bar",
+      "annotations": ["🔗 Click here for full flow -> 10112:406770 (Settings page)"],
+      "components": ["Memory", "1", "Main_nav / types=collapsed", "Component 2 / Type=Icon only", "Nav_menu/Main / Variant=Collapsed, State=Selected", "Nav_menu/Main / Variant=Collapsed, State=Default", "Nav_menu/Footer / Variant=Collapsed, State=Default", "EB-Assistant/AI", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No", "Banner carousel / Property 1=Three apps", "Modal", "Secondary navigation / States=All Closed", "Modal header / Type=Default"]
+    }
+  ]
+}

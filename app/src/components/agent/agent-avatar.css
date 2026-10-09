@@ -1,0 +1,43 @@
+/* AgentAvatar — the Assistant's 20px avatar in the chat rows (figma-console, 2026-10-09).
+   thinking  Agent_Avatar Size=xs, Type=Custom (5129:473347) resized to 20, radius full, fill #112d06
+             (I3518:219132;70693:17133 in 1713:246600; I5691:484797;…;70693:17125 in 3273:190223) = bg-brand-solid.
+             AI Avatar 13.33 at 3.33, white: inner four dots solid, outer eight at 50%.
+   done      the same with fill #364a3b (8863:219519, Agent COT / Type=Complete 2) = utility-brand-400.
+   spinner   input-large 24 (7534:290275): ".variants" 20x20, eight #112d06 dots of 3.81 on a ring. The older Agent COT
+             (7534:294991) moves it with AFTER_TIMEOUT 0.4s -> SMART_ANIMATE 0.1s ease-out: one 45deg tick per 0.5s.
+   bare      Agent COT / Type=Step 1 (8863:218608): "icon animation2 84px 1", an 84px GIF (231 frames x 20ms) filling a
+             28x28 rectangle at -4,-4 of the 20px Animation frame, unclipped. */
+.agent-avatar {
+  position: relative; flex: none; display: inline-block;
+  width: 20px; height: 20px; /* DRIFT: Agent_Avatar resized to 20 in the COT rows (set sizes are 24-62) */
+  border-radius: var(--radius-full);
+}
+.agent-avatar--thinking { background: var(--colors-background-bg-brand-solid); color: var(--colors-icon-icon-white); }
+.agent-avatar--done { background: var(--colors-utility-brand-utility-brand-400); color: var(--colors-icon-icon-white); }
+.agent-avatar__glyph {
+  position: absolute; display: block;
+  left: 3.3333px; top: 3.3333px; /* DRIFT: AI Avatar 13.33 at 3.33 (Agent_Avatar 5129:473347 scaled to 20) */
+}
+
+.agent-avatar--spinner { color: var(--colors-background-bg-brand-solid); }
+.agent-avatar__ring { display: block; animation: agent-avatar-tick 500ms infinite; }
+@keyframes agent-avatar-tick {
+  0%, 80% { transform: rotate(0deg); animation-timing-function: ease-out; }
+  100% { transform: rotate(45deg); }
+}
+
+.agent-avatar--bare { color: var(--colors-background-bg-brand-solid); }
+.agent-avatar__gif {
+  position: absolute; max-width: none;
+  left: -4px; top: -4px; width: 28px; height: 28px; /* DRIFT: the GIF rectangle is 28x28 at -4,-4 (8863:218613) */
+}
+/* the frozen bare glyph (still renders and reduced motion: a GIF cannot be paused), centred as the round one */
+.agent-avatar__still { position: absolute; left: 3.3333px; top: 3.3333px; }
+.agent-avatar--bare:not(.is-still) .agent-avatar__still { display: none; }
+
+.agent-avatar.is-still .agent-avatar__ring { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .agent-avatar__ring { animation: none; }
+  .agent-avatar--bare .agent-avatar__gif { display: none; }
+  .agent-avatar--bare .agent-avatar__still { display: block; }
+}

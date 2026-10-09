@@ -1,0 +1,16 @@
+/* App-wide reset. Layout is fluid: the Figma frames are drawn at 1440x900 and the app must match them
+   exactly at that size, then stretch and reflow around it (no scaled fixed artboard). */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { margin: 0; height: 100%; }
+body {
+  background: var(--colors-background-bg-workspace); color: var(--colors-text-text-primary-900);
+  font-family: var(--font-family-body); -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: inherit; }
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3 { margin: 0; font-weight: inherit; }
+img { display: block; }
+:focus-visible { outline: 2px solid var(--colors-utility-brand-utility-brand-500); outline-offset: 1px; }
+/* A page's <h1> takes focus after a route change (app/pageFocus.ts) so screen readers announce the new page. It is
+   not a control, so it draws no ring; the next Tab continues from it. */
+h1[tabindex="-1"]:focus { outline: none; }

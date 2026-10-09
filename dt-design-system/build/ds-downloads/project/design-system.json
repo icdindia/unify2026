@@ -1,0 +1,179 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-09-29T17:33:26Z"
+ },
+ "title": "DT Design System",
+ "namespace": "DTDS",
+ "libraries": [],
+ "sections": {},
+ "groups": [
+  "Logos",
+  "Icons",
+  "Downloads",
+  "Component pages"
+ ],
+ "assetGroups": {
+  "Logos": {
+   "name": "Logos",
+   "tile": "l",
+   "order": [
+    "t-mark-magenta.svg",
+    "t-mark-white.svg",
+    "t-mark-black.svg",
+    "t-app-icon.svg"
+   ],
+   "files": {
+    "t-mark-magenta.svg": {
+     "name": "t-mark-magenta.svg",
+     "blob": "203e76ff4b330e449d4341c348c25e68",
+     "size": 625,
+     "type": "image/svg+xml"
+    },
+    "t-mark-white.svg": {
+     "name": "t-mark-white.svg",
+     "blob": "dce98128d0fef1b0aa2b07a1d3fe79e8",
+     "size": 619,
+     "type": "image/svg+xml"
+    },
+    "t-mark-black.svg": {
+     "name": "t-mark-black.svg",
+     "blob": "a206eccd6e2967f25c048048f618440c",
+     "size": 619,
+     "type": "image/svg+xml"
+    },
+    "t-app-icon.svg": {
+     "name": "t-app-icon.svg",
+     "blob": "56a21b1edac9c1d3fdb16211fe3aaf7e",
+     "size": 993,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Icons": {
+   "name": "Icons",
+   "tile": "m",
+   "order": [
+    "ods-icons-outline.svg",
+    "ods-icons-selected.svg",
+    "ods-icons-small.svg",
+    "ods-icons-small-selected.svg"
+   ],
+   "files": {
+    "ods-icons-outline.svg": {
+     "name": "ods-icons-outline.svg",
+     "blob": "8e3a562003a7dc2489a9fae682c1d36b",
+     "size": 242111,
+     "type": "image/svg+xml"
+    },
+    "ods-icons-selected.svg": {
+     "name": "ods-icons-selected.svg",
+     "blob": "a09676d41f892fe068a2847aae270f0b",
+     "size": 214932,
+     "type": "image/svg+xml"
+    },
+    "ods-icons-small.svg": {
+     "name": "ods-icons-small.svg",
+     "blob": "dfc93cabb4faa091b5fd3907c5797b5f",
+     "size": 262599,
+     "type": "image/svg+xml"
+    },
+    "ods-icons-small-selected.svg": {
+     "name": "ods-icons-small-selected.svg",
+     "blob": "9e183168be6ebfb89915cda6d04d93f6",
+     "size": 222122,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Downloads": {
+   "name": "Downloads",
+   "tile": "s",
+   "order": [
+    "dt-tokens.css",
+    "tokens.json",
+    "react-snippets.md"
+   ],
+   "files": {}
+  },
+  "Component pages": {
+   "name": "Component pages",
+   "tile": "xs",
+   "order": [
+    "Accordion.html",
+    "ActionCard.html",
+    "Avatar.html",
+    "BadgeIcon.html",
+    "BadgeNumber.html",
+    "Banner.html",
+    "BarChart.html",
+    "Breadcrumb.html",
+    "Button.html",
+    "CarouselNavigation.html",
+    "CarouselTimer.html",
+    "Checkbox.html",
+    "CheckboxGroup.html",
+    "CheckboxIcon.html",
+    "ChipSet.html",
+    "ChoiceCard.html",
+    "ContainerCard.html",
+    "Dialog.html",
+    "Dim.html",
+    "DismissibleChip.html",
+    "Divider.html",
+    "DonutChart.html",
+    "DropdownSelect.html",
+    "FileUpload.html",
+    "FilterChip.html",
+    "FilterChipDropdownItem.html",
+    "FloatingActionButton.html",
+    "FlyoutMenu.html",
+    "InlineNotification.html",
+    "LineChart.html",
+    "Link.html",
+    "MapCard.html",
+    "Popover.html",
+    "ProfileMenu.html",
+    "ProfileMenuListItem.html",
+    "Search.html",
+    "SegmentedButton.html",
+    "Segments.html",
+    "SideNavigation.html",
+    "Slider.html",
+    "Sparkline.html",
+    "Speedometer.html",
+    "Switch.html",
+    "SwitchIcon.html",
+    "TabElement.html",
+    "Table.html",
+    "TableHeadCell.html",
+    "TableRowCell.html",
+    "Tabs.html",
+    "TagDismissible.html",
+    "TagStatic.html",
+    "TextArea.html",
+    "TextBody.html",
+    "TextField.html",
+    "TimePicker.html",
+    "Toast.html",
+    "ToggleChip.html",
+    "Tooltip.html",
+    "UploadBox.html"
+   ],
+   "files": {}
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Claude",
+  "at": "2026-10-01T14:08:40Z",
+  "via": "Claude Code",
+  "note": "Popover preview: all four stories render (unbalanced portal markup fixed)."
+ }
+}

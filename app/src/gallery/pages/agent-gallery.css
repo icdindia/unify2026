@@ -1,0 +1,15 @@
+/* Stages of the agent gallery pages (assistant-mark, agent-avatar, thinking-indicator, chain-of-thought). Prototype
+   chrome: a 760px message column with the 32px gutter the chain of thought hangs into, as in the 1440 chat frames. */
+.agent-g-frame { flex: none; padding-left: var(--spacing-4xl); }
+.agent-g-col { width: 760px; } /* DRIFT: the chat message column at 1440 (368 -> 1128) */
+.agent-g-col--narrow { width: 400px; } /* DRIFT: a narrow column, to show the rows truncate */
+.agent-g-stack { display: flex; flex-direction: column; gap: var(--spacing-xl); align-items: flex-start; }
+.agent-g-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-xl); }
+.agent-g-cell { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); }
+.agent-g-note {
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.agent-g-rail { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: var(--radius-4xl); background: var(--colors-background-bg-brand-primary); } /* DRIFT: a rail-sized tile */
+.agent-g-controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-xl); }
+.agent-g-beat { font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-secondary-700); }

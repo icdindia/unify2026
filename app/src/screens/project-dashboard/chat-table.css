@@ -1,0 +1,75 @@
+/* Chats table on the project dashboard (prototype: .table). The base rules draw the frames as designed
+   (14045:584747 / 15054:105151); the .chat-table--fx-* modifiers are the prototype's UX pass, each a fix in
+   src/fixes/projects.ts that ChatTable switches on with "With fixes". Selectors are scoped under .chat-table so the
+   short class names cannot leak. */
+.chat-table { display: flex; flex-direction: column; min-width: 0; }
+.chat-table .tr { display: grid; grid-template-columns: minmax(0, 1fr) 130px 130px 130px; } /* DRIFT: column widths (370 + 3 x 130 in the 760 column) */
+
+.chat-table .th {
+  height: 36px; /* DRIFT: header height */
+  display: flex; align-items: center; padding: var(--spacing-md) var(--spacing-lg); white-space: nowrap;
+  font-size: var(--text-xxs-medium-font-size); font-weight: var(--text-xxs-medium-font-weight); line-height: var(--text-xxs-medium-line-height);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--colors-text-text-quaternary-500); /* the file's #9f9993 */
+}
+.chat-table .th--r { justify-content: flex-end; }
+/* fix table-header-contrast: #9f9993 on the #fbfaf9 page is 2.6:1; text-tertiary is 5.4:1 (AA) */
+.chat-table--fx-contrast .th { color: var(--colors-text-text-tertiary-600); }
+
+.chat-table .td {
+  height: 48px; /* DRIFT: row height */
+  min-width: 0; display: flex; align-items: center; gap: var(--spacing-lg); padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: inset 0 -1px 0 0 var(--colors-border-border-secondary); /* DRIFT: 1px row rule */
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-secondary-700);
+}
+.chat-table .td--r { justify-content: flex-end; }
+.chat-table .td__txt { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: relative; top: 1px; } /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+.chat-table .td--r .td__txt { text-align: right; }
+.chat-table .td__time { position: relative; top: 1px; white-space: nowrap; } /* DRIFT: baseline offset, measured */
+.chat-table .td__none { color: var(--colors-text-text-quaternary-500); }
+
+/* Avatar Size=xs group: 24px faces overlapping by 4, white 1px inside ring */
+.chat-table .avs { display: flex; }
+.chat-table .av {
+  width: 24px; height: 24px; flex: none; /* DRIFT: avatar xs */
+  margin-left: calc(var(--spacing-xs) * -1); border-radius: var(--radius-full);
+  box-shadow: inset 0 0 0 1px var(--colors-background-bg-white); /* DRIFT: 1px inside ring */
+  text-align: center; font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: 24px; color: var(--colors-text-text-white); /* DRIFT: centred letter */
+}
+.chat-table .av:first-child { margin-left: 0; }
+.chat-table .av--brand { background: var(--colors-utility-brand-utility-brand-300); }
+.chat-table .av--error { background: var(--colors-utility-error-utility-error-300); }
+.chat-table .av--terracotta { background: var(--palette-terracotta-300); } /* DRIFT: Avatar Colour fill binds a palette primitive; no semantic token */
+.chat-table .av--blue { background: var(--palette-warm-blue-400); } /* DRIFT: Avatar Colour fill binds a palette primitive; no semantic token */
+.chat-table .av--plum { background: var(--palette-plum-200); } /* DRIFT: Avatar Colour fill binds a palette primitive; no semantic token */
+.chat-table .av--more { background: var(--colors-border-border-secondary); color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg); }
+
+/* Row hover (row 3 in the frame): every cell #f7f5f3; the first three cells' rule turns #f7f5f3 too, the time cell
+   keeps its #edebe8 rule, and the ⋮ takes the age's place. Keyboard focus in the row and an open row menu draw the
+   same state, so Tab reaches the ⋮ (the frame draws hover only). */
+.chat-table .tr--body .rowbtn { display: none; }
+.chat-table .tr--body:is(:hover, .is-hover, .is-active, :focus-within) .rowbtn { display: flex; }
+.chat-table .tr--body:is(:hover, .is-hover, .is-active, :focus-within) .td__time { display: none; }
+.chat-table .tr--body:is(:hover, .is-hover, .is-active, :focus-within) .td { background: var(--colors-border-border-disabled); }
+.chat-table .tr--body:is(:hover, .is-hover, .is-active) .td:not(:last-child) { box-shadow: inset 0 -1px 0 0 var(--colors-border-border-disabled); } /* DRIFT: 1px row rule */
+.chat-table .tr--body:focus { outline: 2px solid var(--colors-utility-brand-utility-brand-500); outline-offset: -2px; } /* DRIFT: focus ring drawn inside the row */
+
+/* fix row-actions-keep-time: the age stays; the ⋮ appears beside it (its slot is kept, so nothing shifts) */
+.chat-table--fx-keep-time .td--time { gap: var(--spacing-md); }
+.chat-table--fx-keep-time .tr--body .rowbtn { display: flex; visibility: hidden; }
+.chat-table--fx-keep-time .tr--body:is(:hover, .is-hover, .is-active, :focus-within) .rowbtn { visibility: visible; }
+.chat-table--fx-keep-time .tr--body:is(:hover, .is-hover, .is-active, :focus-within) .td__time { display: inline; }
+/* fix chats-newest-first: the age carries the full date as a tooltip */
+.chat-table .td__time[title] { cursor: default; }
+/* fix row-hover-underline: the row reads as a link */
+.chat-table--fx-underline .tr--body { cursor: pointer; }
+.chat-table--fx-underline .tr--body:is(:hover, .is-hover) .td__name { color: var(--colors-text-text-primary-900); text-decoration: underline; text-underline-offset: 3px; } /* DRIFT: underline offset */
+/* fix avatar-ring-row-colour: no white halo on a tinted row */
+.chat-table--fx-ring .tr--body:is(:hover, .is-hover, .is-active, :focus-within) .av { box-shadow: inset 0 0 0 1px var(--colors-border-border-disabled); } /* DRIFT: 1px inside ring */
+/* fix avatar-name-tooltips: a face with a name tooltip */
+.chat-table .av[title] { cursor: default; }
+
+/* below 768 (mobile design to come): Chat and Last active only */
+@media (max-width: 767px) { /* DRIFT: 768 breakpoint (mobile design to come) */
+  .chat-table .tr { grid-template-columns: minmax(0, 1fr) auto; }
+  .chat-table :is(.th--team, .th--cost, .td--team, .td--cost) { display: none; }
+}

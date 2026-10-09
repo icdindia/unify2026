@@ -1,0 +1,124 @@
+/* ChainOfThought — Agent COT 8863:218607, read with figma-console 2026-10-09 (Step 7 8863:219168, All 1 line thoughts
+   8863:219311, Complete 1 8863:219422, Complete 2 8863:219514) and checked against chat-artifact 04-08 at 1440.
+     All COT       788 wide at x -32 of the 760 message column (the avatar hangs in the gutter; never clip it,
+                   failure-modes #3); vertical, gap 12
+     COT (head)    avatar 20 · gap 8 · _Thoughts (5220:201709): pl 4, radius 4, Text sm/Regular #8f8a85, then a 14x16
+                   frame with pt 2 holding chevron-down-sm / chevron-right-sm 14 (#b4ada7). Hover: text #6a6662 and
+                   chevron #6a6662, nothing else ("hover changes text colour only").
+     thoughts      vertical, gap 12. A row is 790 wide (2 more than the chain), 20 tall: Icon 20 (p 4, radius 12, glyph
+                   12 #6a6662) · gap 12 · text Text sm/Regular #6a6662 and, space-between, the model line (vertex-ai 14 ·
+                   gap 4 · Text xs/Regular #8f8a85, 16 tall). A row block is 24 (20 + pb 4); the last one is 20.
+                   Hover on a thought: text #525252 (COT 89:96710 Type=Sub Steps, State=Hover), colour only.
+     connector     Vector 6, 1px #edebe8 centred on x 10: from 22 to 37 under a plain row (into the next row by 1),
+                   from 23.5 to 162.5 beside a sources card. None under the last row.
+     sources card  pl 32, pt 4 after the row's 4, pb 8: Results 756 wide, p 8, gap 6, bg white, 1px #edebe8 inside
+                   (children at the padding: an inset ring), radius 8. Links 20 tall: p 2, radius 4, then pl 2, gap 4:
+                   logo 12 · title Text xs/Regular #525252 (fills) · meta Text xs/Regular #8f8a85. */
+.cot {
+  display: flex; flex-direction: column; gap: var(--spacing-lg);
+  margin-left: -32px; /* DRIFT: All COT sits at x -32 of the message column (avatar in the gutter) */
+  width: calc(100% + 28px); /* DRIFT: All COT is 788 wide in a 760 column */
+  min-width: 0;
+}
+/* Not hanging: the avatar inside the column (the `hang={false}` prop, and every chain on a phone-width viewport, where
+   the thread has no 32px gutter to hang into; no Figma frame draws the chat below 1440, so this is the prototype's call). */
+.cot--inset { margin-left: 0; width: 100%; }
+.cot--inset .cot-thought__row { width: 100%; }
+@media (max-width: 599px) {
+  .cot { margin-left: 0; width: 100%; }
+  .cot-thought__row { width: 100%; }
+}
+
+/* ---- head: avatar + _Thoughts ---- */
+.cot__head { display: flex; align-items: center; gap: var(--spacing-md); min-width: 0; }
+.cot__head { height: 20px; }
+.cot__toggle {
+  display: inline-flex; align-items: center; min-width: 0; height: 20px;
+  padding: 0 0 0 var(--spacing-xs); border-radius: var(--radius-xs);
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  color: #8f8a85; /* DRIFT: text-quaternary-500 is #8f8a85 in this file, #9f9993 in tokens.css */
+  text-align: left;
+}
+.cot__title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cot__title, .cot-thought__text { position: relative; top: 1px; } /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+.cot__chev { flex: none; display: flex; padding-top: var(--spacing-xxs); color: var(--colors-icon-icon-tertiary); }
+.cot__chev { width: 14px; height: 16px; } /* the 14x16 frame (Frame 2147266524) around the 14px chevron */
+.cot__chev svg { display: block; }
+button.cot__toggle:hover, .cot__toggle.is-hover { color: var(--colors-text-text-tertiary-600); }
+button.cot__toggle:hover .cot__chev, .cot__toggle.is-hover .cot__chev { color: var(--colors-icon-icon-secondary); }
+.cot__toggle--static { cursor: default; }
+
+/* ---- thoughts ---- */
+.cot__list { display: flex; flex-direction: column; gap: var(--spacing-lg); margin: 0; padding: 0; list-style: none; min-width: 0; }
+.cot__list[hidden] { display: none; }
+.cot-thought { position: relative; display: flex; flex-direction: column; min-width: 0; }
+.cot-thought:not(:last-child):not(.cot-thought--sources) { padding-bottom: var(--spacing-xs); }
+.cot-thought__row {
+  display: flex; align-items: center; gap: var(--spacing-lg);
+  height: 20px;
+  width: calc(100% + 2px); /* DRIFT: the step rows are 790 wide in the 788 chain */
+}
+.cot-thought__icon {
+  flex: none; display: flex; align-items: center; justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: var(--spacing-xs); border-radius: var(--radius-4xl);
+  color: var(--colors-icon-icon-secondary);
+}
+.cot-thought__icon svg { display: block; flex: none; }
+.cot-thought__body { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; justify-content: space-between; }
+.cot-thought__body { gap: 10px; } /* DRIFT: Animation frame gap 10, off the DS scale (8 -> 12) */
+.cot-thought__text {
+  min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.cot-thought__row:hover .cot-thought__text, .cot-thought.is-hover .cot-thought__text {
+  color: var(--palette-gray-true-600); /* DRIFT: COT Sub Steps hover #525252 has no semantic token */
+}
+.cot-thought__model {
+  flex: none; display: flex; align-items: center; gap: var(--spacing-xs); white-space: nowrap;
+  height: 16px;
+  font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+  color: #8f8a85; /* DRIFT: text-quaternary-500 live value */
+}
+.cot-thought__model-logo { flex: none; width: 14px; height: 14px; }
+
+/* the connector line to the next thought */
+.cot-thought__line {
+  position: absolute; left: 9.5px; width: 1px; top: 22px; bottom: -13px; /* DRIFT: Vector 6 centred on x 10, y 22 -> 37 */
+  background: var(--colors-border-border-secondary);
+  pointer-events: none;
+}
+.cot-thought--sources .cot-thought__line { top: 23.5px; bottom: -12.5px; } /* DRIFT: beside the card, y 23.5 -> 162.5 */
+
+/* ---- sources card ---- */
+.cot-sources { padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-4xl); min-width: 0; }
+.cot-sources__card {
+  display: flex; flex-direction: column; gap: var(--spacing-sm);
+  margin: 0; padding: var(--spacing-md); list-style: none;
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-md);
+}
+.cot-source {
+  display: flex; align-items: center; gap: var(--spacing-xs); min-width: 0;
+  height: 20px;
+  padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xs); border-radius: var(--radius-xs);
+  font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+}
+.cot-source__logo { flex: none; width: 12px; height: 12px; }
+.cot-source__title {
+  flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  color: var(--palette-gray-true-600); /* DRIFT: #525252 has no semantic token */
+}
+.cot-source__meta { flex: none; white-space: nowrap; color: #8f8a85; } /* DRIFT: text-quaternary-500 live value */
+
+@media (forced-colors: active) {
+  .cot-thought__line { background: CanvasText; }
+  .cot-sources__card { border: 1px solid CanvasText; }
+}

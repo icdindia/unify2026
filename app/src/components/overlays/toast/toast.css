@@ -1,0 +1,37 @@
+/* Toast: not drawn in Figma (fix "toast-feedback"). Built from the DS's dark floating surface, the Tooltip
+   (9860:712340): bg-base-dark with a 1px utility-gray-700 stroke inside, white Text sm/Regular. Padding 8 8 8 12,
+   gap 12, radius-md; the action is a 24px text button, the close a 24px icon button (close-lg 16 in icon-tertiary).
+   Region: fixed, bottom centre, 24px from the bottom, newest last, at most three; it lets clicks through between toasts. */
+.toast-region {
+  position: fixed; z-index: 2; left: 0; right: 0; bottom: var(--spacing-3xl);
+  display: flex; justify-content: center; padding: 0 var(--spacing-xl); pointer-events: none;
+}
+.toast-region__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); max-width: 100%; }
+.toast-region__item { max-width: 100%; pointer-events: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .toast-region__item { animation: toast-in 180ms cubic-bezier(.2, 0, 0, 1); }
+}
+@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } }
+
+.toast {
+  display: flex; align-items: center; gap: var(--spacing-lg);
+  min-height: 40px; max-width: 480px; /* DRIFT: one-line toast height, max width */
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-lg); border-radius: var(--radius-md);
+  background: var(--colors-background-bg-base-dark); color: var(--colors-text-text-white);
+  box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-700), 0 4px 6px -2px rgba(16,24,40,.03), 0 12px 16px -4px rgba(16,24,40,.08); /* DRIFT: Dropdown Menu Type=Full shadow, the DS has no shadow tokens */
+  font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+}
+.toast--error { box-shadow: inset 0 0 0 1px var(--colors-utility-error-utility-error-400), 0 4px 6px -2px rgba(16,24,40,.03), 0 12px 16px -4px rgba(16,24,40,.08); } /* DRIFT: shadow as above */
+.toast__icon { width: 16px; height: 16px; flex: none; } /* DRIFT: icon */
+.toast__msg { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.toast__acts { flex: none; display: flex; align-items: center; gap: var(--spacing-xs); }
+.toast__action {
+  padding: var(--spacing-xxs) var(--spacing-md); border-radius: var(--radius-sm);
+  font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-white); box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-600);
+}
+.toast__close { display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
+.toast__close { width: 24px; height: 24px; } /* DRIFT: icon button */
+.toast__close img { width: 16px; height: 16px; } /* DRIFT: icon */
+.toast__action:is(:hover, .is-hover), .toast__close:is(:hover, .is-hover) { background: var(--colors-background-bg-solid-secondary); }
+.toast :focus-visible { outline-color: var(--colors-utility-gray-utility-gray-300); }

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routine Status Dot</title>
+  <!-- Prototype: the Copilot landing page with the white "in progress" dots (six of them, incl. the Routines row
+       "Excel Formula Help From Main Document") pulsing in step, so the rail reads as several things generating at once.
+       Source: Enterprise Brain Base 2026 - 1 (lqKjNjyifEXCeywg69Knr2), frame 11614:672894 "Copilot Landing page".
+       The designed state is static: a 4px white dot in a 16px slot (Dot, State=progress, 13141:630639).
+       ?ref=1 renders exactly that, at 1:1, for the pixel diff. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/tokens.css">
+  <link rel="stylesheet" href="../../shared/tokens.live-overrides.css">
+  <link rel="stylesheet" href="../../shared/typography.css">
+  <link rel="stylesheet" href="./routine-working.css?v=1">
+</head>
+<body>
+<div class="fit">
+<div class="stage" id="stage">
+<div class="frame" id="frame" data-node-id="11614:672894" data-rail="expanded" data-motion="on">
+
+  <!-- ===================================================== expanded rail (Main_nav) -->
+  <nav class="xrail" data-node-id="11614:672895" aria-label="Main">
+    <div class="xrail__top">
+      <div class="xrail__head">
+        <div class="xrail__logo">
+          <span class="logo-g"><img alt="" src="assets/logo-00.svg" class="lg lg00"><img alt="" src="assets/logo-01.svg" class="lg lg01"><img alt="" src="assets/logo-02.svg" class="lg lg02"><img alt="" src="assets/logo-03.svg" class="lg lg03"><img alt="" src="assets/logo-04.svg" class="lg lg04"><img alt="" src="assets/logo-05.svg" class="lg lg05"><img alt="" src="assets/logo-06.svg" class="lg lg06"><img alt="" src="assets/logo-07.svg" class="lg lg07"><img alt="" src="assets/logo-08.svg" class="lg lg08"><img alt="" src="assets/logo-09.svg" class="lg lg09"><img alt="" src="assets/logo-10.svg" class="lg lg10"><img alt="" src="assets/logo-11.svg" class="lg lg11"><img alt="" src="assets/logo-12.svg" class="lg lg12"><img alt="" src="assets/logo-13.svg" class="lg lg13"><img alt="" src="assets/logo-14.svg" class="lg lg14"><img alt="" src="assets/logo-15.svg" class="lg lg15"><img alt="" src="assets/logo-16.svg" class="lg lg16"><img alt="" src="assets/logo-17.svg" class="lg lg17"><img alt="" src="assets/logo-18.svg" class="lg lg18"><img alt="" src="assets/logo-19.svg" class="lg lg19"><img alt="" src="assets/logo-20.svg" class="lg lg20"><img alt="" src="assets/logo-21.svg" class="lg lg21"></span>
+          <img alt="UnifyApps" src="assets/logo-word.svg" class="xrail__word">
+        </div>
+        <div class="xrail__tools">
+          <button class="xbtn" aria-label="Search" title="Search"><img alt="" src="assets/search.svg"></button>
+          <button class="xbtn" aria-label="Collapse navigation" title="Collapse navigation"><img alt="" src="assets/layout-left.svg"></button>
+        </div>
+      </div>
+      <div class="xrail__scroll">
+        <div class="xgrp xgrp--primary">
+          <button class="xitem is-active"><img alt="" src="assets/plus.svg" class="xi"><span class="xt xt--on">New Session</span></button>
+          <button class="xitem"><img alt="" src="assets/folder.svg" class="xi"><span class="xt">Projects</span></button>
+          <button class="xitem"><img alt="" src="assets/clock.svg" class="xi"><span class="xt">Routines</span></button>
+          <button class="xitem"><img alt="" src="assets/calendar.svg" class="xi"><span class="xt">Meetings</span></button>
+          <div class="xsep-wrap"><button class="xitem"><img alt="" src="assets/cube-02.svg" class="xi"><span class="xt xt--m">Artifacts</span></button><img alt="" src="assets/line.svg" class="xline"></div>
+        </div>
+        <div class="xgrp">
+          <div class="xsub"><span class="xsub__t">Agents</span><span class="xsub__btn"><img alt="" src="assets/chevron-down.svg"></span></div>
+          <button class="xagent"><span class="xav xav--tertiary"><img alt="" src="assets/ai-avatar.svg"></span><span class="xt">Financial Analysis Agent</span></button>
+          <button class="xagent"><span class="xav xav--pigeon"><img alt="" src="assets/ai-avatar.svg"></span><span class="xt xt--m">Sheet Sage Agent</span></button>
+          <button class="xagent"><span class="xav xav--terracotta"><img alt="" src="assets/ai-avatar.svg"></span><span class="xt xt--m">Formula Falcon Agent</span></button>
+          <div class="xsep-end"><img alt="" src="assets/line.svg" class="xline"></div>
+        </div>
+        <div class="xgrp">
+          <div class="xsub"><span class="xsub__t">Pinned</span><span class="xsub__btn"><img alt="" src="assets/chevron-down.svg"></span></div>
+          <button class="xitem"><img alt="" src="assets/cube-3.svg" class="xi"><span class="xt xt--m">Artifacts</span></button>
+          <button class="xitem xitem--pr4"><img alt="" src="assets/folder.svg" class="xi"><span class="xt">Projects</span></button>
+          <button class="xhist"><span class="xt">Plan launch timeline</span><span class="sdot"><img alt="" src="assets/dot-blue.svg" class="sdot__six"></span></button>
+          <button class="xhist"><span class="xt">Review customer feedback</span><span class="sdot"><img alt="" src="assets/dot-blue.svg" class="sdot__six"></span></button>
+          <div class="xsep-end"><img alt="" src="assets/line.svg" class="xline"></div>
+        </div>
+        <div class="xgrp xgrp--history">
+          <div class="xsub xsub--h"><span class="xsub__t">Routines</span><span class="xsub__btn"><img alt="" src="assets/chevron-down.svg"></span></div>
+          <button class="xhist"><span class="xt">Get all granola notes summarized and del </span><span class="sdot"><img alt="" src="assets/dot-orange.svg" class="sdot__six"></span></button>
+          <button class="xhist xhist--gen" data-node-id="I11614:672895;292:88499" aria-describedby="gen-tip">
+            <span class="xt">Excel Formula Help From Main Document</span>
+            <span class="sdot sdot--pulse" role="img" aria-label="In progress" data-node-id="I11614:672895;292:88499;13141:640796"><img alt="" src="assets/dot-progress.svg" class="sdot__core"></span>
+          </button>
+          <button class="xhist xhist--gen" aria-describedby="gen-tip"><span class="xt xt--pre">Design Stand up follow-up  meeting</span><span class="sdot sdot--pulse" role="img" aria-label="In progress"><img alt="" src="assets/dot-white16.svg" class="sdot__full"></span></button>
+          <div class="xsep-end"><img alt="" src="assets/line.svg" class="xline"></div>
+          <div class="xsub xsub--h xsub--gap"><span class="xsub__t">Chats</span><span class="xsub__btn"><img alt="" src="assets/chevron-down.svg"></span></div>
+          <button class="xhist xhist--gen" aria-describedby="gen-tip"><span class="xt">Sheet Formula Consultant</span><span class="sdot sdot--pulse" role="img" aria-label="In progress"><img alt="" src="assets/dot-white16.svg" class="sdot__full"></span></button>
+          <button class="xhist xhist--gen" aria-describedby="gen-tip"><span class="xt">Workbook Support Hub</span><span class="sdot sdot--pulse" role="img" aria-label="In progress"><img alt="" src="assets/dot-progress.svg" class="sdot__core"></span></button>
+          <button class="xhist xhist--gen" aria-describedby="gen-tip"><span class="xt">Morning Digest</span><span class="sdot sdot--pulse" role="img" aria-label="In progress"><img alt="" src="assets/dot-progress.svg" class="sdot__core"></span></button>
+          <button class="xhist xhist--pr4 xhist--gen" aria-describedby="gen-tip"><span class="xt">Spreadsheet Formula Advisor</span><span class="sdot sdot--pulse" role="img" aria-label="In progress"><img alt="" src="assets/dot-progress.svg" class="sdot__core"></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="xfoot" data-node-id="I11614:672895;292:88513">
+      <span class="xfoot__av">A</span>
+      <span class="xfoot__name">Anurag Kashyap</span>
+      <span class="xfoot__acts">
+        <button class="xfoot__btn" aria-label="Notifications" title="Notifications"><img alt="" src="assets/bell.svg"></button>
+        <button class="xfoot__btn" aria-label="Account" title="Account"><img alt="" src="assets/chevron-up.svg"></button>
+      </span>
+    </div>
+  </nav>
+
+  <!-- ===================================================== landing body -->
+  <main class="body" data-node-id="11614:672896">
+    <section class="hello" data-node-id="11614:673177">
+      <div class="hello__head">
+        <img alt="" src="assets/eb-assistant.svg" class="hello__av">
+        <div class="hello__txt">
+          <p class="hello__h"><span>Hello</span> <em>Roger</em></p>
+          <p class="hello__sub">How can I help you today?</p>
+        </div>
+      </div>
+      <div class="composer" data-node-id="11614:673186">
+        <div class="composer__msg">
+          <textarea class="composer__ta" rows="2" placeholder="Use /skill to give your agent a capability." aria-label="Message"></textarea>
+        </div>
+        <div class="composer__bar">
+          <button class="cbtn cbtn--round" aria-label="Add" title="Add"><img alt="" src="assets/composer-plus.svg"></button>
+          <div class="composer__acts">
+            <button class="cbtn" aria-label="Model" title="Model"><span class="cbtn__oa"><img alt="" src="assets/openai.svg"></span></button>
+            <button class="cbtn" aria-label="Dictate" title="Dictate"><img alt="" src="assets/microphone.svg"></button>
+            <button class="cbtn" aria-label="Voice mode" title="Voice mode"><img alt="" src="assets/voice.svg"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner" data-node-id="11614:673187" aria-label="Get started">
+      <div class="banner__clip">
+        <div class="fb">
+          <div class="fb__l">
+            <p class="fb__t">Connect apps</p>
+            <p class="fb__d">Connect apps you already use — Atlas works in context, not in isolation.</p>
+          </div>
+          <div class="fb__r">
+            <div class="ill">
+              <div class="ill__slot ill__slot--a"><div class="ill__card ill__card--l"></div></div>
+              <div class="ill__hub"><img alt="" src="assets/hubspot.svg"></div>
+              <div class="ill__slot ill__slot--b"><div class="ill__card ill__card--r"></div></div>
+              <div class="ill__sf"><div class="ill__sf-in"><img alt="" src="assets/salesforce.svg"></div></div>
+              <div class="ill__card ill__card--mid ill__card--ws"></div>
+              <div class="ill__card ill__card--mid"></div>
+              <div class="ill__slack"><img alt="" src="assets/slack.svg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img alt="" src="assets/carousel-dots.svg" class="banner__dots">
+    </section>
+  </main>
+
+  <!-- ===================================================== review chrome (not in the design) -->
+  <div class="tip" id="gen-tip" role="tooltip" hidden>Generating</div>
+</div>
+</div>
+  <!-- review chrome: sits in the window, outside the artboard -->
+  <div class="ctl" id="ctl">
+    <span class="ctl__lbl" id="ctl-lbl">Pulsing dots</span>
+    <button class="ctl__sw" id="ctl-sw" role="switch" aria-checked="true" aria-labelledby="ctl-lbl"><i></i></button>
+  </div>
+</div>
+<script src="./app.js?v=1"></script>
+</body>
+</html>

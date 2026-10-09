@@ -1,0 +1,64 @@
+/* ----------------------------------------------------------------------------
+   horizontal-tabs — DS "Horizontal tabs" (Button Tabs style)
+   Figma: 16740:306236 · items "Button Tab base"
+   Screen: Dashboard 16740:306222
+
+   design-rules §12: page tabs are PILL style, never underline. Active = white
+   surface + 1px border-secondary; inactive = bg-tertiary, borderless.
+   State lives on the element as [aria-selected] — it is the a11y contract and
+   the styling hook at once, so there is no parallel .is-active class.
+---------------------------------------------------------------------------- */
+
+.horizontal-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.horizontal-tabs__list {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.horizontal-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  min-width: 68px;
+  box-sizing: border-box;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 0;
+  border-radius: var(--button-sm);
+  background: var(--colors-background-bg-tertiary);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+  color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg);
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: clip;
+  appearance: none;
+}
+
+.horizontal-tabs__tab:hover,
+.horizontal-tabs__tab[data-force="hover"] { background: var(--colors-background-bg-secondary); }
+
+/* Figma: Button Tab base is 28px tall (6 + 16 + 6). The selected variant's 1px
+   stroke is drawn inside, so it cannot be a CSS border — that would make the
+   tab 30px and push the whole page down 2px. */
+.horizontal-tabs__tab[aria-selected="true"],
+.horizontal-tabs__tab[data-force="selected"] {
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border);
+  color: var(--colors-text-text-primary-900);
+}
+
+.horizontal-tabs__tab:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: 1px;
+}

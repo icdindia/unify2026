@@ -1,0 +1,116 @@
+{
+  "id": "nav-light",
+  "title": "Nav bar light mode",
+  "card": "12919:607701",
+  "cardText": "Nav bar light mode",
+  "section": "1707:133527 Chat",
+  "summary": "Light-mode variant of the main nav rail (Main_nav light mode) on the Copilot landing page: collapsed rail, expanded rail, and the account menu opened from the footer avatar in both rail widths. Content area is identical in every frame (Hello Roger, landing input box, Connect apps banner carousel). Frame names in Figma: 208, 209, 210, 1730.",
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "12829:289253",
+      "frameName": "208",
+      "file": "01-12829-289253.png",
+      "shows": "Landing page with the light nav rail collapsed to icons (logo, New session selected, Projects, Routines, Meetings, Artifacts, Agents) and avatar 'A' in the footer.",
+      "changedFrom": "Start of journey.",
+      "action": "Open the app / land on New Session with the rail collapsed.",
+      "nav": "light, collapsed (56px icon rail), New Session item selected",
+      "panels": "none; landing composer visible, no artifact/side panel, no modal",
+      "annotations": [],
+      "components": [
+        "Main_nav light mode {types=collapsed}",
+        "Component 2 light mode {Type=Icon only}",
+        "Nav_menu/Main light mode {Variant=Collapsed, State=Selected}",
+        "Nav_menu/Main light mode {Variant=Collapsed, State=Default} x5",
+        "Nav_menu/Footer light mode {Variant=Collapsed, State=Default}",
+        "Avatar {Size=sm, Type=Letter, Colour=Brand Subtle, State=Default}",
+        "Company Logo",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}",
+        "Feature Banner {Feature name=Enable memory, State=Default}",
+        "Feature Banner {Feature name=Custom Instructions, State=Default}"
+      ]
+    },
+    {
+      "step": "02",
+      "nodeId": "12829:292060",
+      "frameName": "209",
+      "file": "02-12829-292060.png",
+      "shows": "Same landing page with the light rail expanded (280px): UnifyApps logo, search, collapse toggle, primary items, Agents, Pinned, Routines and History groups, footer with user name and chevron.",
+      "changedFrom": "Rail expands from icons to full labels; content shifts right and recentres in the remaining width. A Routines row ('Excel Formula Help From Main Docu...') shows a hover background.",
+      "action": "Click the expand control on the collapsed rail (logo / sidebar toggle) to expand it.",
+      "nav": "light, expanded (280px); New Session selected; Agents and Pinned groups with right chevron, Routines and History with down chevron",
+      "panels": "none; landing composer visible",
+      "annotations": [],
+      "components": [
+        "Main_nav light mode {types=Expanded}",
+        "Nav_menu/Footer light mode {Variant=Default, State=Default}",
+        "Avatar {Size=sm, Type=Letter, Colour=Brand Subtle, State=Default}",
+        "chevron-up-sm",
+        "Company Logo",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}",
+        "Feature Banner {Feature name=Enable memory, State=Default}",
+        "Feature Banner {Feature name=Custom Instructions, State=Default}"
+      ]
+    },
+    {
+      "step": "03",
+      "nodeId": "12829:296297",
+      "frameName": "210",
+      "file": "03-12829-296297.png",
+      "shows": "Collapsed light rail with the account popover open above the avatar: header 'Anurag Kashyap', Notifications (red unread dot), Settings, Log Out.",
+      "changedFrom": "Rail back to collapsed; footer avatar is in its Clicked state and the account menu popover (Tentant Switcher) is open bottom-left.",
+      "action": "Click the 'A' avatar in the collapsed rail footer.",
+      "nav": "light, collapsed; footer State=Clicked",
+      "panels": "account menu popover open; no modal",
+      "annotations": [],
+      "components": [
+        "Main_nav light mode {types=collapsed}",
+        "Component 2 light mode {Type=Icon only}",
+        "Nav_menu/Main light mode {Variant=Collapsed, State=Selected}",
+        "Nav_menu/Main light mode {Variant=Collapsed, State=Default} x5",
+        "Nav_menu/Footer light mode {Variant=Collapsed, State=Clicked}",
+        "Avatar {Size=sm, Type=Letter, Colour=Brand Subtle, State=Default}",
+        "Tentant Switcher",
+        "Avatar {State=Default}",
+        "Company Logo",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}",
+        "Feature Banner {Feature name=Enable memory, State=Default}",
+        "Feature Banner {Feature name=Custom Instructions, State=Default}"
+      ]
+    },
+    {
+      "step": "04",
+      "nodeId": "12919:607703",
+      "frameName": "1730",
+      "file": "04-12919-607703.png",
+      "shows": "Expanded light rail with the account popover open over the bottom of the rail: header 'Anurag Kashyap', Settings, Log Out.",
+      "changedFrom": "Rail expanded again; account popover now sits over the History group and has no Notifications row. Footer row reads 'Anurag Kashyap' with chevron-up.",
+      "action": "Click the user row (Anurag Kashyap) in the expanded rail footer.",
+      "nav": "light, expanded; footer row default state (menu open above it)",
+      "panels": "account menu popover open; no modal",
+      "annotations": [],
+      "components": [
+        "Main_nav light mode {types=Expanded}",
+        "Nav_menu/Footer light mode {Variant=Default, State=Default}",
+        "Avatar {Size=sm, Type=Letter, Colour=Brand Subtle, State=Default}",
+        "Avatar {State=Default}",
+        "_nav icon {Size=md} x2",
+        "chevron-up-sm",
+        "Company Logo",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}",
+        "Feature Banner {Feature name=Enable memory, State=Default}",
+        "Feature Banner {Feature name=Custom Instructions, State=Default}"
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Collapsed account menu (step 03) has a Notifications row with an unread dot; the expanded one (step 04) does not. Is Notifications meant to appear in both?",
+    "Which control expands the collapsed rail: the logo, a hover-to-peek, or a dedicated toggle? The collapsed frame shows no explicit toggle (expanded has the sidebar icon next to search).",
+    "Is step order 01 -> 02 -> 03 -> 04 a single flow, or two pairs (collapsed/expanded rail, then account menu in each width)? Read here as two pairs.",
+    "Light rail lists the History group; the dark rail in nav-behaviour calls the same group 'Chats'. Which label is current?"
+  ]
+}

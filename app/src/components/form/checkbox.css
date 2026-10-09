@@ -1,0 +1,60 @@
+/* Checkbox — set 321:86462 with "_Checkbox base" 80:43599 (Checked × Indeterminate × Size × State), figma-console 2026-10-08.
+     box   sm 16 / xs 14, radius 4; 1px (xs 0.875) border-primary inside, bg-primary
+     hover bg-primary_hover · checked bg-brand-solid (hover bg-brand-solid_hover) + white check 12 / 10
+     indeterminate bg-primary + border-brand-solid ring + minus in border-brand-solid (hover bg-secondary_hover)
+     focus +4px utility-gray-200 ring · disabled bg-disabled, border-secondary, icon-disabled
+     label Text sm (13/20) text-secondary, 8px after the box; hint Text xs text-tertiary under it */
+.cbx { display: inline-flex; align-items: flex-start; gap: var(--spacing-md); cursor: pointer; }
+.cbx--bare { gap: 0; }
+.cbx__wrap { position: relative; flex: none; display: flex; align-items: center; height: var(--text-sm-regular-line-height); }
+.cbx--bare .cbx__wrap { height: auto; }
+.cbx__input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: inherit; }
+.cbx__box {
+  position: relative; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xs);
+  background: var(--colors-background-bg-primary); color: var(--colors-icon-icon-white);
+  transition: background-color 100ms ease-out, box-shadow 100ms ease-out;
+}
+.cbx--sm .cbx__box { width: 16px; height: 16px; box-shadow: inset 0 0 0 1px var(--colors-border-border-primary); } /* DRIFT: _Checkbox base sm */
+.cbx--xs .cbx__box { width: 14px; height: 14px; box-shadow: inset 0 0 0 0.875px var(--colors-border-border-primary); } /* DRIFT: _Checkbox base xs */
+.cbx__check, .cbx__minus { position: absolute; opacity: 0; transform: scale(.6); transition: opacity 100ms, transform 120ms cubic-bezier(.2, 0, 0, 1.4); }
+.cbx__minus { color: var(--colors-border-border-brand-solid); }
+
+.cbx:hover .cbx__box { background: var(--colors-background-bg-primary-hover); }
+.cbx__input:checked + .cbx__box { background: var(--colors-background-bg-brand-solid); box-shadow: none; }
+.cbx:hover .cbx__input:checked + .cbx__box { background: var(--colors-background-bg-brand-solid-hover); }
+.cbx__input:checked + .cbx__box .cbx__check { opacity: 1; transform: none; }
+
+.cbx__input:indeterminate + .cbx__box { background: var(--colors-background-bg-primary); }
+.cbx--sm .cbx__input:indeterminate + .cbx__box { box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-solid); }
+.cbx--xs .cbx__input:indeterminate + .cbx__box { box-shadow: inset 0 0 0 0.875px var(--colors-border-border-brand-solid); } /* DRIFT: xs stroke */
+.cbx:hover .cbx__input:indeterminate + .cbx__box { background: var(--colors-background-bg-secondary-hover); }
+.cbx__input:indeterminate + .cbx__box .cbx__check { opacity: 0; }
+.cbx__input:indeterminate + .cbx__box .cbx__minus { opacity: 1; transform: none; }
+
+/* Focused: the base's 4px utility-gray-200 spread, kept with the box's own ring */
+.cbx--sm .cbx__input:focus-visible + .cbx__box { box-shadow: inset 0 0 0 1px var(--colors-border-border-primary), 0 0 0 4px var(--colors-utility-gray-utility-gray-200); } /* DRIFT: focus ring */
+.cbx--xs .cbx__input:focus-visible + .cbx__box { box-shadow: inset 0 0 0 0.875px var(--colors-border-border-primary), 0 0 0 4px var(--colors-utility-gray-utility-gray-200); } /* DRIFT: focus ring */
+.cbx__input:checked:focus-visible + .cbx__box { box-shadow: 0 0 0 4px var(--colors-utility-gray-utility-gray-200); } /* DRIFT: focus ring */
+
+.cbx:has(.cbx__input:disabled) { cursor: default; }
+.cbx__input:disabled + .cbx__box, .cbx:hover .cbx__input:disabled + .cbx__box {
+  background: var(--colors-background-bg-disabled); color: var(--colors-icon-icon-disabled);
+}
+.cbx--sm .cbx__input:disabled + .cbx__box { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.cbx--xs .cbx__input:disabled + .cbx__box { box-shadow: inset 0 0 0 0.875px var(--colors-border-border-secondary); } /* DRIFT: xs stroke */
+.cbx__input:disabled + .cbx__box .cbx__minus { color: var(--colors-icon-icon-disabled); }
+
+.cbx__text { display: flex; flex-direction: column; min-width: 0; }
+.cbx__label {
+  font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.cbx__hint {
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.cbx:has(.cbx__input:disabled) .cbx__label { color: var(--colors-text-text-disabled); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cbx__box, .cbx__check, .cbx__minus { transition: none; }
+}

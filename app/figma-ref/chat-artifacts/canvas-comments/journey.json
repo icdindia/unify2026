@@ -1,0 +1,47 @@
+{
+  "id": "canvas-comments",
+  "title": "Canvas comments",
+  "card": "1969:507282",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1969-507282",
+  "shell": { "theme": "light", "rail": "not in frame (canvas crops)", "composer": false, "artifactPanel": "implied", "sidePanel": false },
+  "steps": [
+    {
+      "step": "01", "nodeId": "1969:507489", "file": "01-1969-507489.png", "size": "1071x603",
+      "shows": "Canvas crop: paragraph block hovered with a dashed outline, AI sparkle marker and arrow cursor.",
+      "changedFrom": "First step.",
+      "action": "Enter comment mode and hover an element on the artifact canvas.",
+      "components": ["Cursor / State=Arrow", "ai-star"]
+    },
+    {
+      "step": "02", "nodeId": "1969:507495", "file": "02-1969-507495.png", "size": "1071x603",
+      "shows": "Element selected (solid outline), comment pin 'O', comment card '@agent Make this beautiful...' with send and close.",
+      "changedFrom": "Dashed hover -> solid selection; pin + comment card added.",
+      "action": "Click the element and type a comment mentioning @agent.",
+      "components": ["Canvas-Comments-Bouble", "Buttons/Button Brand / Size=xs, Hierarchy=Secondary, Icon=Only, State=Default"]
+    },
+    {
+      "step": "03", "nodeId": "1969:507503", "file": "03-1969-507503.png", "size": "423x771",
+      "shows": "Four composer states: empty, filled, filled with close, truncated with close.",
+      "changedFrom": "Isolated states of the 02 composer.",
+      "action": "n/a (state reference).",
+      "components": ["Canvas-Comments-Bouble", "Buttons/Button Brand / Size=xs, Hierarchy=Secondary, Icon=Only, State=Default"]
+    },
+    {
+      "step": "04", "nodeId": "1969:507512", "file": "04-1969-507512.png", "size": "400x198",
+      "shows": "'What should change?' modal with textarea, Add Comment, Send to Assistant (frame opacity 0.3 in Figma - looks deprecated).",
+      "changedFrom": "Modal alternative to the inline comment card.",
+      "action": "Unclear - likely an earlier alternative to step 02.",
+      "components": ["Modal header / Type=Default, Size=xs, back=no", "Textarea input field / Type=Default, Destructive=False, State=Placeholder", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"]
+    }
+  ],
+  "components": [
+    { "step": "c01", "nodeId": "1969:507502", "file": "c01-1969-507502.png", "shows": "Canvas Comments - Components: Canvas Comment set (6 variants incl. artifact comment with 'Send to Agent' checkbox), Comment Bubble, Canvas-Comments-Bouble.", "components": ["Canvas Comment", "Comment Bubble", "Canvas-Comments-Bouble"] }
+  ],
+  "openQuestions": [
+    "How is comment mode entered?",
+    "@agent mention vs 'Send to Agent' checkbox vs 'Send to Assistant' modal - which is final?",
+    "What happens after sending to @agent?",
+    "Comments list / thread panel not drawn.",
+    "Which sample artifact carries the demo (canvas is a screenshot)?"
+  ]
+}

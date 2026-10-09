@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# build output (rebuild with: npm --prefix app run build; share dist/eb-app.html)
+dist/
+
+# test run output (tools/tests/eb-app writes here on every run)
+tools/tests/eb-app/out/
+
+# OS / editor
+.DS_Store
+*.log
+.claude/settings.local.json
+
+# a separate git repository of its own; not tracked here
+chargepoint-playbook-studio/

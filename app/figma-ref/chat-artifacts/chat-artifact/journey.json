@@ -1,0 +1,237 @@
+{
+  "id": "chat-artifact",
+  "title": "Chat journey with Artifact",
+  "card": "1707:136006",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1707-136006",
+  "steps": [
+    {
+      "step": "01", "nodeId": "1707:136008", "file": "01-1707-136008.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing empty", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "New-session landing: Hello Roger, empty composer with Company/Research chips, Connect apps banner carousel",
+      "changedFrom": "start of journey",
+      "action": "open a new session",
+      "components": ["Main_nav / types=collapsed", "EB-Assistant/AI", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "02", "nodeId": "1707:139771", "file": "02-1707-139771.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing filled", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Landing with the prompt typed; Send button visible with hand cursor",
+      "changedFrom": "composer filled, send button appears",
+      "action": "type the prompt, hover/click Send",
+      "components": ["Main_nav / types=collapsed", "EB-Assistant/AI", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No", "Cursor / State=Pointer Hand", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "03", "nodeId": "9256:466688", "file": "03-9256-466688.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null, "dropdown": "chat title menu + Add to Project submenu",
+      "shows": "Chat view with user bubble; chat title menu open (View files, Pin, Rename, Add to Project submenu, Archive, Delete)",
+      "changedFrom": "prompt sent, chat layout with header; title menu opened",
+      "action": "click Send, then click the chat title chevron and hover Add to Project",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Copilot desktop Input Box / Type=Bottom small, State=Generating, Tools & Sources=Yes, Text=Placeholder, Attachment=No", "Frame 2147266815"]
+    },
+    {
+      "step": "04", "nodeId": "1713:246600", "file": "04-1713-246600.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Agent chain of thought starts: first thought with a 4-row sources card",
+      "changedFrom": "menu closed; COT step 1 with sources appears",
+      "action": "none (agent streams after send)",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Agent COT / Type=Step 3", "Copilot desktop Input Box / Type=Bottom small, State=Generating"]
+    },
+    {
+      "step": "05", "nodeId": "1713:249395", "file": "05-1713-249395.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "COT continues: Searching for account details, Traced the gap, Executing, Done",
+      "changedFrom": "four more thought steps appended",
+      "action": "none (streaming); hover on a thought changes text colour only",
+      "annotations": ["Hover on thought- changes text color only"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Agent COT / Type=Step 7", "Cursor / State=Arrow", "Copilot desktop Input Box / Type=Bottom small, State=Generating"]
+    },
+    {
+      "step": "06", "nodeId": "4756:184104", "file": "06-4756-184104.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "COT as text-only one-line thoughts (no sources card)",
+      "changedFrom": "sources card removed",
+      "action": "none / presentation variant",
+      "annotations": ["All text COT"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Agent COT / Type=All  1 line thoughts", "Copilot desktop Input Box / Type=Bottom small, State=Generating"]
+    },
+    {
+      "step": "07", "nodeId": "4756:186919", "file": "07-4756-186919.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "COT where every thought has its sources card (frame 1051 tall)",
+      "changedFrom": "each thought gains a sources card",
+      "action": "none / presentation variant",
+      "annotations": ["Text + source COT"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Copilot desktop Input Box / Type=Bottom small, State=Generating"]
+    },
+    {
+      "step": "08", "nodeId": "1809:501331", "file": "08-1809-501331.png", "kind": "step",
+      "nav": "dark expanded", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Completed answer with collapsed COT line, bold bullets and action row ($0.19, 8 Sources, feedback); rail expanded",
+      "changedFrom": "response streamed in, COT collapsed, generation stopped, rail expanded",
+      "action": "generation finishes; user expands the rail",
+      "components": ["Main_nav / types=Expanded", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Response_Desktop full / Property 1=Assistant", "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No"]
+    },
+    {
+      "step": "08a", "nodeId": "5691:481950", "file": "08a-5691-481950.png", "kind": "alternateBelow", "of": "1809:501331",
+      "nav": "dark expanded", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Visually identical to step 08, built as a Dashboard screen-wrapper instance",
+      "changedFrom": "nothing visible (sub-pixel text rendering only)",
+      "action": "n/a (alternate build of step 08)",
+      "components": ["Dashboard", "Main_nav / types=Expanded", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Response_Desktop full / Property 1=Assistant", "Copilot desktop Input Box / Type=Bottom small, State=Default"]
+    },
+    {
+      "step": "09", "nodeId": "1809:446980", "file": "09-1809-446980.png", "kind": "step",
+      "nav": "dark expanded", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": "Share Artifact",
+      "shows": "Share modal: invite input, people with access (owner), general access Restricted, Copy Link",
+      "changedFrom": "modal and scrim opened",
+      "action": "click Share in the chat header",
+      "components": ["Dashboard", "Main_nav / types=Expanded", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Response_Desktop full / Property 1=Assistant", "Copilot desktop Input Box / Type=Bottom small, State=Default", "Modal Unit"]
+    },
+    {
+      "step": "10", "nodeId": "1731:255712", "file": "10-1731-255712.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom typing + mention list", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Three people joined (avatar stack, people-icon Share, comment icon); '@' typed opens mention list",
+      "changedFrom": "people invited; header icons change; system 'joined the chat' line; mention picker open",
+      "action": "invite Matt/John/Grace in the Share modal, close it, type '@'",
+      "annotations": ["After adding people to the chat - share button icons changes", "Tag user in text state"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Response_Desktop full / Property 1=Assistant", "Copilot desktop Input Box / Type=Bottom small, State=Default, Text=One line", "Input Menu Dropdown / Type=Single Select, Size=sm, Search=Default"]
+    },
+    {
+      "step": "11", "nodeId": "1731:338960", "file": "11-1731-338960.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom typing + mention list", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "'@m' filters the mention list to Matt Rivera / Mace Coleman",
+      "changedFrom": "list filtered",
+      "action": "type 'm'",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Response_Desktop full / Property 1=Assistant", "Cursor / State=Pointer Hand", "Copilot desktop Input Box / Type=Bottom small, Text=One line", "Input Menu Dropdown / Type=Single Select, Size=sm, Search=Default"]
+    },
+    {
+      "step": "12", "nodeId": "1731:340363", "file": "12-1731-340363.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom typing", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Composer with '@Matt Rivera' mention token and message text",
+      "changedFrom": "mention inserted, list closed",
+      "action": "click Matt Rivera in the mention list and keep typing",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Response_Desktop full / Property 1=Assistant", "Copilot desktop Input Box / Type=Bottom small, Text=One line", "Cursor / State=Pointer Hand"]
+    },
+    {
+      "step": "13", "nodeId": "1731:341539", "file": "13-1731-341539.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Sent bubble with @Matt Rivera pill; 'Matt Rivera ...' typing indicator above composer",
+      "changedFrom": "message sent; typing indicator appears",
+      "action": "press Send",
+      "annotations": ["Typing state"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full", "Response_Desktop full / Property 1=Assistant", "Copilot desktop Input Box / Type=Bottom small, Text=Placeholder", "Avatar / Size=xxs, Type=Letter, Colour=Brand Solid, State=Default", "Three dots animation / State=1"]
+    },
+    {
+      "step": "14", "nodeId": "3273:190223", "file": "14-3273-190223.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Matt replies in grouped bubbles and tags @Assistant; Assistant 'Thinking...'",
+      "changedFrom": "collaborator messages arrive; assistant starts thinking",
+      "action": "none (collaborator activity)",
+      "annotations": ["Option 1", "User/Assistant Tag in pill with bg"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Avatar / Size=xxs, Type=Letter, Colour=Brand Solid, State=Default", "Agent COT / Type=Complete 2", "Response_Desktop full / Property 1=Assistant", "Copilot desktop Input Box / Type=Bottom small, Text=Placeholder"]
+    },
+    {
+      "step": "15", "nodeId": "1768:356654", "file": "15-1768-356654.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": "people-with-access popover", "modal": null,
+      "shows": "Assistant answer with 'Pipeline Command' inline artifact card; John and Grace messages; people-with-access popover from the avatar stack",
+      "changedFrom": "answer + artifact card; more messages; access popover open; comment icon gone",
+      "action": "hover/click the avatar stack in the header",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=With Tag", "Copilot_User Message / State=Default, Type=Default", "Copilot_User Message_Desktop full", "Agent Avatar", "Thoughts / State=Hover", "Feedback Array / Type=Full screen", "Response_Desktop full / Property 1=Assistant", "Inline Artifact Cards / State=Application-HTML", "Avatar / Size=xxs, Type=Letter, Colour=Brand Solid, State=Default", "Input Menu Dropdown / Type=Single Select, Size=sm, Search=Default", "Copilot desktop Input Box / Type=Bottom small", "Cursor / State=Pointer Hand"]
+    },
+    {
+      "step": "15a", "nodeId": "3211:70049", "file": "15a-3211-70049.png", "kind": "alternateBelow", "of": "1768:356654",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Reference sheet: inline artifact card for every file type plus card-hover and button-hover states",
+      "changedFrom": "reference variant of the inline card",
+      "action": "n/a (reference)",
+      "annotations": ["artifact icons", "card hover", "button hover"],
+      "components": ["Nav_menu/Main / Variant=Collapsed, State=Default", "Nav_menu/Main / Variant=Collapsed, State=Selected", "Nav_menu/Footer / Variant=Collapsed, State=Default", "Component 2 / Type=Icon only", "Copilot_User Message_Desktop full / State=Default, Type=With Tag", "Response_Desktop full / Property 1=Assistant", "Inline Artifact Cards / State=DOC", "Inline Artifact Cards / State=XLS", "Inline Artifact Cards / State=PPT", "Inline Artifact Cards / State=PDF", "Inline Artifact Cards / State=Markdown", "Inline Artifact Cards / State=Application-HTML", "Inline Artifact Cards / State=Flow Diagram", "Inline Artifact Cards / State=JSON", "Cursor / State=Arrow", "ES Breadcrumb / Variant=Default", "Copilot desktop Input Box / Type=Bottom small"]
+    },
+    {
+      "step": "16", "nodeId": "1809:363799", "file": "16-1809-363799.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Inline artifact card hovered (Interactive HTML, 123 KB, Version 1, Download button); files icon badge '2'",
+      "changedFrom": "popover closed; card hover; header badge",
+      "action": "hover the inline artifact card",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=With Tag", "Agent Avatar", "Thoughts / State=Hover", "Feedback Array / Type=Full screen", "Agent COT / Type=Complete 2", "Inline Artifact Cards / State=Application-HTML", "Avatar / Size=xxs, Type=Letter, Colour=Brand Solid, State=Default", "Cursor / State=Pointer Hand", "Pill solid / Size=xxs, Type=Pill color, Icon=False, Color=Gray", "Copilot desktop Input Box / Type=Bottom small"]
+    },
+    {
+      "step": "16a", "nodeId": "14876:285160", "file": "16a-14876-285160.png", "kind": "alternateBelow", "of": "1809:363799",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "bottom default", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Newer inline card spec (new PDF icon): default with visible Download button, and hover",
+      "changedFrom": "reference variant of the inline card",
+      "action": "n/a (reference)",
+      "components": ["Nav_menu/Main / Variant=Collapsed, State=Default", "Nav_menu/Main / Variant=Collapsed, State=Selected", "Nav_menu/Footer / Variant=Collapsed, State=Default", "Component 2 / Type=Icon only", "Copilot_User Message_Desktop full / State=Default, Type=With Tag", "Response_Desktop full / Property 1=Assistant", "ES Breadcrumb / Variant=Default", "Copilot desktop Input Box / Type=Bottom small"]
+    },
+    {
+      "step": "17", "nodeId": "5975:413714", "file": "17-5975-413714.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default (shifted left)", "artifactPanel": false, "sidePanel": "files panel (list)", "modal": null,
+      "shows": "Files panel: Artifacts 3 + Download All, Files 8 in list view; chat shifted left",
+      "changedFrom": "files panel opened",
+      "action": "click the files (clipboard) icon in the chat header",
+      "annotations": ["aritfact numbers", "aritfacts and uploads access - option 1"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot desktop Input Box / Type=Bottom small, State=Default", "Cursor / State=Arrow"]
+    },
+    {
+      "step": "18", "nodeId": "14607:403125", "file": "18-14607-403125.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default (shifted left)", "artifactPanel": false, "sidePanel": "files panel (grid)", "modal": null,
+      "shows": "Files panel with Files in grid view (thumbnails with type chips), JSON card hovered",
+      "changedFrom": "Files list -> grid",
+      "action": "click the grid toggle in the Files header",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot desktop Input Box / Type=Bottom small", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=md", "Cursor / State=Arrow"]
+    },
+    {
+      "step": "19", "nodeId": "13722:383349", "file": "19-13722-383349.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom of chat column", "artifactPanel": "split", "sidePanel": "files dropdown (fixed height)", "modal": null,
+      "shows": "Split view: chat column left, artifact panel 'Untitled.xls' (Acme Inc. dashboard) right; files dropdown open from the chat header",
+      "changedFrom": "artifact panel opened; files panel re-anchored to the chat column",
+      "action": "click the inline artifact card, then click the files icon",
+      "annotations": ["when a artifact is open - fixed height 720"],
+      "components": ["Main_nav / types=collapsed", "Arifact Header", "Frame 2147266136", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm", "Code Pill / Size=xs, Color=Gray, Icon=False", "Buttons/Button Neutral / Size=xs, Hierarchy=Tertiary, Icon=Default, State=Default", "Inline Cards / State=Default", "Toggle group / Type=Default, Style=Icon only, Size=xs, Variant=Default", "Cursor / State=Arrow"]
+    },
+    {
+      "step": "20", "nodeId": "1809:488480", "file": "20-1809-488480.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom of chat column", "artifactPanel": "split", "sidePanel": null, "modal": null,
+      "shows": "Split view without dropdown; narrower chat column with resize handle; full artifact header",
+      "changedFrom": "files dropdown closed; divider moved",
+      "action": "close the files dropdown / drag the split handle",
+      "annotations": ["all possible icons in header (Arifact Header reference above)"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot desktop Input Box / Type=Bottom small, State=Default", "Arifact Header", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    },
+    {
+      "step": "21", "nodeId": "1795:359260", "file": "21-1795-359260.png", "kind": "step",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "bottom of chat column", "artifactPanel": "split", "sidePanel": null, "modal": null, "dropdown": "version menu",
+      "shows": "Artifact version menu (v3) open: Latest / Yesterday / 3 days ago",
+      "changedFrom": "version dropdown opened; header icon set changed",
+      "action": "click 'v3' in the artifact header",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=with Icon", "Copilot desktop Input Box / Type=Bottom small", "Arifact Header", "Scroll bar / Size=sm", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=On, State=Default, Divider=False, Supporting Text=On, Size=sm", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=On, Size=sm", "Cursor / State=Arrow"]
+    },
+    {
+      "step": "21a", "nodeId": "6405:306202", "file": "21a-6405-306202.png", "kind": "stateAbove", "of": "1795:359260",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "bottom of chat column", "artifactPanel": "split", "sidePanel": null, "modal": null,
+      "shows": "Hover on the artifact name (grey hover background)",
+      "changedFrom": "version menu closed; name hovered",
+      "action": "hover the artifact name",
+      "annotations": ["hover state"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=with Icon", "Copilot desktop Input Box / Type=Bottom small", "Arifact Header", "Scroll bar / Size=sm", "Cursor / State=Arrow"]
+    },
+    {
+      "step": "21b", "nodeId": "6405:308388", "file": "21b-6405-308388.png", "kind": "stateAbove", "of": "1795:359260",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "bottom of chat column", "artifactPanel": "split", "sidePanel": null, "modal": null,
+      "shows": "Artifact name in inline edit mode ('Untitled name here|.xls')",
+      "changedFrom": "name becomes a text field",
+      "action": "click the artifact name",
+      "annotations": ["edit name"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=with Icon", "Copilot desktop Input Box / Type=Bottom small", "Arifact Header", "Scroll bar / Size=sm", "Cursor / State=Arrow"]
+    },
+    {
+      "step": "22", "nodeId": "1809:484624", "file": "22-1809-484624.png", "kind": "step",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "hidden", "artifactPanel": "full screen", "sidePanel": null, "modal": null,
+      "shows": "Artifact full screen; artifact header becomes the page header",
+      "changedFrom": "chat hidden, artifact expanded",
+      "action": "click the expand icon in the artifact header",
+      "annotations": ["all header icons for reference", "min 200 px max full name • 40 pixel between button and name"],
+      "components": ["Main_nav / types=collapsed", "Arifact Header"]
+    }
+  ]
+}

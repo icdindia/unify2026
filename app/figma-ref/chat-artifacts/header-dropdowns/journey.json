@@ -1,0 +1,25 @@
+{
+  "id": "header-dropdowns",
+  "title": "Top header dropdowns (Apps, Download, Version history, Input menu)",
+  "card": "1969:507284",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1969-507284",
+  "kind": "component sheet (no full-screen steps)",
+  "steps": [],
+  "components": [
+    { "step": "c01", "nodeId": "1969:507290", "file": "c01-1969-507290.png", "shows": "Apps Dropdown (frame copy, placeholder icons): Open in Google Sheets / Sharepoint; Download Excel / PDF / CSV; Copy to clipboard. Real component: 12703:449317.", "action": "Click the Excel split chevron in the artifact header.", "components": ["Dropdown list header / Type=H2", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=On, Size=sm", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=True, Supporting Text=Off, Size=md", "coloured logos / Type=excel"] },
+    { "step": "c02", "nodeId": "1969:507305", "file": "c02-1969-507305.png", "shows": "Download Dropdown for App artifacts: HTML (self-contained file), Sharepoint.", "action": "Export / download split on an App artifact.", "components": ["Dropdown list header / Type=H2", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=On, Size=sm", "coloured logos / Type=App"] },
+    { "step": "c03", "nodeId": "9200:349032", "file": "c03-9200-349032.png", "shows": "Version History list: Latest (today), Yesterday 14:14, 3 days ago 08:12.", "action": "Click the 'v3' version dropdown / hover Versions in the name menu.", "components": ["Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=On, State=Default, Divider=False, Supporting Text=On, Size=sm", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=On, Size=sm"] },
+    { "step": "c04", "nodeId": "6077:427693", "file": "c04-6077-427693.png", "shows": "People with access: owner, editors, viewer.", "action": "Click the avatar group in the chat header.", "components": ["Input Menu Dropdown / Type=Single Select, Size=sm, Search=Default", "Input dropdown Menu Item / Size=sm, Type=Avatar leading, State=Default, Selected=False, Stacking=Single Line", "Input dropdown Menu Item / Size=sm, Type=Default, State=Default, Selected=False, Stacking=Single Line"] },
+    { "step": "c05", "nodeId": "6077:427694", "file": "c05-6077-427694.png", "shows": "Artifacts list: Client Renewal - Position Brief (doc), Churn Risk — Accounts at Renewal (sheet).", "action": "Most likely the clipboard icon in the chat header.", "components": ["Dropdown Menu / Type=Small", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=Off, Size=sm"] },
+    { "step": "c06", "nodeId": "6077:427818", "file": "c06-6077-427818.png", "shows": "Chat header default (title, avatars, $1.23, Share, clipboard).", "action": "Context.", "components": ["ES Breadcrumb / Variant=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Default, State=Default", "Avatar group / Size=xs", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default"] },
+    { "step": "c07", "nodeId": "6077:427883", "file": "c07-6077-427883.png", "shows": "Chat header with the title hovered; Pill solid dot placed near Share/clipboard.", "action": "Hover the chat title.", "components": ["ES Breadcrumb / Variant=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Default, State=Hover", "Avatar group / Size=xs", "Pill solid"] }
+  ],
+  "openQuestions": [
+    "Use Apps Dropdown component 12703:449317 instead of the placeholder frame copy?",
+    "Download Dropdown Sharepoint copy says 'spreadsheet' for an App.",
+    "Which control opens c05 and what does selecting an item do?",
+    "Is the people list (c04) editable?",
+    "Selecting an older version: in-place swap / banner / restore?",
+    "Meaning of the Pill solid dot on c07."
+  ]
+}

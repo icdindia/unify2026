@@ -1,0 +1,13 @@
+{
+  "name": "chargepoint-playbook-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Agentic negotiation-playbook prototype for the ChargePoint CLM team",
+  "scripts": {
+    "check:nav": "node scripts/navdiv.js",
+    "check:header": "node scripts/hdr.js",
+    "check:widths": "node scripts/wide.js",
+    "check:tips": "node scripts/tip.js"
+  },
+  "devDependencies": { "playwright": "^1.47.0" }
+}

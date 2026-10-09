@@ -1,0 +1,13 @@
+/* Gallery layout for the artifact surfaces (inline artifact card, files panel, access popover). Prototype chrome. */
+.iacg-stack { display: flex; flex-direction: column; gap: var(--spacing-md); width: 520px; max-width: 100%; } /* DRIFT: 520 card column of 15a */
+.iacg-split { display: flex; flex-direction: column; gap: var(--spacing-md); width: 408px; max-width: 100%; } /* DRIFT: split chat column */
+.iacg-panel { display: flex; flex-direction: column; gap: var(--spacing-md); width: 358px; max-width: 100%; } /* DRIFT: files panel row width */
+.iacg-dock { display: flex; justify-content: center; width: 100%; padding: var(--spacing-md); }
+.iacg-dock .fp { width: 384px; } /* DRIFT: files panel width */
+.iacg-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-xl); }
+.iacg-hdr {
+  display: flex; align-items: center; justify-content: flex-end; gap: var(--spacing-md); width: 100%; min-height: 160px; /* DRIFT: room for the popover */
+  align-self: flex-start; padding: var(--spacing-md);
+}
+.iacg-note { color: var(--colors-text-text-tertiary-600); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+.iacg-trigger { display: inline-flex; border-radius: var(--radius-full); }

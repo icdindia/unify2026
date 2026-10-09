@@ -1,0 +1,128 @@
+/* ----------------------------------------------------------------------------
+   pill — DS "Pill solid" + "Pill squared"
+   Figma: Pill solid   I…;64906:40146 / I…;63883:33500 / I…;64877:37833
+          Pill squared 16740:306407 (status+dot) · I…;61060:105090 (brand)
+                       16740:306403 (sm / Icon leading / Warning)
+                       16740:306437 (xs / False / Gray)
+   Screen: Dashboard 16740:306222 (UnifyApps Platform 1|2 2026)
+
+   Two shapes, one atom:
+     .pill--solid    count chip   (16px min, radius-xs, Text xxs/Medium)
+     .pill--squared  status chip  (radius-sm, Text xs/Regular, optional dot/icon)
+   Size is an orthogonal axis on the squared shape (--xs / default sm), as is
+   colour (--gray/--warning/--brand/--error/--success), so both are class
+   modifiers, never data-state.
+
+   The nodes tagged "Badge" on the Dashboard are instances of the Pill squared
+   set (key abf550f75d70dc37b88be9c63cff92bb604ce097), not a Badge component —
+   see MISSING-COMPONENTS.md § CORRECTION 2026-09-09. components/badge/ was
+   folded in here 2026-09-09; --xs, __icon and the squared gray came from it.
+---------------------------------------------------------------------------- */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  /* reset so .pill works as <span> AND <button> (see pitfall 3) */
+  appearance: none;
+  border: 0;
+  margin: 0;
+  font: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ---- shape: solid count chip ---- */
+.pill--solid {
+  min-width: 16px;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+  font-family: var(--text-xxs-medium-font-family);
+  font-weight: var(--text-xxs-medium-font-weight);
+  font-size: var(--text-xxs-medium-font-size);
+  line-height: var(--text-xxs-medium-line-height);
+}
+
+/* ---- shape: squared status chip ---- */
+.pill--squared {
+  min-width: 24px;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+}
+
+/* ---- size: xs squared token chip (Figma 16740:306437 `xs / False / Gray`) ---- */
+.pill--squared.pill--xs {
+  min-width: 20px;
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--radius-xs);
+}
+
+/* a leading dot or icon tightens the left padding (Figma: pl 6 / pr 8) */
+.pill--squared:has(> .pill__dot),
+.pill--squared:has(> .pill__icon) { padding-left: var(--spacing-sm); }
+
+.pill__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  color: currentColor;
+}
+.pill__dot svg { display: block; width: 100%; height: 100%; }
+
+/* leading icon slot — Figma 16740:306403 `sm / Icon leading / Warning` */
+.pill__icon {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  color: currentColor;
+}
+.pill__icon svg { display: block; width: 100%; height: 100%; }
+
+.pill--full { border-radius: var(--radius-full); }
+
+/* ---- colour axis ---- */
+.pill--gray    { background: var(--colors-utility-gray-utility-gray-200); color: var(--colors-utility-gray-utility-gray-900); }
+.pill--warning { background: var(--colors-utility-warning-utility-warning-25); color: var(--colors-utility-warning-utility-warning-700); }
+.pill--brand   { background: var(--colors-utility-brand-utility-brand-25);   color: var(--colors-utility-brand-utility-brand-700); }
+.pill--error   { background: var(--colors-utility-error-utility-error-25);   color: var(--colors-utility-error-utility-error-600); }
+.pill--success { background: var(--colors-utility-success-utility-success-25); color: var(--colors-utility-success-utility-success-700); }
+
+/* The Pill squared set reads Gray one tint lighter than Pill solid does
+   (utility-gray-100 / text-secondary-700 vs utility-gray-200 / gray-900).
+   Two component sets, two Figma values — scoped by shape, not overwritten. */
+.pill--squared.pill--gray {
+  background: var(--colors-utility-gray-utility-gray-100);
+  color: var(--colors-text-text-secondary-700);
+}
+
+/* filled dark chip — Figma 16740:306300 "SLA 8.0s" (gray-600 bg, gray-50 text).
+   Inverted, not a tint: this is the only pill on the screen that reads light-on-dark. */
+.pill--gray-solid {
+  background: var(--colors-utility-gray-utility-gray-600);
+  color: var(--colors-utility-gray-utility-gray-50);
+}
+
+/* solid error = filled badge (nav notification 99+) */
+.pill--error-solid {
+  background: var(--colors-utility-error-utility-error-500);
+  color: var(--colors-text-text-white);
+}
+
+/* "Pill solid" status on the List Item (905:302681): success-500 fill, white Text xs/Medium, px 8 py 4, radius-sm */
+.pill--status-success {
+  min-width: 24px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  background: var(--colors-utility-success-utility-success-500);
+  color: var(--colors-text-text-white);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+}

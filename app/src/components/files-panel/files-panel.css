@@ -1,0 +1,119 @@
+/* Files panel — "aritfacts and uploads access - option 1": the 384 x 720 card 14604:278262 (5975:413714, list) and
+   14607:405457 (14607:403125, grid), read with figma-console 2026-10-09 and measured on the 1440 PNGs (17, 18, 19).
+     card     384 x 720, radius 12, clip, bg-primary_hover (#fbfaf9 in this file), 1px utility-gray-300 inside (#e6e4e0),
+              shadow 0 8 8 -4 / 0 20 24 -4 utility-gray-200; content 382 wide from 1, 1, padding-top 4, sections 20 apart
+     section  header 36 (Artifacts: 0 8 0 16, Files: 0 12 0 16), 6 to the body; body 0 12, rows 60 tall 8 apart (358 wide)
+     header   Text sm/Medium primary + Code Pill 16 (gap 4); "Download All" Button Neutral xs Tertiary, icon 12, 24 tall;
+              list / grid Toggle group xs (52 x 24)
+     file row Inline Cards frame 14604:278341: 12 12 12 16, File type icon/Label 35 x 36 (the 24 icon at 1.5x), 12 to the
+              name (Text sm/Medium) and size (Text xs, tertiary); hover bg #fbfaf9 + #e6e4e0 stroke and the download button
+     tile     174 x 104 (2 columns 10 apart, rows 12 apart), radius 8, clip, pigeon-blue-50 under the image fill, 1px
+              #e6e4e0 inside; chip Pill squared xs Icon leading at 5, 5: 2 / 4, gap 4, radius 4, white, 1px #e6e4e0 outside,
+              0 2 2 black 5%, icon 12, Text xs text-secondary. Hover: utility-gray-400 stroke, 0 4 12 -2 / 0 12 12 -80
+              #e6e4e0 shadow, Secondary xs icon button (24) at the top right (14607:407207) */
+.fp {
+  position: relative; display: flex; flex-direction: column; box-sizing: border-box; width: 100%; max-width: 384px;
+  padding: 1px; /* DRIFT: content frame at 1, 1 inside the 1px stroke */
+  border-radius: var(--radius-4xl); overflow: hidden;
+  background: #fbfaf9; /* DRIFT: panel fill bg-primary_hover, #fbfaf9 in this file (14604:278262), #fefdfb in tokens.css */
+  box-shadow: inset 0 0 0 1px #e6e4e0, 0 8px 8px -4px var(--colors-utility-gray-utility-gray-200), 0 20px 24px -4px var(--colors-utility-gray-utility-gray-200); /* DRIFT: stroke utility-gray-300 is #e6e4e0 in this file */
+}
+.fp__scroll {
+  display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--spacing-2xl); min-height: 0;
+  padding: var(--spacing-xs) var(--spacing-none) var(--spacing-lg);
+  overscroll-behavior: contain;
+}
+.fp__section { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.fp__head { display: flex; flex: none; align-items: center; justify-content: space-between; gap: var(--spacing-lg); height: 36px; } /* DRIFT: Header 36 */
+.fp__head--artifacts { padding: 0 var(--spacing-md) 0 var(--spacing-xl); }
+.fp__head--files { padding: 0 var(--spacing-lg) 0 var(--spacing-xl); }
+.fp__title-t, .fr__name { position: relative; top: 1px; } /* DRIFT: measured baseline, Chrome seats Geist 13px 1px higher than Figma */
+.fp__title {
+  display: flex; align-items: center; gap: var(--spacing-xs); margin: 0; min-width: 0;
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+}
+
+/* Download All: Buttons/Button Neutral, Size=xs, Hierarchy=Tertiary, Icon=Default (11932:738079), 108 x 24 */
+.fp__all {
+  display: inline-flex; flex: none; align-items: center; gap: var(--spacing-xxs);
+  height: 24px; /* DRIFT: Button xs */
+  padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--button-xs);
+  color: var(--colors-icon-icon-secondary); cursor: pointer;
+}
+.fp__all svg { display: block; flex: none; }
+.fp__all-t {
+  padding: 0 var(--spacing-xxs); white-space: nowrap; color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+  font-family: var(--text-xs-medium-font-family); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+}
+.fp__all:hover { background: var(--colors-background-bg-tertiary); }
+.fp__all:hover .fp__all-t { color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg-hover); }
+
+.fp__list, .fp__grid { margin: 0; padding: 0 var(--spacing-lg); list-style: none; }
+.fp__list { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.fp__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg) 10px; } /* DRIFT: tiles 10 apart (Frame 2147266978) */
+
+/* file row */
+.fr {
+  display: flex; align-items: center; gap: var(--spacing-xs); box-sizing: border-box;
+  height: 60px; /* DRIFT: Inline Cards height */
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-4xl); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+}
+.fr:is(:hover, .is-hover, :focus-within) { background: #fbfaf9; box-shadow: inset 0 0 0 1px #e6e4e0; } /* DRIFT: row hover bg-primary_hover #fbfaf9 + utility-gray-300 #e6e4e0 (14604:278341) */
+.fr__icon { position: relative; flex: none; width: 35px; height: 36px; } /* DRIFT: File type icon/Label 35 x 36 */
+.fr__icon img { position: absolute; left: 0; top: 0; display: block; width: 36px; height: 36px; max-width: none; } /* DRIFT: the 24 icon at 1.5x */
+.fr__text { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; margin-left: var(--spacing-md); } /* 12 after the icon with the row gap of 4 */
+.fr__name, .fr__size { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.fr__name {
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+}
+.fr__size {
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.fr__dl { color: var(--colors-icon-icon-secondary); opacity: 0; }
+.fr__dl svg { display: block; flex: none; }
+.fr:is(:hover, .is-hover, :focus-within) .fr__dl { opacity: 1; }
+
+/* grid tile */
+.ft {
+  position: relative; isolation: isolate; box-sizing: border-box;
+  height: 104px; /* DRIFT: tile height */
+  border-radius: var(--radius-md); overflow: hidden; background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-50);
+}
+.ft::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px #e6e4e0; /* DRIFT: tile stroke utility-gray-300, #e6e4e0 in this file */
+}
+.ft:is(:hover, .is-hover, :focus-within) { box-shadow: 0 4px 12px -2px #e6e4e0, 0 12px 12px -80px #e6e4e0; } /* DRIFT: tile hover shadow, utility-gray-300 #e6e4e0 */
+.ft:is(:hover, .is-hover, :focus-within)::after { box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-400); }
+.ft__thumb {
+  position: absolute; left: 1px; top: 1px; z-index: 0; display: block; max-width: none; /* DRIFT: the crop starts inside the 1px stroke */
+  width: 172px; height: 102px; /* DRIFT: thumbnail crop size (unscaled, as the 1x reference draws it) */
+}
+.ft__chip {
+  position: absolute; z-index: 1; left: 5px; top: 5px; /* DRIFT: chip at 5, 5 (4 padding + 1 outside stroke) */
+  display: inline-flex; align-items: center; gap: var(--spacing-xs);
+  height: 20px; /* DRIFT: Pill squared xs */
+  box-sizing: border-box; padding: var(--spacing-xxs) var(--spacing-xs); border-radius: var(--radius-xs);
+  background: var(--colors-background-bg-primary);
+  box-shadow: 0 0 0 1px #e6e4e0, 0 2px 2px rgba(0, 0, 0, .05); /* DRIFT: outside stroke utility-gray-300 #e6e4e0 + shadow 0 2 2 black 5% */
+  color: var(--colors-text-text-secondary-700);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.ft__chip img { display: block; flex: none; width: 12px; height: 12px; } /* DRIFT: File type icon/Label at 12 */
+/* Buttons/Button Neutral, Size=xs, Hierarchy=Secondary, Icon=Only (11932:738171): 24 x 24, padding 6, white, 1px border-secondary inside */
+.ft__dl {
+  position: absolute; z-index: 3; top: 5px; right: 6px; /* DRIFT: at 144, 5 in the 174 tile */
+  display: flex; align-items: center; justify-content: center; box-sizing: border-box;
+  width: 24px; height: 24px; /* DRIFT: Button xs icon only */
+  padding: var(--spacing-sm); border-radius: var(--button-xs);
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  color: var(--colors-icon-icon-secondary); cursor: pointer; opacity: 0;
+}
+.ft__dl svg { display: block; flex: none; }
+.ft__dl:hover { background: var(--colors-background-bg-tertiary); }
+.ft:is(:hover, .is-hover, :focus-within) .ft__dl { opacity: 1; }

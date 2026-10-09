@@ -1,0 +1,82 @@
+{
+  "id": "cost",
+  "title": "Cost of Chat",
+  "card": "6802:235989",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6802-235989",
+  "costRingStates": { "withinBudget": "thin dark partial arc", "approaching": "orange, nearly full ring", "over": "full red ring" },
+  "steps": [
+    {
+      "step": "01", "nodeId": "6802:235991", "file": "01-6802-235991.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom large filled (/Tech design requirements token)", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Chat mid-run; header cost pill $0.56 with dark partial ring (within budget)",
+      "changedFrom": "start of journey",
+      "action": "open the chat while the agent runs",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "Copilot desktop Input Box / Type=Bottom large, State=Default, Tools & Sources=No, Text=One line, Attachment=No"]
+    },
+    {
+      "step": "02", "nodeId": "6802:236005", "file": "02-6802-236005.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom large filled", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Same screen; cost pill $1.23 with orange ring (approaching limit)",
+      "changedFrom": "amount and ring colour change",
+      "action": "none (spend grows)",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "Copilot desktop Input Box / Type=Bottom large, State=Default, Tools & Sources=No, Text=One line, Attachment=No"]
+    },
+    {
+      "step": "03", "nodeId": "6802:236019", "file": "03-6802-236019.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom large filled", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Same screen; cost pill $1.23 with full red ring (over limit)",
+      "changedFrom": "ring turns red",
+      "action": "none (spend crosses limit)",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "Copilot desktop Input Box / Type=Bottom large, State=Default, Tools & Sources=No, Text=One line, Attachment=No"]
+    },
+    {
+      "step": "04", "nodeId": "6802:236034", "file": "04-6802-236034.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom large filled", "artifactPanel": false, "sidePanel": "cost popover (within budget)", "modal": null,
+      "shows": "Answer with suggested actions; cost pill hovered; 'THIS CHAT $1.23' popover with 1 query and $0/$2/$5 budget bar, 'Within budget'",
+      "changedFrom": "answer rendered; cost popover opened",
+      "action": "hover/click the cost pill",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "Agent COT / Type=With Answer", "cost stat", "Cursor / State=Pointer Hand", "Copilot desktop Input Box / Type=Bottom large, State=Default, Tools & Sources=No, Text=One line, Attachment=No"]
+    },
+    {
+      "step": "05", "nodeId": "6802:236050", "file": "05-6802-236050.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom large filled", "artifactPanel": false, "sidePanel": "cost popover (approaching)", "modal": null,
+      "shows": "Cost pill $3.65 orange; popover lists 10 queries; 'Approaching limit'",
+      "changedFrom": "more queries; approaching-limit state",
+      "action": "hover the cost pill again",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "Response_Desktop full / Property 1=Assistant", "cost stat", "Cursor / State=Pointer Hand", "Copilot desktop Input Box / Type=Bottom large"]
+    },
+    {
+      "step": "06", "nodeId": "6802:236066", "file": "06-6802-236066.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom large filled", "artifactPanel": false, "sidePanel": "cost popover (over limit, pinned)", "modal": null,
+      "shows": "Cost pill $19.45 red; popover pinned open, first row hovered; 'Over limit - Start a new session.'",
+      "changedFrom": "over-limit state; popover stays open without hover",
+      "action": "click the cost pill; hover a query row",
+      "annotations": ["focus state to be the hover state here"],
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "Response_Desktop full / Property 1=Assistant", "cost stat", "Cursor / State=Pointer Hand", "Copilot desktop Input Box / Type=Bottom large"]
+    },
+    {
+      "step": "07", "nodeId": "6802:236106", "file": "07-6802-236106.png", "kind": "step", "canvasOpacity": 0.3,
+      "nav": "dark collapsed", "composer": "bottom large filled", "artifactPanel": false, "sidePanel": "cost popover (monthly usage exhausted)", "modal": null,
+      "shows": "Popover footer 'Out of usage this month $259 of @259', 'Resume on 1 October', 'Request more'",
+      "changedFrom": "monthly quota exhausted block replaces the session bar",
+      "action": "hover/click the cost pill when monthly usage is exhausted",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "cost stat", "Cursor / State=Pointer Hand", "Copilot desktop Input Box / Type=Bottom large"]
+    },
+    {
+      "step": "08", "nodeId": "6802:236145", "file": "08-6802-236145.png", "kind": "step", "canvasOpacity": 0.4,
+      "nav": "under scrim", "composer": "under scrim", "artifactPanel": false, "sidePanel": null, "modal": "Ask for more Usage",
+      "shows": "Overlay modal 'Ask for more Usage': How much more ($100), Why (Give reason), Cancel / Send",
+      "changedFrom": "modal overlay opened",
+      "action": "click 'Request more' in the cost popover",
+      "components": ["Modal header / Type=Subtext Single line", "Input field_outline / Size=lg, Type=Icon leading, Destructive=False, State=Filled", "Textarea input field / Type=Default, Destructive=False, State=Placeholder", "Modal actions / Type=Horizontal right aligned (checkbox), Size=sm, Destructive=False, Inset=No, Divider=Yes"]
+    },
+    {
+      "step": "09", "nodeId": "6802:236125", "file": "09-6802-236125.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom large filled + pending card above", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Chat with 'Request pending approval — $100 of additional usage requested' card above the composer; cost pill $19.12 red",
+      "changedFrom": "modal closed; pending-approval card inserted",
+      "action": "fill amount + reason and click Send in the modal",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default, Type=Default", "Agent COT / Type=Step 3", "Inline Cards / State=Default", "Copilot desktop Input Box / Type=Bottom large, State=Default, Tools & Sources=No, Text=One line, Attachment=No"]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+/* ----------------------------------------------------------------------------
+   page-header — DS "Page Header" (setKey per ds/components.md: 20650:6545)
+                 embeds DS "Breadcrumb Bar" (36664:35617)
+   Figma: 16740:306227
+   Screen: Dashboard 16740:306222
+
+   design-rules §11 Case A (breadcrumbs present): page top padding 0, breadcrumb
+   flush to top edge, header carries a leading back button.
+---------------------------------------------------------------------------- */
+
+.page-header { display: flex; align-items: center; gap: var(--spacing-lg); width: 100%; }
+.page-header__stack { display: flex; flex: 1 0 0; flex-direction: column; min-width: 0; }
+
+/* ---- breadcrumb bar ---- */
+.page-header__breadcrumbs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: var(--spacing-xl);
+  /* Figma draws this rule inside the 28px bar (stroke aligned inside), so it
+     must not add a 29th pixel. box-shadow paints without affecting layout. */
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+
+.breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  height: 28px;
+  padding-block: var(--spacing-xxs);
+}
+
+.breadcrumb-bar__trail {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xxs) var(--spacing-xl);
+}
+
+.breadcrumb-bar__workspace {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-xxs) var(--spacing-xs) var(--spacing-xs);
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  cursor: pointer;
+  overflow: clip;
+}
+.breadcrumb-bar__workspace:hover { background: var(--colors-background-bg-tertiary); }
+.breadcrumb-bar__workspace-inner { display: flex; align-items: center; gap: var(--spacing-xxs); }
+
+.breadcrumb-bar__icon { flex: none; width: 12px; height: 12px; color: var(--colors-icon-icon-secondary); }
+.breadcrumb-bar__icon svg { display: block; width: 100%; height: 100%; }
+
+.breadcrumb-bar__rule {
+  flex: none;
+  width: 1px;
+  height: 14px;
+  margin-inline: var(--spacing-md);
+  background: var(--colors-border-border-primary);
+}
+
+.breadcrumb-bar__crumbs { display: flex; align-items: center; gap: var(--spacing-xs); }
+
+.breadcrumb-bar__link {
+  font-family: var(--text-xxs-regular-font-family);
+  font-weight: var(--text-xxs-regular-font-weight);
+  font-size: var(--text-xxs-regular-font-size);
+  line-height: var(--text-xxs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.breadcrumb-bar__link:hover { color: var(--colors-text-text-secondary-700); }
+
+.breadcrumb-bar__sep { flex: none; width: 10px; height: 10px; color: var(--colors-utility-gray-utility-gray-300); }
+.breadcrumb-bar__sep svg { display: block; width: 100%; height: 100%; }
+
+.breadcrumb-bar__current {
+  font-family: var(--text-xxs-regular-font-family);
+  font-weight: var(--text-xxs-regular-font-weight);
+  font-size: var(--text-xxs-regular-font-size);
+  line-height: var(--text-xxs-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+  white-space: nowrap;
+}
+
+/* AI FDE chip on the far right of the breadcrumb bar */
+.breadcrumb-bar__aside { display: flex; align-items: center; }
+.ai-fde {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  box-sizing: border-box;
+  background: var(--colors-background-bg-workspace);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-family-code);
+  /* DRIFT: same stale `-Code` family row as stat.css — sizes bind, family set here. */
+  font-size: var(--text-xxs-regular-code-font-size);
+  font-weight: var(--text-xxs-regular-code-font-weight);
+  line-height: var(--text-xxs-regular-code-line-height);
+  color: var(--colors-text-text-secondary-700);
+  white-space: nowrap;
+  overflow: clip;
+}
+.ai-fde__icon { flex: none; width: 12px; height: 12px; }
+.ai-fde__icon svg { display: block; width: 100%; height: 100%; }
+
+/* ---- title row ---- */
+.page-header__main {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-xl) 0;
+}
+
+.page-header__heading { display: flex; flex: 1 0 0; flex-direction: column; justify-content: center; min-width: 0; }
+
+.page-header__title-row { display: flex; align-items: center; gap: var(--spacing-sm); }
+
+/* DS "Small Icon Button" — 20px, back affordance (design-rules §11 Case A) */
+.small-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  padding: 0;
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-tertiary);
+  border-radius: var(--radius-sm);
+  color: var(--colors-icon-icon-secondary);
+  cursor: pointer;
+  overflow: clip;
+  appearance: none;
+}
+.small-icon-btn:hover,
+.small-icon-btn[data-force="hover"] { background: var(--colors-background-bg-tertiary); }
+.small-icon-btn:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: 1px;
+}
+.small-icon-btn svg { display: block; width: 14px; height: 14px; }
+
+.page-header__title {
+  font-family: var(--display-xs-medium-font-family);
+  font-weight: var(--display-xs-medium-font-weight);
+  font-size: var(--display-xs-medium-font-size);
+  line-height: var(--display-xs-medium-line-height);
+  letter-spacing: var(--display-xs-medium-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+  white-space: nowrap;
+}
+
+.page-header__supporting {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  /* aligns under the title, clearing the 20px back button + its 8px gap.
+     Derived from tokens rather than stated as 28. */
+  padding-left: calc(var(--spacing-2xl) + var(--spacing-md));
+}
+
+.page-header__supporting-text {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}

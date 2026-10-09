@@ -1,0 +1,188 @@
+/* =============================================================================
+   Nav, expanded (280): dark 226:81200, light 9721:594967.
+   Ported from prototypes/project-dashboard/project-dashboard.css: same values, same DRIFT markers.
+   Nav colours on dark are white alphas over brand green (no semantic token exists), so they stay
+   literal with a DRIFT marker, as verify.sh requires.
+
+   Changes from the prototype, all layout-only:
+   - the nav fills its column (height: 100%) instead of sitting on a 900px artboard at left: 0;
+   - the item list scrolls (scrollbar hidden, as the frame draws none) instead of clipping;
+   - every selector is scoped under .nav so the short class names (.nt, .lt, .ni …) cannot leak;
+   - chat rows are a <div> with a stretched "open" button (two controls can't nest in one <a>).
+   ============================================================================= */
+
+.nav {
+  position: relative; width: 280px; height: 100%; min-height: 0; /* DRIFT: rail geometry (Main_nav 280) */
+  display: flex; flex-direction: column; overflow: clip;
+}
+.nav--dark { background-image: linear-gradient(90deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.3) 100%), linear-gradient(90deg, var(--colors-utility-brand-utility-brand-500) 0%, var(--colors-utility-brand-utility-brand-500) 100%); } /* DRIFT: nav overlay */
+
+.nav .nav__top { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; gap: var(--spacing-xl); padding-top: var(--spacing-lg); }
+.nav .nav__head { margin: 0 var(--spacing-md); height: 40px; display: flex; align-items: center; justify-content: space-between; border-radius: var(--radius-md); overflow: clip; flex: none; } /* DRIFT: row height */
+.nav .nav__logo { flex: 1 1 0; min-width: 0; height: 40px; display: flex; align-items: center; gap: var(--spacing-md); padding: 0 var(--spacing-md) 0 var(--spacing-xs); overflow: clip; } /* DRIFT: row height */
+.nav .nav__word { flex: none; width: 160px; height: 40px; display: flex; align-items: center; } /* DRIFT: logo slot */
+.nav .nav__word img { width: 99px; height: 32px; } /* DRIFT: wordmark */
+.nav .nav__tools { display: flex; gap: var(--spacing-xs); flex: none; }
+.nav .nbtn { width: 36px; height: 36px; padding: var(--spacing-md); border-radius: var(--button-md); display: flex; align-items: center; justify-content: center; } /* DRIFT: button size */
+.nav .nbtn img { width: 18px; height: 18px; } /* DRIFT: icon */
+
+/* the item list is the nav's own scroll area; the frame draws no scrollbar, so none is shown */
+.nav .nav__scroll { flex: 1 1 0; min-height: 0; overflow: hidden auto; overscroll-behavior: contain; scrollbar-width: none; display: flex; flex-direction: column; align-items: center; }
+.nav .nav__scroll::-webkit-scrollbar { display: none; }
+.nav .ngrp { width: 100%; display: flex; flex-direction: column; flex: none; }
+.nav .ngrp--primary { gap: var(--spacing-xs); padding: 0 var(--spacing-md) var(--spacing-xs); }
+.nav .ngrp--sec { padding: var(--spacing-xs) var(--spacing-md); }
+.nav .ngrp--clip { overflow: clip; }
+.nav .ngrp--hist { gap: var(--spacing-lg); padding: var(--spacing-md) var(--spacing-md) 0; }
+.nav .nhgrp { display: flex; flex-direction: column; }
+
+.nav .nt {
+  flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+  color: rgba(255,255,255,.6); /* DRIFT: Navigation/text_tertiary */
+}
+.nav .nt--m { font-weight: var(--text-sm-medium-font-weight); }
+.nav .nt--pre { white-space: pre; }
+
+/* Nav_menu/Main — Default / Hover (.1) / Selected (.17 + white text) */
+.nav .nrow { position: relative; display: flex; align-items: center; height: 32px; padding: var(--spacing-sm) var(--spacing-xxs) var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); overflow: clip; } /* DRIFT: row height */
+.nav .nrow--pr4 { padding-right: var(--spacing-xs); }
+.nav .nrow__in { width: 248px; display: flex; align-items: center; gap: var(--spacing-lg); } /* DRIFT: icon-text width */
+.nav .nrow__in--fill { width: auto; flex: 1 1 0; min-width: 0; }
+.nav .ni { width: 16px; height: 16px; flex: none; } /* DRIFT: icon */
+.nav .nrow:is(:hover, .is-hover) { background: rgba(255,255,255,.1); } /* DRIFT: Hover bg (Nav_menu/Main State=Hover) */
+.nav .nrow.is-selected { background: rgba(255,255,255,.17); } /* DRIFT: Hover bg (State=Selected) */
+.nav .nrow.is-selected .nt { color: var(--colors-text-text-white); }
+.nav .nrow-wrap { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); }
+.nav .nline { display: block; width: 250px; height: 1px; margin-bottom: -1px; background: rgba(255,255,255,.1); flex: none; } /* DRIFT: divider */
+.nav .nsep { display: flex; flex-direction: column; align-items: center; padding-top: var(--spacing-md); }
+
+.nav .nsub { display: flex; align-items: center; gap: var(--spacing-md); height: 32px; padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); } /* DRIFT: row height */
+.nav .nsub__t { flex: 1 1 0; font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: rgba(255,255,255,.4); } /* DRIFT: nav subheader */
+.nav .nsub__chev { width: 20px; height: 20px; flex: none; border-radius: var(--radius-xs); } /* DRIFT: icon button */
+.nav .nsub__chev img { width: 20px; height: 20px; } /* DRIFT: icon */
+
+/* Nav_menu/Agent — hover inferred from Nav_menu/Main (.1); not drawn in the frame */
+.nav .nagent { display: flex; align-items: center; gap: 10px; height: 32px; padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); overflow: clip; } /* DRIFT: off-scale gap, row height */
+.nav .nagent:is(:hover, .is-hover) { background: rgba(255,255,255,.1); } /* DRIFT: inferred hover */
+.nav .nav-av { width: 20px; height: 20px; flex: none; } /* DRIFT: avatar */
+
+.nav .ntree { display: flex; gap: var(--spacing-xs); padding-left: var(--spacing-xl); height: 64px; overflow: clip; } /* DRIFT: tree height */
+.nav .ntree__line { width: 1px; height: 64px; flex: none; } /* DRIFT: tree rule */
+.nav .ntree__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+
+/* Nav_menu/Chat_history — Default (dot) / Hover (.1, white text, ⋯ replaces the dot, pr4).
+   Focus on the row (or its ⋯) shows the hover state too, so the ⋯ is displayed and Tab can reach it, as the chats
+   table does for its row ⋮. (:focus-within, not :has(:focus-visible): moving focus from the row to its ⋯, Chrome
+   re-matches :has() between the blur and the focus, the ⋯ is hidden for that moment, and focus drops to <body>.) */
+.nav .nchat { position: relative; display: flex; align-items: center; gap: var(--spacing-sm); height: 32px; padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); overflow: clip; } /* DRIFT: row height */
+.nav .nchat--pl4 { padding-left: var(--spacing-xs); }
+.nav .nchat--pr4 { padding-right: var(--spacing-xs); }
+.nav .ndot { width: 16px; height: 16px; flex: none; } /* DRIFT: dot slot */
+.nav .ntime { margin-left: var(--spacing-xxs); flex: none; font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: rgba(255,255,255,.3); } /* DRIFT: text_quarternary */
+.nav .nmore { display: none; width: 20px; height: 20px; flex: none; border-radius: var(--radius-xs); } /* DRIFT: small icon button */
+.nav .nmore img { width: 20px; height: 20px; } /* DRIFT: small icon button */
+.nav .nchat:is(:hover, .is-hover, :focus-within) { background: rgba(255,255,255,.1); gap: var(--spacing-md); padding-right: var(--spacing-xs); } /* DRIFT: Hover bg */
+.nav .nchat:is(:hover, .is-hover, :focus-within) .nt { color: var(--colors-text-text-white); }
+.nav .nchat:is(:hover, .is-hover, :focus-within) :is(.ndot, .ntime) { display: none; }
+.nav .nchat:is(:hover, .is-hover, :focus-within) .nmore { display: block; }
+/* the row's "open" button covers it; ⋯ sits above. The row clips, so the focus ring is drawn inside. */
+.nav .nchat__open { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.nav .nchat__open:focus-visible { outline-offset: -2px; }
+.nav .nchat .nmore { position: relative; z-index: 2; }
+
+.nav .nfoot {
+  flex: none; height: 52px; display: flex; align-items: center; justify-content: center; gap: var(--spacing-md); /* DRIFT: footer */
+  padding: var(--spacing-md) 14px var(--spacing-md) var(--spacing-md); /* DRIFT: off-scale */
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,.1); /* DRIFT: footer rule */
+}
+.nav .nfoot__av { width: 32px; height: 32px; flex: none; border-radius: var(--radius-full); background: rgba(255,255,255,.2); text-align: center; font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: 32px; color: rgba(255,255,255,.7); } /* DRIFT: nav avatar */
+.nav .nfoot__name { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: rgba(255,255,255,.6); } /* DRIFT: nav text */
+.nav .nfoot__btns { display: flex; gap: var(--spacing-xxs); }
+.nav .nfbtn { width: 24px; height: 24px; border-radius: var(--button-xs); } /* DRIFT: xs button */
+.nav .nfbtn img { width: 24px; height: 24px; } /* DRIFT: xs button */
+
+/* Measured against the 1:1 Figma render: Chrome seats Geist 13px 1px higher than Figma
+   inside the same line box (11/12/15px runs already match). */
+.nav .nt, .nav .nsub__t, .nav .nfoot__name { position: relative; top: 1px; } /* DRIFT: baseline offset, measured */
+.nav .nrow-wrap .nrow { align-self: stretch; }
+.nav .ntree__line { margin-right: -1px; } /* the rule's frame is 0px wide in the file */
+
+.nav :is(.nrow, .nagent, .nchat, .lrow, .lagent, .lchat) { cursor: pointer; }
+
+/* ---------------------------------------------------------------- status dots
+   As designed: the file's static Dot exports (16px, .sdot-img). With fix nav-status-dots-animated (src/fixes/projects.ts),
+   animated in the same 16px slot and centre: */
+.nav .sdot-img { display: block; width: 16px; height: 16px; flex: none; } /* DRIFT: dot slot */
+/* Same 16px slot and centre as the file's Dot states.
+   waiting  : dot pulsing 6px -> 4px diameter
+   progress : the 6px gradient ring turns as a loader
+   failed   : the 6px red ring, brighter on the dark rail (error-500 -> error-400)
+   unread   : static 6px dot */
+.nav .sdot { position: relative; display: block; width: 16px; height: 16px; } /* DRIFT: dot slot */
+.nav .sdot::before { content: ""; position: absolute; left: 50%; top: 50%; border-radius: var(--radius-full); transform: translate(-50%, -50%); }
+.nav .sdot--waiting::before { width: 6px; height: 6px; background: var(--colors-text-text-white); animation: nav-sdot-pulse 1.2s ease-in-out infinite; } /* DRIFT: 6px dot */
+@keyframes nav-sdot-pulse { 0%, 100% { width: 6px; height: 6px; } 50% { width: 4px; height: 4px; } } /* DRIFT: 6 -> 4px, as asked */
+.nav .sdot--progress::before {
+  width: 6px; height: 6px; /* DRIFT: ring diameter (r2.5 + 1px stroke) */
+  background: conic-gradient(from 0deg, rgba(255,255,255,0) 0deg, rgba(255,255,255,.15) 90deg, rgba(255,255,255,.9) 330deg, rgba(255,255,255,0) 360deg); /* DRIFT: loader sweep on the nav green */
+  -webkit-mask: radial-gradient(circle, transparent 1.9px, #000 2px); mask: radial-gradient(circle, transparent 1.9px, #000 2px); /* DRIFT: 1px ring */
+  animation: nav-sdot-spin .9s linear infinite;
+}
+@keyframes nav-sdot-spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+.nav .sdot--failed::before { width: 6px; height: 6px; box-shadow: inset 0 0 0 1px var(--colors-utility-error-utility-error-400); } /* DRIFT: 6px ring; brighter red (error-400) */
+.nav .sdot--unread::before { width: 6px; height: 6px; background: var(--colors-text-text-white); } /* DRIFT: 6px dot */
+/* light mode: ring/dot #2f2e2d (bg-solid-secondary); failed keeps error-400 */
+.nav .sdot--lt.sdot--waiting::before { background: var(--colors-background-bg-solid-secondary); }
+.nav .sdot--lt.sdot--progress::before { background: conic-gradient(from 0deg, rgba(47,46,45,0) 0deg, rgba(47,46,45,.15) 90deg, rgba(47,46,45,.85) 330deg, rgba(47,46,45,0) 360deg); } /* DRIFT: loader sweep in #2f2e2d */
+@media (prefers-reduced-motion: reduce) { .nav .sdot::before { animation: none; } }
+
+/* ---------------------------------------------------------------- light, expanded (9721:594967) */
+.nav.nav--light {
+  padding: 0 var(--spacing-xxs);
+  background: var(--colors-background-bg-secondary);
+  box-shadow: inset -1px 0 0 0 var(--colors-border-border-primary);
+}
+.nav .lnav__head { margin: 0 var(--spacing-md); }
+.nav .lgrp { width: 100%; display: flex; flex-direction: column; flex: none; padding: var(--spacing-xs) 10px; } /* DRIFT: off-scale */
+.nav .lgrp--primary { gap: var(--spacing-xs); padding: 0 10px var(--spacing-xs); } /* DRIFT: off-scale */
+.nav .lgrp--hist { gap: var(--spacing-lg); padding: var(--spacing-md) 10px 0; } /* DRIFT: off-scale */
+.nav .lt { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-primary-900); position: relative; top: 1px; } /* DRIFT: measured baseline */
+.nav .lt--2 { color: var(--colors-text-text-secondary-700); }
+.nav .lrow { position: relative; display: flex; align-items: center; height: 32px; padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); } /* DRIFT: row height */
+.nav .lrow--pr2 { padding-right: var(--spacing-xxs); }
+.nav :is(.lrow, .lchat, .lagent)::before { content: ""; position: absolute; top: 0; bottom: 0; left: -2px; right: -2px; border-radius: var(--radius-md); z-index: 0; } /* DRIFT: Hover bg is 260 on a 256 row */
+.nav :is(.lrow, .lchat, .lagent) > * { position: relative; z-index: 1; }
+.nav :is(.lrow, .lagent, .lchat):is(:hover, .is-hover)::before { background: var(--colors-background-bg-secondary-hover); }
+.nav .lrow.is-selected::before { background: var(--colors-background-bg-quaternary); }
+.nav .lrow-wrap { align-items: stretch; }
+.nav .lline { display: block; width: 250px; height: 1px; margin: 0 auto -1px; background: var(--colors-border-border-secondary); flex: none; } /* DRIFT: divider */
+.nav .lrow-wrap .lline { align-self: center; }
+.nav .lsub { display: flex; align-items: center; gap: var(--spacing-md); height: 32px; padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md); } /* DRIFT: row height */
+.nav .lsub__t { flex: 1 1 0; font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--palette-gray-light-mode-500); position: relative; top: 1px; } /* DRIFT: #8f8a85 live text-quaternary */
+.nav .lagent { position: relative; display: flex; align-items: center; gap: 10px; height: 32px; padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); } /* DRIFT: off-scale gap */
+.nav .lchat { position: relative; display: flex; align-items: center; gap: var(--spacing-md); height: 32px; padding: var(--spacing-sm) var(--spacing-xxs) var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); } /* DRIFT: row height */
+.nav .lchat--pr4 { padding-right: var(--spacing-xs); }
+.nav .lchat__in { flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: var(--spacing-sm); }
+.nav .ldot { width: 16px; height: 16px; flex: none; } /* DRIFT: dot slot */
+.nav .lchat:is(:hover, .is-hover) .lt { color: var(--colors-text-text-primary-900); }
+.nav .ltime { flex: none; font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--palette-gray-light-mode-500); } /* DRIFT: #8f8a85 */
+.nav .lmore { width: 20px; height: 20px; flex: none; border-radius: var(--radius-xs); } /* DRIFT: small icon button */
+.nav .lmore img { width: 20px; height: 20px; } /* DRIFT: icon */
+.nav .lmore:is(:hover, .is-hover) { background: var(--colors-background-bg-quaternary); }
+/* the row's "open" button covers it (above the hover layer and the content); ⋯ sits above that */
+.nav .lchat > .lchat__open { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+.nav .lchat > .lmore { z-index: 3; }
+.nav .lfoot { flex: none; height: 48px; display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-md); box-shadow: inset 0 1px 0 0 var(--colors-border-border-secondary); } /* DRIFT: footer height */
+.nav .lfoot__av { width: 32px; height: 32px; flex: none; border-radius: var(--radius-full); background: var(--colors-utility-gray-utility-gray-200); text-align: center; font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: 32px; color: var(--colors-text-text-secondary-700); } /* DRIFT: centred letter */
+.nav .lfoot__name { flex: 1 1 0; min-width: 0; font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-primary-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nav .lfoot__chev { width: 16px; height: 16px; } /* DRIFT: icon */
+.nav .lfoot__chev img { width: 16px; height: 16px; } /* DRIFT: icon */
+
+/* Keyboard focus on the dark nav: the global brand-500 ring is 1.1:1 against this green, so it turns white here
+   (17:1 on the nav, 10:1 on a selected row). The light nav keeps the global ring. */
+.nav--dark :focus-visible { outline-color: var(--colors-border-border-white); }
+
+/* head buttons: white .1 on dark, bg-secondary-hover on light */
+.nav--dark .nbtn:is(:hover, .is-hover) { background: rgba(255,255,255,.1); } /* DRIFT: nav hover (dark) */
+.nav--light .nbtn:is(:hover, .is-hover) { background: var(--colors-background-bg-secondary-hover); }

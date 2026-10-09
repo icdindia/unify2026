@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access Picker</title>
+  <!-- Prototype: team + people selection for "who can use this" across the platform.
+       Source frames: UnifyApps Platform (3) 2026, section 8324:361899. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/tokens.css">
+  <link rel="stylesheet" href="../../shared/tokens.live-overrides.css">
+  <link rel="stylesheet" href="../../shared/typography.css">
+  <link rel="stylesheet" href="../../components/audience-picker/audience-picker.css?v=5">
+  <link rel="stylesheet" href="./access-picker.css?v=1">
+</head>
+<body>
+<div class="app" data-node-id="8324:353016">
+  <nav class="rail" data-node-id="8324:353017" aria-label="Platform">
+    <div class="rail__top">
+      <div class="rail__logo" aria-label="UnifyApps"><div class="rail__logo-g"><div style="top:48.66%;right:48.34%;bottom:47.05%;left:47.52%"><img alt="" src="assets/group.svg"></div><div style="top:48.34%;right:47.99%;bottom:46.7%;left:47.17%"><img alt="" src="assets/group1.svg"></div><div style="top:48.06%;right:47.57%;bottom:46.28%;left:46.77%"><img alt="" src="assets/group2.svg"></div><div style="top:47.59%;right:47.08%;bottom:45.79%;left:46.3%"><img alt="" src="assets/group3.svg"></div><div style="top:47.03%;right:46.58%;bottom:45.23%;left:45.75%"><img alt="" src="assets/group4.svg"></div><div style="top:46.4%;right:46.15%;bottom:44.55%;left:45.1%"><img alt="" src="assets/group5.svg"></div><div style="top:45.64%;right:45.42%;bottom:43.78%;left:44.35%"><img alt="" src="assets/group6.svg"></div><div style="top:44.76%;right:44.56%;bottom:42.96%;left:43.47%"><img alt="" src="assets/group7.svg"></div><div style="top:43.72%;right:43.57%;bottom:42.28%;left:42.44%"><img alt="" src="assets/group8.svg"></div><div style="top:42.52%;right:42.4%;bottom:41.11%;left:41.23%"><img alt="" src="assets/group9.svg"></div><div style="top:41.12%;right:41.03%;bottom:39.74%;left:39.98%"><img alt="" src="assets/group10.svg"></div><div style="top:39.47%;right:39.44%;bottom:38.16%;left:38.92%"><img alt="" src="assets/group11.svg"></div><div style="top:37.55%;right:37.58%;bottom:36.29%;left:37.11%"><img alt="" src="assets/group12.svg"></div><div style="top:35.55%;right:35.41%;bottom:34.11%;left:35.01%"><img alt="" src="assets/group13.svg"></div><div style="top:33.84%;right:32.86%;bottom:31.57%;left:32.54%"><img alt="" src="assets/group14.svg"></div><div style="top:30.95%;right:29.88%;bottom:28.59%;left:29.66%"><img alt="" src="assets/group15.svg"></div><div style="top:27.59%;right:26.8%;bottom:25.11%;left:26.29%"><img alt="" src="assets/group16.svg"></div><div style="top:23.66%;right:24.16%;bottom:21.04%;left:22.36%"><img alt="" src="assets/group17.svg"></div><div style="top:19.04%;right:19.7%;bottom:16.27%;left:17.75%"><img alt="" src="assets/group18.svg"></div><div style="top:13.66%;right:14.49%;bottom:11.35%;left:12.37%"><img alt="" src="assets/group19.svg"></div><div style="top:7.37%;right:8.41%;bottom:7.13%;left:6.09%"><img alt="" src="assets/group20.svg"></div><div style="inset:0"><img alt="" src="assets/group21.svg"></div></div></div>
+      <div class="rail__nav"><div class="rail__unit"><button class="rail__btn" aria-label="Agents" title="Agents"><img alt="" src="assets/ai-agent.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Apps" title="Apps"><img alt="" src="assets/lc-card.svg"></button></div><div class="rail__unit"><button class="rail__btn is-active" aria-label="Automations" title="Automations"><img alt="" src="assets/zap.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Workflows" title="Workflows"><img alt="" src="assets/structure.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Data" title="Data"><img alt="" src="assets/database01.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Add-ons" title="Add-ons"><img alt="" src="assets/grid-plus.svg"></button></div></div>
+    </div>
+    <div class="rail__foot"><div class="rail__unit"><button class="rail__btn" aria-label="Agent governance" title="Agent governance"><img alt="" src="assets/shield-agent2.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Security" title="Security"><img alt="" src="assets/shield01.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Environments" title="Environments"><img alt="" src="assets/layers-three01.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Settings" title="Settings"><img alt="" src="assets/settings01.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Notifications" title="Notifications"><img alt="" src="assets/bell01.svg"></button></div><div class="rail__unit"><button class="rail__btn" aria-label="Ask Unify" title="Ask Unify"><img alt="" src="assets/ai-es-chat.svg"></button></div>
+      <span class="rail__pill t-xxs-m">99+</span>
+      <div class="rail__me"><span class="rail__av t-sm-m">T</span></div>
+    </div>
+  </nav>
+
+  <div class="main">
+    <header>
+      <div class="crumbs">
+        <div class="crumbs__l">
+          <span class="crumb t-xxs"><img alt="" src="assets/git-branch01.svg">release/q3-experience<img alt="" src="assets/clock.svg"></span>
+          <span class="crumb__sep"></span>
+          <span class="crumb t-xxs"><img alt="" src="assets/globe01.svg">Workspace Name 1<img alt="" src="assets/clock.svg"></span>
+          <span class="crumb__sep"></span>
+          <span class="crumb t-xxs">Enterprise Search</span>
+        </div>
+        <span class="fde"><img alt="" src="assets/ai-star.svg">AI FDE</span>
+      </div>
+      <div class="ph" data-node-id="62798:38411">
+        <div class="ph__text">
+          <h1 class="ph__title">Enterprise Search</h1>
+          <p class="t-xs c-2">Admin · insights, people, and governance for Enterprise Search</p>
+        </div>
+        <div class="ph__actions">
+          <span class="ph__dirty t-xs" id="dirty"><i></i>Unpublished changes</span>
+          <button class="btn btn--neutral t-sm-m"><img alt="" src="assets/share04.svg"><span class="btn__t">Preview Enterprise Search</span></button>
+          <button class="btn btn--brand t-sm-m" id="publish"><span class="btn__t">Publish</span></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="work">
+        <aside class="snav" data-node-id="8324:353023">
+          <div class="snav__h t-caps">Agent Setup</div>
+          <div class="snav__list">
+            <button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/ai-agent1.svg"></span><span class="snav__label">Agent Identity</span></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/plug-in.svg"></span><span class="snav__label">Connectors</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/grid01.svg"></span><span class="snav__label">Models</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/humanise.svg"></span><span class="snav__label">Memory</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/tool01.svg"></span><span class="snav__label">Tools</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/script.svg"></span><span class="snav__label">Skills</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/ai-memory.svg"></span><span class="snav__label">Capabilities</span></button>
+            <button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/apps-es.svg"></span><span class="snav__label">Features</span><img class="snav__chev" alt="" src="assets/chevron-right-sm1.svg" style="transform:rotate(90deg)"></button>
+            <div class="snav__sub">
+              <button class="snav__subitem t-sm" data-page="routines"><span>Routines</span></button>
+              <button class="snav__subitem t-sm" data-page="meetings"><span>Meetings</span></button>
+            </div>
+            <button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/users01.svg"></span><span class="snav__label">People</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/scales01.svg"></span><span class="snav__label">Governance</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/settings2.svg"></span><span class="snav__label">Settings</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button>
+          </div>
+          <div class="snav__div"></div>
+          <div class="snav__h t-caps">Agent Preview</div>
+          <div class="snav__list"><button class="snav__item t-sm"><span class="snav__ico"><img alt="" src="assets/play.svg"></span><span class="snav__label">Test Agent</span><img class="snav__chev" alt="" src="assets/chevron-right-sm.svg"></button></div>
+        </aside>
+        <section class="pane" id="pane"></section>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../components/audience-picker/audience-picker.js?v=2"></script>
+<script src="./app.js?v=3"></script>
+</body>
+</html>

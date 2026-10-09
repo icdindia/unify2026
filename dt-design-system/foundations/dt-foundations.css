@@ -1,0 +1,272 @@
+/* Deutsche Telekom foundations, extracted from ODS Storybook (ods.trap.ng.telekom.net) on 2026-09-29.
+   Font: TeleNeoWeb package (variable + static woff2). Colours: ODS neutral scheme, light-dark() pairs. */
+
+/* ---------- Font ---------- */
+@font-face { font-family: "TeleNeo Var"; src: url("fonts/TeleNeoVariable-Upright.woff2") format("woff2-variations"), url("fonts/TeleNeoVariable-Upright.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "TeleNeo Var"; src: url("fonts/TeleNeoVariable-Italic.woff2") format("woff2-variations"), url("fonts/TeleNeoVariable-Italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-Thin.woff2") format("woff2"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-ThinItalic.woff2") format("woff2"); font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-RegularItalic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-MediumItalic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-BoldItalic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-ExtraBold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-ExtraBoldItalic.woff2") format("woff2"); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-Ultra.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "TeleNeoWeb"; src: url("fonts/TeleNeoWeb-UltraItalic.woff2") format("woff2"); font-weight: 900; font-style: italic; font-display: swap; }
+
+:root {
+  color-scheme: light dark;
+  --font-family: "TeleNeo Var", TeleNeoWeb, sans-serif;
+
+  /* ---------- Brand magenta ramp (light values; ODS accent shades) ---------- */
+  --dt-magenta-subtle:          #F9CCE3;
+  --dt-magenta-hover-subtle:    #FDEAF3;
+  --dt-magenta-extra-dominant:  #EE66AC;
+  --dt-magenta-dominant:        #E83390;
+  --dt-magenta:                 #E20074; /* brand colour */
+  --dt-magenta-recessive:       #B5005D; /* hover */
+  --dt-magenta-extra-recessive: #880046; /* pressed */
+  --dt-magenta-dark-mode-text:  #F61488; /* text-dominant / link in dark */
+
+  /* ---------- Grey palette (light values; ODS neutral shades) ---------- */
+  --dt-white:    #FFFFFF;
+  --dt-grey-50:  #F6F6F6;
+  --dt-grey-100: #F1F1F1;
+  --dt-grey-200: #DDDDDD;
+  --dt-grey-300: #CACACA;
+  --dt-grey-400: #B6B6B6;
+  --dt-grey-500: #A3A3A3;
+  --dt-grey-600: #828282;
+  --dt-grey-700: #616161;
+  --dt-grey-800: #414141;
+  --dt-grey-900: #202020;
+  --dt-black:    #000000;
+  /* also used in dark mode only: #555555, #FAFAFA */
+
+  /* ---------- ODS semantic tokens, neutral scheme (verbatim) ---------- */
+  --colours-basic-background: light-dark(#FFFFFF, #000000);
+  --colours-basic-background-subtle: light-dark(#F1F1F1, #202020);
+  --colours-basic-background-card: light-dark(#F1F1F1, #202020);
+  --colours-basic-background-card-subtle: light-dark(#FFFFFF, #000000);
+  --colours-basic-text: light-dark(#000000, #FFFFFF);
+  --colours-basic-text-dominant: light-dark(#E20074, #F61488);
+  --colours-basic-text-recessive: light-dark(#414141, #DDDDDD);
+  --colours-basic-text-link: light-dark(#E20074, #F61488);
+  --colours-basic-accent: light-dark(#E20074, #E20074);
+  --colours-basic-text-on-accent: light-dark(#FFFFFF, #FFFFFF);
+  --colours-basic-accent-secondary: light-dark(#000000, #FFFFFF);
+  --colours-basic-text-on-accent-secondary: light-dark(#FFFFFF, #000000);
+  --colours-basic-stroke: light-dark(#000000, #FFFFFF);
+  --colours-basic-stroke-subtle: light-dark(#828282, #CACACA);
+  --colours-basic-modal-overlay: light-dark(rgba(0,0,0,.4), rgba(255,255,255,.4));
+  --colours-shades-accent-shades-accent-subtle: light-dark(#F9CCE3, #FFBDDF);
+  --colours-shades-accent-shades-accent-extra-dominant: light-dark(#EE66AC, #FF69B6);
+  --colours-shades-accent-shades-accent-dominant: light-dark(#E83390, #FF3FA1);
+  --colours-shades-accent-shades-accent-recessive: light-dark(#B5005D, #CD016A);
+  --colours-shades-accent-shades-accent-extra-recessive: light-dark(#880046, #AD0A5D);
+  --colours-shades-secondary-accent-shades-secondary-accent-subtle: light-dark(#F1F1F1, #414141);
+  --colours-shades-secondary-accent-shades-secondary-accent-extra-dominant: light-dark(#202020, #F1F1F1);
+  --colours-shades-secondary-accent-shades-secondary-accent-dominant: light-dark(#414141, #DDDDDD);
+  --colours-shades-secondary-accent-shades-secondary-accent-recessive: light-dark(#616161, #CACACA);
+  --colours-shades-secondary-accent-shades-secondary-accent-extra-recessive: light-dark(#828282, #A3A3A3);
+  --colours-shades-neutral-shades-50: light-dark(#F6F6F6, #202020);
+  --colours-shades-neutral-shades-100: light-dark(#F1F1F1, #414141);
+  --colours-shades-neutral-shades-200: light-dark(#DDDDDD, #555555);
+  --colours-shades-neutral-shades-300: light-dark(#CACACA, #616161);
+  --colours-shades-neutral-shades-400: light-dark(#B6B6B6, #828282);
+  --colours-shades-neutral-shades-500: light-dark(#A3A3A3, #A3A3A3);
+  --colours-shades-neutral-shades-600: light-dark(#828282, #CACACA);
+  --colours-shades-neutral-shades-700: light-dark(#616161, #DDDDDD);
+  --colours-shades-neutral-shades-800: light-dark(#414141, #F1F1F1);
+  --colours-shades-neutral-shades-900: light-dark(#202020, #FAFAFA);
+  --colours-shades-accents-accent-subtle: light-dark(#F9CCE3, #FFBDDF);
+  --colours-shades-accents-text-on-accent-subtle: light-dark(#880046, #AD0A5D);
+  --colours-shades-accents-accent-secondary-subtle: light-dark(#F1F1F1, #414141);
+  --colours-shades-accents-accent-secondary-medium: light-dark(#CACACA, #555555);
+  --colours-shades-accents-accent-secondary-strong: light-dark(#000000, #FFFFFF);
+  --colours-interaction-states-hover-background-hover: light-dark(#DDDDDD, #555555);
+  --colours-interaction-states-hover-background-subtle-hover: light-dark(#DDDDDD, #555555);
+  --colours-interaction-states-hover-text-hover: light-dark(#414141, #DDDDDD);
+  --colours-interaction-states-hover-text-dominant-hover: light-dark(#B5005D, #CD016A);
+  --colours-interaction-states-hover-text-recessive-hover: light-dark(#B5005D, #CD016A);
+  --colours-interaction-states-hover-text-link-hover: light-dark(#B5005D, #CD016A);
+  --colours-interaction-states-hover-accent-hover: light-dark(#B5005D, #CD016A);
+  --colours-interaction-states-hover-text-on-accent-hover: light-dark(#FFFFFF, #FFFFFF);
+  --colours-interaction-states-hover-accent-secondary-hover: light-dark(#414141, #DDDDDD);
+  --colours-interaction-states-hover-text-on-accent-secondary-hover: light-dark(#FFFFFF, #000000);
+  --colours-interaction-states-hover-stroke-hover: light-dark(#000000, #FFFFFF);
+  --colours-interaction-states-hover-stroke-subtle-hover: light-dark(#000000, #FFFFFF);
+  --colours-interaction-states-hover-accent-subtle-hover: light-dark(#FDEAF3, #FDEAF3);
+  --colours-interaction-states-hover-text-on-accent-subtle-hover: light-dark(#880046, #880046);
+  --colours-interaction-states-hover-accent-secondary-subtle-hover: light-dark(#DDDDDD, #555555);
+  --colours-interaction-states-hover-accent-secondary-medium-hover: light-dark(#DDDDDD, #616161);
+  --colours-interaction-states-hover-accent-secondary-strong-hover: light-dark(#202020, #FAFAFA);
+  --colours-interaction-states-hover-image-overlay-hover: light-dark(rgba(0,0,0,.2), rgba(255,255,255,.2));
+  --colours-interaction-states-pressed-background-pressed: light-dark(#CACACA, #616161);
+  --colours-interaction-states-pressed-background-subtle-pressed: light-dark(#CACACA, #616161);
+  --colours-interaction-states-pressed-text-pressed: light-dark(#616161, #CACACA);
+  --colours-interaction-states-pressed-text-dominant-pressed: light-dark(#880046, #AD0A5D);
+  --colours-interaction-states-pressed-text-recessive-pressed: light-dark(#880046, #AD0A5D);
+  --colours-interaction-states-pressed-text-link-pressed: light-dark(#880046, #AD0A5D);
+  --colours-interaction-states-pressed-accent-pressed: light-dark(#880046, #AD0A5D);
+  --colours-interaction-states-pressed-text-on-accent-pressed: light-dark(#FFFFFF, #FFFFFF);
+  --colours-interaction-states-pressed-accent-secondary-pressed: light-dark(#616161, #CACACA);
+  --colours-interaction-states-pressed-text-on-accent-secondary-pressed: light-dark(#FFFFFF, #000000);
+  --colours-interaction-states-pressed-stroke-pressed: light-dark(#000000, #FFFFFF);
+  --colours-interaction-states-pressed-stroke-subtle-pressed: light-dark(#000000, #FFFFFF);
+  --colours-interaction-states-pressed-accent-subtle-pressed: light-dark(#FFFFFF, #FFFFFF);
+  --colours-interaction-states-pressed-text-on-accent-subtle-pressed: light-dark(#880046, #880046);
+  --colours-interaction-states-pressed-accent-secondary-subtle-pressed: light-dark(#CACACA, #616161);
+  --colours-interaction-states-pressed-accent-secondary-medium-pressed: light-dark(#F1F1F1, #828282);
+  --colours-interaction-states-pressed-accent-secondary-strong-pressed: light-dark(#414141, #F1F1F1);
+  --colours-interaction-states-pressed-image-overlay-pressed: light-dark(rgba(0,0,0,.4), rgba(255,255,255,.4));
+  --colours-interaction-states-focus-focus: light-dark(#000000, #FFFFFF);
+  --colours-interaction-states-focus-stroke-active: light-dark(#CACACA, #555555);
+  --colours-interaction-states-disabled-background-disabled: light-dark(#DDDDDD, #414141);
+  --colours-interaction-states-disabled-background-subtle-disabled: light-dark(#DDDDDD, #414141);
+  --colours-interaction-states-disabled-background-card-disabled: light-dark(#DDDDDD, #414141);
+  --colours-interaction-states-disabled-text-disabled: light-dark(#A3A3A3, #616161);
+  --colours-interaction-states-disabled-text-dominant-disabled: light-dark(#A3A3A3, #616161);
+  --colours-interaction-states-disabled-text-recessive-disabled: light-dark(#A3A3A3, #616161);
+  --colours-interaction-states-disabled-text-link-disabled: light-dark(#A3A3A3, #616161);
+  --colours-interaction-states-disabled-accent-disabled: light-dark(#CACACA, #555555);
+  --colours-interaction-states-disabled-text-on-accent-disabled: light-dark(#A3A3A3, #828282);
+  --colours-interaction-states-disabled-accent-secondary-disabled: light-dark(#CACACA, #555555);
+  --colours-interaction-states-disabled-text-on-accent-secondary-disabled: light-dark(#A3A3A3, #828282);
+  --colours-interaction-states-disabled-stroke-disabled: light-dark(#CACACA, #555555);
+  --colours-interaction-states-disabled-stroke-subtle-disabled: light-dark(#CACACA, #555555);
+  --colours-interaction-states-visited-text-visited: light-dark(#000000, #FFFFFF);
+  --colours-interaction-states-visited-text-link-visited: light-dark(#880046, #CD016A);
+  --colours-functional-notification-notification: light-dark(#FF1000, #FF4133);
+  --colours-functional-notification-text-on-notification: light-dark(#FFFFFF, #FFFFFF);
+  --colours-functional-informational-standard: light-dark(#2238DF, #576FF3);
+  --colours-functional-informational-subtle: light-dark(#D3D7F9, #131F7B);
+  --colours-functional-informational-pressed: light-dark(#000E79, #D3D7F9);
+  --colours-functional-informational-hovered: light-dark(#05169B, #7486FF);
+  --colours-functional-success-standard: light-dark(#007845, #00C26D);
+  --colours-functional-success-subtle: light-dark(#CCF0E1, #004829);
+  --colours-functional-success-pressed: light-dark(#004829, #27FFA0);
+  --colours-functional-success-hovered: light-dark(#006138, #1BD27F);
+  --colours-functional-warning-standard: light-dark(#993300, #FF8B52);
+  --colours-functional-warning-subtle: light-dark(#FFDDCC, #662200);
+  --colours-functional-warning-pressed: light-dark(#331100, #FFDDCC);
+  --colours-functional-warning-hovered: light-dark(#662200, #FFBB99);
+  --colours-functional-destructive-standard: light-dark(#C20D00, #FF7066);
+  --colours-functional-destructive-subtle: light-dark(#FFDDDB, #660700);
+  --colours-functional-destructive-pressed: light-dark(#660700, #FFDDDB);
+  --colours-functional-destructive-hovered: light-dark(#970B00, #FFA099);
+}
+
+/* ---------- DT palette:start (generated by tools/build_palette.py) ---------- */
+/* 15 ODS secondary hues x 7 steps, light-dark() pairs. Use for data-viz, categories and tints; never for text on white below recessive. */
+:root {
+  --palette-aperitif-subtle: light-dark(#FFDCD4, #5F0000);
+  --palette-aperitif-extra-dominant: light-dark(#FFC8BB, #6B0600);
+  --palette-aperitif-dominant: light-dark(#FFB3A2, #7B1701);
+  --palette-aperitif-base-subtle: light-dark(#FF9D87, #902914);
+  --palette-aperitif-base: light-dark(#FF856B, #A65442);
+  --palette-aperitif-recessive: light-dark(#D9664E, #BB7A6C);
+  --palette-aperitif-extra-recessive: light-dark(#AD412A, #CF9E93);
+  --palette-basketball-subtle: light-dark(#FFE0D2, #580F00);
+  --palette-basketball-extra-dominant: light-dark(#FFCFB8, #671800);
+  --palette-basketball-dominant: light-dark(#FFBD9D, #772500);
+  --palette-basketball-base-subtle: light-dark(#FFAA81, #8C3600);
+  --palette-basketball-base: light-dark(#FF9661, #A25B37);
+  --palette-basketball-recessive: light-dark(#D87642, #B87F64);
+  --palette-basketball-extra-recessive: light-dark(#AB4E19, #CBA18D);
+  --palette-cheddar-subtle: light-dark(#FFE8D2, #4D1F00);
+  --palette-cheddar-extra-dominant: light-dark(#FFDBB8, #602700);
+  --palette-cheddar-dominant: light-dark(#FFCE9C, #703500);
+  --palette-cheddar-base-subtle: light-dark(#FFC07E, #824300);
+  --palette-cheddar-base: light-dark(#FFB25C, #996427);
+  --palette-cheddar-recessive: light-dark(#D78F39, #AF855A);
+  --palette-cheddar-extra-recessive: light-dark(#AB6809, #C6A688);
+  --palette-dandelion-subtle: light-dark(#FFF1C2, #3E2B00);
+  --palette-dandelion-extra-dominant: light-dark(#FFE99F, #503700);
+  --palette-dandelion-dominant: light-dark(#FDE080, #624300);
+  --palette-dandelion-base-subtle: light-dark(#FAD866, #725200);
+  --palette-dandelion-base: light-dark(#F6D046, #8D7000);
+  --palette-dandelion-recessive: light-dark(#CEAA0F, #A88E36);
+  --palette-dandelion-extra-recessive: light-dark(#A38600, #C0AD6B);
+  --palette-egg-subtle: light-dark(#FEF5A7, #382D00);
+  --palette-egg-extra-dominant: light-dark(#FAEF90, #4B3D00);
+  --palette-egg-dominant: light-dark(#F7E977, #5A4800);
+  --palette-egg-base-subtle: light-dark(#F3E35B, #6A5700);
+  --palette-egg-base: light-dark(#EFDC34, #847500);
+  --palette-egg-recessive: light-dark(#C6B400, #9F9223);
+  --palette-egg-extra-recessive: light-dark(#9C8E00, #BAB05B);
+  --palette-frog-subtle: light-dark(#F1F8AB, #303200);
+  --palette-frog-extra-dominant: light-dark(#EAF194, #3F4000);
+  --palette-frog-dominant: light-dark(#E2EA7A, #4C4D00);
+  --palette-frog-base-subtle: light-dark(#DBE35E, #5B5D00);
+  --palette-frog-base: light-dark(#D4DC38, #757A00);
+  --palette-frog-recessive: light-dark(#AEB500, #939931);
+  --palette-frog-extra-recessive: light-dark(#808400, #B0B563);
+  --palette-guacamole-subtle: light-dark(#DBFBB7, #1A3700);
+  --palette-guacamole-extra-dominant: light-dark(#CEF4A1, #214700);
+  --palette-guacamole-dominant: light-dark(#C1ED8B, #2C5400);
+  --palette-guacamole-base-subtle: light-dark(#B4E573, #3A6400);
+  --palette-guacamole-base: light-dark(#A7DE59, #5A810F);
+  --palette-guacamole-recessive: light-dark(#85B833, #799E47);
+  --palette-guacamole-extra-recessive: light-dark(#5D8801, #99BA71);
+  --palette-hummingbird-subtle: light-dark(#C5FEC8, #003D00);
+  --palette-hummingbird-extra-dominant: light-dark(#B2F7B7, #004C00);
+  --palette-hummingbird-dominant: light-dark(#9EF0A5, #005A00);
+  --palette-hummingbird-base-subtle: light-dark(#8AE993, #006B13);
+  --palette-hummingbird-base: light-dark(#74E281, #30873E);
+  --palette-hummingbird-recessive: light-dark(#51BC60, #5BA363);
+  --palette-hummingbird-extra-recessive: light-dark(#25903A, #81BE86);
+  --palette-iguana-subtle: light-dark(#B9FEE1, #003B23);
+  --palette-iguana-extra-dominant: light-dark(#A2F6D4, #004B2D);
+  --palette-iguana-dominant: light-dark(#89EFC8, #005936);
+  --palette-iguana-base-subtle: light-dark(#6EE8BB, #006B45);
+  --palette-iguana-base: light-dark(#4DE0AF, #008762);
+  --palette-iguana-recessive: light-dark(#1BBB8D, #46A483);
+  --palette-iguana-extra-recessive: light-dark(#008764, #74BFA1);
+  --palette-jacuzzi-subtle: light-dark(#B8FAF3, #003934);
+  --palette-jacuzzi-extra-dominant: light-dark(#A0F2E9, #004841);
+  --palette-jacuzzi-dominant: light-dark(#88EAE0, #005750);
+  --palette-jacuzzi-base-subtle: light-dark(#6CE1D6, #00675F);
+  --palette-jacuzzi-base: light-dark(#4AD9CD, #00847B);
+  --palette-jacuzzi-recessive: light-dark(#17B4A9, #46A098);
+  --palette-jacuzzi-extra-recessive: light-dark(#01877F, #73BCB5);
+  --palette-kingfisher-subtle: light-dark(#B8F7FF, #003740);
+  --palette-kingfisher-extra-dominant: light-dark(#A1EDF7, #004450);
+  --palette-kingfisher-dominant: light-dark(#88E4EF, #005360);
+  --palette-kingfisher-base-subtle: light-dark(#6DDBE8, #006371);
+  --palette-kingfisher-base: light-dark(#4DD1E0, #00808C);
+  --palette-kingfisher-recessive: light-dark(#21ADBC, #499DA6);
+  --palette-kingfisher-extra-recessive: light-dark(#01818D, #75B9C2);
+  --palette-lagoon-subtle: light-dark(#CAEEFF, #00344E);
+  --palette-lagoon-extra-dominant: light-dark(#ABE4FF, #003F5F);
+  --palette-lagoon-dominant: light-dark(#90D9FB, #004C6D);
+  --palette-lagoon-base-subtle: light-dark(#78CEF4, #005D80);
+  --palette-lagoon-base: light-dark(#5EC2ED, #287999);
+  --palette-lagoon-recessive: light-dark(#3DA0C8, #5798B5);
+  --palette-lagoon-extra-recessive: light-dark(#0E799E, #82B4CC);
+  --palette-macaw-subtle: light-dark(#D7E7FF, #0D2B5C);
+  --palette-macaw-extra-dominant: light-dark(#C1D9FF, #153567);
+  --palette-macaw-dominant: light-dark(#ABCCFF, #204277);
+  --palette-macaw-base-subtle: light-dark(#96BEFC, #2E528A);
+  --palette-macaw-base: light-dark(#84B0F5, #4E70A4);
+  --palette-macaw-recessive: light-dark(#6690D0, #738FBB);
+  --palette-macaw-extra-recessive: light-dark(#456CAC, #97ACCE);
+  --palette-nebula-subtle: light-dark(#DCE3FF, #20265D);
+  --palette-nebula-extra-dominant: light-dark(#C9D3FF, #282F69);
+  --palette-nebula-dominant: light-dark(#B6C4FF, #333C78);
+  --palette-nebula-base-subtle: light-dark(#A5B4FA, #414C8B);
+  --palette-nebula-base: light-dark(#95A5F3, #5F6AA5);
+  --palette-nebula-recessive: light-dark(#7786CF, #7E89BC);
+  --palette-nebula-extra-recessive: light-dark(#5360AA, #A0A9D0);
+  --palette-orchid-subtle: light-dark(#E1E0FF, #2C215D);
+  --palette-orchid-extra-dominant: light-dark(#D1CFFF, #342A68);
+  --palette-orchid-dominant: light-dark(#C1BEFF, #403677);
+  --palette-orchid-base-subtle: light-dark(#B2ADF9, #4F468B);
+  --palette-orchid-base: light-dark(#A49DF1, #6B65A5);
+  --palette-orchid-recessive: light-dark(#867ECD, #8885BD);
+  --palette-orchid-extra-recessive: light-dark(#5F57A9, #A8A6D0);
+}
+/* ---------- DT palette:end ---------- */

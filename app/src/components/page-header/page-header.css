@@ -1,0 +1,21 @@
+/* Page header: title row (title + pin / more / Share) over a description (prototype: .page__head).
+   Outer spacing is the page's: in "Dashboard" 14045:584747 the composer sits 32px below the description. */
+.page__head { display: flex; flex-direction: column; min-width: 0; }
+.page__titlerow { display: flex; align-items: center; gap: var(--spacing-4xl); height: 44px; } /* DRIFT: row height */
+.page__title {
+  flex: 1 1 0; font-family: var(--display-md-regular-font-family); font-weight: var(--display-md-regular-font-weight);
+  font-size: var(--display-md-regular-font-size); line-height: var(--display-md-regular-line-height); letter-spacing: var(--display-md-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured — Chrome seats Spectral 1px higher than Figma */
+  /* fluid: a long title ellipsizes instead of wrapping out of the 44px row */
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* below 768 (mobile design to come): the actions move to a right-aligned row above, and the title gets the
+   full width and wraps between words instead of ellipsizing to a word or two */
+@media (max-width: 767px) {
+  .page__titlerow { height: auto; flex-wrap: wrap; row-gap: var(--spacing-xs); }
+  .page__acts { order: -1; margin-left: auto; }
+  .page__title { flex-basis: 100%; white-space: normal; overflow-wrap: break-word; }
+}
+.page__acts { display: flex; align-items: center; gap: var(--spacing-xxs); flex: none; }
+.page__desc { font-size: var(--text-md-regular-font-size); line-height: var(--text-md-regular-line-height); color: var(--palette-gray-true-600); } /* DRIFT: #525252 has no semantic token */

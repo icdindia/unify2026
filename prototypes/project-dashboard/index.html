@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Dashboard</title>
+  <!-- Prototype: project dashboard with working hover states and menus.
+       Source: Enterprise Brain Base 2026 - 1 (lqKjNjyifEXCeywg69Knr2), "Dashboard" 14045:584747.
+       Rest state is shown on load; every hover in the frame (nav rows, routine row ⋯, Routines tab,
+       All Chats button, table row ⋮, menu items) is reproduced as a real :hover.
+       Menus: header ⋮ -> 11715:646185, row ⋮ -> 14045:569050, "Add to Project" -> 14045:569049. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/tokens.css">
+  <link rel="stylesheet" href="../../shared/typography.css">
+  <link rel="stylesheet" href="./project-dashboard.css?v=1">
+</head>
+<body>
+<div class="fit">
+<div class="frame" id="frame" data-node-id="14045:584747" data-mode="dark" data-rail="expanded" data-opt="1">
+
+  <!-- ============================================================ nav -->
+  <nav class="nav nav--dark" id="nav-dark" data-node-id="226:81200" aria-label="Main">
+    <div class="nav__top">
+      <div class="nav__head">
+        <div class="nav__logo">
+          <span class="logo-g">
+            <img alt="" src="assets/logo-00.svg" class="lg lg00"><img alt="" src="assets/logo-01.svg" class="lg lg01"><img alt="" src="assets/logo-02.svg" class="lg lg02"><img alt="" src="assets/logo-03.svg" class="lg lg03"><img alt="" src="assets/logo-04.svg" class="lg lg04"><img alt="" src="assets/logo-05.svg" class="lg lg05"><img alt="" src="assets/logo-06.svg" class="lg lg06"><img alt="" src="assets/logo-07.svg" class="lg lg07"><img alt="" src="assets/logo-08.svg" class="lg lg08"><img alt="" src="assets/logo-09.svg" class="lg lg09"><img alt="" src="assets/logo-10.svg" class="lg lg10"><img alt="" src="assets/logo-11.svg" class="lg lg11"><img alt="" src="assets/logo-12.svg" class="lg lg12"><img alt="" src="assets/logo-13.svg" class="lg lg13"><img alt="" src="assets/logo-14.svg" class="lg lg14"><img alt="" src="assets/logo-15.svg" class="lg lg15"><img alt="" src="assets/logo-16.svg" class="lg lg16"><img alt="" src="assets/logo-17.svg" class="lg lg17"><img alt="" src="assets/logo-18.svg" class="lg lg18"><img alt="" src="assets/logo-19.svg" class="lg lg19"><img alt="" src="assets/logo-20.svg" class="lg lg20"><img alt="" src="assets/logo-21.svg" class="lg lg21">
+          </span>
+          <span class="nav__word"><img alt="UnifyApps" src="assets/x-logo-word.svg"></span>
+        </div>
+        <div class="nav__tools">
+          <button class="nbtn" aria-label="Search"><img alt="" src="assets/nav-search.svg"></button>
+          <button class="nbtn" data-act="collapse" aria-label="Collapse navigation"><img alt="" src="assets/nav-layout-left.svg"></button>
+        </div>
+      </div>
+
+      <div class="nav__scroll">
+        <div class="ngrp ngrp--primary">
+          <a class="nrow" href="#" data-nav="new"><span class="nrow__in"><img alt="" src="assets/nav-plus.svg" class="ni"><span class="nt">New Session</span></span></a>
+          <a class="nrow is-selected" href="#" data-nav="projects" aria-current="page"><span class="nrow__in"><img alt="" src="assets/nav-folder-solid.svg" class="ni"><span class="nt">Projects</span></span></a>
+          <a class="nrow" href="#" data-nav="routines"><span class="nrow__in"><img alt="" src="assets/nav-clock.svg" class="ni"><span class="nt">Routines</span></span></a>
+          <a class="nrow" href="#" data-nav="meetings"><span class="nrow__in"><img alt="" src="assets/nav-calendar.svg" class="ni"><span class="nt">Meetings</span></span></a>
+          <div class="nrow-wrap">
+            <a class="nrow" href="#" data-nav="artifacts"><span class="nrow__in"><img alt="" src="assets/nav-cube.svg" class="ni"><span class="nt nt--m">Artifacts</span></span></a>
+            <span class="nline"></span>
+          </div>
+        </div>
+
+        <div class="ngrp ngrp--sec ngrp--clip">
+          <div class="nsub"><span class="nsub__t">Agents</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/nav-chevron-sub.svg"></button></div>
+          <a class="nagent" href="#"><img alt="" src="assets/agent-financial.svg" class="nav-av"><span class="nt">Financial Analysis Agent</span></a>
+          <a class="nagent" href="#"><img alt="" src="assets/agent-sheet.svg" class="nav-av"><span class="nt nt--m">Sheet Sage Agent</span></a>
+          <a class="nagent" href="#"><img alt="" src="assets/agent-falcon.svg" class="nav-av"><span class="nt nt--m">Formula Falcon Agent</span></a>
+          <div class="nsep"><span class="nline"></span></div>
+        </div>
+
+        <div class="ngrp ngrp--sec">
+          <div class="nsub"><span class="nsub__t">Pinned</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/nav-chevron-sub.svg"></button></div>
+          <a class="nrow nrow--pr4" href="#"><span class="nrow__in"><img alt="" src="assets/nav-cube-thin.svg" class="ni"><span class="nt nt--m">Artifacts</span></span></a>
+          <a class="nrow nrow--pr4" href="#"><span class="nrow__in nrow__in--fill"><img alt="" src="assets/nav-folder.svg" class="ni"><span class="nt">Projects</span></span></a>
+          <div class="ntree">
+            <img alt="" src="assets/nav-tree-line.svg" class="ntree__line">
+            <div class="ntree__col">
+              <a class="nchat" href="#"><span class="nt">Excel Formula Help From Main Document</span><span class="ndot"><span class="sdot sdot--progress" role="img" aria-label="In progress"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+              <a class="nchat nchat--pl4" href="#"><span class="nt">Chat 2 inside this Project</span><span class="ndot"><span class="sdot sdot--waiting" role="img" aria-label="Waiting for your input"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+            </div>
+          </div>
+          <a class="nchat" href="#"><span class="nt">Plan launch timeline</span><span class="ndot"><span class="sdot sdot--progress" role="img" aria-label="In progress"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+          <a class="nchat" href="#"><span class="nt">Review customer feedback</span><span class="ndot"><span class="sdot sdot--failed" role="img" aria-label="Failed"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+          <div class="nsep"><span class="nline"></span></div>
+        </div>
+
+        <div class="ngrp ngrp--hist">
+          <div class="nhgrp">
+            <div class="nsub nsub--h"><span class="nsub__t">Routines</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/nav-chevron-sub.svg"></button></div>
+            <a class="nchat" href="#"><span class="nt">Get all granola notes summarized and del </span><span class="ndot"><span class="sdot sdot--waiting" role="img" aria-label="Waiting for your input"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+            <a class="nchat" href="#"><span class="nt">Excel Formula Help From Main Document</span><span class="ndot"><span class="sdot sdot--progress" role="img" aria-label="In progress"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+            <a class="nchat" href="#"><span class="nt nt--pre">Design Stand up follow-up  meeting</span><span class="ndot"><span class="sdot sdot--progress" role="img" aria-label="In progress"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+            <div class="nsep"><span class="nline"></span></div>
+          </div>
+          <div class="nhgrp">
+            <div class="nsub nsub--h"><span class="nsub__t">Chats</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/nav-chevron-sub.svg"></button></div>
+            <a class="nchat" href="#"><span class="nt">Sheet Formula Consultant</span><span class="ndot"><span class="sdot sdot--unread" role="img" aria-label="Unread"></span></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+            <a class="nchat nchat--pr4" href="#"><span class="nt">Workbook Support Hub</span><span class="ndot"></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+            <a class="nchat nchat--pr4" href="#"><span class="nt">Morning Digest</span><span class="ndot"></span><span class="ntime">2h</span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+            <a class="nchat nchat--pr4" href="#"><span class="nt">Spreadsheet Formula Advisor</span><span class="ndot"></span><button class="nmore" aria-label="More"><img alt="" src="assets/nav-dots-h.svg"></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nfoot" data-node-id="I14045:584747;292:88513">
+      <span class="nfoot__av">A</span>
+      <span class="nfoot__name">Anurag Kashyap</span>
+      <span class="nfoot__btns">
+        <button class="nfbtn" aria-label="Notifications"><img alt="" src="assets/nav-bell-btn.svg"></button>
+        <button class="nfbtn" aria-label="Account menu"><img alt="" src="assets/nav-chevron-up-btn.svg"></button>
+      </span>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================ nav, light mode (9721:594967) -->
+  <nav class="nav nav--light" id="nav-light" data-node-id="9721:594967" aria-label="Main">
+    <div class="nav__top">
+      <div class="nav__head lnav__head">
+        <div class="nav__logo">
+          <span class="logo-g">
+            <img alt="" src="assets/lt-logo-00.svg" class="lg lg00"><img alt="" src="assets/lt-logo-01.svg" class="lg lg01"><img alt="" src="assets/lt-logo-02.svg" class="lg lg02"><img alt="" src="assets/lt-logo-03.svg" class="lg lg03"><img alt="" src="assets/lt-logo-04.svg" class="lg lg04"><img alt="" src="assets/lt-logo-05.svg" class="lg lg05"><img alt="" src="assets/lt-logo-06.svg" class="lg lg06"><img alt="" src="assets/lt-logo-07.svg" class="lg lg07"><img alt="" src="assets/lt-logo-08.svg" class="lg lg08"><img alt="" src="assets/lt-logo-09.svg" class="lg lg09"><img alt="" src="assets/lt-logo-10.svg" class="lg lg10"><img alt="" src="assets/lt-logo-11.svg" class="lg lg11"><img alt="" src="assets/lt-logo-12.svg" class="lg lg12"><img alt="" src="assets/lt-logo-13.svg" class="lg lg13"><img alt="" src="assets/lt-logo-14.svg" class="lg lg14"><img alt="" src="assets/lt-logo-15.svg" class="lg lg15"><img alt="" src="assets/lt-logo-16.svg" class="lg lg16"><img alt="" src="assets/lt-logo-17.svg" class="lg lg17"><img alt="" src="assets/lt-logo-18.svg" class="lg lg18"><img alt="" src="assets/lt-logo-19.svg" class="lg lg19"><img alt="" src="assets/lt-logo-20.svg" class="lg lg20"><img alt="" src="assets/lt-logo-21.svg" class="lg lg21">
+          </span>
+          <span class="nav__word"><img alt="UnifyApps" src="assets/lt-logo-word.svg"></span>
+        </div>
+        <div class="nav__tools">
+          <button class="nbtn lbtn" aria-label="Search"><img alt="" src="assets/lt-search.svg"></button>
+          <button class="nbtn lbtn" data-act="collapse" aria-label="Collapse navigation"><img alt="" src="assets/lt-layout-left.svg"></button>
+        </div>
+      </div>
+      <div class="nav__scroll">
+        <div class="lgrp lgrp--primary">
+          <a class="lrow" href="#" data-nav="new"><span class="nrow__in"><img alt="" src="assets/lt-plus.svg" class="ni"><span class="lt">New Session</span></span></a><a class="lrow" href="#" data-nav="projects"><span class="nrow__in"><img alt="" src="assets/lt-folder.svg" class="ni"><span class="lt">Projects</span></span></a><a class="lrow" href="#" data-nav="routines"><span class="nrow__in"><img alt="" src="assets/lt-clock.svg" class="ni"><span class="lt">Routines</span></span></a><a class="lrow" href="#" data-nav="meetings"><span class="nrow__in"><img alt="" src="assets/lt-calendar.svg" class="ni"><span class="lt">Meetings</span></span></a>
+          <div class="nrow-wrap lrow-wrap"><a class="lrow lrow--pr2" href="#" data-nav="artifacts"><span class="nrow__in"><img alt="" src="assets/lt-cube.svg" class="ni"><span class="lt">Artifacts</span></span></a><span class="lline"></span></div>
+        </div>
+        <div class="lgrp">
+          <div class="lsub"><span class="lsub__t">Agents</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/lt-chev-down.svg"></button></div>
+          <a class="lagent" href="#"><img alt="" src="assets/lt-agent-financial.svg" class="nav-av"><span class="lt">Financial Analysis Agent</span></a>
+          <a class="lagent" href="#"><img alt="" src="assets/lt-agent-sheet.svg" class="nav-av"><span class="lt">Sheet Sage Agent</span></a>
+          <a class="lagent" href="#"><img alt="" src="assets/lt-agent-falcon.svg" class="nav-av"><span class="lt">Formula Falcon Agent</span></a>
+          <div class="nsep"><span class="lline"></span></div>
+        </div>
+        <div class="lgrp">
+          <div class="lsub"><span class="lsub__t">Pinned</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/lt-chev-down.svg"></button></div>
+          <a class="lrow lrow--pr2" href="#"><span class="nrow__in"><img alt="" src="assets/lt-cube.svg" class="ni"><span class="lt">Artifacts</span></span></a><a class="lrow" href="#"><span class="nrow__in"><img alt="" src="assets/lt-folder.svg" class="ni"><span class="lt">Projects</span></span></a><a class="lchat" href="#"><span class="lchat__in"><span class="ldot sdot sdot--progress sdot--lt" role="img" aria-label="In progress"></span><span class="lt lt--2">Plan launch timeline</span></span></a><a class="lchat" href="#"><span class="lchat__in"><span class="ldot sdot sdot--failed sdot--lt" role="img" aria-label="Failed"></span><span class="lt lt--2">Review customer feedback</span></span></a>
+          <div class="nsep"><span class="lline"></span></div>
+        </div>
+        <div class="lgrp lgrp--hist">
+          <div class="nhgrp">
+            <div class="lsub"><span class="lsub__t">Routines</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/lt-chev-down.svg"></button></div>
+            <a class="lchat" href="#"><span class="lchat__in"><span class="ldot sdot sdot--waiting sdot--lt" role="img" aria-label="Waiting for your input"></span><span class="lt lt--2">Get all granola notes summarized and del </span></span></a><a class="lchat" href="#"><span class="lchat__in"><span class="ldot sdot sdot--progress sdot--lt" role="img" aria-label="In progress"></span><span class="lt lt--2">Excel Formula Help From Main Document</span></span></a><a class="lchat" href="#"><span class="lchat__in"><span class="ldot sdot sdot--progress sdot--lt" role="img" aria-label="In progress"></span><span class="lt lt--2">Design Stand up follow-up  meeting</span></span></a>
+            <div class="nsep"><span class="lline"></span></div>
+          </div>
+          <div class="nhgrp">
+            <div class="lsub"><span class="lsub__t">History</span><button class="nsub__chev" data-act="section" aria-expanded="true" aria-label="Collapse section"><img alt="" src="assets/lt-chev-down.svg"></button></div>
+            <a class="lchat lchat--pr4" href="#"><span class="lchat__in"><span class="ldot sdot sdot--progress sdot--lt" role="img" aria-label="In progress"></span><span class="lt lt--2">Sheet Formula Consultant</span></span><button class="lmore" aria-label="More"><img alt="" src="assets/lt-dots-h.svg"></button></a><a class="lchat lchat--pr4" href="#"><span class="lchat__in"><span class="ldot sdot sdot--progress sdot--lt" role="img" aria-label="In progress"></span><span class="lt lt--2">Workbook Support Hub</span></span><button class="lmore" aria-label="More"><img alt="" src="assets/lt-dots-h.svg"></button></a><a class="lchat" href="#"><span class="lchat__in"><img alt="" src="assets/lt-dot-ring.svg" class="ldot"><span class="lt lt--2">Excel Formula Help From Main Document</span></span><button class="lmore" aria-label="More"><img alt="" src="assets/lt-dots-h.svg"></button></a><a class="lchat" href="#"><span class="lchat__in"><img alt="" src="assets/lt-dot-ring.svg" class="ldot"><span class="lt lt--2">Excel Formula Help From Main Document</span></span><span class="ltime">2h</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lfoot">
+      <span class="lfoot__av">A</span>
+      <span class="lfoot__name">Anurag Kashyap</span>
+      <button class="lfoot__chev" aria-label="Account menu"><img alt="" src="assets/lt-chevron-up.svg"></button>
+    </div>
+  </nav>
+  <nav class="rail rail--dark" id="rail-dark" data-node-id="226:81199" aria-label="Main (collapsed)">
+    <div class="rail__nav">
+      <button class="rail__logo" data-act="expand" aria-label="Expand navigation" title="Expand navigation"><span class="logo-g">
+            <img alt="" src="assets/logo-00.svg" class="lg lg00"><img alt="" src="assets/logo-01.svg" class="lg lg01"><img alt="" src="assets/logo-02.svg" class="lg lg02"><img alt="" src="assets/logo-03.svg" class="lg lg03"><img alt="" src="assets/logo-04.svg" class="lg lg04"><img alt="" src="assets/logo-05.svg" class="lg lg05"><img alt="" src="assets/logo-06.svg" class="lg lg06"><img alt="" src="assets/logo-07.svg" class="lg lg07"><img alt="" src="assets/logo-08.svg" class="lg lg08"><img alt="" src="assets/logo-09.svg" class="lg lg09"><img alt="" src="assets/logo-10.svg" class="lg lg10"><img alt="" src="assets/logo-11.svg" class="lg lg11"><img alt="" src="assets/logo-12.svg" class="lg lg12"><img alt="" src="assets/logo-13.svg" class="lg lg13"><img alt="" src="assets/logo-14.svg" class="lg lg14"><img alt="" src="assets/logo-15.svg" class="lg lg15"><img alt="" src="assets/logo-16.svg" class="lg lg16"><img alt="" src="assets/logo-17.svg" class="lg lg17"><img alt="" src="assets/logo-18.svg" class="lg lg18"><img alt="" src="assets/logo-19.svg" class="lg lg19"><img alt="" src="assets/logo-20.svg" class="lg lg20"><img alt="" src="assets/logo-21.svg" class="lg lg21">
+          </span></button>
+      <div class="rail__items"><button class="ritem" data-nav="new" aria-label="New Session" title="New Session"><img alt="" src="assets/rail-plus.svg"></button><button class="ritem" aria-label="Search" title="Search"><img alt="" src="assets/rail-search.svg"></button><button class="ritem" data-nav="projects" aria-label="Projects" title="Projects"><img alt="" src="assets/rail-folder.svg"></button><button class="ritem" data-nav="routines" aria-label="Routines" title="Routines"><img alt="" src="assets/rail-clock.svg"></button><button class="ritem" data-nav="meetings" aria-label="Meetings" title="Meetings"><img alt="" src="assets/rail-calendar.svg"></button><button class="ritem" data-nav="artifacts" aria-label="Artifacts" title="Artifacts"><img alt="" src="assets/rail-cube.svg"></button><button class="ritem" aria-label="Agents" title="Agents"><img alt="" src="assets/rail-ai-agent.svg"></button></div>
+    </div>
+    <div class="rail__foot"><span class="rail__av">A</span></div>
+  </nav>
+  <nav class="rail rail--light" id="rail-light" data-node-id="9721:595036" aria-label="Main (collapsed)">
+    <div class="rail__nav">
+      <button class="rail__logo" data-act="expand" aria-label="Expand navigation" title="Expand navigation"><span class="logo-g">
+            <img alt="" src="assets/lt-logo-00.svg" class="lg lg00"><img alt="" src="assets/lt-logo-01.svg" class="lg lg01"><img alt="" src="assets/lt-logo-02.svg" class="lg lg02"><img alt="" src="assets/lt-logo-03.svg" class="lg lg03"><img alt="" src="assets/lt-logo-04.svg" class="lg lg04"><img alt="" src="assets/lt-logo-05.svg" class="lg lg05"><img alt="" src="assets/lt-logo-06.svg" class="lg lg06"><img alt="" src="assets/lt-logo-07.svg" class="lg lg07"><img alt="" src="assets/lt-logo-08.svg" class="lg lg08"><img alt="" src="assets/lt-logo-09.svg" class="lg lg09"><img alt="" src="assets/lt-logo-10.svg" class="lg lg10"><img alt="" src="assets/lt-logo-11.svg" class="lg lg11"><img alt="" src="assets/lt-logo-12.svg" class="lg lg12"><img alt="" src="assets/lt-logo-13.svg" class="lg lg13"><img alt="" src="assets/lt-logo-14.svg" class="lg lg14"><img alt="" src="assets/lt-logo-15.svg" class="lg lg15"><img alt="" src="assets/lt-logo-16.svg" class="lg lg16"><img alt="" src="assets/lt-logo-17.svg" class="lg lg17"><img alt="" src="assets/lt-logo-18.svg" class="lg lg18"><img alt="" src="assets/lt-logo-19.svg" class="lg lg19"><img alt="" src="assets/lt-logo-20.svg" class="lg lg20"><img alt="" src="assets/lt-logo-21.svg" class="lg lg21">
+          </span></button>
+      <div class="rail__items"><button class="ritem" data-nav="new" aria-label="New Session" title="New Session"><img alt="" src="assets/lt-plus.svg"></button><button class="ritem" data-nav="projects" aria-label="Projects" title="Projects"><img alt="" src="assets/lt-folder.svg"></button><button class="ritem" data-nav="routines" aria-label="Routines" title="Routines"><img alt="" src="assets/lt-clock.svg"></button><button class="ritem" data-nav="meetings" aria-label="Meetings" title="Meetings"><img alt="" src="assets/lt-calendar.svg"></button><button class="ritem" data-nav="artifacts" aria-label="Artifacts" title="Artifacts"><img alt="" src="assets/lt-cube.svg"></button><button class="ritem" aria-label="Agents" title="Agents"><img alt="" src="assets/lt-ai-agent.svg"></button></div>
+    </div>
+    <div class="rail__foot"><span class="rail__av">A</span></div>
+  </nav>
+
+  <!-- ============================================================ projects (landing) -->
+  <main class="main main--projects" id="view-projects" data-node-id="11657:386523">
+    <section class="pl">
+      <div class="pl__head">
+        <h1 class="pl__title">Projects</h1>
+        <button class="bbtn"><img alt="" src="assets/pl-plus-white.svg" class="bbtn__i"><span class="bbtn__t">New Project</span></button>
+      </div>
+      <div class="pl__filters">
+        <div class="btabs" role="tablist">
+          <button class="btab is-current" role="tab" aria-selected="true">All</button>
+          <button class="btab" role="tab" aria-selected="false">Yours</button>
+          <button class="btab" role="tab" aria-selected="false">Shared with you</button>
+        </div>
+        <div class="pl__right">
+          <div class="psearch" id="psearch"><button class="psearch__btn" id="psearch-btn" aria-label="Search projects" aria-expanded="false"><img alt="" src="assets/dd-search.svg"></button><input class="psearch__in" id="psearch-in" type="search" placeholder="Search" aria-label="Search projects" tabindex="-1"></div>
+          <button class="ftab"><img alt="" src="assets/pl-filter.svg"><span>All Types</span></button>
+          <button class="ftab"><img alt="" src="assets/pl-sort.svg"><span>Newest</span></button>
+          <div class="vtoggle" role="group" aria-label="View">
+            <button class="vtoggle__i vtoggle__i--on" aria-pressed="true" aria-label="Grid view"><img alt="" src="assets/pl-view-grid-on.svg"></button>
+            <button class="vtoggle__i" aria-pressed="false" aria-label="List view"><img alt="" src="assets/pl-view-list.svg"></button>
+          </div>
+        </div>
+      </div>
+      <div class="pgrid" id="pgrid"></div>
+    </section>
+  </main>
+
+  <!-- ============================================================ project dashboard -->
+  <main class="main" id="view-dashboard" data-node-id="I14045:584747;901:211753" hidden>
+    <header class="crumbs" data-node-id="I14045:584747;12085:586906">
+      <button class="tbtn tbtn--crumb" data-go="projects"><span class="tbtn__t">Projects</span></button>
+      <img alt="" src="assets/bc-slash.svg" class="crumbs__slash">
+      <button class="tbtn tbtn--crumb tbtn--strong"><span class="tbtn__t" id="crumb-project">New Project Name </span><img alt="" src="assets/bc-chevron-down.svg" class="tbtn__i14"></button>
+    </header>
+
+    <section class="page">
+      <div class="page__head">
+        <div class="page__titlerow">
+          <h1 class="page__title" id="dash-title">Client Onboarding</h1>
+          <div class="page__acts">
+            <button class="ibtn24" aria-label="Pin"><img alt="" src="assets/hdr-pin.svg" class="o1"><img alt="" src="assets/o2-pin.svg" class="o2"></button>
+            <button class="ibtn24" id="hdr-more" aria-label="More" aria-haspopup="menu" aria-expanded="false"><img alt="" src="assets/hdr-dots-vertical.svg" class="o1"><img alt="" src="assets/o2-dots.svg" class="o2"></button>
+            <button class="sbtn"><span>Share</span></button>
+          </div>
+        </div>
+        <p class="page__desc"><span class="o1">Tracking Q1 close activities, variance analysis, and exec reporting, including a review of key performance indicators and strategic alignment.</span><span class="o2">Tracking Q1 close activities</span></p>
+      </div>
+
+      <div class="composer" data-node-id="I14045:584747;6367:278461">
+        <div class="composer__msg"><p class="composer__ph">Use /skill to give your agent a capability.</p></div>
+        <div class="composer__bar">
+          <button class="cbtn cbtn--round" aria-label="Add"><img alt="" src="assets/composer-plus.svg"></button>
+          <div class="composer__acts">
+            <button class="cbtn" aria-label="Model"><span class="cbtn__oa"><img alt="" src="assets/openai.svg"></span></button>
+            <button class="cbtn" aria-label="Dictate"><img alt="" src="assets/microphone.svg"></button>
+            <button class="cbtn" aria-label="Voice mode"><img alt="" src="assets/voice.svg"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbar o1">
+        <div class="tabs" role="tablist">
+          <div class="tab is-current" role="tab" aria-selected="true"><span class="tab__in"><span class="tab__txt"><img alt="" src="assets/tab-chats.svg" class="tab__i"><span class="tab__l">Chats</span></span><span class="tab__bar"></span></span></div>
+          <div class="tab tab--g8" role="tab" aria-selected="false"><span class="tab__in"><span class="tab__txt"><img alt="" src="assets/tab-routines.svg" class="tab__i"><span class="tab__l">Routines</span></span></span></div>
+          <div class="tab" role="tab" aria-selected="false"><span class="tab__in"><span class="tab__txt"><img alt="" src="assets/tab-artifacts.svg" class="tab__i"><span class="tab__l">Artifacts</span></span></span></div>
+          <div class="tab tab--files" role="tab" aria-selected="false"><span class="tab__in"><span class="tab__txt"><img alt="" src="assets/tab-files.svg" class="tab__i"><span class="tab__l">Files</span></span></span></div>
+          <div class="tab" role="tab" aria-selected="false"><span class="tab__in"><span class="tab__txt"><img alt="" src="assets/tab-settings.svg" class="tab__i"><span class="tab__l">Settings</span></span></span></div>
+        </div>
+        <div class="filters">
+          <button class="ftab" aria-label="Filter chats: All Chats"><img alt="" src="assets/pl-filter-14.svg"><span>All Chats</span></button>
+          <button class="ftab" aria-label="Sort chats: Newest first"><img alt="" src="assets/pl-sort-14.svg"><span>Newest</span></button>
+        </div>
+      </div>
+
+      <!-- option 2 toolbar (15054:106857): Button Brand sm pills + All / Newest dropdown buttons.
+           data-w = the file's "Text padding" widths (Figma rounds text boxes up to whole px; Chrome is up to 0.6px narrower) -->
+      <div class="toolbar2 o2" data-node-id="15054:106857">
+        <div class="pills" role="tablist">
+          <button class="pill is-current" role="tab" aria-selected="true"><span class="pill__t" data-w="37">Chats</span></button>
+          <button class="pill" role="tab" aria-selected="false"><span class="pill__t" data-w="54">Routines</span></button>
+          <button class="pill" role="tab" aria-selected="false"><span class="pill__t" data-w="53">Artifacts</span></button>
+          <button class="pill" role="tab" aria-selected="false"><span class="pill__t" data-w="31">Files</span></button>
+          <button class="pill" role="tab" aria-selected="false"><span class="pill__t" data-w="51">Settings</span></button>
+        </div>
+        <div class="pills">
+          <button class="pill pill--dd" aria-label="Filter chats: All"><span class="pill__t" data-w="19">All</span><span class="pill__c"></span></button>
+          <button class="pill pill--dd pill--dd6" aria-label="Sort chats: Newest first"><span class="pill__t" data-w="47">Newest</span><span class="pill__c"></span></button>
+        </div>
+      </div>
+
+      <div class="table" id="table" role="table">
+        <div class="tr tr--head" role="row">
+          <div class="th" role="columnheader">Chat</div>
+          <div class="th th--r th--team" role="columnheader">TEam</div>
+          <div class="th th--r" role="columnheader" title="Total model cost of this chat so far">cost / chat</div>
+          <div class="th th--r" role="columnheader">last active</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================ menus -->
+  <div class="dd dd--card" id="menu-card" role="menu" hidden data-node-id="4767:135942">
+    <div class="dd__items">
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-pin.svg" class="ddi__i"><span class="ddi__t">Pin</span></span></button>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-pencil.svg" class="ddi__i"><span class="ddi__t">Edit Project</span></span></button>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-users.svg" class="ddi__i"><span class="ddi__t">Share Project</span></span></button>
+      <div class="ddsep"><span></span></div>
+      <button class="ddi ddi--danger" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-delete.svg" class="ddi__i"><span class="ddi__t">Delete</span></span></button>
+    </div>
+  </div>
+  <div class="dd dd--hdr" id="menu-hdr" role="menu" hidden data-node-id="11715:646185">
+    <div class="dd__items dd__items--hdr">
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-pencil.svg" class="ddi__i"><span class="ddi__t">Edit Details</span></span></button>
+      <div class="ddsep ddsep--md"><span></span></div>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-archive.svg" class="ddi__i"><span class="ddi__t">Archive</span></span></button>
+      <button class="ddi ddi--danger" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-delete.svg" class="ddi__i"><span class="ddi__t">Delete</span></span></button>
+    </div>
+  </div>
+
+  <div class="dd dd--row" id="menu-row" role="menu" hidden data-node-id="14045:569050">
+    <div class="dd__items">
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-pin.svg" class="ddi__i"><span class="ddi__t">Pin</span></span></button>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-pencil.svg" class="ddi__i"><span class="ddi__t">Rename</span></span></button>
+      <button class="ddi ddi--sub" role="menuitem" aria-haspopup="menu" id="add-to-project"><span class="ddi__in ddi__in--sub"><span class="ddi__st"><span class="ddi__i14"><img alt="" src="assets/dd-folder.svg"></span><span class="ddi__t">Move to project</span></span><img alt="" src="assets/dd-chevron-right.svg" class="ddi__chev"></span></button>
+    </div>
+  </div>
+
+  <div class="dd dd--sub" id="menu-sub" role="menu" hidden data-node-id="14045:569049">
+    <div class="dd__search"><div class="dd__input"><img alt="" src="assets/dd-search.svg"><span>Search</span></div></div>
+    <div class="dd__items">
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-folder-solid.svg" class="ddi__i"><span class="ddi__t">test</span></span></button>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-folder-solid.svg" class="ddi__i"><span class="ddi__t">Desktop app</span></span></button>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-folder-solid.svg" class="ddi__i"><span class="ddi__t">knowledge retrieval</span></span></button>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-folder-solid.svg" class="ddi__i"><span class="ddi__t">testingg</span></span></button>
+      <div class="ddsep"><span></span></div>
+      <button class="ddi" role="menuitem"><span class="ddi__in"><img alt="" src="assets/dd-plus.svg" class="ddi__i"><span class="ddi__t">New Project</span></span></button>
+    </div>
+  </div>
+
+  <!-- prototype control, not part of the design: sits in the empty top-right of the 40px breadcrumb strip and scales with the artboard -->
+  <div class="demo-switch" role="toolbar" aria-label="Prototype controls">
+    <div class="demo-switch__grp" role="group" aria-label="Inside page option">
+      <span class="demo-switch__lbl">Inside page</span>
+      <button data-opt-set="1" aria-pressed="true">Option 1</button>
+      <button data-opt-set="2" aria-pressed="false">Option 2</button>
+    </div>
+    <span class="demo-switch__sep" aria-hidden="true"></span>
+    <div class="demo-switch__grp" role="group" aria-label="Nav mode">
+      <span class="demo-switch__lbl">Nav</span>
+      <button data-mode-set="dark" aria-pressed="true">Dark</button>
+      <button data-mode-set="light" aria-pressed="false">Light</button>
+    </div>
+  </div>
+</div>
+</div>
+<script src="./app.js?v=1"></script>
+</body>
+</html>

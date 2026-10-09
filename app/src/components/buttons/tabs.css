@@ -1,0 +1,27 @@
+/* Page tabs, both inside-page options.
+   Both strips scroll sideways instead of overflowing when the column is narrower than the tabs (no scrollbar
+   drawn); at 1440 they fit, so nothing scrolls. Focus rings sit inside the tab so the scroller cannot clip them. */
+
+/* ---- variant="underline": inside page option 1, _Tab base Size=sm with a 2px brand indicator under the current tab */
+.tabs { height: 32px; } /* DRIFT: row height */
+.tabs { display: flex; align-items: center; gap: var(--spacing-md); min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.tab { flex: none; height: 32px; display: flex; justify-content: center; cursor: pointer; } /* DRIFT: tab height. The frame's 76px min-width was dropped in the prototype's UX pass (#7): natural widths */
+.tab__in { display: flex; flex-direction: column; gap: var(--spacing-xxs); padding-bottom: var(--spacing-xs); }
+.tab.is-current .tab__in { padding-bottom: 0; }
+.tab__txt {
+  height: 28px; /* DRIFT: tab height */
+  display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg); white-space: nowrap;
+}
+.tab__i { width: 14px; height: 14px; flex: none; } /* DRIFT: icon */
+.tab__l { position: relative; top: 1px; } /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+.tab.is-current .tab__txt { color: var(--colors-text-text-brand-tertiary-600); }
+.tab__bar { display: block; height: 2px; background: var(--colors-utility-brand-utility-brand-500); } /* DRIFT: indicator */
+/* _Tab base State=Hover: bg-tertiary. The frame also widens the icon gap to 8px on hover; the prototype's UX pass (#7) keeps it at 6 */
+.tab:not(.is-current):is(:hover, .is-hover) .tab__txt { background: var(--colors-background-bg-tertiary); }
+.tab:focus-visible { outline-offset: -2px; }
+
+/* ---- variant="pill": inside page option 2, Button Brand sm pills (current = Primary, the rest Secondary) */
+.pills { display: flex; align-items: center; gap: var(--spacing-md); min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.pills > .pill:focus-visible { outline-offset: -2px; }
+.tabs::-webkit-scrollbar, .pills::-webkit-scrollbar { display: none; }

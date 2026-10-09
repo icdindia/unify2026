@@ -1,0 +1,85 @@
+/* Share modal (Modal Unit 11991:746310 in chat-artifact 09, 440 x 330), read via figma-console 2026-10-09:
+     header   Modal header Type=Default xs ("Share Artifact", Spectral Medium 17/20), X at 900,293
+     content  0 12, gap 24: invite field (Input dropdown_outline lg 416 x 36, 1px border-secondary, Text sm placeholder)
+              sections: Section label (Text xxxs Medium all caps 10/12, #8f8a85, 4px in) + 6 + rows
+              row      List Item Cardified 416 x 52: padding 6 0 6 2, gap 12: Avatar sm 32 ("L" Geist Medium 15/24),
+                       name Text sm Medium + 4 + "(you)" Text sm Regular text-tertiary, email Text sm Regular text-tertiary;
+                       the role at the end (Button Neutral: padding 6 4, label 0 2, Text xs Medium; Owner #8f8a85)
+              general  the avatar is a bg-quaternary circle with lock-01 16 in icon-secondary; "Restricted" + chevron 6 apart
+     actions  Horizontal fill container: Copy Link, Button md secondary with link-01 (ModalButton)
+   Invite view (11991:750142, share-artifact 08): content gap 16, tags field 32, then 12: Notify people, note 96 (4 rows);
+   actions right aligned with the tertiary Copy Link on the left. */
+
+.shm-body .shm-section { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.shm-section__label {
+  margin: 0; padding-left: var(--spacing-xs); text-transform: uppercase;
+  color: #8f8a85; /* DRIFT: Section label text, utility-gray-500 live value (#9f9993 in tokens.css) */
+  font-family: var(--text-xxxs-medium-all-caps-font-family); font-size: var(--text-xxxs-medium-all-caps-font-size);
+  font-weight: var(--text-xxxs-medium-all-caps-font-weight); line-height: var(--text-xxxs-medium-all-caps-line-height);
+  letter-spacing: var(--text-xxxs-medium-all-caps-letter-spacing);
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured against 09 */
+}
+.shm-section__rows { display: flex; flex-direction: column; }
+
+/* invite field: Input dropdown_outline (border-secondary), where Input field_outline draws border-tertiary */
+.shm-invite.field__control { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.shm-invite.field__control:focus-within { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 0 0 2px var(--colors-utility-gray-utility-gray-200); }
+
+/* List Item Cardified */
+.shm-row {
+  display: flex; align-items: center; gap: var(--spacing-lg); min-width: 0;
+  min-height: 52px; /* DRIFT: List Item Cardified height */
+  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-xxs);
+}
+.shm-row__av.avatar--sm { font-size: 15px; line-height: 24px; } /* DRIFT: the share rows draw the letter at Geist Medium 15/24 */
+.shm-row__text {
+  flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start;
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+}
+.shm-row__line { display: flex; align-items: baseline; gap: var(--spacing-xs); min-width: 0; max-width: 100%; }
+.shm-row__name, .shm-row__you, .shm-row__sub {
+  font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+.shm-row__name { font-weight: var(--text-sm-medium-font-weight); color: var(--colors-text-text-primary-900); }
+.shm-row__you { flex: none; font-weight: var(--text-sm-regular-font-weight); color: var(--colors-text-text-tertiary-600); }
+.shm-row__sub { max-width: 100%; font-weight: var(--text-sm-regular-font-weight); color: var(--colors-text-text-tertiary-600); }
+.shm-row__end { flex: none; display: flex; align-items: center; gap: var(--spacing-xs); }
+
+/* role at the end of a row: Buttons/Button Neutral (padding 6 4, "Text padding" 0 2, Text xs Medium) */
+.shm-role {
+  display: inline-flex; align-items: center; gap: var(--spacing-xxs); padding: var(--spacing-sm) var(--spacing-xs); border-radius: var(--button-sm);
+  white-space: nowrap; color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-medium-font-family); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight);
+  line-height: var(--text-xs-medium-line-height);
+}
+.shm-role__t { padding: 0 var(--spacing-xxs); }
+.shm-role--static { color: #8f8a85; } /* DRIFT: Owner label #8f8a85 (utility-gray-500 live value) */
+.shm-role--btn:is(:hover, .is-hover), .shm-role--btn[aria-expanded="true"] { background: var(--colors-background-bg-tertiary); }
+.shm-chev { flex: none; width: 14px; height: 14px; color: var(--colors-icon-icon-secondary); } /* DRIFT: icon */
+.shm-chev--primary { color: var(--colors-icon-icon-primary); }
+
+/* general access */
+.shm-access-icon {
+  flex: none; display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; /* DRIFT: Avatar sm */
+  border-radius: var(--radius-full); background: var(--colors-background-bg-quaternary); color: var(--colors-icon-icon-secondary);
+}
+.shm-access-icon svg { width: 16px; height: 16px; } /* DRIFT: icon */
+.shm-access-icon--workspace { background: var(--colors-utility-royal-violet-utility-royal-violet-50); color: var(--colors-utility-royal-violet-utility-royal-violet-500); }
+.shm-access-icon--link { background: var(--colors-utility-success-utility-success-50); color: var(--colors-utility-success-utility-success-500); }
+.shm-access-icon--sm { width: 20px; height: 20px; } /* DRIFT: the menu's 20px leading slot */
+.shm-access-icon--sm svg { width: 12px; height: 12px; } /* DRIFT: icon in the 20px slot */
+.shm-access-btn { display: inline-flex; align-items: center; gap: var(--spacing-sm); max-width: 100%; border-radius: var(--radius-xs); }
+
+/* lists hung under a control (people search, general access): absolutely placed in the modal layer */
+.shm-drop { position: absolute; z-index: 2; }
+.shm-empty {
+  margin: 0; padding: var(--spacing-md) var(--spacing-lg); border-radius: var(--radius-md); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary), 0 4px 12px -2px #e6e4e0; /* DRIFT: Input Menu Dropdown shadow */
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+}
+
+/* invite view */
+.shm-note { display: flex; flex-direction: column; gap: var(--spacing-lg); }

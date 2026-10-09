@@ -1,0 +1,57 @@
+<!-- @dsCard group="Foundations" height=900 subtitle="@telekom-ods/react-icons · 375 icons" -->
+<style>
+  .ig { font-family: var(--font-sans); color: var(--colours-basic-text); background: var(--colours-basic-background); padding: 16px; }
+  .ig-bar { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 16px; }
+  .ig-bar input[type=search] { font: 500 1rem/1.25 var(--font-sans); padding: 10px 14px; border-radius: var(--radius-small); border: var(--strokes-1) solid var(--colours-basic-stroke-subtle); background: var(--colours-basic-background); color: var(--colours-basic-text); min-width: 0; flex: 1 1 200px; }
+  .ig-bar label { display: inline-flex; gap: 8px; align-items: center; font: 500 0.875rem/1.25 var(--font-sans); }
+  .ig h3 { font: 700 1rem/1.25 var(--font-sans); margin: 20px 0 8px; display: flex; gap: 8px; align-items: baseline; }
+  .ig h3 span { font-weight: 500; color: var(--colours-basic-text-recessive); font-size: 0.875rem; }
+  .ig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 4px; }
+  .ig-card { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 4px; border-radius: var(--radius-small); border: 0; background: none; color: inherit; cursor: pointer; font: 500 0.75rem/1.3 var(--font-sans); text-align: center; overflow-wrap: anywhere; }
+  .ig-card:hover { background: var(--colours-interaction-states-hover-background-hover); }
+  .ig-card:focus-visible { outline: var(--strokes-2) solid var(--colours-interaction-states-focus-focus); outline-offset: 2px; }
+  .ig-card svg { color: var(--colours-basic-text); }
+  .ig-copied { color: var(--colours-basic-text-recessive); font: 500 0.75rem/1.3 var(--font-sans); min-height: 1em; }
+</style>
+<div class="ig">
+  <div class="ig-bar">
+    <input type="search" id="ig-q" placeholder="Filter by name" aria-label="Filter icons by name">
+    <label><input type="checkbox" id="ig-sel"> Selected</label>
+    <label><input type="checkbox" id="ig-small"> Small (16px)</label>
+    <span class="ig-copied" id="ig-msg" aria-live="polite"></span>
+  </div>
+  <div id="ig-out"></div>
+</div>
+<script>
+var CATS = {"Action": ["add", "add_card", "arrange", "arrow_down", "arrow_left", "arrow_right", "arrow_u_turn_backwards", "arrow_up", "auto_login", "backspace", "backward", "cast", "changelog", "checkmark", "circle_add", "circle_close", "circle_fast_forward", "circle_minus", "circle_pause", "circle_play", "close", "compare", "copy_paste", "cut_paste", "delete", "disabled_microphone", "dot_grid", "download", "download_from_cloud", "drag_and_drop", "edit", "export", "fast_forward", "filter", "filter_2", "forward", "group", "import", "install", "launch", "light_dark_mode", "link", "logout", "loop", "magic_wand", "maximize_screen", "menu", "microphone", "minimize_screen", "minus", "more", "move", "mute", "notification", "pause", "pin", "play", "pop_up_window", "power", "previous", "print", "publish", "record", "refresh", "reply_all", "reply_forward", "restart", "return", "search", "send", "share", "shopping_cart", "shuffle", "sort", "sound_on", "star", "success", "thumbs_down", "thumbs_up", "tiles_add", "ungroup", "upload", "upload_to_cloud", "visibility_off", "visibility_on", "volume_down", "volume_up", "zoom_in", "zoom_out"], "Alert": ["antivirus_protection", "compliance", "cyber_security", "error", "help", "high_priority", "imprint_dataprivacy", "information", "legal", "network_disrupted", "password_breaking", "security", "traffic_disruption", "unknown", "warning"], "Communication": ["add_phone", "blog", "call", "call_incoming", "call_outgoing", "chat", "chat_badge", "chat_text", "email", "end_call", "feedback", "flight_mode", "happy_person", "inbox", "loyalty_earned", "loyalty_lost", "mail_opened", "message", "message_incoming", "message_outgoing", "mms", "mobile_phone_number", "mobile_signal", "new_email", "outbox", "recipient", "save_emails_to_drafts", "sms", "spam", "voice_messages", "voice_mode"], "Content": ["achievement", "android", "api", "apple", "applications", "at", "available_keychain", "bank", "battery", "battery_charge_optimize", "biometric", "birthday", "bookmark", "calendar", "clipboard", "clock", "cloud", "cloud_security", "code_scanner", "color_selection", "company", "country", "cpu", "credit_card", "data_visualisation", "digital_banking", "digital_media", "discount", "discount_3", "e_sim", "eu", "face_mask", "features", "flexible_tariffs", "folder", "food", "gender_diverse", "gender_female", "gender_male", "gender_neutral", "half_rating", "heart", "height", "history", "hour_glass", "id", "in_stock", "international", "international_sms", "key", "language", "lightbulb", "lock", "loyalty", "magenta_heart", "media_folder", "microphone_external", "multi_sim", "music", "news", "out_of_stock", "package", "package_delivery", "person_walking", "prepaid_activate", "price_tag", "route", "rss", "sale", "shop", "signal", "sim_card", "sim_inactive", "smile", "sort_indicator_down", "sort_indicator_up", "status_inactive", "stopwatch", "support_chat", "sustainable", "tariffs", "temperature", "threats", "to_do_list", "tools", "transport", "two_factor_authentification", "unlock", "voucher", "waiting", "wallet"], "Device": ["add_device", "camera_off", "change_camera", "computer", "controller_device", "device_ethernet", "device_tv", "dongle", "fax", "fixed_line_services", "fixed_line_services_3", "game_controller", "media_receiver", "mesh_wifi", "mobile_data", "mobile_devices", "mobile_equipment", "mobile_phone_insurance", "mobile_services", "phone", "phone_with_mobile_plan", "phone_without_mobile_plan", "photo_camera", "remote_controller", "replacement_mobile_phone", "rotate_locked", "rotate_open", "router", "screen_rotate", "server", "smart_speaker", "tablet", "tv_and_mobile", "video_camera", "watch", "wifi_device"], "Home": ["home", "internet_home", "iot", "lan_connection", "light_bulb", "network_secure", "power_socket", "power_socket_3", "router_disconnected", "smart_home", "wifi", "wifi_connected", "wifi_connection_error", "wifi_disconnected", "wifi_no_wired_internet", "wifi_preferred", "wifi_reduced", "wifi_slow", "wifi_unknown"], "Navigation": ["action_collapse_down", "circle_arrow_down", "circle_arrow_up", "collapse_down", "collapse_up", "double_left", "double_right", "left_condensed", "left_extended", "location", "map", "my_location", "navigation_external_link", "navigation_left", "navigation_right", "navigation_start", "right_condensed", "right_extended", "top_up"], "Process": ["order_status", "processing", "sepa_transaction"], "Service": ["devices_service", "maintenance", "one_time_password", "operating_manual", "service_button", "services", "settings", "support", "vpn"], "T Product": ["magenta_ai", "magenta_cloud", "magenta_one", "magenta_tv", "measure_internet_speed", "phone_with_logo", "t_product_7", "telekom_plan", "telekom_shop_b", "unlimited", "usage", "voice"], "User": ["admin", "analytics", "attachment", "audio_file", "billing", "boy", "business_users", "communities", "contacts", "contracts", "contracts_from_cloud", "csv", "draft_file", "families", "family", "file", "file_collection", "girl", "handshake", "html_file", "id_card", "image_file", "login", "man", "manual", "pdf_file", "switch_users", "user", "woman"], "Weather": ["weather_1", "weather_10", "weather_11", "weather_12", "weather_13", "weather_14", "weather_15", "weather_16", "weather_17", "weather_18", "weather_19", "weather_2", "weather_20", "weather_21", "weather_22", "weather_3", "weather_4", "weather_5", "weather_6", "weather_7", "weather_8", "weather_9"]}, P = null;
+function load(urls) {
+  var u = urls.shift();
+  return fetch(u).then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () { if (urls.length) return load(urls); throw 0; });
+}
+function draw() {
+  if (!P) return;
+  var q = document.getElementById('ig-q').value.trim().toLowerCase();
+  var sel = document.getElementById('ig-sel').checked, sm = document.getElementById('ig-small').checked;
+  var v = sm ? (sel ? 'small-selected' : 'small') : (sel ? 'selected' : 'outline'), px = sm ? 16 : 24;
+  var h = '';
+  Object.keys(CATS).forEach(function (c) {
+    var names = CATS[c].filter(function (n) { return !q || n.indexOf(q) > -1; });
+    if (!names.length) return;
+    h += '<h3>' + c + ' <span>' + names.length + '</span></h3><div class="ig-grid">' + names.map(function (n) {
+      return '<button type="button" class="ig-card" data-n="' + n + '"><svg width="' + px + '" height="' + px + '" viewBox="0 0 ' + px + ' ' + px + '" aria-hidden="true">' + P[v][n] + '</svg>' + n + '</button>';
+    }).join('') + '</div>';
+  });
+  document.getElementById('ig-out').innerHTML = h || '<p>No icon matches “' + q + '”.</p>';
+}
+['ig-q', 'ig-sel', 'ig-small'].forEach(function (id) { document.getElementById(id).addEventListener('input', draw); });
+document.getElementById('ig-out').addEventListener('click', function (e) {
+  var b = e.target.closest('.ig-card'); if (!b) return;
+  var name = 'ODS' + b.dataset.n.split('_').map(function (s) { return s.charAt(0).toUpperCase() + s.slice(1); }).join('');
+  var msg = document.getElementById('ig-msg');
+  var done = function () { msg.textContent = 'Copied ' + name; };
+  try { navigator.clipboard.writeText(name).then(done, function () { msg.textContent = name; }); } catch (err) { msg.textContent = name; }
+});
+load(['../../assets/Icons/icons.json', '../project/assets/Icons/icons.json']).then(function (j) {
+  P = {}; Object.keys(j.variants).forEach(function (k) { P[k] = j.variants[k].svg; }); draw();
+}, function () { document.getElementById('ig-out').textContent = 'Icon data (assets/Icons/icons.json) could not be loaded.'; });
+</script>

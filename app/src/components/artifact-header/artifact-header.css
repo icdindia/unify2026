@@ -1,0 +1,180 @@
+/* Arifact Header (sic) 3805:105688 — the artifact panel's top bar. Atom: components/artifact-header/artifact-header.css
+   (verified in figma-frames/brain-15-split); positions measured on chat-artifact 20 / 21 / 21a / 21b / 22 at 1440:
+     bar      40 tall, padding 2 8, row 28; 1px border-secondary drawn inside at the bottom
+     name     a 28px type-mark slot (18.13 x 20 glyph centred) + Buttons/Button Neutral sm (pad 4 8 4 2, text pad 0 2,
+              13/20 Medium text-primary); the step 22 full header adds chevron-down-sm 14 after the name
+     hover    (21a 6405:306202) bg-tertiary over mark + name (512-618 x 14-42), the name 12/16 text-secondary
+     rename   (21b 6405:308388) a 24px field from the mark's right edge: pad 4 10 4 4, 1px border-secondary inside,
+              radius 6, 12/16 Medium text-primary, as wide as its text (540-683 for "Untitled name here|.xls")
+     tools    gap 4: [preview / code 52x24 | copy 28] or [copy 28 | refresh 28], v3 41x28, Publish 81x24,
+              then gap 2: comments split 54x24, download 28, expand / collapse 28, close 28 (right edge = bar padding)
+   Container queries fold copy / refresh / preview-code / download into "More" under 640px of header, Publish and
+   the comment chevron too under 440px (Appendix B: the 787 compaction rule). */
+
+.ahdr {
+  position: relative; flex: none; display: flex; flex-direction: column; justify-content: center; min-width: 0;
+  height: 40px; /* DRIFT: Arifact Header bar height */
+  padding: var(--spacing-xxs) var(--spacing-md);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary); /* bottom stroke inside the 40 */
+  container: ahdr / inline-size;
+}
+.ahdr__row { display: flex; align-items: center; gap: var(--spacing-lg); min-width: 0; height: 28px; } /* DRIFT: Content row */
+
+/* ---- left: type mark + name ---- */
+.ahdr__left {
+  flex: 1 1 auto; display: flex; align-items: center; min-width: 0;
+  padding-right: 28px; /* DRIFT: "40 pixel between button and name" (22 annotation) = row gap 12 + 28 */
+}
+.ahdr__icon { flex: none; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; } /* DRIFT: Artifact-Icons 28 slot */
+.ahdr__icon img { width: 18.13px; height: 20px; } /* DRIFT: .md mark 18.131 x 20 */
+
+.ahdr__name {
+  display: inline-flex; align-items: center; min-width: 0; max-width: 100%;
+  height: 28px; /* DRIFT: Button Neutral sm */
+  padding: 0 var(--spacing-md) 0 0; border-radius: var(--button-sm);
+  color: var(--colors-text-text-primary-900);
+}
+.ahdr__text {
+  min-width: 0; margin-left: var(--spacing-xxs); padding: 0 var(--spacing-xxs);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size);
+  font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+}
+.ahdr__chev { flex: none; margin-left: var(--spacing-xxs); color: var(--colors-icon-icon-secondary); }
+.ahdr__name:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+/* 21a as drawn: the hovered name is Text xs/Medium in text-secondary (fix artifact-name-one-size keeps 13/20) */
+.ahdr:not(.ahdr--one-size) .ahdr__name:is(:hover, .is-hover) .ahdr__text {
+  font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+
+/* ---- rename field (21b) ---- */
+.ahdr__edit { display: flex; align-items: center; min-width: 0; max-width: 100%; }
+.ahdr__field {
+  display: inline-grid; align-items: center; min-width: 0; max-width: 100%;
+  height: 24px; /* DRIFT: Button Neutral xs field */
+  padding: var(--spacing-xs) calc(var(--spacing-md) + var(--spacing-xxs)) var(--spacing-xs) var(--spacing-xs);
+  border-radius: var(--button-sm);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); /* stroke inside */
+  font-family: var(--text-xs-medium-font-family); font-size: var(--text-xs-medium-font-size);
+  font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.ahdr--one-size .ahdr__field { font-size: var(--text-sm-medium-font-size); }
+.ahdr__mirror, .ahdr__input { grid-area: 1 / 1; min-width: 0; font: inherit; letter-spacing: inherit; white-space: pre; }
+.ahdr__mirror { visibility: hidden; overflow: hidden; }
+.ahdr__input {
+  width: 100%; margin: 0; padding: 0; border: 0; outline: 0; background: none; appearance: none; color: inherit;
+  caret-color: var(--colors-text-text-primary-900);
+}
+/* the field itself is the focus cue: a text field shows its caret; its border is the 21b stroke */
+.ahdr__input:focus-visible { outline: none; }
+
+/* ---- right: tools ---- */
+.ahdr__actions { flex: none; display: flex; align-items: center; gap: var(--spacing-xs); }
+.ahdr__tail { display: flex; align-items: center; gap: var(--spacing-xxs); }
+.ahdr .ibtn { align-items: center; justify-content: center; color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg); }
+.ahdr .ibtn svg { display: block; flex: none; }
+.ahdr__more { display: none; }
+
+/* v3 — Button 41 x 28: pad 4, gap 2, text pad 0 2, 13/16 Regular tertiary fg, chevron-down-sm 12 in text-secondary */
+.ahdr__ver {
+  flex: none; display: inline-flex; align-items: center; gap: var(--spacing-xxs);
+  height: 28px; /* DRIFT: v3 button */
+  padding: var(--spacing-xs); border-radius: var(--button-xs);
+  font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight);
+  line-height: 16px; /* DRIFT: 13/16 as the frame states; no DS 13/16 style */
+  font-variant-numeric: tabular-nums;
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.ahdr__ver-t { padding: 0 var(--spacing-xxs); }
+.ahdr__ver svg { flex: none; color: var(--colors-text-text-secondary-700); }
+.ahdr__ver:is(:hover, .is-hover), .ahdr__ver[aria-expanded="true"] { background: var(--colors-background-bg-tertiary); }
+
+/* Publish — Button Neutral Secondary xs 81 x 24: pad 4 8, gap 2, play-solid 14 in icon-tertiary, 13/16 Medium */
+.ahdr__publish {
+  flex: none; display: inline-flex; align-items: center; gap: var(--spacing-xxs); min-width: 56px; /* DRIFT: Button min width */
+  height: 24px; /* DRIFT: xs button */
+  padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--button-sm);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border); /* stroke inside */
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight);
+  line-height: 16px; /* DRIFT: 13/16 stated by the frame */
+  white-space: nowrap;
+  color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg);
+}
+.ahdr__publish svg { flex: none; color: var(--colors-icon-icon-tertiary); }
+.ahdr__publish-t { padding: 0 var(--spacing-xxs); }
+.ahdr__publish:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg-hover); }
+
+/* Comments — Buttons/Split Button Neutral 54 x 24 (13610:411696): [32 x 24 pad 4 8, 16 glyph] | 1 x 14 rule | [20 x 24 pad 6 4, chevron 12], 1px right pad */
+.ahdr__split {
+  flex: none; display: inline-flex; align-items: center;
+  height: 24px; /* DRIFT: xs split button */
+  padding-right: 1px; /* DRIFT: Split Button right inset */
+  border-radius: var(--button-sm);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); /* stroke inside */
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.ahdr__split-main, .ahdr__split-more { display: flex; align-items: center; justify-content: center; height: 24px; } /* DRIFT: xs split button */
+.ahdr__split-main { width: 32px; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--button-sm) 0 0 var(--button-sm); } /* DRIFT: Button Brand 32 */
+.ahdr__split-more { width: 20px; padding: var(--spacing-sm) var(--spacing-xs); border-radius: 0 var(--button-sm) var(--button-sm) 0; } /* DRIFT: Icon Button 20 */
+.ahdr__split svg { display: block; flex: none; }
+.ahdr__split-rule { flex: none; width: 1px; height: 14px; background: var(--colors-border-border-secondary); } /* DRIFT: Rectangle 5645 */
+.ahdr__split-main:is(:hover, .is-hover), .ahdr__split-more:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+.ahdr__split-main[aria-pressed="true"] { background: var(--colors-background-bg-tertiary); color: var(--colors-icon-icon-primary); }
+.ahdr__split :focus-visible { outline-offset: -2px; }
+
+/* ---- the full-screen page header (22): same bar across the main area, chevron on the name ---- */
+.ahdr--full { width: 100%; }
+
+/* ---- narrow headers: fold the optional tools into "More" ---- */
+@container ahdr (max-width: 640px) {
+  .ahdr .ahdr__opt { display: none; }
+  .ahdr .ahdr__more { display: flex; }
+}
+@container ahdr (max-width: 440px) {
+  .ahdr .ahdr__publish, .ahdr .ahdr__opt2, .ahdr .ahdr__split-rule { display: none; }
+  .ahdr__split { padding-right: 0; }
+  .ahdr__split-main { border-radius: var(--button-sm); }
+  .ahdr__left { padding-right: 0; }
+}
+
+/* ---- Version History 7416:161222 (rendered by DropdownMenu, class dd dd--r10 vmenu) ----
+   280 wide, items frame 6 0 4 0; row 280 x 44, pad 0 4; content pad 6 6 6 8, radius 6, gap 12 between the 14 x 18 icon
+   wrap (pad 2 0) and the text wrap; Selected=On fill bg-workspace; text 12/16 Regular primary over 12/16 tertiary. */
+.vmenu .dd__items { padding-top: var(--spacing-sm); }
+.vmenu__row { display: flex; width: 100%; padding: 0 var(--spacing-xs); text-align: left; }
+.vmenu__in {
+  flex: 1 1 0; min-width: 0; display: flex; align-items: flex-start; gap: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-sm);
+}
+.vmenu__row:is(:hover, .is-hover) .vmenu__in, .vmenu__row.is-selected .vmenu__in { background: var(--colors-background-bg-workspace); }
+.vmenu__row:focus-visible { outline-offset: -2px; }
+.vmenu__icon { flex: none; display: flex; justify-content: center; width: 14px; padding: var(--spacing-xxs) 0; } /* DRIFT: Icon Wrap 14 x 18 */
+.vmenu__icon img { width: 9.07px; height: 10px; margin-top: 2px; } /* DRIFT: Artifact-Icons 14: the glyph sits inset 14.29% / 17.7% in its 14px frame */
+.vmenu__tw { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.vmenu__t, .vmenu__d {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size);
+  font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.vmenu__t { color: var(--colors-text-text-primary-900); }
+.vmenu__d { color: var(--colors-text-text-tertiary-600); }
+.vmenu__latest { font-weight: var(--text-xs-medium-font-weight); color: var(--colors-utility-steel-blue-utility-steel-blue-500); }
+
+/* ---- "Viewing v2" bar (fix version-viewing-banner; not in the file) ---- */
+.vbanner {
+  flex: none; display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg); background: var(--colors-background-bg-tertiary);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-secondary-700);
+}
+.vbanner b { font-weight: var(--text-xs-medium-font-weight); color: var(--colors-text-text-primary-900); }
+.vbanner__btn {
+  flex: none; padding: var(--spacing-xxs) var(--spacing-sm); border-radius: var(--button-xs);
+  font-weight: var(--text-xs-medium-font-weight); color: var(--colors-text-text-primary-900); text-decoration: underline;
+}
+.vbanner__btn:hover { background: var(--colors-background-bg-tertiary-hover); }

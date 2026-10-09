@@ -1,0 +1,11 @@
+/* Notice shown in place of a screen that failed to render (app/ScreenBoundary.tsx). Not part of the design. */
+.screen-error {
+  width: min(760px, 100% - 2 * var(--spacing-3xl)); margin: var(--spacing-5xl) auto; /* DRIFT: the dashboard's 760 column */
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-md);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-tertiary-600);
+}
+.screen-error__title {
+  font-size: var(--text-lg-semibold-font-size); font-weight: var(--text-lg-semibold-font-weight); line-height: var(--text-lg-semibold-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.screen-error a { color: var(--colors-text-text-brand-tertiary-600); text-decoration: underline; }

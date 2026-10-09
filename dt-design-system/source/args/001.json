@@ -1,0 +1,1 @@
+{"rows": [{"name": "text", "required": false, "description": "The text content to display in the body.", "type": "string", "default": ""}]}

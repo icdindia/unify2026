@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en" data-mode="light" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise Brain Copilot — DT</title>
+<script>
+  /* ODS mode: follow the OS preference unless ?mode=light|dark is given */
+  (function () {
+    var q = new URLSearchParams(location.search).get('mode');
+    var m = q === 'dark' || q === 'light' ? q : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-mode', m);
+    document.documentElement.setAttribute('data-theme', m);
+  })();
+</script>
+<link rel="stylesheet" href="../../dt-design-system/foundations/dt-foundations.css?v=54a969d4">
+<link rel="stylesheet" href="../../dt-design-system/project/components/bundle.css?v=a4245021">
+<style>
+  /* Page layout only. Every value is a DT token (var(--…)); components are ODS classes from bundle.css. */
+  html, body { height: 100%; margin: 0; }
+  button, input, textarea { font-family: inherit; }
+  body { font-family: var(--font-family); background: var(--colours-basic-background); color: var(--colours-basic-text); }
+  [hidden] { display: none !important; }
+  .app { display: flex; height: 100vh; height: 100dvh; }
+
+  /* ---------- Side navigation: ODS SideNavigation on the magenta scheme ---------- */
+  .dt-rail { flex: none; border-width: 0; height: 100%; }
+  .dt-rail ul { margin: 0; padding: 0; list-style: none; }
+  .dt-logo { display: flex; align-items: center; justify-content: center; width: var(--sizing-component-13); height: var(--sizing-component-13); flex: none; }
+  .dt-logo img { display: block; width: 100%; height: 100%; }
+
+  /* Collapsed: 56 wide (spacing-layout-6), every element on the rail's centre line */
+  #nav-collapsed { --ODSSideNavigation-width: var(--spacing-layout-6); width: var(--spacing-layout-6); align-items: center; }
+  #nav-collapsed .ODSSideNavigation-TopBar { flex-direction: column; gap: var(--spacing-component-2); padding: var(--spacing-component-3) 0; align-items: center; width: 100%; }
+  #nav-collapsed .ODSSideNavigation-ScrollContainer { padding: var(--spacing-component-4) 0; align-items: center; flex: 1; min-height: 0; overflow-y: auto; }
+  .dt-rail { overflow: hidden; }
+  #nav-collapsed .ODSSideNavigation-BottomBarContainer { padding: var(--spacing-component-5) 0; justify-content: center; }
+  #nav-collapsed .ODSSideNavigationContentListContainer, #nav-collapsed .ODSSideNavigationContentListContainer-ListContainer { width: 100%; align-items: center; gap: var(--spacing-component-2); }
+  #nav-collapsed .ODSSideNavigationItem { width: 100%; align-items: center; }
+  #nav-collapsed .ODSSideNavigationItem-IconLabelContainer { padding: 0; justify-content: center; align-items: center; width: var(--sizing-component-13); min-width: var(--sizing-component-13); min-height: var(--sizing-component-13); height: var(--sizing-component-13); border-radius: var(--radius-full); }
+  #nav-collapsed .ODSSideNavigationItem-IconLabel, #nav-collapsed .ODSSideNavigationItem-IconContainer { padding: 0; justify-content: center; align-items: center; }
+
+  /* Expanded: 280 wide (17.5rem) */
+  #nav-expanded { width: 17.5rem; }
+  #nav-expanded .ODSSideNavigation-TopBar { align-items: center; gap: var(--spacing-component-3); min-height: var(--sizing-component-15); padding: var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-4); }
+  #nav-expanded .dt-product { flex: 1; min-width: 0; font: var(--body-l); color: var(--colours-basic-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #nav-expanded .ODSSideNavigation-ScrollContainer { overflow-y: auto; flex: 1; min-height: 0; }
+  #nav-expanded .ODSSideNavigationItem-IconLabelContainer { border-radius: var(--radius-full); }
+  #nav-expanded .ODSSideNavigationSubitem { border-radius: var(--radius-full); width: 100%; }
+  #nav-expanded .ODSSideNavigationSubitem-IconLabelContainer { min-width: 0; }
+  /* ODS gives subitems text-recessive; on the magenta scheme that is 3.3:1 (fails AA for body-m text), so use the scheme's text colour (4.7:1) */
+  #nav-expanded .ODSSideNavigationSubitem:not(.dt-nav-selected) .ODSSideNavigationSubitem-Label { color: var(--colours-basic-text); }
+  #nav-expanded .ODSSideNavigationSubitem-Label { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #nav-expanded .ODSSideNavigationItem-ExpandAndCollapseIcon .ODSIcon { transition: transform 0.1s ease-in-out; }
+  #nav-expanded [aria-expanded="false"] .ODSSideNavigationItem-ExpandAndCollapseIcon .ODSIcon { transform: rotate(180deg); }
+  #nav-expanded .dt-group + .dt-group, #nav-expanded .dt-group:first-of-type { border-top: var(--strokes-1) solid var(--colours-basic-stroke-subtle); margin-top: var(--spacing-component-3); padding-top: var(--spacing-component-3); }
+  #nav-expanded .ODSSideNavigation-BottomBarContainer { justify-content: flex-start; gap: var(--spacing-component-4); align-items: center; }
+  #nav-expanded .dt-user { flex: 1; font: var(--body-m-bold); color: var(--colours-basic-text); }
+
+  /* Selected = ODS selected-button state (Segments, type primary): accent fill + on-accent content.
+     Inside data-scheme="magenta" these resolve to white fill / black content. The rail ids outrank ODS's stacked :not() colour rules. */
+  .dt-nav-selected > .ODSSideNavigationItem-IconLabelContainer, .ODSSideNavigationSubitem.dt-nav-selected { background: var(--colours-basic-accent); }
+  #nav-collapsed .dt-nav-selected .ODSSideNavigationItem-Icon, #nav-expanded .dt-nav-selected .ODSSideNavigationItem-Icon,
+  #nav-expanded .dt-nav-selected .ODSSideNavigationItem-Label, #nav-expanded .ODSSideNavigationSubitem.dt-nav-selected .ODSSideNavigationSubitem-Label { color: var(--colours-basic-text-on-accent); }
+  .dt-nav-selected > .ODSSideNavigationItem-IconLabelContainer:hover, .ODSSideNavigationSubitem.dt-nav-selected:hover { background: var(--colours-interaction-states-hover-accent-hover); }
+
+  /* ---------- Views ---------- */
+  .view { flex: 1; min-width: 0; position: relative; display: flex; flex-direction: column; }
+  .mode-toggle { position: absolute; top: var(--spacing-component-3); right: var(--spacing-component-3); }
+
+  /* Landing */
+  .landing { align-items: center; overflow-y: auto; overflow-x: hidden; padding: 0 var(--spacing-layout-3); }
+  .hero { width: 100%; max-width: 40rem; margin-top: clamp(var(--spacing-layout-5), 20vh, 12.5rem); display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero-mark { width: var(--sizing-component-16); height: var(--sizing-component-16); border-radius: var(--radius-full); background: var(--colours-basic-accent); color: var(--colours-basic-text-on-accent); display: flex; align-items: center; justify-content: center; }
+  .hero-mark .ODSIcon { width: var(--sizing-component-13); height: var(--sizing-component-13); }
+  .hero h1 { font: var(--title-m); letter-spacing: var(--title-m-letter-spacing); margin: var(--spacing-component-5) 0 0; }
+  .hero h1 em { font-style: normal; color: var(--colours-basic-text-dominant); }
+  .hero p { font: var(--paragraph); color: var(--colours-basic-text-recessive); margin: var(--spacing-component-3) 0 0; }
+
+  /* Composer: ODS text-field styling, ODS chips and IconButtonXSmall */
+  .composer { text-align: left; width: 100%; max-width: 40rem; border: var(--strokes-1) solid var(--colours-basic-stroke); border-radius: var(--radius-medium); background: var(--colours-basic-background); padding: var(--spacing-component-5) var(--spacing-component-5) var(--spacing-component-3) var(--spacing-component-7); display: flex; flex-direction: column; gap: var(--spacing-component-3); box-sizing: border-box; }
+  .landing .composer { margin-top: var(--spacing-layout-3); }
+  .composer:focus-within { outline: var(--strokes-2) solid var(--colours-interaction-states-focus-focus); outline-offset: var(--spacing-component-2); }
+  .composer-input { font: var(--body-m-regular); color: var(--colours-basic-text); min-height: calc(var(--body-m-regular-line-height, 1.25) * 2em); outline: none; }
+  .composer-input:empty::before { content: attr(data-placeholder); color: var(--colours-basic-text-recessive); }
+  .skill { font: var(--body-m-bold); color: var(--colours-basic-text-link); }
+  .composer-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-component-3); min-width: 0; }
+  .composer-bar .spacer { flex: 1; }
+  /* Compact Toggle Chip to match the IconButtonXSmall row (sizing-component-10). ODS ships one chip size (sizing-component-13);
+     only its own size variables are changed here: stroke, radius, colours and states stay ODS. */
+  .composer-bar .ODSToggleChip {
+    --ODSToggleChip-minHeight: var(--sizing-component-10);
+    --ODSToggleChip-minWidth: 0;
+    --ODSToggleChip-ToggleChip-minHeight: var(--sizing-component-10);
+    --ODSToggleChip-ToggleChip-minWidth: 0;
+    --ODSToggleChip-ToggleChip-padding: 0 var(--spacing-component-3);
+    --ODSToggleChip-ToggleChip-gap: var(--spacing-component-2);
+    --ODSToggleChip-Label-font: var(--body-s-bold);
+    --ODSToggleChip-Label-letterSpacing: var(--body-s-bold-letter-spacing);
+  }
+  /* Docked single-line composer in the chat view */
+  .composer--dock { flex-direction: row; align-items: center; padding: var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-5); }
+  .composer--dock .composer-input { flex: 1; min-width: 0; min-height: 0; white-space: nowrap; overflow: hidden; }
+
+  /* Feature carousel: ODS card surface + ODS CarouselNavigation */
+  .carousel { width: 100%; max-width: 33.5rem; margin: auto 0 var(--spacing-component-5); padding-top: var(--spacing-layout-3); display: flex; flex-direction: column; align-items: center; gap: var(--spacing-component-3); }
+  .slides { width: 100%; }
+  .slide { display: flex; align-items: center; gap: var(--spacing-component-5); padding: var(--spacing-component-5) var(--spacing-component-5) var(--spacing-component-5) var(--spacing-component-7); border-radius: var(--radius-large); background: var(--colours-basic-background-card); }
+  .slide-text { flex: 1; min-width: 0; }
+  .slide h2 { font: var(--body-m-bold); margin: 0; }
+  .slide p { font: var(--body-s-regular); color: var(--colours-basic-text-recessive); margin: var(--spacing-component-2) 0 0; max-width: 20rem; }
+  .tiles { display: flex; gap: var(--spacing-component-3); flex: none; }
+  .tile { width: var(--sizing-component-14); height: var(--sizing-component-14); border-radius: var(--radius-small); background: var(--colours-basic-background); border: var(--strokes-1) solid var(--colours-basic-stroke-subtle); display: flex; align-items: center; justify-content: center; color: var(--colours-basic-text); box-sizing: border-box; }
+  .tile img { width: var(--sizing-component-10); height: var(--sizing-component-10); }
+
+  /* Chat */
+  .chat-header { flex: none; display: flex; align-items: center; gap: var(--spacing-component-3); min-height: var(--sizing-component-14); padding: 0 var(--spacing-component-3) 0 var(--spacing-component-7); }
+  .chat-title { flex: 1; min-width: 0; font: var(--body-m-bold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; }
+  .chat-cost { font: var(--body-s-regular); color: var(--colours-basic-text-recessive); }
+  .chat-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: var(--spacing-layout-2) var(--spacing-layout-3); }
+  .thread { max-width: 47.5rem; margin: 0 auto; display: flex; flex-direction: column; gap: var(--spacing-layout-2); }
+  .msg-out { align-self: flex-end; max-width: 80%; }
+  .answer { display: grid; grid-template-columns: var(--sizing-component-10) minmax(0, 1fr); column-gap: var(--spacing-component-4); }
+  .answer-mark { width: var(--sizing-component-10); height: var(--sizing-component-10); border-radius: var(--radius-full); background: var(--colours-basic-accent); color: var(--colours-basic-text-on-accent); display: flex; align-items: center; justify-content: center; }
+  .answer-mark .ODSIcon { width: var(--sizing-component-7); height: var(--sizing-component-7); }
+  .cot { font: var(--body-s-regular); color: var(--colours-basic-text-recessive); display: flex; align-items: center; gap: var(--spacing-component-2); min-height: var(--sizing-component-10); }
+  .cot .ODSIcon { width: var(--sizing-component-7); height: var(--sizing-component-7); }
+  .answer-body { grid-column: 2; font: var(--body-m-regular); line-height: 1.625; }
+  .answer-body p { margin: var(--spacing-component-3) 0; }
+  .answer-body ul { margin: var(--spacing-component-3) 0; padding-left: var(--spacing-component-7); }
+  .answer-body li { margin: var(--spacing-component-3) 0; }
+  .answer-body strong { font-weight: 700; }
+  .answer-body .ODSTagStatic { display: inline-flex; vertical-align: middle; margin-left: var(--spacing-component-2); }
+  .answer-meta { grid-column: 2; display: flex; align-items: center; gap: var(--spacing-component-3); margin-top: var(--spacing-component-3); }
+  .answer-meta .spacer { flex: 1; }
+  .answer-meta .chat-cost { margin-right: var(--spacing-component-2); }
+  .sources { display: inline-flex; align-items: center; gap: var(--spacing-component-3); font: var(--body-s-regular); color: var(--colours-basic-text-recessive); }
+  .sources-stack { display: inline-flex; }
+  .sources-stack span { width: var(--sizing-component-8); height: var(--sizing-component-8); border-radius: var(--radius-full); background: var(--colours-basic-background); border: var(--strokes-1) solid var(--colours-basic-stroke-subtle); display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; }
+  .sources-stack span + span { margin-left: calc(-1 * var(--spacing-component-3)); }
+  .sources-stack img { width: var(--sizing-component-6); height: var(--sizing-component-6); }
+  .reveal { animation: dt-reveal 0.2s ease-out both; }
+  @keyframes dt-reveal { from { opacity: 0; } to { opacity: 1; } }
+  .chat-dock { flex: none; padding: var(--spacing-component-3) var(--spacing-layout-3) var(--spacing-component-5); display: flex; justify-content: center; }
+  .chat-dock .composer { max-width: 47.5rem; }
+
+  @media (max-width: 40rem) {
+    .slide { flex-direction: column; align-items: flex-start; }
+    .composer { padding-left: var(--spacing-component-5); }
+    #nav-expanded { position: absolute; z-index: var(--z-index-overlay); }
+  }
+  @media (prefers-reduced-motion: reduce) { *, .reveal { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Collapsed rail -->
+  <nav id="nav-collapsed" class="ODSColumn ODSSideNavigation dt-rail" data-scheme="magenta" aria-label="Main">
+    <div class="ODSRow ODSSideNavigation-TopBar">
+      <div class="dt-logo"><img src="../../dt-design-system/project/assets/Logos/t-mark-white.svg" alt="Telekom"></div>
+      <button class="ODSRow ODSButton ODSButton--size-small ODSButton--buttonType-iconOnly ODSButton--variant-ghost ODSButton-ButtonBg--variant-ghost ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-iconOnly ODSButton-ButtonBg--size-small" type="button" aria-label="Expand navigation" data-role="expand"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-small ODSButton-Content--buttonType-iconOnly"><svg class="ODSIcon ODSButton-ButtonIcon ODSButton-ButtonIcon--size-small ODSButton-ButtonIcon--buttonType-iconOnly ODSButton-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M4 7a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1M4 12a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1M5 16a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2z"></path></g></g></svg></div></button>
+    </div>
+    <div class="ODSColumn ODSSideNavigation-TopDividerContainer"></div>
+    <div class="ODSColumn ODSSideNavigation-ScrollContainer">
+      <div class="ODSColumn ODSSideNavigationContentListContainer">
+        <ul class="ODSColumn ODSSideNavigationContentListContainer-ListContainer">
+          <li class="ODSColumn ODSSideNavigationItem"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer" type="button" aria-label="New Session" data-nav="new" data-go="new"><div class="ODSRow ODSSideNavigationItem-IconLabel"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M11 19a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6z"></path></g></g></svg></div></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer" type="button" aria-label="Projects" data-nav="projects"><div class="ODSRow ODSSideNavigationItem-IconLabel"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M2 5a1 1 0 0 1 1-1h7.098c1.3 0 2.415.83 2.829 2H21a1 1 0 0 1 1 1v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3zm2 1v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V8h-7.9a1 1 0 0 1-.999-.95l-.005-.1a1 1 0 0 0-.998-.95z"></path></g></g></svg></div></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer" type="button" aria-label="Routines" data-nav="routines"><div class="ODSRow ODSSideNavigationItem-IconLabel"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M13 7a1 1 0 1 0-2 0v5a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586z"></path><path clip-rule="evenodd" fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0"></path></g></g></svg></div></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer" type="button" aria-label="Meetings" data-nav="meetings"><div class="ODSRow ODSSideNavigationItem-IconLabel"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M8 3a1 1 0 0 1 1 1v1h6V4a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h1V4a1 1 0 0 1 1-1M6 7a1 1 0 0 0-1 1v1h14V8a1 1 0 0 0-1-1zm13 4H5v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"></path></g></g></svg></div></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer" type="button" aria-label="Artifacts" data-nav="artifacts"><div class="ODSRow ODSSideNavigationItem-IconLabel"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M6 3a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM5 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1zM16 3a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zm-1 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM3 16a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm3-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM16 13a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3zm-1 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"></path></g></g></svg></div></div></button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ODSColumn ODSSideNavigation-BottomDividerContainer"></div>
+    <div class="ODSRow ODSSideNavigation-BottomBarContainer">
+      <div class="ODSBox ODSAvatar ODSAvatar--size-medium ODSAvatar--variant-initials" role="img" aria-label="Anurag Kashyap">
+        <div class="ODSBox ODSAvatar-Background"></div><span class="ODSAvatar-Initials ODSAvatar-Initials--size-medium">A</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Expanded nav -->
+  <nav id="nav-expanded" class="ODSColumn ODSSideNavigation ODSSideNavigation--expanded dt-rail" data-scheme="magenta" aria-label="Main" hidden>
+    <div class="ODSRow ODSSideNavigation-TopBar ODSSideNavigation-TopBar--expanded">
+      <div class="dt-logo"><img src="../../dt-design-system/project/assets/Logos/t-mark-white.svg" alt="Telekom"></div>
+      <span class="dt-product">Enterprise Brain</span>
+      <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Search"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M6.867 2a4.867 4.867 0 1 0 2.992 8.705l3.113 3.12a.6.6 0 0 0 .85-.848l-3.115-3.12A4.867 4.867 0 0 0 6.867 2M3.2 6.867a3.667 3.667 0 1 1 7.333 0 3.667 3.667 0 0 1-7.333 0"></path></g></g></svg></div></button>
+      <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Collapse navigation" data-role="collapse"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M3 4.5a.6.6 0 0 1 .6-.6h8.8a.6.6 0 1 1 0 1.2H3.6a.6.6 0 0 1-.6-.6M3 8a.6.6 0 0 1 .6-.6h8.8a.6.6 0 1 1 0 1.2H3.6A.6.6 0 0 1 3 8M3.6 10.9a.6.6 0 1 0 0 1.2h8.8a.6.6 0 1 0 0-1.2z"></path></g></g></svg></div></button>
+    </div>
+    <div class="ODSColumn ODSSideNavigation-TopDividerContainer"></div>
+    <div class="ODSColumn ODSSideNavigation-ScrollContainer ODSSideNavigation-ScrollContainer--expanded">
+      <div class="ODSColumn ODSSideNavigationContentListContainer ODSSideNavigationContentListContainer--navExpanded">
+        <ul class="ODSColumn ODSSideNavigationContentListContainer-ListContainer">
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" data-nav="new" data-go="new"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M11 19a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6z"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--navExpanded">New Session</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" data-nav="projects"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M2 5a1 1 0 0 1 1-1h7.098c1.3 0 2.415.83 2.829 2H21a1 1 0 0 1 1 1v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3zm2 1v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V8h-7.9a1 1 0 0 1-.999-.95l-.005-.1a1 1 0 0 0-.998-.95z"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--navExpanded">Projects</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" data-nav="routines"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M13 7a1 1 0 1 0-2 0v5a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586z"></path><path clip-rule="evenodd" fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--navExpanded">Routines</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" data-nav="meetings"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M8 3a1 1 0 0 1 1 1v1h6V4a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h1V4a1 1 0 0 1 1-1M6 7a1 1 0 0 0-1 1v1h14V8a1 1 0 0 0-1-1zm13 4H5v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--navExpanded">Meetings</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" data-nav="artifacts"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M6 3a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM5 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1zM16 3a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zm-1 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM3 16a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm3-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM16 13a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3zm-1 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--navExpanded">Artifacts</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"></div></button></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded dt-group"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" aria-expanded="true" aria-controls="grp-agents"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded ODSSideNavigationItem-Icon--parent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M11.998 2a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M12 8.029a4 4 0 1 0 0 8 4 4 0 0 0 0-8M4.1 9.9a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M19.897 9.9a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M11.998 17.8a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M6.008 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M6.008 16.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M17.992 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M17.992 16.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--parent ODSSideNavigationItem-Label--navExpanded">Agents</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"><div class="ODSRow ODSSideNavigationItem-ExpandAndCollapseIcon"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M18.707 15.707a1 1 0 0 1-1.414 0L12 10.414l-5.293 5.293a1 1 0 0 1-1.414-1.414l6-6a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414"></path></g></g></svg></div></div></button><div class="ODSColumn ODSSideNavigationList" id="grp-agents" aria-label="Agents" aria-hidden="false"><ul class="ODSColumn ODSSideNavigationList-ListContainer"><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="agents-0"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Financial Analysis Agent</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="agents-1"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Sheet Sage Agent</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="agents-2"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Formula Falcon Agent</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li></ul></div></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded dt-group"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" aria-expanded="true" aria-controls="grp-pinned"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded ODSSideNavigationItem-Icon--parent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M4 5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v16a1 1 0 0 1-1.496.868L12 18.152l-6.504 3.716A1 1 0 0 1 4 21zm3-1a1 1 0 0 0-1 1v14.277l5.504-3.145a1 1 0 0 1 .992 0L18 19.277V5a1 1 0 0 0-1-1z"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--parent ODSSideNavigationItem-Label--navExpanded">Pinned</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"><div class="ODSRow ODSSideNavigationItem-ExpandAndCollapseIcon"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M18.707 15.707a1 1 0 0 1-1.414 0L12 10.414l-5.293 5.293a1 1 0 0 1-1.414-1.414l6-6a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414"></path></g></g></svg></div></div></button><div class="ODSColumn ODSSideNavigationList" id="grp-pinned" aria-label="Pinned" aria-hidden="false"><ul class="ODSColumn ODSSideNavigationList-ListContainer"><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="pinned-0" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Artifacts</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="pinned-1" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Projects</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="pinned-2" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Chat 1 inside this Project</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="pinned-3" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Chat 2 inside this Project</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="pinned-4" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Plan launch timeline</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="pinned-5" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Review customer feedback</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li></ul></div></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded dt-group"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" aria-expanded="true" aria-controls="grp-routines"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded ODSSideNavigationItem-Icon--parent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M13 7a1 1 0 1 0-2 0v5a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586z"></path><path clip-rule="evenodd" fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--parent ODSSideNavigationItem-Label--navExpanded">Routines</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"><div class="ODSRow ODSSideNavigationItem-ExpandAndCollapseIcon"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M18.707 15.707a1 1 0 0 1-1.414 0L12 10.414l-5.293 5.293a1 1 0 0 1-1.414-1.414l6-6a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414"></path></g></g></svg></div></div></button><div class="ODSColumn ODSSideNavigationList" id="grp-routines" aria-label="Routines" aria-hidden="false"><ul class="ODSColumn ODSSideNavigationList-ListContainer"><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="routines-0" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Get all granola notes summarized and delivered</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="routines-1" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Excel Formula Help From Main Document</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="routines-2" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Design Stand up follow-up meeting</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li></ul></div></li>
+          <li class="ODSColumn ODSSideNavigationItem ODSSideNavigationItem--navExpanded dt-group"><button class="ODSRow ODSSideNavigationItem-IconLabelContainer ODSSideNavigationItem-IconLabelContainer--navExpanded" type="button" aria-expanded="true" aria-controls="grp-history"><div class="ODSRow ODSSideNavigationItem-IconLabel ODSSideNavigationItem-IconLabel--navExpanded"><div class="ODSRow ODSSideNavigationItem-IconContainer"><svg class="ODSIcon ODSSideNavigationItem-Icon ODSSideNavigationItem-Icon--navExpanded ODSSideNavigationItem-Icon--parent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M12 4.019a7.98 7.98 0 0 0-4.5 14.573V17a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1h-4a1 1 0 1 1 0-2h1.467a10 10 0 0 1-3.987-8C1.98 6.467 6.466 1.98 12 1.98S22.019 6.466 22.019 12c0 4.689-3.22 8.623-7.569 9.717a1.019 1.019 0 0 1-.497-1.977A7.98 7.98 0 0 0 12 4.019"></path><path d="M12 6a1 1 0 0 1 1 1v4.586l3.207 3.207a1 1 0 0 1-1.414 1.414l-3.5-3.5A1 1 0 0 1 11 12V7a1 1 0 0 1 1-1"></path></g></g></svg></div><div class="ODSRow ODSSideNavigationItem-LabelContainer"><span class="ODSSideNavigationItem-Label ODSSideNavigationItem-Label--parent ODSSideNavigationItem-Label--navExpanded">History</span></div></div><div class="ODSRow ODSSideNavigationItem-IconsContainer"><div class="ODSRow ODSSideNavigationItem-ExpandAndCollapseIcon"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M18.707 15.707a1 1 0 0 1-1.414 0L12 10.414l-5.293 5.293a1 1 0 0 1-1.414-1.414l6-6a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414"></path></g></g></svg></div></div></button><div class="ODSColumn ODSSideNavigationList" id="grp-history" aria-label="History" aria-hidden="false"><ul class="ODSColumn ODSSideNavigationList-ListContainer"><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="history-0" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Sheet Formula Consultant</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="history-1" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Workbook Support Hub</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="history-2" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Morning Digest</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li><li class="ODSColumn ODSSideNavigationSubitem-container"><button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="history-3" data-go="chat"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label">Spreadsheet Formula Advisor</span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button></li></ul></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ODSColumn ODSSideNavigation-BottomDividerContainer"></div>
+    <div class="ODSRow ODSSideNavigation-BottomBarContainer">
+      <div class="ODSBox ODSAvatar ODSAvatar--size-medium ODSAvatar--variant-initials" aria-hidden="true">
+        <div class="ODSBox ODSAvatar-Background"></div><span class="ODSAvatar-Initials ODSAvatar-Initials--size-medium">A</span>
+      </div>
+      <span class="dt-user">Anurag Kashyap</span>
+      <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Account menu"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M12.424 10.424a.6.6 0 0 1-.849 0L8 6.848l-3.575 3.576a.6.6 0 0 1-.849-.848l4-4a.6.6 0 0 1 .849 0l4 4a.6.6 0 0 1 0 .848"></path></g></g></svg></div></button>
+    </div>
+  </nav>
+
+  <!-- Landing -->
+  <main class="view landing" id="view-landing">
+    <div class="mode-toggle"><button class="ODSRow ODSButton ODSButton--size-small ODSButton--buttonType-iconOnly ODSButton--variant-ghost ODSButton-ButtonBg--variant-ghost ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-iconOnly ODSButton-ButtonBg--size-small" type="button" aria-label="Switch light or dark mode" data-role="mode"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-small ODSButton-Content--buttonType-iconOnly"><svg class="ODSIcon ODSButton-ButtonIcon ODSButton-ButtonIcon--size-small ODSButton-ButtonIcon--buttonType-iconOnly ODSButton-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M11 3a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1M17 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8M10.99 10.01a1.99 1.99 0 1 0 0 3.98 1 1 0 1 1 0 2 3.99 3.99 0 0 1 0-7.98 1 1 0 1 1 0 2M3 11a1 1 0 1 0 0 2h1a1 1 0 1 0 0-2zM12 19a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0zM4.633 5.633a1 1 0 0 1 1.414 0l.71.71a1 1 0 1 1-1.414 1.414l-.71-.71a1 1 0 0 1 0-1.414M6.757 17.657a1 1 0 1 0-1.414-1.414l-.71.71a1 1 0 1 0 1.414 1.414z"></path></g></g></svg></div></button></div>
+    <section class="hero" aria-labelledby="greeting">
+      <div class="hero-mark" aria-hidden="true"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M11.998 2a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M12 8.029a4 4 0 1 0 0 8 4 4 0 0 0 0-8M4.1 9.9a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M19.897 9.9a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M11.998 17.8a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M6.008 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M6.008 16.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M17.992 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M17.992 16.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></g></g></svg></div>
+      <h1 id="greeting">Hello <em>Roger</em></h1>
+      <p>How can I help you today?</p>
+      <form class="composer" data-composer="landing" onsubmit="return false">
+        <div class="composer-input" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Message" data-placeholder="Ask anything…"><span class="skill">/Tech design requirements</span> This space will display AI-generated insights based on inputs sufficient data is available, the system will analyze patterns and generate</div>
+        <div class="composer-bar">
+          <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Add files or context"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M7.401 12.5a.6.6 0 1 0 1.2 0V8.6H12.5a.6.6 0 1 0 0-1.2H8.601V3.5a.6.6 0 0 0-1.2 0v3.9H3.5a.6.6 0 0 0 0 1.2h3.902z"></path></g></g></svg></div></button>
+          <button class="ODSToggleChip" aria-pressed="false" type="button"><div class="ODSRow ODSToggleChip-ToggleChip ODSToggleChip-ToggleChip--transparentBg"><svg class="ODSIcon ODSToggleChip-Icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M5.2 4.6a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0M7.4 5.2a.6.6 0 1 0 0-1.2.6.6 0 0 0 0 1.2M8 7.998a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0M7.4 12a.6.6 0 1 0 0-1.2.6.6 0 0 0 0 1.2M5.2 7.998a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0M4.6 12a.6.6 0 1 0 0-1.2.6.6 0 0 0 0 1.2"></path><path clip-rule="evenodd" fill-rule="evenodd" d="M2.6 1A1.6 1.6 0 0 0 1 2.6v11.8a.6.6 0 0 0 .6.6h12.799a.6.6 0 0 0 .6-.6v-7a1.6 1.6 0 0 0-1.6-1.6H11V2.6A1.6 1.6 0 0 0 9.4 1zM11 13.8V7h2.399c.22 0 .4.18.4.4v6.4zM9.8 6.362V2.6a.4.4 0 0 0-.4-.4H2.6a.4.4 0 0 0-.4.4v11.2h7.599V6.4z"></path></g></g></svg><span class="ODSToggleChip-Label">Company</span></div></button>
+          <button class="ODSToggleChip" aria-pressed="false" type="button"><div class="ODSRow ODSToggleChip-ToggleChip ODSToggleChip-ToggleChip--transparentBg"><svg class="ODSIcon ODSToggleChip-Icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M6.867 2a4.867 4.867 0 1 0 2.992 8.705l3.113 3.12a.6.6 0 0 0 .85-.848l-3.115-3.12A4.867 4.867 0 0 0 6.867 2M3.2 6.867a3.667 3.667 0 1 1 7.333 0 3.667 3.667 0 0 1-7.333 0"></path></g></g></svg><span class="ODSToggleChip-Label">Research</span></div></button>
+          <span class="spacer"></span>
+          <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Choose model"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M8 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M8 5.32a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4M2.492 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M13.508 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M8 12a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M12.194 2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M12.194 11.1a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M3.803 2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M3.803 11.1a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2"></path></g></g></svg></div></button>
+          <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Dictate"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M5.139 3.86a2.86 2.86 0 0 1 5.721 0V7.64a2.86 2.86 0 1 1-5.721 0zm4.521 0V7.64a1.66 1.66 0 0 1-3.321 0V3.86a1.66 1.66 0 0 1 3.321 0" clip-rule="evenodd" fill-rule="evenodd"></path><path d="M4.102 7.5a.6.6 0 0 0-1.2 0 5.1 5.1 0 0 0 4.5 5.064V14.5a.6.6 0 1 0 1.2 0v-1.935A5.1 5.1 0 0 0 13.1 7.5a.6.6 0 1 0-1.2 0 3.899 3.899 0 0 1-7.798 0"></path></g></g></svg></div></button>
+          <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Send" data-role="send"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-primary"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-primary" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M7.575 2.176a.6.6 0 0 1 .849 0l4 4a.6.6 0 0 1-.848.848L8.599 4.048V13.4a.6.6 0 1 1-1.2 0V4.049L4.424 7.024a.6.6 0 1 1-.849-.848z"></path></g></g></svg></div></button>
+        </div>
+      </form>
+    </section>
+
+    <section class="carousel" aria-roledescription="carousel" aria-label="Get more out of Enterprise Brain">
+      <div class="slides">
+        <article class="slide" aria-roledescription="slide" aria-label="1 of 3">
+          <div class="slide-text"><h2>Connect apps</h2><p>Connect apps you already use — Atlas works in context, not in isolation.</p></div>
+          <div class="tiles" aria-hidden="true">
+            <span class="tile"><img src="assets/hubspot.svg" alt=""></span>
+            <span class="tile"><img src="assets/slack.svg" alt=""></span>
+            <span class="tile"><img src="assets/salesforce.svg" alt=""></span>
+          </div>
+        </article>
+        <article class="slide" aria-roledescription="slide" aria-label="2 of 3" hidden>
+          <div class="slide-text"><h2>Enable memory</h2><p>Atlas remembers your preferences and past context — every conversation gets sharper.</p></div>
+          <div class="tiles" aria-hidden="true"><span class="tile"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M12 4.019a7.98 7.98 0 0 0-4.5 14.573V17a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1h-4a1 1 0 1 1 0-2h1.467a10 10 0 0 1-3.987-8C1.98 6.467 6.466 1.98 12 1.98S22.019 6.466 22.019 12c0 4.689-3.22 8.623-7.569 9.717a1.019 1.019 0 0 1-.497-1.977A7.98 7.98 0 0 0 12 4.019"></path><path d="M12 6a1 1 0 0 1 1 1v4.586l3.207 3.207a1 1 0 0 1-1.414 1.414l-3.5-3.5A1 1 0 0 1 11 12V7a1 1 0 0 1 1-1"></path></g></g></svg></span></div>
+        </article>
+        <article class="slide" aria-roledescription="slide" aria-label="3 of 3" hidden>
+          <div class="slide-text"><h2>Custom Instructions</h2><p>Tell Atlas how to talk and respond — so every answer fits the way you work.</p></div>
+          <div class="tiles" aria-hidden="true"><span class="tile"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M10.998 16.415 18.421 9a2 2 0 0 0 0-2.828L16.838 4.59a2 2 0 0 0-2.828 0l-7.42 7.413a2 2 0 0 0-.587 1.414l-.001 2.586a1 1 0 0 0 1 1L9.588 17a2 2 0 0 0 1.411-.585m6.008-8.829L15.592 9 14.01 7.418l1.414-1.415zM9.586 15l4.591-4.586-1.582-1.583-4.592 4.586V15z"></path><path d="M5 19a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2z"></path></g></g></svg></span></div>
+        </article>
+      </div>
+      <div class="ODSRow ODSCarouselNavigation">
+        <button class="ODSRow ODSButton ODSButton--size-small ODSButton--buttonType-iconOnly ODSButton--variant-ghost ODSButton-ButtonBg--variant-ghost ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-iconOnly ODSButton-ButtonBg--size-small" type="button" aria-label="Previous item" data-role="prev"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-small ODSButton-Content--buttonType-iconOnly"><svg class="ODSIcon ODSButton-ButtonIcon ODSButton-ButtonIcon--size-small ODSButton-ButtonIcon--buttonType-iconOnly ODSButton-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M17.338 5.445a1 1 0 0 1-.277 1.387L9.309 12l7.752 5.168a1 1 0 1 1-1.11 1.664l-9-6a1 1 0 0 1 0-1.664l9-6a1 1 0 0 1 1.387.277"></path></g></g></svg></div></button>
+        <div class="ODSRow ODSCarouselNavigation-DotContainer">
+          <div class="ODSCarouselDot ODSCarouselDot--selected"></div><div class="ODSCarouselDot"></div><div class="ODSCarouselDot"></div>
+        </div>
+        <button class="ODSRow ODSButton ODSButton--size-small ODSButton--buttonType-iconOnly ODSButton--variant-ghost ODSButton-ButtonBg--variant-ghost ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-iconOnly ODSButton-ButtonBg--size-small" type="button" aria-label="Next item" data-role="next"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-small ODSButton-Content--buttonType-iconOnly"><svg class="ODSIcon ODSButton-ButtonIcon ODSButton-ButtonIcon--size-small ODSButton-ButtonIcon--buttonType-iconOnly ODSButton-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M6.674 5.445a1 1 0 0 0 .277 1.387L14.703 12l-7.752 5.168a1 1 0 1 0 1.11 1.664l9-6a1 1 0 0 0 0-1.664l-9-6a1 1 0 0 0-1.387.277"></path></g></g></svg></div></button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chat -->
+  <main class="view chat" id="view-chat" hidden>
+    <header class="chat-header">
+      <h1 class="chat-title" id="chat-title">How does commit actually look?</h1>
+      <span class="chat-cost">$1.23</span>
+      <button class="ODSRow ODSButton ODSButton--size-small ODSButton--buttonType-standard ODSButton--variant-ghost ODSButton-ButtonBg--variant-ghost ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-standard ODSButton-ButtonBg--size-small" type="button"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-small ODSButton-Content--buttonType-standard"><svg class="ODSIcon ODSButton-ButtonIcon ODSButton-ButtonIcon--size-small ODSButton-ButtonIcon--buttonType-standard ODSButton-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M13.793 3.707a1 1 0 0 1 1.414-1.414l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414-1.414L17.086 9H10a1 1 0 0 0-1 1v5.5a1 1 0 1 1-2 0V10a3 3 0 0 1 3-3h7.086z"></path><path d="M5 20a1 1 0 0 1-1-1v-7a1 1 0 1 0-2 0v7a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-4.5a1 1 0 1 0-2 0V19a1 1 0 0 1-1 1z"></path></g></g></svg><span class="ODSButton-Label">Share</span></div></button>
+      <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Open document"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M5.4 8.5a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2H6a.6.6 0 0 1-.6-.6M6 10.9a.6.6 0 0 0 0 1.2h4a.6.6 0 1 0 0-1.2z"></path><path clip-rule="evenodd" fill-rule="evenodd" d="M12.243 15a1.3 1.3 0 0 0 1.3-1.3V2.3a1.3 1.3 0 0 0-1.3-1.3H7.49a1.3 1.3 0 0 0-.919.38l-3.79 3.79a1.3 1.3 0 0 0-.38.92v7.61A1.3 1.3 0 0 0 3.7 15zm.1-1.3a.1.1 0 0 1-.1.1H3.7a.1.1 0 0 1-.1-.1V6.5h3.098a1.3 1.3 0 0 0 1.3-1.3v-3h4.245a.1.1 0 0 1 .1.1zM6.798 2.85 4.348 5.3h2.35a.1.1 0 0 0 .1-.1z"></path></g></g></svg></div></button>
+      <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Switch light or dark mode" data-role="mode"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M7.92 1a.6.6 0 0 1 .6.6v.79a.6.6 0 0 1-1.2 0V1.6a.6.6 0 0 1 .6-.6M6.15 7.92c0-.972.788-1.76 1.76-1.76a.6.6 0 1 0 0-1.2 2.96 2.96 0 0 0 0 5.92.6.6 0 0 0 0-1.2 1.76 1.76 0 0 1-1.76-1.76M1.6 7.32a.6.6 0 0 0 0 1.2h.79a.6.6 0 0 0 0-1.2zM8.52 13.44a.6.6 0 0 0-1.2 0v.79a.6.6 0 1 0 1.2 0zM3.025 3.026a.6.6 0 0 1 .849 0l.56.56a.6.6 0 1 1-.849.848l-.56-.56a.6.6 0 0 1 0-.848M4.434 12.245a.6.6 0 1 0-.849-.849l-.56.56a.6.6 0 1 0 .849.849zM12.04 4.96a2.96 2.96 0 1 0 0 5.92 2.96 2.96 0 0 0 0-5.92"></path></g></g></svg></div></button>
+    </header>
+    <div class="chat-scroll" id="chat-scroll">
+      <div class="thread" id="thread"></div>
+    </div>
+    <div class="chat-dock">
+      <form class="composer composer--dock" data-composer="dock" onsubmit="return false">
+        <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Add files or context"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M7.401 12.5a.6.6 0 1 0 1.2 0V8.6H12.5a.6.6 0 1 0 0-1.2H8.601V3.5a.6.6 0 0 0-1.2 0v3.9H3.5a.6.6 0 0 0 0 1.2h3.902z"></path></g></g></svg></div></button>
+        <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Company sources"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M5.2 4.6a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0M7.4 5.2a.6.6 0 1 0 0-1.2.6.6 0 0 0 0 1.2M8 7.998a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0M7.4 12a.6.6 0 1 0 0-1.2.6.6 0 0 0 0 1.2M5.2 7.998a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0M4.6 12a.6.6 0 1 0 0-1.2.6.6 0 0 0 0 1.2"></path><path clip-rule="evenodd" fill-rule="evenodd" d="M2.6 1A1.6 1.6 0 0 0 1 2.6v11.8a.6.6 0 0 0 .6.6h12.799a.6.6 0 0 0 .6-.6v-7a1.6 1.6 0 0 0-1.6-1.6H11V2.6A1.6 1.6 0 0 0 9.4 1zM11 13.8V7h2.399c.22 0 .4.18.4.4v6.4zM9.8 6.362V2.6a.4.4 0 0 0-.4-.4H2.6a.4.4 0 0 0-.4.4v11.2h7.599V6.4z"></path></g></g></svg></div></button>
+        <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Research"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M6.867 2a4.867 4.867 0 1 0 2.992 8.705l3.113 3.12a.6.6 0 0 0 .85-.848l-3.115-3.12A4.867 4.867 0 0 0 6.867 2M3.2 6.867a3.667 3.667 0 1 1 7.333 0 3.667 3.667 0 0 1-7.333 0"></path></g></g></svg></div></button>
+        <div class="composer-input" contenteditable="true" role="textbox" aria-label="Message" data-placeholder="Ask anything…"></div>
+        <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Choose model"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M8 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M8 5.32a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4M2.492 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M13.508 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M8 12a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M12.194 2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M12.194 11.1a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M3.803 2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M3.803 11.1a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2"></path></g></g></svg></div></button>
+        <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Dictate"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M5.139 3.86a2.86 2.86 0 0 1 5.721 0V7.64a2.86 2.86 0 1 1-5.721 0zm4.521 0V7.64a1.66 1.66 0 0 1-3.321 0V3.86a1.66 1.66 0 0 1 3.321 0" clip-rule="evenodd" fill-rule="evenodd"></path><path d="M4.102 7.5a.6.6 0 0 0-1.2 0 5.1 5.1 0 0 0 4.5 5.064V14.5a.6.6 0 1 0 1.2 0v-1.935A5.1 5.1 0 0 0 13.1 7.5a.6.6 0 1 0-1.2 0 3.899 3.899 0 0 1-7.798 0"></path></g></g></svg></div></button>
+        <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Send" data-role="send"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-primary"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-primary" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M7.575 2.176a.6.6 0 0 1 .849 0l4 4a.6.6 0 0 1-.848.848L8.599 4.048V13.4a.6.6 0 1 1-1.2 0V4.049L4.424 7.024a.6.6 0 1 1-.849-.848z"></path></g></g></svg></div></button>
+      </form>
+    </div>
+  </main>
+</div>
+
+<!-- Chat message templates (ODS ChatText, TypingAnimation, TagStatic) -->
+<template id="tpl-out">
+  <div class="ODSRow ODSChatText ODSChatText--variant-outgoing msg-out reveal" role="group" aria-label="You">
+    <div class="ODSRow ODSChatText-BubbleContainer ODSChatText-BubbleContainer--type-text ODSChatText-BubbleContainer--variant-outgoing ODSChatText-BubbleContainer--firstMessage">
+      <div class="ODSBox ODSChatText-BubbleBackground ODSChatText-BubbleBackground--type-text ODSChatText-BubbleBackground--variant-outgoing ODSChatText-BubbleBackground--firstMessage"></div>
+      <span class="ODSChatText-Text ODSChatText-Text--type-text ODSChatText-Text--variant-outgoing" data-slot="text"></span>
+    </div>
+  </div>
+</template>
+<template id="tpl-answer">
+  <article class="answer reveal" aria-label="Answer">
+    <div class="answer-mark" aria-hidden="true"><svg class="ODSIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><g><path d="M11.998 2a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M12 8.029a4 4 0 1 0 0 8 4 4 0 0 0 0-8M4.1 9.9a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M19.897 9.9a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M11.998 17.8a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2M6.008 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M6.008 16.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M17.992 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M17.992 16.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></g></g></svg></div>
+    <div class="cot" data-slot="cot"><span data-slot="cot-text">Searching internal knowledge…</span></div>
+    <div class="answer-body" data-slot="body">
+      <div class="ODSRow ODSTypingAnimation" aria-label="Assistant is typing"><div class="ODSBox ODSTypingAnimation-Dot"></div><div class="ODSBox ODSTypingAnimation-Dot"></div><div class="ODSBox ODSTypingAnimation-Dot"></div></div>
+    </div>
+  </article>
+</template>
+<template id="tpl-commit">
+  <p>Commit is $8.4M against a $9.2M quota with a third of the quarter left — $0.8M short, and the shortfall is more specific than the number suggests<span class="ODSRow ODSTagStatic ODSTagStatic--type-subtle ODSTagStatic--size-small"><span class="ODSTagStatic-Label ODSTagStatic-Label--type-subtle ODSTagStatic-Label--size-small">Reforecast +2</span></span></p>
+  <ul>
+    <li><strong>$5.6M is already closed won.</strong> That part is not in question.</li>
+    <li><strong>$2.8M is open and in commit,</strong> carried by four deals with security reviews or order forms in flight.</li>
+    <li><strong>$1.49M sits in six deals that are not forecast in commit at all,</strong> and four of those six have no next step logged.<span class="ODSRow ODSTagStatic ODSTagStatic--type-subtle ODSTagStatic--size-small"><span class="ODSTagStatic-Label ODSTagStatic-Label--type-subtle ODSTagStatic-Label--size-small">Pipeline</span></span></li>
+  </ul>
+  <p>That last line is the whole gap. It is not that the quarter is short of pipeline — coverage is 2.7x — it is that six deals stopped moving and nobody marked them. Two sit on accounts scoring below 60 health, one has been idle 34 days, and Atlas Data Cloud is present on three of them.</p>
+  <p>My read: commit is optimistic rather than short. Before anyone forecasts against it, those six need a next step or a close-lost.</p>
+</template>
+<template id="tpl-meta">
+  <div class="answer-meta reveal">
+    <span class="chat-cost">$0.19</span>
+    <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Copy answer"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M6.964 1.1a1.6 1.6 0 0 0-1.6 1.6V3a.6.6 0 0 0 1.2 0v-.3c0-.22.18-.4.4-.4h6c.221 0 .4.18.4.4v6.667a.4.4 0 0 1-.4.4h-.366a.6.6 0 0 0 0 1.2h.366a1.6 1.6 0 0 0 1.6-1.6V2.7a1.6 1.6 0 0 0-1.6-1.6z"></path><path d="M3.135 5.034a1.6 1.6 0 0 0-1.6 1.6V13.3a1.6 1.6 0 0 0 1.6 1.6h6a1.6 1.6 0 0 0 1.6-1.6V6.634a1.6 1.6 0 0 0-1.6-1.6zm-.4 1.6c0-.221.18-.4.4-.4h6c.221 0 .4.179.4.4V13.3a.4.4 0 0 1-.4.4h-6a.4.4 0 0 1-.4-.4z" clip-rule="evenodd" fill-rule="evenodd"></path></g></g></svg></div></button>
+    <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Regenerate"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M7.05 1.148a.6.6 0 0 1 .85 0l1.632 1.633a.6.6 0 0 1 0 .849L7.9 5.263a.6.6 0 1 1-.848-.849l.593-.593a4.376 4.376 0 0 0-2.738 7.478.6.6 0 1 1-.843.854A5.576 5.576 0 0 1 7.67 2.617l-.62-.62a.6.6 0 0 1 0-.849m4 2.65a.6.6 0 0 1 .848-.005 5.576 5.576 0 0 1-3.607 9.536l.62.62a.6.6 0 1 1-.849.848L6.43 13.164a.6.6 0 0 1 0-.849l1.633-1.632a.6.6 0 0 1 .849.848l-.594.594a4.376 4.376 0 0 0 2.738-7.478.6.6 0 0 1-.005-.849" clip-rule="evenodd" fill-rule="evenodd"></path></g></g></svg></div></button>
+    <span class="sources"><span class="sources-stack" aria-hidden="true"><span><img src="assets/hubspot.svg" alt=""></span><span><img src="assets/salesforce.svg" alt=""></span><span><img src="assets/slack.svg" alt=""></span></span>8 Sources</span>
+    <span class="spacer"></span>
+    <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Good answer"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M7.163 1.975A1.98 1.98 0 0 1 8.868.997c.53 0 1.067.21 1.474.533.406.322.758.823.758 1.442v2.483h1.967c1.067 0 1.933.866 1.933 1.933v5.678A1.933 1.933 0 0 1 13.067 15H1.6a.6.6 0 0 1-.6-.6V7.5a.6.6 0 0 1 .6-.6h2.563zM3.9 8.099H2.2v5.7h1.7zm1.2 5.7h7.967a.733.733 0 0 0 .733-.733V7.388a.733.733 0 0 0-.733-.733H10.5a.6.6 0 0 1-.6-.6V2.972c0-.14-.084-.327-.305-.502a1.24 1.24 0 0 0-.727-.273.78.78 0 0 0-.67.386l-.007.011L5.1 7.668z" clip-rule="evenodd" fill-rule="evenodd"></path></g></g></svg></div></button>
+    <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="Bad answer"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M7.163 14.022A1.98 1.98 0 0 0 8.868 15c.53 0 1.067-.21 1.474-.533.406-.322.758-.823.758-1.442v-2.483h1.967A1.933 1.933 0 0 0 15 8.61V2.93A1.933 1.933 0 0 0 13.067.998H1.6a.6.6 0 0 0-.6.6v6.9a.6.6 0 0 0 .6.6h2.563zM3.9 7.898H2.2v-5.7h1.7zm1.2-5.7h7.967c.405 0 .733.328.733.733v5.678a.733.733 0 0 1-.733.733H10.5a.6.6 0 0 0-.6.6v3.083c0 .14-.084.327-.305.503a1.24 1.24 0 0 1-.727.272.78.78 0 0 1-.67-.386l-.007-.011L5.1 8.329z" clip-rule="evenodd" fill-rule="evenodd"></path></g></g></svg></div></button>
+    <button class="ODSRow ODSIconButtonXSmall" type="button" aria-label="More actions"><div class="ODSBox ODSIconButtonXSmall-ButtonBg ODSIconButtonXSmall-ButtonBg--variant-ghost"></div><div class="ODSRow ODSIconButtonXSmall-Content"><svg class="ODSIcon ODSIconButtonXSmall-ButtonIcon ODSIconButtonXSmall-ButtonIcon--variant-ghost" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g fill="currentColor"><g><path d="M3 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2M9 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0M14 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"></path></g></g></svg></div></button>
+  </div>
+</template>
+
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var wait = function (ms) { return new Promise(function (r) { setTimeout(r, reduced ? 0 : ms); }); };
+  var SCRIPTED_Q = 'We are two-thirds through the quarter. How does commit actually look?';
+  var landingDefault = $('[data-composer=landing] .composer-input').innerHTML;
+  var busy = false;
+
+  /* ---- Nav: collapse / expand (two ODS states) ---- */
+  function setNav(expanded) {
+    $('#nav-collapsed').hidden = expanded;
+    $('#nav-expanded').hidden = !expanded;
+    (expanded ? $('#nav-expanded [data-role=collapse]') : $('#nav-collapsed [data-role=expand]')).focus();
+  }
+  $('#nav-collapsed [data-role=expand]').addEventListener('click', function () { setNav(true); });
+  $('#nav-expanded [data-role=collapse]').addEventListener('click', function () { setNav(false); });
+
+  /* ---- Nav: ODS parent items open / close their subitem list ---- */
+  $$('#nav-expanded [aria-controls]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var open = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(open));
+      var list = document.getElementById(b.getAttribute('aria-controls'));
+      list.hidden = !open; list.setAttribute('aria-hidden', String(!open));
+    });
+  });
+
+  /* ---- Selection state across both navs ---- */
+  function select(key) {
+    $$('.dt-rail [data-nav]').forEach(function (el) {
+      var on = el.getAttribute('data-nav') === key;
+      var host = el.classList.contains('ODSSideNavigationSubitem') ? el : el.parentElement;
+      host.classList.toggle('dt-nav-selected', on);
+      if (on) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current');
+    });
+  }
+
+  /* ---- Views ---- */
+  function show(view) {
+    $('#view-landing').hidden = view !== 'landing';
+    $('#view-chat').hidden = view !== 'chat';
+  }
+  function newSession() {
+    busy = false;
+    $('#thread').innerHTML = '';
+    $('[data-composer=landing] .composer-input').innerHTML = landingDefault;
+    select('new'); show('landing');
+  }
+  function node(tpl) { return document.importNode($(tpl).content, true).firstElementChild; }
+  function scrollEnd() { var s = $('#chat-scroll'); s.scrollTop = s.scrollHeight; }
+
+  function ensureHistory(title) {
+    if ($('[data-nav="chat-current"]')) { $('[data-nav="chat-current"] .ODSSideNavigationSubitem-Label').textContent = title; return; }
+    var list = $('#grp-history .ODSSideNavigationList-ListContainer');
+    var li = document.createElement('li'); li.className = 'ODSColumn ODSSideNavigationSubitem-container';
+    li.innerHTML = '<button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="chat-current" data-go="chat-current"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label"></span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button>';
+    li.querySelector('.ODSSideNavigationSubitem-Label').textContent = title;
+    list.insertBefore(li, list.firstChild);
+  }
+
+  async function ask(question, opts) {
+    opts = opts || {};
+    busy = true;
+    var scripted = question === SCRIPTED_Q;
+    var title = scripted ? 'How does commit actually look?' : (question.length > 60 ? question.slice(0, 57) + '…' : question);
+    if (!opts.append) { $('#thread').innerHTML = ''; $('#chat-title').textContent = title; ensureHistory(title); select('chat-current'); }
+    show('chat');
+    var out = node('#tpl-out'); out.querySelector('[data-slot=text]').textContent = question; $('#thread').appendChild(out);
+    var ans = node('#tpl-answer'); $('#thread').appendChild(ans); scrollEnd();
+    if (!opts.instant) { await wait(700); ans.querySelector('[data-slot=cot-text]').textContent = 'Searched internal knowledge · Reasoning over the results…'; await wait(900); }
+    ans.querySelector('[data-slot=cot-text]').textContent = 'Searched internal knowledge · Reasoned over the results';
+    var body = ans.querySelector('[data-slot=body]');
+    if (scripted) { body.innerHTML = ''; body.appendChild(document.importNode($('#tpl-commit').content, true)); }
+    else { body.innerHTML = '<p>This prototype scripts one answer. Ask “' + SCRIPTED_Q + '” or open a history item to see it.</p>'; }
+    body.classList.add('reveal');
+    ans.appendChild(node('#tpl-meta'));
+    scrollEnd(); busy = false;
+  }
+
+  function composerText(form) {
+    var el = form.querySelector('.composer-input');
+    var t = el.textContent.replace(/\s+/g, ' ').trim();
+    if (form.getAttribute('data-composer') === 'landing' && el.innerHTML === landingDefault) t = SCRIPTED_Q;
+    return t;
+  }
+  function submit(form) {
+    if (busy) return;
+    var q = composerText(form); if (!q) return;
+    var inChat = form.getAttribute('data-composer') === 'dock';
+    form.querySelector('.composer-input').innerHTML = '';
+    ask(q, { append: inChat });
+  }
+  $$('form.composer').forEach(function (f) {
+    f.querySelector('[data-role=send]').addEventListener('click', function () { submit(f); });
+    f.querySelector('.composer-input').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(f); } });
+  });
+
+  /* ---- Nav targets ---- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-go]'); if (!t) return;
+    var go = t.getAttribute('data-go');
+    if (go === 'new') newSession();
+    else if (go === 'chat' || go === 'chat-current') { if (!busy) { ask(SCRIPTED_Q, { instant: true }); select(t.getAttribute('data-nav')); } }
+    else select(t.getAttribute('data-nav'));
+  });
+
+  /* ---- Carousel (ODS CarouselNavigation) ---- */
+  var slides = $$('.slide'), dots = $$('.ODSCarouselDot'), cur = 0;
+  function slide(i) { cur = (i + slides.length) % slides.length; slides.forEach(function (s, k) { s.hidden = k !== cur; }); dots.forEach(function (d, k) { d.classList.toggle('ODSCarouselDot--selected', k === cur); }); }
+  $('[data-role=prev]').addEventListener('click', function () { slide(cur - 1); });
+  $('[data-role=next]').addEventListener('click', function () { slide(cur + 1); });
+
+  /* ---- Toggle chips (ODS ToggleChip) ---- */
+  $$('.ODSToggleChip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.getAttribute('aria-pressed') !== 'true';
+      c.setAttribute('aria-pressed', String(on));
+      c.firstElementChild.classList.toggle('ODSToggleChip-ToggleChip--selected', on);
+      c.querySelector('.ODSToggleChip-Label').classList.toggle('ODSToggleChip-Label--selected', on);
+      c.querySelector('.ODSToggleChip-Icon').classList.toggle('ODSToggleChip-Icon--selected', on);
+    });
+  });
+
+  /* ---- Light / dark (ODS data-mode) ---- */
+  $$('[data-role=mode]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var m = document.documentElement.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-mode', m);
+      document.documentElement.setAttribute('data-theme', m);
+    });
+  });
+
+  select('new');
+})();
+</script>
+</body>
+</html>

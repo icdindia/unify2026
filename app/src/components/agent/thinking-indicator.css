@@ -1,0 +1,30 @@
+/* ThinkingIndicator — Agent COT / Type=Step 1 (8863:218608) and Step 2 (8863:218615), figma-console 2026-10-09.
+   COT row: Animation 20 · gap 8 · `_thinking state` (pl 4): "Thinking..." / "Consulting the knowledge repository..."
+   Text sm/Regular 13/20. The text is an ALPHA mask over a #737373 rectangle (so it reads #737373 whatever its own fill)
+   and a 29.6px band, rotated -45deg, white 0 -> 60% -> 0, that sits left of the text in State=1 (x -26.9) and right of
+   it in State=2 (x 263.1). `thinking state` 484:117565 swaps the two every 0.8s (Q24 default); the band sweeps across
+   on 1 -> 2 and jumps back on 2 -> 1 (useThinkingLoop). */
+.agent-thinking { display: flex; align-items: center; gap: var(--spacing-md); min-width: 0; }
+.agent-thinking__label {
+  min-width: 0; padding-left: var(--spacing-xs);
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+  color: transparent;
+  -webkit-background-clip: text; background-clip: text;
+  /* band: an 80x20 tile whose 135deg ramp spans 70.7px, so 29.04%..70.96% is the band's 29.64px width */
+  background-image:
+    linear-gradient(135deg, rgb(255 255 255 / 0) 29.04%, rgb(255 255 255 / 0.6) 50%, rgb(255 255 255 / 0) 70.96%),
+    linear-gradient(var(--palette-gray-true-500), var(--palette-gray-true-500)); /* DRIFT: Rectangle 5630 #737373 has no semantic token */
+  background-repeat: no-repeat;
+  background-size: 80px 100%, 100% 100%;
+  background-position: -80px 0, 0 0;
+}
+.agent-thinking__label[data-frame="2"] {
+  background-position: 250px 0, 0 0;
+  transition: background-position 800ms linear;
+}
+@media (forced-colors: active) {
+  .agent-thinking__label { color: CanvasText; background: none; }
+}

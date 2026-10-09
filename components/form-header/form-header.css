@@ -1,0 +1,138 @@
+/* ----------------------------------------------------------------------------
+   form-header — DS "Form Header"  (setKey per ds/components.md: 59836:85546)
+   Screen: Dashboard 16740:306222
+   Section title + count pill + supporting line + optional right-hand action.
+
+   THE LEVEL AXIS MATTERS. ds/components.md records "Form Header | Level 0-3".
+   The screen uses two different levels, and they are NOT interchangeable —
+   they resolve to different internal sub-components with different geometry:
+
+     default (this file's base)   internals `I…;59839:*`   h 40
+       16740:306244 / 306304 / 306349 / 306395 / 306398 / 306429 / 306460
+       no self padding · title 15/24 (Text md/Medium) · supporting 12/16
+       featured icon 32 at y=5 · text block at x=44 (12 gap)
+
+     .form-header--level-1        internals `I…;59836:*`   h 52
+       16740:306238 (the "Setup for Salesforce" banner)
+       OWN padding 6/12/8 · title 13/20 (Text sm/Medium) · supporting 12/16
+       featured logo 32 at y=4 · text block at x=44 (12 gap)
+
+   Mapping the banner to the default level rendered it 65px instead of 52 and
+   set the title one step too large. Check the Level before reusing this atom.
+   NOTE: get_metadata does not expose the variant property values, so the level
+   NUMBER here follows the designer's report; the GEOMETRY is measured from
+   16740:306238. Confirm the numbering when figma-keys.md is backfilled.
+---------------------------------------------------------------------------- */
+
+.form-header { display: flex; flex-direction: column; width: 100%; box-sizing: border-box; }
+
+/* ---- Level 1 — 16740:306238. Carries its own padding and a smaller title. ---- */
+.form-header--level-1 { padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-md); }
+.form-header--level-1 .form-header__title {
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+}
+/* Figma 16740:306238: the Header frame is 38 tall and the title row starts at
+   y=2 — a 2px lead-in above the 20+16 text stack. Without it the strip is 50,
+   not 52. */
+.form-header--level-1 .form-header__text { padding-top: var(--spacing-xxs); }
+
+.form-header__content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.form-header__icon-title {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-lg);
+  min-width: 0;
+}
+
+/* 32px product mark (Salesforce) — DS "Featured icon" */
+.form-header__featured {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-top: var(--spacing-xxs);
+  box-sizing: border-box;
+  background: var(--colors-background-bg-white);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-sm);
+  overflow: clip;
+}
+.form-header__featured svg { display: block; width: 20px; height: 20px; }
+
+.form-header__text {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.form-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.form-header__title {
+  font-family: var(--text-md-medium-font-family);
+  font-weight: var(--text-md-medium-font-weight);
+  font-size: var(--text-md-medium-font-size);
+  line-height: var(--text-md-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+  white-space: nowrap;
+}
+
+.form-header__subtitle {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* the agent-identity card states its subtitle at full contrast (Figma 306398) */
+.form-header__subtitle--strong { color: var(--colors-text-text-primary-900); }
+
+.form-header__actions { display: flex; align-items: center; gap: var(--spacing-md); flex: none; }
+
+/* DS "Buttons/Button Neutral" — tertiary, sm */
+.form-header__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  min-width: 56px;
+  box-sizing: border-box;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 0;
+  border-radius: var(--button-sm);
+  background: transparent;
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: clip;
+}
+.form-header__action:hover,
+.form-header__action[data-force="hover"] { background: var(--colors-background-bg-tertiary); }
+.form-header__action:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: 1px;
+}
+.form-header__action svg { display: block; width: 14px; height: 14px; }

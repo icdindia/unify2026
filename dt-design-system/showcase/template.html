@@ -1,0 +1,330 @@
+<title>DT Design System</title>
+<style>/*THEME*/</style>
+<style id="ods-bundle">/*BUNDLE*/</style>
+<style>/*PREVIEW*/</style>
+<style>/*PAGE*/</style>
+
+<div class="shell">
+  <aside class="side" aria-label="Sections">
+    <a class="brand" href="#top"><span class="mark"><!--TMARK--></span><span>DT Design System</span></a>
+    <nav>
+      <ul class="toc">
+        <li><a href="#principles">Principles</a></li>
+        <li><a href="#colour">Colour</a></li>
+        <li><a href="#palette">DT palette</a></li>
+        <li><a href="#type">Typography</a></li>
+        <li><a href="#space">Space &amp; shape</a></li>
+        <li><a href="#icons">Icons</a></li>
+        <li><a href="#components">ODS components</a>
+          <ul class="toc-comps"><!--COMP_NAV--></ul></li>
+        <li><a href="#figma">DT Figma library</a></li>
+        <li><a href="#screens">Screens</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main" id="top">
+    <header class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Deutsche Telekom · ODS web · v1</p>
+        <h1>DT Design System</h1>
+        <p class="lede">One typeface, TeleNeo. One brand colour, magenta <code>#E20074</code>, used with restraint on black, white and grey. Every colour is a token with a light and a dark value, every component comes from ODS, and the product screens in Figma are built from the same parts.</p>
+      </div>
+      <div class="theme" role="group" aria-label="Theme">
+        <button type="button" id="th-system" data-th="system" aria-pressed="true">System</button>
+        <button type="button" id="th-light" data-th="light" aria-pressed="false">Light</button>
+        <button type="button" id="th-dark" data-th="dark" aria-pressed="false">Dark</button>
+      </div>
+      <dl class="facts">
+        <div><dt>Colour tokens</dt><dd>{{N_TOKENS}}</dd></div>
+        <div><dt>Palette swatches</dt><dd>105</dd></div>
+        <div><dt>Icons</dt><dd>{{N_ICONS}}</dd></div>
+        <div><dt>ODS components</dt><dd>{{N_COMPS}}</dd></div>
+        <div><dt>DT Figma components</dt><dd>{{N_FIGMA}}</dd></div>
+        <div><dt>Product screens</dt><dd>{{N_SCREENS}}</dd></div>
+      </dl>
+      <div class="kit" id="kit">
+        <div class="kit-text"><b>Take it with you</b><span>The kit has tokens (CSS + JSON), icon sprites, the ODS stylesheet, every component as an HTML page, React snippets and the Figma map. TeleNeo is not included.</span></div>
+        <div class="kit-actions">
+          <button type="button" class="tool primary dl" id="dl-kit" hidden>Download kit (.zip, {{KIT_KB}} KB)</button>
+          <button type="button" class="tool dl" id="dl-tokens" hidden>tokens.json</button>
+          <p class="dl-note" id="dl-note" hidden>Downloads work on the published page. Copy buttons work everywhere.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="block" id="principles">
+      <h2>Principles</h2>
+      <div class="cols">
+        <div class="rule-card">
+          <h3>Build from ODS first</h3>
+          <ul>
+            <li>Use the ODS packages in code: <code>@telekom-ods/react-ui-kit</code>, <code>@telekom-ods/design-tokens</code>, <code>@telekom-ods/react-icons</code>.</li>
+            <li>Style every part with tokens, never raw values. Start with a background token so a component follows mode and scheme.</li>
+            <li>Mode: <code>data-mode="light"</code> or <code>"dark"</code> on <code>&lt;body&gt;</code>; without it ODS follows the OS.</li>
+            <li>Schemes: wrap a region in <code>data-scheme="magenta"</code>, <code>"black"</code> or a palette hue to recolour everything inside.</li>
+          </ul>
+        </div>
+        <div class="rule-card">
+          <h3>Sizes in product screens</h3>
+          <ul>
+            <li>Reading text in chat stays 16px (Body M) on the 760px column.</li>
+            <li>Button and filter labels are 14px (Body S Bold). Text buttons stay 40px tall, the ODS minimum.</li>
+            <li>Compact icon actions use the 24px XSmall icon button with a 16px icon.</li>
+            <li>Side navigation, menu items, table cells and breadcrumbs keep ODS 16px.</li>
+          </ul>
+        </div>
+        <div class="rule-card">
+          <h3>Content</h3>
+          <ul>
+            <li>Keep a line under 80 characters; a body text block no wider than 575px.</li>
+            <li>Titles are clear and short. ODS has no uppercase styles; set text as written.</li>
+            <li>Never convey state by colour alone; pair status colour with an icon and a word.</li>
+            <li>Hit areas are at least 48px (<code>sizing-minimum-tappable-area</code>).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="colour">
+      <h2>Colour</h2>
+      <p class="intro">Semantic tokens from the ODS neutral scheme. Each has a light and a dark value; the swatch column shows the value for the current theme. Text sits on <code>colours-basic-text</code>, magenta is an accent and never a ground.</p>
+      <!--COLOR_TABLES-->
+    </section>
+
+    <section class="block" id="palette">
+      <h2>DT palette</h2>
+      <p class="intro">15 secondary hues from ODS, 7 steps each, as <code>--palette-&lt;hue&gt;-&lt;step&gt;</code> and Figma variables <code>palette/&lt;hue&gt;/&lt;step&gt;</code>. Use them for data visualisation, categories, avatars and tints. Put <code>colours-basic-text</code> on the fills (8.7:1 or better on base and lighter); never set text in a palette colour, and keep status on the functional tokens. Dark mode reverses each ramp. Click a swatch to copy its token.</p>
+      <div class="pal-head"><span></span><span>subtle</span><span>extra-dominant</span><span>dominant</span><span>base-subtle</span><span>base</span><span>recessive</span><span>extra-recessive</span></div>
+      <div class="pal"><!--PALETTE--></div>
+      <p class="copy-note" id="copy-note" aria-live="polite"></p>
+    </section>
+
+    <section class="block" id="type">
+      <h2>Typography</h2>
+      <p class="intro">TeleNeo variable, weight 500 for regular and 700 for bold. Titles are fluid between 360 and 1680px viewports. Letter-spacing is 0 everywhere.</p>
+      <div class="type-list"><!--TYPE--></div>
+    </section>
+
+    <section class="block" id="space">
+      <h2>Space &amp; shape</h2>
+      <div class="cols two">
+        <div><h3>Spacing</h3><!--SPACING--></div>
+        <div><h3>Radius</h3><!--RADIUS--></div>
+        <div><h3>Sizing</h3><!--SIZING--></div>
+        <div><h3>Strokes</h3><!--STROKES--><h3>Breakpoints</h3><!--VIEWPORT--></div>
+      </div>
+    </section>
+
+    <section class="block" id="icons">
+      <h2>Icons</h2>
+      <p class="intro">The ODS icon set, outline 24px. Icons draw in <code>currentColor</code>; colour them through the text colour of their container.</p>
+      <div class="row-actions"><button type="button" class="tool dl" id="dl-sprite" hidden>Download icon sprite (.svg)</button></div>
+      <label class="search" for="icon-q"><span>Filter icons</span><input id="icon-q" type="search" placeholder="e.g. chat, download, calendar" autocomplete="off"></label>
+      <div class="icons"><!--ICONS--></div>
+    </section>
+
+    <section class="block" id="components">
+      <h2>ODS components</h2>
+      <p class="intro">Rendered from ODS markup with the ODS stylesheet. Overlays (dialogs, menus, tooltips) are shown open; disclosures (accordions, menus) toggle. Follows the theme switch above.</p>
+      <div class="comps"><!--COMPONENTS--></div>
+    </section>
+
+    <section class="block" id="figma">
+      <h2>DT Figma library</h2>
+      <p class="intro">Components built on the 🎨 DT Pilot page of <i>EB for DT 2026</i>. Colours bind to the <code>DT Foundations</code> collection (Light / Dark) and text to the <code>DT/…</code> styles.</p>
+      <div class="scroll"><table class="tokens figma"><thead><tr><th>Component</th><th>Node</th><th>ODS</th><th>Notes</th></tr></thead><tbody><!--FIGMA--></tbody></table></div>
+      <div class="sheets"><!--SHEETS--></div>
+    </section>
+
+    <section class="block" id="screens">
+      <h2>Screens</h2>
+      <p class="intro">Product screens rebuilt in Figma from the parts above. Each also exists as a Dark twin.</p>
+      <div class="shots"><!--SCREENS--></div>
+    </section>
+
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <div class="copy-box" id="copy-box" role="dialog" aria-labelledby="copy-title" hidden>
+      <div class="copy-card">
+        <div class="copy-head"><b id="copy-title">Code</b><button type="button" class="tool" id="copy-close">Close</button></div>
+        <label class="sr" for="copy-text">Code to copy</label>
+        <textarea id="copy-text" readonly spellcheck="false"></textarea>
+      </div>
+    </div>
+    <footer class="foot">Built from the ODS Storybook (tokens, components, icons) and the DT Pilot Figma page. Regenerate with <code>python3 tools/build_showcase.py</code>.</footer>
+  </main>
+</div>
+
+<script type="application/json" id="snips">/*SNIPS*/</script>
+<script type="application/json" id="tokens-json">/*TOKENS_JSON*/</script>
+<script type="text/plain" id="kit-b64">/*KIT_B64*/</script>
+<script>
+(function () {
+  var EXPORT_TOKENS = /*EXPORT_TOKENS*/;
+  var PREVIEW_CSS = /*PREVIEW_CSS*/;
+  var DISCLOSURE = /*DISCLOSURE*/;
+  var SNIPS = JSON.parse(document.getElementById('snips').textContent);
+  var statusEl = document.getElementById('status'), statusT;
+  function status(msg) { statusEl.textContent = msg; statusEl.classList.add('on'); clearTimeout(statusT); statusT = setTimeout(function () { statusEl.classList.remove('on'); }, 3200); }
+
+  // ---- copy (clipboard inside the click; fall back to a selected textarea) ----
+  function copy(text, what) {
+    function fallback() {
+      var box = document.getElementById('copy-box'), ta = document.getElementById('copy-text');
+      document.getElementById('copy-title').textContent = what;
+      ta.value = text; box.hidden = false; ta.focus(); ta.select();
+      status('Press ⌘C or Ctrl+C to copy');
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { status('Copied ' + what); }, fallback);
+    else fallback();
+  }
+
+  document.getElementById('copy-close').addEventListener('click', function () { document.getElementById('copy-box').hidden = true; });
+  document.getElementById('copy-box').addEventListener('click', function (e) { if (e.target.id === 'copy-box') e.currentTarget.hidden = true; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') document.getElementById('copy-box').hidden = true; });
+
+  // ---- downloads capability (null outside the published viewer) ----
+  var dl = null;
+  (async function () {
+    try { if (window.claude && window.claude.use) dl = await window.claude.use('downloads'); } catch (e) { dl = null; }
+    document.querySelectorAll('.dl').forEach(function (b) { b.hidden = !dl; });
+    document.getElementById('dl-note').hidden = !!dl;
+  })();
+  async function save(filename, data) {
+    if (!dl) { status('Downloads are not available in this view'); return; }
+    try { await dl.save({ filename: filename, data: data }); status('Saved ' + filename); }
+    catch (e) {
+      var c = e && e.code;
+      if (c === 'declined') status('Download cancelled');
+      else if (c === 'rate_limited') status('A download prompt is already open');
+      else if (c === 'too_large') status(filename + ' is too large to save here');
+      else { status('Could not save ' + filename); if (c === 'unavailable' || c === 'not_granted') document.querySelectorAll('.dl').forEach(function (b) { b.hidden = true; }); }
+    }
+  }
+
+  // ---- per-component exports ----
+  function markupOf(sec) {
+    var pv = sec.querySelector('.comp-stage .dt-pv').cloneNode(true);
+    pv.querySelectorAll('.dt-pv-stage[style]').forEach(function (st) { st.removeAttribute('style'); });
+    return pv.outerHTML;
+  }
+  function keepRule(sel, root) {
+    return sel.split(',').some(function (one) {
+      var s1 = one.trim();
+      try { if (root.querySelector(s1)) return true; } catch (e) {}
+      var bare = s1.replace(/::?[a-zA-Z-]+(\([^)]*\))?/g, '').trim();
+      if (bare && bare !== s1) { try { if (root.querySelector(bare)) return true; } catch (e) {} }
+      return false;
+    });
+  }
+  function cssFor(root) {
+    var sheet = document.getElementById('ods-bundle').sheet, used = {};
+    root.querySelectorAll('[class]').forEach(function (e) { e.classList.forEach(function (c) { used[c] = 1; }); });
+    function keepGlobal(r) { // class-free rules: resets and :root variable blocks (kept unless they only define another component's variables)
+      var m = r.cssText.match(/--ODS[A-Za-z]+-/g);
+      return !m || m.some(function (v) { return used[v.slice(2, -1)]; });
+    }
+    function walk(rules) {
+      var out = '';
+      for (var i = 0; i < rules.length; i++) {
+        var r = rules[i];
+        if (r.type === 1) {
+          var global = !/\.[_a-zA-Z-]/.test(r.selectorText) && !/\[data-/.test(r.selectorText);
+          if (global ? keepGlobal(r) : keepRule(r.selectorText, root)) out += r.cssText + '\n';
+        }
+        else if (r.type === 4) { var m = walk(r.cssRules); if (m) out += '@media ' + r.conditionText + ' {\n' + m + '}\n'; }
+        else if (r.type === 12) { var su = walk(r.cssRules); if (su) out += '@supports ' + r.conditionText + ' {\n' + su + '}\n'; }
+        else if (r.type === 7) out += r.cssText + '\n';
+      }
+      return out;
+    }
+    return walk(sheet.cssRules);
+  }
+  function pageFor(sec) {
+    var name = sec.dataset.name, ods = sec.dataset.ods;
+    var stage = sec.querySelector('.comp-stage');
+    return '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+      '<title>' + name + ' · DT Design System</title>\n<!-- ' + ods + ' rendered from ODS markup. Tokens: DT Design System. Font: TeleNeo (not included). -->\n' +
+      '<style>\n' + EXPORT_TOKENS + '\n</style>\n<style>\n' + cssFor(stage) + '\n</style>\n<style>\n' + PREVIEW_CSS +
+      '\nbody{margin:0;font-family:"TeleNeo Var",TeleNeoWeb,system-ui,sans-serif;background:var(--colours-basic-background);color:var(--colours-basic-text)}\n</style>\n</head>\n<body>\n' +
+      markupOf(sec) + '\n<script>\n' + DISCLOSURE + '<\/script>\n</body>\n</html>\n';
+  }
+  document.querySelectorAll('.comp-tools .tool').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var sec = b.closest('.comp');
+      if (b.dataset.act === 'html') copy(markupOf(sec), sec.dataset.name + ' HTML');
+      else if (b.dataset.act === 'react') copy(SNIPS[sec.dataset.name] || '', sec.dataset.name + ' React snippet');
+      else if (b.dataset.act === 'download') save(sec.dataset.name + '.html', pageFor(sec));
+    });
+  });
+
+  // ---- system-wide downloads ----
+  document.getElementById('dl-kit').addEventListener('click', function () {
+    var b64 = document.getElementById('kit-b64').textContent.trim(), bin = atob(b64), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    save('dt-design-system-kit.zip', bytes);
+  });
+  document.getElementById('dl-tokens').addEventListener('click', function () { save('tokens.json', document.getElementById('tokens-json').textContent); });
+  document.getElementById('dl-sprite').addEventListener('click', function () {
+    var sym = '';
+    document.querySelectorAll('.icon-grid li').forEach(function (li) { var svg = li.querySelector('svg'); sym += '<symbol id="ods-' + li.title + '" viewBox="0 0 24 24">' + svg.innerHTML + '</symbol>\n'; });
+    save('ods-icons-outline.svg', '<svg xmlns="http://www.w3.org/2000/svg" style="display:none">\n' + sym + '</svg>\n');
+  });
+
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.theme button');
+  function setTheme(t) {
+    if (t === 'system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.th === t)); });
+    try { localStorage.setItem('dtds-theme', t); } catch (e) {}
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { setTheme(b.dataset.th); }); });
+  try { var saved = localStorage.getItem('dtds-theme'); if (saved) setTheme(saved); } catch (e) {}
+
+  // palette: copy token
+  var note = document.getElementById('copy-note');
+  document.querySelectorAll('.pal-cell').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var v = 'var(' + c.dataset.copy + ')';
+      function done(ok) { note.textContent = ok ? 'Copied ' + v : 'Copy ' + v + ' by hand'; }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function () { done(true); }, function () { done(false); });
+      else done(false);
+    });
+  });
+
+  // icon filter
+  var q = document.getElementById('icon-q');
+  q.addEventListener('input', function () {
+    var s = q.value.trim().toLowerCase();
+    document.querySelectorAll('.icon-cat').forEach(function (cat) {
+      var shown = 0;
+      cat.querySelectorAll('li').forEach(function (li) { var m = !s || li.title.indexOf(s.replace(/\s+/g, '_')) > -1; li.hidden = !m; if (m) shown++; });
+      cat.hidden = shown === 0;
+    });
+  });
+
+  // ODS previews: the one universal behaviour (disclosure), scoped to the story section
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.comp-stage button[aria-expanded][aria-controls]');
+    if (!b) return;
+    var scope = b.closest('section') || document;
+    var p = scope.querySelector('[id="' + b.getAttribute('aria-controls') + '"]');
+    var open = b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', String(open));
+    if (p) { if (open) { p.removeAttribute('hidden'); p.style.maxHeight = 'none'; p.classList.add(p.classList[1] + '--expanded'); }
+             else { p.setAttribute('hidden', ''); p.style.maxHeight = '0px'; p.classList.remove(p.classList[1] + '--expanded'); } }
+    b.querySelectorAll('.ODSIcon').forEach(function (i) { i.style.transform = open ? 'rotate(180deg)' : ''; });
+  });
+  // open overlays are position:fixed inside a transformed stage; size each stage to what it shows
+  function fitOverlays() {
+    document.querySelectorAll('.comp-stage .dt-pv-overlay').forEach(function (st) {
+      var top = st.getBoundingClientRect().top, bottom = 0;
+      st.querySelectorAll('*').forEach(function (e) { var b = e.getBoundingClientRect(); if (b.height > 1 && b.width > 1 && b.height < 1200 && e.offsetParent !== null) bottom = Math.max(bottom, b.bottom); });
+      if (bottom > top) st.style.minHeight = Math.max(240, Math.min(720, Math.ceil(bottom - top + 24))) + 'px';
+    });
+  }
+  if (document.readyState === 'complete') fitOverlays(); else window.addEventListener('load', fitOverlays);
+  // keep previews inert as links
+  document.querySelectorAll('.comp-stage a[href]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); }); });
+})();
+</script>

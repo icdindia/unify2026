@@ -1,0 +1,32 @@
+/* Build coverage gallery page (prototype chrome). Fluid to 390: the table scrolls inside its own box. */
+.cov { display: flex; flex-direction: column; gap: var(--spacing-4xl); min-width: 0; }
+
+.cov-checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.cov-check {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: baseline; gap: var(--spacing-lg); /* DRIFT: state column */
+  padding: var(--spacing-md) var(--spacing-xl); border-radius: var(--radius-md);
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.cov-check__state { font-family: var(--font-family-code); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); }
+.cov-check.is-ok .cov-check__state { color: var(--colors-text-text-success-primary-600); }
+.cov-check.is-fail .cov-check__state, .cov-bad { color: var(--colors-text-text-error-primary-600); }
+.cov-check__detail { font-family: var(--font-family-code); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .cov-check { grid-template-columns: 48px minmax(0, 1fr); } /* DRIFT: state column */
+  .cov-check__detail { grid-column: 2; }
+}
+
+.cov-table-wrap {
+  overflow-x: auto; border-radius: var(--radius-4xl); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.cov-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.cov-table th, .cov-table td { padding: var(--spacing-md) var(--spacing-xl); text-align: right; white-space: nowrap; }
+.cov-table th[scope="row"], .cov-table thead th:first-child { text-align: left; }
+.cov-table thead th { color: var(--colors-text-text-quaternary-500); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); }
+.cov-table tbody tr { box-shadow: inset 0 1px 0 var(--colors-border-border-secondary); }
+.cov-table a { color: var(--colors-text-text-brand-tertiary-600); font-family: var(--font-family-code); font-size: var(--text-xs-regular-font-size); }
+
+.cov-problems { margin: 0; padding-left: var(--spacing-xl); display: flex; flex-direction: column; gap: var(--spacing-xs); overflow-wrap: anywhere; }
+.cov-slugs { display: flex; flex-wrap: wrap; gap: var(--spacing-xs) var(--spacing-lg); }
+.cov-slugs a { font-family: var(--font-family-code); font-size: var(--text-xs-regular-font-size); color: var(--colors-text-text-brand-tertiary-600); }

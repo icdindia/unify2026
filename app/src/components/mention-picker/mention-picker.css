@@ -1,0 +1,12 @@
+/* Mention picker: Input Menu Dropdown / Size=sm (11832:31555) as chat-artifact 10 / 11 place it, figma-console 2026-10-09.
+   176 wide, fixed over the composer: its left 4px left of the "@", its bottom 4px above the "@"'s line. The rows are
+   the OptionMenu's (Size=sm, Type=Avatar leading, 32 tall, 18px avatars, Text xs). The Assistant row leads with
+   Agent_Avatar / Size=xs, Type=Advance (5129:473345) drawn 18px: a black circle with the white dot glyph. */
+.mp { position: fixed; z-index: 2; width: 176px; } /* DRIFT: menu width 176 (1731:338054) */
+.mp .om { width: 100%; }
+.mp__ai {
+  display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full);
+  width: 18px; height: 18px; /* DRIFT: Agent_Avatar resized to 18 in the sm row */
+  color: var(--colors-text-text-white);
+}
+.mp__ai { background: #000000; } /* DRIFT: the instance's fill is #000000 (I1731:338054;11242:27038), no semantic token */

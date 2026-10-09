@@ -1,0 +1,18 @@
+/* Filter / sort trigger with a leading icon (prototype: .ftab). Both sizes are tertiary: no fill at rest,
+   bg-tertiary on hover (user request 2026-10-08, applied to both pages in the prototype).
+   xs = Projects page chips (.pl__right .ftab): Text xs/Medium, 16px icons.
+   sm = inside page toolbar (.filters .ftab): the same specs as the tabs beside it (_Tab base Size=sm). */
+.ftab {
+  flex: none; height: 28px; display: flex; align-items: center; gap: var(--spacing-xs); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-sm); /* DRIFT: chip height */
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg); white-space: nowrap;
+}
+.ftab__i { width: 16px; height: 16px; flex: none; } /* DRIFT: icon */
+.ftab:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+
+.ftab--sm {
+  padding: var(--spacing-xs) var(--spacing-md); gap: var(--spacing-sm);
+  font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+}
+.ftab--sm .ftab__i { width: 14px; height: 14px; } /* DRIFT: icon */
+.ftab--sm .ftab__t { position: relative; top: 1px; } /* DRIFT: Geist baseline offset, measured (as .tab__l) */

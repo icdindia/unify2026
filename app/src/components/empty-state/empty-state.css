@@ -1,0 +1,34 @@
+/* ES Empty State — set 7100:233066, figma-console 2026-10-08.
+     Level 1 (6944:511817 deleted artifact; 6660:536040 artifacts landing): 472 wide, centred column, gap 16
+       illustration 130.5×78 · text block gap 4: title Spectral Regular 30/38 text-primary, description Spectral 18/20
+       text-secondary · actions row gap 16
+     Level 2 (8279:223418 comments panel): 296 wide, gap 16; illustration 80×66 · title Text xs Medium text-primary,
+       description Text xs Regular text-secondary, gap 4
+   Widths are maxima: the block shrinks with its container down to phone width. */
+.es { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xl); width: 100%; text-align: center; }
+.es--l1 { max-width: 472px; } /* DRIFT: ES Empty State Level 1 width */
+.es--l2 { max-width: 296px; } /* DRIFT: ES Empty State Level 2 width */
+.es__art { position: relative; flex: none; }
+.es__art img { display: block; }
+.es__art--create-artifact { width: 130.5px; height: 78px; } /* DRIFT: _ES Illustration Type=Create Artifact */
+.es__art--create-artifact img { position: absolute; left: -4.8px; top: 0; width: 141px; height: 80px; } /* DRIFT: export bounds include the cards' shadow */
+.es__art--no-shared-chat { width: 80px; height: 66px; } /* DRIFT: _ES Illustration Type=No Shared Chat as drawn */
+.es__art--no-shared-chat img { position: absolute; left: 0; top: 0; width: 80px; height: 68px; } /* DRIFT: export bounds include the stroke */
+
+.es__text { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xs); max-width: 100%; }
+.es__title, .es__desc { margin: 0; overflow-wrap: anywhere; }
+.es--l1 .es__title {
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--display-sm-regular-font-family); font-size: var(--display-sm-regular-font-size); font-weight: var(--display-sm-regular-font-weight); line-height: var(--display-sm-regular-line-height);
+}
+.es--l1 .es__desc { color: var(--colors-text-text-secondary-700); font-family: var(--font-family-display); font-weight: var(--display-sm-regular-font-weight); }
+.es--l1 .es__desc { font-size: 18px; line-height: 20px; } /* DRIFT: Spectral 18/20, no DS style at 18 */
+.es--l2 .es__title {
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--text-xs-medium-font-family); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+}
+.es--l2 .es__desc {
+  color: var(--colors-text-text-secondary-700);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.es__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-xl); }

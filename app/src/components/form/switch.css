@@ -1,0 +1,55 @@
+/* Toggle — set 1188:177241, track "_Toggle base" 1188:177120 (Pressed × Size × State), figma-console 2026-10-08.
+     track  xxxs 20×12 / knob 8 · xxs 24×14 / 10 · xs 28×16 / 12 · sm 36×20 / 16; 2px padding, fully round
+     off    utility-gray-300 (hover gray-400, disabled gray-200)
+     on     bg-brand-solid (hover bg-brand-solid_hover, disabled utility-gray-300)
+     focus  2px utility-gray-200 spread + shadow-xs; knob bg-primary
+     label  xxxs / xxs Text xs Medium, xs / sm Text sm Medium, text-secondary; 8px to the track (sm 12) */
+.switch {
+  position: relative; flex: none; display: inline-flex; align-items: center; padding: var(--spacing-xxs);
+  border-radius: var(--radius-full); background: var(--colors-utility-gray-utility-gray-300);
+  transition: background-color 120ms ease-out;
+}
+.switch:hover { background: var(--colors-utility-gray-utility-gray-400); }
+.switch[aria-checked="true"] { background: var(--colors-background-bg-brand-solid); }
+.switch[aria-checked="true"]:hover { background: var(--colors-background-bg-brand-solid-hover); }
+.switch:disabled { cursor: default; background: var(--colors-utility-gray-utility-gray-200); }
+.switch[aria-checked="true"]:disabled { background: var(--colors-utility-gray-utility-gray-300); }
+.switch:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-200), 0 1px 1px 1px rgba(16, 24, 40, .05); } /* DRIFT: Focus ring + shadow-xs (#101828 5%) */
+
+.switch__knob { display: block; border-radius: var(--radius-full); background: var(--colors-background-bg-primary); transition: transform 150ms cubic-bezier(.2, 0, 0, 1); }
+.switch--xxxs { width: 20px; height: 12px; } /* DRIFT: _Toggle base xxxs */
+.switch--xxxs .switch__knob { width: 8px; height: 8px; } /* DRIFT: knob */
+.switch--xxxs[aria-checked="true"] .switch__knob { transform: translateX(8px); } /* DRIFT: knob travel */
+.switch--xxs { width: 24px; height: 14px; } /* DRIFT: _Toggle base xxs */
+.switch--xxs .switch__knob { width: 10px; height: 10px; } /* DRIFT: knob */
+.switch--xxs[aria-checked="true"] .switch__knob { transform: translateX(10px); } /* DRIFT: knob travel */
+.switch--xs { width: 28px; height: 16px; } /* DRIFT: _Toggle base xs */
+.switch--xs .switch__knob { width: 12px; height: 12px; } /* DRIFT: knob */
+.switch--xs[aria-checked="true"] .switch__knob { transform: translateX(12px); } /* DRIFT: knob travel */
+.switch--sm { width: 36px; height: 20px; } /* DRIFT: _Toggle base sm */
+.switch--sm .switch__knob { width: 16px; height: 16px; } /* DRIFT: knob */
+.switch--sm[aria-checked="true"] .switch__knob { transform: translateX(16px); } /* DRIFT: knob travel */
+
+.switch-field { display: inline-flex; align-items: flex-start; gap: var(--spacing-md); }
+.switch-field--sm { gap: var(--spacing-lg); }
+.switch-field--right { flex-direction: row-reverse; }
+.switch-field__text { display: flex; flex-direction: column; gap: var(--spacing-xxs); min-width: 0; }
+.switch-field__label {
+  cursor: pointer; color: var(--colors-text-text-secondary-700);
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+}
+.switch-field--xxxs .switch-field__label, .switch-field--xxs .switch-field__label {
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+}
+.switch-field__hint {
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.switch-field.is-disabled .switch-field__label { cursor: default; color: var(--colors-text-text-disabled); }
+/* Toggle Wrap: the track is centred on the label's first line */
+.switch-field__wrap { flex: none; display: flex; align-items: center; height: var(--text-sm-medium-line-height); }
+.switch-field--xxxs .switch-field__wrap, .switch-field--xxs .switch-field__wrap { height: var(--text-xs-medium-line-height); }
+
+@media (prefers-reduced-motion: reduce) {
+  .switch, .switch__knob { transition: none; }
+}

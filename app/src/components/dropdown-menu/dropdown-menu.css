@@ -1,0 +1,97 @@
+/* Dropdown Menu (prototype: .dd and its items). One shell for the four menus of "Dashboard" 14045:584747:
+     header ⋮ 11715:646185 — 170 wide, Type=Full shadow
+     row ⋮    14045:569050 — 170 wide, Type=Small shadow
+     "Move to project" 14045:569049 — 197 wide, Full shadow, with a search field
+     project card ⋯ 4767:135942 — 140 wide, Small shadow
+   left / top / width are set inline from props; the caller positions the menu inside a positioned container. */
+.dd {
+  position: absolute; z-index: 10; display: flex; flex-direction: column;
+  background: var(--colors-background-bg-primary); border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 6px -2px rgba(16,24,40,.03), 0 12px 16px -4px rgba(16,24,40,.08); /* DRIFT: Dropdown Menu Type=Full shadow */
+}
+.dd--small { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 12px -2px #e6e4e0, 0 12px 12px -80px #e6e4e0; } /* DRIFT: Type=Small shadow, #e6e4e0 has no token in tokens.css */
+.dd__items { display: flex; flex-direction: column; padding: var(--spacing-xs) 0; }
+
+/* Dropdown list item: Default / State=Hover (bg-workspace). A submenu trigger keeps the hover fill while its submenu is open. */
+.ddi { height: 32px; display: flex; text-align: left; } /* DRIFT: row height */
+.ddi { padding: 0 var(--spacing-xs); }
+.ddi__in { flex: 1 1 0; display: flex; align-items: center; gap: var(--spacing-md); padding: 0 var(--spacing-sm) 0 var(--spacing-md); border-radius: var(--radius-sm); }
+.ddi__in--sub { justify-content: space-between; }
+.ddi__st { display: flex; align-items: center; gap: var(--spacing-md); }
+.ddi__i { width: 14px; height: 20px; flex: none; } /* DRIFT: icon wrap */
+.ddi__i14 { width: 14px; height: 14px; flex: none; } /* DRIFT: icon */
+.ddi__i14 img { width: 14px; height: 14px; } /* DRIFT: icon */
+.ddi__chev { width: 20px; height: 20px; flex: none; } /* DRIFT: icon */
+.ddi__t { font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-primary-900); white-space: nowrap; }
+.ddi--danger .ddi__t { color: var(--colors-text-text-error-primary-600); }
+.ddi:is(:hover, .is-hover) .ddi__in, .ddi.is-open .ddi__in { background: var(--colors-background-bg-workspace); } /* Dropdown list item State=Hover */
+.ddi:focus-visible { outline-offset: -2px; }
+
+/* Divider rows: 5px (sm) or 9px (md, the header menu) */
+.ddsep { height: 5px; padding: var(--spacing-xxs) var(--spacing-xs); } /* DRIFT: divider row */
+.ddsep--md { height: 9px; padding: var(--spacing-xs); } /* DRIFT: divider row */
+.ddsep span { display: block; height: 1px; background: var(--colors-border-border-tertiary); } /* DRIFT: divider */
+
+/* Search field (the file draws it static; here it is a real input in the same 12/16 placeholder style) */
+.dd__search { padding: var(--spacing-sm) var(--spacing-sm) 0; }
+.dd__input { height: 28px; display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-sm); background: var(--colors-border-border-disabled); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-placeholder); cursor: text; } /* DRIFT: input height */
+.dd__input img { width: 14px; height: 14px; flex: none; } /* DRIFT: icon */
+.dd__field {
+  flex: 1 1 0; min-width: 0; width: 0; height: var(--text-xs-regular-line-height); margin: 0; padding: 0; border: 0; outline: 0; background: none; appearance: none;
+  font: inherit; color: var(--colors-text-text-primary-900);
+}
+.dd__field::placeholder { color: var(--colors-text-text-placeholder); opacity: 1; }
+.dd__field::-webkit-search-cancel-button { display: none; }
+.dd__input:focus-within { box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-500); } /* not in the file: focus cue, as the Projects search field */
+
+/* ---- Contract ask 5: the richer Dropdown list item (set 11750:513212) and the H2 header (11780:383826), read via
+   figma-console 2026-10-08. Only .ddi--rich rows (an item with description / selected / shortcut / leading) and .ddh use
+   these; the Projects menus never set them, so their rows render exactly as before. ---- */
+.ddi__st--rich { flex: 1 1 auto; min-width: 0; }
+.ddi--rich .ddi__in { gap: var(--spacing-md); }
+.ddi__lead { flex: none; display: flex; align-items: center; justify-content: center; min-width: 14px; height: 20px; } /* DRIFT: Icon Wrap 14 × 20 */
+.ddi__lead > img:not(.ddi__i), .ddi__lead > svg { width: 14px; height: 14px; } /* DRIFT: 14px start icon */
+.ddi__tw { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.ddi--rich .ddi__t { overflow: hidden; text-overflow: ellipsis; }
+.ddi__d {
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+/* Supporting Text=On: 44 tall, content 6 / 6 / 6 / 8, the start icon top-aligned 2px down beside the two lines */
+.ddi.ddi--desc { height: auto; }
+.ddi--desc .ddi__in { padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) var(--spacing-md); }
+.ddi--desc .ddi__st--rich { align-items: flex-start; }
+.ddi--desc .ddi__lead { height: auto; padding-top: var(--spacing-xxs); }
+/* Start Type=Avatar: a 22 × 22 Icon Wrap holding the Avatar resized to 22, flush with the content top beside a description */
+.ddi__lead--av, .ddi--desc .ddi__lead--av { min-width: 22px; height: 22px; padding-top: 0; } /* DRIFT: Icon Wrap 22 × 22 */
+.ddi__av.avatar--xs { width: 22px; height: 22px; } /* DRIFT: Avatar resized to 22 in the item */
+/* The share 02 role menu (11991:747744, 224 wide) overrides its Commenter row's content to 6 / 12 / 6 / 8 with gap 6,
+   which puts the Selected check at x 196 (glyph 198-206); the component default is 6 / 6 / 6 / 8, gap 8. */
+.ddi--desc.ddi--pad-end-lg .ddi__in { padding-right: var(--spacing-lg); gap: var(--spacing-sm); }
+.ddi--desc .ddi__lead > .ddi__i { margin-top: -3px; } /* DRIFT: the 14 × 20 menuIcons exports centre the glyph 3px down; Supporting Text=On draws it 2px under the content top */
+/* Selected=On: workspace fill + 12px check (icon-primary) before the shortcut */
+.ddi.is-selected .ddi__in { background: var(--colors-background-bg-workspace); }
+.ddi__check { flex: none; color: var(--colors-icon-icon-primary); }
+/* End Type=Shortcut */
+.ddi__k {
+  flex: none; font-family: var(--text-xxxs-regular-font-family); font-size: var(--text-xxxs-regular-font-size); font-weight: var(--text-xxxs-regular-font-weight);
+  line-height: var(--text-xxxs-regular-line-height); color: var(--colors-text-text-quaternary-500);
+}
+/* State=Disabled: text-disabled, no hover fill */
+.ddi:disabled { cursor: default; }
+.ddi:disabled .ddi__in { background: none; }
+.ddi:disabled .ddi__t, .ddi:disabled .ddi__d, .ddi:disabled .ddi__k { color: var(--colors-text-text-disabled); }
+
+/* Dropdown list header / Type=H2: 28 tall, 12 / 14 / 4 / 14 */
+.ddh {
+  padding: var(--spacing-lg) 14px var(--spacing-xs); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; /* DRIFT: 14px side padding */
+  text-transform: uppercase; color: var(--colors-text-text-quaternary-500);
+  font-family: var(--text-xxxs-medium-all-caps-font-family); font-size: var(--text-xxxs-medium-all-caps-font-size); font-weight: var(--text-xxxs-medium-all-caps-font-weight);
+  line-height: var(--text-xxxs-medium-all-caps-line-height); letter-spacing: var(--text-xxxs-medium-all-caps-letter-spacing);
+}
+.ddg { display: flex; flex-direction: column; }
+/* A menu that opens on an H2 header (Apps Dropdown 12703:449317 / 3780:178345): its items frame is 0 / 0 / 4 / 0, the
+   header's 12px top padding is the only space above it (332 x 342 with 6 rows, 2 headers, 2 dividers). */
+.dd__items:has(> .ddg:first-child) { padding-top: 0; }
+/* Apps Dropdown 12703:449317: radius 10, where Dropdown Menu draws 8. */
+.dd--r10 { border-radius: var(--radius-3xl); }

@@ -1,0 +1,17 @@
+/* Buttons/Button Neutral, Hierarchy=Tertiary, icon only.
+   One component, three sizes; in prototypes/project-dashboard these were three classes:
+     xs (24) = .ibtn24 in option 1 — the 24px icon export already carries the 4px padding
+     sm (28) = .ibtn24 under #frame[data-opt="2"]
+     md (32) = .cbtn (composer) and .rowbtn (table row)
+   Hover is the inferred tertiary hover (bg-tertiary); an open menu keeps it via aria-expanded. */
+.ibtn { display: flex; flex: none; }
+.ibtn--xs { width: 24px; height: 24px; border-radius: var(--button-xs); } /* DRIFT: xs button */
+.ibtn--xs img { width: 24px; height: 24px; } /* DRIFT: xs button */
+.ibtn--sm { width: 28px; height: 28px; } /* DRIFT: sm button */
+.ibtn--sm { padding: var(--spacing-sm); border-radius: var(--button-sm); }
+.ibtn--sm img { width: 16px; height: 16px; } /* DRIFT: icon */
+.ibtn--md { width: 32px; height: 32px; } /* DRIFT: button size */
+.ibtn--md { padding: var(--spacing-md); border-radius: var(--button-md); }
+.ibtn--md img { width: 16px; height: 16px; } /* DRIFT: icon */
+.ibtn--round { border-radius: var(--radius-full); }
+.ibtn:is(:hover, .is-hover), .ibtn[aria-expanded="true"] { background: var(--colors-background-bg-tertiary); } /* inferred tertiary hover */

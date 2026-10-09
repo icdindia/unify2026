@@ -1,0 +1,242 @@
+{
+  "id": "add-users",
+  "title": "Adding users to chat",
+  "card": "7900:173519",
+  "cardText": "Adding users to chat",
+  "section": "7830:372599 Collaborative Chat flow",
+  "summary": "Share Chat modal on a single-user chat ('How does commit actually look?'), the chat-level twin of share-artifact: owner-only state, members added, role dropdown, General access options and role, people search, invite view and multi-user invite. Every share frame is a Dashboard instance (chat page, expanded dark rail) with a 'Dashboard' overlay frame that holds the scrim and modal. Step 02 (9256:468119) is itself a COMPONENT named 'share'.",
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "7830:279834",
+      "frameName": "119",
+      "file": "01-7830-279834.png",
+      "shows": "Chat page: title 'How does commit actually look?' with chevron, header cost $1.23, Share, clipboard; user question bubble and assistant answer with action row ($0.19, share, like, copy, read aloud, branch, 8 Sources); small bottom composer with Company and Research chips.",
+      "changedFrom": "Start of journey.",
+      "action": "Open the chat from History / Chats in the rail.",
+      "nav": "dark, expanded; New Session selected; a Routines row hovered with 3-dot",
+      "panels": "none; bottom composer visible; no artifact panel",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "ES Breadcrumb {Variant=Default}",
+        "Response_Desktop full {Property 1=Assistant}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "02",
+      "nodeId": "9256:468119",
+      "frameName": "share (COMPONENT)",
+      "file": "02-9256-468119.png",
+      "shows": "Share Chat modal with only the owner (Lana Steiner, Owner), General access Restricted and Copy Link.",
+      "changedFrom": "Page dimmed with a scrim; Share Chat modal opens centred over the conversation.",
+      "action": "Click 'Share' in the chat header.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal open (Share Chat)",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Main_nav {types=Expanded}",
+        "Response_Desktop full {Property 1=Assistant}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}",
+        "Modal Unit",
+        "Modal header {Type=Default, Size=xs, back=no}",
+        "Modal actions {Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False}"
+      ]
+    },
+    {
+      "step": "03",
+      "nodeId": "12025:773344",
+      "frameName": "share",
+      "file": "03-12025-773344.png",
+      "shows": "Share Chat modal now lists Candice Wu and Natali Craig as Commenter (with role dropdowns) under the owner.",
+      "changedFrom": "Two members added to People with access; modal grows taller.",
+      "action": "Invite two people (invite step not drawn here; see steps 09-11).",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal Unit",
+        "Modal header {Type=Default, Size=xs, back=no}",
+        "Modal actions {Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False}",
+        "Copilot_User Message_Desktop full {State=Default, Type=Default}",
+        "Response_Desktop full {Property 1=Assistant}"
+      ]
+    },
+    {
+      "step": "04",
+      "nodeId": "12025:774906",
+      "frameName": "share",
+      "file": "04-12025-774906.png",
+      "shows": "Same modal with Candice Wu's 'Commenter' role button in its hover/pressed state (grey background).",
+      "changedFrom": "Only the role button state changes; no menu is drawn.",
+      "action": "Hover / press the role dropdown on Candice Wu.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal Unit",
+        "Modal header {Type=Default, Size=xs, back=no}",
+        "Modal actions {Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False}"
+      ]
+    },
+    {
+      "step": "05",
+      "nodeId": "12025:776507",
+      "frameName": "share",
+      "file": "05-12025-776507.png",
+      "shows": "General access dropdown open: Restricted (checked), Everyone at UnifyApps, Anyone with the link.",
+      "changedFrom": "General access menu opens below the selector and overflows the modal.",
+      "action": "Click the 'Restricted' general access selector.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal + general access menu",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal Unit",
+        "Input Menu Dropdown {Type=Single Select, Size=sm, Search=Default}",
+        "Input dropdown Menu Item {Size=md, Type=Avatar leading, State=Default, Selected=True, Stacking=Double Line}",
+        "Input dropdown Menu Item {Size=md, Type=Avatar leading, State=Default, Selected=False, Stacking=Double Line} x2",
+        "Cursor {State=Pointer Hand}"
+      ]
+    },
+    {
+      "step": "06",
+      "nodeId": "12025:779849",
+      "frameName": "share",
+      "file": "06-12025-779849.png",
+      "shows": "General access = Everyone at UnifyApps (Anyone signed in to your workspace) with an 'Editor' role button (hovered).",
+      "changedFrom": "Access changes from Restricted to Everyone at UnifyApps and a role selector appears.",
+      "action": "Choose 'Everyone at UnifyApps'.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal Unit",
+        "Modal header {Type=Default, Size=xs, back=no}",
+        "Modal actions {Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False}",
+        "Cursor {State=Arrow}"
+      ]
+    },
+    {
+      "step": "07",
+      "nodeId": "12025:778160",
+      "frameName": "share",
+      "file": "07-12025-778160.png",
+      "shows": "Role menu for workspace access open: Commenter (Comment and view project), Editor (Chat and edit project, checked).",
+      "changedFrom": "Role dropdown opens under the Editor button.",
+      "action": "Click the 'Editor' role button.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal + role dropdown",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal Unit",
+        "Dropdown Menu {Type=Small}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=On, Size=sm}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=On, State=Default, Divider=False, Supporting Text=On, Size=sm}"
+      ]
+    },
+    {
+      "step": "08",
+      "nodeId": "12025:781497",
+      "frameName": "share",
+      "file": "08-12025-781497.png",
+      "shows": "General access = Anyone with the link (green lock) + Editor; text cursor over 'Invite people and groups'.",
+      "changedFrom": "Access switched to Anyone with the link; pointer moves to the invite field.",
+      "action": "Pick 'Anyone with the link', then click into the invite field.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal Unit",
+        "Modal header {Type=Default, Size=xs, back=no}",
+        "Modal actions {Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False}",
+        "Cursor {State=Text}"
+      ]
+    },
+    {
+      "step": "09",
+      "nodeId": "12025:783146",
+      "frameName": "share",
+      "file": "09-12025-783146.png",
+      "shows": "People search list under the invite field (Aman Baldha, Saurav, Lana Steiner, Demi Wilkinson hovered, Candice Wu, Natali Craig, Drew Cano) with scrollbar.",
+      "changedFrom": "Person picker opens and covers the modal body.",
+      "action": "Focus / type in 'Invite people and groups'.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal + people dropdown",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal Unit",
+        "Input Menu Dropdown {Type=Single Select, Size=sm, Search=Default}",
+        "Input dropdown Menu Item {Size=md, Type=Avatar leading, State=Default, Selected=False, Stacking=Double Line} x6",
+        "Input dropdown Menu Item {Size=md, Type=Avatar leading, State=Hover, Selected=False, Stacking=Double Line}",
+        "Scroll bar {Orientation=Vertical, Bg=False, Position=Top, Size=md}",
+        "Cursor {State=Pointer Hand}"
+      ]
+    },
+    {
+      "step": "10",
+      "nodeId": "12025:784845",
+      "frameName": "share",
+      "file": "10-12025-784845.png",
+      "shows": "Invite view (back arrow + 'Share Chat'): chips olivia@untitled.com and Phoenix, role selector with menu open (Commenter hovered, Editor checked), Notify people unchecked, message placeholder, Copy Link / Cancel / Invite.",
+      "changedFrom": "Selecting a person switches to the invite view; role menu is open. (The share-artifact journey has an extra 'invite view, menu closed' frame between these two.)",
+      "action": "Select a person from the list, then click the role selector.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal (invite view) + role dropdown",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal header {Type=Default, Size=xs, back=yes}",
+        "Checkbox {Checked=False, Indeterminate=False, Size=sm, Type=Checkbox, Text=True, State=Default, Hint Text=False}",
+        "Textarea input field {Type=Default, Destructive=False, State=Placeholder}",
+        "Dropdown Menu {Type=Small}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=On, Size=sm}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=On, State=Default, Divider=False, Supporting Text=On, Size=sm}",
+        "Modal actions {Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False}",
+        "Cursor {State=Pointer Hand}"
+      ]
+    },
+    {
+      "step": "11",
+      "nodeId": "12025:786818",
+      "frameName": "share",
+      "file": "11-12025-786818.png",
+      "shows": "Five chips on two rows (Olivia@untitled.com, Phoenix, Natali, Candice, Andi), Notify people checked, message filled, pointer on Invite.",
+      "changedFrom": "More people added, checkbox ticked, message typed; Invite hovered.",
+      "action": "Add more people, tick Notify people, write a message and click Invite.",
+      "nav": "dark, expanded (under scrim)",
+      "panels": "modal (invite view)",
+      "annotations": [],
+      "components": [
+        "Dashboard",
+        "Modal header {Type=Default, Size=xs, back=yes}",
+        "Buttons/Button Neutral {Size=md, Hierarchy=Tertiary, Icon=Only, State=Default}",
+        "Checkbox {Checked=False, Indeterminate=False, Size=sm, Type=Checkbox, Text=True, State=Default, Hint Text=False}",
+        "Textarea input field {Type=Default, Destructive=False, State=Filled}",
+        "Modal actions {Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False}",
+        "Buttons/Button Neutral {Size=sm, Hierarchy=Tertiary, Icon=Default, State=Default}",
+        "Buttons/Button Neutral {Size=sm, Hierarchy=Secondary, Icon=Default, State=Default}",
+        "Buttons/Button Brand {Size=sm, Hierarchy=Primary, Icon=Default, State=Default}",
+        "Cursor {State=Pointer Hand}"
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Order looks non-linear: step 03 already shows two invited members before the invite flow (steps 09-11). Is 03 the result of 11, i.e. should 09-11 come before 03?",
+    "Step 04 shows only the pressed role button with no menu; reuse the share-artifact role menu (Commenter / Editor / Remove Access)?",
+    "No designer annotations sit above these frames (the texts near this row belong to collab-chat).",
+    "Chat share uses the same 'Comment and view project' / 'Chat and edit project' role copy as artifacts. What do Commenter and Editor mean for a chat?",
+    "After Invite, does the chat become a collaborative chat (collab-chat step 01: 'X, Y and Z joined the chat', collaborative composer bar)?",
+    "'Anyone with the link' subtitle reads 'Only the people above can access it' (same copy issue as share-artifact)."
+  ]
+}

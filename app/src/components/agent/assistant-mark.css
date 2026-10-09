@@ -1,0 +1,4 @@
+/* AssistantMark — EB-Assistant/AI 3506:216405 (instance 3494:215623 in 1707:136008): 70x70, 54 vector dots, all
+   #112d06 at full opacity (read with figma-console 2026-10-09). The SVG is the instance's own geometry. */
+.assistant-mark { display: inline-block; flex: none; width: 70px; height: 70px; } /* DRIFT: EB-Assistant/AI is 70x70 */
+.assistant-mark__img { display: block; width: 100%; height: 100%; }

@@ -1,0 +1,69 @@
+<!doctype html><html data-theme="light"><head><meta charset="utf-8">
+<title>DT DS dev</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="../project/components/bundle.css">
+<style>body{margin:0;display:grid;grid-template-columns:220px 1fr;min-height:100vh}nav{padding:12px;border-right:1px solid var(--colours-basic-stroke-subtle);overflow:auto;height:100vh;position:sticky;top:0}
+nav a{display:block;padding:4px 8px;color:var(--colours-basic-text);text-decoration:none;font:500 14px/1.4 var(--font-sans)}nav a:hover{background:var(--colours-interaction-states-hover-background-hover)}
+#bar{display:flex;gap:8px;padding:8px 0 16px}#stage{min-width:0}</style></head><body><nav><div id="bar"><button onclick="document.documentElement.dataset.theme='light'">Light</button><button onclick="document.documentElement.dataset.theme='dark'">Dark</button></div>
+<a href="#Accordion" onclick="show('Accordion');return false">Accordion</a>
+<a href="#ActionCard" onclick="show('ActionCard');return false">ActionCard</a>
+<a href="#Avatar" onclick="show('Avatar');return false">Avatar</a>
+<a href="#BadgeIcon" onclick="show('BadgeIcon');return false">BadgeIcon</a>
+<a href="#BadgeNumber" onclick="show('BadgeNumber');return false">BadgeNumber</a>
+<a href="#Banner" onclick="show('Banner');return false">Banner</a>
+<a href="#BarChart" onclick="show('BarChart');return false">BarChart</a>
+<a href="#Breadcrumb" onclick="show('Breadcrumb');return false">Breadcrumb</a>
+<a href="#Button" onclick="show('Button');return false">Button</a>
+<a href="#CarouselNavigation" onclick="show('CarouselNavigation');return false">CarouselNavigation</a>
+<a href="#CarouselTimer" onclick="show('CarouselTimer');return false">CarouselTimer</a>
+<a href="#Checkbox" onclick="show('Checkbox');return false">Checkbox</a>
+<a href="#CheckboxGroup" onclick="show('CheckboxGroup');return false">CheckboxGroup</a>
+<a href="#CheckboxIcon" onclick="show('CheckboxIcon');return false">CheckboxIcon</a>
+<a href="#ChipSet" onclick="show('ChipSet');return false">ChipSet</a>
+<a href="#ChoiceCard" onclick="show('ChoiceCard');return false">ChoiceCard</a>
+<a href="#ContainerCard" onclick="show('ContainerCard');return false">ContainerCard</a>
+<a href="#Cover" onclick="show('Cover');return false">Cover</a>
+<a href="#Dialog" onclick="show('Dialog');return false">Dialog</a>
+<a href="#Dim" onclick="show('Dim');return false">Dim</a>
+<a href="#DismissibleChip" onclick="show('DismissibleChip');return false">DismissibleChip</a>
+<a href="#Divider" onclick="show('Divider');return false">Divider</a>
+<a href="#DonutChart" onclick="show('DonutChart');return false">DonutChart</a>
+<a href="#DropdownSelect" onclick="show('DropdownSelect');return false">DropdownSelect</a>
+<a href="#FileUpload" onclick="show('FileUpload');return false">FileUpload</a>
+<a href="#FilterChip" onclick="show('FilterChip');return false">FilterChip</a>
+<a href="#FilterChipDropdownItem" onclick="show('FilterChipDropdownItem');return false">FilterChipDropdownItem</a>
+<a href="#FloatingActionButton" onclick="show('FloatingActionButton');return false">FloatingActionButton</a>
+<a href="#FlyoutMenu" onclick="show('FlyoutMenu');return false">FlyoutMenu</a>
+<a href="#Icons" onclick="show('Icons');return false">Icons</a>
+<a href="#InlineNotification" onclick="show('InlineNotification');return false">InlineNotification</a>
+<a href="#LineChart" onclick="show('LineChart');return false">LineChart</a>
+<a href="#Link" onclick="show('Link');return false">Link</a>
+<a href="#MapCard" onclick="show('MapCard');return false">MapCard</a>
+<a href="#Popover" onclick="show('Popover');return false">Popover</a>
+<a href="#ProfileMenu" onclick="show('ProfileMenu');return false">ProfileMenu</a>
+<a href="#ProfileMenuListItem" onclick="show('ProfileMenuListItem');return false">ProfileMenuListItem</a>
+<a href="#Search" onclick="show('Search');return false">Search</a>
+<a href="#SegmentedButton" onclick="show('SegmentedButton');return false">SegmentedButton</a>
+<a href="#Segments" onclick="show('Segments');return false">Segments</a>
+<a href="#SideNavigation" onclick="show('SideNavigation');return false">SideNavigation</a>
+<a href="#Slider" onclick="show('Slider');return false">Slider</a>
+<a href="#Sparkline" onclick="show('Sparkline');return false">Sparkline</a>
+<a href="#Speedometer" onclick="show('Speedometer');return false">Speedometer</a>
+<a href="#Switch" onclick="show('Switch');return false">Switch</a>
+<a href="#SwitchIcon" onclick="show('SwitchIcon');return false">SwitchIcon</a>
+<a href="#TabElement" onclick="show('TabElement');return false">TabElement</a>
+<a href="#Table" onclick="show('Table');return false">Table</a>
+<a href="#TableHeadCell" onclick="show('TableHeadCell');return false">TableHeadCell</a>
+<a href="#TableRowCell" onclick="show('TableRowCell');return false">TableRowCell</a>
+<a href="#Tabs" onclick="show('Tabs');return false">Tabs</a>
+<a href="#TagDismissible" onclick="show('TagDismissible');return false">TagDismissible</a>
+<a href="#TagStatic" onclick="show('TagStatic');return false">TagStatic</a>
+<a href="#TextArea" onclick="show('TextArea');return false">TextArea</a>
+<a href="#TextBody" onclick="show('TextBody');return false">TextBody</a>
+<a href="#TextField" onclick="show('TextField');return false">TextField</a>
+<a href="#TimePicker" onclick="show('TimePicker');return false">TimePicker</a>
+<a href="#Toast" onclick="show('Toast');return false">Toast</a>
+<a href="#ToggleChip" onclick="show('ToggleChip');return false">ToggleChip</a>
+<a href="#Tooltip" onclick="show('Tooltip');return false">Tooltip</a>
+<a href="#UploadBox" onclick="show('UploadBox');return false">UploadBox</a></nav><main id="stage"></main><script>
+async function show(c){const h=await (await fetch('../project/components/'+c+'/preview.html')).text();const s=document.getElementById('stage');s.innerHTML=h;
+s.querySelectorAll('script').forEach(o=>{const n=document.createElement('script');n.textContent=o.textContent;o.replaceWith(n)});location.hash=c}
+show(location.hash.slice(1)||"Accordion")</script></body></html>

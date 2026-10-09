@@ -1,0 +1,138 @@
+/* ----------------------------------------------------------------------------
+   agent-dashboard.css — layout only, for prototypes/agent-dashboard/index.html
+   Figma: "Dashboard" 16740:306222 (UnifyApps Platform (1)(2) 2026)
+
+   Layout ONLY. Every visual atom on this screen is <link>ed from /components —
+   nothing here restyles an atom. Measurements come from the Figma frame tree:
+     canvas 1440 · rail 56 · main 1384
+     content inset 16 · working area 1352 · docs inset 60 · docs 1232
+     main column 760 + 32 gutter + rail 440 = 1232
+---------------------------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+/* Heading and paragraph defaults must be reset explicitly. The page header uses
+   a real <h1> for the screen title (correct semantics); the browser's default
+   0.67em margin then added 32px of dead space and pushed the whole page down
+   35px — the Figma header is 84px, ours measured 119. Semantic elements need a
+   reset, not avoidance. */
+h1, h2, h3, h4, h5, h6, p, figure { margin: 0; }
+
+body {
+  margin: 0;
+  background: var(--colors-background-bg-primary);
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--font-family-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-shell {
+  display: flex;
+  align-items: stretch;
+  width: 1440px;
+  min-height: 100vh;
+  margin-inline: auto;
+  background: var(--colors-background-bg-primary);
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* design-rules §11 Case A: breadcrumbs present -> container top padding 0 */
+.app-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-2xl) var(--spacing-xl) var(--spacing-xl);
+}
+
+/* design-rules §2: white cards float on a tinted page, never white-on-white.
+   Verified on the 16740:306237 capture — the working area is the warm
+   off-white and the section cards are the bright white sitting on it. */
+.working-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--colors-background-bg-workspace);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+
+/* 16740:306238 — same surface as the working area, separated by a rule only */
+.setup-banner {
+  width: 100%;
+  padding: 0;   /* the level-1 Form Header owns its own 6/12/8 padding */
+  background: transparent;
+  /* drawn inside, like the other Figma strokes — the banner strip is 52px
+     and a real border would make it 53 and shift the working area down. */
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+
+/* 1232 content well, inset 60 from the working area edge */
+.docs-grid {
+  display: grid;
+  grid-template-columns: 760px 440px;
+  gap: var(--spacing-4xl);
+  align-items: start;
+  padding: var(--spacing-4xl) 60px var(--spacing-7xl);   /* DRIFT: Docs inset 60px (16740:306241) is off the scale (48 -> 64) */
+}
+
+/* Section gaps differ per column, read off the Figma frame tree:
+   left  16740:306243 -> 306301 -> 306347  = 32 (spacing-4xl)
+   right 16740:306394 -> 306428 -> 306459  = 24 (spacing-3xl) */
+.docs-grid__main { display: flex; flex-direction: column; gap: var(--spacing-4xl); min-width: 0; }
+.docs-grid__rail { display: flex; flex-direction: column; gap: var(--spacing-3xl); min-width: 0; }
+
+/* 16740:306227 supporting row — 16px product mark, no chrome. Its own class:
+   reusing .form-header__featured here meant inheriting that atom's 20px svg
+   rule and 2px margin into a 16px box. */
+.page-header__supporting-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+.page-header__supporting-icon svg { display: block; width: 16px; height: 16px; }
+
+/* 16740:306394 — the agent-details card sits 6px under its header, not 8 */
+.section--gap-sm { gap: var(--spacing-sm); }
+
+/* alerts that sit inside a card with no horizontal padding of its own
+   (16740:306335 and 306350 supply px 16 around the alert) */
+.gov-alert-wrap,
+.incidents-alert-wrap { width: 100%; box-sizing: border-box; padding-inline: var(--spacing-xl); }
+.gov-alert-wrap { padding-bottom: var(--spacing-lg); }
+.incidents-alert-wrap { padding-bottom: 0; }
+
+/* ---- theme toggle (prototype affordance, not part of the design) ---- */
+.theme-toggle {
+  position: fixed;
+  bottom: var(--spacing-xl);
+  right: var(--spacing-xl);
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--button-sm);
+  font-family: var(--font-family-body);
+  font-size: var(--text-xs-medium-font-size);
+  font-weight: var(--text-xs-medium-font-weight);
+  color: var(--colors-text-text-secondary-700);
+  cursor: pointer;
+}
+.theme-toggle:hover { background: var(--colors-background-bg-tertiary); }
+
+/* The design is a fixed 1440 canvas. Below that, scroll the shell rather than
+   reflow it — this prototype mirrors one frame, it is not the responsive spec. */
+@media (max-width: 1440px) {
+  body { overflow-x: auto; }
+}

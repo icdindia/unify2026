@@ -1,0 +1,47 @@
+/* Gallery-only scaffolding for the overlay pages (modal, tooltip, popover, toast): stand-in body content, demo
+   triggers and the stages that push live overlays against the window edges. Not part of the design. */
+.ovg-slot {
+  display: flex; align-items: center; justify-content: center; padding: var(--spacing-md); border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary); background: var(--colors-background-bg-secondary);
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-quaternary-500);
+  text-align: center; flex: none;
+}
+.ovg-note { font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-disabled); }
+.ovg-grid { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.ovg-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-lg); }
+.ovg-live { display: flex; flex-wrap: wrap; gap: var(--spacing-lg); }
+.ovg-field { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.ovg-label {
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-tertiary-600); letter-spacing: .04em;
+}
+.ovg-choice {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg); border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); background: var(--colors-background-bg-primary);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-primary-900);
+}
+.ovg-choice:hover, .ovg-choice[aria-expanded="true"] { background: var(--colors-background-bg-secondary); }
+.ovg-trunc { max-width: 200px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: block; } /* DRIFT: demo truncation width */
+.ovg-pop { display: flex; flex-direction: column; gap: var(--spacing-md); padding: var(--spacing-lg); }
+.ovg-pop--own {
+  border-radius: var(--radius-sm); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary), 0 4px 12px -2px #e6e4e0; /* DRIFT: Input Menu Dropdown shadow (6077:427693), no token */
+}
+.ovg-pop__title {
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.ovg-pop-list {
+  list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--spacing-xs);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-primary-900);
+}
+.ovg-edges { position: relative; width: 100%; height: 120px; } /* DRIFT: demo stage */
+.ovg-edges__tl { position: absolute; left: 0; top: 0; }
+.ovg-edges__br { position: absolute; right: 0; bottom: 0; }
+.ovg-corners { position: relative; width: 100%; height: 160px; } /* DRIFT: demo stage */
+.ovg-corners__tl { position: absolute; left: 0; top: 0; }
+.ovg-corners__tr { position: absolute; right: 0; top: 0; }
+.ovg-corners__bl { position: absolute; left: 0; bottom: 0; }
+.ovg-corners__br { position: absolute; right: 0; bottom: 0; }
+.ovg-narrow { width: 280px; max-width: 100%; } /* DRIFT: demo width */

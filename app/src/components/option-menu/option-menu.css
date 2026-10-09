@@ -1,0 +1,73 @@
+/* Option menu — "Input Menu Dropdown" 11832:31555 + "Input dropdown Menu Item" 11831:300292, figma-console 2026-10-08.
+     menu   bg-primary, 1px border-tertiary inside, radius 6 (Size=sm: 11832:31555, the access popover 1809:365546)
+            or 8 (Size=md), shadow 0 4 12 -2 / 0 12 12 -80 utility-gray-300 (#e6e4e0 here);
+            rows from 4px down (share people search 1819:316469); access popover spacing 8 top, 4 between (1809:365546)
+     row    2 / 4 outer padding; content radius 6 (sm) / 8 (md)
+            sm  32: content 4 / 8, gap 4, avatar 18 (Size=xxs resized), Text xs, supporting Mono 11/12 inline
+            md  40: content 8, gap 6, avatar 20, Text sm, supporting Mono 11/12 inline
+            md double 52: Text xs + supporting Text xs text-tertiary under it (as the people search draws it)
+     state  Hover / Selected bg-workspace; Selected adds a 16px check; Disabled text-disabled
+     label  section row 20: content 2 / 8, Text xxs Medium all caps (10%), text-quaternary
+     role   Pill squared xxs, Pill Clear, JetBrains Mono, text-tertiary, pushed to the end */
+.om {
+  display: flex; flex-direction: column; min-width: 0; overflow: hidden;
+  border-radius: var(--radius-md); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary), 0 4px 12px -2px #e6e4e0, 0 12px 12px -80px #e6e4e0; /* DRIFT: Input Menu Dropdown shadow, utility-gray-300 -> Palette/Gray (light mode)/300 is #e6e4e0 in this file (11832:31555), #dbd6d1 in tokens.css */
+}
+.om--sm { border-radius: var(--radius-sm); }
+.om__list { display: flex; flex-direction: column; padding: var(--spacing-xs) 0; outline: none; }
+.om--spaced .om__list { gap: var(--spacing-xs); padding: var(--spacing-md) 0 var(--spacing-xs); }
+
+.omi { display: flex; padding: var(--spacing-xxs) var(--spacing-xs); cursor: pointer; user-select: none; }
+.om--readonly .omi { cursor: default; user-select: text; }
+.omi__content {
+  flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm);
+}
+.omi--sm .omi__content { min-height: 28px; } /* DRIFT: row content sm */
+.omi--sm:not(.omi--lead) .omi__content { padding: var(--spacing-sm) var(--spacing-md); }
+.omi--md .omi__content { gap: var(--spacing-sm); padding: var(--spacing-md); border-radius: var(--radius-md); }
+.omi--md.omi--single .omi__content { min-height: 36px; } /* DRIFT: row content md */
+.omi--md.omi--double .omi__content { min-height: 48px; } /* DRIFT: row content md double */
+.omi.is-active .omi__content, .omi.is-selected .omi__content { background: var(--colors-background-bg-workspace); }
+.om--readonly .omi .omi__content { background: none; }
+/* State=Focus (11831:300415): a 1px border-secondary ring inside the row, on the active row while the list has focus (rows never take focus from a pointer: they cancel mousedown) */
+.om__list:focus .omi.is-active .omi__content { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+
+.omi__av.avatar--xxs { flex: none; }
+.omi--sm .omi__av { width: 18px; height: 18px; } /* DRIFT: Avatar xxs resized to 18 in the sm row */
+.omi__lead { flex: none; display: flex; align-items: center; justify-content: center; }
+.omi--sm .omi__lead { width: 18px; height: 18px; } /* DRIFT: leading slot sm */
+.omi--md .omi__lead { width: 20px; height: 20px; } /* DRIFT: leading slot md */
+
+.omi__text { flex: 1 1 auto; min-width: 0; display: flex; align-items: baseline; gap: var(--spacing-xs); }
+.omi--md.omi--single .omi__text { gap: var(--spacing-sm); }
+.omi--double .omi__text { flex-direction: column; align-items: stretch; gap: 0; }
+.omi__label {
+  min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--colors-text-text-primary-900);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.omi--md.omi--single .omi__label { font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.omi__suffix { color: var(--colors-text-text-tertiary-600); }
+.omi__sup {
+  flex: none; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--colors-text-text-tertiary-600);
+  font-family: var(--font-family-code); font-size: var(--text-xxs-regular-font-size); font-weight: var(--text-xxs-regular-font-weight); line-height: var(--text-xxs-regular-line-height);
+}
+.omi--double .omi__sup {
+  flex: 1 1 auto; font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+}
+.omi__role { margin-left: auto; }
+.omi__check { flex: none; margin-left: auto; color: var(--colors-icon-icon-primary); }
+.omi__role + .omi__check { margin-left: 0; }
+.omi.is-disabled { cursor: default; }
+.omi.is-disabled .omi__label, .omi.is-disabled .omi__sup { color: var(--colors-text-text-disabled); }
+.omi.is-disabled .omi__content { background: none; }
+
+/* section label row (Size=sm, Type=Default: content 2 / 8) */
+.omi--section { cursor: default; }
+.omi--section .omi__content { min-height: 0; padding: var(--spacing-xxs) var(--spacing-md); }
+.omi__section {
+  color: var(--colors-text-text-quaternary-500); text-transform: uppercase;
+  font-family: var(--text-xxs-medium-all-caps-font-family); font-size: var(--text-xxs-medium-all-caps-font-size); font-weight: var(--text-xxs-medium-all-caps-font-weight);
+  line-height: var(--text-xxs-medium-all-caps-line-height); letter-spacing: var(--text-xxs-medium-all-caps-letter-spacing);
+}

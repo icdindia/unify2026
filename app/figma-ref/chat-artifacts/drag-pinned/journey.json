@@ -1,0 +1,78 @@
+{
+  "id": "drag-pinned",
+  "title": "Drag pinned items (items below get 5% alpha bg)",
+  "card": "11671:679050",
+  "cardText": "drag pinned items / the states below the dragged one will have bg with 5% alpha",
+  "section": "1707:133527 Chat",
+  "summary": "Re-ordering inside the rail's Pinned group by drag and drop. The dragged row lifts (hover bg, grabbed cursor); per the card note, rows below the dragged one get a 5% alpha background while dragging.",
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "11661:517917",
+      "frameName": "Copilot Landing page",
+      "file": "01-11661-517917.png",
+      "shows": "'Project Name' row picked up (grabbed cursor, hover bg, folder icon, 3-dot) and offset slightly downward so it overlaps its own slot and 'Plan launch timeline' beneath it.",
+      "changedFrom": "Start of journey; dragged row floats over the list, original slot still faintly visible underneath.",
+      "action": "Press and hold on the pinned 'Project Name' row and start dragging down.",
+      "nav": "dark, expanded",
+      "panels": "drag ghost only",
+      "annotations": ["Card note: the states below the dragged one will have bg with 5% alpha"],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Main {Variant=Expanded, State=Hover} (dragged row 'Nav 8')",
+        "folder",
+        "Small Icon Button {Size=md, State=Default}",
+        "dots-horizontal",
+        "Cursor {State=Grabbed}",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "02",
+      "nodeId": "11671:661281",
+      "frameName": "Copilot Landing page",
+      "file": "02-11671-661281.png",
+      "shows": "Dragged 'Project Name' now hovering between 'Plan launch timeline' (moved up, shows a small ring status icon) and 'Review customer feedback'.",
+      "changedFrom": "'Plan launch timeline' slides up into the vacated slot; the drag ghost sits one row lower.",
+      "action": "Keep dragging down past the next pinned item.",
+      "nav": "dark, expanded",
+      "panels": "drag ghost only",
+      "annotations": [],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Main {Variant=Expanded, State=Hover} (dragged row 'Nav 8')",
+        "folder",
+        "Small Icon Button {Size=md, State=Default}",
+        "dots-horizontal",
+        "Cursor {State=Grabbed}",
+        "Nav_menu/Footer {Variant=Default, State=Default}"
+      ]
+    },
+    {
+      "step": "03",
+      "nodeId": "11671:662888",
+      "frameName": "Copilot Landing page",
+      "file": "03-11671-662888.png",
+      "shows": "Dropped: Pinned order is Artifacts, Plan launch timeline, Project Name (hover bg + 3-dot), Review customer feedback.",
+      "changedFrom": "Ghost settles into the new slot; cursor back to pointer hand.",
+      "action": "Release the mouse to drop.",
+      "nav": "dark, expanded",
+      "panels": "none",
+      "annotations": [],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "Cursor {State=Pointer Hand}",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}"
+      ]
+    }
+  ],
+  "openQuestions": [
+    "The 5% alpha background on rows below the dragged one is described on the title card but is not visible in these frames. Which rows get it and with what colour (white 5% on the dark rail?).",
+    "In step 03 the dropped 'Project Name' row has no folder icon and is not indented like other pinned items. Is that a drawing slip?",
+    "'Plan launch timeline' gains a small ring icon at its left in steps 02-03 but not in step 01. Intended?"
+  ]
+}

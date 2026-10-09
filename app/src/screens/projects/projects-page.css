@@ -1,0 +1,89 @@
+/* Projects landing — "Dashboard" 11657:386523 (Projects list), ported from prototypes/project-dashboard.
+   The column is the frame's 928 at a 1440 viewport (left 116 in the 1160 main area = centred), 60px below the top:
+   the 40px breadcrumb strip plus 20. Narrower, it keeps 24px gutters (16px below 768).
+   Below it, the 8px the 900 frame leaves under the last card row: at 1440x900 the page then ends exactly at the
+   bottom of the 860 scroll area, so nothing scrolls (and no classic scrollbar appears), as in the frame. */
+.pl { width: min(928px, 100% - 2 * var(--spacing-3xl)); margin: var(--spacing-2xl) auto var(--spacing-md); display: flex; flex-direction: column; } /* DRIFT: 928 column from the frame */
+@media (max-width: 767px) { .pl { width: calc(100% - 2 * var(--spacing-xl)); } } /* DRIFT: 768 breakpoint (mobile design to come) */
+
+.pl__head { height: 44px; } /* DRIFT: row height */
+.pl__head { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-xl); }
+.pl__head .bbtn__t { width: 79px; } /* DRIFT: the file's "New Project" text box is 75px (Chrome sets it 1px narrower) + 2px padding each side */
+.pl__title {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: var(--display-md-regular-font-family); font-weight: var(--display-md-regular-font-weight);
+  font-size: var(--display-md-regular-font-size); line-height: var(--display-md-regular-line-height); letter-spacing: var(--display-md-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured — Chrome seats Spectral 1px higher than Figma */
+}
+
+.pl__filters { height: 28px; } /* DRIFT: row height */
+.pl__filters { margin-top: var(--spacing-4xl); display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-xl); }
+@media (max-width: 767px) { /* DRIFT: 768 breakpoint (mobile design to come) */
+  .pl__filters { height: auto; flex-wrap: wrap; row-gap: var(--spacing-md); }
+  /* the tab strip scrolls sideways (no scrollbar drawn, focus ring inside), the controls wrap */
+  .btabs { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .btabs::-webkit-scrollbar { display: none; }
+  .btab:focus-visible { outline-offset: -2px; } /* DRIFT: focus ring drawn inside the scroller */
+  .pl__right { max-width: 100%; flex-wrap: wrap; justify-content: flex-end; row-gap: var(--spacing-md); }
+  .psearch.is-open { max-width: 100%; }
+}
+
+/* All / Yours / Shared with you: segmented tabs, current = white with a 1px inside stroke */
+.btabs { display: flex; gap: var(--spacing-md); min-width: 0; }
+.btab {
+  flex: none; min-width: 68px; height: 28px; padding: var(--spacing-sm) calc(var(--spacing-md) + var(--spacing-xxs)); border-radius: var(--radius-sm); /* DRIFT: tab size; 8px pad + 2px text padding */
+  background: var(--colors-background-bg-tertiary); text-align: center; white-space: nowrap;
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height); color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.btab.is-current { background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); } /* DRIFT: 1px inside stroke */
+.btab:nth-child(3) { min-width: 111px; text-align: left; } /* DRIFT: the file's "Shared with you" text box is 91px (Chrome sets it 0.8px narrower) + 10px each side */
+
+/* search, type, sort and the view toggle, 8px apart, as drawn. Type and sort are the file's chips: bg-tertiary at
+   rest, bg-quaternary on hover (inferred; components/buttons/filter-button.css draws them tertiary, the fix below). */
+.pl__right { display: flex; align-items: center; gap: var(--spacing-md); margin-left: auto; }
+.pl:not(.pl--fx-controls) .pl__right .ftab { background: var(--colors-background-bg-tertiary); }
+.pl:not(.pl--fx-controls) .pl__right .ftab:is(:hover, .is-hover) { background: var(--colors-background-bg-quaternary); }
+.pl__types .ftab__t { width: 51px; } /* DRIFT: the file's "All Types" text box (Chrome sets it 0.7px narrower, which moved the search a pixel) */
+/* fix landing-controls-tertiary: type and sort tertiary (no fill at rest), search / type / sort flush, the toggle 8px after */
+.pl--fx-controls .pl__right { gap: 0; }
+.pl--fx-controls .pl__right .vtoggle { margin-left: var(--spacing-md); }
+
+/* Search: the file's 180px field (always open), or with fix landing-search-icon a 28px icon button at rest
+   (tertiary: hover = bg-tertiary) that opens to the 180px field */
+.psearch {
+  flex: none; width: 28px; height: 28px; display: flex; align-items: center; gap: 0; padding: 0; border-radius: var(--radius-sm); overflow: clip; /* DRIFT: icon-button size */
+  transition: width .18s ease;
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-placeholder);
+}
+.psearch.is-open {
+  width: 180px; padding: var(--spacing-sm) var(--spacing-md); gap: var(--spacing-xs); /* DRIFT: field width from the file */
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); /* DRIFT: 1px inside stroke */
+}
+.psearch.is-open:focus-within { box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-500); } /* DRIFT: 1px focus ring, not in the file */
+.psearch__btn { width: 28px; height: 28px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); } /* DRIFT: icon-button size */
+.psearch.is-open .psearch__btn { width: 14px; height: 14px; pointer-events: none; } /* DRIFT: icon */
+.psearch__btn:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+.psearch__btn img { width: 14px; height: 14px; } /* DRIFT: icon */
+.psearch__i { width: 14px; height: 14px; flex: none; } /* DRIFT: icon */
+.psearch__in {
+  flex: 1 1 0; min-width: 0; width: 0; border: 0; outline: 0; padding: 0; background: none;
+  font: inherit; font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-primary-900);
+}
+.psearch__in::placeholder { color: var(--colors-text-text-placeholder); opacity: 1; }
+.psearch__in::-webkit-search-cancel-button { display: none; }
+@media (prefers-reduced-motion: reduce) { .psearch { transition: none; } }
+
+/* Grid / list view toggle (the "on" export includes its drop-shadow bleed) */
+.vtoggle { flex: none; width: 52px; height: 24px; } /* DRIFT: toggle size */
+.vtoggle { display: flex; gap: var(--spacing-xs); padding: var(--spacing-xxs); border-radius: var(--radius-sm); background: var(--colors-background-bg-tertiary); }
+.vtoggle__i { position: relative; width: 22px; height: 20px; flex: none; } /* DRIFT: toggle item */
+.vtoggle__i img { position: absolute; left: 0; top: 0; width: 22px; height: 20px; max-width: none; } /* DRIFT: toggle item */
+.vtoggle__i--on img { left: -2px; top: -2px; width: 27px; height: 24px; } /* DRIFT: export includes the drop-shadow bleed */
+
+/* Three cards to a row at 1440 (928 = 3 x 298.67 + 2 x 16); fewer as the column narrows */
+.pgrid {
+  margin-top: var(--spacing-4xl); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); /* DRIFT: smallest card before the grid drops a column */
+  column-gap: var(--spacing-xl); row-gap: var(--spacing-4xl);
+}
+.pgrid__empty { grid-column: 1 / -1; padding: var(--spacing-5xl) 0; text-align: center; font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-tertiary-600); }

@@ -1,0 +1,58 @@
+/* ----------------------------------------------------------------------------
+   section-card — bordered-less white surface that groups a section's content
+   Figma: 16740:306245 (stats) · 306306 (governance top) · 306333 (governance
+          rows) · 306396 (agent details) · 306430 (access & scope)
+   Screen: Dashboard 16740:306222
+
+   Locally composed: ds/components.md lists "Card / Section / Panel container
+   (plain styled frame)" as GENUINELY ABSENT from the DS — compose locally per
+   PLAYBOOK §5 using DS tokens.
+
+   VERIFIED 2026-09-09 against the live file (re-probe of the four frames that
+   were unreachable on the first pass). Corrections applied:
+     - NO border. The card is bg-primary + radius only; separation comes from
+       internal dividers, not an outline. The earlier 1px border-secondary was
+       read off a screenshot and was wrong.
+     - radius is radius-4xl (12px), not radius-md (8px).
+   Padding differs per card, so it is a modifier rather than a base rule.
+---------------------------------------------------------------------------- */
+
+.section-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  background: var(--colors-background-bg-primary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+
+/* 16740:306245 / 306306 — horizontal inset, content supplies its own vertical */
+.section-card--inset-x { padding-inline: var(--spacing-xl); }
+
+/* 16740:306306 — governance top card also pads its top */
+.section-card--pad-top { padding-top: var(--spacing-xl); }
+
+/* 16740:306333 — rows card pads vertically, rows carry their own inline pad */
+.section-card--pad-y { padding-block: var(--spacing-xl); }
+
+/* 16740:306396 / 306430 — rail cards, uniform 12px */
+.section-card__pad {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+}
+/* 16740:306397 — the agent-details header block is gap-8, not gap-12 */
+.section-card__pad--tight { gap: var(--spacing-md); }
+/* 16740:306400 — details list sits closer to the header above it */
+.section-card__pad--list { padding-top: var(--spacing-md); }
+
+.section-card__body { display: flex; flex-direction: column; width: 100%; }
+
+/* a section = form-header above, card(s) below. Figma 16740:306303 gap = 8. */
+.section { display: flex; flex-direction: column; gap: var(--spacing-md); width: 100%; }
+.section__cards { display: flex; flex-direction: column; gap: var(--spacing-md); width: 100%; }

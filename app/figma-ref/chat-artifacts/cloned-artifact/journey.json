@@ -1,0 +1,39 @@
+{
+  "id": "cloned-artifact",
+  "title": "Cloned artifact",
+  "card": "13750:303578",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13750-303578",
+  "steps": [
+    {
+      "step": "01", "nodeId": "13750:280936", "file": "01-13750-280936.png", "size": "1440x1648 (image at 0.95x)",
+      "shows": "Artifacts grid with a card '...' menu open (Clone checked) and the new '(Cloned)' card appended at the end of the grid.",
+      "changedFrom": "First step; vs landing grid a cloned card by the current user ('now') is added.",
+      "action": "Hover an artifact card, click '...', choose Clone.",
+      "shell": { "rail": "Main_nav / types=collapsed (Artifacts)", "composer": false, "artifactPanel": false, "overlay": "card menu" },
+      "components": ["Main_nav / types=collapsed", "Buttons/Button Brand / Size=md, Hierarchy=Primary, Icon=Default, State=Default", "filter frame / Type=Default", "artifacts / Property 1=full image", "artifacts / Property 1=hover 2", "Dropdown Menu / Type=Small"]
+    },
+    {
+      "step": "02", "nodeId": "13750:301988", "file": "02-13750-301988.png",
+      "shows": "Cloned artifact full screen; header shows '(Cloned)' name, Start Chat, Excel split, Publish, comments, download, close; name menu open (Rename, Clone, Delete).",
+      "changedFrom": "Opened the clone; CTA is Start Chat; name menu without Versions.",
+      "action": "Click the cloned card, then click the chevron next to the artifact name.",
+      "shell": { "rail": "none", "composer": false, "artifactPanel": "full frame", "overlay": "name menu" },
+      "components": ["Arifact Header", "Dropdown list item", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Secondary, Icon=Default, State=Default", "coloured logos / Type=excel", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    },
+    {
+      "step": "03", "nodeId": "13750:302325", "file": "03-13750-302325.png",
+      "shows": "Inline rename: the name pill becomes a text input with 'Revenue For|'.",
+      "changedFrom": "Menu closed; name editable.",
+      "action": "Click Rename in the name menu and type.",
+      "shell": { "rail": "none", "composer": false, "artifactPanel": "full frame", "overlay": null },
+      "components": ["Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Default, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Secondary, Icon=Default, State=Default", "coloured logos / Type=excel", "chevron-down-sm", "Textarea input field", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    }
+  ],
+  "openQuestions": [
+    "Clone appended at end vs first with sort=Newest?",
+    "Does Clone open the clone immediately or stay on the grid?",
+    "Start Chat vs Edit with Chat rule.",
+    "Default visibility / pin state of a clone.",
+    "Rename commit / cancel behaviour and max length."
+  ]
+}

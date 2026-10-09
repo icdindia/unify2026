@@ -1,0 +1,44 @@
+{
+  "id": "publish-artifact",
+  "title": "Publish artifacts flow (modals: first time, second time, restricted card, who has access, changelog)",
+  "card": "1969:507280",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1969-507280",
+  "shell": { "theme": "light, dark rail", "rail": "Main_nav / types=collapsed (New highlighted)", "composer": true, "artifactPanel": "split: chat 441 + artifact 943", "modal": "modal units centred over step 01" },
+  "steps": [
+    {
+      "step": "01", "nodeId": "1990:517731", "file": "01-1990-517731.png",
+      "shows": "Chat + artifact split ('Pipeline Command' app); Publish button hovered in the artifact header.",
+      "changedFrom": "First step.",
+      "action": "Generate / open an App artifact in chat, hover Publish in the artifact header.",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=with Icon", "COT / Type=Main, State=Default, Running=No", "Copilot desktop_Input Box / Breakpoint=Desktop, Size=Two-lines, State=Default, Position=Center", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default", "Buttons/Button Neutral / Size=xs, Hierarchy=Secondary, Icon=Default, State=Hover", "Cursor / State=Arrow", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    }
+  ],
+  "components": [
+    { "step": "c01", "nodeId": "1969:507322", "file": "c01-1969-507322.png", "shows": "Publish Artifact modal, first time: URL + Visible to Everyone at UnifyApps; Publish.", "action": "Click Publish in the artifact header.", "components": ["Modal header / Type=Default, Size=xs, back=no", "Section label / Level=Level 1(Alt)", "List Item / Size=xs, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False", "Cursor / State=Pointer Hand"] },
+    { "step": "c02", "nodeId": "1969:507360", "file": "c02-1969-507360.png", "shows": "Who can view this? Everyone (selected) / Restricted; Done.", "action": "Click the Visible-to row.", "components": ["Modal header / Type=Default, Size=xs, back=yes", "List Item / Size=xs, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"] },
+    { "step": "c03", "nodeId": "11933:737342", "file": "c03-11933-737342.png", "shows": "Who can view this? with avatars on the Restricted row (second time).", "action": "Second time: click the Visible-to row (annotation 'restricted card click').", "components": ["Modal header / Type=Default, Size=xs, back=yes", "List Item / Size=xs, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"] },
+    { "step": "c04", "nodeId": "11905:590138", "file": "c04-11905-590138.png", "shows": "Who can view this? with Restricted hovered.", "action": "Hover Restricted.", "components": ["Modal header / Type=Default, Size=xs, back=yes", "List Item / Size=xs, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False", "Cursor / State=Pointer Hand"] },
+    { "step": "c05", "nodeId": "11905:590328", "file": "c05-11905-590328.png", "shows": "Restricted: Add people and groups input; owner only in Who has access.", "action": "Click Restricted.", "components": ["Modal header / Type=Default, Size=xs, back=yes", "Input dropdown_outline / Size=md, Type=Default, State=Placeholder", "Section label / Level=Level 1(Alt)", "Avatar / Size=md, Type=Letter, Colour=Brand Solid, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"] },
+    { "step": "c06", "nodeId": "11933:737464", "file": "c06-11933-737464.png", "shows": "Who has access list with people + Management group and trash icons.", "action": "Second time: click the Restricted row with avatars (annotation 'view who all have access').", "components": ["Modal header / Type=Default, Size=xs, back=yes", "Input dropdown_outline / Size=md, Type=Default, State=Placeholder", "Section label / Level=Level 1(Alt)", "Avatar / Size=md, Type=Letter, Colour=Brand Solid, State=Default", "List Item Cardified / Size=md, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"] },
+    { "step": "c07", "nodeId": "11905:590614", "file": "c07-11905-590614.png", "shows": "Add people input with 'Management (6)' tag; Candice / Natali as Editor with role dropdowns.", "action": "Select people / group from search.", "components": ["Modal header / Type=Default, Size=xs, back=yes", "Input dropdown_outline / Size=md, Type=Tags, State=Focused", "Section label / Level=Level 1(Alt)", "Avatar / Size=md, Type=Letter, Colour=Brand Solid, State=Default", "List Item Cardified / Size=md, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"] },
+    { "step": "c08", "nodeId": "11905:590883", "file": "c08-11905-590883.png", "shows": "Same as c07 (base for the search dropdown).", "action": "Type in the add-people input.", "components": ["Modal header / Type=Default, Size=xs, back=yes", "Input dropdown_outline / Size=md, Type=Tags, State=Focused", "List Item Cardified / Size=md, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"] },
+    { "step": "c08a", "nodeId": "11919:591369", "file": "c08a-11919-591369.png", "shows": "Add-people search dropdown: groups (Leadership, Management checked) and people.", "action": "Typing in the add-people input (overlay on c08).", "components": ["Input Menu Dropdown"] },
+    { "step": "c09", "nodeId": "11933:736147", "file": "c09-11933-736147.png", "shows": "Publish Artifact with Visible to = Restricted + avatars; Publish hovered.", "action": "Done in the restricted panel returns here.", "components": ["Modal header / Type=Default, Size=xs, back=no", "Section label / Level=Level 1(Alt)", "List Item / Size=xs, Type=Icon simple, Selected=False, State=Default", "Avatar group / Size=xs", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False", "Cursor / State=Pointer Hand"] },
+    { "step": "c10", "nodeId": "11933:736622", "file": "c10-11933-736622.png", "shows": "Restricted list with tag; trash icons instead of role dropdowns.", "action": "Unclear - alternate of c07.", "components": ["Modal header / Type=Default, Size=xs, back=yes", "Input dropdown_outline / Size=md, Type=Tags, State=Focused", "Avatar / Size=md, Type=Letter, Colour=Brand Solid, State=Default", "List Item Cardified / Size=md, Type=Icon simple, Selected=False, State=Default", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False"] },
+    { "step": "c11", "nodeId": "11933:737092", "file": "c11-11933-737092.png", "shows": "Publish Artifact second time: Unpublish, Cancel, Publish.", "action": "Click Publish on an already published artifact (annotation 'second time').", "components": ["Modal header / Type=Default, Size=xs, back=no", "Section label / Level=Level 1(Alt)", "List Item / Size=xs, Type=Icon simple, Selected=False, State=Default", "Avatar group / Size=xs", "Modal actions / Type=Horizontal right aligned (checkbox), Size=xs, Destructive=False", "Cursor / State=Pointer Hand"] },
+    { "step": "c12", "nodeId": "11905:589839", "file": "c12-11905-589839.png", "shows": "Design changelog card for the Modal Unit (designer documentation, not product UI).", "action": "n/a", "components": [] }
+  ],
+  "flows": {
+    "firstTime": ["01", "c01", "c02", "c04", "c05", "c08+c08a", "c07", "c09"],
+    "secondTime": ["01", "c11", "c03", "c06"]
+  },
+  "openQuestions": [
+    "No scrim drawn for the modals - use the Delete Artifact scrim?",
+    "Role dropdown (c07) vs trash icon (c10) - which is final?",
+    "c08 identical to c07 - only the base for the dropdown?",
+    "What Done does with no change.",
+    "Post-publish feedback (toast / header state) not drawn.",
+    "Is the artifact URL editable; copy feedback.",
+    "Form Header (step 01) vs Arifact Header - which is canonical in the chat split?"
+  ]
+}

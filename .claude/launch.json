@@ -1,0 +1,184 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "artifacts-frame",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4173",
+        "--directory",
+        "artifacts-frame"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "artifacts-frame-v2",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4174",
+        "--directory",
+        "artifacts-frame-v2"
+      ],
+      "port": 4174
+    },
+    {
+      "name": "brain-15-split",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4175",
+        "--directory",
+        "figma-frames/brain-15-split"
+      ],
+      "port": 4175
+    },
+    {
+      "name": "brain-87-chat",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4176",
+        "--directory",
+        "figma-frames/brain-87-chat"
+      ],
+      "port": 4176
+    },
+    {
+      "name": "playbook-studio",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4177}\" --directory ."
+      ],
+      "port": 4177,
+      "autoPort": true
+    },
+    {
+      "name": "knowledge-agent",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4178}\" --directory ."
+      ],
+      "port": 4178,
+      "autoPort": true
+    },
+    {
+      "name": "template-studio",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4179}\" --directory ."
+      ],
+      "port": 4179,
+      "autoPort": true
+    },
+    {
+      "name": "localization",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4180}\" --directory ."
+      ],
+      "port": 4180,
+      "autoPort": true
+    },
+    {
+      "name": "dt-foundations",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4181}\" --directory dt-design-system/foundations"
+      ],
+      "port": 4181,
+      "autoPort": true
+    },
+    {
+      "name": "dt-design-system",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4182}\" --directory dt-design-system"
+      ],
+      "port": 4182,
+      "autoPort": true
+    },
+    {
+      "name": "eb-dt-copilot",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4183}\" --directory ."
+      ],
+      "port": 4183,
+      "autoPort": true
+    },
+    {
+      "name": "access-picker",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4184}\" --directory ."
+      ],
+      "port": 4184,
+      "autoPort": true
+    },
+    {
+      "name": "notification-panels",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4185}\" --directory ."
+      ],
+      "port": 4185,
+      "autoPort": true
+    },
+    {
+      "name": "notification-flow",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4186}\" --directory ."
+      ],
+      "port": 4186,
+      "autoPort": true
+    },
+    {
+      "name": "project-dashboard",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4187}\" --directory ."
+      ],
+      "port": 4187,
+      "autoPort": true
+    },
+    {
+      "name": "routine-working",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "python3 -m http.server \"${PORT:-4188}\" --directory ."
+      ],
+      "port": 4188,
+      "autoPort": true
+    },
+    {
+      "name": "eb-app",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "app",
+        "run",
+        "dev"
+      ],
+      "port": 4190
+    }
+  ]
+}

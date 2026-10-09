@@ -1,0 +1,200 @@
+/* ----------------------------------------------------------------------------
+   copilot-input — DS "Copilot desktop Input Box" (the composer)
+   Figma: 5563:230560 · 7372:140068 (frame 15, 408 wide in the copilot panel)
+          5975:416349 inside frame 5975:416348 (frame 87, 760 wide with the fade)
+   Verified in figma-frames/brain-15-split and brain-87-chat.
+
+   Reported 760x48 = 8 + 32 + 8, so the 1px stroke is INSIDE: inset ring, not
+   border. The 32px row: round leading button (pad 8, icon 16, radius full),
+   source pills (pad 8, radius full, bg-primary, icon 16), the field (px 6,
+   15/26 placeholder), trailing actions (pad 8, radius button-md, icon 16, gap 4).
+
+   The wide layout wraps it in a 760x76 frame with a bottom-anchored fade and
+   28px bottom padding — `.copilot-input-frame`.
+
+   EXPANDED variant — instance 5771:489155 on the Routines landing 967:349251
+   (928x116): column, gap 12, padding 10, radius 24, stroke inside
+   (10 + 52 + 12 + 32 + 10 = 116). Message row px 8 with a 52px two-line text
+   container (pt 2, Text md/Regular para 15/26); action bar justify-between:
+   round `plus` on the left, then gap-4 Model (openai) · Mic · send (Button
+   Neutral PRIMARY on radius-full). `.copilot-input--expanded`.
+---------------------------------------------------------------------------- */
+
+.copilot-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-md) 10px var(--spacing-md);   /* DRIFT: px-[10px] is off the spacing scale (8 -> 12) */
+  background: var(--colors-background-bg-primary);
+  box-shadow:
+    inset 0 0 0 1px var(--colors-border-border-secondary),
+    0 4px 8px rgba(215, 211, 208, 0.25);   /* DRIFT: component 5563:230560 states this shadow literally (no token) */
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.copilot-input:focus-within {
+  box-shadow:
+    inset 0 0 0 1px var(--colors-border-border-primary),
+    0 4px 8px rgba(215, 211, 208, 0.25);   /* DRIFT: as above */
+}
+
+.copilot-input__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.copilot-input__left {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  min-width: 0;
+  min-height: 32px;
+}
+.copilot-input__wrap {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.copilot-input__btn,
+.copilot-input__pill,
+.copilot-input__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex: none;
+  box-sizing: border-box;
+  padding: var(--spacing-md);
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  overflow: hidden;
+  color: var(--colors-icon-icon-secondary);
+}
+.copilot-input__btn svg,
+.copilot-input__pill svg,
+.copilot-input__action svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.copilot-input__btn { border-radius: var(--radius-full); }
+.copilot-input__pill {
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-primary);
+  gap: var(--spacing-xs);
+}
+/* source pills carry their glyph in steel-blue-400 — an instance override the parent export flattens */
+.copilot-input__pill--source { color: var(--colors-utility-steel-blue-utility-steel-blue-400); }
+.copilot-input__action { border-radius: var(--button-md); }
+.copilot-input__btn:hover, .copilot-input__action:hover, .copilot-input__pill:hover {
+  background: var(--palette-alpha-colors-black-alpha-black-05);   /* DRIFT: soft-button hover is alpha-black-05, a primitive (designer instruction 2026-09-16); no semantic token */
+}
+/* actions are the component's Model · Mic · Voice trio (I5563:230560;70683:10623-25); Enter submits */
+
+.copilot-input__field {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  min-width: 0;
+  padding-inline: var(--spacing-sm);
+}
+.copilot-input__field textarea,
+.copilot-input__field input {
+  flex: 1 0 0;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  resize: none;
+  background: transparent;
+  font-family: var(--text-md-regular-para-font-family);
+  font-weight: var(--text-md-regular-para-font-weight);
+  font-size: var(--text-md-regular-para-font-size);
+  line-height: var(--text-md-regular-para-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+  max-height: 156px;   /* six 26px lines before the field scrolls */
+}
+.copilot-input__field ::placeholder { color: var(--colors-text-text-placeholder); }
+.copilot-input__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex: none;
+}
+
+/* frame 5975:416348 — 760x76, fade up from the workspace colour, 28px bottom pad */
+.copilot-input-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  width: 100%;
+  padding-bottom: 28px;   /* DRIFT: 76 - 48 = 28, off the spacing scale (24 -> 32) */
+  background-image: linear-gradient(to top, var(--colors-utility-brand-secondary-utility-brand-secondary-25) 55.054%, rgba(251, 250, 249, 0) 67.3%);   /* DRIFT: transparent stop of brand-secondary-25 */
+}
+
+/* send — Buttons/Button Neutral primary on radius-full (I5771:489155;70614:101184) */
+.copilot-input__action--send {
+  border-radius: var(--radius-full);
+  background: var(--component-buttons-neutral-primary-button-neutral-primary-bg);
+  color: var(--component-buttons-neutral-primary-button-neutral-primary-fg);
+}
+.copilot-input__action--send:hover { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-hover); }
+
+/* ---- expanded variant (5771:489155) ---- */
+.copilot-input--expanded {
+  gap: var(--spacing-lg);
+  padding: 10px;   /* DRIFT: p-[10px], off-scale (8 -> 12) */
+  border-radius: 24px;   /* DRIFT: 24 is not on the radius scale (4xl = 12, full = 9999) */
+}
+.copilot-input--expanded .copilot-input__bar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-lg);
+}
+.copilot-input--expanded .copilot-input__message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  width: 100%;
+  padding: 0 var(--spacing-md);
+  overflow: hidden;
+}
+.copilot-input--expanded .copilot-input__message textarea {
+  flex: 1 0 0;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 52px;   /* two 26px lines, as the frame's Text container */
+  max-height: 208px;
+  margin: 0;
+  padding: var(--spacing-xxs) 0 0;
+  border: 0;
+  outline: 0;
+  resize: none;
+  background: transparent;
+  font-family: var(--text-md-regular-para-font-family);
+  font-weight: var(--text-md-regular-para-font-weight);
+  font-size: var(--text-md-regular-para-font-size);
+  line-height: var(--text-md-regular-para-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.copilot-input--expanded .copilot-input__message ::placeholder { color: var(--colors-text-text-placeholder); }
+.copilot-input--expanded .copilot-input__action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

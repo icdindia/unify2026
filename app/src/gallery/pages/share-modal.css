@@ -1,0 +1,2 @@
+/* Gallery page "Share modal": the live triggers. */
+.shg-live { display: flex; flex-wrap: wrap; gap: var(--spacing-md); }

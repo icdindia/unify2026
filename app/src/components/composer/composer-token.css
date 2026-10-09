@@ -1,0 +1,5 @@
+/* Tokens in the composer text (Response_Desktop full / in line Skills 7159:535660; the mention run of collab-chat 05):
+   the same 15/26 type as the text, steel-blue-400, no fill and no padding, so the run sits exactly where the
+   textarea's own glyphs are. Landing frames draw the skill's "/" in utility-blue-dark-600 (fix composer-skill-slash-colour). */
+.ctoken { color: var(--colors-utility-steel-blue-utility-steel-blue-400); }
+.ctoken__mark--blue { color: #155eef; } /* DRIFT: utility-blue-dark-600 is not in the DS colour tokens (as designed, landing only) */

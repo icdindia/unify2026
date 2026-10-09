@@ -1,0 +1,76 @@
+{
+  "id": "artifact-view-viewer",
+  "title": "Artifact view only for viewer and commenters",
+  "card": "5310:277643",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=5310-277643",
+  "kind": "gallery (one frame per artifact type, not a sequence)",
+  "shell": { "theme": "light", "rail": "none (full-screen artifact)", "composer": false, "artifactPanel": "full frame, viewer header", "sidePanel": false },
+  "steps": [
+    {
+      "step": "01", "nodeId": "3838:248160", "file": "01-3838-248160.png",
+      "shows": "App artifact, viewer: Home button + App icon + 'Untitled Applciations'; Acme dashboard app canvas.",
+      "changedFrom": "First step; vs editor view the header has no edit / publish controls.",
+      "action": "Open an App artifact you have view access to.",
+      "components": ["Arifact Header", "Artifact-Icons / Type=App", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Default, State=Default", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"],
+      "states": [
+        { "step": "01a", "nodeId": "13155:271422", "file": "01a-13155-271422.png", "shows": "Header strip (1440x40) with the Home button in hover state.", "action": "Hover the Home icon.", "components": ["Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Hover"] }
+      ]
+    },
+    {
+      "step": "02", "nodeId": "7767:266191", "file": "02-7767-266191.png",
+      "shows": "Spreadsheet artifact, viewer: 'Untitled.xls' with chevron; spreadsheet grid canvas.",
+      "changedFrom": "Type App -> Spreadsheet; Home button gone; name gets a chevron.",
+      "action": "Open a spreadsheet artifact as a viewer.",
+      "components": ["Arifact Header", "Artifact-Icons / Type=Spreadsheets", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Default, State=Default"]
+    },
+    {
+      "step": "03", "nodeId": "7781:267087", "file": "03-7781-267087.png",
+      "shows": "Document artifact: 'Untitled.doc', comments split button + download on the right; centred page on grey canvas.",
+      "changedFrom": "Type -> Document; comments + download appear.",
+      "action": "Open a document artifact (commenter access).",
+      "components": ["Arifact Header", "Artifact-Icons / Type=Documents", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default", "Textarea input field", "chevron-down-sm", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    },
+    {
+      "step": "04", "nodeId": "7781:267978", "file": "04-7781-267978.png",
+      "shows": "PDF artifact, viewer: 'Untitled.pdf'; centred page on grey canvas.",
+      "changedFrom": "Type -> PDF; comments + download removed.",
+      "action": "Open a PDF artifact as a viewer.",
+      "components": ["Arifact Header", "Artifact-Icons / Type=PDFs", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    },
+    {
+      "step": "05", "nodeId": "7781:268873", "file": "05-7781-268873.png",
+      "shows": "Markdown artifact, viewer: 'Untitled.md'; full-bleed white canvas.",
+      "changedFrom": "Type -> Markdown; no page / grey backdrop.",
+      "action": "Open a Markdown artifact as a viewer.",
+      "components": ["Arifact Header", "Artifact-Icons / Type=Markdowns"]
+    },
+    {
+      "step": "06", "nodeId": "7781:269768", "file": "06-7781-269768.png",
+      "shows": "Presentation artifact, viewer: 'Untitled.ppt'; wide slide area on grey.",
+      "changedFrom": "Type -> Presentation; slide canvas.",
+      "action": "Open a presentation artifact as a viewer.",
+      "components": ["Arifact Header", "Artifact-Icons / Type=Presentation"]
+    },
+    {
+      "step": "07", "nodeId": "8771:210166", "file": "07-8771-210166.png",
+      "shows": "Connector / workflow artifact, viewer: connector icon + 'Untitled.ppt'; wide canvas.",
+      "changedFrom": "Only the type icon changes.",
+      "action": "Open a connector / workflow artifact as a viewer.",
+      "components": ["Arifact Header", "Artifact-Icons / Type=connector"]
+    },
+    {
+      "step": "08", "nodeId": "10157:575625", "file": "08-10157-575625.png",
+      "shows": "JSON artifact, viewer: 'Document.json'; centred page on grey canvas.",
+      "changedFrom": "Type -> JSON; page layout again.",
+      "action": "Open a JSON artifact as a viewer.",
+      "components": ["Arifact Header", "Artifact-Icons / Type=JSON"]
+    }
+  ],
+  "openQuestions": [
+    "Is the doc frame (comments + download) the commenter variant, and does every type get it for commenters?",
+    "Why does only the App frame show a Home button?",
+    "Connector frame is named 'Untitled.ppt' - intended name?",
+    "Does the spreadsheet name chevron open a menu for viewers?",
+    "Blank canvases for doc/pdf/md/ppt/json: placeholder or spec?"
+  ]
+}

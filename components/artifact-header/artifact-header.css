@@ -1,0 +1,177 @@
+/* ----------------------------------------------------------------------------
+   artifact-header — DS "Arifact Header" (sic) — the artifact canvas top bar
+   Figma: 3838:245967 (927x40) · verified in figma-frames/brain-15-split
+   Metadata: Header frame at x8 y6, 911x28 -> padding 6/8 around one 28px row.
+     Icon+Title: Artifact-Icons 28 + Button Neutral 84x28 (pad 4/8/4/2, 13/20)
+     Actions x599, gap 4 between groups:
+       toggle group (52x24, pad 2) + icon button 28 | Line 2, 16 tall
+       version button 41x24 (pad 4, 13/16 + 12 chevron)
+       Publish 81x24 (Button Neutral secondary xs — stroke inside)
+       icon trio 28 each, 2 apart (download-01, maximize-01, close)
+   Composed of the `button` atom; this file owns the bar, title slot, the
+   version button, the 16px hairline and the toggle group.
+---------------------------------------------------------------------------- */
+
+.artifact-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;   /* 40 in the frame; grows only when the title has to wrap (no truncation, product constraint) */
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--colors-background-bg-primary);
+  /* bottom rule is drawn inside the 40 (metadata: bar 40, header 28 at y6) */
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+.artifact-header__content {
+  display: flex;
+  flex-wrap: wrap;   /* the action row drops under the title before the title is forced onto three lines */
+  align-items: center;
+  gap: var(--spacing-sm) var(--spacing-lg);
+  width: 100%;
+}
+.artifact-header__left {
+  display: flex;
+  flex: 1 1 240px;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-width: 0;
+  min-height: 28px;
+}
+.artifact-header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+}
+/* Artifact-Icons instance: the glyph sits in inset[14.29% 17.73% 14.29% 17.52%] of the 28 slot */
+.artifact-header__icon svg {
+  display: block;
+  width: 18.13px;
+  height: 20px;   /* DRIFT: .md mark is 18.131x20 in the file */
+}
+
+/* title — Button Neutral tertiary with an asymmetric 4/8/4/2 padding */
+.artifact-header__title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  min-width: 56px;
+  max-width: 100%;
+  padding: var(--spacing-xs) var(--spacing-md) var(--spacing-xs) var(--spacing-xxs);
+  border: 0;
+  border-radius: var(--button-sm);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  overflow: clip;
+  text-align: left;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.artifact-header__title:hover { background: var(--palette-alpha-colors-black-alpha-black-05);   /* DRIFT: soft-button hover is alpha-black-05, a primitive (designer instruction 2026-09-16); no semantic token */ }
+.artifact-header__title-text {
+  padding-inline: var(--spacing-xxs);
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.artifact-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex: none;
+}
+.artifact-header__group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex: none;
+}
+.artifact-header__group--tight { gap: var(--spacing-xxs); }
+
+/* Line 2 — 16px vertical hairline, border-primary */
+.artifact-header__rule {
+  flex: none;
+  width: 1px;
+  height: 16px;
+  background: var(--colors-border-border-primary);
+}
+
+/* version — 41x24: pad 4, 13/16 tertiary fg, 12px chevron, radius button-xs */
+.artifact-header__version {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  height: 24px;
+  padding: var(--spacing-xs);
+  border: 0;
+  border-radius: var(--button-xs);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  overflow: clip;
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: 16px;   /* DRIFT: 13/16, as the frame states; no DS 13/16 style */
+  font-variant-numeric: tabular-nums;
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.artifact-header__version:hover { background: var(--palette-alpha-colors-black-alpha-black-05);   /* DRIFT: soft-button hover is alpha-black-05, a primitive (designer instruction 2026-09-16); no semantic token */ }
+.artifact-header__version svg {
+  display: block;
+  flex: none;
+  width: 12px;
+  height: 12px;
+}
+
+/* Publish keeps the 13/16 the frame states on this instance (Button Neutral, not the xs 12/16) */
+.artifact-header__publish {
+  font-size: var(--text-sm-medium-font-size);
+  line-height: 16px;   /* DRIFT: 13/16 stated by the frame */
+}
+
+/* toggle group — 52x24, pad 2, two 20px cells, selected cell white with shadow-sm */
+.artifact-header__toggle {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  flex: none;
+  box-sizing: border-box;
+  padding: var(--spacing-xxs);
+  background: var(--colors-background-bg-tertiary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  isolation: isolate;
+}
+.artifact-header__toggle-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  padding: var(--spacing-none) var(--spacing-xs);
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  color: var(--colors-icon-icon-base-dark);
+}
+.artifact-header__toggle-cell svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+.artifact-header__toggle-cell[aria-pressed="true"] {
+  background: var(--colors-background-bg-primary);
+  box-shadow: 0 1px 2px var(--colors-utility-gray-utility-gray-200), 0 1px 3px var(--colors-utility-gray-utility-gray-200);
+}

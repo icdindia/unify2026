@@ -1,0 +1,449 @@
+{
+ "_status": "CONFIRMED 2026-10-08 with the user: Option 1 only wherever the file shows alternatives; the untitled second input-box row and all loose frames are ignored; 1440 is the only baseline (no 1728/1920 references).",
+ "page": {
+  "id": "1707:115989",
+  "name": "Chat + Artifacts"
+ },
+ "journeys": [
+  {
+   "id": "nav-light",
+   "title": "Nav bar light mode",
+   "card": "12919:607701",
+   "frames": [
+    "12829:289253",
+    "12829:292060",
+    "12829:296297",
+    "12919:607703"
+   ]
+  },
+  {
+   "id": "logo-options",
+   "title": "Thinking/logo animation (option 1: circular dots)",
+   "card": null,
+   "frames": [
+    "3612:167773"
+   ]
+  },
+  {
+   "id": "input-large",
+   "title": "Desktop input box designs (large variant)",
+   "card": "2532:376700",
+   "frames": [
+    "5220:222334",
+    "9256:465524",
+    "5220:202780",
+    "5220:203074",
+    "5220:203368",
+    "5220:203662",
+    "5220:203956",
+    "5220:220477",
+    "5220:204277",
+    "5220:204304",
+    "5220:204331",
+    "5220:204358",
+    "5220:204385",
+    "7534:275062",
+    "7534:276741",
+    "7534:278537",
+    "7534:279976",
+    "7534:281585",
+    "7534:283214",
+    "7534:284863",
+    "7534:286145",
+    "7534:287594",
+    "7534:288907",
+    "7534:290275"
+   ]
+  },
+  {
+   "id": "nav-behaviour",
+   "title": "Nav bar behaviour (pins, project hover, >10 chats, landing pins)",
+   "card": "11614:672892",
+   "frames": [
+    "11614:672894",
+    "11614:676434",
+    "11715:658763",
+    "11614:677973",
+    "11693:260033",
+    "11715:627268",
+    "13701:756891",
+    "11780:448662",
+    "11635:685715"
+   ]
+  },
+  {
+   "id": "pinning",
+   "title": "Pinning from the title (artefacts, projects, routines, chats)",
+   "card": "11648:687579",
+   "frames": [
+    "11648:688362",
+    "11657:386528",
+    "11657:493696"
+   ]
+  },
+  {
+   "id": "pinned-chevron",
+   "title": "Chevron over the folder icon on a hovered pinned project",
+   "card": "11661:496234",
+   "frames": [
+    "11661:497681",
+    "11661:514386"
+   ]
+  },
+  {
+   "id": "drag-unpin",
+   "title": "Drag chats to unpin",
+   "card": "11661:516352",
+   "frames": [
+    "11671:666296",
+    "11671:670376"
+   ]
+  },
+  {
+   "id": "drag-pinned",
+   "title": "Drag pinned items (items below get 5% alpha bg)",
+   "card": "11671:679050",
+   "frames": [
+    "11661:517917",
+    "11671:661281",
+    "11671:662888"
+   ]
+  },
+  {
+   "id": "thinking",
+   "title": "Agent animation of thinking",
+   "card": "8528:615291",
+   "frames": [
+    "8863:220940",
+    "10139:466731"
+   ]
+  },
+  {
+   "id": "chat-artifact",
+   "title": "Chat journey with Artifact",
+   "card": "1707:136006",
+   "frames": [
+    "1707:136008",
+    "1707:139771",
+    "9256:466688",
+    "1713:246600",
+    "1713:249395",
+    "4756:184104",
+    "4756:186919",
+    "1809:501331",
+    "1809:446980",
+    "1731:255712",
+    "1731:338960",
+    "1731:340363",
+    "1731:341539",
+    "3273:190223",
+    "1768:356654",
+    "1809:363799",
+    "5975:413714",
+    "14607:403125",
+    "13722:383349",
+    "1809:488480",
+    "1795:359260",
+    "1809:484624"
+   ],
+   "alternatesBelow": {
+    "1809:501331": [
+     "5691:481950"
+    ],
+    "1768:356654": [
+     "3211:70049"
+    ],
+    "1809:363799": [
+     "14876:285160"
+    ]
+   },
+   "statesAbove": {
+    "1795:359260": [
+     "6405:306202 hover state",
+     "6405:308388 edit name"
+    ]
+   }
+  },
+  {
+   "id": "share-artifact",
+   "title": "Share or invite collaborators to your Artifacts",
+   "card": null,
+   "frames": [
+    "1819:316164",
+    "9256:470679",
+    "1819:316249",
+    "1819:316290",
+    "1819:316329",
+    "1819:316373",
+    "1819:316429",
+    "1819:316471",
+    "12264:347642",
+    "1819:316531"
+   ]
+  },
+  {
+   "id": "chat-questions",
+   "title": "Chat questions",
+   "card": "6944:511588",
+   "frames": [
+    "5873:530156"
+   ]
+  },
+  {
+   "id": "deleted-artifact",
+   "title": "Deleted artifact",
+   "card": "6944:511590",
+   "frames": [
+    "6944:511592"
+   ]
+  },
+  {
+   "id": "artifact-view-editor-main",
+   "title": "Artifact view from main artifact page (editor)",
+   "card": "3838:249357",
+   "frames": [
+    "5310:276790",
+    "7418:305665",
+    "7418:305917"
+   ]
+  },
+  {
+   "id": "graphs",
+   "title": "Graphs in Chat",
+   "card": "1707:125117",
+   "frames": [
+    "2556:378637",
+    "1707:126556",
+    "1707:125119",
+    "1707:125400",
+    "1707:125678",
+    "1707:125957"
+   ]
+  },
+  {
+   "id": "artifact-view-viewer",
+   "title": "Artifact view only for viewer and commenters",
+   "card": "5310:277643",
+   "frames": [
+    "3838:248160",
+    "7767:266191",
+    "7781:267087",
+    "7781:267978",
+    "7781:268873",
+    "7781:269768",
+    "8771:210166",
+    "10157:575625"
+   ]
+  },
+  {
+   "id": "cost",
+   "title": "Cost of Chat",
+   "card": "6802:235989",
+   "frames": [
+    "6802:235991",
+    "6802:236005",
+    "6802:236019",
+    "6802:236034",
+    "6802:236050",
+    "6802:236066",
+    "6802:236106",
+    "6802:236145",
+    "6802:236125"
+   ]
+  },
+  {
+   "id": "artifact-full-editor",
+   "title": "Full view of artifacts (editor)",
+   "card": "8279:221783",
+   "frames": [
+    "7809:278865",
+    "7809:273518",
+    "7809:273526",
+    "7809:273538",
+    "7809:273550",
+    "7809:273559"
+   ]
+  },
+  {
+   "id": "enhance-prompt",
+   "title": "Enhance prompt with AI (option 1)",
+   "card": "9860:711731",
+   "frames": [
+    "10230:663810",
+    "10247:277018",
+    "10247:282174",
+    "10247:280053",
+    "10247:286242"
+   ]
+  },
+  {
+   "id": "new-memory",
+   "title": "New Memory via Chat",
+   "card": "9860:711733",
+   "frames": [
+    "9915:762550",
+    "10112:411197",
+    "10112:408460"
+   ]
+  },
+  {
+   "id": "artifacts-landing",
+   "title": "Artifacts landing (empty state \u2192 list \u2192 1728px \u2192 modal)",
+   "card": "3780:177319",
+   "frames": [
+    "3780:177209",
+    "7907:305055",
+    "12868:502599",
+    "8412:194488",
+    "11648:688356",
+    "12057:581131",
+    "3780:177321",
+    "3780:178324"
+   ]
+  },
+  {
+   "id": "cloned-artifact",
+   "title": "Cloned artifact",
+   "card": "13750:303578",
+   "frames": [
+    "13750:280936",
+    "13750:301988",
+    "13750:302325"
+   ]
+  },
+  {
+   "id": "publish-artifact",
+   "title": "Publish artifacts flow (modals: first time, second time, restricted card, who has access, changelog)",
+   "card": "1969:507280",
+   "frames": [
+    "1990:517731"
+   ],
+   "components": [
+    "1969:507322",
+    "1969:507360",
+    "11933:737342",
+    "11905:590138",
+    "11905:590328",
+    "11933:737464",
+    "11905:590614",
+    "11905:590883",
+    "11933:736147",
+    "11933:736622",
+    "11933:737092",
+    "11905:589839"
+   ]
+  },
+  {
+   "id": "canvas-comments",
+   "title": "Canvas comments",
+   "card": "1969:507282",
+   "frames": [
+    "1969:507489",
+    "1969:507495",
+    "1969:507503",
+    "1969:507512"
+   ]
+  },
+  {
+   "id": "header-dropdowns",
+   "title": "Top header dropdowns (Apps, Download, Version history, Input menu)",
+   "card": "1969:507284",
+   "components": [
+    "1969:507290",
+    "1969:507305",
+    "9200:349032",
+    "6077:427693",
+    "6077:427694"
+   ]
+  },
+  {
+   "id": "add-users",
+   "title": "Adding users to chat",
+   "card": "7900:173519",
+   "frames": [
+    "7830:279834",
+    "9256:468119",
+    "12025:773344",
+    "12025:774906",
+    "12025:776507",
+    "12025:779849",
+    "12025:778160",
+    "12025:781497",
+    "12025:783146",
+    "12025:784845",
+    "12025:786818"
+   ]
+  },
+  {
+   "id": "collab-chat",
+   "title": "Collaborative chat flow",
+   "card": "7830:279829",
+   "frames": [
+    "7830:279836",
+    "8202:477546",
+    "8202:478758",
+    "8215:480023",
+    "8215:481631",
+    "8222:482896",
+    "8222:485711",
+    "8222:488552",
+    "8222:490604",
+    "8222:494135"
+   ]
+  },
+  {
+   "id": "commenters",
+   "title": "Comments for commenters only",
+   "card": "8279:198075",
+   "frames": [
+    "8279:195355",
+    "8279:198079",
+    "8279:200361",
+    "8279:209548",
+    "8279:215077",
+    "8279:217929",
+    "8279:220537",
+    "8085:469369",
+    "8085:469355",
+    "8085:469620"
+   ]
+  },
+  {
+   "id": "queue-1",
+   "title": "Chat in queue (option 1)",
+   "card": "8142:470830",
+   "frames": [
+    "8222:498555",
+    "8237:502068",
+    "8237:503500",
+    "8255:522209",
+    "8237:500570",
+    "8237:505695",
+    "8255:508680",
+    "8255:510294",
+    "8255:520722",
+    "8255:512773",
+    "8255:514316",
+    "8255:515827",
+    "8255:517909",
+    "8255:519307",
+    "8255:524125",
+    "8451:366278"
+   ]
+  },
+  {
+   "id": "consecutive",
+   "title": "Consecutive messages spacing",
+   "card": "11649:348308",
+   "frames": [
+    "11633:344632"
+   ]
+  }
+ ],
+ "decisions": [
+  "Option 1 only (logo dots, user/assistant tag with bg, chat in queue option 1, 67 over 71)",
+  "Input box second row: ignored",
+  "Loose frames: ignored",
+  "Large screens: 1440 baseline only; wider layouts are our call"
+ ]
+}

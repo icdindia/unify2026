@@ -1,0 +1,2963 @@
+/* ----------------------------------------------------------------------------
+   knowledge-agent.css — layout + local compositions for prototypes/knowledge-agent.
+   Same shell, type scale, spacing, colour and motion decisions as
+   prototypes/playbook-studio (see playbook-studio-design-decisions in memory);
+   everything from the top of this file down to the "prototype deltas" block at
+   the bottom is duplicated verbatim from playbook-studio.css so the two
+   artefacts read as one product. Local overrides for this artefact live at the
+   very bottom, tagged `/* ==== knowledge-agent deltas ==== */`.
+---------------------------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+h1, h2, h3, h4, h5, h6, p, ul, figure { margin: 0; }
+ul { padding: 0; }
+button {
+  font: inherit;
+  color: inherit;
+}
+[hidden] { display: none !important; }
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--colors-background-bg-workspace);
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--font-family-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: 1px;
+}
+
+/* ================================ shell ================================= */
+.app-shell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--colors-background-bg-workspace);
+}
+.main-nav { height: 100%; }
+/* Brand-mark image from ./assets/unify-logo.svg. The exported file has extra
+   whitespace inside its viewBox; the SVG is re-cropped to `viewBox="10.5 7 32
+   32"` so the visible glyph fills the rail slot. Container widened to 36 to
+   match the mark (atom's default is 32). */
+.main-nav__x-logo { width: 36px; }
+.main-nav__x-logo .brand-mark-img { display: block; width: 36px; height: 36px; object-fit: contain; }
+/* Rail slide uses a proper ease-in-out with a touch more time so the auto-
+   collapse on entering chat reads as "eased" rather than mechanical. Overrides
+   the atom's default width transition just for this prototype. */
+.main-nav--expanded { transition: width 340ms cubic-bezier(.42, 0, .58, 1), min-width 340ms cubic-bezier(.42, 0, .58, 1); }
+
+/* frame 2147265764 — the 1384 stage. Closed: one column. Open: 440 copilot
+   panel + drag handle + artifact panel (frame 15). Expanded: artifact only. */
+.stage {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 0 0;
+  background: var(--colors-background-bg-workspace);
+  overflow: hidden;
+  transition: grid-template-columns 520ms cubic-bezier(.4, 0, .2, 1);
+}
+.stage[data-artifact="open"] { grid-template-columns: 440px 0 minmax(0, 1fr); }
+.stage[data-artifact="open"][data-expanded="true"] { grid-template-columns: 0 0 minmax(0, 1fr); }
+.stage > .view {
+  grid-column: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+.stage > .split {
+  grid-column: 2;
+  position: relative;
+  width: 0;
+  z-index: 4;
+}
+/* Panel is absolutely positioned over the right side of the stage so it can
+   truly slide in. In the grid layout, the panel's own cell animates from 0 to
+   1fr — a percent transform on that cell resolves to 0px for the whole
+   transition and reads as a fade, not a slide. Anchoring the panel to the
+   viewport edge and translating by 100% of its own (stable) width gives the
+   ease-in-out slide the design calls for. */
+.stage > .artifact-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 440px;
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 520ms cubic-bezier(.4, 0, .2, 1), transform 520ms cubic-bezier(.4, 0, .2, 1);
+}
+.stage[data-artifact="open"] > .artifact-panel {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.stage[data-expanded="true"] > .artifact-panel { left: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .stage,
+  .stage > .artifact-panel { transition: none;
+  }
+}
+
+/* Drag Handle — 1809:488594: 8x44, radius 12, brand-background, 1px #d6d6d6, at the seam */
+.split__handle {
+  position: absolute;
+  left: -4px;
+  top: calc(50% - 22px);
+  width: 8px;
+  height: 44px;
+  border-radius: var(--radius-4xl);
+  background: var(--colors-utility-brand-secondary-utility-brand-secondary-25);
+  border: 1px solid var(--colors-border-border-primary);   /* DRIFT: frame states #d6d6d6, unbound; nearest token */
+  cursor: col-resize;
+}
+.stage[data-artifact="closed"] .split__handle, .stage[data-expanded="true"] .split__handle { display: none; }
+
+/* ============================ landing (library) ========================== */
+/* Artifacts screen geometry, frame 7489:272501: top inset 60, 928 column, gap 32 */
+.landing {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.landing__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+  width: 760px;
+  max-width: 100%;
+  padding: 60px 0 var(--spacing-7xl);   /* DRIFT: 60 top inset from 7489:272503, off-scale (48 -> 64) */
+}
+.landing__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+}
+.page-title {
+  font-family: var(--display-md-regular-font-family);
+  font-size: var(--display-md-regular-font-size);
+  font-weight: var(--display-md-regular-font-weight);
+  line-height: var(--display-md-regular-line-height);
+  letter-spacing: var(--display-md-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+}
+.landing__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+.landing__section-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+.landing__section-head .spacer { flex: 1 1 auto; }
+.section-title {
+  font-family: var(--text-xl-regular-font-family);
+  font-size: var(--text-xl-regular-font-size);
+  font-weight: var(--text-xl-regular-font-weight);
+  line-height: 38px;   /* DRIFT: Routines landing 967:349261 states Spectral 20 on a 38 line; Text xl/Regular is 20/26 */
+  letter-spacing: var(--text-xl-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+}
+.section-title em { font-style: italic; }
+/* 967:349259 — heading and the expanded input box sit 6 apart */
+.landing__section--compose { gap: var(--spacing-sm); }
+
+/* template cards — 3 columns, 12px gap on both axes; columns share the remaining width equally (designer instruction 2026-09-16) */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+.template-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  width: 100%;
+  padding: var(--spacing-lg);
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+}
+.template-card:hover {
+  border-color: var(--colors-border-border-primary);
+  background: var(--colors-background-bg-primary-hover);
+}
+.template-card__top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+/* DS "Featured icon" — as on Form Header 16740:306398 */
+.template-card__tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  background: var(--colors-background-bg-white);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--colors-icon-icon-secondary);
+}
+.template-card__tile svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.template-card__name {
+  min-width: 0;
+  /* same detached card-title style as artifact-card (DRIFT-LOG §13): Spectral SemiBold 17/20, -2% */
+  font-family: var(--font-family-display);   /* DRIFT: detached style, no DS token */
+  font-size: 17px;                            /* DRIFT: as above */
+  font-weight: 600;                           /* DRIFT */
+  line-height: 20px;                          /* DRIFT */
+  letter-spacing: -0.02em;                    /* DRIFT */
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+}
+.template-card__desc {
+  flex: 1 1 auto;
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.template-card__foot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--colors-border-border-tertiary);
+}
+.frow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+.frow__label {
+  flex: none;
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  font-weight: var(--text-xxs-regular-code-font-weight);
+  line-height: var(--text-xxs-regular-code-line-height);
+  text-transform: uppercase;
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+}
+.frow__label--warn { color: var(--colors-text-text-warning-primary-600); }
+.frow__value {
+  margin-left: auto;
+  text-align: right;
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  font-weight: var(--text-xxs-regular-code-font-weight);
+  line-height: var(--text-xxs-regular-code-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.landing__empty {
+  grid-column: 1 / -1;
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.landing__perm { max-width: 760px; }
+
+/* ============================== chat (frame 87) ========================== */
+.chat {
+  flex: 1 1 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+.chat__scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+.chat__scroll::-webkit-scrollbar { display: none; }
+/* Message list 5975:415914 — 760 wide, bottom-anchored */
+.chat__col {
+  display: flex;
+  flex-direction: column;
+  width: 760px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: var(--spacing-xl);   /* 905:301472 pt 16 */
+}
+/* user block 5975:415915: 20 above, 30 below */
+.turn--user {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 var(--spacing-5xl);   /* 905:301476 -> 905:301478: user message to agent block is 40 */
+}
+.bubble {
+  max-width: 640px;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--colors-background-bg-tertiary);
+  border-radius: var(--radius-4xl);
+  font-family: var(--text-md-regular-para-font-family);
+  font-weight: var(--text-md-regular-para-font-weight);
+  font-size: var(--text-md-regular-para-font-size);
+  line-height: var(--text-md-regular-para-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+}
+.bubble > span {
+  display: block;
+  max-width: 608px;
+}
+/* agent response — frames 905:300224 and 905:301453 agree: two agent chunks
+   12 apart (y=358 → y=370), user → agent 40 (bottom of user block y=68 → top
+   of agent group y=108). Agent Avatar 905:301474 is a 20 brand circle in the
+   -28 gutter; CoT-carrying turns render it inline via `.cot__avatar`, plain
+   agent turns render it here via `.turn__avatar` (position:absolute so the
+   content still flows at col-left:0). */
+.turn--agent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);   /* 24 inside the turn: richtext → CoT → cards (+12 for pacing) */
+  padding-bottom: var(--spacing-3xl);   /* 24 between two agent chunks (+12 for pacing) */
+}
+/* Matched verbatim to Playbook Studio's `.turn__avatar` — a 20 × 20 dark-
+   green filled disc with the ai-avatar glyph in white, anchored to the
+   left edge of the turn so avatar + content share one flush column. */
+.turn__avatar {
+  position: absolute;
+  left: -32px;                                  /* was 0 — nudged 12 px further left so the disc no longer overlaps the paragraph */
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--colors-text-text-brand-secondary-700);
+  color: var(--colors-text-text-white);
+  box-sizing: border-box;
+}
+.turn__avatar svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+}
+.turn__cards { display: flex; flex-direction: column; gap: var(--spacing-md); }   /* stack two artifact/citation cards 8 apart */
+.turn--user + .turn--user { padding-top: 0; }
+/* qprompt (agent) → user answer: qprompt.pb 8 + turn-agent.pb 12 + user.pt 12 + bubble.pt 8 = 40 */
+.turn--agent + .turn--user { padding-top: var(--spacing-lg); }
+/* user → next agent chunk: user has pb 40 (--spacing-5xl) → gap = 40, matches Figma. */
+.richtext,
+.richtext p,
+.richtext span,
+.richtext li {
+  font-family: var(--text-md-regular-para-font-family);
+  font-weight: var(--text-md-regular-para-font-weight);
+  font-size: var(--text-md-regular-para-font-size);   /* 15/26 — DS Text md/Regular para */
+  line-height: var(--text-md-regular-para-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+}
+.richtext p + p { margin-top: var(--spacing-xl); }
+.richtext strong, .richtext b { font-weight: 600; }
+.richtext em { font-style: italic; }
+
+/* dock: question card above the composer frame (760x76 fade) */
+.chat__dock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 760px;
+  max-width: 100%;
+  margin: 0 auto;   /* DRIFT: frame gap is 13 (card 812 -> composer 825) */
+}
+
+/* ---- split mode: the 440 copilot panel (frame 15, 6213:501974) ---- */
+/* History rows in the rail — truncate to one line and show the full title on
+   hover. Overrides the atom's `overflow-wrap: break-word` standing constraint
+   only for this prototype's chat-history entries. */
+.main-nav__x-item--history .main-nav__x-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* Sourcepick / attach-prompt cards sit at 3/4 of the 760 message column so
+   they don't stretch the full width like a full-body agent card. */
+.turn--agent[data-k="sourcepick"] .turn__cards,
+.turn--agent[data-k="attachprompt"] .turn__cards {
+  width: 75%;
+  max-width: 570px;
+}
+/* Source-row Connect button — filled success. */
+.list-item > .btn {
+  background: var(--colors-utility-success-utility-success-500);
+  color: var(--colors-text-text-white);
+  box-shadow: none;
+}
+.list-item > .btn:hover {
+  background: var(--colors-utility-success-utility-success-600);
+}
+/* Source-picker and attach-prompt row icons — 16×16, 1px stroke.
+   Shrinks the atom's 32 tile down to a bare 16 glyph so all three glyphs
+   (SharePoint grid, Attach paperclip, Choose files paperclip) match. */
+.turn--agent[data-k="sourcepick"] .list-item__icon,
+.turn--agent[data-k="attachprompt"] .drop__icon {
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+}
+.turn--agent[data-k="sourcepick"] .list-item__icon svg,
+.turn--agent[data-k="attachprompt"] .drop__icon svg {
+  position: static;
+  inset: auto;
+  width: 16px;
+  height: 16px;
+  stroke-width: 1;
+}
+
+/* Split mode: the col shrinks from 760 to the 440 copilot panel. Reserve
+   28 on the left so the `-28` agent avatar doesn't get clipped by the
+   stage's overflow:hidden — same visual as full mode, no jump. */
+.stage[data-artifact="open"] .chat__col {
+  width: 100%;
+  padding: var(--spacing-xl) var(--spacing-xl) 0 var(--spacing-5xl);
+  gap: var(--spacing-5xl);
+}
+.stage[data-artifact="open"] .turn--user { padding: 0; }
+.stage[data-artifact="open"] .bubble {
+  width: 100%;
+  max-width: none;
+}
+.stage[data-artifact="open"] .turn--agent {
+  padding-bottom: 0;
+  gap: var(--spacing-xl);   /* +12 on the copilot panel: 4 → 16 between text, card, card */
+}
+/* Ancillary chat text (qprompt, citation-card rows, question-card copy)
+   steps down by the next DS tier (15 → 13) so switching between full-screen
+   and copilot panel doesn't jump between two sizes. */
+.qprompt__q,
+.citation-card__top,
+.citation-card__q,
+.citation-card__a,
+.question-card__question,
+.question-card__option,
+.question-card__text {
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+}
+
+/* Per user directive: the user bubble and every agent richtext reply in
+   this artifact render at 15/22 Geist regular. The DS pairs 15 with either
+   24 (`text-md-regular`) or 26 (`text-md-regular-para`), so 22 is a
+   deliberate off-scale drop for a tighter chat rhythm. */
+.bubble,
+.bubble > span,
+.richtext,
+.richtext p,
+.richtext span,
+.richtext li {
+  font-family: var(--text-md-regular-font-family);
+  font-weight: var(--text-md-regular-font-weight);
+  font-size: var(--text-md-regular-font-size);
+  line-height: 22px;   /* DRIFT: user asked for 15/22; DS text-md line-heights are 24 and 26. */
+}
+.stage[data-artifact="open"] .chat__dock {
+  width: 100%;
+  padding: var(--spacing-xl);
+}
+.stage[data-artifact="open"] .copilot-input-frame {
+  padding-bottom: 0;
+  background-image: none;
+}
+
+/* ============================ artifact panel ============================= */
+/* 4376:395812: pad 8 · canvas 1809:488550 bg-workspace, radius-4xl, ring border-primary (inside), 0 4 4 rgba(0,0,0,.05) */
+.artifact-panel {
+  min-width: 0;
+  height: 100%;
+  padding: var(--spacing-md);
+  overflow: hidden;
+}
+.canvas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--colors-background-bg-workspace);
+  border-radius: var(--radius-4xl);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);   /* DRIFT: shadow literal on 1809:488550 */
+  overflow: hidden;
+}
+.canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border: 1px solid var(--colors-border-border-primary);
+  border-radius: var(--radius-4xl);
+}
+.canvas__body {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--spacing-xl);
+  background: var(--colors-background-bg-workspace);
+  scrollbar-width: thin;
+}
+.canvas__body {
+  container-type: inline-size;
+}
+.canvas__body[data-md="1"] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.canvas__body[data-md="1"] > .doc {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+.doc__head {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+/* Meta strip: a 3-column grid of label-above-value cells (auto-fit so the
+   strip re-flows cleanly on narrower canvases). Neat KV rhythm, generous
+   whitespace, uppercase mono label, larger dark value — same treatment
+   template-studio uses for its own document meta. */
+.doc__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  column-gap: var(--spacing-3xl);
+  row-gap: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+.doc__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  min-width: 0;
+}
+.doc__meta-v {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+}
+.mcell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);   /* 4-grid: 2 between label and value */
+  min-width: 0;
+}
+.label {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  font-weight: var(--text-xxs-regular-code-font-weight);
+  line-height: var(--text-xxs-regular-code-line-height);
+  text-transform: uppercase;
+  color: var(--colors-text-text-tertiary-600);
+}
+.mval {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.mval--num {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  font-variant-numeric: tabular-nums;
+}
+.doc__tabs {
+  flex: none;
+}
+.doc__tabs .horizontal-tabs__list { flex-wrap: wrap; }
+.horizontal-tabs__tab .pill { margin-left: var(--spacing-xxs); }
+
+.lead {
+  max-width: 70ch;
+  margin-bottom: var(--spacing-xl);
+  font-family: var(--text-md-regular-para-font-family);
+  font-weight: var(--text-md-regular-para-font-weight);
+  font-size: var(--text-md-regular-para-font-size);
+  line-height: var(--text-md-regular-para-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.lead strong { font-weight: 600; }
+.sm {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.sm b {
+  font-family: var(--font-family-code);
+  font-weight: var(--text-xs-regular-code-font-weight);
+  color: var(--colors-text-text-primary-900);
+  font-variant-numeric: tabular-nums;
+}
+.mono {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  line-height: var(--text-xxs-regular-code-line-height);
+  font-variant-numeric: tabular-nums;
+}
+
+/* risk dot: 8px, colour carries the tier (design-rules §12) */
+.rdot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-300);
+}
+.rdot--critical { background: var(--colors-utility-error-utility-error-600); }
+.rdot--elevated { background: var(--colors-utility-warning-utility-warning-600); }
+
+/* ---------------------- provisions: master–detail ----------------------- */
+.md {
+  flex: 1 1 auto;
+  min-height: 360px;
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.plist {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-right: 1px solid var(--colors-border-border-secondary);
+  background: var(--colors-background-bg-workspace);
+}
+.plist__head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 var(--spacing-md) 0 var(--spacing-lg);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+}
+.plist__head .spacer { flex: 1 1 auto; }
+.plist__sel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.plist__sel:hover { background: var(--colors-background-bg-tertiary); }
+.plist__sel svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+  color: var(--colors-icon-icon-secondary);
+}
+.plist__count { color: var(--colors-text-text-quaternary-500); }
+.plist__tools {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+}
+.plist__tools .search-input { width: 100%; }
+.plist__tools .toggle-group { align-self: flex-start; }
+.select {
+  min-height: 28px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+  appearance: auto;
+}
+.plist__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  scrollbar-width: thin;
+}
+.pcard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+}
+.pcard:hover {
+  background: var(--colors-background-bg-secondary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+}
+.pcard[aria-current="true"] {
+  background: var(--colors-background-bg-secondary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-solid);
+}
+.pcard--off .pcard__title, .pcard--off .pcard__desc, .pcard--off .pcard__foot { opacity: 0.45; }
+.pcard__top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+.pcard__num {
+  flex: none;
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.pcard__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+}
+.pcard__warn {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;   /* DRIFT: optical nudge to the text cap height, off-scale */
+  color: var(--colors-icon-icon-warning-600);
+}
+.pcard__warn svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.pcard__desc {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  overflow-wrap: break-word;
+}
+.pcard__foot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xxs);
+}
+.pcard__ref {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  line-height: var(--text-xxs-regular-code-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+.pdet {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+/* detail pane: full-width rules, content held to a 760 column centred in the pane */
+.pdet__in {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.pdet__head {
+  flex: none;
+  display: flex;                     /* centre the head-in row vertically inside the 48 bar */
+  align-items: center;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 var(--spacing-2xl);   /* 4-grid: 0 vertical, 20 horizontal — matches the body inset below */
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+.pdet__head-in { flex: 1 1 auto; min-width: 0; }
+.pdet__head-in {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+.pdet__head .spacer { flex: 1 1 auto; }
+.pdet__title {
+  min-width: 0;
+  font-family: var(--text-sm-medium-font-family);   /* 4-grid: 13/20, sits comfortably centred in the 48 head */
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pdet__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--spacing-2xl);   /* 4-grid: 20 all round; heading below sits one 24-step from the head */
+  scrollbar-width: thin;
+}
+.pdet__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);       /* 4-grid: 24 between blocks */
+}
+.pdet__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);        /* 4-grid: 8 between block header and its content */
+}
+.pdet__h {
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.pdet__about {
+  max-width: 70ch;
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.pdet__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));   /* 4-grid: 3 cols so 7 mcells wrap 3+3+1 evenly */
+  column-gap: var(--spacing-3xl);                     /* 24 between columns */
+  row-gap: var(--spacing-xl);                         /* 16 between rows — one 4-step tighter than the block gap */
+}
+.pdet__foot {
+  flex: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-top: 1px solid var(--colors-border-border-secondary);
+  background: var(--colors-background-bg-workspace);
+}
+.pdet__foot-in {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+.pdet__foot .spacer { flex: 1 1 auto; }
+.pdet__foot .sm {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+/* ---- five-tier ladder: tint carries the tier, no legend ---- */
+.tiers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+/* base: neutral until a tier modifier sets the three colours */
+.tier {
+  background: var(--colors-background-bg-secondary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.tier--0 { background: var(--colors-utility-success-utility-success-25); box-shadow: inset 0 0 0 1px var(--colors-utility-success-utility-success-100); }
+.tier--0 .tier__name, .tier--0 .tm { color: var(--colors-utility-success-utility-success-600); }
+.tier--1 { background: var(--colors-utility-steel-blue-utility-steel-blue-25); box-shadow: inset 0 0 0 1px var(--colors-utility-steel-blue-utility-steel-blue-50); }
+.tier--1 .tier__name, .tier--1 .tm { color: var(--colors-utility-steel-blue-utility-steel-blue-600); }
+.tier--2 { background: var(--colors-utility-brand-tertiary-utility-brand-tertiary-25); box-shadow: inset 0 0 0 1px var(--colors-utility-brand-tertiary-utility-brand-tertiary-100); }
+.tier--2 .tier__name, .tier--2 .tm { color: var(--colors-utility-brand-tertiary-utility-brand-tertiary-700); }
+.tier--3 { background: var(--colors-utility-warning-utility-warning-25); box-shadow: inset 0 0 0 1px var(--colors-utility-warning-utility-warning-100); }
+.tier--3 .tier__name, .tier--3 .tm { color: var(--colors-utility-warning-utility-warning-700); }
+.tier--4 { background: var(--colors-utility-error-utility-error-25); box-shadow: inset 0 0 0 1px var(--colors-utility-error-utility-error-100); }
+.tier--4 .tier__name, .tier--4 .tm { color: var(--colors-utility-error-utility-error-600); }
+.tier--sel { box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-solid); }
+.tier--off { opacity: 0.5; }
+.tier--off .tier__body { display: none; }
+.tier__head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.tier__head .spacer { flex: 1 1 auto; }
+/* AI-suggest sparkle sits at every tier — dim it to a whisper so the tier
+   content leads, and reveal on hover of the tier or the button itself. */
+.tier__ai {
+  color: var(--colors-text-text-quaternary-500);
+  opacity: 0.45;
+  transition: opacity 160ms ease-out, color 160ms ease-out;
+}
+.tier:hover .tier__ai,
+.tier__ai:hover,
+.tier__ai:focus-visible { opacity: 1; }
+.tier__name {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-medium-code-font-size);
+  font-weight: var(--text-xxs-medium-code-font-weight);
+  line-height: var(--text-xxs-medium-code-line-height);
+  text-transform: uppercase;
+  color: var(--colors-text-text-secondary-700);
+}
+.tier__cite {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+  white-space: nowrap;
+}
+.tier__cite b {
+  font-family: var(--font-family-code);
+  font-weight: var(--text-xs-regular-code-font-weight);
+  color: var(--colors-text-text-primary-900);
+  font-variant-numeric: tabular-nums;
+}
+.tier__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: 0 var(--spacing-md) var(--spacing-md);
+}
+.tier__text {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-sm);
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+  overflow-wrap: break-word;
+}
+.tier--sel .tier__text { color: var(--colors-text-text-primary-900); }
+.tier__lang {
+  padding-left: var(--spacing-lg);
+  border-left: 2px solid var(--colors-border-border-primary);
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+
+/* toggle — no DS atom in components/; sizes carried from the clickthrough (22x13, 9 knob) */
+.tgl {
+  position: relative;
+  flex: none;
+  width: 22px;    /* DRIFT: no DS toggle atom */
+  height: 13px;   /* DRIFT: no DS toggle atom */
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-300);
+  appearance: none;
+  cursor: pointer;
+}
+.tgl::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 120ms;   /* DRIFT: knob shadow literal */
+}
+.tgl[aria-pressed="true"] { background: var(--colors-background-bg-brand-solid); }
+.tgl[aria-pressed="true"]::after { transform: translateX(9px); }
+.tgl[disabled] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ---- tables ---- */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+}
+.ctable {
+  width: 100%;
+  min-width: 660px;
+  border-collapse: collapse;
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.ctable th {
+  text-align: left;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+  white-space: nowrap;
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  font-weight: var(--text-xxs-regular-code-font-weight);
+  line-height: var(--text-xxs-regular-code-line-height);
+  text-transform: uppercase;
+  color: var(--colors-text-text-tertiary-600);
+}
+.ctable td {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--colors-border-border-tertiary);
+  vertical-align: top;
+}
+.ctable tr:last-child td { border-bottom: 0; }
+.ctable tbody tr:hover td { background: var(--colors-background-bg-secondary); }
+.ctable .cref, .ctable .cnt {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ctable td:first-child, .ctable th:first-child { width: 1%; }
+.cell-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+.meter {
+  display: block;
+  flex: 0 0 72px;
+  height: 4px;
+  border-radius: var(--radius-xxs);
+  background: var(--colors-background-bg-tertiary);
+  overflow: hidden;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  background: var(--colors-background-bg-brand-solid);
+  border-radius: var(--radius-xxs);
+}
+.tm {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-xxs);
+  background: currentColor;
+}
+.link-btn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+  color: var(--component-link-brand-link-brand-fg);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.link-btn:hover { color: var(--component-link-brand-link-brand-fg-hover); }
+.pill.pill--clause {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  line-height: var(--text-xxs-regular-code-line-height);
+  cursor: pointer;
+}
+
+/* ========================== chat compositions =========================== */
+/* permission card — inline-artifact-card surface with stacked rows */
+.perm {
+  width: 100%;
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-tertiary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.perm__top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+.perm__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  background: var(--colors-background-bg-white);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--colors-icon-icon-secondary);
+}
+.perm__icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.perm__body {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+}
+.perm__title {
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.perm__scope {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.perm__pick {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--colors-border-border-tertiary);
+}
+.perm__pick .label { padding: var(--spacing-xs) var(--spacing-md) var(--spacing-xxs); }
+.srcopt {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+  min-height: 36px;
+  padding: var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+}
+.srcopt:hover { background: var(--colors-background-bg-secondary); }
+.srcopt[aria-pressed="true"] {
+  background: var(--colors-background-bg-secondary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-solid);
+}
+.srcopt__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-xs);
+  background: var(--colors-utility-gray-utility-gray-50);
+  color: var(--colors-icon-icon-secondary);
+}
+.srcopt__icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.srcopt[aria-pressed="true"] .srcopt__icon { color: var(--colors-icon-icon-brand-600); }
+.srcopt__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.srcopt__text b {
+  font-weight: var(--text-sm-medium-font-weight);
+  color: var(--colors-text-text-primary-900);
+}
+.srcopt__text span {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.srcopt__meta {
+  flex: none;
+  margin-left: auto;
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  line-height: var(--text-xxs-regular-code-line-height);
+  color: var(--colors-text-text-quaternary-500);
+  white-space: nowrap;
+}
+.perm__detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-top: 1px solid var(--colors-border-border-tertiary);
+  background: var(--colors-background-bg-secondary);
+}
+.perm__detail ul {
+  padding-left: var(--spacing-xl);
+  list-style: disc;
+}
+.perm__detail li {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.perm__never {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.perm__acts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--colors-border-border-tertiary);
+}
+.perm__acts .spacer { flex: 1 1 auto; }
+.disclose {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+  color: var(--component-link-neutral-link-neutral-fg);
+}
+.disclose:hover { color: var(--component-link-neutral-link-neutral-fg-hover); }
+.perm__granted {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-top: 1px solid var(--colors-border-border-tertiary);
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-success-primary-600);
+}
+.perm__granted svg {
+  display: block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+.perm__granted .muted { color: var(--colors-text-text-tertiary-600); }
+.drop {
+  padding: var(--spacing-2xl);
+  border: 1px dashed var(--colors-border-border-primary);
+  border-radius: var(--radius-4xl);
+  background: var(--colors-background-bg-secondary);
+  text-align: center;
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* learning steps / findings / summary — section-card surface + detail-divider rules */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.step--on { color: var(--colors-text-text-primary-900); }
+.step__tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--colors-icon-icon-success-600);
+}
+.step__tick svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+.step__res {
+  margin-left: auto;
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.spin {
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid var(--colors-border-border-primary);
+  border-top-color: var(--colors-border-border-brand-solid);
+  border-radius: var(--radius-full);
+  animation: sp 700ms linear infinite;
+}
+@keyframes sp {
+  to { transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spin { animation: none;
+  }
+}
+.finding {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-lg);
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+.finding__n {
+  flex: none;
+  min-width: 28px;
+  font-family: var(--text-xl-regular-font-family);
+  font-size: var(--text-xl-regular-font-size);
+  font-weight: var(--text-xl-regular-font-weight);
+  line-height: var(--text-xl-regular-line-height);
+  letter-spacing: var(--text-xl-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+  font-variant-numeric: tabular-nums;
+}
+.finding__t {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.finding__t b {
+  font-weight: var(--text-sm-medium-font-weight);
+  color: var(--colors-text-text-primary-900);
+}
+.eye {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: var(--colors-background-bg-secondary);
+  border-radius: var(--radius-4xl);
+}
+.eye__i {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-md);
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.eye__i b {
+  font-weight: var(--text-sm-medium-font-weight);
+  color: var(--colors-text-text-primary-900);
+}
+.eye__i .rdot {
+  position: relative;
+  top: -1px;
+}
+
+/* ================================ sheets ================================ */
+.sheet-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  background: rgba(21, 20, 20, 0.28);   /* DRIFT: overlay scrim has no token (bg-base-dark at 28%) */
+}
+.sheet {
+  position: fixed;
+  z-index: 131;
+  right: var(--spacing-xl);
+  top: var(--spacing-xl);
+  width: min(392px, calc(100vw - 32px));
+  max-height: 70vh;
+  overflow: auto;
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 8px -2px var(--colors-utility-gray-utility-gray-200), 0 2px 4px -2px var(--colors-utility-gray-utility-gray-200);
+  border-radius: var(--radius-4xl);
+}
+.sheet__h {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+}
+.sheet__h .spacer { flex: 1 1 auto; }
+.sheet__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+.sheet__row + .sheet__row { border-top: 1px solid var(--colors-border-border-tertiary); }
+.sheet__r1 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+}
+.sheet__r1 .spacer { flex: 1 1 auto; }
+.sheet__acts {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xs);
+}
+.uc-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+.uc-row + .uc-row { border-top: 1px solid var(--colors-border-border-tertiary); }
+.uc-row__f {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  min-width: 0;
+}
+.uc-row__f b {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  font-weight: var(--text-xs-regular-code-font-weight);
+  line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: anywhere;
+}
+.uc-row .select { max-width: 150px; }
+
+/* ================================ tooltip =============================== */
+.tip {
+  position: fixed;
+  z-index: 140;
+  max-width: 280px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--colors-background-bg-solid-primary);
+  color: var(--colors-text-text-white);
+  border-radius: var(--radius-sm);
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 120ms, transform 120ms;
+}
+.tip[data-on="true"] {
+  opacity: 1;
+  transform: none;
+}
+.tip__arrow {
+  position: absolute;
+  left: 16px;
+  width: 8px;
+  height: 8px;
+  background: var(--colors-background-bg-solid-primary);
+  transform: rotate(45deg);
+}
+.tip[data-side="top"] .tip__arrow { bottom: -3px; }
+.tip[data-side="bottom"] .tip__arrow { top: -3px; }
+
+.fade { animation: rise 320ms cubic-bezier(.16, 1, .3, 1) backwards; }
+@keyframes rise {
+  from { opacity: 0;
+  transform: translateY(6px);
+  } to { opacity: 1;
+  transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade { animation: none;
+  }
+}
+
+/* ---- streaming caret (finishInterview end-message) ---- */
+.stream-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  vertical-align: -2px;
+  margin-left: var(--spacing-xxs);
+  background: var(--colors-text-text-primary-900);
+  animation: streamBlink 900ms steps(2) infinite;
+}
+@keyframes streamBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* ---- pending artifact card: loader spinner only, no document glyph ---- */
+.inline-artifact-card--pending {
+  cursor: default;
+  background: var(--colors-background-bg-secondary);
+}
+.inline-artifact-card--pending:hover { background: var(--colors-background-bg-secondary); }
+.inline-artifact-card--pending .inline-artifact-card__sub { color: var(--colors-text-text-tertiary-600); }
+.pending-spinner {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--colors-border-border-secondary);
+  border-top-color: var(--colors-utility-brand-utility-brand-500);
+  animation: pendingSpin 900ms linear infinite;
+}
+@keyframes pendingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Question-card evidence line — Figma 875:165670 keeps the sub-line small
+   under the title (12/16). The atom's default is 15px; step down locally. */
+.question-card__evidence {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+}
+/* Option rows — trim 4 from top and 4 from bottom, keep the 8 side padding. */
+.question-card__option {
+  padding-top: var(--spacing-xs);
+  padding-bottom: var(--spacing-xs);
+}
+/* Free-text row — trim 12 from the atom's 40 (padding-y 8→2) and pin the
+   Skip button to 24 tall so the row lands at 28. Bump top by 4 to sit off
+   the option rows above (2 → 6). */
+.question-card__free {
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-xxs);
+}
+.question-card__free .btn {
+  height: 24px;
+  min-height: 24px;
+  padding-top: var(--spacing-none);
+  padding-bottom: var(--spacing-none);
+}
+
+/* ---- qprompt: the just-answered question echoed into the transcript ---- */
+.qprompt {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md) var(--spacing-none);
+  min-width: 0;
+}
+.qprompt__q {
+  font-family: var(--text-md-regular-para-font-family);
+  font-weight: var(--text-md-regular-para-font-weight);
+  font-size: var(--text-md-regular-para-font-size);
+  line-height: var(--text-md-regular-para-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stream-caret,
+  .pending-spinner { animation: none;
+  }
+}
+
+/* the clickthrough's own rule: below 720 of canvas width the list stacks above the detail */
+@container (max-width: 720px) {
+  .md { grid-template-columns: minmax(0, 1fr); }
+  .plist { border-right: 0; border-bottom: 1px solid var(--colors-border-border-secondary); max-height: 230px; }
+}
+@container (max-width: 680px) {
+  .qgrid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 1100px) {
+  .stage[data-artifact="open"] { grid-template-columns: 0 0 minmax(0, 1fr); }
+  .md { grid-template-columns: minmax(0, 1fr); }
+  .plist {
+    border-right: 0;
+    border-bottom: 1px solid var(--colors-border-border-secondary);
+    max-height: 38vh;
+  }
+  .template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* the filter-bar atom styles .search-input__text as a <p>; used as an <input> here */
+input.search-input__text {
+  border: 0;
+  background: transparent;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  color: var(--colors-text-text-primary-900);
+}
+input.search-input__text::placeholder { color: var(--colors-text-text-placeholder); }
+input.search-input__text::-webkit-search-cancel-button { appearance: none; }
+
+/* ---- editable positions + AI suggestion ---- */
+.tier__cite { color: var(--colors-text-text-tertiary-600); }
+.tier__cite svg { color: var(--colors-icon-icon-secondary); }
+.tier__cite[disabled] { color: var(--colors-text-text-disabled); cursor: default; }
+.tier__ai svg { color: var(--colors-icon-icon-brand-600); }
+.tier__text { cursor: text; }
+.tier__text[contenteditable="true"] { cursor: text; }
+.tier__text[contenteditable="true"]:focus { outline: 0; box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-solid); }
+.tier__text:empty::before { content: "Describe the position"; color: var(--colors-text-text-placeholder); }
+.tier__tools { display: flex; align-items: center; justify-content: flex-end; gap: var(--spacing-xs); }
+.tier__suggest {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-secondary);
+  border-radius: var(--radius-sm);
+}
+.tier__suggest-h { display: inline-flex; align-items: center; gap: var(--spacing-sm); color: var(--colors-icon-icon-brand-600); }
+.tier__suggest-h svg { display: block; width: 14px; height: 14px; }
+.tier__suggest-t {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+
+
+/* attach prompt hint: constrain the paperclip glyph and drop layout */
+.drop--attach {
+  display: flex; align-items: center; justify-content: center; gap: var(--spacing-md);
+  width: 100%; padding: var(--spacing-lg) var(--spacing-xl);
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border: 0; border-radius: var(--radius-4xl); appearance: none; cursor: pointer; text-align: left;
+  font: inherit; color: var(--colors-text-text-secondary-700);
+}
+.drop--attach:hover { background: var(--colors-background-bg-primary-hover); box-shadow: inset 0 0 0 1px var(--colors-border-border-primary); }
+.drop__icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex: none; color: var(--colors-icon-icon-secondary); }
+.drop__icon svg { display: block; width: 20px; height: 20px; }
+.drop__label { font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); line-height: var(--text-md-regular-line-height); color: var(--colors-text-text-primary-900); }
+.drop__hint { margin-left: auto; color: var(--colors-text-text-quaternary-500); }
+
+
+/* attached files: minimal one-line rows */
+.attach-list {
+  display: flex; flex-direction: column;
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.attach-row {
+  display: flex; align-items: center; gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  min-height: 32px;
+}
+.attach-row + .attach-row { box-shadow: inset 0 1px 0 var(--colors-border-border-secondary); }
+.attach-row__icon { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; flex: none; color: var(--colors-icon-icon-secondary); }
+.attach-row__icon svg { display: block; width: 16px; height: 16px; }
+.attach-row__name {
+  flex: 1 1 auto; min-width: 0;
+  font-family: var(--font-family-code); font-size: var(--text-xs-regular-code-font-size); line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+
+/* ============================================================================
+   ==== knowledge-agent deltas ================================================
+   Only the surfaces this artefact adds:
+     - landing "ask cards" grid (replaces the template-grid)
+     - answer canvas: settled rows, segment table, ans__section rhythm
+     - ticket list card foot (pill + due-date row)
+   Every value below still binds a DS token unless it is pure geometry.
+   ========================================================================= */
+
+/* Stacked landing head — eyebrow · display · lede. Replaces the single-row
+   head from Playbook Studio: this artefact's landing is composer-plus-tiles,
+   with no right-hand "New" button, so the head stretches to a paragraph. */
+.landing__head--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  height: auto;
+}
+.eyebrow {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--colors-text-text-quaternary-500);
+}
+.landing__head-sub {
+  display: block;
+  max-width: 620px;
+  margin-top: var(--spacing-xs);
+  font-family: var(--text-md-regular-font-family);
+  font-size: var(--text-md-regular-font-size);
+  line-height: var(--text-md-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* Quick-start grid — 2 columns, 6 cards, generous whitespace. */
+.qs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+.qs-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xl);
+  text-align: left;
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  appearance: none;   /* strip the browser's default 2px outset button border */
+  cursor: pointer;
+  transition: border-color 160ms ease-out, background 160ms ease-out;
+}
+.qs-card:hover {
+  background: var(--colors-background-bg-primary-hover);
+  border-color: var(--colors-border-border-secondary);
+}
+.qs-card:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: 1px;
+}
+.qs-card__emoji {
+  font-size: 22px;   /* DRIFT: emoji glyph size taken from the reference mock; no DS type token for emoji */
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+}
+.qs-card__title {
+  font-family: var(--text-md-regular-font-family);
+  font-size: var(--text-md-regular-font-size);
+  line-height: var(--text-md-regular-line-height);
+  font-weight: 600;
+  color: var(--colors-text-text-primary-900);
+}
+.qs-card__desc {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* Answer canvas: knowledge-agent uses its own body composition — the
+   `.ans` container mirrors `.plist` + `.pdet` but scrolls as a single flow
+   because knowledge answers do not have a master–detail structure. */
+.ans { display: flex; flex-direction: column; min-height: 0; height: 100%; }
+.ans__scroll { flex: 1 1 auto; min-height: 0; overflow: auto; }
+.ans__col {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-3xl) var(--spacing-3xl);
+  display: flex; flex-direction: column; gap: var(--spacing-3xl);
+}
+.ans__section { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.ans__h2 {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-quaternary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ans__lead {
+  font-family: var(--text-md-regular-font-family);
+  font-size: var(--text-md-regular-font-size);
+  line-height: var(--text-md-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.ans__body {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+
+/* Settled rows — "N of M — landed on X" strip inside a clause answer. */
+.settled {
+  display: flex; flex-direction: column;
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.settled__row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--spacing-lg);
+  align-items: baseline;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.settled__row + .settled__row { box-shadow: inset 0 1px 0 var(--colors-border-border-secondary); }
+.settled__cnt {
+  color: var(--colors-text-text-primary-900);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+}
+.settled__lbl {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+
+/* Segment table — "By contract type" grid inside a concept answer. */
+.seg-table {
+  display: flex; flex-direction: column;
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.seg-row {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: var(--spacing-lg);
+  align-items: baseline;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.seg-row + .seg-row { box-shadow: inset 0 1px 0 var(--colors-border-border-secondary); }
+.seg-row__seg {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-primary-900);
+}
+.seg-row__pos {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.seg-row__ct { color: var(--colors-text-text-quaternary-500); }
+
+/* Tier card refinements for knowledge-agent — the ladder is displayed as an
+   answer, not an editable playbook, so contenteditable / suggest chrome is
+   absent. The atom's default layout still applies. */
+.tier__approval {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+  white-space: nowrap;
+}
+
+/* Ticket cards: reuse .pcard (from playbook-studio.css) but bring back a
+   metadata row — this artefact has room for it because the list is short. */
+.pcard__foot {
+  display: inline-flex; align-items: center; flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+}
+.pcard__due {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+  margin-left: auto;
+}
+.pcard__due--over { color: var(--colors-utility-warning-utility-warning-600); font-weight: 500; }
+.pcard__num {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-quaternary-500);
+  margin-right: var(--spacing-xs);
+}
+.mval--over { color: var(--colors-utility-warning-utility-warning-600); font-weight: 500; }
+
+/* Ticket-detail action row — sits at the bottom of pdet__body. */
+.pdet__actions {
+  display: flex; align-items: center; gap: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+  box-shadow: inset 0 1px 0 var(--colors-border-border-secondary);
+}
+
+/* Doc-meta on the ticket answer canvas: mirrors playbook doc__meta but
+   allows the "Overdue" pill to reach the third cell without wrapping. */
+.doc__meta-item .mval--over { color: var(--colors-utility-warning-utility-warning-600); }
+/* ========================================================================
+   Nav-rail plate treatment — matched to prototypes/template-studio: primary
+   items sit flat against the rail; the plate only paints on hover or when
+   the item is aria-current. Both are pinned to this prototype only so the
+   shared main-nav atom stays untouched. */
+.main-nav__x-primary .main-nav__x-item:hover::before,
+.main-nav__x-primary .main-nav__x-item[aria-current="page"]::before { background: rgba(255, 255, 255, 0.17); }
+/* Redline Compare Agent — the fourth avatar in the Agents list. */
+.main-nav__x-agent-avatar--4 { background: var(--colors-utility-success-utility-success-600); }
+/* Chat header cost pill — orange dashed progress ring + monospace $ amount.
+   Sits inside .es-breadcrumb__actions to the left of Share and the artifact
+   cube button; visible in both expanded and collapsed rail states because
+   the breadcrumb chrome is width-agnostic. */
+.chat-cost {
+  display: inline-flex; align-items: center; gap: var(--spacing-xs);
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  color: var(--colors-text-text-quaternary-500);
+  cursor: default;
+}
+.chat-cost__ring {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 14px; height: 14px;
+  color: var(--colors-utility-warning-utility-warning-500);
+}
+.chat-cost__ring svg { width: 12px; height: 12px; }
+.chat-cost__amount {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+
+
+/* ============================================================================
+   ==== inline answer cards ===================================================
+   Five of the six Quick-start prompts (tickets, deal, clause, team, new-ticket)
+   answer in-thread with a compact `.inl-card`. Same shell as `.citation-card`
+   / `.list-item` but with a header strip, an optional KPI grid, a body region
+   and a footer. All spacing on the 4-grid.
+   ========================================================================= */
+.inl-card {
+  display: flex; flex-direction: column;
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.inl-card__head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+  min-height: 40px;
+}
+.inl-card__eyebrow {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--colors-text-text-quaternary-500);
+}
+.inl-card__eyebrow--sub { margin-top: var(--spacing-md); display: block; }
+.inl-card__title {
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-primary-900);
+}
+.inl-card__lead {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+.inl-card__body {
+  display: flex; flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+.inl-card__body--rows { padding: 0; gap: 0; }
+.inl-card__sub { padding: var(--spacing-md) var(--spacing-lg) 0; }
+
+/* Inline stats strip (right side of the header) */
+.inl-card__stats { display: inline-flex; align-items: center; gap: var(--spacing-lg); }
+.inl-stat { display: inline-flex; align-items: baseline; gap: var(--spacing-xs); }
+.inl-stat__num {
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: 600;
+  color: var(--colors-text-text-primary-900);
+}
+.inl-stat--warn .inl-stat__num { color: var(--colors-utility-warning-utility-warning-600); }
+.inl-stat__lbl {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* Compact rows for ticket lists / reviewer lists inside an inl-card */
+.inl-row {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--colors-border-border-secondary);
+}
+.inl-row:first-child { border-top: 0; }
+.inl-row__id {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.inl-row__title {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+  min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.inl-row__sub {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.inl-row__meta { display: inline-flex; align-items: center; gap: var(--spacing-sm); }
+.inl-row__due {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.inl-row__due--over { color: var(--colors-utility-warning-utility-warning-600); font-weight: 500; }
+.inl-tag {
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  background: var(--colors-background-bg-secondary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+
+/* Deal card key/value grid */
+.inl-kv {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  row-gap: var(--spacing-sm);
+  column-gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+}
+.inl-kv__row { display: contents; }
+.inl-kv__k {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-quaternary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.inl-kv__v {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.inl-blockers {
+  display: flex; flex-direction: column;
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+.inl-blocker {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  row-gap: var(--spacing-xxs);
+  column-gap: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--colors-background-bg-secondary);
+  border-radius: var(--radius-2xl);
+}
+.inl-blocker__area {
+  grid-column: 1;
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: 600;
+  color: var(--colors-text-text-primary-900);
+}
+.inl-blocker__pos {
+  grid-column: 2;
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.inl-blocker__tier {
+  grid-column: 2;
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* Clause settled strip inside an inline card (reuses .settled) */
+.inl-settled {
+  display: flex; flex-direction: column;
+  background: var(--colors-background-bg-secondary);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+.inl-settled__row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+.inl-settled__row + .inl-settled__row { box-shadow: inset 0 1px 0 var(--colors-border-border-secondary); }
+.inl-settled__cnt {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.inl-settled__lbl {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+
+/* Compact tier ladder inside an inline card */
+.tiers--inline { gap: var(--spacing-sm); }
+.tiers--inline .tier { padding: var(--spacing-sm) var(--spacing-md); }
+
+/* KPI tiles for the team performance card */
+.inl-kpis {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+.inl-kpi {
+  display: flex; flex-direction: column; gap: var(--spacing-xxs);
+  padding: var(--spacing-md);
+  background: var(--colors-background-bg-secondary);
+  border-radius: var(--radius-2xl);
+}
+.inl-kpi__num {
+  font-family: var(--display-xs-regular-font-family);
+  font-size: var(--display-xs-regular-font-size);
+  line-height: var(--display-xs-regular-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-primary-900);
+}
+.inl-kpi__lbl {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* New-ticket inline form */
+.inl-card--form .inl-form { display: flex; flex-direction: column; gap: var(--spacing-md); padding: var(--spacing-lg); }
+.inl-form__row  { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); }
+.inl-form__field { display: flex; flex-direction: column; gap: var(--spacing-xxs); min-width: 0; }
+.inl-form__label {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-quaternary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.inl-form__input {
+  display: block; width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-xl);
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.inl-form__input:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: 1px;
+}
+.inl-form__actions { display: flex; justify-content: flex-end; gap: var(--spacing-md); margin-top: var(--spacing-sm); }
+
+/* ============================================================================
+   ==== analyse canvas ========================================================
+   Stat tiles + issues master–detail + recommendations rollup for the
+   Analyse-a-contract answer surface.
+   ========================================================================= */
+.an-stats {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--spacing-md);
+}
+.an-stat {
+  display: flex; flex-direction: column; gap: var(--spacing-xxs);
+  padding: var(--spacing-md);
+  background: var(--colors-background-bg-secondary);
+  border-radius: var(--radius-2xl);
+}
+.an-stat__num {
+  font-family: var(--display-xs-regular-font-family);
+  font-size: var(--display-xs-regular-font-size);
+  line-height: var(--display-xs-regular-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-primary-900);
+}
+.an-stat__lbl {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+/* Analyse master–detail shares .md shell but has a taller minimum */
+.md--analyse { min-height: 420px; }
+
+/* Recommendations rollup — one row per issue with risk pill + text */
+.an-rec {
+  display: flex; flex-direction: column;
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.an-rec__row {
+  display: grid;
+  grid-template-columns: 96px 200px minmax(0, 1fr);
+  gap: var(--spacing-md);
+  align-items: baseline;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.an-rec__row + .an-rec__row { box-shadow: inset 0 1px 0 var(--colors-border-border-secondary); }
+.an-rec__section {
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-primary-900);
+}
+.an-rec__text {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+
+
+/* ============================================================================
+   ==== landing v2 ============================================================
+   Centered hero — brand mark + Knowledge *Agent* title (Spectral serif) +
+   short lead — a wide composer with Company / Research pills, and a
+   two-column grid of restyled cards (tinted background, brown-square glyph
+   tile, bold title, muted descriptor).
+   ========================================================================= */
+/* Landing v2 — Figma frame 10159:387119 (640×556).
+   Column: hero (128) · 36 gap · composer (116) · 36 gap · cards grid (240). */
+.landing--v2 { justify-content: flex-start; }
+.landing__col--v2 {
+  width: 640px; max-width: 100%;                                                  /* central-panel width per Figma */
+  padding: 200px 0 24px;                                                          /* 200 above the avatar per design */
+  gap: 36px;                                                                      /* hero → composer, composer → cards */
+  align-items: stretch;
+}
+/* Hero (10159:387120) — 40 avatar → 16 gap → 44 title → 8 gap → 20 subtitle. */
+.landing__hero {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.landing__brand {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;                                                      /* Figma: 40, not 48 */
+  border-radius: 12px;                                                            /* radius-4xl */
+  background: transparent;                                                        /* SVG carries the olive fill */
+  margin: 0;
+}
+.landing__brand img,
+.landing__brand svg { display: block; width: 40px; height: 40px; }
+/* Name + Description (10159:387123) — 8 gap between title row and subtitle. */
+.landing__name-desc {
+  display: flex; flex-direction: column; gap: 8px;
+  width: 100%;
+  text-align: center;
+}
+.landing__title {
+  font-family: var(--display-md-regular-font-family);                             /* Spectral 36/44 */
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 400;
+  letter-spacing: -0.72px;                                                        /* Figma: -2 (unitless) → -0.72 px at 36 */
+  color: var(--colors-text-text-primary-900);                                     /* #201f1e */
+  margin: 0;
+  white-space: nowrap;
+}
+.landing__title em { font-style: italic; margin-left: 7px; }                      /* 7 px gap between "Knowledge" and "Agent" */
+.landing__sub {
+  font-family: var(--display-md-regular-font-family);                             /* Text lg/Regular in DS is Spectral 17/20 */
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--colors-text-text-secondary-700);                                   /* #4a4745 */
+  margin: 0;
+}
+.landing__compose { width: 100%; }
+.landing__cards { width: 100%; }
+.qs-grid--v2 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;                                                                      /* both row + column gaps 16 */
+}
+/* Conv-_starters card (10626:287024) — 202.667 × 112, border border-tertiary,
+   radius 20, padding 16, gap 6, icon 20, title Geist Medium 15/24 h-22 ellipsis,
+   desc Geist Regular 12/16. */
+.qs-card--v2 {
+  background: var(--colors-background-bg-primary);                                /* #ffffff */
+  border: 0;                                                                      /* border is drawn as inset shadow so it doesn't add to the 112 outer */
+  border-radius: 20px;
+  padding: 16px;
+  gap: 6px;
+  text-align: left;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);               /* #f0f0f0 */
+  box-sizing: border-box;
+}
+.qs-card--v2:hover {
+  background: var(--colors-background-bg-primary-hover);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.qs-card__glyph {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px;
+  background: transparent;
+  margin: 0;
+}
+.qs-card__glyph svg,
+.qs-card__glyph img { display: block; width: 20px; height: 20px; }
+/* Text stack (Figma Frame 2147266932) — title and desc grouped, gap 0. */
+.qs-card--v2 .qs-card__text {
+  display: flex; flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.qs-card--v2 .qs-card__title {
+  font-family: var(--text-md-medium-font-family);                                 /* Geist */
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--colors-text-text-primary-900);                                     /* #201f1e */
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.qs-card--v2 .qs-card__desc {
+  font-family: var(--text-xs-regular-font-family);                                /* Geist */
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--colors-text-text-quaternary-500);                                  /* #737373 */
+  width: 100%;
+  overflow: visible;
+  white-space: normal;
+}
+
+/* Company / Research pills inside the expanded composer — matches the
+   two-source pill pair the chat composer already renders. */
+.copilot-input__pill {
+  display: inline-flex; align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: transparent;
+  color: var(--colors-utility-brand-utility-brand-500);
+  border: 0;
+  border-radius: var(--radius-2xl);
+  cursor: pointer;
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: 500;
+}
+.copilot-input__pill:hover { background: var(--colors-background-bg-secondary); }
+.copilot-input__pill-icon { display: inline-flex; width: 16px; height: 16px; }
+.copilot-input__pill-icon svg { display: block; width: 16px; height: 16px; }
+.copilot-input--expanded .copilot-input__action-bar {
+  display: flex; align-items: center; gap: var(--spacing-sm);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-lg);   /* right/left breathing room so the send button doesn't touch the edge */
+}
+.copilot-input--expanded .copilot-input__action-bar .copilot-input__wrap { display: inline-flex; align-items: center; gap: var(--spacing-xs); }
+.copilot-input--expanded .copilot-input__actions { gap: var(--spacing-xs); margin-left: auto; }
+.copilot-input--expanded .copilot-input__action--send { margin-left: var(--spacing-xs); }
+
+/* Composer stacked — Copilot desktop Input Box (Figma 10159:504124).
+   640×116, 24 radius, 1px border-secondary, padding 10, column gap 12. */
+.copilot-input--stacked {
+  display: flex; flex-direction: column;
+  gap: 12px;                                                                      /* Spacing/3 */
+  padding: 10px;
+  box-sizing: border-box;
+  background: var(--colors-background-bg-primary);                                /* #ffffff */
+  border: 0;                                                                      /* border is drawn as inset shadow so it doesn't add to the 116 outer */
+  border-radius: 24px;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);              /* #edebe8 */
+  overflow: hidden;                                                               /* overflow-clip */
+  align-items: center;
+}
+.copilot-input--stacked:focus-within {
+  border-color: var(--colors-border-border-secondary);
+}
+/* Message row (10159:504127): px 8, py 0, h 52 (2 lines of 15/26).
+   Overriding the base .copilot-input__field flex: 1 0 0 which otherwise
+   collapses to 0 inside the column-flex composer. */
+.copilot-input__field--stacked {
+  display: flex; align-items: stretch;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 52px;
+  padding: 0 8px;
+  overflow: hidden;
+  gap: 4px;
+}
+.copilot-input__field--stacked textarea {
+  flex: 1 0 0; min-width: 0;
+  height: 52px;
+  box-sizing: border-box;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  resize: none;
+  font-family: var(--text-md-regular-para-font-family);                           /* Geist */
+  font-size: 15px;
+  line-height: 26px;                                                              /* Text md/Regular para */
+  font-weight: 400;
+  color: var(--colors-text-text-primary-900);
+  padding: 0;                                                                     /* Figma text is at y=2 inside a 56 container, but the message row is 52 exact */
+}
+.copilot-input__field--stacked textarea::placeholder {
+  color: var(--colors-text-text-placeholder);                                     /* #b4ada7 */
+}
+/* Action bar (10159:504129): h-32, justify-between, w-full. */
+.copilot-input--stacked .copilot-input__action-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0;
+  width: 100%;
+  height: 32px;
+  padding: 0;
+}
+/* Left "Wrap" (10159:504130): + button then pills, gap 0 between them. */
+.copilot-input--stacked .copilot-input__wrap {
+  display: inline-flex; align-items: center;
+  gap: 0;
+}
+/* Pills group (10159:504135): pills touch each other. */
+.copilot-input--stacked .copilot-input__pills {
+  display: inline-flex; align-items: center;
+  gap: 0;
+}
+/* Right "Actions" (10159:504138): 3 icon buttons, 4 gap. */
+.copilot-input--stacked .copilot-input__actions {
+  display: inline-flex; align-items: center;
+  gap: 4px;                                                                       /* spacing-xs */
+  margin-left: auto;
+}
+/* + button (10159:504132): 32×32, padding 8, rounded-full, icon 16, transparent bg. */
+.copilot-input--stacked .copilot-input__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  padding: 8px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  border-radius: 9999px;
+  color: var(--colors-icon-icon-secondary);                                       /* #6a6662 */
+  cursor: pointer;
+}
+.copilot-input--stacked .copilot-input__btn svg { width: 16px; height: 16px; display: block; }
+/* Pill (Source / Tools): bg white, px 8 py 6, gap 4, rounded-full, icon 16,
+   text Geist 13/20 steel-blue-400. */
+.copilot-input--stacked .copilot-input__pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: var(--colors-background-bg-primary);
+  border: 0;
+  border-radius: 9999px;
+  color: var(--colors-utility-brand-utility-brand-500);
+  cursor: pointer;
+  overflow: hidden;
+  font-family: var(--text-sm-regular-font-family);                                /* Geist */
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.copilot-input--stacked .copilot-input__pill { color: #3870a8; }                  /* Colors/Utility/Steel Blue/utility-steel-blue-400 */
+.copilot-input--stacked .copilot-input__pill-icon { display: inline-flex; width: 16px; height: 16px; color: currentColor; }
+.copilot-input--stacked .copilot-input__pill-icon svg { display: block; width: 16px; height: 16px; }
+/* Action buttons (Model / Mic / Voice): 32×32, padding 8, rounded 8, icon 16. */
+.copilot-input--stacked .copilot-input__action {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  padding: 8px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;                                                             /* Button/md */
+  color: var(--colors-icon-icon-secondary);                                       /* #6a6662 */
+  cursor: pointer;
+  overflow: hidden;
+}
+.copilot-input--stacked .copilot-input__action svg { width: 16px; height: 16px; display: block; }
+
+
+/* ============================================================================
+   ==== inline-tickets · reference-artifact match ============================
+   The Open-tickets inline answer renders:
+     - a small "Knowledge Agent" label with a green dot
+     - a lead sentence
+     - four flat KPI tiles (number + label, no border)
+     - a 4-column table (TICKET / DEAL / STATUS / DUE) with status pills
+     - a row of chip suggestions the user can click to drill in
+   ========================================================================= */
+.turn--inline { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.turn__agent-label {
+  display: inline-flex; align-items: center; gap: var(--spacing-xs);
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: 500;
+  color: var(--colors-text-text-primary-900);
+}
+.turn__agent-dot {
+  display: inline-block; width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--colors-utility-success-utility-success-600);
+}
+
+/* Flat KPI strip — number stacked over label, no border/background. */
+.inl-kpis--flat {
+  display: flex; align-items: flex-end;
+  gap: var(--spacing-3xl);
+  padding: var(--spacing-lg) var(--spacing-2xl);   /* left/right inset so the leftmost number isn't flush against the card edge */
+  background: transparent;
+}
+.inl-kpi--flat {
+  display: flex; flex-direction: column; gap: var(--spacing-xxs);
+  padding: 0; background: transparent; border-radius: 0;
+}
+
+/* Ticket table (TICKET / DEAL / STATUS / DUE) inside an inl-card. */
+.inl-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.inl-tbl thead th {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--colors-background-bg-secondary);
+  border-top: 1px solid var(--colors-border-border-secondary);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+  text-align: left;
+  font-family: var(--text-xs-regular-font-family);
+  font-size: 10px;                 /* DRIFT: DS text-xs is 12; user asked for 10 px all-caps column headers */
+  line-height: 14px;               /* DRIFT: sits with 10 px size at ~1.4 rhythm */
+  font-weight: 600;
+  color: var(--colors-text-text-quaternary-500);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.inl-tbl tbody td {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+  vertical-align: middle;
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+}
+.inl-tbl tbody tr:last-child td { border-bottom: 0; }
+.inl-tbl td.mono {
+  font-family: var(--font-family-code);
+  font-size: var(--text-xs-regular-code-font-size);
+  line-height: var(--text-xs-regular-code-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* Inline status pills — three variants matching the reference. */
+.inl-pill {
+  display: inline-flex; align-items: center;
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  font-weight: 500;
+}
+.inl-pill--warn {
+  background: var(--colors-utility-warning-utility-warning-50);
+  color: var(--colors-utility-warning-utility-warning-700);
+}
+.inl-pill--muted {
+  background: var(--colors-background-bg-secondary);
+  color: var(--colors-text-text-secondary-700);
+}
+.inl-pill--soft {
+  background: var(--colors-background-bg-tertiary);
+  color: var(--colors-text-text-secondary-700);
+}
+
+/* Chip suggestions strip below the inline card. */
+.inl-chips {
+  display: flex; flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+.inl-chip {
+  display: inline-flex; align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--colors-background-bg-secondary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-2xl);
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+  cursor: pointer;
+  appearance: none;
+}
+.inl-chip:hover {
+  background: var(--colors-background-bg-primary-hover);
+  color: var(--colors-text-text-primary-900);
+}
+
+
+/* ---- inline deal-status card (Field / Current Status) ------------------- */
+.inl-tbl--fields thead th {
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.inl-tbl--fields td.inl-tbl__k {
+  color: var(--colors-text-text-secondary-700);
+  width: 200px;
+}
+.inl-tbl--fields td.inl-tbl__v { color: var(--colors-text-text-primary-900); }
+
+.inl-cites {
+  display: flex; flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--colors-background-bg-primary);
+  border-top: 1px solid var(--colors-border-border-secondary);
+}
+.inl-cite {
+  display: inline-flex; align-items: center;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  height: 24px;                                     /* fixed 24 px pill height per user */
+  padding: 0 var(--spacing-md);
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-2xl);
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.inl-cite svg { width: 12px; height: 12px; color: var(--colors-text-text-quaternary-500); }
+
+
+/* ============================================================================
+   ==== clause card — Limitation of Liability (LOL-01) layout ================
+   Two-column ladder rows (tier chip on the left, position + approval on the
+   right), matched to the reference artifact. Four tier colours: template
+   (dark), muted (grey), warn (orange), red-line (red).
+   ========================================================================= */
+.cl-card {
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.cl-card__head {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--colors-background-bg-secondary);
+  border-bottom: 1px solid var(--colors-border-border-secondary);
+}
+.cl-card__title {
+  font-family: var(--text-md-medium-font-family);      /* was text-md-bold — one step lighter per user */
+  font-size: var(--text-md-medium-font-size);
+  line-height: var(--text-md-medium-line-height);
+  font-weight: var(--text-md-medium-font-weight);
+  color: var(--colors-text-text-primary-900);
+}
+.cl-card__eyebrow {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.cl-card__body { display: flex; flex-direction: column; }
+
+.cl-row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--colors-border-border-secondary);
+}
+.cl-row:first-child { border-top: 0; }
+.cl-row__tier {
+  font-family: var(--text-xs-medium-font-family);      /* was text-xs-bold-all-caps — one step lighter per user */
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+  font-weight: var(--text-xs-medium-font-weight);
+  letter-spacing: 0.08em;                              /* DRIFT: DS has no all-caps letter-spacing on text-xs-medium; keep the tracked-caps look */
+  text-transform: uppercase;
+}
+.cl-tier--template { color: var(--colors-text-text-primary-900); }
+.cl-tier--muted    { color: var(--colors-text-text-quaternary-500); }
+.cl-tier--warn     { color: var(--colors-utility-warning-utility-warning-700); }
+.cl-tier--red      { color: var(--colors-utility-error-utility-error-700); }
+.cl-row__body { display: flex; flex-direction: column; gap: var(--spacing-sm); min-width: 0; }
+.cl-row__text {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.cl-row__approval {
+  font-family: var(--text-sm-regular-font-family);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* Flat citation strip — sits below the card, no background container. */
+.inl-cites--flat {
+  background: transparent;
+  border-top: 0;
+  padding: 0;
+  margin-top: var(--spacing-md);
+}
+
+
+/* ============================================================================
+   ==== "Thinking…" placeholder ==============================================
+   Matched to Enterprise Brain Base 2026 node 5691:485523 — a 24×24 olive-
+   brown agent tile with the ai-avatar dots in white, and a text-lg label
+   next to it. Replaces the small hanging avatar chip while the response is
+   still forming; swapped in place with the real inline card once ready.
+   ========================================================================= */
+.turn--thinking {
+  display: flex; align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+}
+.thinking-avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  border-radius: var(--radius-md);
+  background: var(--colors-utility-brand-tertiary-utility-brand-tertiary-700);
+  color: var(--colors-text-text-white);
+  flex: none;
+}
+.thinking-avatar svg { display: block; width: 14px; height: 14px; }
+.thinking-label {
+  font-family: var(--text-md-regular-font-family);
+  font-size: var(--text-md-regular-font-size);
+  line-height: var(--text-md-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+/* Hide the default hanging avatar chip on the thinking turn — the tile
+   inside the row is the avatar for this state. */
+.turn--thinking .turn__avatar { display: none; }
+
+
+/* ============================================================================
+   ==== open-a-ticket flow ===================================================
+   Step 1: two option cards asking the user what kind of ticket. Step 2: a
+   field/value confirmation card (id, title, type, template, counterparty,
+   status). Both matched to the reference artifact.
+   ========================================================================= */
+.tkt-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+.tkt-choice {
+  display: flex; flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-lg);
+  text-align: left;
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-2xl);
+  cursor: pointer;
+  appearance: none;
+  transition: background 160ms ease-out, border-color 160ms ease-out;
+}
+.tkt-choice:hover {
+  background: var(--colors-background-bg-primary-hover);
+  border-color: var(--colors-border-border-primary);
+}
+.tkt-choice__title {
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: 600;
+  color: var(--colors-text-text-primary-900);
+}
+.tkt-choice__desc {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+/* Field / value table without the "FIELD / CURRENT STATUS" header row —
+   the confirmation card in step 2 just reads its rows top-down. */
+.inl-tbl--no-head { border-top: 1px solid var(--colors-border-border-secondary); }
+.inl-tbl--no-head tbody tr:first-child td { border-top: 0; }
+
+/* Success (green) pill for the "Status · Open" row. */
+.inl-pill--success {
+  display: inline-flex; align-items: center;
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  background: var(--colors-utility-success-utility-success-50);
+  color: var(--colors-utility-success-utility-success-700);
+  border-radius: var(--radius-md);
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  font-weight: 500;
+}
+
+
+/* ============================================================================
+   ==== inline widget max-width — 600px ======================================
+   Every agent widget the Knowledge Agent renders inline (Open Tickets, Deal
+   Status, Clause Position, Team Performance, New Ticket, Ticket Created and
+   the generic KB response) caps at 600 so the widgets read as inline cards
+   inside the 760 message column rather than spanning its full width.
+   ========================================================================= */
+.turn--inline .inl-card,
+.turn--inline .cl-card,
+.turn--inline > .richtext,
+.turn--inline > .inl-cites,
+.turn--inline .inl-cites--flat {
+  max-width: 600px;
+}
+
+
+/* ---- team performance widget: warn coloring for Overdue KPI + column ---- */
+.inl-kpi--warn .inl-kpi__num,
+.inl-num--warn {
+  color: var(--colors-utility-warning-utility-warning-600);
+  font-weight: 600;
+}
+
+
+/* CoT "Thoughts" row: no local override — the shared cot atom's default
+   avatar (round brand-400 chip) is what we want, matching the reverted
+   `.turn__avatar` in this prototype so every agent icon reads the same. */
+/* Search + collapse icons in the nav header — a bit brighter across the
+   three prototypes than the atom's alpha-white-40 default. */
+.main-nav__x-head-btn { color: rgba(255, 255, 255, 0.7); }
+.main-nav__x-head-btn:hover { color: rgba(255, 255, 255, 0.9); }

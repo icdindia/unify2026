@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en" data-mode="light" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise Brain Copilot — DT</title>
+<script>
+  /* ODS mode: follow the OS preference unless ?mode=light|dark is given */
+  (function () {
+    var q = new URLSearchParams(location.search).get('mode');
+    var m = q === 'dark' || q === 'light' ? q : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-mode', m);
+    document.documentElement.setAttribute('data-theme', m);
+  })();
+</script>
+<link rel="stylesheet" href="../../dt-design-system/foundations/dt-foundations.css">
+<link rel="stylesheet" href="../../dt-design-system/project/components/bundle.css">
+<style>
+  /* Page layout only. Every value is a DT token (var(--…)); components are ODS classes from bundle.css. */
+  html, body { height: 100%; margin: 0; }
+  button, input, textarea { font-family: inherit; }
+  body { font-family: var(--font-family); background: var(--colours-basic-background); color: var(--colours-basic-text); }
+  [hidden] { display: none !important; }
+  .app { display: flex; height: 100vh; height: 100dvh; }
+
+  /* ---------- Side navigation: ODS SideNavigation on the magenta scheme ---------- */
+  .dt-rail { flex: none; border-width: 0; height: 100%; }
+  .dt-rail ul { margin: 0; padding: 0; list-style: none; }
+  .dt-logo { display: flex; align-items: center; justify-content: center; width: var(--sizing-component-13); height: var(--sizing-component-13); flex: none; }
+  .dt-logo img { display: block; width: 100%; height: 100%; }
+
+  /* Collapsed: 56 wide (spacing-layout-6), every element on the rail's centre line */
+  #nav-collapsed { --ODSSideNavigation-width: var(--spacing-layout-6); width: var(--spacing-layout-6); align-items: center; }
+  #nav-collapsed .ODSSideNavigation-TopBar { flex-direction: column; gap: var(--spacing-component-2); padding: var(--spacing-component-3) 0; align-items: center; width: 100%; }
+  #nav-collapsed .ODSSideNavigation-ScrollContainer { padding: var(--spacing-component-4) 0; align-items: center; flex: 1; min-height: 0; overflow-y: auto; }
+  .dt-rail { overflow: hidden; }
+  #nav-collapsed .ODSSideNavigation-BottomBarContainer { padding: var(--spacing-component-5) 0; justify-content: center; }
+  #nav-collapsed .ODSSideNavigationContentListContainer, #nav-collapsed .ODSSideNavigationContentListContainer-ListContainer { width: 100%; align-items: center; gap: var(--spacing-component-2); }
+  #nav-collapsed .ODSSideNavigationItem { width: 100%; align-items: center; }
+  #nav-collapsed .ODSSideNavigationItem-IconLabelContainer { padding: 0; justify-content: center; align-items: center; width: var(--sizing-component-13); min-width: var(--sizing-component-13); min-height: var(--sizing-component-13); height: var(--sizing-component-13); border-radius: var(--radius-full); }
+  #nav-collapsed .ODSSideNavigationItem-IconLabel, #nav-collapsed .ODSSideNavigationItem-IconContainer { padding: 0; justify-content: center; align-items: center; }
+
+  /* Expanded: 280 wide (17.5rem) */
+  #nav-expanded { width: 17.5rem; }
+  #nav-expanded .ODSSideNavigation-TopBar { align-items: center; gap: var(--spacing-component-3); min-height: var(--sizing-component-15); padding: var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-4); }
+  #nav-expanded .dt-product { flex: 1; min-width: 0; font: var(--body-l); color: var(--colours-basic-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #nav-expanded .ODSSideNavigation-ScrollContainer { overflow-y: auto; flex: 1; min-height: 0; }
+  #nav-expanded .ODSSideNavigationItem-IconLabelContainer { border-radius: var(--radius-full); }
+  #nav-expanded .ODSSideNavigationSubitem { border-radius: var(--radius-full); width: 100%; }
+  #nav-expanded .ODSSideNavigationSubitem-IconLabelContainer { min-width: 0; }
+  /* ODS gives subitems text-recessive; on the magenta scheme that is 3.3:1 (fails AA for body-m text), so use the scheme's text colour (4.7:1) */
+  #nav-expanded .ODSSideNavigationSubitem:not(.dt-nav-selected) .ODSSideNavigationSubitem-Label { color: var(--colours-basic-text); }
+  #nav-expanded .ODSSideNavigationSubitem-Label { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #nav-expanded .ODSSideNavigationItem-ExpandAndCollapseIcon .ODSIcon { transition: transform 0.1s ease-in-out; }
+  #nav-expanded [aria-expanded="false"] .ODSSideNavigationItem-ExpandAndCollapseIcon .ODSIcon { transform: rotate(180deg); }
+  #nav-expanded .dt-group + .dt-group, #nav-expanded .dt-group:first-of-type { border-top: var(--strokes-1) solid var(--colours-basic-stroke-subtle); margin-top: var(--spacing-component-3); padding-top: var(--spacing-component-3); }
+  #nav-expanded .ODSSideNavigation-BottomBarContainer { justify-content: flex-start; gap: var(--spacing-component-4); align-items: center; }
+  #nav-expanded .dt-user { flex: 1; font: var(--body-m-bold); color: var(--colours-basic-text); }
+
+  /* Selected = ODS selected-button state (Segments, type primary): accent fill + on-accent content.
+     Inside data-scheme="magenta" these resolve to white fill / black content. The rail ids outrank ODS's stacked :not() colour rules. */
+  .dt-nav-selected > .ODSSideNavigationItem-IconLabelContainer, .ODSSideNavigationSubitem.dt-nav-selected { background: var(--colours-basic-accent); }
+  #nav-collapsed .dt-nav-selected .ODSSideNavigationItem-Icon, #nav-expanded .dt-nav-selected .ODSSideNavigationItem-Icon,
+  #nav-expanded .dt-nav-selected .ODSSideNavigationItem-Label, #nav-expanded .ODSSideNavigationSubitem.dt-nav-selected .ODSSideNavigationSubitem-Label { color: var(--colours-basic-text-on-accent); }
+  .dt-nav-selected > .ODSSideNavigationItem-IconLabelContainer:hover, .ODSSideNavigationSubitem.dt-nav-selected:hover { background: var(--colours-interaction-states-hover-accent-hover); }
+
+  /* ---------- Views ---------- */
+  .view { flex: 1; min-width: 0; position: relative; display: flex; flex-direction: column; }
+  .mode-toggle { position: absolute; top: var(--spacing-component-3); right: var(--spacing-component-3); }
+
+  /* Landing */
+  .landing { align-items: center; overflow-y: auto; overflow-x: hidden; padding: 0 var(--spacing-layout-3); }
+  .hero { width: 100%; max-width: 40rem; margin-top: clamp(var(--spacing-layout-5), 20vh, 12.5rem); display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero-mark { width: var(--sizing-component-16); height: var(--sizing-component-16); border-radius: var(--radius-full); background: var(--colours-basic-accent); color: var(--colours-basic-text-on-accent); display: flex; align-items: center; justify-content: center; }
+  .hero-mark .ODSIcon { width: var(--sizing-component-13); height: var(--sizing-component-13); }
+  .hero h1 { font: var(--title-m); letter-spacing: var(--title-m-letter-spacing); margin: var(--spacing-component-5) 0 0; }
+  .hero h1 em { font-style: normal; color: var(--colours-basic-text-dominant); }
+  .hero p { font: var(--paragraph); color: var(--colours-basic-text-recessive); margin: var(--spacing-component-3) 0 0; }
+
+  /* Composer: ODS text-field styling, ODS chips and IconButtonXSmall */
+  .composer { text-align: left; width: 100%; max-width: 40rem; border: var(--strokes-1) solid var(--colours-basic-stroke); border-radius: var(--radius-medium); background: var(--colours-basic-background); padding: var(--spacing-component-5) var(--spacing-component-5) var(--spacing-component-3) var(--spacing-component-7); display: flex; flex-direction: column; gap: var(--spacing-component-3); box-sizing: border-box; }
+  .landing .composer { margin-top: var(--spacing-layout-3); }
+  .composer:focus-within { outline: var(--strokes-2) solid var(--colours-interaction-states-focus-focus); outline-offset: var(--spacing-component-2); }
+  .composer-input { font: var(--body-m-regular); color: var(--colours-basic-text); min-height: calc(var(--body-m-regular-line-height, 1.25) * 2em); outline: none; }
+  .composer-input:empty::before { content: attr(data-placeholder); color: var(--colours-basic-text-recessive); }
+  .skill { font: var(--body-m-bold); color: var(--colours-basic-text-link); }
+  .composer-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-component-3); min-width: 0; }
+  .composer-bar .spacer { flex: 1; }
+  /* Compact Toggle Chip to match the IconButtonXSmall row (sizing-component-10). ODS ships one chip size (sizing-component-13);
+     only its own size variables are changed here: stroke, radius, colours and states stay ODS. */
+  .composer-bar .ODSToggleChip {
+    --ODSToggleChip-minHeight: var(--sizing-component-10);
+    --ODSToggleChip-minWidth: 0;
+    --ODSToggleChip-ToggleChip-minHeight: var(--sizing-component-10);
+    --ODSToggleChip-ToggleChip-minWidth: 0;
+    --ODSToggleChip-ToggleChip-padding: 0 var(--spacing-component-3);
+    --ODSToggleChip-ToggleChip-gap: var(--spacing-component-2);
+    --ODSToggleChip-Label-font: var(--body-s-bold);
+    --ODSToggleChip-Label-letterSpacing: var(--body-s-bold-letter-spacing);
+  }
+  /* Docked single-line composer in the chat view */
+  .composer--dock { flex-direction: row; align-items: center; padding: var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-3) var(--spacing-component-5); }
+  .composer--dock .composer-input { flex: 1; min-width: 0; min-height: 0; white-space: nowrap; overflow: hidden; }
+
+  /* Feature carousel: ODS card surface + ODS CarouselNavigation */
+  .carousel { width: 100%; max-width: 33.5rem; margin: auto 0 var(--spacing-component-5); padding-top: var(--spacing-layout-3); display: flex; flex-direction: column; align-items: center; gap: var(--spacing-component-3); }
+  .slides { width: 100%; }
+  .slide { display: flex; align-items: center; gap: var(--spacing-component-5); padding: var(--spacing-component-5) var(--spacing-component-5) var(--spacing-component-5) var(--spacing-component-7); border-radius: var(--radius-large); background: var(--colours-basic-background-card); }
+  .slide-text { flex: 1; min-width: 0; }
+  .slide h2 { font: var(--body-m-bold); margin: 0; }
+  .slide p { font: var(--body-s-regular); color: var(--colours-basic-text-recessive); margin: var(--spacing-component-2) 0 0; max-width: 20rem; }
+  .tiles { display: flex; gap: var(--spacing-component-3); flex: none; }
+  .tile { width: var(--sizing-component-14); height: var(--sizing-component-14); border-radius: var(--radius-small); background: var(--colours-basic-background); border: var(--strokes-1) solid var(--colours-basic-stroke-subtle); display: flex; align-items: center; justify-content: center; color: var(--colours-basic-text); box-sizing: border-box; }
+  .tile img { width: var(--sizing-component-10); height: var(--sizing-component-10); }
+
+  /* Chat */
+  .chat-header { flex: none; display: flex; align-items: center; gap: var(--spacing-component-3); min-height: var(--sizing-component-14); padding: 0 var(--spacing-component-3) 0 var(--spacing-component-7); }
+  .chat-title { flex: 1; min-width: 0; font: var(--body-m-bold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; }
+  .chat-cost { font: var(--body-s-regular); color: var(--colours-basic-text-recessive); }
+  .chat-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: var(--spacing-layout-2) var(--spacing-layout-3); }
+  .thread { max-width: 47.5rem; margin: 0 auto; display: flex; flex-direction: column; gap: var(--spacing-layout-2); }
+  .msg-out { align-self: flex-end; max-width: 80%; }
+  .answer { display: grid; grid-template-columns: var(--sizing-component-10) minmax(0, 1fr); column-gap: var(--spacing-component-4); }
+  .answer-mark { width: var(--sizing-component-10); height: var(--sizing-component-10); border-radius: var(--radius-full); background: var(--colours-basic-accent); color: var(--colours-basic-text-on-accent); display: flex; align-items: center; justify-content: center; }
+  .answer-mark .ODSIcon { width: var(--sizing-component-7); height: var(--sizing-component-7); }
+  .cot { font: var(--body-s-regular); color: var(--colours-basic-text-recessive); display: flex; align-items: center; gap: var(--spacing-component-2); min-height: var(--sizing-component-10); }
+  .cot .ODSIcon { width: var(--sizing-component-7); height: var(--sizing-component-7); }
+  .answer-body { grid-column: 2; font: var(--body-m-regular); line-height: 1.625; }
+  .answer-body p { margin: var(--spacing-component-3) 0; }
+  .answer-body ul { margin: var(--spacing-component-3) 0; padding-left: var(--spacing-component-7); }
+  .answer-body li { margin: var(--spacing-component-3) 0; }
+  .answer-body strong { font-weight: 700; }
+  .answer-body .ODSTagStatic { display: inline-flex; vertical-align: middle; margin-left: var(--spacing-component-2); }
+  .answer-meta { grid-column: 2; display: flex; align-items: center; gap: var(--spacing-component-3); margin-top: var(--spacing-component-3); }
+  .answer-meta .spacer { flex: 1; }
+  .answer-meta .chat-cost { margin-right: var(--spacing-component-2); }
+  .sources { display: inline-flex; align-items: center; gap: var(--spacing-component-3); font: var(--body-s-regular); color: var(--colours-basic-text-recessive); }
+  .sources-stack { display: inline-flex; }
+  .sources-stack span { width: var(--sizing-component-8); height: var(--sizing-component-8); border-radius: var(--radius-full); background: var(--colours-basic-background); border: var(--strokes-1) solid var(--colours-basic-stroke-subtle); display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; }
+  .sources-stack span + span { margin-left: calc(-1 * var(--spacing-component-3)); }
+  .sources-stack img { width: var(--sizing-component-6); height: var(--sizing-component-6); }
+  .reveal { animation: dt-reveal 0.2s ease-out both; }
+  @keyframes dt-reveal { from { opacity: 0; } to { opacity: 1; } }
+  .chat-dock { flex: none; padding: var(--spacing-component-3) var(--spacing-layout-3) var(--spacing-component-5); display: flex; justify-content: center; }
+  .chat-dock .composer { max-width: 47.5rem; }
+
+  @media (max-width: 40rem) {
+    .slide { flex-direction: column; align-items: flex-start; }
+    .composer { padding-left: var(--spacing-component-5); }
+    #nav-expanded { position: absolute; z-index: var(--z-index-overlay); }
+  }
+  @media (prefers-reduced-motion: reduce) { *, .reveal { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Collapsed rail -->
+  <nav id="nav-collapsed" class="ODSColumn ODSSideNavigation dt-rail" data-scheme="magenta" aria-label="Main">
+    <div class="ODSRow ODSSideNavigation-TopBar">
+      <div class="dt-logo"><img src="../../dt-design-system/project/assets/Logos/t-mark-white.svg" alt="Telekom"></div>
+      %%BTN:ghost:menu:Expand navigation:expand%%
+    </div>
+    <div class="ODSColumn ODSSideNavigation-TopDividerContainer"></div>
+    <div class="ODSColumn ODSSideNavigation-ScrollContainer">
+      <div class="ODSColumn ODSSideNavigationContentListContainer">
+        <ul class="ODSColumn ODSSideNavigationContentListContainer-ListContainer">
+%%NAVC%%
+        </ul>
+      </div>
+    </div>
+    <div class="ODSColumn ODSSideNavigation-BottomDividerContainer"></div>
+    <div class="ODSRow ODSSideNavigation-BottomBarContainer">
+      <div class="ODSBox ODSAvatar ODSAvatar--size-medium ODSAvatar--variant-initials" role="img" aria-label="Anurag Kashyap">
+        <div class="ODSBox ODSAvatar-Background"></div><span class="ODSAvatar-Initials ODSAvatar-Initials--size-medium">A</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Expanded nav -->
+  <nav id="nav-expanded" class="ODSColumn ODSSideNavigation ODSSideNavigation--expanded dt-rail" data-scheme="magenta" aria-label="Main" hidden>
+    <div class="ODSRow ODSSideNavigation-TopBar ODSSideNavigation-TopBar--expanded">
+      <div class="dt-logo"><img src="../../dt-design-system/project/assets/Logos/t-mark-white.svg" alt="Telekom"></div>
+      <span class="dt-product">Enterprise Brain</span>
+      %%XBTN:ghost:search:Search:%%
+      %%XBTN:ghost:menu:Collapse navigation:collapse%%
+    </div>
+    <div class="ODSColumn ODSSideNavigation-TopDividerContainer"></div>
+    <div class="ODSColumn ODSSideNavigation-ScrollContainer ODSSideNavigation-ScrollContainer--expanded">
+      <div class="ODSColumn ODSSideNavigationContentListContainer ODSSideNavigationContentListContainer--navExpanded">
+        <ul class="ODSColumn ODSSideNavigationContentListContainer-ListContainer">
+%%NAVX%%
+        </ul>
+      </div>
+    </div>
+    <div class="ODSColumn ODSSideNavigation-BottomDividerContainer"></div>
+    <div class="ODSRow ODSSideNavigation-BottomBarContainer">
+      <div class="ODSBox ODSAvatar ODSAvatar--size-medium ODSAvatar--variant-initials" aria-hidden="true">
+        <div class="ODSBox ODSAvatar-Background"></div><span class="ODSAvatar-Initials ODSAvatar-Initials--size-medium">A</span>
+      </div>
+      <span class="dt-user">Anurag Kashyap</span>
+      %%XBTN:ghost:collapse_up:Account menu:%%
+    </div>
+  </nav>
+
+  <!-- Landing -->
+  <main class="view landing" id="view-landing">
+    <div class="mode-toggle">%%BTN:ghost:light_dark_mode:Switch light or dark mode:mode%%</div>
+    <section class="hero" aria-labelledby="greeting">
+      <div class="hero-mark" aria-hidden="true">%%icon:magenta_ai:24:%%</div>
+      <h1 id="greeting">Hello <em>Roger</em></h1>
+      <p>How can I help you today?</p>
+      <form class="composer" data-composer="landing" onsubmit="return false">
+        <div class="composer-input" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Message" data-placeholder="Ask anything…"><span class="skill">/Tech design requirements</span> This space will display AI-generated insights based on inputs sufficient data is available, the system will analyze patterns and generate</div>
+        <div class="composer-bar">
+          %%XBTN:ghost:add:Add files or context:%%
+          %%CHIP:company:Company%%
+          %%CHIP:search:Research%%
+          <span class="spacer"></span>
+          %%XBTN:ghost:magenta_ai:Choose model:%%
+          %%XBTN:ghost:microphone:Dictate:%%
+          %%XBTN:primary:arrow_up:Send:send%%
+        </div>
+      </form>
+    </section>
+
+    <section class="carousel" aria-roledescription="carousel" aria-label="Get more out of Enterprise Brain">
+      <div class="slides">
+        <article class="slide" aria-roledescription="slide" aria-label="1 of 3">
+          <div class="slide-text"><h2>Connect apps</h2><p>Connect apps you already use — Atlas works in context, not in isolation.</p></div>
+          <div class="tiles" aria-hidden="true">
+            <span class="tile"><img src="assets/hubspot.svg" alt=""></span>
+            <span class="tile"><img src="assets/slack.svg" alt=""></span>
+            <span class="tile"><img src="assets/salesforce.svg" alt=""></span>
+          </div>
+        </article>
+        <article class="slide" aria-roledescription="slide" aria-label="2 of 3" hidden>
+          <div class="slide-text"><h2>Enable memory</h2><p>Atlas remembers your preferences and past context — every conversation gets sharper.</p></div>
+          <div class="tiles" aria-hidden="true"><span class="tile">%%icon:history:24:%%</span></div>
+        </article>
+        <article class="slide" aria-roledescription="slide" aria-label="3 of 3" hidden>
+          <div class="slide-text"><h2>Custom Instructions</h2><p>Tell Atlas how to talk and respond — so every answer fits the way you work.</p></div>
+          <div class="tiles" aria-hidden="true"><span class="tile">%%icon:edit:24:%%</span></div>
+        </article>
+      </div>
+      <div class="ODSRow ODSCarouselNavigation">
+        %%BTN:ghost:navigation_left:Previous item:prev%%
+        <div class="ODSRow ODSCarouselNavigation-DotContainer">
+          <div class="ODSCarouselDot ODSCarouselDot--selected"></div><div class="ODSCarouselDot"></div><div class="ODSCarouselDot"></div>
+        </div>
+        %%BTN:ghost:navigation_right:Next item:next%%
+      </div>
+    </section>
+  </main>
+
+  <!-- Chat -->
+  <main class="view chat" id="view-chat" hidden>
+    <header class="chat-header">
+      <h1 class="chat-title" id="chat-title">How does commit actually look?</h1>
+      <span class="chat-cost">$1.23</span>
+      %%SBTN:ghost:share:Share%%
+      %%XBTN:ghost:file:Open document:%%
+      %%XBTN:ghost:light_dark_mode:Switch light or dark mode:mode%%
+    </header>
+    <div class="chat-scroll" id="chat-scroll">
+      <div class="thread" id="thread"></div>
+    </div>
+    <div class="chat-dock">
+      <form class="composer composer--dock" data-composer="dock" onsubmit="return false">
+        %%XBTN:ghost:add:Add files or context:%%
+        %%XBTN:ghost:company:Company sources:%%
+        %%XBTN:ghost:search:Research:%%
+        <div class="composer-input" contenteditable="true" role="textbox" aria-label="Message" data-placeholder="Ask anything…"></div>
+        %%XBTN:ghost:magenta_ai:Choose model:%%
+        %%XBTN:ghost:microphone:Dictate:%%
+        %%XBTN:primary:arrow_up:Send:send%%
+      </form>
+    </div>
+  </main>
+</div>
+
+<!-- Chat message templates (ODS ChatText, TypingAnimation, TagStatic) -->
+<template id="tpl-out">
+  <div class="ODSRow ODSChatText ODSChatText--variant-outgoing msg-out reveal" role="group" aria-label="You">
+    <div class="ODSRow ODSChatText-BubbleContainer ODSChatText-BubbleContainer--type-text ODSChatText-BubbleContainer--variant-outgoing ODSChatText-BubbleContainer--firstMessage">
+      <div class="ODSBox ODSChatText-BubbleBackground ODSChatText-BubbleBackground--type-text ODSChatText-BubbleBackground--variant-outgoing ODSChatText-BubbleBackground--firstMessage"></div>
+      <span class="ODSChatText-Text ODSChatText-Text--type-text ODSChatText-Text--variant-outgoing" data-slot="text"></span>
+    </div>
+  </div>
+</template>
+<template id="tpl-answer">
+  <article class="answer reveal" aria-label="Answer">
+    <div class="answer-mark" aria-hidden="true">%%icon:magenta_ai:24:%%</div>
+    <div class="cot" data-slot="cot"><span data-slot="cot-text">Searching internal knowledge…</span></div>
+    <div class="answer-body" data-slot="body">
+      <div class="ODSRow ODSTypingAnimation" aria-label="Assistant is typing"><div class="ODSBox ODSTypingAnimation-Dot"></div><div class="ODSBox ODSTypingAnimation-Dot"></div><div class="ODSBox ODSTypingAnimation-Dot"></div></div>
+    </div>
+  </article>
+</template>
+<template id="tpl-commit">
+  <p>Commit is $8.4M against a $9.2M quota with a third of the quarter left — $0.8M short, and the shortfall is more specific than the number suggests%%TAG:Reforecast +2%%</p>
+  <ul>
+    <li><strong>$5.6M is already closed won.</strong> That part is not in question.</li>
+    <li><strong>$2.8M is open and in commit,</strong> carried by four deals with security reviews or order forms in flight.</li>
+    <li><strong>$1.49M sits in six deals that are not forecast in commit at all,</strong> and four of those six have no next step logged.%%TAG:Pipeline%%</li>
+  </ul>
+  <p>That last line is the whole gap. It is not that the quarter is short of pipeline — coverage is 2.7x — it is that six deals stopped moving and nobody marked them. Two sit on accounts scoring below 60 health, one has been idle 34 days, and Atlas Data Cloud is present on three of them.</p>
+  <p>My read: commit is optimistic rather than short. Before anyone forecasts against it, those six need a next step or a close-lost.</p>
+</template>
+<template id="tpl-meta">
+  <div class="answer-meta reveal">
+    <span class="chat-cost">$0.19</span>
+    %%XBTN:ghost:copy_paste:Copy answer:%%
+    %%XBTN:ghost:refresh:Regenerate:%%
+    <span class="sources"><span class="sources-stack" aria-hidden="true"><span><img src="assets/hubspot.svg" alt=""></span><span><img src="assets/salesforce.svg" alt=""></span><span><img src="assets/slack.svg" alt=""></span></span>8 Sources</span>
+    <span class="spacer"></span>
+    %%XBTN:ghost:thumbs_up:Good answer:%%
+    %%XBTN:ghost:thumbs_down:Bad answer:%%
+    %%XBTN:ghost:more:More actions:%%
+  </div>
+</template>
+
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var wait = function (ms) { return new Promise(function (r) { setTimeout(r, reduced ? 0 : ms); }); };
+  var SCRIPTED_Q = 'We are two-thirds through the quarter. How does commit actually look?';
+  var landingDefault = $('[data-composer=landing] .composer-input').innerHTML;
+  var busy = false;
+
+  /* ---- Nav: collapse / expand (two ODS states) ---- */
+  function setNav(expanded) {
+    $('#nav-collapsed').hidden = expanded;
+    $('#nav-expanded').hidden = !expanded;
+    (expanded ? $('#nav-expanded [data-role=collapse]') : $('#nav-collapsed [data-role=expand]')).focus();
+  }
+  $('#nav-collapsed [data-role=expand]').addEventListener('click', function () { setNav(true); });
+  $('#nav-expanded [data-role=collapse]').addEventListener('click', function () { setNav(false); });
+
+  /* ---- Nav: ODS parent items open / close their subitem list ---- */
+  $$('#nav-expanded [aria-controls]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var open = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(open));
+      var list = document.getElementById(b.getAttribute('aria-controls'));
+      list.hidden = !open; list.setAttribute('aria-hidden', String(!open));
+    });
+  });
+
+  /* ---- Selection state across both navs ---- */
+  function select(key) {
+    $$('.dt-rail [data-nav]').forEach(function (el) {
+      var on = el.getAttribute('data-nav') === key;
+      var host = el.classList.contains('ODSSideNavigationSubitem') ? el : el.parentElement;
+      host.classList.toggle('dt-nav-selected', on);
+      if (on) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current');
+    });
+  }
+
+  /* ---- Views ---- */
+  function show(view) {
+    $('#view-landing').hidden = view !== 'landing';
+    $('#view-chat').hidden = view !== 'chat';
+  }
+  function newSession() {
+    busy = false;
+    $('#thread').innerHTML = '';
+    $('[data-composer=landing] .composer-input').innerHTML = landingDefault;
+    select('new'); show('landing');
+  }
+  function node(tpl) { return document.importNode($(tpl).content, true).firstElementChild; }
+  function scrollEnd() { var s = $('#chat-scroll'); s.scrollTop = s.scrollHeight; }
+
+  function ensureHistory(title) {
+    if ($('[data-nav="chat-current"]')) { $('[data-nav="chat-current"] .ODSSideNavigationSubitem-Label').textContent = title; return; }
+    var list = $('#grp-history .ODSSideNavigationList-ListContainer');
+    var li = document.createElement('li'); li.className = 'ODSColumn ODSSideNavigationSubitem-container';
+    li.innerHTML = '<button class="ODSRow ODSSideNavigationSubitem" type="button" data-nav="chat-current" data-go="chat-current"><div class="ODSRow ODSSideNavigationSubitem-IconLabelContainer"><span class="ODSSideNavigationSubitem-Label"></span><div class="ODSRow ODSSideNavigationSubitem-IconsContainer"><div class="ODSRow ODSSideNavigationSubitem-LockIconContainer"></div></div></div></button>';
+    li.querySelector('.ODSSideNavigationSubitem-Label').textContent = title;
+    list.insertBefore(li, list.firstChild);
+  }
+
+  async function ask(question, opts) {
+    opts = opts || {};
+    busy = true;
+    var scripted = question === SCRIPTED_Q;
+    var title = scripted ? 'How does commit actually look?' : (question.length > 60 ? question.slice(0, 57) + '…' : question);
+    if (!opts.append) { $('#thread').innerHTML = ''; $('#chat-title').textContent = title; ensureHistory(title); select('chat-current'); }
+    show('chat');
+    var out = node('#tpl-out'); out.querySelector('[data-slot=text]').textContent = question; $('#thread').appendChild(out);
+    var ans = node('#tpl-answer'); $('#thread').appendChild(ans); scrollEnd();
+    if (!opts.instant) { await wait(700); ans.querySelector('[data-slot=cot-text]').textContent = 'Searched internal knowledge · Reasoning over the results…'; await wait(900); }
+    ans.querySelector('[data-slot=cot-text]').textContent = 'Searched internal knowledge · Reasoned over the results';
+    var body = ans.querySelector('[data-slot=body]');
+    if (scripted) { body.innerHTML = ''; body.appendChild(document.importNode($('#tpl-commit').content, true)); }
+    else { body.innerHTML = '<p>This prototype scripts one answer. Ask “' + SCRIPTED_Q + '” or open a history item to see it.</p>'; }
+    body.classList.add('reveal');
+    ans.appendChild(node('#tpl-meta'));
+    scrollEnd(); busy = false;
+  }
+
+  function composerText(form) {
+    var el = form.querySelector('.composer-input');
+    var t = el.textContent.replace(/\s+/g, ' ').trim();
+    if (form.getAttribute('data-composer') === 'landing' && el.innerHTML === landingDefault) t = SCRIPTED_Q;
+    return t;
+  }
+  function submit(form) {
+    if (busy) return;
+    var q = composerText(form); if (!q) return;
+    var inChat = form.getAttribute('data-composer') === 'dock';
+    form.querySelector('.composer-input').innerHTML = '';
+    ask(q, { append: inChat });
+  }
+  $$('form.composer').forEach(function (f) {
+    f.querySelector('[data-role=send]').addEventListener('click', function () { submit(f); });
+    f.querySelector('.composer-input').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(f); } });
+  });
+
+  /* ---- Nav targets ---- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-go]'); if (!t) return;
+    var go = t.getAttribute('data-go');
+    if (go === 'new') newSession();
+    else if (go === 'chat' || go === 'chat-current') { if (!busy) { ask(SCRIPTED_Q, { instant: true }); select(t.getAttribute('data-nav')); } }
+    else select(t.getAttribute('data-nav'));
+  });
+
+  /* ---- Carousel (ODS CarouselNavigation) ---- */
+  var slides = $$('.slide'), dots = $$('.ODSCarouselDot'), cur = 0;
+  function slide(i) { cur = (i + slides.length) % slides.length; slides.forEach(function (s, k) { s.hidden = k !== cur; }); dots.forEach(function (d, k) { d.classList.toggle('ODSCarouselDot--selected', k === cur); }); }
+  $('[data-role=prev]').addEventListener('click', function () { slide(cur - 1); });
+  $('[data-role=next]').addEventListener('click', function () { slide(cur + 1); });
+
+  /* ---- Toggle chips (ODS ToggleChip) ---- */
+  $$('.ODSToggleChip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.getAttribute('aria-pressed') !== 'true';
+      c.setAttribute('aria-pressed', String(on));
+      c.firstElementChild.classList.toggle('ODSToggleChip-ToggleChip--selected', on);
+      c.querySelector('.ODSToggleChip-Label').classList.toggle('ODSToggleChip-Label--selected', on);
+      c.querySelector('.ODSToggleChip-Icon').classList.toggle('ODSToggleChip-Icon--selected', on);
+    });
+  });
+
+  /* ---- Light / dark (ODS data-mode) ---- */
+  $$('[data-role=mode]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var m = document.documentElement.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-mode', m);
+      document.documentElement.setAttribute('data-theme', m);
+    });
+  });
+
+  select('new');
+})();
+</script>
+</body>
+</html>

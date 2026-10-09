@@ -1,0 +1,48 @@
+/* Pills, read via figma-console 2026-10-08. Port of components/pill/pill.css onto the sets this file uses.
+   Classes are .pill-solid / .pill-sq / .code-pill: the Projects dashboard already owns .pill and .pill__*. */
+
+/* Pill solid / Size=xxs, Type=Pill color, Color=Gray (1421:317874; queue count I8237:505596): 16 tall, min 16 wide */
+.pill-solid {
+  display: inline-flex; align-items: center; justify-content: center; flex: none; white-space: nowrap;
+  min-width: 16px; height: 16px; /* DRIFT: Pill solid xxs */
+  padding: var(--spacing-xxs) var(--spacing-xs); border-radius: var(--radius-xs);
+  font-family: var(--text-xxs-medium-font-family); font-size: var(--text-xxs-medium-font-size); font-weight: var(--text-xxs-medium-font-weight); line-height: var(--text-xxs-medium-line-height);
+}
+.pill-solid--gray { background: var(--colors-utility-gray-utility-gray-600); color: var(--colors-utility-gray-utility-gray-50); }
+
+/* Pill squared (9806:508154 xxs / xs, 19:19293 sm) */
+.pill-sq { display: inline-flex; align-items: center; justify-content: center; flex: none; white-space: nowrap; }
+.pill-sq--xxs {
+  height: 16px; /* DRIFT: Pill squared xxs */
+  padding: var(--spacing-xxs) var(--spacing-xs); border-radius: var(--radius-xs);
+  font-family: var(--text-xxs-regular-font-family); font-size: var(--text-xxs-regular-font-size); font-weight: var(--text-xxs-regular-font-weight); line-height: var(--text-xxs-regular-line-height);
+}
+.pill-sq--xs {
+  height: 20px; /* DRIFT: Pill squared xs */
+  padding: var(--spacing-xxs) var(--spacing-sm); border-radius: var(--radius-xs);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.pill-sq--sm {
+  height: 24px; /* DRIFT: Pill squared sm */
+  padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.pill-sq--sm.pill-sq--clear:not(.pill-sq--dot) { font-weight: var(--text-xs-medium-font-weight); } /* 20:11323 sets the clear label in Medium */
+.pill-sq--dot { gap: var(--spacing-xs); padding-left: var(--spacing-sm); } /* Icon=Dot: 6 left, 4 gap (5220:200567) */
+.pill-sq--mono { font-family: var(--font-family-code); }
+
+.pill-sq--color.pill-sq--gray { background: var(--colors-utility-gray-utility-gray-100); color: var(--colors-text-text-secondary-700); }
+.pill-sq--color.pill-sq--success { background: var(--colors-utility-success-utility-success-25); color: var(--colors-utility-success-utility-success-600); }
+.pill-sq--clear { background: none; color: var(--colors-text-text-tertiary-600); }
+.pill-sq--clear.pill-sq--sm { color: var(--colors-text-text-secondary-700); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+
+/* Code Pill / Size=xs, Color=Gray, Icon=False (13750:263016): gray-100, Mono 11/12 text-secondary */
+.code-pill {
+  display: inline-flex; align-items: center; justify-content: center; flex: none; white-space: nowrap;
+  border-radius: var(--radius-xs); background: var(--colors-utility-gray-utility-gray-100); color: var(--colors-text-text-secondary-700);
+  font-family: var(--font-family-code); font-size: var(--text-xxs-regular-font-size); font-weight: var(--text-xxs-regular-font-weight); line-height: var(--text-xxs-regular-line-height);
+}
+.code-pill--xs { height: 20px; } /* DRIFT: Code Pill xs */
+.code-pill--xs { padding: var(--spacing-xs) var(--spacing-sm); }
+.code-pill--xxs { min-width: 16px; height: 16px; } /* DRIFT: Code Pill as drawn in the files panel 14612:410640 */
+.code-pill--xxs { padding: var(--spacing-xxs) var(--spacing-xs); }

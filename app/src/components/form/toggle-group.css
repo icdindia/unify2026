@@ -1,0 +1,27 @@
+/* Toggle group / Type=Default, Style=Icon only, Size=xs — instance I13722:383356;3805:106246 (preview / code) and
+   14607:405531 (list / grid), segments "_Toggle group base / Type=Neutral, Size=xxs, Icon=Only" (94:113117 / 94:113112).
+     group    24 tall, 2px padding, 4px gap, bg-tertiary, 1px border-secondary inside, radius 6
+     segment  22×20, 0 / 4 padding, radius 4, 14px icon
+     current  bg-primary + 0 1 2 / 0 1 3 utility-gray-200 shadows, icon-primary
+     other    icon button-neutral-tertiary-fg; hover bg-tertiary_hover
+     focused  2px utility-gray-300 spread + shadow-xs (94:113157) */
+.tgl {
+  display: inline-flex; align-items: center; flex: none; gap: var(--spacing-xs); padding: var(--spacing-xxs);
+  border-radius: var(--radius-sm); background: var(--colors-background-bg-tertiary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.tgl--xs { height: 24px; } /* DRIFT: Toggle group xs */
+.tgl__seg {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  padding: 0 var(--spacing-xs); border-radius: var(--radius-xs);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.tgl--xs .tgl__seg { width: 22px; height: 20px; } /* DRIFT: _Toggle group base xxs */
+.tgl__seg svg { display: block; flex: none; }
+.tgl__seg:hover { background: var(--colors-background-bg-tertiary-hover); }
+.tgl__seg.is-current {
+  background: var(--colors-background-bg-primary); color: var(--colors-icon-icon-primary);
+  box-shadow: 0 1px 2px 0 var(--colors-utility-gray-utility-gray-200), 0 1px 3px 0 var(--colors-utility-gray-utility-gray-200);
+}
+.tgl__seg:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300), 0 1px 1px 1px rgba(16, 24, 40, .05); } /* DRIFT: Focused + shadow-xs (#101828 5%) */
+.tgl__seg:disabled { cursor: default; background: none; color: var(--colors-icon-icon-disabled); }

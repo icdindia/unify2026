@@ -1,0 +1,2 @@
+/* prototype: .filters (option 1, after the 2026-10-08 override: 8px gap, no offset) and the second .pills (option 2) */
+.btn-group { display: flex; align-items: center; gap: var(--spacing-md); flex: none; }

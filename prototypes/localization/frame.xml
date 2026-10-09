@@ -1,0 +1,84 @@
+<symbol id="15119:614275" name="Localization" x="2237" y="543.1875" width="1440" height="900">
+  <instance id="15097:444092" name="New_Platform Navigation" x="0" y="0" width="56" height="900" />
+  <frame id="15097:444093" name="Search" x="56" y="0" width="1384" height="900">
+    <frame id="15097:444094" name="Frame 2147265242" x="0" y="0" width="1384" height="900">
+      <instance id="15097:444095" name="Page Header" x="0" y="0" width="1384" height="84" />
+      <frame id="15097:444096" name="Frame 2147265223" x="0" y="104" width="1384" height="796">
+        <frame id="15097:444097" name="Table" x="16" y="0" width="1352" height="780">
+          <instance id="19398:362611" name="Horizontal tabs" x="0" y="0" width="428" height="28" />
+          <frame id="15097:444125" name="Working area" x="0" y="40" width="1352" height="740">
+            <frame id="15112:501749" name="Secondary navigation" x="0" y="0" width="240" height="740">
+              <frame id="15112:501750" name="Content" x="0" y="0" width="240" height="417">
+                <frame id="15112:501751" name="Section 1" x="0" y="0" width="240" height="417">
+                  <frame id="15112:501752" name="Frame 2147266400" x="0" y="0" width="240" height="48">
+                    <frame id="15112:501754" name="Sidepane header" x="0" y="0" width="240" height="48">
+                      <frame id="15112:501755" name="Content" x="12" y="6" width="216" height="36">
+                        <frame id="15112:501758" name="Icon+Title" x="0" y="0" width="192" height="36">
+                          <frame id="15112:501759" name="Text and supporting text" x="0" y="0" width="192" height="36">
+                            <frame id="15112:501760" name="Text and badge" x="0" y="0" width="192" height="20">
+                              <text id="15112:501761" name="Text" x="0" y="0" width="48" height="20" />
+                            </frame>
+                            <text id="15112:501764" name="Supporting text" x="0" y="20" width="192" height="16" />
+                          </frame>
+                        </frame>
+                        <instance id="15112:501765" name="Small Icon Button" x="200" y="10" width="16" height="16" />
+                      </frame>
+                    </frame>
+                  </frame>
+                  <frame id="15112:501952" name="Frame 2147266403" x="0" y="56" width="240" height="105">
+                    <instance id="15112:501766" name="Filter Bar" x="8" y="0" width="224" height="32" />
+                    <frame id="15127:648797" name="Frame 2147266407" x="8" y="44" width="224" height="61">
+                      <frame id="15112:501767" name="Frame 2147266402" x="0" y="9" width="224" height="52">
+                        <frame id="15112:501768" name="Section 3" x="0" y="0" width="224" height="16">
+                          <frame id="15112:501769" name="Frame 2147266401" x="0" y="0" width="224" height="16">
+                            <instance id="15112:501770" name="_Nav Header" x="0" y="0" width="204" height="12" />
+                            <instance id="15112:501771" name="Small Icon Button" x="208" y="0" width="16" height="16" />
+                          </frame>
+                        </frame>
+                        <instance id="15112:501842" name="Search_outline" x="0" y="24" width="224" height="28" />
+                      </frame>
+                    </frame>
+                  </frame>
+                  <frame id="15742:431051" name="Navigation" x="0" y="169" width="240" height="244">
+                    <frame id="15742:431052" name="Nav Item" x="8" y="0" width="224" height="36">
+                      <instance id="15742:431053" name="Base_Platform Nav Menu Unit" x="0" y="0" width="224" height="36" />
+                    </frame>
+                    <frame id="15742:431066" name="Nav Item" x="8" y="40" width="224" height="164">
+                      <instance id="15742:431067" name="Base_Platform Nav Menu Unit" x="0" y="0" width="224" height="36" />
+                      <frame id="15742:431068" name="Menu" x="0" y="36" width="224" height="128">
+                        <instance id="15742:431069" name="Base_Platform Nav Sub-Menu Unit" x="0" y="0" width="224" height="32" />
+                        <instance id="15742:431070" name="Base_Platform Nav Sub-Menu Unit" x="0" y="32" width="224" height="32" />
+                        <instance id="15742:431071" name="Base_Platform Nav Sub-Menu Unit" x="0" y="64" width="224" height="32" />
+                        <instance id="15742:431072" name="Base_Platform Nav Sub-Menu Unit" x="0" y="96" width="224" height="32" />
+                      </frame>
+                    </frame>
+                    <instance id="15742:431269" name="Base_Platform Nav Menu Unit" x="8" y="208" width="224" height="36" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+            <frame id="15097:445426" name="Container" x="240" y="0" width="1112" height="740">
+              <instance id="15112:501447" name="Form Header" x="0" y="0" width="1112" height="48" />
+              <frame id="15112:502390" name="Frame 2147266404" x="0" y="48" width="1112" height="692">
+                <instance id="15112:502106" name="Filter Bar" x="16" y="16" width="1080" height="28" />
+                <frame id="15097:445484" name="Frame 2147266318" x="16" y="56" width="1080" height="620">
+                  <frame id="15097:445910" name="Frame 3" x="0" y="0" width="1080" height="620">
+                    <frame id="15097:445911" name="Content" x="0" y="0" width="1080" height="620">
+                      <frame id="15097:445912" name="Column" x="0" y="0" width="340" height="36">
+                        <instance id="15097:445913" name="Col Header Cell" x="0" y="0" width="340" height="36" />
+                      </frame>
+                      <frame id="15097:445916" name="Column" x="340" y="0" width="740" height="36">
+                        <instance id="15097:445917" name="Col Header Cell" x="0" y="0" width="740" height="36" />
+                      </frame>
+                      <instance id="15097:445918" name="Empty State" x="420" y="260" width="240" height="100" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+</symbol>

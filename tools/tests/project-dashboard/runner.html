@@ -1,0 +1,12 @@
+<!doctype html><meta charset="utf-8"><title>runner</title>
+<style>html,body{margin:0;height:100%}iframe{border:0;width:100%;height:100%;display:block}</style>
+<pre id="__results"></pre>
+<script>
+// Loads a test copy of the prototype into a SANDBOXED frame (scripts only, opaque origin) the way preview panes do.
+var q = new URLSearchParams(location.search), src = q.get('src'), mode = q.get('mode');
+var f = document.createElement('iframe'); f.setAttribute('sandbox', 'allow-scripts');
+document.body.insertBefore(f, document.body.firstChild);
+addEventListener('message', function (e) { if (typeof e.data === 'string' && e.data.indexOf('__RESULTS__') === 0) document.getElementById('__results').textContent = e.data.slice(11); });
+if (mode === 'srcdoc') fetch(src).then(function (r) { return r.text(); }).then(function (t) { f.srcdoc = t; });
+else f.src = src;
+</script>

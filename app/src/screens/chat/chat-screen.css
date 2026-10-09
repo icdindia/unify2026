@@ -1,0 +1,80 @@
+/* The chat (chat-artifact 03-18) and the split's chat column (19-22), measured on the 1440 x 900 reference PNGs:
+     header      ES Breadcrumb, 40 tall across the area right of the nav (components/chat-header)
+     thread      the 760 column centred in the area (x 368 with the 56 rail, 480 with the 280 nav), 9 under the header;
+                 each item carries its Figma container padding (components/chat-messages, components/agent)
+     composer    Bottom small, 760 wide, its top at y 825 and 27 above the frame's bottom edge (873-900, bg-workspace)
+     files       docked beside the chat (17, 18): a 400 column, 8 padding, so the 384 x 720 card sits at x 1048 y 48
+     split       the chat column of the split (19-22): 16 each side (thread and composer 408 wide at 440), the composer
+                 16 above the bottom edge (836-884) */
+.chat { position: relative; height: 100%; min-height: 0; display: flex; flex-direction: column; background: var(--colors-background-bg-workspace); }
+.chat__h1 {
+  position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; /* DRIFT: visually-hidden page title (the header's title button carries it visibly) */
+}
+.chat__body { flex: 1 1 0; min-height: 0; display: flex; }
+.chat__panel {
+  flex: none; width: 400px; padding: var(--spacing-md); /* DRIFT: files panel column 400 (17): the card at x 1048, y 48 */
+  display: flex; flex-direction: column; min-height: 0;
+}
+.chat__panel > * { max-height: 100%; }
+
+/* ---- a column: header, the scrolling thread, the composer dock ---- */
+.chat-col { position: relative; flex: 1 1 0; min-width: 0; min-height: 0; height: 100%; display: flex; flex-direction: column; }
+.chat-col__scroll { flex: 1 1 0; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; outline: none; }
+.chat-col__thread {
+  width: min(760px, calc(100% - 2 * var(--spacing-6xl))); /* DRIFT: the 760 message column */
+  margin: 0 auto; padding: 9px 0 var(--spacing-4xl); /* DRIFT: the thread starts 9 under the header */
+}
+.chat-col__dock {
+  position: relative; flex: none;
+  width: min(760px, calc(100% - 2 * var(--spacing-6xl))); /* DRIFT: the 760 message column */
+  margin: 0 auto; padding-bottom: 27px; /* DRIFT: Bottom small sits 27 above the frame's bottom (825-873 of 900) */
+}
+.chat-col__runout { height: 100vh; } /* as designed only: lets the thread scroll to the frame's offset */
+.chat-col__typing { position: absolute; left: 0; right: 0; bottom: calc(100% + 8px); } /* DRIFT: the typing row 8 above the composer (797 over 825) */
+
+/* the split column: 16 each side, the composer 16 from the bottom */
+.chat-col--split .chat-col__thread, .chat-col--split .chat-col__dock { width: auto; margin: 0 var(--spacing-xl); }
+.chat-col--split .chat-col__dock { padding-bottom: var(--spacing-xl); }
+.chat-col--split.chat-col--low-dock .chat-col__dock { padding-bottom: 10px; } /* DRIFT: as designed, 21-21b sit the composer 10 above the bottom edge (842-890) */
+
+/* phone widths: no 32px gutter to hang avatars into (no Figma frame draws the chat this narrow) */
+@media (max-width: 599.98px) {
+  .chat-col__thread, .chat-col__dock { width: auto; margin: 0 var(--spacing-xl); }
+  .chat-col__dock { padding-bottom: var(--spacing-3xl); }
+}
+
+/* ---- thread items: blocks that carry data-item; the SystemLine pull-up of chat-messages across the wrappers ---- */
+.cth { display: flex; flex-direction: column; min-width: 0; }
+.cth-item { min-width: 0; }
+.cth-item--system.cth-item--after-resp { margin-top: calc(-1 * var(--spacing-5xl)); }
+
+/* As designed, per frame (screens/chat/drawn.ts): 15-18 put 48 between one participant's bubbles, 15 puts the first
+   bubble 48 under the name row's top, 21 / 21b set the participants' bubbles in Text sm. With fixes these classes are
+   never set (message-group-spacing, answer-head-gap, split-thread-as-chat). */
+.cth--gap48 .cm-msgs--them .cm-msgs__list { gap: var(--spacing-6xl); }
+.cth--name48 .cm-msgs--them { gap: 28px; } /* DRIFT: 15 draws the bubble 48 under the 20px name row */
+/* 15 puts 80 (not 40) between John's group and Grace's */
+.cth--groups80 .cth-item--them + .cth-item--them { margin-top: var(--spacing-5xl); }
+/* 16-18 draw the Pipeline Command answer 8 under its header line (the "Agent Response" frame); the component has 4 */
+.cth--answer8 .cth-item--resp[data-item="turn-interactive"] .cm-resp { gap: var(--spacing-md); }
+.cth--small .cm-msgs--them .cm-msg { max-width: min(320px, 100%); } /* DRIFT: 21 draws the participants' bubbles at most 320 */
+.cth--small .cm-msgs--them .cm-msg__body {
+  padding: 10px var(--spacing-lg) var(--spacing-md); /* DRIFT: 21 draws the Text sm bubbles 10 over the first line, 8 under the last (410-488) */
+  font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size);
+  font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+}
+
+/* As designed, 19 (with its 670 chat column, fix split-chat-width-max): the dashboard image 4 lower in its panel */
+.chat--canvas-low .acanvas__frame:not(.acanvas__frame--full) { padding-top: 9px; } /* DRIFT: 5 + 4 (components/artifact-canvas sets 5 for 20) */
+
+/* As designed, 21-21b: the split column's header is ES Breadcrumb / Variant=with Icon (1097:162687): the title has no
+   chevron (it still opens the title menu) and the actions sit 0 apart (Default: 2) */
+.chat-hdr--with-icon .chh-title__chev { display: none; }
+.chat-hdr--with-icon .chh__actions { gap: 0; }
+
+/* Under 1024 (BUILD-PLAN Appendix B, 768-1023 and phones): the files panel floats over the chat as a right-hand sheet
+   instead of taking a 400 column. No Figma frame draws the chat this narrow. */
+@media (max-width: 1023.98px) {
+  .chat__body { position: relative; }
+  .chat__panel { position: absolute; top: 0; right: 0; bottom: 0; z-index: 10; width: min(400px, 100%); }
+}

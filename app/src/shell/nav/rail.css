@@ -1,0 +1,31 @@
+/* =============================================================================
+   Rail, collapsed nav (56): dark 226:81199, light 9721:595036.
+   Ported from prototypes/project-dashboard/project-dashboard.css: same values, same DRIFT markers.
+   Layout-only changes: the rail fills its column (height: 100%) instead of a 900px artboard, and its
+   icon list scrolls on very short windows instead of clipping. Selectors are scoped under .rail.
+   ============================================================================= */
+
+.rail { position: relative; width: 56px; height: 100%; min-height: 0; display: flex; flex-direction: column; overflow: clip; } /* DRIFT: rail geometry (Main_nav_compact 56) */
+.rail--dark { background-image: linear-gradient(90deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.3) 100%), linear-gradient(90deg, var(--colors-utility-brand-utility-brand-500) 0%, var(--colors-utility-brand-utility-brand-500) 100%); } /* DRIFT: nav overlay */
+.rail--light { background: var(--colors-background-bg-secondary); box-shadow: inset -1px 0 0 0 var(--colors-border-border-primary); }
+.rail .rail__nav { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xl); padding: var(--spacing-lg) var(--spacing-xxs); overflow: hidden auto; scrollbar-width: none; }
+.rail .rail__nav::-webkit-scrollbar { display: none; }
+.rail .rail__logo { flex: none; width: 32px; height: 40px; padding: 6px 0 var(--spacing-xxs); } /* DRIFT: logo block */
+.rail .rail__logo .logo-g { margin: 0; }
+.rail .rail__items { flex: none; display: flex; flex-direction: column; gap: var(--spacing-xs); padding: 0 10px var(--spacing-lg); } /* DRIFT: off-scale */
+.rail .ritem { width: 32px; height: 32px; padding: var(--spacing-md); border-radius: var(--radius-md); display: flex; } /* DRIFT: item size */
+.rail .ritem img { width: 16px; height: 16px; } /* DRIFT: icon */
+.rail--dark .ritem:is(:hover, .is-hover) { background: rgba(255,255,255,.1); } /* DRIFT: nav hover */
+.rail--dark .ritem.is-selected { background: rgba(255,255,255,.17); } /* DRIFT: nav selected */
+/* the plus is drawn full white for its selected state; unselected it takes the other icons' 60% (chat-artifact 21-22) */
+.rail--dark .ritem--new:not(.is-selected) img { opacity: .6; }
+.rail--light .ritem:is(:hover, .is-hover) { background: var(--colors-background-bg-secondary-hover); }
+.rail--light .ritem.is-selected { background: var(--colors-background-bg-quaternary); }
+.rail .rail__foot { flex: none; height: 52px; display: flex; align-items: center; justify-content: center; padding: 0 10px; } /* DRIFT: footer */
+.rail--dark .rail__foot { box-shadow: inset 0 1px 0 0 rgba(255,255,255,.15); } /* DRIFT: nav divider */
+.rail--light .rail__foot { box-shadow: inset 0 1px 0 0 var(--colors-border-border-secondary); }
+.rail .rail__av { width: 32px; height: 32px; border-radius: var(--radius-full); text-align: center; font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: 32px; } /* DRIFT: centred letter */
+.rail--dark .rail__av { background: rgba(255,255,255,.2); color: rgba(255,255,255,.7); } /* DRIFT: nav avatar */
+/* keyboard focus on the dark rail: white ring, as on the dark nav (the global brand-500 ring is 1.1:1 on this green) */
+.rail--dark :focus-visible { outline-color: var(--colors-border-border-white); }
+.rail--light .rail__av { background: var(--colors-utility-gray-utility-gray-200); color: var(--colors-text-text-secondary-700); }

@@ -1,0 +1,1 @@
+{"rows": [{"name": "label", "required": false, "description": "", "type": "string", "default": ""}, {"name": "disabled", "required": false, "description": "", "type": "boolean", "default": ""}, {"name": "icon", "required": false, "description": "", "type": "object", "default": ""}]}

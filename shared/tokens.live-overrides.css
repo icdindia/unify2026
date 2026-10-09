@@ -1,0 +1,52 @@
+/* ============================================================================
+   tokens.live-overrides.css — corrections confirmed against the LIVE Figma file
+
+   WHY THIS FILE EXISTS
+   tokens.css is generated from unify-ds/ds/tokens/*.json, an export taken
+   25-Jun. That export can lag the live DS file. `get_variable_defs` on a live
+   node is the authoritative reading. Where the two disagree, the live value
+   wins for rendering — but overwriting the generated file would be lost on the
+   next regen and would hide the disagreement.
+
+   So: corrections live here, each with the node that proved it. Link this file
+   IMMEDIATELY AFTER tokens.css and before any component CSS.
+
+   Every entry is a bug report for the DS owner. When ds/tokens/*.json is
+   re-staged from the live file, re-run tools/verify.sh --drift and delete the
+   entries that no longer differ. This file should trend toward empty.
+   ============================================================================ */
+
+:root {
+  /* Component/Nav Bar/navbar-bg
+     live Figma  #efebe5   (node 16740:306223, screen 16740:306222)
+     25-Jun JSON #f2f0ee   (resolves via alias -> utility-gray-100)
+     The exported alias target is wrong, not just the value — the live token is
+     a distinct warm grey, not gray-100. Re-stage ds/tokens/semantic.json. */
+  --component-nav-bar-navbar-bg: #efebe5;
+}
+
+:root[data-theme="dark"] {
+  /* No live dark-mode reading taken for this token — the screen was probed in
+     light mode only. Left to the generated dark value deliberately: inventing
+     a dark counterpart for a light-mode correction would be a guess. Re-probe
+     the DS file in dark mode before adding anything here. */
+}
+
+:root {
+  /* Component/Buttons/Neutral/Tertiary/button-neutral-tertiary-bg_hover
+     live Figma  #f2f0ee   (= bg-tertiary; read on ES Breadcrumb 6424:330601 in
+                            frame 15 1809:488480, Enterprise Brain Base 2026)
+     25-Jun JSON #edebe8   (aliased to bg-tertiary-hover)
+     The hovered icon button in that frame paints #f2f0ee. Alias target is one
+     step off. Re-stage ds/tokens/component.json. Logged in DRIFT-LOG §19. */
+  --component-buttons-neutral-tertiary-button-neutral-tertiary-bg-hover: var(--colors-background-bg-tertiary);
+}
+
+/* Enterprise Brain notification panels — live reading, node 14761:43871
+   (Enterprise Brain Base 2026 - 1, lqKjNjyifEXCeywg69Knr2). Light theme only. */
+:root:not([data-theme="dark"]) {
+  --colors-border-border-primary: #e6e4e0;            /* css #dbd6d1 */
+  --colors-utility-gray-utility-gray-300: #e6e4e0;    /* css #dbd6d1 */
+  --colors-utility-gray-utility-gray-500: #8f8a85;    /* css #9f9993 */
+  --colors-text-text-quaternary-500: #8f8a85;         /* css #9f9993 */
+}

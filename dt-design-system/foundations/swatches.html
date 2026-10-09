@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DT Foundations</title>
+<link rel="stylesheet" href="dt-foundations.css">
+<style>
+  body { margin: 0; padding: 40px 24px 64px; font-family: var(--font-family); background: var(--colours-basic-background); color: var(--colours-basic-text); }
+  main { max-width: 1040px; margin: 0 auto; }
+  h1 { font: 800 2.5rem/1.1 var(--font-family); margin: 0 0 4px; }
+  h2 { font: 700 1.25rem/1.2 var(--font-family); margin: 48px 0 16px; }
+  .sub { font: 500 1rem/1.25 var(--font-family); color: var(--colours-basic-text-recessive); margin: 0; }
+  .toolbar { display: flex; gap: 8px; margin-top: 16px; }
+  .toolbar button { font: 700 0.875rem/1 var(--font-family); padding: 10px 16px; border-radius: 999px; border: 2px solid var(--colours-basic-stroke); background: none; color: var(--colours-basic-text); cursor: pointer; }
+  .toolbar button[aria-pressed="true"] { background: var(--colours-basic-accent-secondary); color: var(--colours-basic-text-on-accent-secondary); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .sw { border-radius: 16px; overflow: hidden; border: 1px solid var(--colours-basic-stroke-subtle); background: var(--colours-basic-background); }
+  .chip { height: 80px; }
+  .meta { padding: 10px 12px 12px; font: 500 0.8125rem/1.3 var(--font-family); }
+  .meta b { display: block; font-weight: 700; }
+  .meta code { font: 500 0.75rem/1.3 ui-monospace, Menlo, monospace; color: var(--colours-basic-text-recessive); word-break: break-all; }
+  .type-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--colours-shades-neutral-shades-200); }
+  .type-row span:first-child { font: 500 0.8125rem/1.3 ui-monospace, Menlo, monospace; color: var(--colours-basic-text-recessive); }
+  .scheme { border-radius: 16px; padding: 24px; margin-bottom: 12px; }
+  .scheme .btn { display: inline-block; margin-top: 12px; padding: 10px 20px; border-radius: 999px; font-weight: 700; }
+  @media (max-width: 560px) { .type-row { grid-template-columns: 1fr; gap: 4px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>DT Foundations</h1>
+  <p class="sub">TeleNeo + ODS colour tokens, from ods.trap.ng.telekom.net (neutral scheme)</p>
+  <div class="toolbar" role="group" aria-label="Colour mode">
+    <button data-mode="light" aria-pressed="true">Light</button>
+    <button data-mode="dark" aria-pressed="false">Dark</button>
+  </div>
+
+  <h2>Brand magenta</h2>
+  <div class="grid" id="magenta"></div>
+
+  <h2>Grey palette (neutral shades)</h2>
+  <div class="grid" id="grey"></div>
+
+  <h2>Basic semantic</h2>
+  <div class="grid" id="basic"></div>
+
+  <h2>Functional</h2>
+  <div class="grid" id="functional"></div>
+
+  <h2>Magenta scheme</h2>
+  <div class="scheme" style="background:#E20074;color:#fff">
+    <div style="font:700 1.25rem/1.2 var(--font-family)">Background #E20074, text #FFFFFF</div>
+    <div style="color:#F9CCE3">Recessive text #F9CCE3</div>
+    <span class="btn" style="background:#fff;color:#000">Accent #FFFFFF / text #000000</span>
+  </div>
+
+  <!-- DT palette:start -->
+  <h2>DT palette</h2>
+  <p class="sub">15 ODS secondary hues, 7 steps each: subtle, extra-dominant, dominant, base-subtle, base, recessive, extra-recessive. Tokens <code>--palette-&lt;hue&gt;-&lt;step&gt;</code>; switch Light/Dark above.</p>
+  <style>.pal-row{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center;margin:6px 0}.pal-row b{font:700 .875rem/1.2 var(--font-family)}.pal-cells{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.pal-cell{height:40px;border-radius:8px}.pal-head{display:grid;grid-template-columns:120px repeat(7,1fr);gap:6px 12px;font:500 .75rem/1.2 var(--font-family);color:var(--colours-basic-text-recessive);margin-top:16px}@media (max-width:560px){.pal-row,.pal-head{grid-template-columns:72px 1fr}.pal-head span:not(:first-child){display:none}}</style>
+  <div class="pal-head"><span></span><span>subtle</span><span>extra-dominant</span><span>dominant</span><span>base-subtle</span><span>base</span><span>recessive</span><span>extra-recessive</span></div>
+  <div class="pal-row"><b>aperitif</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-aperitif-subtle)" title="--palette-aperitif-subtle"></div><div class="pal-cell" style="background:var(--palette-aperitif-extra-dominant)" title="--palette-aperitif-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-aperitif-dominant)" title="--palette-aperitif-dominant"></div><div class="pal-cell" style="background:var(--palette-aperitif-base-subtle)" title="--palette-aperitif-base-subtle"></div><div class="pal-cell" style="background:var(--palette-aperitif-base)" title="--palette-aperitif-base"></div><div class="pal-cell" style="background:var(--palette-aperitif-recessive)" title="--palette-aperitif-recessive"></div><div class="pal-cell" style="background:var(--palette-aperitif-extra-recessive)" title="--palette-aperitif-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>basketball</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-basketball-subtle)" title="--palette-basketball-subtle"></div><div class="pal-cell" style="background:var(--palette-basketball-extra-dominant)" title="--palette-basketball-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-basketball-dominant)" title="--palette-basketball-dominant"></div><div class="pal-cell" style="background:var(--palette-basketball-base-subtle)" title="--palette-basketball-base-subtle"></div><div class="pal-cell" style="background:var(--palette-basketball-base)" title="--palette-basketball-base"></div><div class="pal-cell" style="background:var(--palette-basketball-recessive)" title="--palette-basketball-recessive"></div><div class="pal-cell" style="background:var(--palette-basketball-extra-recessive)" title="--palette-basketball-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>cheddar</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-cheddar-subtle)" title="--palette-cheddar-subtle"></div><div class="pal-cell" style="background:var(--palette-cheddar-extra-dominant)" title="--palette-cheddar-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-cheddar-dominant)" title="--palette-cheddar-dominant"></div><div class="pal-cell" style="background:var(--palette-cheddar-base-subtle)" title="--palette-cheddar-base-subtle"></div><div class="pal-cell" style="background:var(--palette-cheddar-base)" title="--palette-cheddar-base"></div><div class="pal-cell" style="background:var(--palette-cheddar-recessive)" title="--palette-cheddar-recessive"></div><div class="pal-cell" style="background:var(--palette-cheddar-extra-recessive)" title="--palette-cheddar-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>dandelion</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-dandelion-subtle)" title="--palette-dandelion-subtle"></div><div class="pal-cell" style="background:var(--palette-dandelion-extra-dominant)" title="--palette-dandelion-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-dandelion-dominant)" title="--palette-dandelion-dominant"></div><div class="pal-cell" style="background:var(--palette-dandelion-base-subtle)" title="--palette-dandelion-base-subtle"></div><div class="pal-cell" style="background:var(--palette-dandelion-base)" title="--palette-dandelion-base"></div><div class="pal-cell" style="background:var(--palette-dandelion-recessive)" title="--palette-dandelion-recessive"></div><div class="pal-cell" style="background:var(--palette-dandelion-extra-recessive)" title="--palette-dandelion-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>egg</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-egg-subtle)" title="--palette-egg-subtle"></div><div class="pal-cell" style="background:var(--palette-egg-extra-dominant)" title="--palette-egg-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-egg-dominant)" title="--palette-egg-dominant"></div><div class="pal-cell" style="background:var(--palette-egg-base-subtle)" title="--palette-egg-base-subtle"></div><div class="pal-cell" style="background:var(--palette-egg-base)" title="--palette-egg-base"></div><div class="pal-cell" style="background:var(--palette-egg-recessive)" title="--palette-egg-recessive"></div><div class="pal-cell" style="background:var(--palette-egg-extra-recessive)" title="--palette-egg-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>frog</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-frog-subtle)" title="--palette-frog-subtle"></div><div class="pal-cell" style="background:var(--palette-frog-extra-dominant)" title="--palette-frog-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-frog-dominant)" title="--palette-frog-dominant"></div><div class="pal-cell" style="background:var(--palette-frog-base-subtle)" title="--palette-frog-base-subtle"></div><div class="pal-cell" style="background:var(--palette-frog-base)" title="--palette-frog-base"></div><div class="pal-cell" style="background:var(--palette-frog-recessive)" title="--palette-frog-recessive"></div><div class="pal-cell" style="background:var(--palette-frog-extra-recessive)" title="--palette-frog-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>guacamole</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-guacamole-subtle)" title="--palette-guacamole-subtle"></div><div class="pal-cell" style="background:var(--palette-guacamole-extra-dominant)" title="--palette-guacamole-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-guacamole-dominant)" title="--palette-guacamole-dominant"></div><div class="pal-cell" style="background:var(--palette-guacamole-base-subtle)" title="--palette-guacamole-base-subtle"></div><div class="pal-cell" style="background:var(--palette-guacamole-base)" title="--palette-guacamole-base"></div><div class="pal-cell" style="background:var(--palette-guacamole-recessive)" title="--palette-guacamole-recessive"></div><div class="pal-cell" style="background:var(--palette-guacamole-extra-recessive)" title="--palette-guacamole-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>hummingbird</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-hummingbird-subtle)" title="--palette-hummingbird-subtle"></div><div class="pal-cell" style="background:var(--palette-hummingbird-extra-dominant)" title="--palette-hummingbird-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-hummingbird-dominant)" title="--palette-hummingbird-dominant"></div><div class="pal-cell" style="background:var(--palette-hummingbird-base-subtle)" title="--palette-hummingbird-base-subtle"></div><div class="pal-cell" style="background:var(--palette-hummingbird-base)" title="--palette-hummingbird-base"></div><div class="pal-cell" style="background:var(--palette-hummingbird-recessive)" title="--palette-hummingbird-recessive"></div><div class="pal-cell" style="background:var(--palette-hummingbird-extra-recessive)" title="--palette-hummingbird-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>iguana</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-iguana-subtle)" title="--palette-iguana-subtle"></div><div class="pal-cell" style="background:var(--palette-iguana-extra-dominant)" title="--palette-iguana-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-iguana-dominant)" title="--palette-iguana-dominant"></div><div class="pal-cell" style="background:var(--palette-iguana-base-subtle)" title="--palette-iguana-base-subtle"></div><div class="pal-cell" style="background:var(--palette-iguana-base)" title="--palette-iguana-base"></div><div class="pal-cell" style="background:var(--palette-iguana-recessive)" title="--palette-iguana-recessive"></div><div class="pal-cell" style="background:var(--palette-iguana-extra-recessive)" title="--palette-iguana-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>jacuzzi</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-jacuzzi-subtle)" title="--palette-jacuzzi-subtle"></div><div class="pal-cell" style="background:var(--palette-jacuzzi-extra-dominant)" title="--palette-jacuzzi-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-jacuzzi-dominant)" title="--palette-jacuzzi-dominant"></div><div class="pal-cell" style="background:var(--palette-jacuzzi-base-subtle)" title="--palette-jacuzzi-base-subtle"></div><div class="pal-cell" style="background:var(--palette-jacuzzi-base)" title="--palette-jacuzzi-base"></div><div class="pal-cell" style="background:var(--palette-jacuzzi-recessive)" title="--palette-jacuzzi-recessive"></div><div class="pal-cell" style="background:var(--palette-jacuzzi-extra-recessive)" title="--palette-jacuzzi-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>kingfisher</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-kingfisher-subtle)" title="--palette-kingfisher-subtle"></div><div class="pal-cell" style="background:var(--palette-kingfisher-extra-dominant)" title="--palette-kingfisher-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-kingfisher-dominant)" title="--palette-kingfisher-dominant"></div><div class="pal-cell" style="background:var(--palette-kingfisher-base-subtle)" title="--palette-kingfisher-base-subtle"></div><div class="pal-cell" style="background:var(--palette-kingfisher-base)" title="--palette-kingfisher-base"></div><div class="pal-cell" style="background:var(--palette-kingfisher-recessive)" title="--palette-kingfisher-recessive"></div><div class="pal-cell" style="background:var(--palette-kingfisher-extra-recessive)" title="--palette-kingfisher-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>lagoon</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-lagoon-subtle)" title="--palette-lagoon-subtle"></div><div class="pal-cell" style="background:var(--palette-lagoon-extra-dominant)" title="--palette-lagoon-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-lagoon-dominant)" title="--palette-lagoon-dominant"></div><div class="pal-cell" style="background:var(--palette-lagoon-base-subtle)" title="--palette-lagoon-base-subtle"></div><div class="pal-cell" style="background:var(--palette-lagoon-base)" title="--palette-lagoon-base"></div><div class="pal-cell" style="background:var(--palette-lagoon-recessive)" title="--palette-lagoon-recessive"></div><div class="pal-cell" style="background:var(--palette-lagoon-extra-recessive)" title="--palette-lagoon-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>macaw</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-macaw-subtle)" title="--palette-macaw-subtle"></div><div class="pal-cell" style="background:var(--palette-macaw-extra-dominant)" title="--palette-macaw-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-macaw-dominant)" title="--palette-macaw-dominant"></div><div class="pal-cell" style="background:var(--palette-macaw-base-subtle)" title="--palette-macaw-base-subtle"></div><div class="pal-cell" style="background:var(--palette-macaw-base)" title="--palette-macaw-base"></div><div class="pal-cell" style="background:var(--palette-macaw-recessive)" title="--palette-macaw-recessive"></div><div class="pal-cell" style="background:var(--palette-macaw-extra-recessive)" title="--palette-macaw-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>nebula</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-nebula-subtle)" title="--palette-nebula-subtle"></div><div class="pal-cell" style="background:var(--palette-nebula-extra-dominant)" title="--palette-nebula-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-nebula-dominant)" title="--palette-nebula-dominant"></div><div class="pal-cell" style="background:var(--palette-nebula-base-subtle)" title="--palette-nebula-base-subtle"></div><div class="pal-cell" style="background:var(--palette-nebula-base)" title="--palette-nebula-base"></div><div class="pal-cell" style="background:var(--palette-nebula-recessive)" title="--palette-nebula-recessive"></div><div class="pal-cell" style="background:var(--palette-nebula-extra-recessive)" title="--palette-nebula-extra-recessive"></div></div></div>
+  <div class="pal-row"><b>orchid</b><div class="pal-cells"><div class="pal-cell" style="background:var(--palette-orchid-subtle)" title="--palette-orchid-subtle"></div><div class="pal-cell" style="background:var(--palette-orchid-extra-dominant)" title="--palette-orchid-extra-dominant"></div><div class="pal-cell" style="background:var(--palette-orchid-dominant)" title="--palette-orchid-dominant"></div><div class="pal-cell" style="background:var(--palette-orchid-base-subtle)" title="--palette-orchid-base-subtle"></div><div class="pal-cell" style="background:var(--palette-orchid-base)" title="--palette-orchid-base"></div><div class="pal-cell" style="background:var(--palette-orchid-recessive)" title="--palette-orchid-recessive"></div><div class="pal-cell" style="background:var(--palette-orchid-extra-recessive)" title="--palette-orchid-extra-recessive"></div></div></div>
+  <!-- DT palette:end -->
+
+  <h2>TeleNeo</h2>
+  <div id="type"></div>
+</main>
+<script>
+  const T = (n) => `--colours-${n}`;
+  const groups = {
+    magenta: [
+      ['accent-subtle', 'shades-accent-shades-accent-subtle'],
+      ['accent-extra-dominant', 'shades-accent-shades-accent-extra-dominant'],
+      ['accent-dominant', 'shades-accent-shades-accent-dominant'],
+      ['accent (brand)', 'basic-accent'],
+      ['accent-recessive · hover', 'shades-accent-shades-accent-recessive'],
+      ['accent-extra-recessive · pressed', 'shades-accent-shades-accent-extra-recessive'],
+      ['text-dominant / link', 'basic-text-dominant'],
+      ['hover accent-subtle', 'interaction-states-hover-accent-subtle-hover'],
+    ],
+    grey: [50,100,200,300,400,500,600,700,800,900].map(s => [String(s), `shades-neutral-shades-${s}`]),
+    basic: [
+      ['background', 'basic-background'], ['background-subtle', 'basic-background-subtle'],
+      ['text', 'basic-text'], ['text-recessive', 'basic-text-recessive'],
+      ['stroke', 'basic-stroke'], ['stroke-subtle', 'basic-stroke-subtle'],
+      ['hover bg', 'interaction-states-hover-background-hover'], ['pressed bg', 'interaction-states-pressed-background-pressed'],
+      ['disabled bg', 'interaction-states-disabled-background-disabled'], ['disabled text', 'interaction-states-disabled-text-disabled'],
+      ['focus', 'interaction-states-focus-focus'],
+    ],
+    functional: ['informational','success','warning','destructive'].flatMap(f => [[`${f}`, `functional-${f}-standard`], [`${f} subtle`, `functional-${f}-subtle`]])
+      .concat([['notification', 'functional-notification-notification']]),
+  };
+  const hex = (el) => {
+    const m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g).map(Number);
+    return '#' + m.slice(0, 3).map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+  };
+  function render() {
+    for (const [id, items] of Object.entries(groups)) {
+      const box = document.getElementById(id);
+      box.innerHTML = items.map(([label, tok]) =>
+        `<div class="sw"><div class="chip" style="background:var(${T(tok)})"></div><div class="meta"><b>${label}</b><span class="hex"></span><br><code>${T(tok)}</code></div></div>`).join('');
+      box.querySelectorAll('.sw').forEach(sw => sw.querySelector('.hex').textContent = hex(sw.querySelector('.chip')));
+    }
+  }
+  const weights = [[100,'Thin'],[400,'Regular'],[500,'Medium · body'],[700,'Bold · headers'],[800,'ExtraBold'],[900,'Ultra']];
+  document.getElementById('type').innerHTML = weights.map(([w, n]) =>
+    `<div class="type-row"><span>${w} ${n}</span><span style="font:${w} 1.5rem/1.2 var(--font-family)">Erleben, was verbindet. Äöü ß 0123456789</span></div>`).join('') +
+    `<div class="type-row"><span>body-m-regular</span><span style="font:500 1rem/1.25 var(--font-family)">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 16/20, weight 500.</span></div>` +
+    `<div class="type-row"><span>italic 500</span><span style="font:italic 500 1.5rem/1.2 var(--font-family)">Erleben, was verbindet.</span></div>`;
+  document.querySelectorAll('.toolbar button').forEach(b => b.addEventListener('click', () => {
+    document.documentElement.style.colorScheme = b.dataset.mode;
+    document.querySelectorAll('.toolbar button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render();
+  }));
+  document.documentElement.style.colorScheme = 'light';
+  render();
+</script>
+</body>
+</html>

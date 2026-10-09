@@ -1,0 +1,57 @@
+/* ----------------------------------------------------------------------------
+   citation-card — DS "Copilot_Inline Citation Card" ("Your answers")
+   Figma: 905:301558 (760x300) · 905:301668 (760x114) in frame 9 905:301453
+   1px border-secondary (real: 760 outer with 728 content at x 16 = 16 + 1?
+   the top bar spans 760 → stroke inside → inset ring), radius-4xl.
+   Top bar: bg-secondary, px 16 py 8, Text md/Medium secondary-700 (40 tall).
+   Body: px 16, pt 12, pb 16, gap 8; each row gap 2: question Text sm/Regular
+   tertiary-600 over answer Text md/Regular primary; 1px border-secondary
+   rule between rows. Body carries Shadows/shadow-lg in the file.
+---------------------------------------------------------------------------- */
+
+.citation-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+.citation-card__top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--colors-background-bg-secondary);
+  font-family: var(--text-md-medium-font-family);
+  font-weight: var(--text-md-medium-font-weight);
+  font-size: var(--text-md-medium-font-size);
+  line-height: var(--text-md-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.citation-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-xl);
+  filter: drop-shadow(0 12px 8px rgba(16, 24, 40, 0.08)) drop-shadow(0 4px 3px rgba(16, 24, 40, 0.03));   /* DRIFT: Shadows/shadow-lg literal */
+}
+.citation-card__row { display: flex; flex-direction: column; gap: var(--spacing-xxs); }
+.citation-card__q {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  overflow-wrap: break-word;
+}
+.citation-card__a {
+  font-family: var(--text-md-regular-font-family);
+  font-weight: var(--text-md-regular-font-weight);
+  font-size: var(--text-md-regular-font-size);
+  line-height: var(--text-md-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+  overflow-wrap: break-word;
+}
+.citation-card__rule { width: 100%; height: 1px; background: var(--colors-border-border-secondary); }

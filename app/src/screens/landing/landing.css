@@ -1,0 +1,32 @@
+/* New Session landing (chat-artifact 01 1707:136008 / 02 1707:139771), read with figma-console 2026-10-09:
+     Frame 2147262092 (2556:376787)  640 wide, its top at y 200 of the 900 frame, centred on the 1384 content area:
+                                     EB-Assistant 70 · 16 · "Name + Description" (72: Hello Roger 44 · 8 · the line 20)
+                                     · 36 · Copilot desktop Input Box / Landing Page (5546:229297, 640 x 116, y 394)
+     Banner carousel (2532:73193)    534 x 102 at y 782: its dots end 16 above the frame's bottom edge
+   Fluid: the greeting keeps its 200 at a 900-tall window (50% - 250) and moves up on a shorter one; the banner stays at
+   the bottom; under ~640 of height the page scrolls instead of overlapping. */
+.landing {
+  height: 100%; overflow: auto; display: flex; flex-direction: column; align-items: center;
+  padding: 0 var(--spacing-xl) var(--spacing-xl);
+}
+.landing__hello {
+  flex: none; width: min(640px, 100%); /* DRIFT: Frame 2147262092 640 wide */
+  margin-top: max(var(--spacing-3xl), calc(50vh - 250px)); /* DRIFT: y 200 of 900, centred with the window */
+  display: flex; flex-direction: column; align-items: center; gap: 36px; /* DRIFT: off-scale gap 36 */
+}
+.landing__head { width: 100%; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xl); }
+.landing__text { width: 100%; display: flex; flex-direction: column; gap: var(--spacing-md); text-align: center; }
+.landing__h {
+  font-family: var(--display-md-regular-font-family); font-size: var(--display-md-regular-font-size); font-weight: var(--display-md-regular-font-weight);
+  line-height: var(--display-md-regular-line-height); letter-spacing: var(--display-md-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+  position: relative; top: 1px; /* DRIFT: Figma seats Spectral 1px lower than Chrome (prototypes/notification-flow) */
+}
+.landing__h em { font-style: italic; }
+.landing__sub {
+  font-family: var(--font-family-display); font-size: 17px; line-height: 20px; /* DRIFT: Spectral 17/20 is not in the type scale */
+  color: var(--colors-text-text-secondary-700);
+}
+.landing__composer { width: 100%; }
+.landing__composer > .composer { width: 100%; }
+.landing__spacer { flex: 1 0 var(--spacing-3xl); }

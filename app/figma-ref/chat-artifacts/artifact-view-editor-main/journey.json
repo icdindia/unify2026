@@ -1,0 +1,60 @@
+{
+  "id": "artifact-view-editor-main",
+  "title": "Artifact view from main artifact page (editor)",
+  "card": "3838:249357",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3838-249357",
+  "shell": { "theme": "light", "rail": "none (full-screen artifact)", "composer": false, "artifactPanel": "full frame", "sidePanel": false },
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "5310:276790",
+      "file": "01-5310-276790.png",
+      "size": "1440x900",
+      "shows": "Full-screen artifact (editor) with the complete Arifact Header; artifact-name menu (Rename, Clone, Versions, Delete) open with the Versions submenu listing 3 versions.",
+      "changedFrom": "First step (entry from the Artifacts landing list).",
+      "action": "Click an artifact card on the Artifacts landing page, then click the chevron next to the artifact name and hover Versions.",
+      "annotations": ["all header icons for reference", "min 200 px max full name • 40 pixel between button and name"],
+      "overlay": "dropdown + submenu",
+      "components": [
+        "Arifact Header",
+        "Dropdown list item",
+        "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm",
+        "Buttons/Button Neutral",
+        "Toggle group / Type=Default, Style=Icon only, Size=xs",
+        "Artifact-Icons / Type=Documents",
+        "coloured logos / Type=excel"
+      ]
+    },
+    {
+      "step": "02",
+      "nodeId": "7418:305665",
+      "file": "02-7418-305665.png",
+      "size": "787x900",
+      "shows": "Same artifact at 787px: header reduced to icon + truncated name, Edit with Chat, Excel split, Publish, comments split, download, close.",
+      "changedFrom": "Width 1440 -> 787, menus closed, secondary header icons dropped, name truncated with ellipsis.",
+      "action": "Resize the window / pane to ~787px (responsive state, no click).",
+      "annotations": ["truncate after 40 px gap min"],
+      "overlay": null,
+      "components": ["Arifact Header", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    },
+    {
+      "step": "03",
+      "nodeId": "7418:305917",
+      "file": "03-7418-305917.png",
+      "size": "787x900",
+      "shows": "Narrow view with the truncated name hovered and a dark tooltip showing the full artifact name.",
+      "changedFrom": "Name pill hover state + tooltip added.",
+      "action": "Hover the truncated artifact name in the header.",
+      "annotations": ["tooltip"],
+      "overlay": "tooltip",
+      "components": ["Arifact Header", "Tooltip / Supporting text=False, Arrow=Top left", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    }
+  ],
+  "openQuestions": [
+    "Is 787px a viewport breakpoint or the artifact width inside a chat split pane?",
+    "Do the dropped header icons move to an overflow menu at narrow width?",
+    "Is the Drag Handle on the step-01 canvas a real split handle in full-page view?",
+    "What does picking a version in the Versions submenu do?",
+    "Confirm Rename / Clone / Delete link to the edit-name, cloned-artifact and deleted-artifact frames."
+  ]
+}

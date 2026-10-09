@@ -1,0 +1,65 @@
+{
+  "id": "artifact-full-editor",
+  "title": "Full view of artifacts (editor)",
+  "card": "8279:221783",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-221783",
+  "kind": "gallery (one frame per artifact type, not a sequence)",
+  "shell": { "theme": "light content, dark rail", "rail": "Main_nav / types=collapsed (Artifacts selected)", "composer": false, "artifactPanel": "full content width", "sidePanel": false },
+  "steps": [
+    {
+      "step": "01", "nodeId": "7809:278865", "file": "01-7809-278865.png",
+      "shows": "App artifact full view: back, App icon, 'Untitled Applciations', Edit with Chat; refresh, Publish, comments split, download.",
+      "changedFrom": "First step; vs full-screen editor view the rail is present and the header is reduced.",
+      "action": "Open an App artifact from the Artifacts landing page (or expand it from the chat split view).",
+      "components": ["Main_nav / types=collapsed", "Arifact Header", "Artifact-Icons / Type=App", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Default, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Secondary, Icon=Default, State=Default", "Textarea input field", "chevron-down-sm", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"],
+      "states": [
+        { "step": "01a", "nodeId": "13155:271308", "file": "01a-13155-271308.png", "shows": "Header strip with the back button hovered.", "action": "Hover the back chevron.", "components": ["Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Hover"] }
+      ]
+    },
+    {
+      "step": "02", "nodeId": "7809:273518", "file": "02-7809-273518.png",
+      "shows": "Spreadsheet full view: 'Untitled.xls'; copy, refresh, v3, Publish, comments split, download, collapse, close; grid canvas.",
+      "changedFrom": "Type App -> Spreadsheet; back + Edit with Chat removed; copy, version, collapse, close added.",
+      "action": "Open a spreadsheet artifact in full view.",
+      "components": ["Main_nav / types=collapsed", "Arifact Header", "Artifact-Icons / Type=Spreadsheets", "Buttons/Button Neutral / Size=xs, Hierarchy=Tertiary, Icon=Default, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Secondary, Icon=Default, State=Default", "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default", "Textarea input field", "chevron-down-sm"],
+      "states": [
+        { "step": "02a", "nodeId": "12195:302725", "file": "02a-12195-302725.png", "shows": "xls header strip with a back chevron added on the left.", "action": "Full view reached from another page (back available).", "components": ["Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default"] }
+      ]
+    },
+    {
+      "step": "03", "nodeId": "7809:273526", "file": "03-7809-273526.png",
+      "shows": "Document full view: 'Untitled.doc', same toolbar, centred page on grey.",
+      "changedFrom": "Type -> Document; grid -> page.",
+      "action": "Open a document artifact in full view.",
+      "components": ["Main_nav / types=collapsed", "Arifact Header", "Artifact-Icons / Type=Documents", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"]
+    },
+    {
+      "step": "04", "nodeId": "7809:273538", "file": "04-7809-273538.png",
+      "shows": "PDF full view: 'Untitled.pdf', same toolbar, centred page.",
+      "changedFrom": "Type icon / name only.",
+      "action": "Open a PDF artifact in full view.",
+      "components": ["Main_nav / types=collapsed", "Arifact Header", "Artifact-Icons / Type=PDFs"]
+    },
+    {
+      "step": "05", "nodeId": "7809:273550", "file": "05-7809-273550.png",
+      "shows": "Markdown full view: 'Untitled.md', full-bleed white canvas.",
+      "changedFrom": "Type -> Markdown; no page backdrop.",
+      "action": "Open a Markdown artifact in full view.",
+      "components": ["Main_nav / types=collapsed", "Arifact Header", "Artifact-Icons / Type=Markdowns"]
+    },
+    {
+      "step": "06", "nodeId": "7809:273559", "file": "06-7809-273559.png",
+      "shows": "Presentation full view: 'Untitled.ppt', wide slide on grey.",
+      "changedFrom": "Type -> Presentation.",
+      "action": "Open a presentation artifact in full view.",
+      "components": ["Main_nav / types=collapsed", "Arifact Header", "Artifact-Icons / Type=Presentation"]
+    }
+  ],
+  "openQuestions": [
+    "App header (back + Edit with Chat, no copy/version/collapse/close) differs from the other types - which is canonical?",
+    "When is the back chevron (02a) shown?",
+    "Does collapse return to the chat split view?",
+    "Is the v3 dropdown the same Version history menu as in header-dropdowns?",
+    "JSON / connector editor layouts are not drawn."
+  ]
+}

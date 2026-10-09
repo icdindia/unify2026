@@ -1,0 +1,59 @@
+{
+  "id": "drag-unpin",
+  "title": "Drag chats to unpin",
+  "card": "11661:516352",
+  "cardText": "drag chats to unpin",
+  "section": "1707:133527 Chat",
+  "summary": "A pinned item can be dragged out of the rail's Pinned group; while it is outside, a 'Release to unpin' tooltip follows the cursor, and on release the item returns to its home group (here Routines).",
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "11671:666296",
+      "frameName": "Copilot Landing page",
+      "file": "01-11671-666296.png",
+      "shows": "'Plan launch timeline' being dragged (grabbed cursor, lifted row with hover bg and 3-dot) over the Routines group with a dark tooltip 'Release to unpin'.",
+      "changedFrom": "Start of journey; the dragged row floats over Routines and the Pinned slot it left is filled by a highlighted row.",
+      "action": "Press and drag the pinned chat 'Plan launch timeline' down out of the Pinned group.",
+      "nav": "dark, expanded",
+      "panels": "drag ghost + tooltip; no menus",
+      "annotations": ["Tooltip text: Release to unpin"],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Main {Variant=Expanded, State=Hover} (dragged row 'Nav 8')",
+        "Small Icon Button {Size=md, State=Default}",
+        "dots-horizontal",
+        "Cursor {State=Grabbed}",
+        "Tooltip {Supporting text=False, Arrow=None}",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}"
+      ]
+    },
+    {
+      "step": "02",
+      "nodeId": "11671:670376",
+      "frameName": "Copilot Landing page",
+      "file": "02-11671-670376.png",
+      "shows": "After release: Pinned now holds Artifacts, Project Name, Review customer feedback; 'Plan launch timeline' sits second in Routines with hover background and 3-dot.",
+      "changedFrom": "Pinned group shrinks by one row; the item is inserted into Routines; tooltip and grab cursor gone (pointer hand).",
+      "action": "Release the mouse outside the Pinned group.",
+      "nav": "dark, expanded",
+      "panels": "none",
+      "annotations": [],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "Cursor {State=Pointer Hand}",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}"
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Step 01 shows 'Review customer feedback' twice in Pinned (one highlighted at the vacated slot). Is the highlighted slot meant to be an empty drop placeholder?",
+    "Unpinned item lands in Routines, i.e. its home group, not where it was dropped. Confirm the rule (return to home group, sorted by recency?).",
+    "Where exactly does 'Release to unpin' start: as soon as the cursor leaves the Pinned group bounds?"
+  ]
+}

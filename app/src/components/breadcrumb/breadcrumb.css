@@ -1,0 +1,12 @@
+/* ES Breadcrumb — the 40px strip across the top of the main area (prototype: .crumbs).
+   Every control inside settles to 28px, which with 6px top and bottom padding makes the bar 40. */
+.crumbs {
+  flex: none; height: 40px; min-width: 0; /* DRIFT: bar height */
+  display: flex; align-items: center; padding: var(--spacing-sm) var(--spacing-lg); background: var(--colors-background-bg-workspace);
+}
+.crumbs__slash { width: 10px; height: 10px; flex: none; } /* DRIFT: icon */
+/* Fluid: when the strip is narrower than the trail, the current crumb shrinks (down to its 56px min-width)
+   and its label ellipsizes; earlier crumbs keep their width. */
+.crumbs .tbtn:not(.crumbs__current) { flex: none; }
+.crumbs__current .tbtn__t { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.crumbs__actions { margin-left: auto; display: flex; align-items: center; gap: var(--spacing-xxs); flex: none; }

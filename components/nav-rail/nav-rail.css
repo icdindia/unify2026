@@ -1,0 +1,116 @@
+/* ----------------------------------------------------------------------------
+   nav-rail — DS "New_Platform Navigation" / "LC_Sidebar Navigation_Icon Only"
+              items are "Base_Platform Nav Menu Unit"
+   Figma: 16740:306223
+   Screen: Dashboard 16740:306222
+
+   design-rules §8: icon-only rail for product surfaces; labels live in tooltips.
+   Figma draws it 56px wide (§8 says ~64px — the platform rail is the narrower
+   variant; following the design, not the prose rule).
+
+   DRIFT (token): the navbar surface reads #efebe5 in the live Figma file, but
+   the 25-Jun token export resolves Component/Nav Bar/navbar-bg to
+   utility-gray-100 (#f2f0ee). Using the live value via the token name; the
+   export needs a re-stage. Flagged to DS owner.
+   DRIFT (token): the active item binds Palette/Alpha Colors/Black/alpha-black-05
+   — a PRIMITIVE. There is no semantic nav-item-bg-active in the DS. Used as-is
+   to match the design; the DS should promote it to a component token.
+---------------------------------------------------------------------------- */
+
+.nav-rail {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  width: 56px;
+  background: var(--component-nav-bar-navbar-bg);
+  border-right: 1px solid var(--colors-border-border-secondary);
+}
+
+.nav-rail__content {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  height: 100%;
+}
+
+.nav-rail__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+  padding-top: 15px;   /* DRIFT: Figma pt-[15px]; off the spacing scale (12 -> 16) */
+}
+.nav-rail__brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--spacing-lg); width: 100%; padding-inline: var(--spacing-lg); }
+.nav-rail__logo { width: 32px; height: 32px; color: var(--colors-utility-brand-tertiary-utility-brand-tertiary-600); }
+.nav-rail__logo svg { display: block; width: 100%; height: 100%; }
+
+.nav-rail__group { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); width: 100%; }
+.nav-rail__footer { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); width: 100%; padding-top: var(--spacing-md); }
+
+.nav-rail__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 36px;
+  padding-inline: 10px;   /* DRIFT: Figma px-[10px]; spacing scale jumps 8 -> 12, no token fits */
+  border: 0;
+  background: none;
+  cursor: pointer;
+  overflow: clip;
+  appearance: none;
+}
+
+.nav-rail__item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  width: 36px;
+  height: 100%;
+  box-sizing: border-box;
+  padding-inline: var(--spacing-md);
+  border-radius: var(--radius-md);
+  color: var(--colors-icon-icon-primary);
+}
+
+.nav-rail__item:hover .nav-rail__item-content,
+.nav-rail__item[data-force="hover"] .nav-rail__item-content {
+  background: var(--palette-alpha-colors-black-alpha-black-05); /* DRIFT: design binds a primitive; no semantic nav-item-bg-hover exists */
+}
+
+.nav-rail__item[aria-current="page"] .nav-rail__item-content,
+.nav-rail__item[data-force="current"] .nav-rail__item-content {
+  background: var(--palette-alpha-colors-black-alpha-black-05); /* DRIFT: same primitive; DS should ship nav-item-bg-active */
+}
+
+.nav-rail__item:focus-visible { outline: 2px solid var(--colors-border-border-brand-solid); outline-offset: -2px; }
+.nav-rail__item svg { display: block; width: 18px; height: 18px; }
+
+/* notification count anchored to the bell */
+.nav-rail__badge {
+  position: absolute;
+  /* DRIFT: 180px is a hard anchor to the bell item in Figma (16740:306223) —
+     it is a position, not a spacing step, and has no token. */
+  top: 180px;
+  left: var(--spacing-3xl);
+}
+
+.nav-rail__user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--colors-border-border-primary);
+}

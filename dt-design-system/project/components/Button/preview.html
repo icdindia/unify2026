@@ -1,0 +1,45 @@
+<!-- @dsCard group="Actions" height=580 subtitle="ODS" -->
+<style>
+  .dt-pv { display: flex; flex-direction: column; gap: 24px; padding: 16px; font-family: var(--font-sans); color: var(--colours-basic-text); background: var(--colours-basic-background); }
+  .dt-pv-label { font: 700 0.75rem/1.3 var(--font-sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--colours-basic-text-recessive); margin: 0 0 8px; }
+  .dt-pv-stage { position: relative; overflow: auto; }
+  /* Storybook decorators only (never ODS-classed parts): drop their padding, centring, fixed boxes and margins */
+  .dt-pv-stage > div > div:not([class*="ODS"]) { padding: 0 !important; }
+  .dt-pv-stage div[style]:not([class*="ODS"]):not([class*="ODS"] *) { justify-content: flex-start !important; align-items: flex-start !important; height: auto !important; }
+  .dt-pv-stage div[style*="margin: 5em"]:not([class*="ODS"]):not([class*="ODS"] *), .dt-pv-stage div[style*="margin: auto"]:not([class*="ODS"]):not([class*="ODS"] *) { margin: 0 !important; }
+  .dt-pv-stage div[style*="width: 300px"]:not([class*="ODS"]):not([class*="ODS"] *) { width: auto !important; }
+  .dt-pv-stage div[style]:not([class*="ODS"]):not([class*="ODS"] *):has(> .ODSDivider > .ODSDivider-rectangle--variant-vertical) { height: 160px !important; }
+  .dt-pv-stage a.ODSButton { display: inline-flex; width: auto; }
+  .dt-pv-stage .ODSBadgeNumber { width: max-content; }
+  .dt-pv-stage { padding: 4px; }
+  /* floating tooltips were captured in flow (position: relative) → size the bubble to its text, ODS max width 230 */
+  .dt-pv-stage .ODSTooltip-Wrapper { width: max-content; max-width: 230px !important; }
+  /* ODS: the expanded Side Navigation fills its container and the product sets the width; preview container 280 (DT side nav) */
+  .dt-pv-stage .ODSSideNavigation--expanded { max-width: 280px; }
+  .dt-pv-stage .ODSTextArea ~ .ODSTextArea, .dt-pv-stage .ODSTextField ~ .ODSTextField { margin-top: 16px; }
+  .dt-pv-stage .ODSSearch-dropdown-wrapper-collapsing { height: 0 !important; overflow: hidden !important; }
+  /* opened overlays: transform makes this box the containing block for their position:fixed layers */
+  .dt-pv-overlay { transform: translateZ(0); min-height: 520px; overflow: hidden; border-radius: 16px; outline: 1px solid var(--colours-shades-neutral-shades-200); }
+  .dt-chart-img { display: block; width: auto; max-width: 100%; max-height: 320px; height: auto; background: #ffffff; border-radius: 8px; }
+  .dt-pv-stage [role="application"] { height: auto !important; }
+  .dt-embed-note { padding: 24px; background: var(--colours-shades-neutral-shades-100); color: var(--colours-basic-text-recessive); border-radius: 16px; }
+</style>
+<div class="dt-pv">
+<section><p class="dt-pv-label">Example</p><div class="dt-pv-stage"><div><div style="width: 504px; min-height: 48px; justify-content: center; display: flex;"><button class="ODSRow ODSButton ODSButton--size-large ODSButton--buttonType-standard ODSButton--variant-primary ODSButton-ButtonBg--variant-primary ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-standard ODSButton-ButtonBg--size-large" type="button" aria-label="Button Label" aria-busy="false"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-large ODSButton-Content--buttonType-standard"><span aria-hidden="false" class="ODSButton-Label">Button Label</span></div></button></div></div></div></section>
+<section><p class="dt-pv-label">Button As A Link</p><div class="dt-pv-stage"><div><a class="ODSRow ODSButton ODSButton--size-large ODSButton--buttonType-standard ODSButton--variant-primary ODSButton-ButtonBg--variant-primary ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-standard ODSButton-ButtonBg--size-large" aria-label="Link Button (jumps to href)" aria-busy="false" href="https://www.telekom.de" target="_blank" rel="noopener noreferrer"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-large ODSButton-Content--buttonType-standard"><span aria-hidden="false" class="ODSButton-Label">Link Button (jumps to href)</span><div class="ODSRow ODSButton-RightIcon ODSButton-RightIcon--buttonType-standard"><svg class="ODSIcon ODSButton-ButtonIcon ODSButton-ButtonIcon--size-large ODSButton-ButtonIcon--buttonType-standard ODSButton-ButtonIcon--variant-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"><g fill="currentColor"><g><path d="M11.9 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path><path d="M6.956 3.574a1 1 0 0 0-1.94.488A7.55 7.55 0 0 0 8.4 8.66v9.405a1 1 0 0 0 .238.649l2.5 2.935a1 1 0 0 0 1.523-1.296l-2.261-2.656V15h2.125l1.832.977-.205 2.954a1 1 0 1 0 1.995.138l.25-3.6a1 1 0 0 0-.527-.951L13.4 13.2V9.691a7.54 7.54 0 0 0 5.411-3.598 1 1 0 1 0-1.716-1.026A5.545 5.545 0 0 1 6.956 3.574"></path></g></g></svg></div></div></a></div></div></section>
+<section><p class="dt-pv-label">Loading Button Demo</p><div class="dt-pv-stage"><div><div style="align-items: center; display: flex; flex-direction: column;"><button class="ODSRow ODSButton ODSButton--size-large ODSButton--buttonType-standard ODSButton--variant-primary ODSButton-ButtonBg--variant-primary ODSButton-ButtonBg ODSButton-ButtonBg--buttonType-standard ODSButton-ButtonBg--size-large" type="button" aria-label="Start Loading" aria-busy="false"><div class="ODSButton-ButtonBgElement"></div><div class="ODSRow ODSButton-Content ODSButton-Content--size-large ODSButton-Content--buttonType-standard"><span aria-hidden="false" class="ODSButton-Label">Start Loading</span></div></button></div></div></div></section>
+</div>
+<script>
+// Static rendition of ODS markup; wire the one universal behaviour (disclosure) so accordions and menus toggle.
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('button[aria-expanded][aria-controls]');
+  if (!b) return;
+  var scope = b.closest('section') || document;
+  var p = scope.querySelector('[id="' + b.getAttribute('aria-controls') + '"]');
+  var open = b.getAttribute('aria-expanded') !== 'true';
+  b.setAttribute('aria-expanded', String(open));
+  if (p) { if (open) { p.removeAttribute('hidden'); p.style.maxHeight = 'none'; p.classList.add(p.classList[1] + '--expanded'); }
+           else { p.setAttribute('hidden', ''); p.style.maxHeight = '0px'; p.classList.remove(p.classList[1] + '--expanded'); } }
+  b.querySelectorAll('.ODSIcon').forEach(function (i) { i.style.transform = open ? 'rotate(180deg)' : ''; });
+});
+</script>

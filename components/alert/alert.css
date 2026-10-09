@@ -1,0 +1,64 @@
+/* ----------------------------------------------------------------------------
+   alert — DS "Alert" (inline, single-line)
+   Figma: 16740:306307 (warning) · 16740:306399 (neutral/info)
+   Screen: Dashboard 16740:306222
+---------------------------------------------------------------------------- */
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 32px;   /* Figma 306307/306336 = 32, 306392 = 36, 306399 = 46 (wraps) */
+  padding: var(--spacing-md) var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+  border-radius: var(--radius-md);
+  overflow: clip;
+}
+
+.alert__content {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 0;
+}
+
+.alert__icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-block: 1px;   /* DRIFT: Figma py-px optical nudge; 1px is off the spacing scale */
+  align-self: flex-start;
+  color: currentColor;
+}
+.alert__icon svg { display: block; width: 100%; height: 100%; }
+
+.alert__text {
+  display: flex;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--spacing-sm);
+  min-width: 0;
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+}
+
+/* the lead-in phrase before the em-dash is Medium */
+.alert__lead { font-weight: 500; }
+
+.alert--warning {
+  background: var(--colors-utility-warning-utility-warning-25);
+  color: var(--colors-utility-warning-utility-warning-700);
+}
+.alert--warning .alert__icon { color: var(--colors-icon-icon-warning-600); }
+
+.alert--neutral {
+  padding-block: var(--spacing-sm);
+  background: var(--colors-utility-gray-utility-gray-50);
+  color: var(--colors-text-text-tertiary-600);
+}
+.alert--neutral .alert__icon { color: var(--colors-icon-icon-primary); }

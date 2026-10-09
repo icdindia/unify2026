@@ -1,0 +1,4 @@
+/* Navigation gallery page: each nav sits in a fixed-height stage (the shell gives it the window height). */
+.gnav-stage { height: 640px; flex: none; overflow: hidden; border-radius: var(--radius-md); } /* DRIFT: gallery stage height */
+.gnav-stage--nav { width: 280px; max-width: 100%; } /* DRIFT: Main_nav 280 */
+.gnav-stage--rail { width: 56px; } /* DRIFT: Main_nav compact 56 */

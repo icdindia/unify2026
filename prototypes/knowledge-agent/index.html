@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Agent · UnifyApps</title>
+  <!-- ChargePoint Knowledge Agent — second artefact on the same shell as
+       prototypes/playbook-studio. Chrome, motion, spacing, type sizes,
+       colours, sizes: taken verbatim from playbook-studio-design-decisions
+       in memory. Only the domain content and the landing / answer surfaces
+       differ. See ./knowledge-agent.css and ./app.js for the deltas. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/tokens.css">
+  <link rel="stylesheet" href="../../shared/tokens.live-overrides.css">
+  <link rel="stylesheet" href="../../shared/typography.css">
+  <link rel="stylesheet" href="../../components/main-nav/main-nav.css">
+  <link rel="stylesheet" href="../../components/button/button.css">
+  <link rel="stylesheet" href="../../components/pill/pill.css">
+  <link rel="stylesheet" href="../../components/es-breadcrumb/es-breadcrumb.css">
+  <link rel="stylesheet" href="../../components/copilot-input/copilot-input.css">
+  <link rel="stylesheet" href="../../components/question-card/question-card.css">
+  <link rel="stylesheet" href="../../components/artifact-header/artifact-header.css">
+  <link rel="stylesheet" href="../../components/inline-artifact-card/inline-artifact-card.css">
+  <link rel="stylesheet" href="../../components/cot/cot.css">
+  <link rel="stylesheet" href="../../components/citation-card/citation-card.css">
+  <link rel="stylesheet" href="../../components/list-item/list-item.css">
+  <link rel="stylesheet" href="../../components/horizontal-tabs/horizontal-tabs.css">
+  <link rel="stylesheet" href="../../components/filter-bar/filter-bar.css">
+  <link rel="stylesheet" href="../../components/section-card/section-card.css">
+  <link rel="stylesheet" href="../../components/detail-row/detail-row.css">
+  <link rel="stylesheet" href="./knowledge-agent.css">
+</head>
+<body>
+<div class="app-shell" id="app">
+  <nav class="main-nav main-nav--expanded" id="rail" data-state="expanded" aria-label="Main"
+       data-component="main-nav" data-figma-name="Main_nav" data-figma-file="main" data-figma-node="1731:251990">
+    <div class="main-nav__x-nav">
+      <div class="main-nav__x-head">
+        <div class="main-nav__x-header" data-figma-node="I1731:251990;323:103182">
+          <a class="main-nav__x-brand" href="#home" aria-label="UnifyApps home">
+            <span class="main-nav__x-logo" id="brandMark"></span>
+            <span class="main-nav__x-wordmark" id="brandWord"></span>
+          </a>
+          <div class="main-nav__x-head-actions">
+            <button class="main-nav__x-head-btn main-nav__x-head-btn--search" type="button" id="railSearch" aria-label="Search"></button>
+            <button class="main-nav__x-head-btn main-nav__x-head-btn--toggle" type="button" id="railToggle" aria-label="Collapse sidebar"></button>
+          </div>
+        </div>
+      </div>
+      <div class="main-nav__x-body">
+        <div class="main-nav__x-primary" id="navPrimary" data-figma-node="I1731:251990;419:152018"></div>
+        <section class="main-nav__x-section" data-figma-node="I1731:251990;419:151747">
+          <header class="main-nav__x-subheader" data-component="main-nav" data-figma-name="Nav_menu/Subheader" data-figma-file="main" data-figma-node="I1731:251990;6661:242278">
+            <span class="main-nav__x-subheader-text">Agents</span>
+            <span class="main-nav__x-subheader-actions">
+              <button class="main-nav__x-small-btn" type="button" aria-label="Collapse agents" id="agentsChev"></button>
+            </span>
+          </header>
+          <div class="main-nav__x-group" id="navAgents"></div>
+          <span class="main-nav__x-divider" role="separator"></span>
+        </section>
+        <section class="main-nav__x-section main-nav__x-section--history" data-figma-node="I1731:251990;292:88496">
+          <div class="main-nav__x-group">
+            <header class="main-nav__x-subheader" data-component="main-nav" data-figma-name="Nav_menu/Subheader" data-figma-file="main" data-figma-node="I1731:251990;6661:293988">
+              <span class="main-nav__x-subheader-text">History</span>
+              <span class="main-nav__x-subheader-actions"><button class="main-nav__x-small-btn" type="button" aria-label="Collapse history" id="histChev"></button></span>
+            </header>
+            <div class="main-nav__x-group" id="navHistory"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <button class="main-nav__x-footer" type="button" data-component="main-nav" data-figma-name="Nav_menu/Footer" data-figma-file="main" data-figma-node="I1731:251990;292:88513">
+      <span class="main-nav__x-user-avatar">I</span>
+      <span class="main-nav__x-name">ICD</span>
+      <span id="userChev"></span>
+    </button>
+  </nav>
+
+  <div class="stage" id="stage" data-artifact="closed" data-expanded="false">
+    <section class="view" id="view"></section>
+    <div class="split" id="split"><div class="split__handle" data-figma-node="1809:488594" aria-hidden="true"></div></div>
+    <aside class="artifact-panel" id="artifactPanel" data-figma-node="4376:395812"></aside>
+  </div>
+</div>
+<div id="sheetHost"></div>
+<script src="./icons.js?v=137"></script>
+<script src="./data.js?v=137"></script>
+<script src="./app.js?v=137"></script>
+</body>
+</html>

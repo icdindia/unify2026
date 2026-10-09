@@ -1,0 +1,50 @@
+{
+  "id": "enhance-prompt",
+  "title": "Enhance prompt with AI (option 1)",
+  "card": "9860:711731",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9860-711731",
+  "steps": [
+    {
+      "step": "01", "nodeId": "10230:663810", "file": "01-10230-663810.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing empty", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Landing; composer toolbar has a disabled sparkle 'Enhance' icon between model icon and mic",
+      "changedFrom": "start of journey",
+      "action": "open a new session",
+      "annotations": ["Option 1"],
+      "components": ["Main_nav / types=collapsed", "Company Logo", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Disabled", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Default", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "02", "nodeId": "10247:277018", "file": "02-10247-277018.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing filled", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Prompt typed; Enhance icon enabled; Send button appears",
+      "changedFrom": "text typed (>=3 words), Enhance enabled",
+      "action": "type a prompt of 3+ words",
+      "annotations": ["AI Enhance icon is enableds only after typing 3 words"],
+      "components": ["Main_nav / types=collapsed", "Company Logo", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Default", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "03", "nodeId": "10247:282174", "file": "03-10247-282174.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing filled", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Hover on Enhance icon with tooltip 'Enhance with AI'",
+      "changedFrom": "hover background + tooltip",
+      "action": "hover the Enhance icon",
+      "components": ["Main_nav / types=collapsed", "Company Logo", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Hover", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Default", "Tooltip / Supporting text=False, Arrow=Bottom center", "Cursor / State=Arrow", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "04", "nodeId": "10247:280053", "file": "04-10247-280053.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing loading (skeleton)", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Prompt replaced by two shimmer skeleton lines; Enhance becomes Stop; Send disabled",
+      "changedFrom": "enhancing in progress",
+      "action": "click 'Enhance with AI'",
+      "components": ["Main_nav / types=collapsed", "Company Logo", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Default", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "05", "nodeId": "10247:286242", "file": "05-10247-286242.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing filled (two lines)", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Enhanced two-line prompt; Enhance disabled again; Send active",
+      "changedFrom": "skeleton replaced by rewritten prompt",
+      "action": "none (enhancement completes)",
+      "components": ["Main_nav / types=collapsed", "Company Logo", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=Yes, Text=Two line, Attachment=No", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Disabled", "Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, State=Default", "Banner carousel / Property 1=Three apps"]
+    }
+  ]
+}

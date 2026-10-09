@@ -1,0 +1,22 @@
+{
+  "id": "logo-options",
+  "title": "Thinking/logo animation (option 1: circular dots)",
+  "card": null,
+  "label": "3541:59986",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3612-167773",
+  "motion": {
+    "thinkingState": { "set": "484:117565", "loop": "State=1 <-> State=2, 0.8s" },
+    "placeholderRotation": { "set": "5546:212948", "hold": "4.5s", "break": "0.2s", "transition": "SMART_ANIMATE 300ms", "texts": ["Describe the outcome — I will build the steps.", "Use + to connect the necessary apps.", "Use @name to bring an agent or colleague here.", "Use /skill to give your agent a capability.", "Chat to search the enterprise database."] }
+  },
+  "steps": [
+    {
+      "step": "01", "nodeId": "3612:167773", "file": "01-3612-167773.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "landing empty (no tool chips)", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Landing page with the circular-dots logo, Hello Roger greeting, landing composer, Connect apps banner",
+      "changedFrom": "single-frame journey",
+      "action": "open a new session",
+      "annotations": ["Option1. Circular dots"],
+      "components": ["Main_nav / types=collapsed", "EB-Assistant/AI", "Copilot desktop Input Box / Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No", "Banner carousel / Property 1=Three apps"]
+    }
+  ]
+}

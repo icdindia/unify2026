@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UnifyApps component index</title>
+<link rel="stylesheet" href="../shared/tokens.css">
+<link rel="stylesheet" href="../shared/tokens.live-overrides.css">
+<link rel="stylesheet" href="../shared/typography.css">
+<link rel="stylesheet" href="preview-shell.css">
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div>
+      <h1>UnifyApps components</h1>
+      <p class="sub">Atoms extracted while building
+         <a href="../prototypes/agent-dashboard/index.html">Agent Dashboard</a> and <a href="../prototypes/playbook-studio/index.html">Playbook Studio</a>
+         from Figma <code>16740:306222</code>.</p>
+    </div>
+    <button class="small-icon-btn" data-theme-toggle aria-label="Toggle theme">◐</button>
+  </header>
+
+  <section class="panel">
+    <h2>Library</h2>
+    <table>
+      <thead><tr><th>Component</th><th>Role</th><th>Source</th><th>Figma node</th><th>Drift</th></tr></thead>
+      <tbody>
+      <tr>
+        <td><a href="artifact-card/artifact-card.css"><code>artifact-card</code></a></td>
+        <td>Artifact tile: title + type mark, tinted preview, author/time + lock/avatars.</td>
+        <td class="src ">DS</td>
+        <td class="figma">7489:272547 (Enterprise Search Base 2026)</td>
+        <td class="drift">title binds a 2nd colour library (#424242); Text&nbsp;lg/Medium export wrong</td>
+      </tr>
+      <tr>
+        <td><a href="filter-bar/filter-bar.css"><code>filter-bar</code></a></td>
+        <td>Toggle group + search + two filter tabs; the list-controls row.</td>
+        <td class="src ">DS</td>
+        <td class="figma">7489:272510 (Enterprise Search Base 2026)</td>
+        <td class="drift">the two tabs bind different border tokens</td>
+      </tr>
+      <tr>
+        <td><a href="main-nav/main-nav.css"><code>main-nav</code></a></td>
+        <td>Dark product rail, 56px collapsed and 280px expanded (<code>.main-nav--expanded</code>, <code>data-state</code>). NOT <code>nav-rail</code> — that is the light platform rail.</td>
+        <td class="src ">DS</td>
+        <td class="figma">7489:272502 · 1731:251990 (expanded) · 7134:273616</td>
+        <td class="drift">alpha-white .17/.15 have no token; 30% scrim untokenised</td>
+      </tr>
+      <tr>
+        <td><a href="button/button.css"><code>button</code></a></td>
+        <td>Button Brand + Button Neutral: size (xs/sm/md) × hierarchy (brand-primary / neutral-secondary / neutral-tertiary) + icon shapes.</td>
+        <td class="src ">DS</td>
+        <td class="figma">7489:272509 · I3838:245967;3792:244997 · I875:165829;595:140488 (Enterprise Brain Base 2026)</td>
+        <td class="drift">sm buttons state 13/16 (no DS style)</td>
+      </tr>
+      <tr>
+        <td><a href="es-breadcrumb/es-breadcrumb.css"><code>es-breadcrumb</code></a></td>
+        <td>Chat header: title button, Spectral cost, Share, icon buttons, avatar cluster. 40 tall.</td>
+        <td class="src ">DS</td>
+        <td class="figma">5865:366539 · 7062:513829 · 6424:330601</td>
+        <td class="drift">Spectral 14/18 cost label; tertiary hover token drift (§19)</td>
+      </tr>
+      <tr>
+        <td><a href="copilot-input/copilot-input.css"><code>copilot-input</code></a></td>
+        <td>Copilot desktop Input Box: 48px pill composer + the 760×76 fade frame.</td>
+        <td class="src ">DS</td>
+        <td class="figma">5563:230560 · 7372:140068 · 5975:416348</td>
+        <td class="drift">px 10, pb 28 off-scale</td>
+      </tr>
+      <tr>
+        <td><a href="artifact-header/artifact-header.css"><code>artifact-header</code></a></td>
+        <td>Arifact Header: icon + title button, toggle group, hairline, version, Publish, window-icon trio.</td>
+        <td class="src ">DS</td>
+        <td class="figma">3838:245967</td>
+        <td class="drift">13/16 on version + Publish</td>
+      </tr>
+      <tr>
+        <td><a href="question-card/question-card.css"><code>question-card</code></a></td>
+        <td>Copilot_Question Card: top bar, numbered option rows, free-text row with Skip.</td>
+        <td class="src ">DS</td>
+        <td class="figma">875:165812</td>
+        <td class="drift">body drop-shadow literal</td>
+      </tr>
+      <tr>
+        <td><a href="inline-artifact-card/inline-artifact-card.css"><code>inline-artifact-card</code></a></td>
+        <td>Artifact chip inside an agent answer with the tilted document stack.</td>
+        <td class="src ">DS</td>
+        <td class="figma">5717:486438 · 5975:416193</td>
+        <td class="drift">stack shadow literal</td>
+      </tr>
+      <tr>
+        <td><a href="alert/alert.css"><code>alert</code></a></td>
+        <td>Inline single-line notice; warning + neutral/info variants.</td>
+        <td class="src ">DS</td>
+        <td class="figma">16740:306307 (warning) · 16740:306399 (neutral/info)</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="avatar/avatar.css"><code>avatar</code></a></td>
+        <td>Initial-fallback circle; 20px rail and 32px nav sizes.</td>
+        <td class="src ">DS</td>
+        <td class="figma">16740:306466 (20px, rail) · I…;59783:74906 (32px, nav footer)</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="detail-row/detail-row.css"><code>detail-row</code></a></td>
+        <td>details-rail metadata row as absent from the DS. Built from DS tokens.</td>
+        <td class="src src--local">local</td>
+        <td class="figma">16740:306401 · 306405 · 306409 … (Agent details / Access &amp; scope)</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="form-header/form-header.css"><code>form-header</code></a></td>
+        <td>Section title + count pill + supporting line + optional right-hand action.</td>
+        <td class="src ">DS</td>
+        <td class="figma">16740:306244 · 306304 · 306349 · 306398 (with featured logo)</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="horizontal-tabs/horizontal-tabs.css"><code>horizontal-tabs</code></a></td>
+        <td>surface + 1px border-secondary; inactive = bg-tertiary, borderless.</td>
+        <td class="src ">DS</td>
+        <td class="figma">16740:306236 · items &quot;Button Tab base&quot;</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="key-value-row/key-value-row.css"><code>key-value-row</code></a></td>
+        <td>Label + sub-label on the left, badge cluster on the right half.</td>
+        <td class="src ">DS</td>
+        <td class="figma">16740:306337 · 306340 · 306343 · 306346 (Governance controls)</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="nav-rail/nav-rail.css"><code>nav-rail</code></a></td>
+        <td>items are &quot;Base_Platform Nav Menu Unit&quot;</td>
+        <td class="src ">DS</td>
+        <td class="figma">16740:306223</td>
+        <td class="drift">⚑ 4</td>
+      </tr>
+      <tr>
+        <td><a href="page-header/page-header.css"><code>page-header</code></a></td>
+        <td>embeds DS &quot;Breadcrumb Bar&quot; (36664:35617)</td>
+        <td class="src ">DS</td>
+        <td class="figma">16740:306227</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="pill/pill.css"><code>pill</code></a></td>
+        <td>Pill solid + Pill squared (sizes xs/sm, optional leading dot or icon)</td>
+        <td class="src ">DS</td>
+        <td class="figma">I…;64906:40146 · 16740:306407 (status+dot) · 16740:306403 (icon leading) · 16740:306437 (xs gray chip)</td>
+        <td class="drift"></td>
+      </tr>
+      <tr>
+        <td><a href="section-card/section-card.css"><code>section-card</code></a></td>
+        <td>(plain styled frame)&quot; as GENUINELY ABSENT from the DS — compose locally per</td>
+        <td class="src src--local">local</td>
+        <td class="figma"></td>
+        <td class="drift">⚑ 1</td>
+      </tr>
+      <tr>
+        <td><a href="stat/stat.css"><code>stat</code></a></td>
+        <td>the DS — compose locally per PLAYBOOK §5 using DS tokens.</td>
+        <td class="src src--local">local</td>
+        <td class="figma">16740:306247 · 306256 · 306265 (Value &amp; performance)</td>
+        <td class="drift">⚑ 3</td>
+      </tr>
+      </tbody>
+    </table>
+    <p class="note"><strong>local</strong> = composed here because the DS has no
+    published equivalent (see <a href="../shared/MISSING-COMPONENTS.md">MISSING-COMPONENTS.md</a>).
+    <strong>⚑</strong> = carries a DRIFT marker (see
+    <a href="../shared/DRIFT-LOG.md">DRIFT-LOG.md</a>).</p>
+  </section>
+
+  <section class="panel">
+    <h2>Foundations</h2>
+    <ul class="links">
+      <li><a href="../shared/tokens.css">tokens.css</a> — 513 semantic tokens × light/dark, generated from <code>ds/tokens/*.json</code></li>
+      <li><a href="../shared/tokens.live-overrides.css">tokens.live-overrides.css</a> — live-Figma corrections to the stale export</li>
+      <li><a href="../shared/typography.css">typography.css</a> — 106 DS text styles as utility classes</li>
+      <li><a href="../shared/svg-icons/">svg-icons/</a> — 26 exported icons, normalised to <code>currentColor</code></li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Verify</h2>
+    <pre><code>./tools/verify.sh            # structure, tiers, parity, tagging
+./tools/verify.sh --drift    # + diff generated tokens vs live Figma</code></pre>
+  </section>
+</div>
+<script src="preview-theme.js"></script>
+</body>
+</html>

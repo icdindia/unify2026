@@ -1,0 +1,78 @@
+/* Attachments (144:37183) / Placement=With Reply Box, Size=md, and the Attachments Desktop row (144:37169).
+   Row: 58 tall = 6 (room for the remove buttons that overhang by 6) + 48 + 4; tiles 12 apart from a 4px left inset;
+   a 38x54 shade fades the right edge into bg-primary while the row scrolls on.
+   Image Thumbnail: 48x48, radius 8, border-tertiary 1px inside, image clipped to the radius.
+   File: 300x48, padding 8, gap 12, radius 8, bg-primary, border-tertiary inside; 32px type tile radius 6 with a 20px
+   file-04 glyph; name 12/16 text-primary, meta 12/16 text-tertiary. Error: border-error-solid, meta text-error.
+   Remove: 20px circle, bg-quaternary with a white 1px ring inside, 16px close glyph in icon-secondary, top -6 right -6. */
+.cattachments { position: relative; flex: none; width: 100%; }
+.cattachments__scroll { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; padding: 0 0 var(--spacing-xs) var(--spacing-xs); }
+.cattachments__scroll::-webkit-scrollbar { display: none; }
+.cattachments__row {
+  display: flex; align-items: center; gap: var(--spacing-lg); width: max-content; margin: 0; padding: var(--spacing-sm) var(--spacing-sm) 0 0; list-style: none;
+}
+.cattachments__row > li { display: block; flex: none; }
+.cattachments__shade {
+  position: absolute; top: var(--spacing-xxs); right: 0; bottom: var(--spacing-xxs); pointer-events: none;
+  background: linear-gradient(to left, var(--colors-background-bg-primary), transparent);
+}
+.cattachments__shade { width: 38px; } /* DRIFT: shade width from the file */
+
+.cattach { position: relative; flex: none; }
+.cattach__remove {
+  position: absolute; display: flex; align-items: center; justify-content: center; padding: var(--spacing-xxs); border-radius: var(--radius-full);
+  background: var(--colors-background-bg-quaternary); color: var(--colors-icon-icon-secondary);
+}
+.cattach__remove { box-shadow: inset 0 0 0 1px var(--colors-border-border-white); }
+.cattach__remove { top: -6px; right: -6px; width: 20px; height: 20px; } /* DRIFT: Small Icon Button md, overhang from the file */
+.cattach__remove svg { display: block; flex: none; }
+.cattach__remove:hover { background: var(--colors-background-bg-quaternary-hover); }
+
+/* Type=Image Thumbnail */
+.cattach--image { width: 48px; height: 48px; } /* DRIFT: thumbnail size */
+.cattach__media {
+  position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md); overflow: hidden; background: var(--colors-background-bg-primary);
+}
+.cattach__media img { width: 100%; height: 100%; object-fit: cover; }
+.cattach__media::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+.cattach__media::after { box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); }
+.cattach--image:is(:hover, .is-hover):not(.is-loading) .cattach__media::before {
+  content: ''; position: absolute; inset: 0; background: var(--palette-alpha-colors-black-alpha-black-30); /* DRIFT: State=Hover scrim is alpha-black-30, a primitive; no semantic overlay token */
+}
+.cattach--image.is-error .cattach__media::after { box-shadow: inset 0 0 0 1px var(--colors-border-border-error-solid); }
+
+/* Type=File */
+.cattach--file {
+  display: flex; align-items: center; gap: var(--spacing-lg); padding: var(--spacing-md); border-radius: var(--radius-md);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+}
+.cattach--file { width: 300px; max-width: 100%; height: 48px; } /* DRIFT: file card size */
+.cattach--file.is-error { padding-right: var(--spacing-lg); }
+.cattach--file.is-error { box-shadow: inset 0 0 0 1px var(--colors-border-border-error-solid); }
+.cattach__tile { display: flex; flex: none; align-items: center; justify-content: center; padding: var(--spacing-sm); border-radius: var(--radius-sm); }
+.cattach__tile { width: 32px; height: 32px; } /* DRIFT: File type icon / Size=sm */
+.cattach__tile svg { display: block; }
+.cattach__tile--file { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-400); color: var(--colors-utility-teal-utility-teal-25); }
+.cattach__tile--pdf { background: var(--colors-utility-magenta-utility-magenta-400); color: var(--colors-utility-rose-utility-rose-25); }
+.cattach__wait { display: flex; flex: none; padding: 0 var(--spacing-xs); }
+.cattach__text { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; }
+.cattach__name, .cattach__meta {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.cattach__name { color: var(--colors-text-text-primary-900); }
+.cattach__meta { color: var(--colors-text-text-tertiary-600); }
+.cattach--file.is-error .cattach__meta { color: var(--colors-text-text-error-primary-600); }
+.cattach__retry { display: flex; flex: none; padding: var(--spacing-xxs); border-radius: var(--radius-sm); color: var(--colors-icon-icon-secondary); }
+.cattach__retry:hover { background: var(--colors-background-bg-tertiary); }
+
+/* Loading indicator / Style=Line simple, Size=xs: ring border-tertiary, quarter arc border-brand-solid, 2px */
+.composer-spinner { display: block; flex: none; }
+.composer-spinner { width: 20px; height: 20px; } /* DRIFT: xs indicator */
+.composer-spinner svg { display: block; }
+.composer-spinner__track { stroke: var(--colors-border-border-tertiary); }
+.composer-spinner__arc { stroke: var(--colors-border-border-brand-solid); transform-origin: 10px 10px; animation: composer-spin 1s linear infinite; } /* DRIFT: svg rotation origin */
+@keyframes composer-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .composer-spinner__arc { animation-duration: 3s; } }

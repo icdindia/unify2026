@@ -1,0 +1,220 @@
+{
+  "id": "nav-behaviour",
+  "title": "Nav bar behaviour (pins, project hover, >10 chats, landing pins)",
+  "card": "11614:672892",
+  "cardText": "Nav bar behaviour",
+  "section": "1707:133527 Chat",
+  "summary": "Dark expanded nav rail (Main_nav) behaviours on the landing page: unread dots on pinned items, hovering and opening a pinned project, the project's 3-dot menu, a project chat's context menu with Switch Project submenu, more than 10 chats with View all, pin/unpin from the project landing page, and the pinned artifact hover menu. Each frame has a heading text above it in Figma (quoted under annotations).",
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "11614:672894",
+      "frameName": "Copilot Landing page",
+      "file": "01-11614-672894.png",
+      "shows": "Landing page with the dark expanded rail; Pinned group lists Artifacts, Projects, 'Plan launch timeline' (white dot) and 'Review customer feedback' (red ring); Routines items show white dot / loading ring; Chats group at bottom.",
+      "changedFrom": "Start of journey.",
+      "action": "Open the app on New Session with the rail expanded.",
+      "nav": "dark, expanded (280px); New Session selected; all groups expanded (down chevrons); footer shows bell with red dot",
+      "panels": "none; landing composer visible (no Tools & Sources chips)",
+      "annotations": ["Pinned Items + chat with white dots (user hasnt seen the agent reply)"],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "Avatar {Size=sm, Type=Letter, Colour=Brand Subtle, State=Default}",
+        "Buttons/Button Neutral {Size=xs, Hierarchy=Tertiary, Icon=Only, State=Default} x2",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}",
+        "Feature Banner {Feature name=Enable memory, State=Default}",
+        "Feature Banner {Feature name=Custom Instructions, State=Default}"
+      ]
+    },
+    {
+      "step": "02",
+      "nodeId": "11614:676434",
+      "frameName": "Copilot Landing page",
+      "file": "02-11614-676434.png",
+      "shows": "Pointer hovering the pinned 'Projects' row: row shows an open (arrow-up-right) icon and a 3-dot more button on the right.",
+      "changedFrom": "Hover affordances appear on the pinned Projects row; New Session loses its selected background.",
+      "action": "Hover the pinned 'Projects' item in the rail.",
+      "nav": "dark, expanded; no primary item selected",
+      "panels": "none",
+      "annotations": ["Project Hover + click"],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "Small Icon Button {Size=md, State=Default}",
+        "arrow-up-right",
+        "Cursor {State=Arrow}",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}"
+      ]
+    },
+    {
+      "step": "03",
+      "nodeId": "11715:658763",
+      "frameName": "Copilot Landing page",
+      "file": "03-11715-658763.png",
+      "shows": "Pinned 'Projects' is expanded showing two nested chats with an indent guide, and its 3-dot menu is open: Unpin, Move Down, Edit Project, Share Project, Delete (red).",
+      "changedFrom": "Project row expanded (click) to reveal its chats; 3-dot button active and the small dropdown menu opens to the right of the rail. Unread dots no longer shown on pinned chats.",
+      "action": "Click the pinned project to expand it, then click its 3-dot button.",
+      "nav": "dark, expanded; pinned project expanded",
+      "panels": "dropdown menu (Dropdown Menu Type=Small) open over the content",
+      "annotations": ["Project Hover + 3 dots hover for dropdowns"],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Dropdown Menu {Type=Small}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=Off, Size=sm} x5",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=True, Supporting Text=Off, Size=md} x2",
+        "Small Icon Button {Size=md, State=Default}",
+        "arrow-up-right",
+        "Cursor {State=Arrow}",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "04",
+      "nodeId": "11614:677973",
+      "frameName": "Copilot Landing page",
+      "file": "04-11614-677973.png",
+      "shows": "Context menu for a chat inside the pinned project (Pin Chat, Rename, Switch Project >, Remove from Project, Delete) with the Switch Project submenu open: search field, project list with 'Project Name' checked, 'Settings' hovered, and 'Start a New Project'.",
+      "changedFrom": "Project now labelled 'Project Name'; the chat-level menu replaces the project menu and a cascading project picker opens; unread dots return on pinned chats.",
+      "action": "Hover a chat inside the pinned project, open its 3-dot menu, then hover 'Switch Project'.",
+      "nav": "dark, expanded; pinned project expanded",
+      "panels": "chat context menu + Switch Project submenu (Dropdown Menu Type=Full) open",
+      "annotations": ["Pinned Project Chat hover"],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Frame 2147266815 (menu wrapper component)",
+        "Dropdown Menu {Type=Full}",
+        "Dropdown list header search {Size=sm}",
+        "Search_solid {Size=sm, Type=Search, State=Placeholder}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=Off, Size=sm} x8",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=On, State=Default, Divider=False, Supporting Text=Off, Size=sm} x2",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Hover, Divider=False, Supporting Text=Off, Size=sm}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=True, Supporting Text=Off, Size=md} x2",
+        "Cursor {State=Arrow}"
+      ]
+    },
+    {
+      "step": "05",
+      "nodeId": "11693:260033",
+      "frameName": "Copilot Landing page",
+      "file": "05-11693-260033.png",
+      "shows": "Pinned 'Project Name' expanded with 10 chats listed (one unread dot, one loading ring, one red ring) and a 'View All' link below; this fills the rail down to the footer.",
+      "changedFrom": "Menus closed; the pinned project now holds more than 10 chats so the list caps at 10 and shows 'View All'. Routines/Chats groups pushed below the fold.",
+      "action": "Pinned project has more than 10 chats (state, no click) - expand the pinned project.",
+      "nav": "dark, expanded; Main_nav is a detached FRAME here (not an instance)",
+      "panels": "none",
+      "annotations": ["Pinned Project more than 10 chats"],
+      "components": [
+        "Main_nav (detached frame)",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "Avatar {Size=sm, Type=Letter, Colour=Brand Subtle, State=Default}",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}",
+        "Banner carousel {Property 1=Three apps}"
+      ]
+    },
+    {
+      "step": "06",
+      "nodeId": "11715:627268",
+      "frameName": "Copilot Landing page",
+      "file": "06-11715-627268.png",
+      "shows": "Same 10-chat list (Chat 1..10 inside this Project) with the pointer hovering 'View All', which gets a hover background.",
+      "changedFrom": "'View All' row in hover state; chat names changed to 'Chat N inside this Project'.",
+      "action": "Hover (then click) 'View All' under the pinned project.",
+      "nav": "dark, expanded; detached Main_nav frame",
+      "panels": "none",
+      "annotations": ["More than 10 chats View all"],
+      "components": [
+        "Main_nav (detached frame)",
+        "Nav_menu/Footer {Variant=Default, State=Default}",
+        "Cursor {State=Arrow}",
+        "EB-Assistant/AI",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "07",
+      "nodeId": "13701:756891",
+      "frameName": "Group 1171274973",
+      "file": "07-13701-756891.png",
+      "shows": "Project landing page ('Project Name Longname comes till her...') with breadcrumb Projects / New Project Name, pin + kebab + Share in the title row, project composer, tabs (Chats, Routines, Artifacts, Context, Settings) and the chats table; a row kebab menu is open (Pin, Rename, Add to Project >, Log out) with the project picker submenu.",
+      "changedFrom": "Navigated from the landing page to the project page; title pin icon is unfilled (project not pinned). Separate Tooltip 'Pin Project' sits on the title pin icon in Figma (sibling layer, not in the export).",
+      "action": "Click 'View All' (or the pinned project's open arrow) to open the project page; hover the title pin icon; open a chat row's kebab and hover 'Add to Project'.",
+      "nav": "dark, expanded; pinned project expanded with 10 chats",
+      "panels": "row kebab menu + Add to Project submenu open; tooltip 'Pin Project' on hover of the pin icon",
+      "annotations": ["project landing page with pin / unpin", "Tooltip text: Pin Project"],
+      "components": [
+        "Dashboard",
+        "Main_nav {types=Expanded}",
+        "Nav_menu/Footer {Variant=Default, State=Default} x2",
+        "ES Breadcrumb {Variant=with Icon}",
+        "Dropdown Menu {Type=Small}",
+        "Dropdown Menu {Type=Full}",
+        "Dropdown list header search {Size=sm}",
+        "Search_solid {Size=sm, Type=Search, State=Placeholder}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=Off, Size=sm} x8",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=True, Supporting Text=Off, Size=md} x2",
+        "Dropdown list item {Start Type=Default, End Type=Icon, Selected=Off, State=Hover, Divider=False, Supporting Text=Off, Size=sm}",
+        "Cursor {State=Pointer Hand}",
+        "Tooltip {Supporting text=False, Arrow=Top center} (sibling layer 13701:763878)"
+      ]
+    },
+    {
+      "step": "08",
+      "nodeId": "11780:448662",
+      "frameName": "Group 1171274972",
+      "file": "08-11780-448662.png",
+      "shows": "Same project landing page with the title pin icon in its active/filled state (project pinned); the same row menu and submenu remain open.",
+      "changedFrom": "Pin icon toggled to pinned (filled with background); tooltip changes to 'Unpin Project'. Rail padding is 20px instead of 16px.",
+      "action": "Click the pin icon next to the project title.",
+      "nav": "dark, expanded",
+      "panels": "row kebab menu + Add to Project submenu open; tooltip 'Unpin Project'",
+      "annotations": ["Tooltip text: Unpin Project"],
+      "components": [
+        "Dashboard",
+        "Main_nav {types=Expanded}",
+        "ES Breadcrumb {Variant=with Icon}",
+        "Dropdown Menu {Type=Small}",
+        "Dropdown Menu {Type=Full}",
+        "Dropdown list item {Start Type=Default, End Type=Icon, Selected=Off, State=Hover, Divider=False, Supporting Text=Off, Size=sm}",
+        "Cursor {State=Pointer Hand}",
+        "Tooltip {Supporting text=False, Arrow=Top center} (sibling layer 11780:451253)"
+      ]
+    },
+    {
+      "step": "09",
+      "nodeId": "11635:685715",
+      "frameName": "Copilot Landing page",
+      "file": "09-11635-685715.png",
+      "shows": "Back on the landing page; pinned 'Artifacts' row hovered with its 3-dot menu open: Unpin, Move Up, Move Down, Download, Delete (red).",
+      "changedFrom": "Different pinned item (Artifacts) shows the hover affordances and its own menu, which adds Move Up and Download compared with the project menu.",
+      "action": "Hover the pinned 'Artifacts' item and click its 3-dot button.",
+      "nav": "dark, expanded; Artifacts row active",
+      "panels": "dropdown menu (Type=Small) open",
+      "annotations": ["artefact hover + dropdown"],
+      "components": [
+        "Main_nav {types=Expanded}",
+        "Dropdown Menu {Type=Small}",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=Off, Size=sm} x5",
+        "Dropdown list item {Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=True, Supporting Text=Off, Size=md}",
+        "Small Icon Button {Size=md, State=Default}",
+        "arrow-up-right",
+        "Cursor {State=Arrow}",
+        "Copilot desktop Input Box {Type=Landing Page, State=Default, Tools & Sources=No, Text=Placeholder, Attachment=No}"
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Steps are independent behaviour states rather than one continuous click path; the prototype should treat them as interactions on one rail (hover, menu, submenu, overflow).",
+    "Step 03 project menu shows Unpin + Move Down only; step 09 artifacts menu shows Move Up + Move Down. Confirm rule: Move Up hidden for the first pinned item, Move Down hidden for the last?",
+    "Step 04: the chat context menu is drawn near the Agents group, well above the hovered chat row. Should it anchor to the chat row's 3-dot button?",
+    "Step 07/08 row menu contains 'Log out', which looks like a placeholder item. What is the real 4th action (Delete?).",
+    "Does 'View All' open the project page (step 07) or expand the list in place?",
+    "Unread indicators: white dot = unseen agent reply, red ring and grey ring meanings are not annotated (error? running?).",
+    "Pin/Unpin tooltips are separate layers beside the frames, so they are not in the exported PNGs."
+  ]
+}

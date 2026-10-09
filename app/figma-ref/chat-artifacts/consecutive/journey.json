@@ -1,0 +1,26 @@
+{
+  "id": "consecutive",
+  "title": "Consecutive messages spacing",
+  "card": "11649:348308",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11649-348308",
+  "spacing": {
+    "sameSenderBubbleGap": 32,
+    "senderChangeGap": 40,
+    "senderRowToBubble": 24,
+    "senderAvatar": 20,
+    "ownMessageHoverActionsOffset": 4,
+    "messageBodyPadding": "8 16 8 16",
+    "messageBodyRadius": 12,
+    "consecutiveGroupPaddingBottom": 40
+  },
+  "steps": [
+    {
+      "step": "01", "nodeId": "11633:344632", "file": "01-11633-344632.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom default + collaboration strip ('Type @ to mention', 'Assistant Replies' toggle), 'Queue follow-up...'", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Collaborative chat: two consecutive own bubbles with hover actions, two Matt Rivera groups of two bubbles, Assistant 'Thinking...'",
+      "changedFrom": "single-frame spacing spec",
+      "action": "none (spacing reference)",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message / State=Default", "Agent COT / Type=Complete 2", "Response_Desktop full / Property 1=Assistant", "Copilot_User Message_Desktop full / State=Hover, Type=Consecutive msgs", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Collaborative chat-large / State=Default, Users=No", "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No"]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+/* Prototype control, not part of the design. It sits at the right end of the main area's 40px top strip (AppShell
+   `tools`), like the HTML prototype's demo switch: never over a page control, a menu or the nav footer. When the strip
+   is too narrow for the whole bar, it folds to the switches and the stepper, then to the stepper and the Figma links,
+   then to "‹ › Review ▾", then to "Review ▾" (each with "Review ▾"); the popover holds every control. */
+/* It fills the strip's tools column, and only its lone "Review ▾" counts towards that column's minimum: inline-size
+   containment keeps the folds' content out of it, and ReviewBar sets min-width to the button's measured width. So a long
+   breadcrumb yields (its current crumb ellipsizes) before the button would be pushed over it (app-shell.css). */
+.review-wrap { position: relative; flex: 1 1 auto; min-width: 0; contain: inline-size; display: flex; justify-content: flex-end; }
+
+.review-bar {
+  display: flex; align-items: center; gap: var(--spacing-xs); padding: var(--spacing-xxs);
+  border-radius: var(--radius-md); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 12px -2px rgba(16,24,40,.12); /* DRIFT: prototype chrome */
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  white-space: nowrap;
+}
+/* invisible copies at natural width, measured to choose between the bar, the arrows + button, and the button alone */
+.review-bar--measure { position: absolute; top: 0; right: 0; width: max-content; visibility: hidden; pointer-events: none; }
+
+/* folded: optional prev / next arrows, then one button; the controls stack in a popover under the strip */
+.review-fold { position: relative; display: flex; align-items: center; gap: var(--spacing-xs); white-space: nowrap; }
+.review-fold > .review-step { padding: var(--spacing-xxs); border-radius: var(--radius-md); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 12px -2px rgba(16,24,40,.12); /* DRIFT: prototype chrome */
+}
+.review-bar__toggle {
+  height: 28px; display: inline-flex; align-items: center; gap: var(--spacing-xs); padding: 0 var(--spacing-md); /* DRIFT: prototype chrome */
+  border-radius: var(--radius-md); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 12px -2px rgba(16,24,40,.12); /* DRIFT: prototype chrome */
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-tertiary-600); white-space: nowrap;
+}
+.review-bar__toggle[aria-expanded="true"], .review-bar__toggle:hover { color: var(--colors-text-text-primary-900); }
+.review-bar--pop {
+  position: absolute; top: calc(100% + var(--spacing-xs)); right: 0; z-index: 30;
+  flex-direction: column; align-items: stretch; gap: var(--spacing-xxs); padding: var(--spacing-xs);
+  width: max-content; max-width: calc(100vw - 2 * var(--spacing-xl)); max-height: calc(100vh - 56px); overflow: auto; /* DRIFT: below the 40px strip */
+}
+.review-bar--pop .review-bar__sep { width: auto; height: 1px; margin: var(--spacing-xxs) 0; } /* DRIFT: prototype chrome */
+.review-bar--pop .review-bar__lbl { min-width: 76px; } /* DRIFT: prototype chrome, lines up the stacked groups */
+.review-bar--pop .review-bar__grp { flex-wrap: wrap; }
+
+.review-bar__grp { flex: none; display: flex; align-items: center; gap: var(--spacing-xs); }
+.review-bar__sep { flex: none; width: 1px; height: 16px; background: var(--colors-border-border-secondary); } /* DRIFT: prototype chrome */
+.review-bar__sep { margin: 0 var(--spacing-xs); }
+.review-bar__lbl { padding: 0 var(--spacing-sm) 0 var(--spacing-md); color: var(--colors-text-text-quaternary-500); }
+.review-bar button, .review-bar__figma, .review-fold .review-step__arrow {
+  flex: none; height: 24px; display: inline-flex; align-items: center; /* DRIFT: control height */
+  padding: 0 var(--spacing-md); border-radius: var(--radius-sm);
+  color: var(--colors-text-text-tertiary-600); text-decoration: none;
+}
+.review-bar button[aria-pressed="true"] { background: var(--colors-background-bg-tertiary); color: var(--colors-text-text-primary-900); }
+.review-bar button:hover, .review-bar__figma:hover, .review-fold .review-step__arrow:hover { color: var(--colors-text-text-primary-900); }
+.review-bar button:disabled, .review-fold .review-step__arrow:disabled { color: var(--colors-text-text-disabled); cursor: default; }
+
+/* stepper: ‹ [journey step ▾] ›. The picker is a native select laid transparent over its face, so it keeps the browser's
+   own keyboard and screen-reader behaviour while the bar shows a short "chat-artifact 08a". */
+.review-step { gap: var(--spacing-xxs); }
+.review-step__arrow { min-width: 24px; justify-content: center; font-size: var(--text-md-medium-font-size); } /* DRIFT: prototype chrome */
+.review-step__pick {
+  position: relative; height: 24px; max-width: 220px; display: inline-flex; align-items: center; /* DRIFT: prototype chrome */
+  gap: var(--spacing-xs);
+  padding: 0 var(--spacing-md); border-radius: var(--radius-sm); background: var(--colors-background-bg-secondary);
+  color: var(--colors-text-text-primary-900);
+}
+.review-step__pick:hover { background: var(--colors-background-bg-tertiary); }
+.review-step__pick:has(.review-step__select:focus-visible) { outline: 2px solid var(--colors-utility-brand-utility-brand-500); outline-offset: 1px; }
+.review-step__pick.is-off .review-step__face { color: var(--colors-text-text-quaternary-500); font-style: italic; }
+.review-step__face { min-width: 0; overflow: hidden; text-overflow: ellipsis; font-family: var(--font-family-code); }
+.review-step__caret { flex: none; color: var(--colors-text-text-quaternary-500); }
+.review-step__select { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; font: inherit; }
+.review-bar--pop .review-step__pick { flex: 1 1 auto; max-width: none; }
+
+/* frame links: one per frame the screen reproduces ("≈" marks the closest frame when none matches exactly) */
+.review-bar__figma { font-family: var(--font-family-code); color: var(--colors-text-text-brand-tertiary-600); }
+
+/* viewport presets: the window's own width is underlined, the width Figma draws the frame at carries a dot */
+.review-vp { position: relative; }
+.review-vp__w { position: relative; font-variant-numeric: tabular-nums; }
+.review-bar .review-vp__w.is-current { text-decoration: underline; text-underline-offset: 3px; color: var(--colors-text-text-primary-900); }
+.review-vp__w.is-drawn::after {
+  content: ''; position: absolute; top: 2px; right: 2px; width: 4px; height: 4px; /* DRIFT: prototype chrome */
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-brand-solid);
+}
+.review-vp__note {
+  position: absolute; top: calc(100% + var(--spacing-md)); right: 0; z-index: 31; width: min(360px, calc(100vw - 2 * var(--spacing-xl))); /* DRIFT: prototype chrome */
+  display: flex; flex-direction: column; gap: var(--spacing-md); padding: var(--spacing-lg) var(--spacing-5xl) var(--spacing-lg) var(--spacing-lg);
+  border-radius: var(--radius-md); background: var(--colors-background-bg-primary); white-space: normal;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 12px -2px rgba(16,24,40,.12); /* DRIFT: prototype chrome */
+  color: var(--colors-text-text-secondary-700);
+}
+.review-vp__note .figma-link__url { width: 100%; }
+.review-bar .review-vp__close { position: absolute; top: var(--spacing-xs); right: var(--spacing-xs); }
+.review-bar--pop .review-vp__note { position: static; width: auto; }

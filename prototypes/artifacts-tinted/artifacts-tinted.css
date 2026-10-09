@@ -1,0 +1,166 @@
+/* ----------------------------------------------------------------------------
+   artifacts-tinted.css — layout only, for prototypes/artifacts-tinted/index.html
+   Figma: "111" 7591:300936 (Enterprise Search Base 2026, lqKjNjyifEXCeywg69Knr2)
+
+   The third treatment of the Artifacts screen. Page chrome is identical to
+   prototypes/artifacts/ and prototypes/artifacts-doc/; the card cover is a flat
+   DS tint, and a 120x70 document thumbnail is laid OVER each cover.
+
+   That thumbnail is a row-level overlay in the frame — a sibling rectangle of
+   the card, not a child of it — so it is positioned here, against the row,
+   rather than inside the card atom. Reproduced with the same ownership.
+
+   Layout ONLY. Every visual atom is <link>ed from /components.
+     canvas 1440x900 · rail 56 · main 1384 · top inset 60
+     content column 928, centred (228 each side) · column gap 32
+     head 104 = title row 44 + 32 + filter bar 28
+     card grid 3 x 288 + 2 x 32 gap = 928 · row height 222 · row gap 32
+---------------------------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6, p, figure { margin: 0; }
+
+body {
+  margin: 0;
+  background: var(--colors-background-bg-workspace);
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--font-family-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 7489:272501 — the frame itself is bg-workspace, not white */
+.app-shell {
+  display: flex;
+  align-items: flex-start;
+  width: 1440px;
+  height: 900px;
+  margin-inline: auto;
+  overflow: hidden;   /* the design frame clips; row 3 is cut off by 38px */
+  background: var(--colors-background-bg-workspace);
+}
+
+/* 7489:272503 — 1384 wide, 60px top inset */
+.app-main {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  height: 100%;
+  padding-top: 60px;   /* DRIFT: off-scale (48 -> 64) */
+}
+
+/* 7489:272504 */
+.app-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1 0 0;
+  min-height: 0;
+}
+
+/* 7489:272505 — the 928 content column */
+.content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4xl);
+  flex: none;
+  width: 928px;
+}
+
+/* 7489:272506 */
+.page-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4xl);
+  width: 100%;
+}
+
+/* 7489:272507 */
+.page-head__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 44px;
+}
+
+/* 7489:272508 — Display md/Regular, Spectral Regular 36/44 at -2% */
+.page-title {
+  white-space: nowrap;
+  font-family: var(--display-md-regular-font-family);
+  font-size: var(--display-md-regular-font-size);
+  font-weight: var(--display-md-regular-font-weight);
+  line-height: var(--display-md-regular-line-height);
+  letter-spacing: var(--display-md-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+}
+
+/* 7489:272509 — Buttons/Button Brand, Primary md */
+.button-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  flex: none;
+  min-width: 72px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 0;
+  border-radius: var(--button-md);
+  background: var(--component-buttons-brand-primary-button-brand-primary-bg);
+  overflow: hidden;
+  appearance: none;
+  cursor: pointer;
+}
+.button-brand svg { display: block; width: 14px; height: 14px; flex: none; }
+.button-brand { color: var(--component-buttons-brand-primary-button-brand-primary-fg-hover); }
+.button-brand__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--spacing-xxs);
+  white-space: nowrap;
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  font-weight: var(--text-sm-medium-font-weight);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--component-buttons-brand-primary-button-brand-primary-fg-hover);
+}
+
+/* 7489:272511 / 272567 / 272658 */
+.card-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4xl);
+  width: 100%;
+}
+.card-row > .artifact-card { width: 288px; flex: none; height: 222px; }
+
+
+/* 7591:301037 etc — the document thumbnails, positioned against the ROW because
+   that is where the frame parents them. Each carries its own crop inline. */
+.card-row { position: relative; }
+
+.card-row__thumb {
+  position: absolute;
+  width: 120px;
+  height: 70px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.card-row__thumb img {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+.card-row__thumb img.is-cover {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,13 @@
+/* Dot / Outline=False — md 3:1123 (10 frame, 8 dot), sm 5220:198537 (8 frame, 6 dot). The fill binds
+   Colors/Utility/<Colour>/utility-<colour>-500, which this DS resolves to its own brand / status 500s. */
+.dot { flex: none; display: inline-flex; align-items: center; justify-content: center; }
+.dot::before { content: ""; display: block; border-radius: var(--radius-full); background: currentColor; }
+.dot--md { width: 10px; height: 10px; } /* DRIFT: Dot md frame */
+.dot--md::before { width: 8px; height: 8px; } /* DRIFT: Dot md */
+.dot--sm { width: 8px; height: 8px; } /* DRIFT: Dot sm frame */
+.dot--sm::before { width: 6px; height: 6px; } /* DRIFT: Dot sm */
+.dot--brand { color: var(--colors-utility-brand-utility-brand-500); }
+.dot--success { color: var(--colors-utility-success-utility-success-500); }
+.dot--error { color: var(--colors-utility-error-utility-error-500); }
+.dot--warning { color: var(--colors-utility-warning-utility-warning-500); }
+.dot--gray { color: var(--colors-utility-gray-utility-gray-400); }

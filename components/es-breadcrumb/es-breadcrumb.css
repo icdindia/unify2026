@@ -1,0 +1,196 @@
+/* ----------------------------------------------------------------------------
+   es-breadcrumb — DS "ES Breadcrumb" (the chat header)
+   Figma: 5865:366539 · 7062:513829 (frame 87, full width 1384)
+          6424:330601 (frame 15, inside the 440 copilot panel)
+   Verified pixel-for-pixel in figma-frames/brain-87-chat and brain-15-split.
+
+   40 tall = 6 + 28 + 6. Every control settles to 28: the title is a Button
+   Neutral tertiary with padding 4 around a 13/20 label; cost is 6/8/4 around
+   Spectral SemiBold 14/18; Share is 6/8 around 13/16; icon buttons pad 6 around
+   a 16 icon. Composed of the `button` atom — this file owns only the bar, the
+   title/cost specifics and the avatar cluster.
+
+   DRIFT (type): the cost label is Spectral SemiBold 14/18 — the one serif in
+   the bar. No DS text style is 14px Spectral; stated literally, as the frame does.
+   DRIFT (token): the cost ring is border-warning-solid (#d37c25) — an instance
+   override that a parent export drops (failure-modes §4). Bound explicitly.
+---------------------------------------------------------------------------- */
+
+.es-breadcrumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--colors-utility-brand-secondary-utility-brand-secondary-25);
+}
+.es-breadcrumb__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-5xl);
+  width: 100%;
+}
+.es-breadcrumb__content {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  min-width: 0;
+}
+.es-breadcrumb__selector {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  min-width: 0;
+}
+
+/* title — Button Neutral tertiary, padding 4, label 13/20 primary, trailing 14px chevron */
+.es-breadcrumb__title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  min-width: 56px;
+  max-width: 100%;
+  padding: var(--spacing-xs);
+  border: 0;
+  border-radius: var(--button-sm);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  overflow: clip;
+  text-align: left;
+  color: var(--colors-text-text-primary-900);
+}
+.es-breadcrumb__title:hover { background: var(--palette-alpha-colors-black-alpha-black-05);   /* DRIFT: soft-button hover is alpha-black-05, a primitive (designer instruction 2026-09-16); no semantic token */ }
+.es-breadcrumb__title-text {
+  padding-inline: var(--spacing-xxs);
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+.es-breadcrumb__title svg {
+  display: block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--colors-icon-icon-tertiary);
+}
+
+.es-breadcrumb__right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: none;
+}
+.es-breadcrumb__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  flex: none;
+}
+
+/* cost — 6/8/4 padding, Spectral SemiBold 14/18, ring icon 14 */
+.es-breadcrumb__cost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  min-width: 56px;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-xs);
+  border: 0;
+  border-radius: var(--button-sm);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  overflow: clip;
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.es-breadcrumb__cost:hover { background: var(--palette-alpha-colors-black-alpha-black-05);   /* DRIFT: soft-button hover is alpha-black-05, a primitive (designer instruction 2026-09-16); no semantic token */ }
+.es-breadcrumb__cost-value {
+  padding-inline: var(--spacing-xxs);
+  font-family: var(--font-family-display);
+  font-weight: 600;       /* DRIFT: Spectral SemiBold 14/18 — no 14px display style in the DS */
+  font-size: 14px;        /* DRIFT: as above */
+  line-height: 18px;      /* DRIFT: as above */
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.es-breadcrumb__cost svg {
+  display: block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--colors-border-border-warning-solid);
+}
+
+/* avatar cluster — 24px circles, 1px white ring, -4px overlap except the last */
+.es-breadcrumb__avatars {
+  display: flex;
+  align-items: flex-start;
+  flex: none;
+}
+.es-breadcrumb__avatar {
+  position: relative;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--colors-border-border-white);
+  margin-right: -4px;   /* DRIFT: overlap, off the spacing scale */
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-white);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.es-breadcrumb__avatar:last-child { margin-right: 0; }
+
+/* ---- crumbs variant — 6190:428283 (frame 9): "Project / Routines / Current ▾" ---- */
+.es-breadcrumb__crumbs { display: flex; align-items: center; min-width: 0; }
+.es-breadcrumb__crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  min-width: 56px;
+  padding: var(--spacing-xs);
+  border: 0;
+  border-radius: var(--button-sm);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  overflow: clip;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+.es-breadcrumb__crumb:hover { background: var(--palette-alpha-colors-black-alpha-black-05);   /* DRIFT: soft-button hover is alpha-black-05, a primitive (designer instruction 2026-09-16); no semantic token */ }
+.es-breadcrumb__crumb--current { color: var(--colors-text-text-primary-900); min-width: 0; text-align: left; }
+.es-breadcrumb__crumb-text { padding-inline: var(--spacing-xxs); overflow-wrap: break-word; }
+.es-breadcrumb__crumb svg { display: block; flex: none; width: 14px; height: 14px; color: var(--colors-icon-icon-secondary); }
+.es-breadcrumb__slash { flex: none; width: 10px; height: 10px; color: var(--colors-text-text-quaternary-500); }
+.es-breadcrumb__slash svg { display: block; width: 100%; height: 100%; }
+
+/* crumbs stay on one line: the current crumb takes what is left and ellipsizes (the
+   frame's own text-overflow on the split-layout title — chrome.md); earlier crumbs
+   give way only after it. Truncation here is a designer instruction (2026-09-16). */
+.es-breadcrumb__crumbs { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; white-space: nowrap; }
+.es-breadcrumb__crumb { flex: 0 0 auto; min-width: 0; white-space: nowrap; }
+.es-breadcrumb__crumb--current { flex: 0 1 auto; min-width: 0; }   /* only the current crumb ellipsizes if there is not enough room */
+.es-breadcrumb__crumb-text { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* middle crumbs collapse to a single "…" regardless of width — designer instruction
+   2026-09-16. `data-tip` on the element gives the full name back on hover. */
+.es-breadcrumb__crumb--mid { padding-inline: var(--spacing-xxs); }
+.es-breadcrumb__crumb--mid .es-breadcrumb__crumb-text { width: 1ch; overflow: hidden; text-indent: 0; position: relative; color: transparent; }
+.es-breadcrumb__crumb--mid .es-breadcrumb__crumb-text::before { content: "\2026"; position: absolute; inset: 0; color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg); }

@@ -1,0 +1,411 @@
+{
+  "id": "commenters",
+  "title": "Comments for commenters only",
+  "card": "8279:198075",
+  "cardFigma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-198075",
+  "page": "Chat + Artifacts",
+  "section": "Collaborative Chat flow (7830:372599)",
+  "note": "All nodes in this row are at 30% layer opacity in Figma; opaque/ holds alpha-restored true-colour versions to build against.",
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "8279:195355",
+      "file": "01-8279-195355.png",
+      "shows": "Collaborative chat 'How does commit actually look?' with the Comments side panel open (3 Members, 3 threads, expanded WYSIWYG comment composer with @annie draft)",
+      "changedFrom": "Entry step",
+      "action": "Click the comments (speech-bubble) icon at the far right of the chat header",
+      "annotation": "comment box",
+      "nav": "dark, collapsed; New chat selected",
+      "open": [
+        "comments panel"
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Thoughts / State=Hover",
+        "Copilot_Inline Citation Pill / State=Default",
+        "Suggested prompts / Type=Lines",
+        "Feedback Array / Type=Full screen",
+        "Inline Artifact Cards / State=Application-HTML",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=User Typing, Users=Max Users",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "comment panel",
+        "_Comment_Message Unit / Type=level 1, State=Default",
+        "Comment field / State=2 or more Typing, WYSIWYG=Yes"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-195355",
+      "opaqueFile": "opaque/01-8279-195355.png"
+    },
+    {
+      "step": "02",
+      "nodeId": "8279:198079",
+      "file": "02-8279-198079.png",
+      "shows": "Same chat and Comments panel; comment field is a single line '@annie please make |' without toolbar",
+      "changedFrom": "Comment field collapses to 1-line typing state (no WYSIWYG toolbar); chat scrolled to show full answer + Pipeline Command card",
+      "action": "Click into the comment box and start typing a short comment",
+      "annotation": "comment box bottom input 1 state",
+      "nav": "dark, collapsed",
+      "open": [
+        "comments panel"
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Thoughts / State=Hover",
+        "Copilot_Inline Citation Pill / State=Default",
+        "Suggested prompts / Type=Lines",
+        "Feedback Array / Type=Full screen",
+        "Inline Artifact Cards / State=Application-HTML",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=User Typing, Users=Max Users",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "comment panel",
+        "_Comment_Message Unit / Type=level 1, State=Default",
+        "Comment field / State=1 line typing, WYSIWYG=No"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-198079",
+      "opaqueFile": "opaque/02-8279-198079.png"
+    },
+    {
+      "step": "03",
+      "nodeId": "8279:200361",
+      "file": "03-8279-200361.png",
+      "shows": "Comment field grown to 2+ lines with the WYSIWYG formatting toolbar",
+      "changedFrom": "Input auto-grows from 1 line to multi-line and the formatting toolbar appears",
+      "action": "Keep typing past one line",
+      "annotation": "comment box bottom input 2 state",
+      "nav": "dark, collapsed",
+      "open": [
+        "comments panel"
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Thoughts / State=Hover",
+        "Copilot_Inline Citation Pill / State=Default",
+        "Suggested prompts / Type=Lines",
+        "Feedback Array / Type=Full screen",
+        "Inline Artifact Cards / State=Application-HTML",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=User Typing, Users=Max Users",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "comment panel",
+        "_Comment_Message Unit / Type=level 1, State=Default",
+        "Comment field / State=2 or more Typing, WYSIWYG=Yes"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-200361",
+      "opaqueFile": "opaque/03-8279-200361.png"
+    },
+    {
+      "step": "04",
+      "nodeId": "8279:209548",
+      "file": "04-8279-209548.png",
+      "shows": "Members chip '5 Members' pressed with a floating COMMENTERS dropdown (overlay c01, outside the frame); thread 1 expanded with reply + 'Reply to this thread' input; toolbar switched off via Aa",
+      "changedFrom": "Members dropdown open, thread replies expanded, WYSIWYG toolbar toggled off; close X replaced by a ring icon",
+      "action": "Click the 'N Members' chip in the Comments panel header (also: click '1 reply', click 'Aa')",
+      "annotation": "comment box members dropdown",
+      "nav": "dark, collapsed",
+      "open": [
+        "comments panel",
+        "members dropdown (overlay outside frame)"
+      ],
+      "overlays": [
+        {
+          "nodeId": "8279:213062",
+          "file": "c01-8279-213062.png",
+          "frameXY": [
+            1151,
+            30
+          ]
+        }
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=Default",
+        "Copilot_User Message / State=Default",
+        "Copilot_User Message_Desktop full / State=Default, Type=Default",
+        "Response_Desktop full / Property 1=Assistant",
+        "COT - Steps / Step=Finish, State=Collapsed, Running=No",
+        "Thoughts / State=Hover",
+        "Copilot_Inline Citation Pill / State=Default",
+        "Suggested prompts / Type=Lines",
+        "Feedback Array / Type=Full screen",
+        "Inline Artifact Cards / State=Application-HTML",
+        "Banner carousel / Property 1=Three apps",
+        "Collaborative chat-large / State=User Typing, Users=Max Users",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "comment panel",
+        "Buttons/Button Neutral / Size=xs, Hierarchy=Tertiary, Icon=Default, State=Hover",
+        "_Comment_Message Unit / Type=level 1, State=Default",
+        "_Comment_Message Unit / Type=level 2, State=Default",
+        "_Comment_Message Unit / Type=level 3+reply, State=Default",
+        "_Comment_Message Unit / Type=Spacer top, State=Default",
+        "_Comment_Message Unit / Type=Spacer between, State=Default",
+        "_comment field / Property 1=switch off WYSIWYG",
+        "Input Menu Dropdown / Type=Single Select, Size=sm, Search=Default",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-209548",
+      "opaqueFile": "opaque/04-8279-209548.png"
+    },
+    {
+      "step": "05",
+      "nodeId": "8279:215077",
+      "file": "05-8279-215077.png",
+      "shows": "Split view: narrow chat (Thinking..., 'Type @ to mention a participant') + artifact panel 'Untitled.xls' (Acme Inc. dashboard); chat-header comment icon hovered",
+      "changedFrom": "Comments panel closed; artifact opened beside the chat; rail highlights apps item",
+      "action": "Open the artifact from the inline 'Pipeline Command' card, then hover the comment icon in the chat header",
+      "annotation": "when artifact is open",
+      "nav": "dark, collapsed; apps/artifacts item selected",
+      "open": [
+        "artifact panel"
+      ],
+      "overlays": [
+        {
+          "nodeId": "8279:216238",
+          "note": "12px grey dot (Pill solid xxs Gray) over the comment icon at frame (471,7) - likely unread badge"
+        }
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=with Icon",
+        "COT / Type=Main, State=Default, Running=No",
+        "Thoughts / State=Closed",
+        "Agent COT / Type=Step 1",
+        "Suggested prompts / Type=Lines",
+        "Inline Artifact Cards / State=Application-HTML",
+        "Attachments / Type=File, Size=md, State=Default, Placement=With Reply Box",
+        "Collaborative chat-large / State=Default, User=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Arifact Header",
+        "Artifact-Icons / Type=Documents",
+        "coloured logos / Type=excel",
+        "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm",
+        "Buttons/Button Neutral / Size=sm, Hierarchy=Tertiary, Icon=Only, State=Hover",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-215077",
+      "opaqueFile": "opaque/05-8279-215077.png"
+    },
+    {
+      "step": "06",
+      "nodeId": "8279:217929",
+      "file": "06-8279-217929.png",
+      "shows": "Three columns: chat + narrowed artifact + 320px Comments panel (2 threads, WYSIWYG composer)",
+      "changedFrom": "Comments panel opens as a third column; artifact narrows",
+      "action": "Click the comment icon in the chat header",
+      "annotation": "comment option 1",
+      "nav": "dark, collapsed; apps item selected",
+      "open": [
+        "artifact panel",
+        "comments panel"
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "ES Breadcrumb / Variant=with Icon",
+        "COT / Type=Main, State=Default, Running=No",
+        "Thoughts / State=Closed",
+        "Agent COT / Type=Step 1",
+        "Suggested prompts / Type=Lines",
+        "Inline Artifact Cards / State=Application-HTML",
+        "Attachments / Type=File, Size=md, State=Default, Placement=With Reply Box",
+        "Collaborative chat-large / State=Default, User=No",
+        "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No",
+        "Arifact Header",
+        "Artifact-Icons / Type=Documents",
+        "coloured logos / Type=excel",
+        "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm",
+        "comment panel",
+        "_Comment_Message Unit / Property 1=level 1",
+        "_Comment_Message Unit / Property 1=level 2",
+        "_Comment_Message Unit / Property 1=level 3+reply",
+        "_comment field / Property 1=box height increase2"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-217929",
+      "opaqueFile": "opaque/06-8279-217929.png"
+    },
+    {
+      "step": "07",
+      "nodeId": "8279:220537",
+      "file": "07-8279-220537.png",
+      "shows": "Commenter's in-app view: artifact 'Untitled Applciations' full width (no chat) + Comments panel empty state 'No comments yet'",
+      "changedFrom": "Chat column removed; artifact becomes an App; comments list empty",
+      "action": "Commenter opens an artifact shared with them (share/notification link)",
+      "annotation": "when commentor receives an artifact",
+      "nav": "dark, collapsed; apps item selected",
+      "open": [
+        "artifact (full)",
+        "comments panel (empty)"
+      ],
+      "components": [
+        "Main_nav / types=collapsed",
+        "Arifact Header",
+        "Artifact-Icons / Type=App",
+        "Toggle group / Type=Default, Style=Icon only, Size=xs, Variant=Default",
+        "coloured logos / Type=excel",
+        "ES Empty State / Level=Level 2, Type=Create",
+        "_comment field / Property 1=empty state",
+        "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm",
+        "Cursor / State=Arrow"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-220537",
+      "opaqueFile": "opaque/07-8279-220537.png"
+    },
+    {
+      "step": "08",
+      "nodeId": "8085:469369",
+      "file": "08-8085-469369.png",
+      "shows": "Section card 'artifact view only' (divider, no UI)",
+      "changedFrom": "n/a - chapter break",
+      "action": "none (divider)",
+      "annotation": null,
+      "nav": "n/a",
+      "open": [],
+      "components": [],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8085-469369",
+      "opaqueFile": "opaque/08-8085-469369.png"
+    },
+    {
+      "step": "09",
+      "nodeId": "8085:469355",
+      "file": "09-8085-469355.png",
+      "shows": "Standalone view-only artifact page (no rail, no chat): header 'Untitled Applciations · Edit with Chat', Publish, comment, download",
+      "changedFrom": "Leaves the app shell; artifact is the whole page",
+      "action": "Commenter opens the artifact's shared link directly",
+      "annotation": null,
+      "nav": "none",
+      "open": [],
+      "components": [
+        "Arifact Header",
+        "Artifact-Icons / Type=App",
+        "Toggle group / Type=Default, Style=Icon only, Size=xs, Variant=Default",
+        "coloured logos / Type=excel",
+        "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8085-469355",
+      "opaqueFile": "opaque/09-8085-469355.png"
+    },
+    {
+      "step": "10",
+      "nodeId": "8085:469620",
+      "file": "10-8085-469620.png",
+      "shows": "Standalone artifact + 400px Comments panel with 3 threads (Chaaya Warrior(You), Lana Steiner '3 replies', Anurag Mehta) and empty 'Add comments' box",
+      "changedFrom": "Comments panel opens on the right; artifact narrows to 1040",
+      "action": "Click the comment button in the artifact header",
+      "annotation": null,
+      "nav": "none",
+      "open": [
+        "comments panel"
+      ],
+      "components": [
+        "Arifact Header",
+        "Artifact-Icons / Type=App",
+        "Toggle group / Type=Default, Style=Icon only, Size=xs, Variant=Default",
+        "coloured logos / Type=excel",
+        "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm",
+        "Comment_Message Unit / Level=Level 1, State=Default, Size=md",
+        "comment box / Property 1=comment empty",
+        "Dot / Size=md, Outline=False, Colour=Brand",
+        "Buttons/Link / Size=sm, Hierarchy=Primary, Icon=Default, State=Default"
+      ],
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8085-469620",
+      "opaqueFile": "opaque/10-8085-469620.png"
+    }
+  ],
+  "looseComponents": [
+    {
+      "id": "c01",
+      "nodeId": "8279:213062",
+      "file": "c01-8279-213062.png",
+      "shows": "Members dropdown overlay for step 04 (COMMENTERS list)",
+      "component": "Input Menu Dropdown / Type=Single Select, Size=sm, Search=Default",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8279-213062",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c02",
+      "nodeId": "13618:434935",
+      "file": "c02-13618-434935.png",
+      "shows": "Comment panel default, '1 reply' with unread dot (detached frame)",
+      "component": "comment panel (FRAME)",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13618-434935",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c03",
+      "nodeId": "10767:620481",
+      "file": "c03-10767-620481.png",
+      "shows": "'1 reply' read (no dot)",
+      "component": "comment panel",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10767-620481",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c04",
+      "nodeId": "10793:372495",
+      "file": "c04-10793-372495.png",
+      "shows": "'1 reply >' hover",
+      "component": "comment panel",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10793-372495",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c05",
+      "nodeId": "10767:620480",
+      "file": "c05-10767-620480.png",
+      "shows": "Thread expanded with empty 'Reply to this thread' input",
+      "component": "comment panel",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10767-620480",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c06",
+      "nodeId": "10767:620483",
+      "file": "c06-10767-620483.png",
+      "shows": "Reply input typing (1 line)",
+      "component": "comment panel",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10767-620483",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c07",
+      "nodeId": "10767:620484",
+      "file": "c07-10767-620484.png",
+      "shows": "Reply input multi-line with WYSIWYG toolbar",
+      "component": "comment panel",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10767-620484",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c08",
+      "nodeId": "10767:620485",
+      "file": "c08-10767-620485.png",
+      "shows": "After reply: 4 Members, '2 replies', hovered reply row",
+      "component": "comment panel",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10767-620485",
+      "inConfirmedMap": false
+    },
+    {
+      "id": "c09",
+      "nodeId": "10767:620486",
+      "file": "c09-10767-620486.png",
+      "shows": "Short replies collapsed into the thread",
+      "component": "comment panel",
+      "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10767-620486",
+      "inConfirmedMap": false
+    }
+  ]
+}

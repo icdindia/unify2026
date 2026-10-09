@@ -1,0 +1,90 @@
+/* ----------------------------------------------------------------------------
+   detail-row — metadata row inside the right-rail details card
+   Figma: 16740:306401 · 306405 · 306409 … (Agent details / Access & scope)
+   Screen: Dashboard 16740:306222
+
+   Locally composed: components.md records "Governance section row" and the
+   details-rail metadata row as absent from the DS. Built from DS tokens.
+---------------------------------------------------------------------------- */
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.detail-row__label {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+}
+
+.detail-row__value {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* stacked variant: icon+label on top, wrapped chips below (Access & scope) */
+.detail-row--stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.detail-row__heading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+.detail-row__heading-icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--colors-icon-icon-secondary);
+}
+.detail-row__heading-icon svg { display: block; width: 100%; height: 100%; }
+
+.detail-row__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm) var(--spacing-lg);
+  width: 100%;
+}
+
+/* activity variant: avatar + sentence on the left, relative time on the right */
+.detail-row__actor { display: flex; align-items: center; gap: var(--spacing-md); min-width: 0; }
+.detail-row__sentence {
+  font-family: var(--font-family-body);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+  white-space: nowrap;
+}
+.detail-row__sentence b { font-weight: 500; color: var(--colors-text-text-primary-900); }
+
+.detail-row__time {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+}
+
+.detail-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--colors-border-border-secondary);
+}

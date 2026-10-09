@@ -1,0 +1,97 @@
+/* ----------------------------------------------------------------------------
+   stat — metric tile (number over ALL-CAPS mono label)
+   Figma: 16740:306247 · 306256 · 306265 (Value & performance)
+   Screen: Dashboard 16740:306222
+
+   Locally composed: components.md lists "stat tile" as genuinely absent from
+   the DS — compose locally per PLAYBOOK §5 using DS tokens.
+
+   DRIFT (type): Figma renders the number at JetBrains Mono Bold 14/20. The
+   nearest DS style is `Text sm/Bold-Code` = 13/20. Held at the Figma 14px so
+   the screen matches; flag to DS owner to either add a 14px code style or
+   restate the design at 13px.
+   DRIFT (type): the label is JetBrains Mono Regular 11/12 uppercase. The DS
+   entry `Text xxs/Regular-Code` records family "Geist" in the token export,
+   which contradicts its own "-Code" name — treated as a stale export row and
+   rendered mono to match Figma.
+---------------------------------------------------------------------------- */
+
+.stat {
+  display: flex;
+  flex: 1 0 0;
+  align-items: flex-start;
+  box-sizing: border-box;
+  min-width: 0;
+  height: 40px;
+  padding-right: var(--spacing-lg);
+}
+
+/* divider between tiles; the last tile in a row drops it */
+.stat--divided { border-right: 1px solid var(--colors-border-border-tertiary); }
+
+.stat__body {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.stat__value-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.stat__value {
+  font-family: var(--font-family-code);
+  /* DRIFT: no DS style matches. Figma renders JetBrains Mono Bold 14/20; the
+     nearest DS style `Text sm/Bold-Code` is 13/20. Held at the design value.
+     Line-height DOES match, so it binds; size and weight are stated until the
+     DS adds a 14px code style (or the design moves to 13). */
+  font-size: 14px;   /* DRIFT: no DS code style at 14; nearest is Text sm/Bold-Code 13/20 */
+  font-weight: 700;  /* DRIFT: ditto */
+  line-height: var(--text-sm-bold-code-line-height);
+  color: var(--colors-text-text-primary-900);
+  white-space: nowrap;
+}
+
+.stat__label {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  font-family: var(--font-family-code);
+  /* DRIFT: binds sizes to `Text xxs/Regular-Code` but sets the family
+     explicitly — that style's export records family "Geist", contradicting its
+     own "-Code" name. Figma renders this label in JetBrains Mono. Re-probe the
+     DS text styles, then drop the explicit family here. */
+  font-size: var(--text-xxs-regular-code-font-size);
+  font-weight: var(--text-xxs-regular-code-font-weight);
+  line-height: var(--text-xxs-regular-code-line-height);
+  text-transform: uppercase;
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* semantic value colouring (design-rules §12: colour the number, not the label) */
+.stat__value--success { color: var(--colors-text-text-success-primary-600); }
+.stat__value--error   { color: var(--colors-text-text-error-primary-600); }
+.stat__value--warning { color: var(--colors-text-text-warning-primary-600); }
+
+/* row wrapper — Figma 16740:306246 / 306273 / 306308
+   Vertical padding only; the 16px horizontal inset belongs to the card
+   (.section-card--inset-x), not to the row. */
+.stats-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  padding-block: var(--spacing-lg);
+  overflow: clip;
+}
+
+/* stacked stat rows are separated by a rule; the last row drops it */
+.stats-row--divided { border-bottom: 1px solid var(--colors-border-border-tertiary); }

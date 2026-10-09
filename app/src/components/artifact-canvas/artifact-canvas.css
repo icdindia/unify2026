@@ -1,0 +1,36 @@
+/* Artifact body: "Main" 1809:488587 (bg-workspace, scrolls, Scroll bar sm) holding "Frame 2147266806" 1809:488589
+   (bg warm-blue-25, 1px border-secondary, padding 16; its top border sits right under the header's, y 47-48 at 1440).
+   Full screen (1809:484624): no frame border, the page centred at its own width 16px under the header. */
+.acanvas { position: relative; flex: 1 1 0; min-height: 0; background: var(--colors-background-bg-workspace); }
+.acanvas:focus-visible { outline-offset: -2px; }
+.acanvas__frame {
+  min-height: 100%; padding: var(--spacing-xl);
+  padding-top: 5px; /* DRIFT: the image fill is cropped 0.34% (11px) at the top, so the page starts 5px under the frame edge (20: "Acme Inc." cap at y 72) */
+  background: var(--colors-utility-warm-blue-utility-warm-blue-25);
+  border: 1px solid var(--colors-border-border-secondary); /* DRIFT: the frame's 1px stroke (content at 504 + 1 + 16) */
+}
+.acanvas__frame--full { padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-5xl); border: 0; } /* 22: the page 16px under the header (logo at y 70) */
+.acanvas__page { margin: 0 auto; }
+.acanvas__page--reflow { width: 100%; max-width: 1122px; } /* DRIFT: the dashboard's own width */
+
+/* code view */
+.acanvas__frame--code { padding-top: var(--spacing-xl); background: var(--colors-background-bg-primary); }
+.acanvas__code {
+  margin: 0; display: block; overflow-x: auto;
+  font-family: var(--font-family-code); font-size: var(--text-xs-regular-code-font-size); line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700); white-space: pre;
+}
+.acanvas__line { display: block; }
+.acanvas__ln { display: inline-block; width: 3ch; margin-right: var(--spacing-xl); text-align: right; color: var(--colors-text-text-quaternary-500); user-select: none; }
+
+/* sample page for the kinds Figma leaves blank */
+.acanvas__doc {
+  max-width: 760px; margin: 0 auto; padding: var(--spacing-4xl); border-radius: var(--radius-md); /* DRIFT: page column */
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  display: flex; flex-direction: column; gap: var(--spacing-lg);
+  font-size: var(--text-md-regular-font-size); line-height: var(--text-md-regular-line-height); color: var(--colors-text-text-secondary-700);
+}
+.acanvas__doc-title {
+  margin: 0; font-size: var(--text-xl-semibold-font-size); line-height: var(--text-xl-semibold-line-height);
+  font-weight: var(--text-xl-semibold-font-weight); color: var(--colors-text-text-primary-900);
+}

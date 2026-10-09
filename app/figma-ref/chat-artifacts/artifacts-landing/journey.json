@@ -1,0 +1,84 @@
+{
+  "id": "artifacts-landing",
+  "title": "Artifacts landing (empty state -> list -> 1728px -> modal)",
+  "card": "3780:177319",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3780-177319",
+  "steps": [
+    {
+      "step": "01", "nodeId": "3780:177209", "file": "01-3780-177209.png",
+      "shows": "Artifacts empty state: title, New Artifact button, 'Create an Artifact' empty state with secondary New Artifact button.",
+      "changedFrom": "First step.",
+      "action": "Click Artifacts in the rail with no artifacts.",
+      "shell": { "rail": "collapsed, Artifacts selected", "composer": false, "artifactPanel": false, "overlay": null },
+      "components": ["Main_nav / types=collapsed", "Buttons/Button Brand / Size=md, Hierarchy=Primary, Icon=Default, State=Default", "ES Empty State / Level=Level 1, Type=Create"]
+    },
+    {
+      "step": "02", "nodeId": "7907:305055", "file": "02-7907-305055.png", "size": "1440x1380",
+      "shows": "Grid view: tabs, search, All Types, Newest, grid/list toggle; 12 artifact cards in 3 columns.",
+      "changedFrom": "Empty state replaced by filter bar + card grid.",
+      "action": "Return to Artifacts once artifacts exist.",
+      "shell": { "rail": "collapsed, Artifacts selected", "composer": false, "artifactPanel": false, "overlay": null },
+      "components": ["Main_nav / types=collapsed", "Buttons/Button Brand / Size=md, Hierarchy=Primary, Icon=Default, State=Default", "filter frame / Type=Default", "artifacts / Property 1=full image"]
+    },
+    {
+      "step": "03", "nodeId": "12868:502599", "file": "03-12868-502599.png", "size": "1440x827",
+      "shows": "List view: table NAME / TYPE / STATUS / actions with 4 rows.",
+      "changedFrom": "Grid -> table.",
+      "action": "Click the list icon in the grid/list toggle.",
+      "shell": { "rail": "collapsed, Artifacts selected", "composer": false, "artifactPanel": false, "overlay": null },
+      "components": ["Main_nav / types=collapsed", "Buttons/Button Brand / Size=md, Hierarchy=Primary, Icon=Default, State=Default", "filter frame / Type=Default", "Col Header Cell / Text=True, Checkbox=False, Size=sm, State=Default, Data Icon=Off", "Table cell / Style=Avatar with text, Lead=No, State=Default, Size=md", "Table cell / Style=Icon with text and badge, Lead=No, State=Default, Size=md", "Table cell / Style=Action three dot icon, Lead=No, State=Default, Size=md", "Table cell / Style=Action three dot icon, Lead=No, State=Hover, Size=md"]
+    },
+    {
+      "step": "04", "nodeId": "8412:194488", "file": "04-8412-194488.png", "size": "1728x2026 (image at 0.77x)",
+      "shows": "1728px grid with the search input expanded; 17 cards incl. JSON, Playbook, empty-thumbnail markdown.",
+      "changedFrom": "Wider viewport; search icon -> input; more card types.",
+      "action": "Click the search icon (1728 width is reference only; 1440 is the baseline).",
+      "shell": { "rail": "collapsed, Artifacts selected", "composer": false, "artifactPanel": false, "overlay": null },
+      "components": ["Main_nav / types=collapsed", "Buttons/Button Brand / Size=md, Hierarchy=Primary, Icon=Default, State=Default", "filter frame / Type=search click", "artifacts / Property 1=full image", "ai-generate-image"]
+    },
+    {
+      "step": "05", "nodeId": "11648:688356", "file": "05-11648-688356.png", "size": "1440x1380",
+      "shows": "States sheet: New Artifact hover tooltip 'Co-create with an Agent', All Types filter dropdown, hovered card with menu (Pin, Edit with Chat, Clone, Download, Share, Delete) and the pinned variant (Unpin ...).",
+      "changedFrom": "Overlays added on the grid.",
+      "action": "Hover New Artifact / click All Types / hover a card and click '...'.",
+      "shell": { "rail": "collapsed, Artifacts selected", "composer": false, "artifactPanel": false, "overlay": "tooltip + dropdowns" },
+      "components": ["Main_nav / types=collapsed", "Buttons/Button Brand / Size=md, Hierarchy=Primary, Icon=Default, State=Hover", "filter frame / Type=Default", "artifacts / Property 1=full image", "artifacts / Property 1=hover 2", "Dropdown Menu / Type=Small", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=On, State=Default, Divider=False, Supporting Text=Off, Size=sm", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Default, Divider=False, Supporting Text=Off, Size=sm", "Tooltip / Supporting text=False, Arrow=Bottom center", "Cursor / State=Arrow", "Cursor / State=Pointer Hand"]
+    },
+    {
+      "step": "06", "nodeId": "12057:581131", "file": "06-12057-581131.png", "size": "1440x800",
+      "shows": "Delete Artifact confirmation modal on a grey scrim (Cancel / Delete).",
+      "changedFrom": "Page replaced by scrim + modal.",
+      "action": "Click Delete in a card '...' menu.",
+      "shell": { "rail": null, "composer": false, "artifactPanel": false, "overlay": "modal" },
+      "components": ["Modal header / Type=Subtext Single line, Size=xs, back=no", "Modal actions / Type=Horizontal fill container, Size=xs, Destructive=True"]
+    },
+    {
+      "step": "07", "nodeId": "3780:177321", "file": "07-3780-177321.png",
+      "shows": "New Artifact chat: user 'Create a new artifact', assistant offers Spreadsheet / Presentation / Document / Application starters; composer at bottom.",
+      "changedFrom": "New Artifact opens a seeded chat.",
+      "action": "Click New Artifact on the Artifacts page.",
+      "shell": { "rail": "collapsed, Artifacts selected", "composer": true, "artifactPanel": false, "overlay": null },
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Artifact Starters / Property 1=Spreadsheet", "Artifact Starters / Property 1=Presentation", "Artifact Starters / Property 1=Document", "Artifact Starters / Property 1=Application", "Cursor / State=Pointer Hand", "Copilot desktop Input Box / State=Default, Tools & Sources=No, Line=One line large, Attachment=No", "COT / Type=Main, State=Default, Running=No", "All COT / Property 1=1", "Suggested prompts / Type=Lines", "Feedback Array / Type=Full screen", "Banner carousel / Property 1=Three apps"]
+    },
+    {
+      "step": "08", "nodeId": "3780:178324", "file": "08-3780-178324.png",
+      "shows": "Chat + spreadsheet artifact split; Excel split menu (Apps Dropdown) open: Open in Google Sheets / Sharepoint, Download Excel / PDF / CSV, Copy to clipboard.",
+      "changedFrom": "Artifact generated and opened next to the chat; export menu open.",
+      "action": "Pick Spreadsheet, then click the Excel split chevron in the artifact header.",
+      "shell": { "rail": "collapsed, Artifacts selected", "composer": true, "artifactPanel": "split (chat 441 + artifact)", "overlay": "export dropdown" },
+      "components": ["Main_nav / types=collapsed", "Sheets", "ES Breadcrumb / Variant=Default", "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No", "Arifact Header", "Apps Dropdown", "Dropdown list header / Type=H2", "Dropdown list item / Start Type=Default, End Type=Shortcut, Selected=Off, State=Hover, Divider=False, Supporting Text=On, Size=sm", "Cursor / State=Pointer Hand"]
+    }
+  ],
+  "components": [
+    { "step": "c01", "nodeId": "13750:280568", "file": "c01-13750-280568.png", "shows": "bg colour scheme - card tint per artifact type (doc #E9ECF1, sheets #E3EFE1, Presentation #FDE0C8, Markdown/CSV #F2F0EE, PDF #F6E2E0, Connector #F7E4DE / #FBE5D0, Application #F6EDF6, JSON #E9ECF1, Playbook #FDF3F4)." }
+  ],
+  "openQuestions": [
+    "Delete modal has no page under the scrim - place over the grid?",
+    "Post-delete feedback / link to deleted-artifact frame.",
+    "Step 07 copy mentions 'routine'.",
+    "07 -> 08 is a different conversation; what exactly happens after picking a starter?",
+    "Should tabs / type filter filter data in the prototype?",
+    "Meaning of card status icons.",
+    "Grid behaviour on wide screens (stays 928 / 3 columns at 1728)."
+  ]
+}

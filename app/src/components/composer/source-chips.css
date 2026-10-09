@@ -1,0 +1,33 @@
+/* Source Pill (7372:140000) and Tools Pill (7372:140049), the "Pills" frame of the composer's action bar.
+   md (Landing Page): 32 tall, padding 6 / 8, gap 4, radius-full, bg-primary; 16px glyph + 13/20 label, both
+   steel-blue-400 ("Company" 93 wide, "Research" 92, "No Sources" 105). icon (Bottom small / large): 32x32, padding 8.
+   Hover: steel-blue-25 fill; the Tools Pill swaps its telescope for a 16px round × on steel-blue-50.
+   Off (Sources=No): building_off in icon-tertiary, label "No Sources" (steel-blue-400 at md, as drawn). */
+/* Narrow composers: the chips scroll sideways instead of running under the actions (Appendix B: "chips in a horizontal
+   scroll"); at 1440 they always fit, so nothing changes there. The focus ring is drawn inside so the scroller cannot clip it. */
+.cchips { display: flex; flex: 0 1 auto; align-items: center; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.cchips::-webkit-scrollbar { display: none; }
+.cchip:focus-visible { outline-offset: -2px; }
+.cchip {
+  display: flex; flex: none; align-items: center; justify-content: center; gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-full);
+  background: var(--colors-background-bg-primary); color: var(--colors-utility-steel-blue-utility-steel-blue-400);
+  font-size: var(--text-sm-regular-font-size); font-weight: var(--text-sm-regular-font-weight); line-height: var(--text-sm-regular-line-height);
+  white-space: nowrap;
+}
+.cchip { height: 32px; } /* DRIFT: md pill height */
+.cchip--icon { padding: var(--spacing-md); }
+.cchip--icon { width: 32px; } /* DRIFT: icon-only pill */
+.cchip:is(:hover, .is-hover) { background: var(--colors-utility-steel-blue-utility-steel-blue-25); }
+.cchip__icon { position: relative; display: block; flex: none; }
+.cchip__icon { width: 16px; height: 16px; } /* DRIFT: icon */
+.cchip__icon svg { display: block; }
+.cchip--off .cchip__icon { color: var(--colors-icon-icon-tertiary); }
+
+/* Tools Pill / State=Hover: the × (Small Icon Button 16, radius-full, steel-blue-50) replaces the telescope */
+.cchip__x {
+  position: absolute; inset: 0; display: none; border-radius: var(--radius-full);
+  background: var(--colors-utility-steel-blue-utility-steel-blue-50); color: var(--colors-utility-steel-blue-utility-steel-blue-400);
+}
+.cchip--tool:is(:hover, .is-hover, :focus-visible) .cchip__x { display: block; }
+.cchip--tool:is(:hover, .is-hover, :focus-visible) .cchip__glyph { visibility: hidden; }

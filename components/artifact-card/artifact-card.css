@@ -1,0 +1,469 @@
+/* ----------------------------------------------------------------------------
+   artifact-card — DS "artifacts" card (title + type icon + preview + meta slot)
+   Figma: 7489:272547 and siblings · file lqKjNjyifEXCeywg69Knr2
+   Screen: Artifacts 7489:272501 · card is 288x226
+
+   RESOLVED 2026-09-09: the title used to bind `Colors/Text/text-secondary (700)`
+   from a SECOND colour library (collection 19c8d7fd…, #424242) while the author
+   bound the same-named variable from the ❖ Unify2026 DS (#4a4745). The design
+   now binds the title to `Colors/Text/text-primary (900)` from the correct
+   library on all nine cards. See DRIFT-LOG §7.
+
+   STILL OPEN: the "+N" overflow label binds `Colors/Text/text-quaternary (500)`
+   from that second library (#8f8a85; the DS token is #9f9993).
+
+   DRIFT (type): the title's style is `Text lg/Semibold` = Spectral SemiBold
+   17/20 live, but ds/tokens exports it as Geist 600 17/28 — wrong family AND
+   line-height. Stated literally until the export is re-staged.
+
+   DRIFT (geometry): the preview canvas states 152.959 / 12.628 / 11.927 /
+   224.893 / 119.099 px. Sub-pixel values straight off the frame; kept exact
+   rather than rounded, per "no spec changes".
+---------------------------------------------------------------------------- */
+
+.artifact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-none) var(--spacing-none);   /* was spacing-xl; design changed 2026-09-09 */
+  background: var(--colors-background-bg-primary);
+  border: 1px solid var(--colors-border-border-secondary);
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+}
+
+.artifact-card__body { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+
+.artifact-card__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  width: 100%;
+  padding-inline: var(--spacing-lg);
+}
+
+.artifact-card__head {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.artifact-card__title-row {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-width: 0;
+}
+
+.artifact-card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  box-sizing: border-box;
+  width: 232px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  /* DRIFT (type, un-tokenised): the design DETACHED this text style
+     (textStyleId is null on all nine cards) and states the treatment locally:
+     Spectral SemiBold 17/20 at -2% tracking. There is no DS style that matches
+     — `Text lg/Semibold` is the closest by name but exports as Geist 600 17/28
+     and carries 0% tracking. Stated literally; the DS should add a display-face
+     card-title style rather than leave nine detached overrides. */
+  font-family: var(--font-family-display);  /* DRIFT: no bound style — Spectral stated by the design */
+  font-size: 17px;                          /* DRIFT: no bound style */
+  font-weight: 600;                         /* DRIFT: SemiBold */
+  line-height: 20px;                        /* DRIFT: no bound style */
+  letter-spacing: -0.02em;                  /* DRIFT: -2% tracking, stated by the design */
+  color: var(--colors-text-text-primary-900);
+}
+
+/* type mark — "Small Icon Button" 32x32, absolutely placed by the design at
+   left 236 / top -8 of the head, padding 4 around a 24x24 Artifact-Icons slot */
+.artifact-card__type {
+  position: absolute;
+  left: 236px;
+  top: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* The Artifact-Icons instance is a 24x24 slot, but the glyph inside it is
+   SMALLER THAN THE SLOT and is not square. Sizes and offsets are read straight
+   off the frame — do not stretch the export to fill 24x24, which is what the
+   raw asset's tight bounding box invites. Three geometries across seven types. */
+.artifact-card__type-slot {
+  position: relative;
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+.artifact-card__type-slot img { position: absolute; display: block; }
+
+/* Named for the Artifact-Icons variant each one renders — two frames use
+   different components for the same conceptual type, with different geometry. */
+/* Documents · Markdowns · Spreadsheets · CSV · PDFs (7289:49624 etc.) */
+.artifact-card__type--documents      img { left: 4.205px; top: 3.429px; width: 15.541px; height: 17.143px; }
+/* Type=Applications 7289:49629 — frame 110 */
+.artifact-card__type--applications   img { left: 2.143px; top: 4.714px; width: 19.714px; height: 14.338px; }
+/* Type=Presentation 7289:49626 — frame 110 */
+.artifact-card__type--presentation   img { left: 2.143px; top: 3.982px; width: 19.714px; height: 16.777px; }
+/* Type=App 7549:297369 — frame 108 */
+.artifact-card__type--app            img { left: 4.230px; top: 3.428px; width: 15.540px; height: 17.143px; }
+/* Type=Presentation 7549:297366 — frame 108 (a different component from the above) */
+.artifact-card__type--presentation-alt img { left: 4.313px; top: 3.982px; width: 15.540px; height: 17.143px; }
+
+.artifact-card__preview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+
+.artifact-card__canvas {
+  display: flex;
+  flex: none;          /* the canvas overflows the 120px preview box in the frame */
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  height: 152.959px;   /* DRIFT: sub-pixel, off any scale */
+  padding: 2.105px;    /* DRIFT: sub-pixel */
+  border-radius: 12.628px;  /* DRIFT: sub-pixel */
+}
+
+/* per-card preview tint (16740-style semantic utilities, one per artifact type) */
+.artifact-card__canvas--warm-blue { background: var(--colors-utility-warm-blue-utility-warm-blue-50); }
+.artifact-card__canvas--neutral   { background: var(--colors-background-bg-tertiary); }
+.artifact-card__canvas--jade      { background: var(--colors-utility-jade-green-utility-jade-green-25); }
+.artifact-card__canvas--violet    { background: var(--colors-utility-royal-violet-utility-royal-violet-25); }
+.artifact-card__canvas--orange    { background: var(--colors-utility-orange-utility-orange-25); }
+.artifact-card__canvas--error     { background: var(--colors-utility-error-utility-error-25); }
+
+.artifact-card__clip {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  border-radius: 11.927px;   /* DRIFT: sub-pixel */
+  overflow: hidden;
+}
+
+.artifact-card__shot {
+  position: relative;
+  flex: none;
+  width: 224.893px;    /* DRIFT: sub-pixel */
+  height: 119.099px;   /* DRIFT: sub-pixel */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+/* card 8 (7489:272660) paints a white plate under its screenshot */
+.artifact-card__shot--plated { background: var(--colors-background-bg-white); }
+
+.artifact-card__shot img {
+  position: absolute;
+  display: block;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+  pointer-events: none;
+}
+/* scaleMode FILL previews (7489:272566 / 272603 / 272657) */
+.artifact-card__shot img.is-cover { object-fit: cover; }
+/* the remaining previews are cropped by an explicit transform; those cards
+   carry the exact percentages inline (see prototypes/artifacts/index.html). */
+.artifact-card__shot img.is-cropped { inset: auto; object-fit: fill; }
+
+.artifact-card__foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-lg);
+  background: var(--colors-background-bg-white);
+}
+
+.artifact-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--colors-background-bg-primary);
+}
+
+.artifact-card__who {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: 5px;   /* DRIFT: off-scale (4 -> 6) */
+  min-width: 0;
+}
+
+.artifact-card__author {
+  flex: none;
+  white-space: nowrap;
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  font-weight: var(--text-xs-regular-font-weight);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+
+.artifact-card__sep {
+  flex: none;
+  font-family: var(--text-xs-regular-font-family);
+  font-size: var(--text-xs-regular-font-size);
+  font-weight: var(--text-xs-regular-font-weight);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+.artifact-card__time {
+  flex: none;
+  white-space: nowrap;
+  font-family: var(--text-xs-medium-font-family);
+  font-size: var(--text-xs-medium-font-size);
+  font-weight: var(--text-xs-medium-font-weight);
+  line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+
+.artifact-card__flags { display: flex; align-items: center; gap: var(--spacing-xs); flex: none; }
+
+.artifact-card__lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  flex: none;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  padding: var(--spacing-xxs) var(--spacing-none);
+}
+.artifact-card__lock { color: var(--colors-icon-icon-secondary); }
+.artifact-card__lock svg { display: block; width: 10px; height: 10px; }
+
+.artifact-card__avatars { display: flex; align-items: flex-start; gap: var(--spacing-xs); flex: none; }
+.artifact-card__stack { display: flex; align-items: center; flex: none; }
+
+.artifact-card__pip {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+}
+.artifact-card__pip--first { margin-right: -5px; }   /* DRIFT: off-scale overlap */
+.artifact-card__pip--a { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-50); }
+.artifact-card__pip--b { background: var(--colors-utility-brand-utility-brand-100); }
+
+.artifact-card__more {
+  position: relative;
+  flex: none;
+  width: 18px;
+  height: 12px;
+  border-radius: var(--radius-full);
+}
+.artifact-card__more span {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 8px);
+  transform: translateX(-50%);
+  width: 24px;
+  text-align: center;
+  font-family: var(--text-xs-medium-font-family);
+  font-size: var(--text-xs-medium-font-size);
+  font-weight: var(--text-xs-medium-font-weight);
+  line-height: var(--text-xs-medium-line-height);
+  color: #8f8a85;   /* DRIFT: text-quaternary-500 from the OTHER colour library (token = #9f9993) */
+}
+
+
+/* ============================================================================
+   "doc" variant — Property 1 = doc | markdown | excel | app | pres | CSV | pdf
+   Figma frame 108 `7433:165911`. Same component set as the `light` variant
+   above; the screenshot preview is replaced by a generated gradient cover with
+   a dot-pattern overlay and a mono filename label.
+
+   DRIFT (token): every cover colour is UNBOUND raw hex in the design — a
+   generated cover palette with no DS tokens behind it. Only the `doc` base
+   (#3870a8) happens to equal utility-steel-blue-400. Stated literally; the DS
+   should promote this palette if covers are a real feature.
+   DRIFT (geometry): cover 152 / 2.105 / 12.628 / 11.927 / 234.588 / -18.74 are
+   sub-pixel values straight off the frame.
+   ========================================================================== */
+
+.artifact-card--doc .artifact-card__title { width: 226px; }   /* the doc variant states 226, not 232 */
+
+.artifact-card__preview--cover { width: 262px; }
+
+.artifact-card__cover {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  height: 152px;
+  padding: 2.105px;          /* DRIFT: sub-pixel */
+  border-radius: 12.628px;   /* DRIFT: sub-pixel */
+}
+
+.artifact-card__cover-inner {
+  position: relative;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 29.817px;             /* DRIFT: sub-pixel */
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  padding: var(--spacing-7xl) var(--spacing-none) var(--spacing-none) var(--spacing-xl);
+  border-radius: 11.927px;   /* DRIFT: sub-pixel */
+  overflow: hidden;
+}
+
+.artifact-card__cover-dots {
+  position: absolute;
+  left: 117.08px;            /* DRIFT: sub-pixel */
+  top: -18.74px;             /* DRIFT: sub-pixel */
+  width: 234.588px;          /* DRIFT: sub-pixel */
+  height: 234.588px;         /* DRIFT: sub-pixel */
+  opacity: 0.15;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.artifact-card__cover-label {
+  position: relative;
+  flex: none;
+  box-sizing: border-box;
+  width: 198px;
+  height: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.7;
+  /* Text xxs/Regular-Code. DRIFT: the export records this style's family as
+     body/Geist, contradicting its own "-Code" name; the live style and the
+     render are JetBrains Mono. Same stale row that stat.css flags. */
+  font-family: var(--font-family-code);
+  font-size: var(--text-xxs-regular-code-font-size);
+  font-weight: var(--text-xxs-regular-code-font-weight);
+  line-height: var(--text-xxs-regular-code-line-height);
+  color: var(--colors-text-text-white);
+}
+
+/* Cover palettes. Figma paints fills bottom-to-top; CSS paints the first layer
+   on top — so each rule reads scrim, gradient, base. Gradient angles and stop
+   offsets are derived from the fill's imageTransform matrix. */
+.artifact-card__cover--doc {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(111.696deg, rgba(0, 0, 0, 0) 3.2637%, #001932 92.7035%),   /* DRIFT: unbound cover palette */
+    linear-gradient(90deg, #3870a8 0%, #3870a8 100%);   /* DRIFT: unbound cover palette */
+}
+.artifact-card__cover--markdown,
+.artifact-card__cover--csv {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(111.696deg, rgba(0, 0, 0, 0) 3.2637%, #000000 92.7035%),   /* DRIFT: unbound cover palette */
+    linear-gradient(90deg, #4c4c4c 0%, #4c4c4c 100%);   /* DRIFT: unbound cover palette */
+}
+.artifact-card__cover--excel {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(110.190deg, rgba(0, 0, 0, 0) 4.5668%, #12583b 92.1885%),   /* DRIFT: unbound cover palette */
+    linear-gradient(90deg, #27be7f 0%, #27be7f 100%);   /* DRIFT: unbound cover palette */
+}
+.artifact-card__cover--app {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(117.410deg, rgba(0, 0, 0, 0) 3.0877%, #0a0010 101.1096%),   /* DRIFT: unbound cover palette */
+    linear-gradient(90deg, #5531a8 0%, #5531a8 100%);   /* DRIFT: unbound cover palette */
+}
+.artifact-card__cover--pres {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(111.696deg, rgba(0, 0, 0, 0) 3.2637%, #622900 92.7035%),   /* DRIFT: unbound cover palette */
+    linear-gradient(90deg, #e66305 0%, #e66305 100%);   /* DRIFT: unbound cover palette */
+}
+.artifact-card__cover--pdf {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(111.696deg, rgba(0, 0, 0, 0) 3.2637%, #470014 92.7035%),   /* DRIFT: unbound cover palette */
+    linear-gradient(90deg, #aa0202 0%, #aa0202 100%);   /* DRIFT: unbound cover palette */
+}
+
+
+/* ============================================================================
+   "tinted" cover treatment — Figma frame 111 `7591:300936`
+   Same doc-family variants as frame 108, but the cover is a flat DS tint with a
+   difference-blended dot veil and NO mono label. Every tint here IS bound to a
+   token (unlike the frame-108 gradient palette — see DRIFT-LOG §14).
+
+   The document thumbnail that sits on these covers is NOT part of the card: in
+   the frame it is a sibling rectangle positioned by the row, overlapping the
+   card. It lives in the prototype's layout CSS as .card-row__thumb.
+   ========================================================================== */
+
+.artifact-card__cover--tint-pigeon  { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-100); }
+.artifact-card__cover--tint-gray    { background: var(--colors-utility-gray-utility-gray-300); }
+.artifact-card__cover--tint-lime    { background: var(--colors-utility-lime-utility-lime-50); }
+.artifact-card__cover--tint-steel   { background: var(--colors-utility-steel-blue-utility-steel-blue-50); }
+.artifact-card__cover--tint-teal    { background: var(--colors-utility-harbor-teal-utility-harbor-teal-50); }
+.artifact-card__cover--tint-brand   { background: var(--colors-utility-brand-utility-brand-50); }
+.artifact-card__cover--tint-warning { background: var(--colors-utility-warning-utility-warning-50); }
+
+/* dot veil: a 15% wrapper holding a 50% difference-blended image, exactly as
+   the frame stacks them — the two opacities are not interchangeable with one
+   combined value because the blend happens between them. */
+.artifact-card__cover-veil {
+  position: absolute;
+  left: 117.08px;      /* DRIFT: sub-pixel */
+  top: -18.74px;       /* DRIFT: sub-pixel */
+  width: 234.588px;    /* DRIFT: sub-pixel */
+  height: 234.588px;   /* DRIFT: sub-pixel */
+  opacity: 0.15;
+  pointer-events: none;
+}
+.artifact-card__cover-veil img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0.5;
+  mix-blend-mode: difference;
+}

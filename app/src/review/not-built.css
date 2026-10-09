@@ -1,0 +1,52 @@
+/* "Not built yet" placeholder (review/NotBuilt.tsx). Prototype chrome, not part of the design: a readable column that
+   stays fluid from 1440 down to 390, with the Figma reference scaled to the column. */
+.not-built {
+  width: min(1040px, 100% - 2 * var(--spacing-3xl)); margin: var(--spacing-4xl) auto var(--spacing-6xl); /* DRIFT: placeholder column */
+  display: flex; flex-direction: column; gap: var(--spacing-3xl);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-tertiary-600);
+}
+@media (max-width: 480px) {
+  .not-built { width: calc(100% - 2 * var(--spacing-xl)); margin-top: var(--spacing-3xl); }
+}
+.not-built__head { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.not-built__eyebrow {
+  align-self: flex-start; padding: var(--spacing-xxs) var(--spacing-md); border-radius: var(--radius-full);
+  background: var(--colors-background-bg-warning-primary); color: var(--colors-text-text-warning-primary-600);
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+}
+.not-built__title {
+  font-size: var(--display-xs-semibold-font-size); font-weight: var(--display-xs-semibold-font-weight); line-height: var(--display-xs-semibold-line-height);
+  color: var(--colors-text-text-primary-900); overflow-wrap: anywhere;
+}
+.not-built__lede { max-width: 72ch; }
+.not-built__url { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--spacing-md); }
+.not-built__url code, .not-built code {
+  font-family: var(--font-family-code); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-secondary-700); overflow-wrap: anywhere;
+}
+.not-built__k { color: var(--colors-text-text-quaternary-500); font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); }
+
+.not-built__frame {
+  display: flex; flex-direction: column; gap: var(--spacing-md); padding: var(--spacing-xl);
+  border-radius: var(--radius-4xl); background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.not-built__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--spacing-xs) var(--spacing-lg); }
+.not-built__step {
+  font-family: var(--font-family-code); font-size: var(--text-md-semibold-font-size); font-weight: var(--text-md-semibold-font-weight);
+  line-height: var(--text-md-semibold-line-height); color: var(--colors-text-text-primary-900);
+}
+.not-built__kind, .not-built__size { font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); color: var(--colors-text-text-quaternary-500); }
+.not-built__label { color: var(--colors-text-text-secondary-700); }
+.not-built__note { font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+.not-built__ref {
+  overflow: hidden; border-radius: var(--radius-md); background: var(--colors-background-bg-secondary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.not-built__ref img { max-width: 100%; height: auto; margin: 0 auto; }
+.not-built__ref .ref-missing { padding: var(--spacing-xl); }
+.not-built__foot a { color: var(--colors-text-text-brand-tertiary-600); text-decoration: underline; }
+.ref-missing__try {
+  color: var(--colors-text-text-brand-tertiary-600); text-decoration: underline; text-underline-offset: 2px;
+}
+.ref-missing__try:hover { color: var(--colors-text-text-brand-secondary-700); }

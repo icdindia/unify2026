@@ -1,0 +1,109 @@
+/* Inline artifact card — "Inline Artifact Cards" set 5288:119600 (local), base "Inline Cards" 15219:419822, sheet
+   "Artifact-hover" 15219:109634 (40px) / 15219:419811 (50px). Read with figma-console 2026-10-09 and measured on the 1440
+   reference PNGs (chat-artifact 15, 15a, 16, 16a, 17, 20). CSS atom: components/inline-artifact-card.
+     card     520 max (chat) / fill (split, panel) x 60; padding 12 12 12 16 (split, panel: 12 16 12 16); radius 12; gap 4
+              bg-primary + 1px border-tertiary inside, drawn over the sheet (the sheet is clipped by the card at 60)
+     hover    bg-secondary, border-primary (#dbd6d1 in the PNGs), shadow 0 1 2 / 0 1 3 utility-gray-200
+     sheet    40 x 56 (v2: 50 x 56), radius 8 8 0 0, bg-primary, 1px border-secondary inside, in a 36 tall slot; the slot
+              casts 0 6 8 black 8%. Hover fans a second 40 x 56 sheet out behind it: at -10.2, 11.9, rotated 14°
+     text     12 after the sheet: title Text sm/Medium primary, meta Text xs/Regular tertiary, one line each
+     actions  chat: Buttons/Button Neutral sm Tertiary "Download" (77 x 28); bordered (Secondary look) on card hover (16),
+              on button hover (15a), and at rest in v2 (16a). split / panel: sm icon button, download-01 16
+     panel    files-panel artifact rows (17): hover is the panel's row hover, bg-primary_hover + utility-gray-300 border */
+.iac {
+  position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--spacing-xs);
+  box-sizing: border-box; width: 100%; min-width: 0; overflow: hidden;
+  height: 60px; /* DRIFT: Inline Cards height */
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-4xl); background: var(--colors-background-bg-primary);
+}
+.iac--chat { max-width: 520px; } /* DRIFT: Inline Artifact Cards width in a 760 answer */
+.iac--split, .iac--panel { padding-right: var(--spacing-xl); }
+/* the stroke, above the sheet (the PNGs draw the card's bottom edge across it) */
+.iac::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+}
+
+/* card hover (State=Hover+Active 15219:419823) */
+.iac:not(.iac--panel):is(:hover, .is-hover) {
+  background: var(--colors-background-bg-secondary);
+  box-shadow: 0 1px 2px var(--colors-utility-gray-utility-gray-200), 0 1px 3px var(--colors-utility-gray-utility-gray-200);
+}
+.iac:not(.iac--panel):is(:hover, .is-hover)::after { box-shadow: inset 0 0 0 1px var(--colors-border-border-primary); }
+/* 16a (v2) hover: the grey fill only, the stroke stays border-tertiary and there is no shadow */
+.iac.iac--v2:not(.iac--panel):is(:hover, .is-hover) { box-shadow: none; }
+.iac.iac--v2:not(.iac--panel):is(:hover, .is-hover)::after { box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); }
+.iac--panel:is(:hover, .is-hover) { background: #fbfaf9; } /* DRIFT: files panel row hover, bg-primary_hover is #fbfaf9 in this file (14604:278341), #fefdfb in tokens.css */
+.iac--panel:is(:hover, .is-hover)::after { box-shadow: inset 0 0 0 1px #e6e4e0; } /* DRIFT: row hover stroke utility-gray-300, #e6e4e0 in this file */
+
+/* the whole card opens the artifact: one button, stretched over the card by its ::before */
+.iac__open {
+  display: flex; align-items: center; gap: var(--spacing-lg); flex: 1 1 auto; min-width: 0;
+  height: 36px; /* DRIFT: Frame 2147266862 height */
+  padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.iac__open::before { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.iac__open:focus-visible { outline: none; }
+.iac:has(.iac__open:focus-visible) { outline: 2px solid var(--colors-utility-brand-utility-brand-500); outline-offset: 1px; } /* the app's ring (base.css), on the card */
+
+/* the paper sheet */
+.iac__stack {
+  position: relative; flex: none; align-self: flex-start;
+  width: 40px; height: 36px; /* DRIFT: Artifact-hover 40 x 36 (15219:109634) */
+  filter: drop-shadow(0 6px 4px rgba(0, 0, 0, .08)); /* DRIFT: Frame 2147266860 drop shadow 0 6 8 #000 8% */
+}
+.iac--v2 .iac__stack { width: 50px; } /* DRIFT: Artifact-hover 50 (16a, 15219:419811) */
+.iac__sheet {
+  position: absolute; left: 0; top: 0; box-sizing: border-box; width: 100%;
+  height: 56px; /* DRIFT: Rectangle 5653 height */
+  border-radius: var(--radius-md) var(--radius-md) var(--radius-none) var(--radius-none);
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.iac__sheet--back {
+  width: 40px; /* DRIFT: Rectangle 5654 width */
+  background: #fbfaf9; /* DRIFT: Rectangle 5654 fill bg-primary_hover, #fbfaf9 in this file (15a PNG) */
+  opacity: 0; transform-origin: 0 0; transition: transform .16s ease-out, opacity .16s ease-out;
+}
+.iac:not(.iac--panel):is(:hover, .is-hover) .iac__sheet--back {
+  opacity: 1;
+  transform: translate(-10.2px, 11.9px) rotate(-14deg); /* Rectangle 5654 in state=2: x -10.2, y 11.9, rotation 14 */
+}
+@media (prefers-reduced-motion: reduce) { .iac__sheet--back { transition: none; } }
+
+/* the type mark (glyphs.ts), placed as the PNGs draw it in the 40px sheet */
+.iac__glyph { position: absolute; display: block; max-width: none; pointer-events: none; user-select: none; }
+.iac__glyph--doc { left: 10.95px; top: 10px; width: 18.13px; height: 20px; } /* DRIFT: .md document mark 18.13 x 20 */
+.iac__glyph--tile { left: 10px; top: 9.9px; width: 20.6px; height: 20.25px; } /* DRIFT: tile mark 20.6 x 20.25 */
+.iac__glyph--window { left: 8.5px; top: 11.4px; width: 23px; height: 16.73px; } /* DRIFT: window mark 23 x 16.73 */
+.iac__glyph--pdf-v2 { left: 12.5px; top: 8px; width: 26px; height: 26px; } /* DRIFT: Artifact Icon PDFs as 16a draws it */
+.iac--v2 .iac__glyph:not(.iac__glyph--pdf-v2) { margin-left: 5px; } /* DRIFT: centred in the 50px sheet */
+
+.iac__text { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; }
+.iac__title, .iac__meta { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.iac__title {
+  position: relative; top: 1px; /* DRIFT: measured baseline, Chrome seats Geist 13px 1px higher than Figma */
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+}
+.iac__meta {
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+
+/* actions sit above the stretched open button */
+.iac__actions { position: relative; z-index: 1; display: flex; flex: none; align-items: center; gap: var(--spacing-xs); margin-left: auto; }
+/* Download: Tertiary at rest; the Secondary look (white, 1px border-secondary inside) on card hover (16), on button
+   hover (15a) and at rest in v2 (16a). The Button set's own hover fill does not apply inside the card. */
+.iac:not(.iac--hover-text):is(:hover, .is-hover) .iac__dl.btn,
+.iac .iac__dl.btn:hover,
+.iac.is-button-hover .iac__dl.btn,
+.iac--v2 .iac__dl.btn {
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border);
+  color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg);
+}
+.iac--v1.iac--chat:not(.iac--hover-text, .iac--steady):is(:hover, .is-hover) { padding-right: var(--spacing-xl); } /* 16 draws the hovered card's Download 16 from the edge (fix inline-card-hover-steady keeps 12) */
+.iac .iac__dl.btn { width: 77px; } /* DRIFT: the Download instance is 77 wide; the label centres in it as Figma sets it */
+.iac__dli { color: var(--colors-icon-icon-secondary); }
+.iac__dli svg { display: block; flex: none; }

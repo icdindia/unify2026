@@ -1,0 +1,8 @@
+/* Gallery page "Chat title menu": a positioned stage tall enough for the menu and its submenu. */
+.ctg-stage { position: relative; width: 100%; max-width: 560px; height: 440px; } /* DRIFT: gallery stage for the 03 menus */
+.ctg-title {
+  display: inline-flex; align-items: center; gap: var(--spacing-xs); margin-left: var(--spacing-xl); padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--button-sm); color: var(--colors-text-text-primary-900);
+  font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+}
+.ctg-title:hover, .ctg-title[aria-expanded="true"] { background: var(--colors-background-bg-tertiary); }

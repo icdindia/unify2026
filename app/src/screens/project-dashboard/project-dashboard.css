@@ -1,0 +1,77 @@
+/* Project dashboard — "Dashboard" 14045:584747 (option 1) and 15054:105151 (option 2), ported from
+   prototypes/project-dashboard. The column is the frame's 760, centred in the main area (x200 of 1160 at a 1440
+   viewport) and 40px below the breadcrumb strip; narrower, it keeps 24px gutters (16px below 768).
+   Vertical rhythm from the file: composer 32 below the description, toolbar 48 below the composer, table 16
+   below the toolbar (48 in option 2). The base rules draw the frames as designed; .pd--fx-* and the
+   .pd__filters--* modifiers are fixes from src/fixes/projects.ts, on with "With fixes". */
+.pd { width: min(760px, 100% - 2 * var(--spacing-3xl)); margin: var(--spacing-5xl) auto; display: flex; flex-direction: column; } /* DRIFT: 760 column from the frame */
+@media (max-width: 767px) { .pd { width: calc(100% - 2 * var(--spacing-xl)); } } /* DRIFT: 768 breakpoint (mobile design to come) */
+
+.pd__composer { flex: none; margin-top: var(--spacing-4xl); }
+
+/* option 1: underline tabs and the filter / sort buttons, tops aligned (the tabs are 32 with their indicator) */
+.pd__toolbar { height: 32px; } /* DRIFT: row height (the tabs with their indicator) */
+.pd__toolbar { margin-top: var(--spacing-6xl); min-width: 0; display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-4xl); }
+/* option 2 (15054:106857): Button Brand sm pills and the All / Newest dropdowns, 28 tall, 48 apart */
+.pd__toolbar--o2 { height: 28px; } /* DRIFT: row height */
+.pd__toolbar--o2 { align-items: center; gap: var(--spacing-6xl); }
+
+.pd__table { margin-top: var(--spacing-xl); }
+.pd--o2 .pd__table { margin-top: var(--spacing-6xl); }
+/* Option 2 as drawn: the Routines pill label carries a stray hover-fg override (#4a4745); fix o2-routines-label-rest drops it */
+.pd--o2:not(.pd--fx-pill-rest) .pills .pill:nth-child(2):not(.pill--primary) { color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg-hover); }
+/* fix table-gap-plus-12 (option 1): 16 + 12 */
+.pd--fx-gap12:not(.pd--o2) .pd__table { margin-top: calc(var(--spacing-xl) + var(--spacing-lg)); }
+
+/* Option 1 tabs as drawn: _Tab base with a 76px minimum width, and an 8px icon gap on hover (6 at rest).
+   (components/buttons/tabs.css draws the natural widths of fix tabs-natural-width, so these rules restore the file.) */
+.pd:not(.pd--fx-tabs) .tab { min-width: 76px; } /* DRIFT: the file's tab min width */
+.pd:not(.pd--fx-tabs) .tab:not(.is-current):is(:hover, .is-hover) .tab__txt { gap: var(--spacing-md); }
+/* the file's whole-pixel label boxes (Chats 35, Routines 53, Artifacts 51, Files 28, Settings 50, read from the frame):
+   Chrome sets each label up to 0.6px narrower, which moved every later tab by a pixel */
+.pd:not(.pd--fx-tabs):not(.pd--o2) .tab:nth-child(1) .tab__l { min-width: 35px; } /* DRIFT: the file's text box */
+.pd:not(.pd--fx-tabs):not(.pd--o2) .tab:nth-child(2) .tab__l { min-width: 53px; } /* DRIFT: the file's text box */
+.pd:not(.pd--fx-tabs):not(.pd--o2) .tab:nth-child(3) .tab__l { min-width: 51px; } /* DRIFT: the file's text box */
+.pd:not(.pd--fx-tabs):not(.pd--o2) .tab:nth-child(4) .tab__l { min-width: 28px; } /* DRIFT: the file's text box */
+.pd:not(.pd--fx-tabs):not(.pd--o2) .tab:nth-child(5) .tab__l { min-width: 50px; } /* DRIFT: the file's text box */
+
+/* Option 1 filter / sort as drawn (ChatFilters): Buttons/Button Neutral, Tertiary, md, label + chevron-down-sm, 2px apart.
+   "All Chats" has 6px side padding, "Newest" 12px on the left; hover = bg-tertiary, label secondary-700, darker chevron. */
+.pd__filters { gap: var(--spacing-xxs); }
+.pd .fbtn { height: 32px; } /* DRIFT: button size */
+.pd .fbtn { flex: none; display: flex; align-items: center; gap: var(--spacing-xxs); padding: var(--spacing-sm); border-radius: var(--button-md); }
+.pd .fbtn--pl12 { padding-left: var(--spacing-lg); }
+.pd .fbtn__t {
+  padding: 0 var(--spacing-xxs); white-space: pre; /* pre: the file's "All Chats " text box keeps its trailing space */
+  font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+  position: relative; top: 1px; /* DRIFT: baseline offset, measured — Chrome seats Geist 13px 1px higher than Figma */
+}
+.pd .fbtn__t--allchats { width: 59px; } /* DRIFT: the file's text box is 55px ("All Chats " with a trailing space) + 2px padding each side */
+.pd .fbtn--pl12 .fbtn__t { width: 51px; } /* DRIFT: the file's "Newest" text box is 47px (Chrome sets it 46.4) + 2px padding each side */
+.pd .fbtn__c { flex: none; width: 14px; height: 14px; background: url("../../assets/chrome/chev-sm.svg") center / 14px 14px no-repeat; } /* DRIFT: icon */
+.pd .fbtn:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+.pd .fbtn:is(:hover, .is-hover) .fbtn__t { color: var(--colors-text-text-secondary-700); }
+.pd .fbtn:is(:hover, .is-hover) .fbtn__c { background-image: url("../../assets/chrome/chev-sm-hover.svg"); }
+.pd .fbtn:focus-visible { outline-offset: -2px; }
+/* fix filter-sort-icons without filter-sort-tab-specs: the icon buttons keep the Button md size */
+.pd__filters:not(.pd__filters--tabspec) .ftab--sm { height: 32px; padding: var(--spacing-sm); gap: var(--spacing-xxs); } /* DRIFT: button size */
+.pd__filters:not(.pd__filters--tabspec) .ftab--sm .ftab__t { padding: 0 var(--spacing-xxs); font-weight: var(--text-sm-medium-font-weight); }
+/* fix filter-sort-tab-specs: _Tab base Size=sm (28 tall, 4/8 padding, 6px gap, Text sm/Regular), 8px apart */
+.pd__filters--tabspec { gap: var(--spacing-md); }
+.pd__filters--tabspec .fbtn { height: 28px; padding: var(--spacing-xs) var(--spacing-md); gap: var(--spacing-sm); } /* DRIFT: tab height */
+.pd .pd__filters--tabspec .fbtn__t { padding: 0; width: auto; font-weight: var(--text-sm-regular-font-weight); }
+/* fix filter-sort-aligned: centred on the tab labels' 28px box (a 28px button at the top already is) */
+.pd__filters--aligned:not(.pd__filters--tabspec) { margin-top: calc(var(--spacing-xxs) * -1); }
+.pd__filters--tabspec:not(.pd__filters--aligned) { margin-top: var(--spacing-xxs); }
+
+/* The breadcrumb (ProjectCrumbs), at the file's whole-pixel text boxes: "Projects" 51 and, as designed, the placeholder
+   "New Project Name" 114 (the component adds a trailing space Figma does not count here). Chrome set "Projects" 0.6px
+   narrower and the placeholder 2px wider, which moved the slash, the crumb and its chevron by 1 to 3px. */
+.pd-crumbs .tbtn:first-child .tbtn__t { width: 55px; } /* DRIFT: 51 + 2px padding each side */
+.pd-crumbs--drawn .crumbs__current .tbtn__t { width: 118px; white-space: nowrap; } /* DRIFT: 114 + 2px padding each side; nowrap drops the trailing space at the line end, so the label fits without an ellipsis */
+
+/* below 768 (mobile design to come): the filter group wraps under the tabs instead of squeezing them */
+@media (max-width: 767px) { /* DRIFT: 768 breakpoint (mobile design to come) */
+  .pd__toolbar, .pd__toolbar--o2 { height: auto; flex-wrap: wrap; row-gap: var(--spacing-md); }
+}

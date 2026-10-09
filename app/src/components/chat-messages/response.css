@@ -1,0 +1,116 @@
+/* Assistant response, feedback row and suggested prompts, figma-console 2026-10-09.
+   Response_Desktop full / Assistant 10016:497073: VERTICAL gap 4: header row (x -32, 792 wide, 20 tall: Agent COT
+     Complete 2), then the content (gap 8: text, Feedback Array). Text: one TEXT layer, Geist 15/26, paragraph spacing 16,
+     bullets written "- " in SemiBold. "Agent Response" (chat-artifact 16 1809:364068) ends with 40 of padding.
+   Chart answers (graphs 04, 1707:125412 "Frame 1"): p 16/0/32/0, gap 24; headline Spectral SemiBold 24/32 -2% and
+     subtitle Text md/Regular 15/24 (Inter in that frame), both text-secondary, 2 apart; a border-secondary rule follows.
+   Feedback Array / Full screen 10016:493615: 760 x 24, space-between.
+     left   _Cost (p 4, radius full, Text xs text-tertiary) + Button Neutral xs Tertiary icon-only (24, p 6, radius full)
+            share, like, copy, read aloud, branch + All Sources (p 4/0/4/4, radius full: three 16px favicons 6 over each
+            other with a 0.75px ring, then "8 Sources" p 3/6/2/6, Text xs, text-quaternary #8f8a85 in this file)
+     right  CopilotBase_Feeback Actions / Desktop Agent 250:177368: thumbs up, thumbs down, more (24, p 6, radius 6)
+   Suggested prompts / Lines 5647:478952, 24 under the feedback row (input-large 24): "Suggested actions" Text md/Medium
+     15/24 (p-bottom 12), a border-tertiary line, rows 24 tall 8 + line + 8 apart (corner-down-right in a 16 box, gap 8,
+     Text md/Regular 15/24 text-primary); Hover (5647:478941) turns text and arrow #0c2011 (text-brand-tertiary-600). */
+
+.cm-resp { display: flex; flex-direction: column; gap: var(--spacing-xs); min-width: 0; padding-bottom: var(--spacing-5xl); }
+.cm-resp + .cm-system { margin-top: calc(-1 * var(--spacing-5xl)); }
+.cm-resp__head { display: flex; align-items: center; margin-left: calc(-1 * var(--spacing-4xl)); }
+.cm-resp__head { min-height: 20px; } /* DRIFT: header row 20 tall */
+.cm-resp--inset .cm-resp__head { margin-left: 0; }
+.cm-resp__main { display: flex; flex-direction: column; gap: var(--spacing-md); min-width: 0; }
+.cm-resp__main--lead .cm-resp__body { padding: var(--spacing-xl) 0 var(--spacing-4xl); }
+
+.cm-resp__body {
+  min-width: 0; color: var(--colors-text-text-primary-900); overflow-wrap: anywhere; white-space: pre-wrap; /* the text's own spaces and line breaks, as Figma sets them */
+  font-family: var(--text-md-regular-para-font-family); font-size: var(--text-md-regular-para-font-size);
+  font-weight: var(--text-md-regular-para-font-weight); line-height: var(--text-md-regular-para-line-height);
+}
+.cm-text { margin: 0; }
+.cm-list { margin: 0; padding: 0; list-style: none; }
+.cm-list > li + li { margin-top: var(--spacing-xl); }
+.cm-gap-2 { margin-top: var(--spacing-xxs); }
+.cm-gap-8 { margin-top: var(--spacing-md); }
+.cm-gap-16 { margin-top: var(--spacing-xl); }
+.cm-gap-24 { margin-top: var(--spacing-3xl); }
+
+.cm-headline {
+  margin: 0; color: var(--colors-text-text-secondary-700);
+  font-family: var(--display-xs-semibold-font-family); font-size: var(--display-xs-semibold-font-size); font-weight: var(--display-xs-semibold-font-weight);
+  line-height: var(--display-xs-semibold-line-height); letter-spacing: var(--display-xs-semibold-letter-spacing);
+}
+.cm-subtitle {
+  margin: 0; color: var(--colors-text-text-secondary-700);
+  font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); font-weight: var(--text-md-regular-font-weight); line-height: var(--text-md-regular-line-height);
+}
+.cm-rule { margin: var(--spacing-3xl) 0 0; border: 0; }
+.cm-rule { border-top: 1px solid var(--colors-border-border-secondary); }
+.cm-slot { min-width: 0; }
+
+/* ---- feedback row ---- */
+.cm-fb { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-md); }
+.cm-fb { min-height: 24px; } /* DRIFT: row 24 */
+.cm-fb__left, .cm-fb__right { display: flex; align-items: center; min-width: 0; }
+.cm-fb__left { flex-wrap: wrap; }
+.cm-fb__cost {
+  display: flex; align-items: center; flex: none; padding: var(--spacing-xs); border-radius: var(--radius-full);
+  color: var(--colors-text-text-tertiary-600); white-space: nowrap;
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.cm-fb__btn {
+  display: flex; align-items: center; justify-content: center; flex: none;
+  width: 24px; height: 24px; /* DRIFT: Button Neutral xs icon-only */
+  border-radius: var(--button-xs);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+  background: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-bg);
+}
+.cm-fb__btn--round { border-radius: var(--radius-full); }
+.cm-fb__btn:hover {
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg-hover);
+  background: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-bg-hover);
+}
+/* fix feedback-pressed-state: the chosen thumb keeps the hover fill and a primary icon */
+.cm-fb--pressed-look .cm-fb__btn[aria-pressed="true"] {
+  color: var(--colors-text-text-primary-900); background: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-bg-hover);
+}
+
+.cm-fb__sources { display: flex; align-items: center; flex: none; padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-xs); border-radius: var(--radius-full); }
+.cm-fb__sources:hover { background: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-bg-hover); }
+.cm-fb__favs { display: flex; align-items: center; }
+.cm-fb__favs img {
+  flex: none; width: 16px; height: 16px; /* DRIFT: source favicon 16 */
+  border-radius: var(--radius-full); object-fit: cover; box-shadow: 0 0 0 0.75px var(--colors-border-border-tertiary);
+}
+.cm-fb__favs img + img { margin-left: calc(-1 * var(--spacing-sm)); }
+.cm-fb__count {
+  display: flex; align-items: center; height: 16px; white-space: nowrap; /* DRIFT: count pill 16 */
+  padding: 3px var(--spacing-sm) var(--spacing-xxs); /* DRIFT: All Sources count p 3/6/2/6 */
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+}
+.cm-fb__count { color: #8f8a85; } /* DRIFT: text-quaternary (500) resolves to #8f8a85 in this file; tokens.css has #9f9993 */
+
+/* ---- suggested prompts ---- */
+.cm-sugg { display: flex; flex-direction: column; min-width: 0; margin-top: var(--spacing-2xl); } /* + the response gap 4 = 24 under the feedback row */
+.cm-sugg__title {
+  margin: 0; padding-bottom: var(--spacing-lg); color: var(--colors-text-text-primary-900);
+  font-family: var(--text-md-medium-font-family); font-size: var(--text-md-medium-font-size); font-weight: var(--text-md-medium-font-weight); line-height: var(--text-md-medium-line-height);
+}
+.cm-sugg__list { margin: 0; padding: 0; list-style: none; }
+.cm-sugg__list { border-top: 1px solid var(--colors-border-border-tertiary); }
+.cm-sugg__item { padding-top: 7px; } /* DRIFT: Line 28 is a 0-height stroke; the next row starts 8 under its centre */
+.cm-sugg__item + .cm-sugg__item { margin-top: var(--spacing-md); }
+.cm-sugg__item + .cm-sugg__item { border-top: 1px solid var(--colors-border-border-tertiary); }
+.cm-sugg__row {
+  display: flex; align-items: center; gap: var(--spacing-md); width: 100%; text-align: left;
+  min-height: 24px; /* DRIFT: row 24 */
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); font-weight: var(--text-md-regular-font-weight); line-height: var(--text-md-regular-line-height);
+}
+.cm-sugg__icon {
+  flex: none; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xs);
+  width: 16px; height: 16px; /* DRIFT: Featured logo 16 */
+  color: var(--colors-icon-icon-tertiary);
+}
+.cm-sugg__t { min-width: 0; }
+.cm-sugg__row:is(:hover, .is-hover) { color: var(--colors-text-text-brand-tertiary-600); }
+.cm-sugg__row:is(:hover, .is-hover) .cm-sugg__icon { color: var(--colors-icon-icon-brand-600); }

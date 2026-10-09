@@ -1,0 +1,29 @@
+{
+  "id": "thinking",
+  "title": "Agent animation of thinking",
+  "card": "8528:615291",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8528-615291",
+  "motion": {
+    "agentCOT": { "set": "8863:218607", "sequence": ["Step 1 (4s)", "Step 2 (2.5s)", "Step 3 (2.5s)", "Step 4 (2.5s)", "Step 5 (2.5s)", "Step 6 (2.5s)", "Step 7 (2.5s)", "All  1 line thoughts (2.5s)", "Complete 1 (0s)", "With Answer"] },
+    "thinkingGlyphFast": { "set": "7534:291688", "loop": "State=1 (0s) <-> State=2 (0.2s)" },
+    "thinkingGlyphSlow": { "sets": ["484:117565", "3518:217901"], "loop": "State=1 <-> State=2, 0.8s each" }
+  },
+  "steps": [
+    {
+      "step": "01", "nodeId": "8863:220940", "file": "01-8863-220940.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "Chat right after sending: user bubble, bare 3x3 dot glyph + 'Thinking...', composer generating",
+      "changedFrom": "start (prompt just sent)",
+      "action": "send a prompt from the landing composer",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Agent COT / Type=Step 1", "Copilot desktop Input Box / Type=Bottom small, State=Generating, Tools & Sources=Yes, Text=Placeholder, Attachment=No"]
+    },
+    {
+      "step": "02", "nodeId": "10139:466731", "file": "02-10139-466731.png", "kind": "step",
+      "nav": "dark collapsed", "composer": "bottom generating", "artifactPanel": false, "sidePanel": null, "modal": null,
+      "shows": "'Thinking...' with round dark avatar glyph, closer to the user bubble; title chevron visible",
+      "changedFrom": "glyph gains circular avatar, row moves up, title chevron appears",
+      "action": "none (time passes while thinking)",
+      "components": ["3 (screen component instance)", "Main_nav / types=collapsed", "Component 2 / Type=Icon only", "Nav_menu/Main / Variant=Collapsed, State=Selected", "Nav_menu/Main / Variant=Collapsed, State=Default", "Nav_menu/Footer / Variant=Collapsed, State=Default", "ES Breadcrumb / Variant=Default", "Copilot_User Message_Desktop full / State=Default, Type=Default", "Agent COT / Type=Step 1", "Copilot desktop Input Box / Type=Bottom small, State=Generating", "Frame 2147266815"]
+    }
+  ]
+}

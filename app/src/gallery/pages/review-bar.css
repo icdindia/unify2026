@@ -1,0 +1,16 @@
+/* Review bar gallery page (prototype chrome). The rooms give the live bar a fixed width, so each specimen shows one fold. */
+.rb-room { display: flex; justify-content: flex-end; max-width: 100%; padding: var(--spacing-xs); }
+.rb-room--full { flex: none; width: 1200px; max-width: none; } /* DRIFT: wide enough for the whole bar */
+.rb-room--main { width: 640px; } /* DRIFT: switches + stepper + button */
+.rb-room--core { width: 400px; } /* DRIFT: stepper + links + button */
+.rb-room--steps { width: 200px; } /* DRIFT: arrows + button */
+.rb-room--button { width: 96px; } /* DRIFT: button only */
+
+.rb-keys { margin: 0; display: grid; gap: var(--spacing-xxs); }
+.rb-keys__row {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr); /* DRIFT: key column */
+  gap: var(--spacing-lg); padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md); background: var(--colors-background-bg-primary);
+}
+.rb-keys__row dt code { color: var(--colors-text-text-primary-900); }
+.rb-keys__row dd { margin: 0; overflow-wrap: anywhere; }

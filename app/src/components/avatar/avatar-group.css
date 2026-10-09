@@ -1,0 +1,48 @@
+/* Avatar group — set 8020:431296. Auto-layout: faces row (negative gap) + 8 + "_Avatar add button".
+     xxs  20 faces, gap -4 · xs 24, gap -4 · sm 32, gap -8 · md 40, gap -12
+   Face stroke: see .avatar--stacked in avatar.css. */
+.avatar-group { display: inline-flex; align-items: center; gap: var(--spacing-md); flex: none; }
+.avatar-group__faces { display: inline-flex; align-items: center; }
+.avatar-group--xxs .avatar + .avatar, .avatar-group--xs .avatar + .avatar { margin-left: calc(var(--spacing-xs) * -1); }
+.avatar-group--sm .avatar + .avatar { margin-left: calc(var(--spacing-md) * -1); }
+.avatar-group--md .avatar + .avatar { margin-left: calc(var(--spacing-lg) * -1); }
+
+/* "_Avatar add button", set 8007:430922 (xs 24, sm 32, md 40; xxs reuses the xs button at 20), read via figma-console
+   2026-10-09. A 1px stroke centred on the edge, the plus in a 4px-padded content box (16px glyph, 20px at md, stroke 1).
+     Default   bg-white, border-primary, plus icon-secondary
+     Hover     bg-primary_hover (#fbfaf9 in this file; tokens.css has #fefdfb), plus icon-primary
+     Focus     xs / sm: 2px utility-gray-300 spread + shadow-xs; md: 4px #98a2b3 at 14% (no variable)
+     Disabled  bg-disabled, border-disabled, plus icon-disabled at stroke 1.33 (1.67 at md)
+   The hover variant also draws an "Add user" tooltip; the button's name is the addLabel. */
+.avatar-group__add {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-full); background: var(--colors-background-bg-white); color: var(--colors-icon-icon-secondary);
+  box-shadow: 0 0 0 0.5px var(--colors-border-border-primary), inset 0 0 0 0.5px var(--colors-border-border-primary); /* DRIFT: 1px centre stroke */
+}
+.avatar-group__add:not(:disabled):is(:hover, .is-hover) { background: #fbfaf9; color: var(--colors-icon-icon-primary); } /* DRIFT: bg-primary_hover is #fbfaf9 in this file, #fefdfb in tokens.css */
+/* Focus: the set's ring under the stroke. The transparent outline only shows in forced-colors mode, where shadows drop.
+   FIXES button-focus-ring-3-to-1 (components/buttons/fixes.ts; .avatar-group__add--ring when fixes are on): the set's
+   ring is 1.44:1 on white (#98a2b3 14% at md is fainter), so the app's global :focus-visible ring (base.css, 2px
+   brand-500) is kept, 2px out. Pinned .is-focus specimens draw the same ring. */
+.avatar-group__add:is(:focus-visible, .is-focus) { outline-offset: 2px; }
+.avatar-group__add:not(.avatar-group__add--ring):is(:focus-visible, .is-focus) { outline: 2px solid transparent; }
+.avatar-group__add--ring.is-focus { outline: 2px solid var(--colors-utility-brand-utility-brand-500); }
+.avatar-group__add:is(:focus-visible, .is-focus) {
+  box-shadow: 0 0 0 0.5px var(--colors-border-border-primary), inset 0 0 0 0.5px var(--colors-border-border-primary), 0 0 0 2px var(--colors-utility-gray-utility-gray-300), 0 1px 1px 1px rgba(16, 24, 40, .05); /* DRIFT: Focus spread + shadow-xs (#101828 5%) */
+}
+.avatar-group--md .avatar-group__add:is(:focus-visible, .is-focus) {
+  box-shadow: 0 0 0 0.5px var(--colors-border-border-primary), inset 0 0 0 0.5px var(--colors-border-border-primary), 0 0 0 4px rgba(152, 162, 179, .14); /* DRIFT: md Focus ring #98a2b3 14%, unbound in the set */
+}
+.avatar-group__add:disabled {
+  cursor: default; background: var(--colors-background-bg-disabled); color: var(--colors-icon-icon-disabled);
+  box-shadow: 0 0 0 0.5px var(--colors-border-border-disabled), inset 0 0 0 0.5px var(--colors-border-border-disabled); /* DRIFT: 1px centre stroke */
+}
+.avatar-group__add:disabled svg { stroke-width: 1.333; }
+.avatar-group--xxs .avatar-group__add { width: 20px; height: 20px; } /* DRIFT: add button xxs */
+.avatar-group--xs .avatar-group__add { width: 24px; height: 24px; } /* DRIFT: add button xs */
+.avatar-group--sm .avatar-group__add { width: 32px; height: 32px; } /* DRIFT: add button sm */
+.avatar-group--md .avatar-group__add { width: 40px; height: 40px; } /* DRIFT: add button md */
+.avatar-group--xxs .avatar-group__add svg { width: 14px; height: 14px; } /* DRIFT: icon */
+/* md draws the plus at 20 with a 1px stroke: the 16-unit glyph scaled by 1.25, so 0.8 units render 1px */
+.avatar-group--md .avatar-group__add svg { width: 20px; height: 20px; stroke-width: 0.8; } /* DRIFT: icon md */
+.avatar-group--md .avatar-group__add:disabled svg { stroke-width: 1.333; }

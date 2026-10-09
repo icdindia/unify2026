@@ -1,0 +1,28 @@
+/* =============================================================================
+   Logo spiral (22 pieces), shared by the expanded nav and the collapsed rail.
+   Ported verbatim from prototypes/project-dashboard/project-dashboard.css.
+   ============================================================================= */
+.logo-g { position: relative; display: block; flex: none; width: 32px; height: 32px; margin: 6px 0 var(--spacing-xxs); } /* DRIFT: logo */
+.logo-g .lg { position: absolute; }
+.logo-g .lg00 { left: 15.61px; top: 15.57px; width: 1.325px; height: 1.372px; } /* DRIFT: logo geometry */
+.logo-g .lg01 { left: 15.5px; top: 15.47px; width: 1.55px; height: 1.589px; } /* DRIFT: logo geometry */
+.logo-g .lg02 { left: 15.37px; top: 15.38px; width: 1.812px; height: 1.812px; } /* DRIFT: logo geometry */
+.logo-g .lg03 { left: 15.22px; top: 15.23px; width: 2.119px; height: 2.12px; } /* DRIFT: logo geometry */
+.logo-g .lg04 { left: 15.05px; top: 15.05px; width: 2.456px; height: 2.476px; } /* DRIFT: logo geometry */
+.logo-g .lg05 { left: 14.84px; top: 14.85px; width: 2.8px; height: 2.898px; } /* DRIFT: logo geometry */
+.logo-g .lg06 { left: 14.6px; top: 14.6px; width: 3.276px; height: 3.387px; } /* DRIFT: logo geometry */
+.logo-g .lg07 { left: 14.32px; top: 14.32px; width: 3.831px; height: 3.928px; } /* DRIFT: logo geometry */
+.logo-g .lg08 { left: 13.99px; top: 13.99px; width: 4.479px; height: 4.478px; } /* DRIFT: logo geometry */
+.logo-g .lg09 { left: 13.6px; top: 13.61px; width: 5.238px; height: 5.238px; } /* DRIFT: logo geometry */
+.logo-g .lg10 { left: 13.2px; top: 13.16px; width: 6.074px; height: 6.125px; } /* DRIFT: logo geometry */
+.logo-g .lg11 { left: 12.86px; top: 12.63px; width: 6.924px; height: 7.159px; } /* DRIFT: logo geometry */
+.logo-g .lg12 { left: 12.28px; top: 12.01px; width: 8.099px; height: 8.373px; } /* DRIFT: logo geometry */
+.logo-g .lg13 { left: 11.61px; top: 11.38px; width: 9.468px; height: 9.709px; } /* DRIFT: logo geometry */
+.logo-g .lg14 { left: 10.82px; top: 10.83px; width: 11.069px; height: 11.068px; } /* DRIFT: logo geometry */
+.logo-g .lg15 { left: 9.9px; top: 9.9px; width: 12.946px; height: 12.946px; } /* DRIFT: logo geometry */
+.logo-g .lg16 { left: 8.82px; top: 8.83px; width: 15.011px; height: 15.136px; } /* DRIFT: logo geometry */
+.logo-g .lg17 { left: 7.56px; top: 7.57px; width: 17.113px; height: 17.696px; } /* DRIFT: logo geometry */
+.logo-g .lg18 { left: 6.09px; top: 6.09px; width: 20.017px; height: 20.698px; } /* DRIFT: logo geometry */
+.logo-g .lg19 { left: 4.37px; top: 4.37px; width: 23.403px; height: 23.998px; } /* DRIFT: logo geometry */
+.logo-g .lg20 { left: 2.36px; top: 2.36px; width: 27.362px; height: 27.36px; } /* DRIFT: logo geometry */
+.logo-g .lg21 { left: 0; top: 0; width: 32px; height: 32px; } /* DRIFT: logo geometry */

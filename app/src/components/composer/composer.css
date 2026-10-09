@@ -1,0 +1,93 @@
+/* Copilot desktop Input Box (set 10064:383334). One grid, three types, so the field is never remounted (and keeps its
+   focus and caret) when a bottom composer grows from the pill to the tall box.
+   Landing Page (the Projects "Dashboard" 14045:584747 box, 640-760 wide): padding 10, rows message / action bar,
+   12 apart: 10 + 52 + 12 + 32 + 10 = 116. With files, the 58px attachment row comes first (186).
+   Bottom large: the same with a 26px one-line field, padding 10 (8 on top above files): 90, 116, 158 … 376.
+   Bottom small: one 48px row, padding 8 / 10, radius-full: "+" and chips, the inline field (padding 0 / 6), then 12
+   to the actions. The border is drawn inside the frame: an inset ring, not a border. Width follows the column;
+   outer spacing is the page's. */
+.composer {
+  width: 100%; padding: 10px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "msg msg" "lead trail"; /* DRIFT: composer geometry */
+  row-gap: var(--spacing-lg); column-gap: var(--spacing-lg); align-items: center;
+  background: var(--colors-background-bg-primary); border-radius: 24px; box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); /* DRIFT: off-scale radius */
+}
+.composer--attached { grid-template-areas: "attach attach" "msg msg" "lead trail"; }
+.composer > .cattachments { grid-area: attach; }
+.composer__msg { grid-area: msg; min-width: 0; padding: 0 var(--spacing-md); }
+.composer__lead { grid-area: lead; display: flex; align-items: center; min-width: 0; }
+.composer__trail { grid-area: trail; display: flex; align-items: center; gap: var(--spacing-xs); }
+.composer__acts { display: flex; align-items: center; gap: var(--spacing-xs); }
+
+/* The field: a real textarea set in Text md/Regular para (15/26), so it can be typed in. The landing field sits 2px
+   down (the "Skills+text" inset) and is two lines tall until the text needs more; Composer.tsx sets the height. */
+.composer__field { position: relative; font-size: var(--text-md-regular-para-font-size); line-height: var(--text-md-regular-para-line-height); }
+.composer__in {
+  display: block; width: 100%; margin: 0; padding: var(--spacing-xxs) 0 0; border: 0; border-radius: 0; background: none; resize: none; outline: none;
+  font-family: inherit; font-size: var(--text-md-regular-para-font-size); font-weight: var(--text-md-regular-para-font-weight);
+  line-height: var(--text-md-regular-para-line-height); color: var(--colors-text-text-primary-900);
+  white-space: pre-wrap; overflow-wrap: break-word; overflow: hidden;
+}
+.composer__in { height: 52px; } /* DRIFT: two 26px lines (overwritten as the text grows) */
+.composer__in::placeholder { color: var(--colors-text-text-placeholder); opacity: 1; }
+/* Not in the file: a keyboard focus cue on the box (the repo's open-search focus ring), since the textarea draws none. */
+.composer:has(.composer__in:focus-visible) { box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-500); }
+/* The chat + artifacts frames lift the instance: 0 4 8 in the warm grey of the file, 30% on the landing page, 25% docked. */
+.composer--elevated { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 8px rgba(215, 211, 208, 0.25); } /* DRIFT: instance drop shadow, no shadow token */
+.composer--elevated.composer--landing { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 8px rgba(215, 211, 208, 0.3); } /* DRIFT: instance drop shadow, no shadow token */
+.composer--elevated:has(.composer__in:focus-visible) { box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-500), 0 4px 8px rgba(215, 211, 208, 0.25); } /* DRIFT: as above */
+
+/* Tokens: the mirror holds the same text with the tokens coloured, under a textarea whose own glyphs are transparent. */
+.composer__mirror { position: absolute; inset: 0; pointer-events: none; user-select: none; }
+.composer .composer__field > .composer__mirror { height: auto; }
+.composer__in.is-mirrored { position: relative; color: transparent; caret-color: var(--colors-text-text-primary-900); }
+.composer__in.is-mirrored::selection { color: transparent; }
+/* The rotating placeholder sits on the field's first line. */
+.composer__field > .crot { top: var(--spacing-xxs); bottom: auto; height: var(--text-md-regular-para-line-height); }
+/* Hidden copy of the text that the bottom type measures against the pill's field width. */
+/* (a zero-size clipping box, so the long copy never widens a scroll container) */
+.composer__measure { position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
+.composer__measure > span { white-space: pre; }
+
+/* State=loading (enhance-prompt 04): the text gives way to two shimmering bars, 16 tall, the second about 2/3 wide. */
+.composer__in.is-veiled { color: transparent; caret-color: transparent; }
+.composer__skeleton { position: absolute; inset: 0; display: flex; flex-direction: column; gap: var(--spacing-sm); padding-top: var(--spacing-md); pointer-events: none; }
+.composer__skeleton > span {
+  display: block; border-radius: var(--radius-full); background-color: var(--colors-background-bg-quaternary);
+  background-image: linear-gradient(90deg, transparent 0%, var(--colors-background-bg-primary) 50%, transparent 100%);
+  background-size: 40% 100%; background-repeat: no-repeat; animation: composer-shimmer 1.6s ease-in-out infinite;
+}
+.composer__skeleton > span { height: 16px; } /* DRIFT: skeleton bar from enhance-prompt 04 */
+.composer__skeleton > span:last-child { width: 64%; }
+@keyframes composer-shimmer { from { background-position: -40% 0; } to { background-position: 140% 0; } }
+@media (prefers-reduced-motion: reduce) { .composer__skeleton > span { animation: none; background-image: none; } }
+
+/* Model: the OpenAI mark is exported 13.75x13.94, inset inside a 16px slot */
+.composer .composer__oa { position: relative; display: block; width: 16px; height: 16px; } /* DRIFT: icon */
+.composer .composer__oa img { position: absolute; top: 6.46%; right: 7.03%; bottom: 6.41%; left: 7.03%; width: 85.94%; height: 87.13%; }
+
+/* Enhance slot (enhance-prompt 01-05): Model | 12px divider with a 14px border-secondary line | Enhance, butted against
+   Model and Mic (the frames place them with no gap). */
+.composer__enh { display: flex; align-items: center; margin: 0 calc(-1 * var(--spacing-xs)); }
+.composer__div { display: flex; flex: none; align-items: center; justify-content: center; align-self: stretch; }
+.composer__div { width: 12px; } /* DRIFT: divider frame */
+.composer__div::before { content: ''; display: block; width: 1px; height: 14px; background: var(--colors-border-border-secondary); } /* DRIFT: divider line */
+
+/* Type=Bottom large */
+.composer--bottom-large .composer__in { padding: 0; }
+.composer--bottom-large .composer__in { height: 26px; } /* DRIFT: one 26px line (overwritten as the text grows) */
+.composer--bottom-large .composer__field > .crot { top: 0; }
+.composer--bottom-large.composer--attached { padding-top: var(--spacing-md); }
+.composer--bottom-large .composer__skeleton { padding-top: var(--spacing-xs); }
+
+/* Type=Bottom small: one row, the field between the chips and the actions */
+.composer--bottom-small {
+  padding: var(--spacing-md) 10px; /* DRIFT: px-[10px] */
+  border-radius: var(--radius-full); column-gap: 0;
+  grid-template-columns: minmax(0, max-content) minmax(40px, 1fr) var(--spacing-lg) auto; grid-template-areas: "lead msg . trail"; /* DRIFT: the field keeps 40px on a phone, the chips scroll first */
+}
+.composer--bottom-small .composer__msg { padding: 0 var(--spacing-sm); }
+.composer--bottom-small .composer__in { padding: 0; white-space: pre; overflow: hidden; }
+.composer--bottom-small .composer__in { height: 26px; } /* DRIFT: one 26px line */
+.composer--bottom-small .composer__field > .crot { top: 0; }
+.composer--bottom-small .composer__skeleton { padding-top: var(--spacing-xs); }
+.composer--bottom-small .composer__skeleton > span:last-child { display: none; }

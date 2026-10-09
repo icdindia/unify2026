@@ -1,0 +1,233 @@
+{
+  "id": "collab-chat",
+  "title": "Collaborative chat flow",
+  "card": "7830:279829",
+  "cardText": "Collaborative chat flow",
+  "section": "7830:372599 Collaborative Chat flow",
+  "summary": "A chat shared with editor access: join notice, a collaborative bar above the composer (who is typing + 'Assistant Replies' toggle), @-mentions of participants and the Assistant, other editors' messages, many-editor overflow with a People with access popover, and a comments badge in the header. All frames use the collapsed dark rail and the 'Collaborative chat-large' component above a 'Bottom small' composer. Frame names in Figma: 1, 150-154, 156-159.",
+  "steps": [
+    {
+      "step": "01",
+      "nodeId": "7830:279836",
+      "frameName": "1",
+      "file": "01-7830-279836.png",
+      "shows": "Shared chat: header avatar stack (M J G), cost, Share (people icon), clipboard and comments icons; assistant answer; centred system line 'Matt Rivera, John Whitaker and Grace Coleman joined the chat'; collaborative bar 'John and Matt Rivera are typing ...' with Assistant Replies toggle ON; composer placeholder 'Queue follow-up...'.",
+      "changedFrom": "Start of journey (chat after it has been shared; compare add-users step 01, which had no collaborators).",
+      "action": "Share the chat with editors (add-users flow); collaborators join and start typing.",
+      "nav": "dark, collapsed icon rail; New session selected",
+      "panels": "no modal; collaborative bar + bottom composer; no artifact panel",
+      "annotations": ["When a chat is shared with editor access. users are typing + assistant is on"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Component 2 {Type=Icon only}",
+        "Nav_menu/Main {Variant=Collapsed, State=Selected}",
+        "Nav_menu/Main {Variant=Collapsed, State=Default} x7",
+        "Nav_menu/Footer {Variant=Collapsed, State=Default}",
+        "ES Breadcrumb {Variant=Default}",
+        "Avatar group {Size=xs}",
+        "Buttons/Button Neutral {Size=sm, Hierarchy=Tertiary, Icon=Default, State=Default} x3",
+        "Buttons/Button Neutral {Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default} x2",
+        "Copilot_User Message_Desktop full {State=Default, Type=Default}",
+        "Response_Desktop full {Property 1=Assistant}",
+        "Collaborative chat-large {State=User Typing, Users=Default}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "02",
+      "nodeId": "8202:477546",
+      "frameName": "150",
+      "file": "02-8202-477546.png",
+      "shows": "Same screen with the Assistant Replies toggle switched OFF.",
+      "changedFrom": "Toggle off (light track). A grey strip appears below the composer to the bottom edge.",
+      "action": "Click the 'Assistant Replies' toggle in the collaborative bar.",
+      "nav": "dark, collapsed",
+      "panels": "collaborative bar + composer",
+      "annotations": ["users are typing + assistant is off"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "ES Breadcrumb {Variant=Default}",
+        "Avatar group {Size=xs}",
+        "Response_Desktop full {Property 1=Assistant}",
+        "Collaborative chat-large {State=User Typing, Users=Default}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "03",
+      "nodeId": "8202:478758",
+      "frameName": "151",
+      "file": "03-8202-478758.png",
+      "shows": "Composer contains '@'; mention list pops above it: Assistant, Matt Rivera, John Whitake, Grace Coleman (avatars); send button turns dark.",
+      "changedFrom": "Typing '@' opens the participant mention menu; send becomes active.",
+      "action": "Type '@' in the composer.",
+      "nav": "dark, collapsed",
+      "panels": "mention dropdown over the collaborative bar",
+      "annotations": ["@ needs to be added before referring"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Collaborative chat-large {State=User Typing, Users=Default}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No}",
+        "Input Menu Dropdown {Type=Single Select, Size=sm, Search=Default}",
+        "Input dropdown Menu Item {Size=sm, Type=Avatar leading, State=Default, Selected=False, Stacking=Single Line} x4"
+      ]
+    },
+    {
+      "step": "04",
+      "nodeId": "8215:480023",
+      "frameName": "152",
+      "file": "04-8215-480023.png",
+      "shows": "Composer contains '@m'; list filtered to Matt Rivera (hovered) and Grace Coleman.",
+      "changedFrom": "Mention list filters as the user types.",
+      "action": "Continue typing 'm' after '@'.",
+      "nav": "dark, collapsed",
+      "panels": "filtered mention dropdown",
+      "annotations": ["filtered @"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Collaborative chat-large {State=User Typing, Users=Default}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No}",
+        "Input Menu Dropdown {Type=Single Select, Size=sm, Search=Default}",
+        "Input dropdown Menu Item {Size=sm, Type=Avatar leading, State=Default, Selected=True, Stacking=Single Line}",
+        "Input dropdown Menu Item {Size=sm, Type=Avatar leading, State=Default, Selected=False, Stacking=Single Line}",
+        "Cursor {State=Pointer Hand}"
+      ]
+    },
+    {
+      "step": "05",
+      "nodeId": "8215:481631",
+      "frameName": "153",
+      "file": "05-8215-481631.png",
+      "shows": "Composer text '@Matt Rivera you own most of those six — which' with the mention in blue; others still typing; Assistant Replies off.",
+      "changedFrom": "Mention inserted as a blue token; menu closed; message being typed.",
+      "action": "Click 'Matt Rivera' in the mention list and keep typing.",
+      "nav": "dark, collapsed",
+      "panels": "collaborative bar + composer",
+      "annotations": ["while others are typing, owner tags user"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Collaborative chat-large {State=User Typing, Users=Default}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=One line, Attachment=No}"
+      ]
+    },
+    {
+      "step": "06",
+      "nodeId": "8222:482896",
+      "frameName": "154",
+      "file": "06-8222-482896.png",
+      "shows": "Sent message as a right-aligned user bubble '@Matt Rivera you own most of those six — which one is utmost priority' (mention in blue); bar now 'Matt Rivera are typing'.",
+      "changedFrom": "Message posted; thread scrolls up; composer back to 'Queue follow-up...'; no assistant reply because replies are off.",
+      "action": "Press Enter / click Send.",
+      "nav": "dark, collapsed",
+      "panels": "collaborative bar + composer",
+      "annotations": ["@ style in message box"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Copilot_User Message_Desktop full {State=Default, Type=With Tag}",
+        "Response_Desktop full {Property 1=Assistant}",
+        "Collaborative chat-large {State=User Typing, Users=Default}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "07",
+      "nodeId": "8222:485711",
+      "frameName": "156",
+      "file": "07-8222-485711.png",
+      "shows": "Other editor's messages: Matt Rivera (avatar + name, left-aligned bubbles) 'Easier to show you than describe it.' and '@Assitant give me an interactive view of the quarter...'; assistant shows 'Thinking...'; toggle ON; send button is a stop button.",
+      "changedFrom": "Thread advances with another editor's turn addressed to the Assistant; assistant starts working (Agent COT).",
+      "action": "Another editor (Matt) posts and @mentions the Assistant with Assistant Replies on.",
+      "nav": "dark, collapsed",
+      "panels": "collaborative bar + composer (stop state)",
+      "annotations": ["other editor messages with agent reply"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Copilot_User Message {State=Default}",
+        "Copilot_User Message_Desktop full {State=Default, Type=With Tag}",
+        "Agent COT {Type=Complete 2}",
+        "Response_Desktop full {Property 1=Assistant} x2",
+        "Collaborative chat-large {State=User Typing, Users=Default}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "08",
+      "nodeId": "8222:488552",
+      "frameName": "157",
+      "file": "08-8222-488552.png",
+      "shows": "Assistant reply with an inline artifact card 'Pipeline Command - Interactive HTML - Download'; John Whitaker message above; collaborative bar idle: 'Type @ to mention a participant' + Assistant replies toggle ON.",
+      "changedFrom": "Nobody typing, so the bar switches to the hint state; assistant answer and artifact card appear.",
+      "action": "Wait for the assistant to finish; other editors stop typing.",
+      "nav": "dark, collapsed",
+      "panels": "collaborative bar (idle) + composer",
+      "annotations": ["when no one is typing"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Copilot_User Message {State=Default}",
+        "Copilot_User Message {State=Default, Type=With Tag}",
+        "Feedback Array {Type=Full screen}",
+        "Response_Desktop full {Property 1=Assistant} x3",
+        "Inline Artifact Cards {State=Application-HTML}",
+        "Collaborative chat-large {State=Default, Users=No}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "09",
+      "nodeId": "8222:490604",
+      "frameName": "158",
+      "file": "09-8222-490604.png",
+      "shows": "Many editors: header avatar stack of 10 + '+21'; bar shows an avatar stack '+5' and 'Matt Rivera and 12 others are typing'; hovering the stack opens a 'People with access' popover (Roger Bennett (You) Owner, Matt Rivera / John Whitake / Grace Coleman Editor, Natali Craig Viewer, scrollable).",
+      "changedFrom": "Participant count grows; typing text collapses to 'X and N others'; popover opens from the bar's avatar stack.",
+      "action": "Hover the avatar stack in the collaborative bar.",
+      "nav": "dark, collapsed",
+      "panels": "People with access popover over the thread",
+      "annotations": ["when many editors are typing together"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Avatar group {Size=xs}",
+        "Inline Artifact Cards {State=Application-HTML}",
+        "Agent COT {Type=Step 1}",
+        "Collaborative chat-large {State=User Typing, Users=Max Users}",
+        "Input Menu Dropdown {Type=Single Select, Size=sm, Search=Default}",
+        "Input dropdown Menu Item {Size=sm, Type=Default, State=Default, Selected=False, Stacking=Single Line}",
+        "Input dropdown Menu Item {Size=sm, Type=Avatar leading, State=Default, Selected=False, Stacking=Single Line} x5",
+        "Scroll bar {Orientation=Vertical, Bg=False, Position=Top, Size=md}",
+        "Cursor {State=Pointer Hand}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    },
+    {
+      "step": "10",
+      "nodeId": "8222:494135",
+      "frameName": "159",
+      "file": "10-8222-494135.png",
+      "shows": "Header comments icon shows a small '2' badge and is hovered; thread shows more editor/assistant turns; bar 'John and Matt Rivera are typing'.",
+      "changedFrom": "Commenters have left comments, so the comments button gets a count badge; header avatars back to three.",
+      "action": "Commenters post comments; user hovers the comments icon in the header (click likely opens the comments panel).",
+      "nav": "dark, collapsed",
+      "panels": "no panel yet; comments badge visible",
+      "annotations": ["commentators messages have come"],
+      "components": [
+        "Main_nav {types=collapsed}",
+        "Avatar group {Size=xs}",
+        "Buttons/Button Neutral {Size=sm, Hierarchy=Tertiary, Icon=Only, State=Default}",
+        "Buttons/Button Neutral {Size=sm, Hierarchy=Tertiary, Icon=Only, State=Hover}",
+        "Pill solid {Size=xxs, Type=Pill color, Icon=False, Color=Gray}",
+        "Inline Artifact Cards {State=Application-HTML}",
+        "Collaborative chat-large {State=User Typing, Users=Max Users}",
+        "Cursor {State=Arrow}",
+        "Copilot desktop Input Box {Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No}"
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Who can flip 'Assistant Replies' (owner only or every editor) and is it per chat or per user? Label casing differs: 'Assistant Replies' (01-07) vs 'Assistant replies' (08-10).",
+    "Composer placeholder is 'Queue follow-up...' whenever others are typing. Does sending queue the message (see the Chat in queue journey) or post immediately?",
+    "Step 09 uses Collaborative chat-large Users=Max Users but step 10 shows three avatars with the same variant; which avatar count is intended?",
+    "What opens from the comments icon in step 10? Presumably the comments panel from the 'Comments for commenters only' journey.",
+    "Copy slips to confirm: '@Assitant' (07-08), 'Matt Rivera are typing' (06-07), 'John Whitake' (03, 09), and owner persona 'Roger Bennett (You)' in step 09 vs Lana Steiner in the share modals.",
+    "Step 02 shows a grey strip under the composer down to the frame edge; likely a drawing slip.",
+    "Does the mention list always put 'Assistant' first, and is it hidden when Assistant Replies is off?"
+  ]
+}

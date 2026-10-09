@@ -1,0 +1,49 @@
+/* Composer action buttons.
+   .cround   Buttons/Button Neutral / Size=md, Hierarchy=Primary, Icon=Only on radius-full (Send, Stop, Queue):
+             32 = 8 + 16 + 8, fill neutral-primary-bg, a 1px transparent ring inside (the component's border), white glyph.
+             State=Disabled: bg-disabled with the disabled fg (limit exceed 10064:383371, enhance 04, queue-1 04).
+   .cenhance Buttons/Button Neutral / Size=md, Hierarchy=Tertiary, Icon=Only, round (enhance-prompt 10247:282468):
+             icon-secondary glyph, hover bg-tertiary (the 242,240,238 fill of enhance 03), disabled glyph text-disabled.
+   .climit   Limit pill: Pill squared / Size=sm, Type=Pill color, Color=Error: 24 tall, padding 4 / 8, radius 6,
+             utility-error-25 fill, 12/16 utility-error-600 text. */
+.cround {
+  display: flex; flex: none; align-items: center; justify-content: center; padding: var(--spacing-md); border-radius: var(--radius-full);
+  background: var(--component-buttons-neutral-primary-button-neutral-primary-bg);
+  color: var(--component-buttons-neutral-primary-button-neutral-primary-fg);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-primary-button-neutral-primary-border);
+}
+.cround { width: 32px; height: 32px; } /* DRIFT: md button box */
+.cround svg { display: block; flex: none; }
+.cround:is(:hover, .is-hover):not([aria-disabled="true"]) {
+  background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-hover);
+  color: var(--component-buttons-neutral-primary-button-neutral-primary-fg-hover);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-primary-button-neutral-primary-border-hover);
+}
+.cround[aria-disabled="true"] {
+  cursor: default;
+  background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-disabled);
+  color: var(--component-buttons-neutral-primary-button-neutral-primary-fg-disabled);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-primary-button-neutral-primary-border-disabled);
+}
+
+.cenhance {
+  display: flex; flex: none; align-items: center; justify-content: center; padding: var(--spacing-md); border-radius: var(--radius-full);
+  color: var(--colors-icon-icon-secondary);
+}
+.cenhance { width: 32px; height: 32px; } /* DRIFT: md button box */
+.cenhance svg { display: block; flex: none; }
+.cenhance:is(:hover, .is-hover):not([aria-disabled="true"]) { background: var(--colors-background-bg-tertiary); }
+.cenhance[aria-disabled="true"] { cursor: default; color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg-disabled); }
+
+.climit {
+  display: flex; flex: none; align-items: center; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm);
+  background: var(--colors-utility-error-utility-error-25); color: var(--colors-utility-error-utility-error-600);
+  font-size: var(--text-xs-regular-font-size); font-weight: var(--text-xs-regular-font-weight); line-height: var(--text-xs-regular-line-height);
+  font-variant-numeric: tabular-nums; cursor: default;
+}
+.climit { height: 24px; } /* DRIFT: sm pill height */
+
+/* Text for screen readers only (the limit pill's sentence, the spinner's "Uploading"). */
+.composer-sr {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; /* DRIFT: visually-hidden pattern */
+}

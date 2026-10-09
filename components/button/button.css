@@ -1,0 +1,137 @@
+/* ----------------------------------------------------------------------------
+   button — DS "Buttons/Button Brand" + "Buttons/Button Neutral"
+   Figma (Enterprise Brain Base 2026, lqKjNjyifEXCeywg69Knr2):
+     brand primary md   7489:272509           (Artifacts page head, 32 tall)
+     neutral secondary xs I3838:245967;3792:244997 (Arifact Header "Publish", 81x24)
+                          I875:165829;595:140488   (Question card "Skip", min-w 52, 24)
+     neutral tertiary sm  I6424:330601 "Share"      (ES Breadcrumb, 28 tall)
+     neutral tertiary title I3838:245967;6303:300931 (header title, 84x28, pad 4/8/4/2)
+     icon button (28)     I3838:245967;6424:330782 · breadcrumb btn-icon-6 (pad 6, icon 16)
+     small icon button (20) I875:165817 · Nav_menu/Subheader chevron (pad 2, icon 16)
+
+   Three axes, all class modifiers: size (--xs / --sm / --md), hierarchy x colour
+   (--brand-primary / --neutral-secondary / --neutral-tertiary), and the two
+   icon-only shapes (--icon / --icon-sm). State is :hover / [aria-pressed] /
+   [disabled], with [data-force] hooks for static previews.
+
+   Strokes: the secondary variant's 1px border is drawn INSIDE in Figma
+   (Publish is 81x24 = 4+16+4 with the stroke; Skip's row is 40 = 8+24+8), so
+   it is an inset ring, never a CSS border (FIGMA-TO-HTML §5b, failure-modes §1).
+---------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: clip;
+  text-decoration: none;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+}
+/* "Text padding" frame inside every DS button */
+.btn__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--spacing-xxs);
+}
+.btn svg {
+  display: block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+
+/* ---- size axis ---- */
+.btn--md {
+  min-width: 72px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--button-md);   /* 6+20+6 = 32 */
+}
+.btn--sm {
+  min-width: 56px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--button-sm);
+  line-height: 16px;   /* DRIFT: Figma states Text sm 13px on a 16px line for sm buttons (Share, 6+16+6 = 28); no DS style is 13/16 */
+}
+.btn--xs {
+  min-width: 52px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--button-xs);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);   /* 4+16+4 = 24 */
+}
+
+/* ---- hierarchy x colour ---- */
+.btn--brand-primary {
+  background: var(--component-buttons-brand-primary-button-brand-primary-bg);
+  color: var(--component-buttons-brand-primary-button-brand-primary-fg);
+}
+.btn--brand-primary:hover,
+.btn--brand-primary[data-force="hover"] { background: var(--component-buttons-brand-primary-button-brand-primary-bg-hover); }
+.btn--brand-primary[disabled] {
+  background: var(--component-buttons-brand-primary-button-brand-primary-bg-disabled);
+  color: var(--component-buttons-brand-primary-button-brand-primary-fg-disabled);
+  cursor: default;
+}
+
+.btn--neutral-secondary {
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border);
+  color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg);
+}
+.btn--neutral-secondary:hover,
+.btn--neutral-secondary[data-force="hover"] {
+  background: var(--component-buttons-neutral-secondary-button-neutral-secondary-bg-hover);
+  color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg-hover);
+}
+
+.btn--neutral-tertiary { background: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-bg); }
+.btn--neutral-tertiary:hover,
+.btn--neutral-tertiary[data-force="hover"],
+.btn--neutral-tertiary[aria-pressed="true"] {
+  background: var(--palette-alpha-colors-black-alpha-black-05);   /* DRIFT: soft-button hover is alpha-black-05, a primitive (designer instruction 2026-09-16); no semantic token */
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg-hover);
+}
+
+/* ---- icon-only shapes ---- */
+.btn--icon {
+  min-width: 0;
+  padding: var(--spacing-sm);
+  border-radius: var(--button-sm);
+  color: var(--colors-icon-icon-secondary);   /* 6+16+6 = 28 */
+}
+.btn--icon svg {
+  width: 16px;
+  height: 16px;
+}
+.btn--icon-sm {
+  min-width: 0;
+  padding: var(--spacing-xxs);
+  border-radius: var(--radius-xs);
+  color: var(--colors-icon-icon-secondary);   /* 2+16+2 = 20 */
+}
+.btn--icon-sm svg {
+  width: 16px;
+  height: 16px;
+}
+.btn--icon-sm[disabled] {
+  color: var(--colors-icon-icon-disabled);
+  cursor: default;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--colors-border-border-brand-solid);
+  outline-offset: 1px;
+}

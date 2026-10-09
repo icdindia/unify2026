@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------
+# verify.sh — mechanical enforcement of the FIGMA-TO-HTML.md rules.
+#
+# The rules that kept getting broken are all greppable. This turns the manual
+# checklist into build output. Run before calling any component done.
+#
+#   ./tools/verify.sh            structural + token checks
+#   ./tools/verify.sh --drift    also diff generated tokens vs live Figma
+# ---------------------------------------------------------------------------
+set -uo pipefail
+cd "$(dirname "$0")/.."
+
+RED=$'\033[31m'; YEL=$'\033[33m'; GRN=$'\033[32m'; DIM=$'\033[2m'; OFF=$'\033[0m'
+fail=0; warn=0
+err()  { echo "${RED}FAIL${OFF} $1"; fail=$((fail+1)); }
+wrn()  { echo "${YEL}WARN${OFF} $1"; warn=$((warn+1)); }
+ok()   { echo "${GRN} ok ${OFF} $1"; }
+hdr()  { echo; echo "${DIM}── $1 ─────────────────────────────────${OFF}"; }
+
+COMP_CSS=$(find components -name '*.css' ! -name 'preview-shell.css' 2>/dev/null)
+PROTO_CSS=$(find prototypes -name '*.css' 2>/dev/null)
+APP_CSS=$(find app/src -name '*.css' 2>/dev/null)   # the React prototype follows the same token rules
+ALL_CSS="$COMP_CSS $PROTO_CSS $APP_CSS"
+
+# ------------------------------------- 1+2. raw hex / primitive reach (AST-ish)
+hdr "hardcoded colour + token tier"
+if out=$(python3 tools/scan-css.py $ALL_CSS 2>&1); then
+  [ -n "$out" ] && { echo "$out" | sed 's/^WARN/'"${YEL}"'WARN'"${OFF}"'/'; warn=$((warn+1)); }
+  ok "no raw hex, no un-flagged primitive reach"
+else
+  echo "$out" | sed 's/^FAIL/'"${RED}"'FAIL'"${OFF}"'/;s/^WARN/'"${YEL}"'WARN'"${OFF}"'/'
+  fail=$((fail+1))
+fi
+
+# ------------------------------------------------- 3. every var is defined
+hdr "custom properties resolve"
+defined=$(grep -hoE '^\s*(--[a-z0-9-]+):' shared/tokens.css shared/tokens.live-overrides.css shared/typography.css 2>/dev/null | tr -d ' :' | sort -u)
+used=$(grep -rhoE 'var\((--[a-z0-9-]+)' $ALL_CSS 2>/dev/null | sed 's/var(//' | sort -u)
+missing=$(comm -13 <(echo "$defined") <(echo "$used"))
+if [ -n "$missing" ]; then
+  while read -r m; do [ -n "$m" ] && err "undefined custom property: $m"; done <<< "$missing"
+else
+  ok "$(echo "$used" | grep -c .) referenced properties all defined"
+fi
+
+# ------------------------------------------------------ 4. theme symmetry
+hdr "light/dark parity"
+l=$(sed -n '/semantic colors: LIGHT/,/semantic colors: DARK/p' shared/tokens.css | grep -cE '^\s*--')
+d=$(sed -n '/semantic colors: DARK/,/prefers-color-scheme/p' shared/tokens.css | grep -cE '^\s*--')
+if [ "$l" -eq "$d" ]; then ok "light and dark both define $l semantic tokens"
+else err "light defines $l semantic tokens, dark defines $d"; fi
+
+# ----------------------------------------------------------- 5. icon files
+hdr "icons"
+# Multicolour brand/type marks are exempt: recolouring them to currentColor
+# destroys the glyph (see FIGMA-TO-HTML pitfall 10). Everything else must theme.
+bad=$(grep -lE '(stroke|fill)="#' shared/svg-icons/*.svg 2>/dev/null | grep -vE 'salesforce\.svg|artifact-[a-z-]+\.svg' || true)
+if [ -n "$bad" ]; then
+  for f in $bad; do err "$f has a hardcoded colour (expected currentColor)"; done
+else ok "all icons use currentColor (salesforce + artifact type marks exempt)"; fi
+n=$(ls shared/svg-icons/*.svg 2>/dev/null | wc -l | tr -d ' '); ok "$n icons in shared/svg-icons/"
+
+# ------------------------------------------------------------- 6. tagging
+hdr "instance tagging"
+for f in $(find prototypes -name '*.html'); do
+  c=$(grep -o 'data-component=' "$f" | wc -l | tr -d ' ')
+  n=$(grep -o 'data-figma-name=' "$f" | wc -l | tr -d ' ')
+  if [ "$c" -ne "$n" ]; then err "$f: $c data-component vs $n data-figma-name"
+  else ok "$f: $c tagged instances, all carry data-figma-name"; fi
+done
+
+# ---------------------------------------------- 7. atoms are linked not copied
+hdr "library-first (no inlined atom CSS in prototypes)"
+for f in $(find prototypes -name '*.html'); do
+  if grep -q '<style' "$f"; then err "$f contains a <style> block — atoms must be <link>ed from /components"
+  else ok "$(basename "$(dirname "$f")")/$(basename "$f") links all CSS, inlines none"; fi
+done
+
+# ------------------------------------------------------- 8. JS teardown
+hdr "js teardown"
+for f in $(find components -name '*.js' 2>/dev/null); do
+  a=$(grep -c 'addEventListener' "$f" || true)
+  if [ "$a" -gt 0 ] && ! grep -qE 'removeEventListener|AbortController|destroy' "$f"; then
+    err "$f: $a addEventListener with no destroy()/AbortController"
+  else ok "$(basename "$f"): teardown present or no listeners"; fi
+done
+
+# ------------------------------------------------------------- 9. drift
+if [ "${1:-}" = "--drift" ]; then
+  hdr "token drift vs live Figma"
+  python3 tools/check-drift.py 2>/dev/null | sed 's/^/     /' || wrn "check-drift.py needs a live get_variable_defs capture"
+fi
+
+echo
+if [ "$fail" -gt 0 ]; then echo "${RED}$fail failure(s)${OFF}, $warn warning(s)"; exit 1; fi
+echo "${GRN}all checks passed${OFF} ($warn warning(s))"

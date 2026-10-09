@@ -1,0 +1,31 @@
+/* Buttons/Button Brand.
+   Size=sm (prototype: .pill, inside page option 2): Secondary = white fill with its border hidden (an instance
+   override in the file), Primary = brand solid. Used as the option 2 tabs and the All / Newest dropdowns. */
+.pill {
+  flex: none; min-width: 56px; height: 28px; display: flex; align-items: center; justify-content: center; gap: var(--spacing-xxs); /* DRIFT: sm button */
+  padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--button-sm); background: var(--colors-background-bg-primary);
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg); white-space: nowrap; cursor: pointer;
+}
+.pill__t { flex: none; padding: 0 var(--spacing-xxs); }
+.pill:not(.pill--primary):is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg-hover); }
+.pill--primary { background: var(--component-buttons-brand-primary-button-brand-primary-bg); color: var(--component-buttons-brand-primary-button-brand-primary-fg); }
+.pill--primary:is(:hover, .is-hover) { background: var(--component-buttons-brand-primary-button-brand-primary-bg-hover); }
+/* with a trailing chevron-down-sm: right padding 4 ("All") or 6 ("Newest"), as drawn */
+.pill--dd { padding-right: var(--spacing-xs); }
+.pill--dd6 { padding-right: var(--spacing-sm); }
+.pill__c { flex: none; width: 14px; height: 14px; background: url("../../assets/chrome/chev-sm.svg") center / 14px 14px no-repeat; } /* DRIFT: icon */
+.pill:is(:hover, .is-hover) .pill__c { background-image: url("../../assets/chrome/chev-sm-hover.svg"); }
+
+/* Size=md, Primary (prototype: .bbtn, the Projects page "New Project") */
+.bbtn {
+  flex: none; height: 32px; /* DRIFT: button height */
+  display: flex; align-items: center; gap: var(--spacing-xxs); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--button-md); background: var(--colors-background-bg-brand-solid);
+}
+.bbtn:is(:hover, .is-hover) { background: var(--component-buttons-brand-primary-button-brand-primary-bg-hover); } /* DS Button Brand hover token */
+.bbtn__i { width: 14px; height: 14px; flex: none; } /* DRIFT: icon */
+.bbtn__t {
+  padding: 0 var(--spacing-xxs); white-space: nowrap;
+  font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-white); position: relative; top: 1px; /* DRIFT: measured baseline */
+}

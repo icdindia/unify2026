@@ -1,0 +1,16 @@
+{
+  "id": "deleted-artifact",
+  "title": "Deleted artifact",
+  "card": "6944:511590",
+  "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6944-511590",
+  "steps": [
+    {
+      "step": "01", "nodeId": "6944:511592", "file": "01-6944-511592.png", "kind": "step",
+      "nav": "dark collapsed (Artifacts selected)", "composer": "bottom of chat column", "artifactPanel": "split (empty state)", "sidePanel": null, "modal": null,
+      "shows": "Split view; artifact panel shows 'Oops! Artifact is deleted / This artifact no longer exisits' empty state with 'Recreate the Artifact' button",
+      "changedFrom": "single-frame journey (artifact body replaced by deleted empty state)",
+      "action": "click the inline artifact card of a deleted artifact",
+      "components": ["Main_nav / types=collapsed", "ES Breadcrumb / Variant=with Icon", "Copilot desktop Input Box / Type=Bottom small, State=Default, Tools & Sources=Yes, Text=Placeholder, Attachment=No", "Arifact Header", "ES Empty State / Level=Level 1, Type=Create", "Scroll bar / Orientation=Vertical, Bg=False, Position=Top, Size=sm", "Cursor / State=Arrow"]
+    }
+  ]
+}

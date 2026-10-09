@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notification Flow</title>
+  <!-- Prototype: how a user reaches their notifications on the Copilot landing page.
+       Source: Enterprise Brain Base 2026 - 1 (lqKjNjyifEXCeywg69Knr2), Section 1 (14761:291839), read left to right:
+         1 14045:596902  landing, unread badge on the avatar
+         2 14045:602095  hover the avatar -> account menu ("on hover")
+         3 14553:287625  Notifications -> panel, Notifications tab
+         4 14761:289991  What's New tab
+         5 14045:606876  same menu from the expanded nav -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/tokens.css">
+  <link rel="stylesheet" href="../../shared/tokens.live-overrides.css">
+  <link rel="stylesheet" href="../../shared/typography.css">
+  <link rel="stylesheet" href="./notification-flow.css?v=1">
+</head>
+<body>
+<div class="fit">
+<div class="frame" id="frame" data-node-id="14045:596902" data-rail="collapsed">
+
+  <!-- ===================================================== collapsed rail -->
+  <nav class="rail" data-node-id="14045:596904" aria-label="Main">
+    <div class="rail__nav">
+      <div class="rail__logo-row">
+        <button class="rail__logo" data-act="expand" aria-label="Expand navigation" title="Expand navigation">
+          <span class="logo-g">
+            <img alt="" src="assets/logo-00.svg" class="lg lg00"><img alt="" src="assets/logo-01.svg" class="lg lg01"><img alt="" src="assets/logo-02.svg" class="lg lg02"><img alt="" src="assets/logo-03.svg" class="lg lg03"><img alt="" src="assets/logo-04.svg" class="lg lg04"><img alt="" src="assets/logo-05.svg" class="lg lg05"><img alt="" src="assets/logo-06.svg" class="lg lg06"><img alt="" src="assets/logo-07.svg" class="lg lg07"><img alt="" src="assets/logo-08.svg" class="lg lg08"><img alt="" src="assets/logo-09.svg" class="lg lg09"><img alt="" src="assets/logo-10.svg" class="lg lg10"><img alt="" src="assets/logo-11.svg" class="lg lg11"><img alt="" src="assets/logo-12.svg" class="lg lg12"><img alt="" src="assets/logo-13.svg" class="lg lg13"><img alt="" src="assets/logo-14.svg" class="lg lg14"><img alt="" src="assets/logo-15.svg" class="lg lg15"><img alt="" src="assets/logo-16.svg" class="lg lg16"><img alt="" src="assets/logo-17.svg" class="lg lg17"><img alt="" src="assets/logo-18.svg" class="lg lg18"><img alt="" src="assets/logo-19.svg" class="lg lg19"><img alt="" src="assets/logo-20.svg" class="lg lg20"><img alt="" src="assets/logo-21.svg" class="lg lg21">
+          </span>
+        </button>
+      </div>
+      <div class="rail__items">
+        <button class="rail__item is-active" aria-label="New Session" title="New Session"><img alt="" src="assets/rail-plus.svg"></button>
+        <button class="rail__item" aria-label="Search" title="Search"><img alt="" src="assets/rail-search.svg"></button>
+        <button class="rail__item" aria-label="Projects" title="Projects"><img alt="" src="assets/rail-folder.svg"></button>
+        <button class="rail__item" aria-label="Routines" title="Routines"><img alt="" src="assets/rail-clock.svg"></button>
+        <button class="rail__item" aria-label="Meetings" title="Meetings"><img alt="" src="assets/rail-calendar.svg"></button>
+        <button class="rail__item" aria-label="Artifacts" title="Artifacts"><img alt="" src="assets/rail-cube.svg"></button>
+        <button class="rail__item" aria-label="Agents" title="Agents"><img alt="" src="assets/rail-ai-agent.svg"></button>
+      </div>
+    </div>
+    <div class="rail__foot" data-node-id="I14045:596904;292:85939">
+      <button class="rail__me" data-menu-trigger="collapsed" aria-label="Account" aria-haspopup="menu" aria-expanded="false">
+        <span class="me-badge" aria-hidden="true">
+          <img alt="" src="assets/avatar-subtract.svg" class="me-badge__ring">
+          <img alt="" src="assets/avatar-badge.svg" class="me-badge__dot">
+        </span>
+        <span class="me-plain" aria-hidden="true"></span>
+        <span class="rail__me-l">A</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================================================== expanded rail -->
+  <nav class="xrail" data-node-id="14045:606878" aria-label="Main (expanded)">
+    <div class="xrail__top">
+      <div class="xrail__head">
+        <div class="xrail__logo">
+          <span class="logo-g">
+            <img alt="" src="assets/logo-00.svg" class="lg lg00"><img alt="" src="assets/logo-01.svg" class="lg lg01"><img alt="" src="assets/logo-02.svg" class="lg lg02"><img alt="" src="assets/logo-03.svg" class="lg lg03"><img alt="" src="assets/logo-04.svg" class="lg lg04"><img alt="" src="assets/logo-05.svg" class="lg lg05"><img alt="" src="assets/logo-06.svg" class="lg lg06"><img alt="" src="assets/logo-07.svg" class="lg lg07"><img alt="" src="assets/logo-08.svg" class="lg lg08"><img alt="" src="assets/logo-09.svg" class="lg lg09"><img alt="" src="assets/logo-10.svg" class="lg lg10"><img alt="" src="assets/logo-11.svg" class="lg lg11"><img alt="" src="assets/logo-12.svg" class="lg lg12"><img alt="" src="assets/logo-13.svg" class="lg lg13"><img alt="" src="assets/logo-14.svg" class="lg lg14"><img alt="" src="assets/logo-15.svg" class="lg lg15"><img alt="" src="assets/logo-16.svg" class="lg lg16"><img alt="" src="assets/logo-17.svg" class="lg lg17"><img alt="" src="assets/logo-18.svg" class="lg lg18"><img alt="" src="assets/logo-19.svg" class="lg lg19"><img alt="" src="assets/logo-20.svg" class="lg lg20"><img alt="" src="assets/logo-21.svg" class="lg lg21">
+          </span>
+          <img alt="UnifyApps" src="assets/x-logo-word.svg" class="xrail__word">
+        </div>
+        <div class="xrail__tools">
+          <button class="xbtn" aria-label="Search" title="Search"><img alt="" src="assets/x-search.svg"></button>
+          <button class="xbtn" data-act="collapse" aria-label="Collapse navigation" title="Collapse navigation"><img alt="" src="assets/x-layout-left.svg"></button>
+        </div>
+      </div>
+      <div class="xrail__scroll">
+        <div class="xgrp xgrp--primary">
+          <button class="xitem is-active"><img alt="" src="assets/x-plus.svg" class="xi"><span class="xt xt--on">New Session</span></button>
+          <button class="xitem"><img alt="" src="assets/x-folder.svg" class="xi"><span class="xt">Projects</span></button>
+          <button class="xitem"><img alt="" src="assets/x-clock.svg" class="xi"><span class="xt">Routines</span></button>
+          <button class="xitem"><img alt="" src="assets/x-calendar.svg" class="xi"><span class="xt">Meetings</span></button>
+          <div class="xsep-wrap"><button class="xitem"><img alt="" src="assets/x-cube.svg" class="xi"><span class="xt xt--m">Artifacts</span></button><img alt="" src="assets/x-line.svg" class="xline"></div>
+        </div>
+        <div class="xgrp">
+          <div class="xsub"><span class="xsub__t">Agents</span><span class="xsub__btn"><img alt="" src="assets/x-chevron-down.svg"></span></div>
+          <button class="xagent"><span class="xav xav--tertiary"><img alt="" src="assets/x-ai-avatar.svg"></span><span class="xt">Financial Analysis Agent</span></button>
+          <button class="xagent"><span class="xav xav--pigeon"><img alt="" src="assets/x-ai-avatar.svg"></span><span class="xt xt--m">Sheet Sage Agent</span></button>
+          <button class="xagent"><span class="xav xav--terracotta"><img alt="" src="assets/x-ai-avatar.svg"></span><span class="xt xt--m">Formula Falcon Agent</span></button>
+          <div class="xsep-end"><img alt="" src="assets/x-line.svg" class="xline"></div>
+        </div>
+        <div class="xgrp">
+          <div class="xsub"><span class="xsub__t">Pinned</span><span class="xsub__btn"><img alt="" src="assets/x-chevron-down.svg"></span></div>
+          <button class="xitem"><img alt="" src="assets/x-cube3.svg" class="xi"><span class="xt xt--m">Artifacts</span></button>
+          <button class="xitem xitem--pr4"><img alt="" src="assets/x-folder.svg" class="xi"><span class="xt">Projects</span></button>
+          <button class="xhist"><span class="xt">Plan launch timeline</span><span class="xdot"><img alt="" src="assets/x-dot1.svg" class="xdot__in"></span></button>
+          <button class="xhist"><span class="xt">Review customer feedback</span><span class="xdot"><img alt="" src="assets/x-dot2.svg" class="xdot__in"></span></button>
+          <div class="xsep-end"><img alt="" src="assets/x-line.svg" class="xline"></div>
+        </div>
+        <div class="xgrp xgrp--history">
+          <div class="xsub xsub--h"><span class="xsub__t">Routines</span><span class="xsub__btn"><img alt="" src="assets/x-chevron-down.svg"></span></div>
+          <button class="xhist"><span class="xt">Get all granola notes summarized and del </span><span class="xdot"><img alt="" src="assets/x-dot3.svg" class="xdot__in xdot__in--flat"></span></button>
+          <button class="xhist"><span class="xt">Excel Formula Help From Main Document</span><span class="xdot"><img alt="" src="assets/x-dot.svg" class="xdot__in"></span></button>
+          <button class="xhist"><span class="xt xt--pre">Design Stand up follow-up  meeting</span><span class="xdot"><img alt="" src="assets/x-dot.svg" class="xdot__in"></span></button>
+          <div class="xsep-end"><img alt="" src="assets/x-line.svg" class="xline"></div>
+          <div class="xsub xsub--h xsub--gap"><span class="xsub__t">Chats</span><span class="xsub__btn"><img alt="" src="assets/x-chevron-down.svg"></span></div>
+          <button class="xhist"><span class="xt">Sheet Formula Consultant</span><span class="xdot"><img alt="" src="assets/x-dot4.svg" class="xdot__in xdot__in--flat"></span></button>
+          <button class="xhist"><span class="xt">Workbook Support Hub</span><span class="xdot"><img alt="" src="assets/x-dot.svg" class="xdot__in"></span></button>
+          <button class="xhist"><span class="xt">Morning Digest</span><span class="xdot"><img alt="" src="assets/x-dot.svg" class="xdot__in"></span></button>
+          <button class="xhist xhist--pr4"><span class="xt">Spreadsheet Formula Advisor</span><span class="xdot"><img alt="" src="assets/x-dot.svg" class="xdot__in"></span></button>
+        </div>
+      </div>
+    </div>
+    <button class="xfoot" data-menu-trigger="expanded" aria-label="Account" aria-haspopup="menu" aria-expanded="false" data-node-id="I14045:606878;292:88513">
+      <span class="xfoot__av">A</span>
+      <span class="xfoot__name">Anurag Kashyap</span>
+      <span class="xfoot__chev"><img alt="" src="assets/x-chevron-up.svg"></span>
+    </button>
+  </nav>
+
+  <!-- ===================================================== landing body -->
+  <main class="body" data-node-id="14045:596905">
+    <section class="hello" data-node-id="14045:597186">
+      <div class="hello__head">
+        <img alt="" src="assets/eb-assistant.svg" class="hello__av">
+        <div class="hello__txt">
+          <p class="hello__h"><span>Hello</span> <em>Roger</em></p>
+          <p class="hello__sub">How can I help you today?</p>
+        </div>
+      </div>
+      <div class="composer" data-node-id="14045:597195">
+        <div class="composer__msg">
+          <textarea class="composer__ta" rows="2" placeholder="Use /skill to give your agent a capability." aria-label="Message"></textarea>
+        </div>
+        <div class="composer__bar">
+          <button class="cbtn cbtn--round" aria-label="Add" title="Add"><img alt="" src="assets/composer-plus.svg"></button>
+          <div class="composer__acts">
+            <button class="cbtn" aria-label="Model" title="Model"><span class="cbtn__oa"><img alt="" src="assets/openai.svg"></span></button>
+            <button class="cbtn" aria-label="Dictate" title="Dictate"><img alt="" src="assets/microphone.svg"></button>
+            <button class="cbtn" aria-label="Voice mode" title="Voice mode"><img alt="" src="assets/voice.svg"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner" data-node-id="14045:597196" aria-label="Get started">
+      <div class="banner__clip">
+        <div class="fb">
+          <div class="fb__l">
+            <p class="fb__t">Connect apps</p>
+            <p class="fb__d">Connect apps you already use — Atlas works in context, not in isolation.</p>
+          </div>
+          <div class="fb__r">
+            <div class="ill">
+              <div class="ill__slot ill__slot--a"><div class="ill__card ill__card--l"></div></div>
+              <div class="ill__hub"><img alt="" src="assets/hubspot.svg"></div>
+              <div class="ill__slot ill__slot--b"><div class="ill__card ill__card--r"></div></div>
+              <div class="ill__sf"><div class="ill__sf-in"><img alt="" src="assets/salesforce.svg"></div></div>
+              <div class="ill__card ill__card--mid ill__card--ws"></div>
+              <div class="ill__card ill__card--mid"></div>
+              <div class="ill__slack"><img alt="" src="assets/slack.svg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img alt="" src="assets/carousel-dots.svg" class="banner__dots">
+    </section>
+  </main>
+
+  <!-- ===================================================== account menus -->
+  <div class="menu menu--collapsed" id="menu-collapsed" role="menu" data-node-id="14045:605517" hidden>
+    <div class="menu__box">
+      <div class="menu__who">
+        <p class="menu__name">Anurag Kashyap</p>
+        <p class="menu__mail">anurag_kasyap@unifyapps.com</p>
+      </div>
+      <div class="menu__list">
+        <button class="menu__item menu__item--first" role="menuitem" data-act="open-notifications"><span class="menu__ic"><img alt="" src="assets/menu-bell.svg"></span><span class="menu__lbl">Notifications</span></button>
+        <button class="menu__item" role="menuitem"><span class="menu__ic"><img alt="" src="assets/menu-settings.svg"></span><span class="menu__lbl">Settings</span></button>
+        <button class="menu__item" role="menuitem"><span class="menu__ic"><img alt="" src="assets/menu-logout.svg"></span><span class="menu__lbl">Log Out</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="menu menu--expanded" id="menu-expanded" role="menu" data-node-id="14045:824005" hidden>
+    <div class="menu__box">
+      <div class="menu__who">
+        <p class="menu__name">Anurag Kashyap</p>
+      </div>
+      <div class="menu__list">
+        <button class="menu__item menu__item--first" role="menuitem" data-act="open-notifications"><span class="menu__ic"><img alt="" src="assets/xm-bell.svg"></span><span class="menu__lbl">Notifications</span></button>
+        <button class="menu__item" role="menuitem"><span class="menu__ic"><img alt="" src="assets/xm-settings.svg"></span><span class="menu__lbl">Settings</span></button>
+        <button class="menu__item" role="menuitem"><span class="menu__ic"><img alt="" src="assets/xm-logout.svg"></span><span class="menu__lbl">Log Out</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================== notification panel -->
+  <section class="np" id="panel" data-node-id="14743:45510" aria-label="Notifications" data-view="notif" hidden></section>
+</div>
+</div>
+<script src="./app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* Button (Button.tsx): Buttons/Button Brand, Neutral and Error as the modal footers and empty states draw them.
+   sm 28: padding 6 8, radius button-sm, Text xs/Medium 12/16, min-width 56 (Button Brand sm 11750:511731).
+   md 32: padding 6 12, radius button-md, Text sm/Medium 13/20, min-width 72 (Cancel / Send, 6802:236153).
+   Label inside a "Text padding" frame (0 2). States as the sets draw them: Hover, Focused, Disabled.
+   Disabled labels: every set binds fg_disabled -> text-disabled -> Palette/Gray (light mode)/500, #8f8a85 in this file
+   (11750:511710, 11932:738158, 11932:738061, 9918:392740); tokens.css resolves the same chain to #9f9993. */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--spacing-xxs);
+  min-width: 56px; padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--button-sm); /* DRIFT: Button min width */
+  font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); line-height: var(--text-xs-medium-line-height);
+  white-space: nowrap; cursor: pointer;
+}
+.btn--md {
+  min-width: 72px; padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--button-md); /* DRIFT: Button md min width */
+  font-size: var(--text-sm-medium-font-size); font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+}
+.btn--md .btn__t { position: relative; top: 1px; } /* DRIFT: measured baseline, Chrome seats Geist 13px 1px higher than Figma */
+.btn__t { padding: 0 var(--spacing-xxs); }
+.btn__i { width: 14px; height: 14px; flex: none; } /* DRIFT: icon */
+.btn--fill { width: 100%; }
+.btn:disabled { cursor: default; }
+
+.btn--primary { background: var(--component-buttons-brand-primary-button-brand-primary-bg); color: var(--component-buttons-brand-primary-button-brand-primary-fg); }
+.btn--primary:not(:disabled):is(:hover, .is-hover) { background: var(--component-buttons-brand-primary-button-brand-primary-bg-hover); }
+.btn--primary:disabled { background: var(--component-buttons-brand-primary-button-brand-primary-bg-disabled); }
+
+.btn--secondary {
+  background: var(--colors-background-bg-primary); color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border); /* stroke inside */
+}
+/* Hover: the set draws fill #F2F0EE (bg-tertiary) and text-secondary; tokens.css maps the hover token to bg-tertiary-hover */
+.btn--secondary:not(:disabled):is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg-hover); }
+.btn--secondary:disabled {
+  background: var(--component-buttons-neutral-secondary-button-neutral-secondary-bg-disabled);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border-disabled);
+}
+
+.btn--destructive { background: var(--component-buttons-error-primary-button-error-primary-bg); color: var(--component-buttons-error-primary-button-error-primary-fg); }
+.btn--destructive:not(:disabled):is(:hover, .is-hover) { background: var(--component-buttons-error-primary-button-error-primary-bg-hover); }
+.btn--destructive:disabled { background: var(--component-buttons-error-primary-button-error-primary-bg-disabled); }
+
+.btn--tertiary { background: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-bg); color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg); }
+.btn--tertiary:not(:disabled):is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg-hover); }
+/* Disabled label, every kind (see the header) */
+.btn:disabled { color: #8f8a85; } /* DRIFT: fg_disabled -> text-disabled is #8f8a85 in this file, #9f9993 in tokens.css */
+.btn:disabled .btn__i { opacity: .5; }
+
+/* Focused: each set's ring, no offset (md and sm alike). Brand 11750:511718 4px utility-gray-200; Neutral 11932:738160 /
+   11932:738094 4px utility-gray-300 (#e6e4e0 in this file, #dbd6d1 in tokens.css) + 0 1 2 #101828 5%; Error 9918:392786
+   4px utility-error-100 + 0 1 2 alpha-black-05. The transparent outline replaces the app's global ring and only shows in
+   forced-colors mode, where box-shadows are dropped.
+   FIXES button-focus-ring-3-to-1 (components/buttons/fixes.ts; .btn--ring when fixes are on): those halos are 1.19 to
+   1.40:1 on white, so the app's global :focus-visible ring (base.css, 2px brand-500) is kept, 2px out, over the halo's
+   outer half. Pinned .is-focus specimens draw the same ring. */
+.btn:is(:focus-visible, .is-focus) { outline-offset: 2px; }
+.btn:not(.btn--ring):is(:focus-visible, .is-focus) { outline: 2px solid transparent; }
+.btn--ring.is-focus { outline: 2px solid var(--colors-utility-brand-utility-brand-500); }
+.btn--primary:is(:focus-visible, .is-focus) { box-shadow: 0 0 0 4px var(--colors-utility-gray-utility-gray-200); }
+.btn--secondary:is(:focus-visible, .is-focus) {
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border), 0 0 0 4px #e6e4e0, 0 1px 2px rgba(16, 24, 40, .05); /* DRIFT: Neutral Focused ring, utility-gray-300 live value */
+}
+.btn--tertiary:is(:focus-visible, .is-focus) { box-shadow: 0 0 0 4px #e6e4e0, 0 1px 2px rgba(16, 24, 40, .05); } /* DRIFT: Neutral Focused ring, utility-gray-300 live value */
+.btn--destructive:is(:focus-visible, .is-focus) { box-shadow: 0 0 0 4px var(--colors-utility-error-utility-error-100), 0 1px 2px rgba(0, 0, 0, .05); } /* DRIFT: Error Focused shadow-xs is alpha-black-05 */
