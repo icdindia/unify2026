@@ -1,0 +1,1410 @@
+{
+  "group": "g1",
+  "capturedAt": "2026-10-09",
+  "figmaFile": "lqKjNjyifEXCeywg69Knr2",
+  "method": "figma_capture_screenshot (plugin exportAsync, scale 1, PNG); figma_take_screenshot fell back to REST and failed with Token expired",
+  "rule": "resized if sizes differ; else diffPct = pixels with max channel diff > 40 / total * 100; same if < 0.15 else changed. shiftTolerantPct = pixels that still differ at every +-1px offset (AA-noise filter, informational only).",
+  "journeys": [
+    "chat-artifact",
+    "thinking",
+    "logo-options",
+    "chat-questions",
+    "deleted-artifact",
+    "graphs",
+    "cost",
+    "enhance-prompt",
+    "new-memory",
+    "consecutive"
+  ],
+  "summary": {
+    "same": 39,
+    "changed": 16,
+    "resized": 1,
+    "missing": 0,
+    "uncaptured": 0
+  },
+  "frames": [
+    {
+      "journey": "chat-artifact",
+      "file": "01-1707-136008.png",
+      "nodeId": "1707:136008",
+      "step": "01",
+      "status": "same",
+      "diffPct": 0.0106,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        421,
+        487,
+        671,
+        522
+      ],
+      "shiftTolerantPct": 0.0023,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/01-1707-136008.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "02-1707-139771.png",
+      "nodeId": "1707:139771",
+      "step": "02",
+      "status": "same",
+      "diffPct": 0.0005,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        494,
+        487,
+        615,
+        522
+      ],
+      "shiftTolerantPct": 0.0002,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/02-1707-139771.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "03-9256-466688.png",
+      "nodeId": "9256:466688",
+      "step": "03",
+      "status": "same",
+      "diffPct": 0.0127,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        356,
+        16,
+        1387,
+        370
+      ],
+      "shiftTolerantPct": 0.0021,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/03-9256-466688.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "04-1713-246600.png",
+      "nodeId": "1713:246600",
+      "step": "04",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        1361,
+        16,
+        1387,
+        25
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/04-1713-246600.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "05-1713-249395.png",
+      "nodeId": "1713:249395",
+      "step": "05",
+      "status": "same",
+      "diffPct": 0.0047,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        381,
+        16,
+        1387,
+        536
+      ],
+      "shiftTolerantPct": 0.0005,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/05-1713-249395.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "06-4756-184104.png",
+      "nodeId": "4756:184104",
+      "step": "06",
+      "status": "same",
+      "diffPct": 0.0047,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        381,
+        16,
+        1387,
+        410
+      ],
+      "shiftTolerantPct": 0.0005,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/06-4756-184104.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "07-4756-186919.png",
+      "nodeId": "4756:186919",
+      "step": "07",
+      "status": "same",
+      "diffPct": 0.0033,
+      "refSize": [
+        1440,
+        1051
+      ],
+      "newSize": [
+        1440,
+        1051
+      ],
+      "diffBBox": [
+        1361,
+        16,
+        1387,
+        25
+      ],
+      "shiftTolerantPct": 0.0003,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/07-4756-186919.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "08-1809-501331.png",
+      "nodeId": "1809:501331",
+      "step": "08",
+      "status": "same",
+      "diffPct": 0.0423,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        16,
+        16,
+        1387,
+        880
+      ],
+      "shiftTolerantPct": 0.0105,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/08-1809-501331.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "08a-5691-481950.png",
+      "nodeId": "5691:481950",
+      "step": "08a",
+      "status": "changed",
+      "diffPct": 1.5546,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        16,
+        16,
+        1387,
+        880
+      ],
+      "shiftTolerantPct": 0.3222,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/08a-5691-481950.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/08a-5691-481950.png",
+      "what": "No visible design change: copy, layout and colours are identical. The diff is sub-pixel text anti-aliasing across the answer text, sidebar labels and agent avatars (the new export now renders pixel-identically to step 08 1809:501331, whereas the old reference had slightly offset glyph rendering)."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "09-1809-446980.png",
+      "nodeId": "1809:446980",
+      "step": "09",
+      "status": "changed",
+      "diffPct": 0.8003,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        16,
+        16,
+        1387,
+        880
+      ],
+      "shiftTolerantPct": 0.1291,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/09-1809-446980.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/09-1809-446980.png",
+      "what": "No visible design change: Share Artifact modal is unchanged; the diff is sub-pixel text anti-aliasing on the dimmed chat text and sidebar labels behind the scrim (same render-noise pattern as 08a)."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "10-1731-255712.png",
+      "nodeId": "1731:255712",
+      "step": "10",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        1331,
+        16,
+        1357,
+        25
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/10-1731-255712.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "11-1731-338960.png",
+      "nodeId": "1731:338960",
+      "step": "11",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        1331,
+        16,
+        1357,
+        25
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/11-1731-338960.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "12-1731-340363.png",
+      "nodeId": "1731:340363",
+      "step": "12",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        1331,
+        16,
+        1357,
+        25
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/12-1731-340363.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "13-1731-341539.png",
+      "nodeId": "1731:341539",
+      "step": "13",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        1331,
+        16,
+        1357,
+        25
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/13-1731-341539.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "14-3273-190223.png",
+      "nodeId": "3273:190223",
+      "step": "14",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        396,
+        16,
+        1357,
+        681
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/14-3273-190223.png"
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "15-1768-356654.png",
+      "nodeId": "1768:356654",
+      "step": "15",
+      "status": "changed",
+      "diffPct": 0.1567,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        394,
+        16,
+        1387,
+        293
+      ],
+      "shiftTolerantPct": 0.0708,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/15-1768-356654.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/15-1768-356654.png",
+      "what": "Inline 'Pipeline Command / Interactive HTML' artifact card changed its file icon from a purple document-window glyph to a blue layered file/app icon in a larger tile, pushing the title and subtitle ~10px right and the Download label ~10px left. Rest of the frame (people-with-access popover, messages) unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "15a-3211-70049.png",
+      "nodeId": "3211:70049",
+      "step": "15a",
+      "status": "resized",
+      "diffPct": 4.0562,
+      "refSize": [
+        1440,
+        1104
+      ],
+      "newSize": [
+        1440,
+        1339
+      ],
+      "diffBBox": [
+        0,
+        16,
+        1387,
+        1104
+      ],
+      "shiftTolerantPct": 3.3314,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/15a-3211-70049.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/15a-3211-70049.png",
+      "what": "Frame grew from 1440x1104 to 1440x1339. Every artifact card got the new layered colour file-type icon in a larger tile (text shifted right); list re-ordered (Table CSV now before Interactive HTML) and three cards added: 'Pipeline Mail / Mail', 'Guidelines Doc / Playbook' and 'Image / Image - IMG'. Composer moves down accordingly; card-hover and button-hover annotations unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "16-1809-363799.png",
+      "nodeId": "1809:363799",
+      "step": "16",
+      "status": "changed",
+      "diffPct": 0.1831,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        392,
+        16,
+        1387,
+        420
+      ],
+      "shiftTolerantPct": 0.0718,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/16-1809-363799.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/16-1809-363799.png",
+      "what": "Hovered inline 'Pipeline Command / Interactive HTML - 123 KB - Version 1' card: the purple HTML window icon was replaced by the new layered orange icon (the same artwork as the Presentation/PPTX type) in a larger tile, so title and meta text shift ~10px right. Everything else unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "16a-14876-285160.png",
+      "nodeId": "14876:285160",
+      "step": "16a",
+      "status": "same",
+      "diffPct": 0.0387,
+      "refSize": [
+        1440,
+        1104
+      ],
+      "newSize": [
+        1440,
+        1104
+      ],
+      "diffBBox": [
+        112,
+        16,
+        1387,
+        607
+      ],
+      "shiftTolerantPct": 0.0355,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/16a-14876-285160.png",
+      "what": "Below threshold; only scattered anti-aliasing differences."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "17-5975-413714.png",
+      "nodeId": "5975:413714",
+      "step": "17",
+      "status": "changed",
+      "diffPct": 4.6654,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        192,
+        66,
+        1440,
+        874
+      ],
+      "shiftTolerantPct": 3.7767,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/17-5975-413714.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/17-5975-413714.png",
+      "what": "Files side panel reworked: header 'Artifacts 3 / Download All' became 'Outputs 3' with a close X; file icons swapped to the new layered colour icons; 5th row 'Star Command / Document - DOCX - V3' became 'Star Galaxy / Image - IMG - V1'; two new photo-thumbnail rows 'Pipeline Command / Interactive Text - Version 1' added, pushing the Files section down and making the panel taller (now ends ~y832). Inline chat card icon also changed to the new orange layered icon."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "18-14607-403125.png",
+      "nodeId": "14607:403125",
+      "step": "18",
+      "status": "changed",
+      "diffPct": 0.7041,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        192,
+        66,
+        1416,
+        420
+      ],
+      "shiftTolerantPct": 0.2944,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/18-14607-403125.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/18-14607-403125.png",
+      "what": "Grid-view files panel: header 'Artifacts 3 / Download All' became 'Outputs 3' with a close X, and the three output rows' orange/red/blue flat icons became the new blue layered HTML icon. The inline chat card icon changed from the purple HTML glyph to the orange layered icon (text shifts ~10px right). The Files grid thumbnails are unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "19-13722-383349.png",
+      "nodeId": "13722:383349",
+      "step": "19",
+      "status": "changed",
+      "diffPct": 0.9465,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        99,
+        18,
+        1103,
+        578
+      ],
+      "shiftTolerantPct": 0.4005,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/19-13722-383349.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/19-13722-383349.png",
+      "what": "Split view with Outputs popover: popover header 'Artifacts 3 / Download All' became 'Outputs 3' with a close X, and all five output rows plus the inline chat card use the new layered colour icons (blue DOCX, red PDF, blue HTML). The artifact panel header icon for 'Untitled.xls' changed from a dark grey document glyph to the green layered Sheets icon, nudging the title ~6px left; the Files list/grid toggle moved ~4px left. Artifact body unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "20-1809-488480.png",
+      "nodeId": "1809:488480",
+      "step": "20",
+      "status": "changed",
+      "diffPct": 0.2365,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        99,
+        16,
+        1102,
+        332
+      ],
+      "shiftTolerantPct": 0.0995,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/20-1809-488480.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/20-1809-488480.png",
+      "what": "Split view (chat + Untitled.xls artifact): the inline 'Pipeline Command / Interactive HTML' card icon changed from a flat blue document glyph to the new blue layered HTML icon (text shifts right), and the artifact header icon changed from a dark grey document glyph to the green layered Sheets icon. Artifact body and chat copy unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "21-1795-359260.png",
+      "nodeId": "1795:359260",
+      "step": "21",
+      "status": "changed",
+      "diffPct": 0.2294,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        96,
+        16,
+        613,
+        332
+      ],
+      "shiftTolerantPct": 0.102,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/21-1795-359260.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/21-1795-359260.png",
+      "what": "Version-history dropdown frame: the inline 'Pipeline Command' card icon changed from the purple HTML window glyph to the new blue layered HTML icon, and the artifact header icon for 'Untitled.xls' changed from a flat blue document glyph to the blue layered icon. Version dropdown and artifact body unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "21a-6405-306202.png",
+      "nodeId": "6405:306202",
+      "step": "21a",
+      "status": "changed",
+      "diffPct": 0.2203,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        96,
+        16,
+        608,
+        332
+      ],
+      "shiftTolerantPct": 0.099,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/21a-6405-306202.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/21a-6405-306202.png",
+      "what": "Artifact-title hover state: same icon swap as step 21 - the inline 'Pipeline Command' card icon went from the purple HTML glyph to the blue layered HTML icon, and the hovered 'Untitled.xls' title chip icon went from a flat blue document to the blue layered icon. Nothing else changed."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "21b-6405-308388.png",
+      "nodeId": "6405:308388",
+      "step": "21b",
+      "status": "changed",
+      "diffPct": 0.2496,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        96,
+        16,
+        673,
+        332
+      ],
+      "shiftTolerantPct": 0.1069,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/21b-6405-308388.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/21b-6405-308388.png",
+      "what": "Inline-rename state ('Untitled name here|.xls'): same icon swap as steps 21/21a - inline chat card icon purple HTML glyph -> blue layered HTML icon, artifact title icon flat blue document -> blue layered icon. Rename field and artifact body unchanged."
+    },
+    {
+      "journey": "chat-artifact",
+      "file": "22-1809-484624.png",
+      "nodeId": "1809:484624",
+      "step": "22",
+      "status": "same",
+      "diffPct": 0.0644,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        64,
+        10,
+        180,
+        30
+      ],
+      "shiftTolerantPct": 0.0309,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-artifact/22-1809-484624.png",
+      "what": "Below the 0.15% threshold, but there is one real change: the full-screen artifact header icon for 'Untitled.xls' went from a flat blue document glyph to the blue layered icon, and the title moved ~6px left."
+    },
+    {
+      "journey": "thinking",
+      "file": "01-8863-220940.png",
+      "nodeId": "8863:220940",
+      "step": "01",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        396,
+        16,
+        1387,
+        229
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/thinking/01-8863-220940.png"
+    },
+    {
+      "journey": "thinking",
+      "file": "02-10139-466731.png",
+      "nodeId": "10139:466731",
+      "step": "02",
+      "status": "same",
+      "diffPct": 0.1044,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        396,
+        16,
+        1387,
+        167
+      ],
+      "shiftTolerantPct": 0.0288,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/thinking/02-10139-466731.png"
+    },
+    {
+      "journey": "logo-options",
+      "file": "01-3612-167773.png",
+      "nodeId": "3612:167773",
+      "step": "01",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": null,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/logo-options/01-3612-167773.png"
+    },
+    {
+      "journey": "chat-questions",
+      "file": "01-5873-530156.png",
+      "nodeId": "5873:530156",
+      "step": "01",
+      "status": "changed",
+      "diffPct": 0.2725,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        96,
+        16,
+        613,
+        802
+      ],
+      "shiftTolerantPct": 0.1102,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-questions/01-5873-530156.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/chat-questions/01-5873-530156.png",
+      "what": "Same icon swap as the chat-artifact split views: the inline 'Pipeline Command' card icon went from the purple HTML glyph to the blue layered HTML icon, and the 'Untitled.xls' artifact header icon from a flat blue document to the blue layered icon. The question card ('Where should it land when it is done?', 4 options, Skip) only shows anti-aliasing noise; copy and layout unchanged."
+    },
+    {
+      "journey": "deleted-artifact",
+      "file": "01-6944-511592.png",
+      "nodeId": "6944:511592",
+      "step": "01",
+      "status": "changed",
+      "diffPct": 0.2294,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        96,
+        16,
+        613,
+        332
+      ],
+      "shiftTolerantPct": 0.102,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/deleted-artifact/01-6944-511592.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/deleted-artifact/01-6944-511592.png",
+      "what": "Only the icons changed: the inline 'Pipeline Command' card icon went from the purple HTML glyph to the blue layered HTML icon, and the 'Untitled.xls' header icon from a flat blue document to the blue layered icon. The 'Oops! Artifact is deleted' empty state (copy, illustration, Recreate button) is unchanged."
+    },
+    {
+      "journey": "graphs",
+      "file": "01-2556-378637.png",
+      "nodeId": "2556:378637",
+      "step": "01",
+      "status": "same",
+      "diffPct": 0.0006,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        440,
+        503,
+        615,
+        538
+      ],
+      "shiftTolerantPct": 0.0001,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/graphs/01-2556-378637.png"
+    },
+    {
+      "journey": "graphs",
+      "file": "02-1707-126556.png",
+      "nodeId": "1707:126556",
+      "step": "02",
+      "status": "same",
+      "diffPct": 0.0875,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        16,
+        83,
+        779,
+        880
+      ],
+      "shiftTolerantPct": 0.0172,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/graphs/02-1707-126556.png"
+    },
+    {
+      "journey": "graphs",
+      "file": "03-1707-125119.png",
+      "nodeId": "1707:125119",
+      "step": "03",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        396,
+        16,
+        1387,
+        167
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/graphs/03-1707-125119.png"
+    },
+    {
+      "journey": "graphs",
+      "file": "04-1707-125400.png",
+      "nodeId": "1707:125400",
+      "step": "04",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        417,
+        16,
+        1387,
+        168
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/graphs/04-1707-125400.png"
+    },
+    {
+      "journey": "graphs",
+      "file": "05-1707-125678.png",
+      "nodeId": "1707:125678",
+      "step": "05",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        396,
+        16,
+        1387,
+        287
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/graphs/05-1707-125678.png"
+    },
+    {
+      "journey": "graphs",
+      "file": "06-1707-125957.png",
+      "nodeId": "1707:125957",
+      "step": "06",
+      "status": "same",
+      "diffPct": 0.0039,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        417,
+        16,
+        1387,
+        288
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/graphs/06-1707-125957.png"
+    },
+    {
+      "journey": "cost",
+      "file": "01-6802-235991.png",
+      "nodeId": "6802:235991",
+      "step": "01",
+      "status": "same",
+      "diffPct": 0.0044,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        449,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/01-6802-235991.png"
+    },
+    {
+      "journey": "cost",
+      "file": "02-6802-236005.png",
+      "nodeId": "6802:236005",
+      "step": "02",
+      "status": "same",
+      "diffPct": 0.0044,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        449,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/02-6802-236005.png"
+    },
+    {
+      "journey": "cost",
+      "file": "03-6802-236019.png",
+      "nodeId": "6802:236019",
+      "step": "03",
+      "status": "same",
+      "diffPct": 0.0044,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        449,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/03-6802-236019.png"
+    },
+    {
+      "journey": "cost",
+      "file": "04-6802-236034.png",
+      "nodeId": "6802:236034",
+      "step": "04",
+      "status": "same",
+      "diffPct": 0.0748,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        417,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0159,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/04-6802-236034.png"
+    },
+    {
+      "journey": "cost",
+      "file": "05-6802-236050.png",
+      "nodeId": "6802:236050",
+      "step": "05",
+      "status": "same",
+      "diffPct": 0.1341,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        449,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0252,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/05-6802-236050.png"
+    },
+    {
+      "journey": "cost",
+      "file": "06-6802-236066.png",
+      "nodeId": "6802:236066",
+      "step": "06",
+      "status": "same",
+      "diffPct": 0.0818,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        449,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0164,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/06-6802-236066.png"
+    },
+    {
+      "journey": "cost",
+      "file": "07-6802-236106.png",
+      "nodeId": "6802:236106",
+      "step": "07",
+      "status": "same",
+      "diffPct": 0.0044,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        449,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/07-6802-236106.png"
+    },
+    {
+      "journey": "cost",
+      "file": "08-6802-236145.png",
+      "nodeId": "6802:236145",
+      "step": "08",
+      "status": "changed",
+      "diffPct": 0.2409,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        516,
+        286,
+        922,
+        333
+      ],
+      "shiftTolerantPct": 0.1187,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/08-6802-236145.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/08-6802-236145.png",
+      "what": "'Ask for more Usage' modal (frame at 40% opacity): the header title and the 'You have used $250 of $250 this month.' subtitle moved up ~12px, so the title now sits almost against the modal's top edge (header top padding lost) while the close X stays put. Form fields, footer copy and buttons unchanged."
+    },
+    {
+      "journey": "cost",
+      "file": "09-6802-236125.png",
+      "nodeId": "6802:236125",
+      "step": "09",
+      "status": "same",
+      "diffPct": 0.0044,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        449,
+        16,
+        1387,
+        810
+      ],
+      "shiftTolerantPct": 0.0004,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cost/09-6802-236125.png"
+    },
+    {
+      "journey": "enhance-prompt",
+      "file": "01-10230-663810.png",
+      "nodeId": "10230:663810",
+      "step": "01",
+      "status": "same",
+      "diffPct": 0.0016,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        514,
+        487,
+        615,
+        522
+      ],
+      "shiftTolerantPct": 0.0,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/enhance-prompt/01-10230-663810.png"
+    },
+    {
+      "journey": "enhance-prompt",
+      "file": "02-10247-277018.png",
+      "nodeId": "10247:277018",
+      "step": "02",
+      "status": "same",
+      "diffPct": 0.0897,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        513,
+        413,
+        799,
+        488
+      ],
+      "shiftTolerantPct": 0.0191,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/enhance-prompt/02-10247-277018.png"
+    },
+    {
+      "journey": "enhance-prompt",
+      "file": "03-10247-282174.png",
+      "nodeId": "10247:282174",
+      "step": "03",
+      "status": "same",
+      "diffPct": 0.0981,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        421,
+        413,
+        799,
+        522
+      ],
+      "shiftTolerantPct": 0.0191,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/enhance-prompt/03-10247-282174.png"
+    },
+    {
+      "journey": "enhance-prompt",
+      "file": "04-10247-280053.png",
+      "nodeId": "10247:280053",
+      "step": "04",
+      "status": "same",
+      "diffPct": 0.0062,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        424,
+        487,
+        665,
+        522
+      ],
+      "shiftTolerantPct": 0.0001,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/enhance-prompt/04-10247-280053.png"
+    },
+    {
+      "journey": "enhance-prompt",
+      "file": "05-10247-286242.png",
+      "nodeId": "10247:286242",
+      "step": "05",
+      "status": "same",
+      "diffPct": 0.0078,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        421,
+        487,
+        670,
+        522
+      ],
+      "shiftTolerantPct": 0.0,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/enhance-prompt/05-10247-286242.png"
+    },
+    {
+      "journey": "new-memory",
+      "file": "01-9915-762550.png",
+      "nodeId": "9915:762550",
+      "step": "01",
+      "status": "same",
+      "diffPct": 0.0272,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        383,
+        16,
+        1357,
+        563
+      ],
+      "shiftTolerantPct": 0.0072,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new-memory/01-9915-762550.png"
+    },
+    {
+      "journey": "new-memory",
+      "file": "02-10112-411197.png",
+      "nodeId": "10112:411197",
+      "step": "02",
+      "status": "same",
+      "diffPct": 0.0149,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        383,
+        16,
+        1357,
+        563
+      ],
+      "shiftTolerantPct": 0.0008,
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new-memory/02-10112-411197.png"
+    },
+    {
+      "journey": "new-memory",
+      "file": "03-10112-408460.png",
+      "nodeId": "10112:408460",
+      "step": "03",
+      "status": "changed",
+      "diffPct": 2.213,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        271,
+        116,
+        1176,
+        848
+      ],
+      "shiftTolerantPct": 1.0658,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new-memory/03-10112-408460.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new-memory/03-10112-408460.png",
+      "what": "Settings > Memory modal: a new 'Settings >' item (gear icon, chevron) was added at the bottom of the left settings nav, and the right-hand content column moved down ~8px (Memory title, toggles, Profile/Topics/Areas rows), so the partially visible 'Proofpoint evaluation' row is now almost fully hidden behind the 'Tell Unify's AI...' composer; the close X also dropped ~4px. Copy and rows are otherwise unchanged."
+    },
+    {
+      "journey": "consecutive",
+      "file": "01-11633-344632.png",
+      "nodeId": "11633:344632",
+      "step": "01",
+      "status": "changed",
+      "diffPct": 0.2059,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "diffBBox": [
+        396,
+        16,
+        1357,
+        812
+      ],
+      "shiftTolerantPct": 0.0221,
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/consecutive/01-11633-344632.compare.png",
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/consecutive/01-11633-344632.png",
+      "what": "No visible design change: the two right-aligned user bubbles ('@Matt Rivera ...' and '@Roger ...') start about 1px further right (sub-pixel width/position shift), so their text re-anti-aliases; copy, spacing and the other messages are identical (shift-tolerant diff is only 0.02%)."
+    }
+  ],
+  "newFrames": [],
+  "problems": [
+    "Render-noise only (status changed by the 0.15% rule, but no visible design change): chat-artifact/08a-5691-481950 (now renders identically to step 08), chat-artifact/09-1809-446980 and consecutive/01-11633-344632 (1px sub-pixel bubble shift).",
+    "Real change below the threshold (status same): chat-artifact/22-1809-484624: the Untitled.xls header icon swapped to the blue layered icon and the title moved ~6px left.",
+    "Recurring change across 12 frames: the new layered colour file-type icon set replaced the flat glyphs on inline artifact cards, the Outputs/files panel and the artifact header (affects 15, 15a, 16, 17, 18, 19, 20, 21, 21a, 21b, chat-questions/01, deleted-artifact/01). The files popover header changed from Artifacts / Download All to Outputs with a close X.",
+    "Bridge export queue stalled ~10 min at the start and twice more; new-memory/02-10112-411197 timed out 3 times, was marked uncaptured, then captured successfully on a final retry after the queue drained. No frame is left uncaptured. figma_take_screenshot fell back to REST (Token expired), so every capture used figma_capture_screenshot.",
+    "All 56 nodeIds still exist; no frame is missing. The new-memory fullFlow node 10112:406770 has no reference image, so it was not compared."
+  ]
+}

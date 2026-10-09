@@ -1,0 +1,424 @@
+{
+  "group": "g2",
+  "capturedAt": "2026-10-09",
+  "fileKey": "lqKjNjyifEXCeywg69Knr2",
+  "method": "figma_capture_screenshot (plugin exportAsync, scale 1, PNG); figma_take_screenshot fell back to REST and failed with 'Token expired'. Diff = pixels whose max channel difference > 40; 'same' if diffPct < 0.15.",
+  "journeys": [
+    "nav-light",
+    "nav-behaviour",
+    "pinning",
+    "pinned-chevron",
+    "drag-unpin",
+    "drag-pinned",
+    "share-artifact",
+    "add-users",
+    "collab-chat"
+  ],
+  "summary": {
+    "same": 50,
+    "changed": 4
+  },
+  "frames": [
+    {
+      "journey": "nav-light",
+      "file": "01-12829-289253.png",
+      "nodeId": "12829:289253",
+      "status": "same",
+      "diffPct": 0.0001
+    },
+    {
+      "journey": "nav-light",
+      "file": "02-12829-292060.png",
+      "nodeId": "12829:292060",
+      "status": "same",
+      "diffPct": 0.0781
+    },
+    {
+      "journey": "nav-light",
+      "file": "03-12829-296297.png",
+      "nodeId": "12829:296297",
+      "status": "same",
+      "diffPct": 0.0147
+    },
+    {
+      "journey": "nav-light",
+      "file": "04-12919-607703.png",
+      "nodeId": "12919:607703",
+      "status": "same",
+      "diffPct": 0.0525
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "01-11614-672894.png",
+      "nodeId": "11614:672894",
+      "status": "same",
+      "diffPct": 0.0422
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "02-11614-676434.png",
+      "nodeId": "11614:676434",
+      "status": "same",
+      "diffPct": 0.0423
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "03-11715-658763.png",
+      "nodeId": "11715:658763",
+      "status": "same",
+      "diffPct": 0.0612
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "04-11614-677973.png",
+      "nodeId": "11614:677973",
+      "status": "same",
+      "diffPct": 0.0644
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "05-11693-260033.png",
+      "nodeId": "11693:260033",
+      "status": "same",
+      "diffPct": 0.014
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "06-11715-627268.png",
+      "nodeId": "11715:627268",
+      "status": "same",
+      "diffPct": 0.0026
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "07-13701-756891.png",
+      "nodeId": "13701:756891",
+      "status": "same",
+      "diffPct": 0.0517
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "08-11780-448662.png",
+      "nodeId": "11780:448662",
+      "status": "same",
+      "diffPct": 0.0563
+    },
+    {
+      "journey": "nav-behaviour",
+      "file": "09-11635-685715.png",
+      "nodeId": "11635:685715",
+      "status": "same",
+      "diffPct": 0.0766
+    },
+    {
+      "journey": "pinning",
+      "file": "01-11648-688362.png",
+      "nodeId": "11648:688362",
+      "status": "changed",
+      "diffPct": 4.5589,
+      "what": "Artifacts grid: the artifact-type badge icons changed from flat single-colour glyphs (blue doc, purple app, green sheet) to new two-tone 3D file-type icons. Card bodies are about 4px shorter, so rows 2-4 sit progressively higher. The All Types filter, the Pin/Unpin kebab menus, the copy and the grid layout are otherwise unchanged.",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/pinning/01-11648-688362.compare.png"
+    },
+    {
+      "journey": "pinning",
+      "file": "02-11657-386528.png",
+      "nodeId": "11657:386528",
+      "status": "changed",
+      "diffPct": 5.2273,
+      "what": "Projects grid: the '12 items' count line was removed from every project card, and the per-card status icons dropped from four (pin, lock, globe, people) to one pin or lock glyph, so cards are about 18px shorter and each row moves up. Rail status dots on recent items also changed (hollow rings are now filled white, blue or orange dots).",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/pinning/02-11657-386528.compare.png"
+    },
+    {
+      "journey": "pinning",
+      "file": "03-11657-493696.png",
+      "nodeId": "11657:493696",
+      "status": "same",
+      "diffPct": 0.1377,
+      "what": "Below threshold. Rail status dots changed (a hollow ring is now a filled white dot, a white dot is now orange) and the Trigger-column text moved about 1px."
+    },
+    {
+      "journey": "pinned-chevron",
+      "file": "01-11661-497681.png",
+      "nodeId": "11661:497681",
+      "status": "same",
+      "diffPct": 0.0636
+    },
+    {
+      "journey": "pinned-chevron",
+      "file": "02-11661-514386.png",
+      "nodeId": "11661:514386",
+      "status": "same",
+      "diffPct": 0.0883
+    },
+    {
+      "journey": "drag-unpin",
+      "file": "01-11671-666296.png",
+      "nodeId": "11671:666296",
+      "status": "same",
+      "diffPct": 0.0667
+    },
+    {
+      "journey": "drag-unpin",
+      "file": "02-11671-670376.png",
+      "nodeId": "11671:670376",
+      "status": "same",
+      "diffPct": 0.0678
+    },
+    {
+      "journey": "drag-pinned",
+      "file": "01-11661-517917.png",
+      "nodeId": "11661:517917",
+      "status": "same",
+      "diffPct": 0.062
+    },
+    {
+      "journey": "drag-pinned",
+      "file": "02-11671-661281.png",
+      "nodeId": "11671:661281",
+      "status": "same",
+      "diffPct": 0.0614
+    },
+    {
+      "journey": "drag-pinned",
+      "file": "03-11671-662888.png",
+      "nodeId": "11671:662888",
+      "status": "same",
+      "diffPct": 0.0662
+    },
+    {
+      "journey": "share-artifact",
+      "file": "01-1819-316164.png",
+      "nodeId": "1819:316164",
+      "status": "same",
+      "diffPct": 0.0399
+    },
+    {
+      "journey": "share-artifact",
+      "file": "02-9256-470679.png",
+      "nodeId": "9256:470679",
+      "status": "same",
+      "diffPct": 0.0399
+    },
+    {
+      "journey": "share-artifact",
+      "file": "03-1819-316249.png",
+      "nodeId": "1819:316249",
+      "status": "same",
+      "diffPct": 0.0399
+    },
+    {
+      "journey": "share-artifact",
+      "file": "04-1819-316290.png",
+      "nodeId": "1819:316290",
+      "status": "same",
+      "diffPct": 0.0399
+    },
+    {
+      "journey": "share-artifact",
+      "file": "05-1819-316329.png",
+      "nodeId": "1819:316329",
+      "status": "same",
+      "diffPct": 0.0399
+    },
+    {
+      "journey": "share-artifact",
+      "file": "06-1819-316373.png",
+      "nodeId": "1819:316373",
+      "status": "same",
+      "diffPct": 0.0399
+    },
+    {
+      "journey": "share-artifact",
+      "file": "07-1819-316429.png",
+      "nodeId": "1819:316429",
+      "status": "same",
+      "diffPct": 0.0399
+    },
+    {
+      "journey": "share-artifact",
+      "file": "08-1819-316471.png",
+      "nodeId": "1819:316471",
+      "status": "same",
+      "diffPct": 0.1333,
+      "what": "Below threshold, but the invitee chips' avatars changed: the small grey per-person initials (O, P, N, C, A) now all render as a larger dark navy 'O' (initial override lost or chip component updated)."
+    },
+    {
+      "journey": "share-artifact",
+      "file": "09-12264-347642.png",
+      "nodeId": "12264:347642",
+      "status": "same",
+      "diffPct": 0.1333,
+      "what": "Below threshold, but the invitee chips' avatars changed: the small grey per-person initials (O, P, N, C, A) now all render as a larger dark navy 'O' (initial override lost or chip component updated)."
+    },
+    {
+      "journey": "share-artifact",
+      "file": "10-1819-316531.png",
+      "nodeId": "1819:316531",
+      "status": "same",
+      "diffPct": 0.1437,
+      "what": "Below threshold, but the invitee chips' avatars changed: the small grey per-person initials (O, P, N, C, A) now all render as a larger dark navy 'O' (initial override lost or chip component updated)."
+    },
+    {
+      "journey": "add-users",
+      "file": "01-7830-279834.png",
+      "nodeId": "7830:279834",
+      "status": "same",
+      "diffPct": 0.0833
+    },
+    {
+      "journey": "add-users",
+      "file": "02-9256-468119.png",
+      "nodeId": "9256:468119",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "03-12025-773344.png",
+      "nodeId": "12025:773344",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "04-12025-774906.png",
+      "nodeId": "12025:774906",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "05-12025-776507.png",
+      "nodeId": "12025:776507",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "06-12025-779849.png",
+      "nodeId": "12025:779849",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "07-12025-778160.png",
+      "nodeId": "12025:778160",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "08-12025-781497.png",
+      "nodeId": "12025:781497",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "09-12025-783146.png",
+      "nodeId": "12025:783146",
+      "status": "same",
+      "diffPct": 0.0625
+    },
+    {
+      "journey": "add-users",
+      "file": "10-12025-784845.png",
+      "nodeId": "12025:784845",
+      "status": "same",
+      "diffPct": 0.071,
+      "what": "Below threshold, but the invitee chips (olivia@untitled.com, Phoenix) now both show a dark navy 'O' avatar instead of grey per-person initials (O, P)."
+    },
+    {
+      "journey": "add-users",
+      "file": "11-12025-786818.png",
+      "nodeId": "12025:786818",
+      "status": "same",
+      "diffPct": 0.0815,
+      "what": "Below threshold, but all five invitee chips now show a dark navy 'O' avatar instead of grey per-person initials (O, P, N, C, A)."
+    },
+    {
+      "journey": "collab-chat",
+      "file": "01-7830-279836.png",
+      "nodeId": "7830:279836",
+      "status": "same",
+      "diffPct": 0.0218
+    },
+    {
+      "journey": "collab-chat",
+      "file": "02-8202-477546.png",
+      "nodeId": "8202:477546",
+      "status": "same",
+      "diffPct": 0.0218
+    },
+    {
+      "journey": "collab-chat",
+      "file": "03-8202-478758.png",
+      "nodeId": "8202:478758",
+      "status": "same",
+      "diffPct": 0.0039
+    },
+    {
+      "journey": "collab-chat",
+      "file": "04-8215-480023.png",
+      "nodeId": "8215:480023",
+      "status": "same",
+      "diffPct": 0.0039
+    },
+    {
+      "journey": "collab-chat",
+      "file": "05-8215-481631.png",
+      "nodeId": "8215:481631",
+      "status": "same",
+      "diffPct": 0.0218
+    },
+    {
+      "journey": "collab-chat",
+      "file": "06-8222-482896.png",
+      "nodeId": "8222:482896",
+      "status": "same",
+      "diffPct": 0.0039
+    },
+    {
+      "journey": "collab-chat",
+      "file": "07-8222-485711.png",
+      "nodeId": "8222:485711",
+      "status": "same",
+      "diffPct": 0.0039
+    },
+    {
+      "journey": "collab-chat",
+      "file": "08-8222-488552.png",
+      "nodeId": "8222:488552",
+      "status": "same",
+      "diffPct": 0.1352,
+      "what": "Below threshold, but it has the same Pipeline Command file-icon swap (purple flat glyph to blue two-tone app icon) as steps 09 and 10."
+    },
+    {
+      "journey": "collab-chat",
+      "file": "09-8222-490604.png",
+      "nodeId": "8222:490604",
+      "status": "changed",
+      "diffPct": 0.165,
+      "what": "Pipeline Command artifact card: the file-type icon was swapped from the flat purple HTML glyph to the new blue two-tone app icon, and the title/subtitle moved right about 10px. The rest of the frame differs only by antialiasing.",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/collab-chat/09-8222-490604.compare.png"
+    },
+    {
+      "journey": "collab-chat",
+      "file": "10-8222-494135.png",
+      "nodeId": "8222:494135",
+      "status": "changed",
+      "diffPct": 0.1532,
+      "what": "Pipeline Command artifact card: the file-type icon was swapped from the flat purple HTML glyph to the new blue two-tone app icon, and the title/subtitle moved right about 10px. The rest of the frame differs only by antialiasing.",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/collab-chat/10-8222-494135.compare.png"
+    }
+  ],
+  "newFrames": [
+    "15599:400670 '1750' (FRAME 1440 wide, Chat section 1707:133527, at x31116 y12731): its node id is newer than every mapped frame and it is not in any journey.json. It sits beside chat-artifact frames 1749/1747/1743, so it is not part of g2's journeys and was not captured."
+  ],
+  "problems": [
+    "The Desktop Bridge export queue stalled twice, for about 9 min and about 2 min (CAPTURE_SCREENSHOT and a direct exportAsync both timed out while plugin probes succeeded). nav-light 01-04 and pinning 03 each failed 3 times; after the bridge recovered they were retried and captured.",
+    "figma_take_screenshot always fell back to the REST API and failed with 'Token expired', so every frame was captured with figma_capture_screenshot.",
+    "Four 'same' frames are close to the 0.15% threshold (pinning 03 = 0.138, collab-chat 08 = 0.135, share-artifact 08/09 = 0.133, share-artifact 10 = 0.144) and contain real small design edits (see 'what')."
+  ]
+}

@@ -1,0 +1,1016 @@
+{
+  "group": "g3",
+  "capturedAt": "2026-10-09",
+  "tool": "figma_capture_screenshot (plugin exportAsync, scale 1; auto-capped to 1568px longest side for 8412:194488 and 13750:280936, matching the references)",
+  "method": "PIL: pixels with max channel diff > 40; same if diffPct < 0.15",
+  "journeys": [
+    "artifact-view-editor-main",
+    "artifact-view-viewer",
+    "artifact-full-editor",
+    "artifacts-landing",
+    "cloned-artifact",
+    "publish-artifact",
+    "canvas-comments",
+    "header-dropdowns"
+  ],
+  "frames": [
+    {
+      "journey": "artifact-view-editor-main",
+      "file": "01-5310-276790.png",
+      "nodeId": "5310:276790",
+      "status": "changed",
+      "diffPct": 0.2139,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-editor-main/01-5310-276790.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-editor-main/01-5310-276790.compare.png",
+      "what": "Header artifact-type icon swapped from the flat blue Documents glyph to the new 3D stacked document icon; the name pill narrows ~6px so the name and 'Edit with Chat' shift left, and the eye/code toggle nudges ~3px left. Rename/Clone/Versions/Delete menu, Versions submenu and body unchanged."
+    },
+    {
+      "journey": "artifact-view-editor-main",
+      "file": "02-7418-305665.png",
+      "nodeId": "7418:305665",
+      "status": "changed",
+      "diffPct": 0.1902,
+      "refSize": [
+        787,
+        900
+      ],
+      "newSize": [
+        787,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-editor-main/02-7418-305665.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-editor-main/02-7418-305665.compare.png",
+      "what": "Same header icon swap at 787px (flat doc -> 3D stacked doc icon); truncated name pill and 'Edit with Chat' shift ~6px left. Right-side actions and body unchanged."
+    },
+    {
+      "journey": "artifact-view-editor-main",
+      "file": "03-7418-305917.png",
+      "nodeId": "7418:305917",
+      "status": "changed",
+      "diffPct": 0.1902,
+      "refSize": [
+        787,
+        900
+      ],
+      "newSize": [
+        787,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-editor-main/03-7418-305917.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-editor-main/03-7418-305917.compare.png",
+      "what": "Same header icon swap and ~6px left shift of the name pill / 'Edit with Chat'; full-name tooltip and body unchanged."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "01-3838-248160.png",
+      "nodeId": "3838:248160",
+      "status": "same",
+      "diffPct": 0.097,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/01-3838-248160.png",
+      "what": "Below threshold, but the header app icon is swapped from the purple flat Application icon to the new blue 3D stacked app icon (same change as 01a)."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "01a-13155-271422.png",
+      "nodeId": "13155:271422",
+      "status": "changed",
+      "diffPct": 2.1823,
+      "refSize": [
+        1440,
+        40
+      ],
+      "newSize": [
+        1440,
+        40
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/01a-13155-271422.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/01a-13155-271422.compare.png",
+      "what": "Viewer header strip: purple flat 'Application' icon replaced by the new blue 3D stacked application icon; 'Untitled Applciations' shifts ~2px left. Home button unchanged."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "02-7767-266191.png",
+      "nodeId": "7767:266191",
+      "status": "same",
+      "diffPct": 0.0653,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/02-7767-266191.png",
+      "what": "Below threshold: header sheets icon swapped to the new 3D stacked green icon; name shifts ~2px left."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "03-7781-267087.png",
+      "nodeId": "7781:267087",
+      "status": "same",
+      "diffPct": 0.0643,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/03-7781-267087.png",
+      "what": "Below threshold: header doc icon swapped to the new 3D stacked blue doc icon; name shifts ~2px left."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "04-7781-267978.png",
+      "nodeId": "7781:267978",
+      "status": "same",
+      "diffPct": 0.0657,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/04-7781-267978.png",
+      "what": "Below threshold: header PDF icon swapped to the new 3D stacked red PDF icon."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "05-7781-268873.png",
+      "nodeId": "7781:268873",
+      "status": "same",
+      "diffPct": 0.061,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/05-7781-268873.png",
+      "what": "Below threshold: header Markdown icon swapped to the new 3D stacked grey '#' icon."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "06-7781-269768.png",
+      "nodeId": "7781:269768",
+      "status": "same",
+      "diffPct": 0.0654,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/06-7781-269768.png",
+      "what": "Below threshold: header presentation icon swapped to the new 3D stacked icon."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "07-8771-210166.png",
+      "nodeId": "8771:210166",
+      "status": "same",
+      "diffPct": 0.0685,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/07-8771-210166.png",
+      "what": "Below threshold: header presentation icon swapped to the new 3D stacked icon."
+    },
+    {
+      "journey": "artifact-view-viewer",
+      "file": "08-10157-575625.png",
+      "nodeId": "10157:575625",
+      "status": "same",
+      "diffPct": 0.0674,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-view-viewer/08-10157-575625.png",
+      "what": "Below threshold: header JSON icon swapped to the new 3D stacked slate icon."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "01-7809-278865.png",
+      "nodeId": "7809:278865",
+      "status": "same",
+      "diffPct": 0.1429,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/01-7809-278865.png",
+      "what": "Below threshold: header app icon swapped from purple flat to blue 3D stacked (same change as 01a)."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "01a-13155-271308.png",
+      "nodeId": "13155:271308",
+      "status": "changed",
+      "diffPct": 3.3454,
+      "refSize": [
+        1384,
+        40
+      ],
+      "newSize": [
+        1384,
+        40
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/01a-13155-271308.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/01a-13155-271308.compare.png",
+      "what": "Header strip: purple flat Application icon replaced by the blue 3D stacked application icon; name, chevron and 'Edit with Chat' shift ~2px left. Right-side actions unchanged."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "02-7809-273518.png",
+      "nodeId": "7809:273518",
+      "status": "same",
+      "diffPct": 0.0651,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/02-7809-273518.png",
+      "what": "Below threshold: header sheets icon swapped to the 3D stacked green icon."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "02a-12195-302725.png",
+      "nodeId": "12195:302725",
+      "status": "changed",
+      "diffPct": 1.707,
+      "refSize": [
+        1384,
+        40
+      ],
+      "newSize": [
+        1384,
+        40
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/02a-12195-302725.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/02a-12195-302725.compare.png",
+      "what": "Flat green Sheets icon replaced by the 3D stacked green sheets icon and moved ~10px left (tighter gap after the back chevron), so 'Untitled.xls' and its chevron shift ~10px left. Right-side actions unchanged."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "03-7809-273526.png",
+      "nodeId": "7809:273526",
+      "status": "same",
+      "diffPct": 0.0657,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/03-7809-273526.png",
+      "what": "Below threshold: header doc icon swapped to the 3D stacked doc icon."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "04-7809-273538.png",
+      "nodeId": "7809:273538",
+      "status": "same",
+      "diffPct": 0.1208,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/04-7809-273538.png",
+      "what": "Below threshold (0.12%) but a real change: the right-hand header action group (copy, refresh, v3 version, Publish, comments split, download, collapse, close) has been REMOVED; header PDF icon swapped to the 3D stacked icon."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "05-7809-273550.png",
+      "nodeId": "7809:273550",
+      "status": "same",
+      "diffPct": 0.1161,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/05-7809-273550.png",
+      "what": "Below threshold (0.12%) but a real change: the right-hand header action group (copy, refresh, v3, Publish, comments, download, collapse, close) has been REMOVED; header Markdown icon swapped to the 3D stacked icon."
+    },
+    {
+      "journey": "artifact-full-editor",
+      "file": "06-7809-273559.png",
+      "nodeId": "7809:273559",
+      "status": "same",
+      "diffPct": 0.1205,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifact-full-editor/06-7809-273559.png",
+      "what": "Below threshold (0.12%) but a real change: the right-hand header action group (copy, refresh, v3, Publish, comments, download, collapse, close) has been REMOVED; header presentation icon swapped to the 3D stacked icon."
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "01-3780-177209.png",
+      "nodeId": "3780:177209",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/01-3780-177209.png"
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "02-7907-305055.png",
+      "nodeId": "7907:305055",
+      "status": "changed",
+      "diffPct": 4.6222,
+      "refSize": [
+        1440,
+        1380
+      ],
+      "newSize": [
+        1440,
+        1380
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/02-7907-305055.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/02-7907-305055.compare.png",
+      "what": "Grid cards: every artifact-type icon in the card meta is replaced by the new 3D stacked icon set, and the meta block is tighter (cards ~4px shorter), so each later row shifts up cumulatively. Copy, thumbnails and toolbar unchanged."
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "03-12868-502599.png",
+      "nodeId": "12868:502599",
+      "status": "changed",
+      "diffPct": 0.1565,
+      "refSize": [
+        1440,
+        827
+      ],
+      "newSize": [
+        1440,
+        827
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/03-12868-502599.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/03-12868-502599.compare.png",
+      "what": "List view: Type-column icons replaced by the 3D stacked icons; the Application and Presentation rows now both use the blue document icon (they were the purple app and orange presentation icons). Names and status unchanged."
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "04-8412-194488.png",
+      "nodeId": "8412:194488",
+      "status": "changed",
+      "diffPct": 3.6578,
+      "refSize": [
+        1338,
+        1568
+      ],
+      "newSize": [
+        1338,
+        1568
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/04-8412-194488.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/04-8412-194488.compare.png",
+      "what": "Same change as 02 across all 17 cards (0.77x export): new 3D type icons and shorter card meta, so rows shift up. Search box, filters and the bottom Markdown/Playbook row are unchanged."
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "05-11648-688356.png",
+      "nodeId": "11648:688356",
+      "status": "changed",
+      "diffPct": 4.5364,
+      "refSize": [
+        1440,
+        1380
+      ],
+      "newSize": [
+        1440,
+        1380
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/05-11648-688356.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/05-11648-688356.compare.png",
+      "what": "Same card icon swap and row shift as 02; the open All Types filter menu, the card menus (Pin/Unpin ... Delete) and the 'Co-create with an Agent' tooltip are unchanged."
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "06-12057-581131.png",
+      "nodeId": "12057:581131",
+      "status": "same",
+      "diffPct": 0.0001,
+      "refSize": [
+        1440,
+        800
+      ],
+      "newSize": [
+        1440,
+        800
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/06-12057-581131.png"
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "07-3780-177321.png",
+      "nodeId": "3780:177321",
+      "status": "same",
+      "diffPct": 0.0041,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/07-3780-177321.png"
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "08-3780-178324.png",
+      "nodeId": "3780:178324",
+      "status": "changed",
+      "diffPct": 0.8286,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/08-3780-178324.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/08-3780-178324.compare.png",
+      "what": "Artifact header icon swapped to the 3D stacked doc icon (name shifts left); PDF and CSV icons in the download menu replaced by new 3D icons; the chat 'Pipeline Command' card icon changed from the flat blue doc to the 3D application icon. Chat copy unchanged (sub-pixel re-render only)."
+    },
+    {
+      "journey": "artifacts-landing",
+      "file": "c01-13750-280568.png",
+      "nodeId": "13750:280568",
+      "status": "changed",
+      "diffPct": 0.7555,
+      "refSize": [
+        520,
+        1319
+      ],
+      "newSize": [
+        520,
+        1319
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/c01-13750-280568.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/artifacts-landing/c01-13750-280568.compare.png",
+      "what": "All 11 type tiles now use the new 3D stacked icon set, with colour changes: Presentation orange->blue, first Connector brown->blue, Application purple->orange, Playbook pink->orange, Markdown now a grey '#', CSV teal. Labels and swatch bars unchanged."
+    },
+    {
+      "journey": "cloned-artifact",
+      "file": "01-13750-280936.png",
+      "nodeId": "13750:280936",
+      "status": "changed",
+      "diffPct": 3.2528,
+      "refSize": [
+        1371,
+        1568
+      ],
+      "newSize": [
+        1371,
+        1568
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cloned-artifact/01-13750-280936.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cloned-artifact/01-13750-280936.compare.png",
+      "what": "Same grid change as artifacts-landing (0.95x export): new 3D type icons and shorter card meta, so rows 2-4 shift up, including the 'Q3 2026 Revenue Forecast ... (Cloned)' card. The open card menu with Clone checked is unchanged."
+    },
+    {
+      "journey": "cloned-artifact",
+      "file": "02-13750-301988.png",
+      "nodeId": "13750:301988",
+      "status": "changed",
+      "diffPct": 0.2332,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cloned-artifact/02-13750-301988.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cloned-artifact/02-13750-301988.compare.png",
+      "what": "Header icon swapped to the 3D stacked doc icon and the name pill narrows ~2px; Rename/Clone/Delete menu and body unchanged."
+    },
+    {
+      "journey": "cloned-artifact",
+      "file": "03-13750-302325.png",
+      "nodeId": "13750:302325",
+      "status": "same",
+      "diffPct": 0.0978,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/cloned-artifact/03-13750-302325.png",
+      "what": "Below threshold: header icon swapped to the 3D doc icon; rename input and 'Start Chat' shift ~2px right."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "01-1990-517731.png",
+      "nodeId": "1990:517731",
+      "status": "same",
+      "diffPct": 0.0006,
+      "refSize": [
+        1440,
+        900
+      ],
+      "newSize": [
+        1440,
+        900
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/01-1990-517731.png"
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c01-1969-507322.png",
+      "nodeId": "1969:507322",
+      "status": "changed",
+      "diffPct": 3.6267,
+      "refSize": [
+        440,
+        258
+      ],
+      "newSize": [
+        440,
+        258
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c01-1969-507322.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c01-1969-507322.compare.png",
+      "what": "Grey '$10/month' price suffix added after 'pipeline-command' and 'Everyone at UnifyApps'; URL-row app icon recoloured from bright purple to a muted plum; row text shifted up ~4-6px. Publish button and cursor unchanged."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c02-1969-507360.png",
+      "nodeId": "1969:507360",
+      "status": "changed",
+      "diffPct": 4.7228,
+      "refSize": [
+        440,
+        214
+      ],
+      "newSize": [
+        440,
+        214
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c02-1969-507360.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c02-1969-507360.compare.png",
+      "what": "'$10/month' suffix added to 'Everyone at UnifyApps' and 'Restricted'; option text rows shifted ~4px up. Radio and Done unchanged."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c03-11933-737342.png",
+      "nodeId": "11933:737342",
+      "status": "changed",
+      "diffPct": 5.2825,
+      "refSize": [
+        440,
+        214
+      ],
+      "newSize": [
+        440,
+        214
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c03-11933-737342.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c03-11933-737342.compare.png",
+      "what": "'$10/month' suffix added to 'Everyone at UnifyApps' and 'Restricted'; option text rows shifted ~4px up. Avatar stack (O T +5) and Done unchanged."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c04-11905-590138.png",
+      "nodeId": "11905:590138",
+      "status": "changed",
+      "diffPct": 4.6362,
+      "refSize": [
+        440,
+        218
+      ],
+      "newSize": [
+        440,
+        218
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c04-11905-590138.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c04-11905-590138.compare.png",
+      "what": "Hover state: '$10/month' suffix added to both options and text rows shifted ~4px up. Cursor and Done unchanged."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c05-11905-590328.png",
+      "nodeId": "11905:590328",
+      "status": "same",
+      "diffPct": 0.0271,
+      "refSize": [
+        440,
+        218
+      ],
+      "newSize": [
+        440,
+        218
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c05-11905-590328.png"
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c06-11933-737464.png",
+      "nodeId": "11933:737464",
+      "status": "same",
+      "diffPct": 0.0158,
+      "refSize": [
+        440,
+        374
+      ],
+      "newSize": [
+        440,
+        374
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c06-11933-737464.png"
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c07-11905-590614.png",
+      "nodeId": "11905:590614",
+      "status": "same",
+      "diffPct": 0.0423,
+      "refSize": [
+        440,
+        322
+      ],
+      "newSize": [
+        440,
+        322
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c07-11905-590614.png"
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c08-11905-590883.png",
+      "nodeId": "11905:590883",
+      "status": "same",
+      "diffPct": 0.0429,
+      "refSize": [
+        440,
+        318
+      ],
+      "newSize": [
+        440,
+        318
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c08-11905-590883.png"
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c08a-11919-591369.png",
+      "nodeId": "11919:591369",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        436,
+        392
+      ],
+      "newSize": [
+        436,
+        392
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c08a-11919-591369.png"
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c09-11933-736147.png",
+      "nodeId": "11933:736147",
+      "status": "changed",
+      "diffPct": 3.2311,
+      "refSize": [
+        440,
+        258
+      ],
+      "newSize": [
+        440,
+        258
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c09-11933-736147.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c09-11933-736147.compare.png",
+      "what": "'$10/month' suffix added to 'pipeline-command' and 'Restricted'; URL app icon recoloured to a muted plum; text rows ~4px up. Avatar stack and Publish hover unchanged."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c10-11933-736622.png",
+      "nodeId": "11933:736622",
+      "status": "same",
+      "diffPct": 0.1387,
+      "refSize": [
+        440,
+        318
+      ],
+      "newSize": [
+        440,
+        318
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c10-11933-736622.png",
+      "what": "Below threshold: the Management chip avatar now shows an 'O' initial (it was a blank circle); trash icons moved ~3px right."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c11-11933-737092.png",
+      "nodeId": "11933:737092",
+      "status": "changed",
+      "diffPct": 3.2311,
+      "refSize": [
+        440,
+        258
+      ],
+      "newSize": [
+        440,
+        258
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c11-11933-737092.png",
+      "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c11-11933-737092.compare.png",
+      "what": "Same as c09 ('$10/month' on 'pipeline-command' and 'Restricted', muted plum URL icon, rows ~4px up). Unpublish/Cancel/Publish footer unchanged."
+    },
+    {
+      "journey": "publish-artifact",
+      "file": "c12-11905-589839.png",
+      "nodeId": "11905:589839",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        480,
+        1118
+      ],
+      "newSize": [
+        480,
+        1118
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/publish-artifact/c12-11905-589839.png"
+    },
+    {
+      "journey": "canvas-comments",
+      "file": "01-1969-507489.png",
+      "nodeId": "1969:507489",
+      "status": "same",
+      "diffPct": 0.0057,
+      "refSize": [
+        1071,
+        603
+      ],
+      "newSize": [
+        1071,
+        603
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/canvas-comments/01-1969-507489.png"
+    },
+    {
+      "journey": "canvas-comments",
+      "file": "02-1969-507495.png",
+      "nodeId": "1969:507495",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        1071,
+        603
+      ],
+      "newSize": [
+        1071,
+        603
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/canvas-comments/02-1969-507495.png"
+    },
+    {
+      "journey": "canvas-comments",
+      "file": "03-1969-507503.png",
+      "nodeId": "1969:507503",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        423,
+        771
+      ],
+      "newSize": [
+        423,
+        771
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/canvas-comments/03-1969-507503.png"
+    },
+    {
+      "journey": "canvas-comments",
+      "file": "04-1969-507512.png",
+      "nodeId": "1969:507512",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        400,
+        198
+      ],
+      "newSize": [
+        400,
+        198
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/canvas-comments/04-1969-507512.png"
+    },
+    {
+      "journey": "canvas-comments",
+      "file": "c01-1969-507502.png",
+      "nodeId": "1969:507502",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        531,
+        838
+      ],
+      "newSize": [
+        531,
+        838
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/canvas-comments/c01-1969-507502.png"
+    },
+    {
+      "journey": "header-dropdowns",
+      "file": "c01-1969-507290.png",
+      "nodeId": "1969:507290",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        356,
+        366
+      ],
+      "newSize": [
+        356,
+        366
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/header-dropdowns/c01-1969-507290.png"
+    },
+    {
+      "journey": "header-dropdowns",
+      "file": "c02-1969-507305.png",
+      "nodeId": "1969:507305",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        356,
+        144
+      ],
+      "newSize": [
+        356,
+        144
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/header-dropdowns/c02-1969-507305.png"
+    },
+    {
+      "journey": "header-dropdowns",
+      "file": "c03-9200-349032.png",
+      "nodeId": "9200:349032",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        304,
+        166
+      ],
+      "newSize": [
+        304,
+        166
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/header-dropdowns/c03-9200-349032.png"
+    },
+    {
+      "journey": "header-dropdowns",
+      "file": "c04-6077-427693.png",
+      "nodeId": "6077:427693",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        245,
+        232
+      ],
+      "newSize": [
+        245,
+        232
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/header-dropdowns/c04-6077-427693.png"
+    },
+    {
+      "journey": "header-dropdowns",
+      "file": "c05-6077-427694.png",
+      "nodeId": "6077:427694",
+      "status": "same",
+      "diffPct": 0.0,
+      "refSize": [
+        280,
+        92
+      ],
+      "newSize": [
+        280,
+        92
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/header-dropdowns/c05-6077-427694.png"
+    },
+    {
+      "journey": "header-dropdowns",
+      "file": "c06-6077-427818.png",
+      "nodeId": "6077:427818",
+      "status": "same",
+      "diffPct": 0.0903,
+      "refSize": [
+        1384,
+        40
+      ],
+      "newSize": [
+        1384,
+        40
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/header-dropdowns/c06-6077-427818.png"
+    },
+    {
+      "journey": "header-dropdowns",
+      "file": "c07-6077-427883.png",
+      "nodeId": "6077:427883",
+      "status": "same",
+      "diffPct": 0.0903,
+      "refSize": [
+        1384,
+        40
+      ],
+      "newSize": [
+        1384,
+        40
+      ],
+      "capture": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/header-dropdowns/c07-6077-427883.png"
+    }
+  ],
+  "summary": {
+    "same": 38,
+    "changed": 20,
+    "resized": 0,
+    "missing": 0,
+    "uncaptured": 0
+  },
+  "problems": [
+    "figma_take_screenshot fell back to REST and failed with 403 Token expired; every frame was captured with figma_capture_screenshot instead.",
+    "The Desktop Bridge export queue stalled twice (about 10:00-10:10 and 10:11-10:14 UTC). 5310:276790 and 10157:575625 each timed out 3 times but were captured on a later retry after probes succeeded, so no frame is uncaptured.",
+    "Two references were exported at reduced scale (artifacts-landing 04 = 1728x2026 at 0.774x -> 1338x1568, cloned-artifact 01 = 1440x1648 at 0.951x -> 1371x1568). figma_capture_screenshot applies the same 1568px cap, so the sizes match and these were compared at that scale.",
+    "The 0.15% threshold hides real edits on 1440x900 frames. The global Artifact-Icons swap (flat glyphs -> 3D stacked icons) touches only ~800-1900 px per frame, so most viewer and full-editor frames read as same. artifact-full-editor 04/05/06 lost the whole right-side header action group yet scored ~0.12% (same).",
+    "Another agent switched the Figma current page to Notifications during the run. Exports are by node id, so there was no impact."
+  ]
+}
