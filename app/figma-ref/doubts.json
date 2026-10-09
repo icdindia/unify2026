@@ -1,0 +1,221 @@
+{
+ "_note": "Doubts D1-D24 from the page-mapping pass (MAP-OVERVIEW.md) with the user decisions of 2026-10-09.",
+ "doubts": [
+  {
+   "id": "D1",
+   "page": "Cross-page (Notifications, Search + Agent + Login, All Empty states & Dropdowns, Routines)",
+   "question": "The standing rule is 'option 1 only', but several rows fade option 1 and keep a later option at full opacity: Notifications option 1 (30%, panel opens from the rail) vs option 2 (full opacity, account menu with a Notifications row, already built as prototypes/notification-flow, same AccountMenu as the shell); Login options 1-3 (30%) vs option 4; the Settings dropdowns row on the Dropdowns page has only 2a and 2b; Routines 'Create manually' '14' (full) vs '161' (30%, newer). The two mappers resolved this in opposite directions. Which rule wins?",
+   "proposedDefault": "Faded means parked, so build the full-opacity option. If several are at full opacity, take the leftmost. Result: Notifications option 2 (a one-entry swap in notifications/journeys.json, not done yet), Login option 4, Dropdowns Settings 2a and Routines '14' (these three as already mapped).",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-596900",
+   "decision": "Full-opacity option wins (faded = parked; leftmost if several)",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D2",
+   "page": "Cross-page (Chat + Artifacts, Comments on Artifact, Flow Charts)",
+   "question": "Comments on an artifact are designed twice. Chat + Artifacts 'Canvas comments' (older) covers hover, select and compose. The Comments on Artifact page (Oct 2026) covers bubbles, the thread menu, 'all comments' and comment-in-chat. Are these two halves of one flow, or does the new page replace the old?",
+   "proposedDefault": "Two halves of one flow. Keep canvas-comments for hover, select and compose, and use the new page for everything after. Where bubble states differ, the newer page wins, and Flow Charts' staging/comments flow reuses the same bubbles.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13946-324825",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D3",
+   "page": "Cross-page (All Empty states & Dropdowns vs Projects, Settings)",
+   "question": "The Dropdowns page redraws menus whose items differ from the home-page versions. Project header menu: Pin / Edit Project / Share Project vs Projects' Edit Project Details / Delete (admin) and Leave Project (non-admin). Chat row menu: ends in Keyboard shortcuts vs Delete. Settings connector menu: Re-authenticate / Remove Connection vs Forget / Reconnect. Its Projects row 'option 1' also shows only a cursor. Which version wins?",
+   "proposedDefault": "The home page wins for every menu. The Dropdowns page is a catalogue of separate menu states, read left to right, with 'option 1' as the hover trigger. The project header menu becomes Pin / Edit Project / Share Project, then Delete (admin) or Leave Project (others), matching the card menu prototypes/project-dashboard already uses. The connector menu becomes Forget / Reconnect.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9269-523680",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D4",
+   "page": "Cross-page (All Empty states & Dropdowns vs Projects, Routines, Chat + Artifacts)",
+   "question": "Empty states are drawn twice: on the Empty states page and inside the home-page journeys. The pairs are Artifacts, Projects, the Project Chats and Routines tabs, and Routines. They have not been compared visually and may be identical. If they differ, which drawing wins?",
+   "proposedDefault": "The home-page frame stays as the journey step. Where the empty-state block differs, the later drawing wins: the Empty states page (the systematic L1/L2 pass) beats the older home frames, and Projects' newer Chats-tab empty state (14975:59510) beats the Empty states page.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6565-492532",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D5",
+   "page": "Cross-page (All Empty states & Dropdowns, Projects + Chat History)",
+   "question": "Four menus on the Dropdowns page end in 'Keyboard shortcuts', and two Projects menus end in 'Log out'. These look like Dropdown Menu component defaults left in. Drop them?",
+   "proposedDefault": "Yes, drop both everywhere. prototypes/project-dashboard already dropped 'Log out'.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9271-530761",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D6",
+   "page": "Cross-page (Search + Agent + Login, Routines, Chat + Artifacts)",
+   "question": "The nav rail is drawn on three pages: Chat + Artifacts nav-light/nav-behaviour, Search + Agent + Login light-mode nav and side nav, and Routines side nav. Does Chat + Artifacts stay the source of truth?",
+   "proposedDefault": "Yes, as already confirmed. Take from Search + Agent + Login only the states Chat + Artifacts lacks: 'agents page selected', the item three-dots menu (Run Now / Edit / Add to Project) and the sub-header hover. Every other duplicate is a reference only.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-126154",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D7",
+   "page": "Projects + Chat History",
+   "question": "The project tab is named 'Context' in older frames and 'Files' in newer ones, and the Chats tab is drawn twice. The prototype also treats 14045:584747 as project page 'option 1' and the newest frame 15054:105151 (pill tabs, small header buttons) as 'option 2'. Which tab name, and which project page is current?",
+   "proposedDefault": "'Files' everywhere ('Context Files' stays only as the heading inside Settings). Both rows route to one Chats-tab screen: empty 14975:59510, list 14045:584747 (already built, the default). 15054:105151 stays the ?opt=2 alternative.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=15054-105151",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D8",
+   "page": "Projects + Chat History",
+   "question": "In Project Settings, 'Add Project Instructions' opens a plain modal (Cancel / Save). A separate 'Instructions AI Edit' section draws the same modal with an AI Edit control and a generate / edit / accept-undo flow. Which should the prototype open?",
+   "proposedDefault": "The AI version, with the instructions-ai-edit journey continuing from it. The plain modal is the fallback when AI is not available.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=5534-200639",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D9",
+   "page": "Settings",
+   "question": "The Settings modal's left nav differs between rows (Data and memory vs Memory; Models in the Memory rows only; Get App & Extensions in some rows), and no frame designs General or Models. Which tab list is used everywhere, which tab opens first, and what do General and Models show?",
+   "proposedDefault": "One nav everywhere: General, Memory, Connectors, Skills, Get App & Extensions. Settings opens on the tab the journey starts from. General shows a 'not designed yet' stub inside the modal chrome, and Models is dropped.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9893-418298",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D10",
+   "page": "Settings",
+   "question": "Two Memory rows are both labelled 'Edit using AI input box'. One edits from inside a memory's detail view and ends on 'Updated Memory / Undo'. The newer one edits from the Memory list and adds a 'No changes were made' branch. Are they two entry points, or does the newer one replace the older?",
+   "proposedDefault": "Two entry points, both kept: editing inside one memory, and editing from the list (including the no-op branch).",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10190-645881",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D11",
+   "page": "Settings",
+   "question": "The untitled second Memory row starts with the 'Memory' component master, then runs hover, open detail, edit with AI, rename and add details. Is the master a real step, and is the row one journey?",
+   "proposedDefault": "Yes. It is one journey, 'Individual memory', and the master is step 1 (the populated list).",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10112-406770",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D12",
+   "page": "Settings",
+   "question": "Loose frames on the Settings page belong to other pages: Share Project, 'Who can view this?', Add Text Content, a Templates modal, 'Choose your agents' and a time picker. Should they be mapped here?",
+   "proposedDefault": "No. Take each from its home page: Projects share/settings, the Chat + Artifacts publish flow, probably Meetings templates, and probably Draft a Mail scheduling. Use these frames only where no home page has them (today, 'Choose your agents' and the time picker).",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10101-548721",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D13",
+   "page": "Meetings",
+   "question": "14 frames are 1504x945 macOS desktops rather than 1440 web frames: the Mac app (10), Teams notifications (3) and the system tray (1). Should they be built as a simulated Mac desktop? Which tray menu does a click open: the rich panel in the frame or the compact native menu beside it? And is dark mode in scope?",
+   "proposedDefault": "Build a separate /desktop route: a 1504x945 canvas around the 1320x779 app window (window chrome, so the 1440 rule does not apply). Left-click opens the rich panel and right-click the compact menu. Light mode only; the dark copies are references.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8368-3067",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D14",
+   "page": "Meetings",
+   "question": "The Meeting details row has no mid-row card. Its labels switch from the edit flow (Details, Editing, Adding others, Save, the send-update modal) to 'User Details' and two 'Inline team popup' frames, and the frame names restart. Is it one journey or two?",
+   "proposedDefault": "Two journeys on one card: meeting-details (5 steps) and meeting-details-people (4 steps). The 'bigger screen' 1440/1920 pair stays as references.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8368-3037",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D15",
+   "page": "Meetings",
+   "question": "In Cues, Native recording and Templates, the frame numbers disagree with left-to-right order, and none of these rows has labels. Which order is the journey order?",
+   "proposedDefault": "Left-to-right layout order, as everywhere else. The numbers look like capture order from the earlier HTML prototype.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8368-3046",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D16",
+   "page": "Routines",
+   "question": "Under 'Create Routine manually' sits an untitled group: 11 side-panel variants marked 'updated', then screen '145', an 'Instructions' full-screen modal and the 'Summary' screens 35 and 36. Is this the rest of the create-manually journey?",
+   "proposedDefault": "Yes. The journey runs 14 → 145 → Instructions → Summary 35 → Summary 36, and the side panels are panel states (components).",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12860-497672",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D17",
+   "page": "Routines",
+   "question": "The second-time user's AI journey (2 frames, no title card) has an arrow that ends on empty canvas. Does it join the first-time row at its long lower row (875:165388)?",
+   "proposedDefault": "Yes. It joins create-ai-first-time at 875:165388 and follows it to the end.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=905-297092",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D18",
+   "page": "Routines",
+   "question": "In 'Scheduled sessions view', the label 'Error in run' sits over the 'Only one Run' frame and ends just before the next frame. Which frame is the error state?",
+   "proposedDefault": "The next frame, 1596:367279.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1596-367279",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D19",
+   "page": "Routines",
+   "question": "The captions 'On click' and 'View Instructions' sit between the two 'View & edit' rows, lined up with the upper row's frames. Do they caption the upper row?",
+   "proposedDefault": "Yes. 'On click' under 1174:212998 opens 1174:209018, and 'View Instructions' leads to the Instructions screen 3413:112115.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=2633-424284",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D20",
+   "page": "Artifacts | Draft a Mail",
+   "question": "Rows 2 (select to edit … schedule option 1) and 3 (Adding attachment) have no title card. Are they separate journeys? Row 2 also ends with a snackbar frame and two 1440x800 modal-only frames. Are those the end of scheduling, or the attachment preview?",
+   "proposedDefault": "Separate journeys under the same card (AI edit + schedule, and attachments), each starting from the composed draft. The tail stays as steps 7-10 of the AI-edit journey, and moves to attachments if reading the frames shows it is the preview. (The frame contents were never read, because the bridge dropped.)",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10077-326078",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D21",
+   "page": "Artifacts | Draft a Mail",
+   "question": "The last row's card asks what the preview modal shows when some attachments fail to upload. It has two preview modals side by side. Are they competing answers or two steps?",
+   "proposedDefault": "Two steps, left to right (draft with a failed file → preview → preview). The preview shows an error line for each failed file.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11710-629959",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D22",
+   "page": "Artifacts | Draft a Mail",
+   "question": "The 'add at least one recipient' alert sits outside the section at 30% opacity, next to the parked schedule option 2. Is it live?",
+   "proposedDefault": "Yes, as the error state when Send is pressed with no recipients. No other option competes with it, so the D1 rule does not apply.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10631-1656046",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D23",
+   "page": "Search + Agent + Login",
+   "question": "After login option 4, two frames show the login form inside a spreadsheet-style app window. Are they steps of the login journey (signing in from the Office add-in) or a different context?",
+   "proposedDefault": "Login steps 2-3: signing in from the add-in.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-134988",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  },
+  {
+   "id": "D24",
+   "page": "Artifacts | Flow Charts",
+   "question": "'Viewing sources' has frames numbered 20 and 22, and no frame 21 exists on the page. Is a step missing, or does one of the two 1920-wide 'Homepage' captures stand in for it?",
+   "proposedDefault": "Map a two-step journey (20 → 22), and treat the 1920 captures as references only.",
+   "link": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14504-57464",
+   "decision": "Proposed default accepted",
+   "decidedOn": "2026-10-09"
+  }
+ ]
+}

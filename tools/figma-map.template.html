@@ -1,0 +1,278 @@
+<title>Enterprise Brain Figma Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Spectral:ital,wght@0,500;1,400&display=swap">
+<style>
+/* Layout: a page list beside a canvas of journeys; each journey is a strip of frames read left to right, the way the
+   Figma file lays its rows out. Tokens: product workspace neutrals, the nav's deep green as the one accent. */
+:root {
+  --bg: #fbfaf9; --surface: #ffffff; --sunken: #f3f1ed; --ink: #1d1f1b; --muted: #67635d; --line: #e6e2dc;
+  --accent: #1f4a14; --accent-soft: #e5ede0;
+  --ok: #25642f; --ok-soft: #e1efe1; --warn: #8a5300; --warn-soft: #fbedd4; --off: #8b867f; --off-soft: #efece7;
+  --display: "Spectral", Georgia, "Times New Roman", serif;
+  --body: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r: 8px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121411; --surface: #1a1d18; --sunken: #20241e; --ink: #ecebe6; --muted: #a39f97; --line: #2d312a;
+  --accent: #a6d293; --accent-soft: #24331f; --ok: #8fd39a; --ok-soft: #1e3322; --warn: #f0b860; --warn-soft: #3a2c14;
+  --off: #8d8a83; --off-soft: #272a25; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121411; --surface: #1a1d18; --sunken: #20241e; --ink: #ecebe6; --muted: #a39f97; --line: #2d312a;
+  --accent: #a6d293; --accent-soft: #24331f; --ok: #8fd39a; --ok-soft: #1e3322; --warn: #f0b860; --warn-soft: #3a2c14;
+  --off: #8d8a83; --off-soft: #272a25; color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--body); margin: 0; }
+.wrap { max-width: 1400px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 32px); padding-block: 28px 64px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.mono { font-family: var(--mono); font-size: 12px; }
+
+/* header */
+.eyebrow { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 500 clamp(28px, 4vw, 40px)/1.1 var(--display); margin: 10px 0 6px; text-wrap: balance; }
+.lede { color: var(--muted); max-width: 70ch; margin: 0; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 20px 0 0; padding: 0; list-style: none; }
+.stats b { display: block; font: 500 22px/1.2 var(--display); font-variant-numeric: tabular-nums; }
+.stats span { color: var(--muted); font-size: 12px; }
+
+/* tabs */
+.tabs { display: flex; gap: 4px; margin: 28px 0 20px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tabs a { padding: 10px 14px; color: var(--muted); text-decoration: none; font-weight: 500; white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tabs a:hover { color: var(--ink); }
+
+/* journeys view */
+.layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 28px; align-items: start; }
+.pages { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); display: flex; flex-direction: column; gap: 2px; }
+.search { width: 100%; margin-bottom: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); color: var(--ink); font: inherit; }
+.pagebtn { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; align-items: center; width: 100%; padding: 8px 10px; border: 0; border-radius: var(--r); background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+.pagebtn:hover { background: var(--sunken); }
+.pagebtn[aria-pressed="true"] { background: var(--accent-soft); }
+.pagebtn .nm { font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pagebtn .ct { grid-column: 1 / -1; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+.pagehead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 4px; }
+.pagehead h2 { font: 500 24px/1.2 var(--display); margin: 0; }
+.pagenote { color: var(--muted); margin: 0 0 18px; }
+.journey { border-top: 1px solid var(--line); padding: 18px 0 8px; }
+.jhead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-bottom: 12px; }
+.jhead h3 { font: 600 15px/1.3 var(--body); margin: 0; }
+.jhead .meta { color: var(--muted); font-size: 12px; }
+
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 999px; font: 500 11px/18px var(--body); white-space: nowrap; }
+.pill.built { background: var(--ok-soft); color: var(--ok); }
+.pill.captured { background: var(--accent-soft); color: var(--accent); }
+.pill.mapped, .pill.dimmed, .pill.not-mapped { background: var(--off-soft); color: var(--off); }
+.pill.changed { background: var(--warn-soft); color: var(--warn); }
+.pill.high { background: var(--ok-soft); color: var(--ok); } .pill.medium { background: var(--warn-soft); color: var(--warn); } .pill.low { background: var(--off-soft); color: var(--off); }
+
+.strip { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x proximity; }
+.frame { flex: none; width: 184px; display: flex; flex-direction: column; gap: 6px; scroll-snap-align: start; }
+.shot { aspect-ratio: 16 / 10; border-radius: 6px; background: var(--sunken); border: 1px solid var(--line); overflow: hidden; display: grid; place-items: center; text-align: center; color: var(--muted); font-size: 11px; padding: 6px; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.frame:has(img) .shot { padding: 0; }
+.frame .row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.frame .n { font: 500 11px/1 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.frame .lbl { font-size: 12px; line-height: 1.4; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 1.4em; }
+.frame .lbl.none { color: var(--muted); font-style: italic; }
+.frame a.fig { font: 500 11px/1 var(--mono); text-decoration: none; }
+.frame a.fig:hover { text-decoration: underline; }
+.empty { padding: 28px; border: 1px dashed var(--line); border-radius: var(--r); color: var(--muted); }
+
+/* tables */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 860px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font: 500 11px/1.2 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--sunken); position: sticky; top: 0; }
+tr:last-child td { border-bottom: 0; }
+td .sub { color: var(--muted); font-size: 12px; }
+
+/* decisions + changes */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; min-width: 0; }
+.card h3 { font: 600 14px/1.3 var(--body); margin: 0 0 6px; }
+.card p { margin: 0; color: var(--muted); font-size: 13px; }
+.rules { margin: 0 0 28px; padding-left: 18px; max-width: 80ch; }
+.rules li { margin: 4px 0; }
+.doubt { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 12px; padding: 14px 0; border-top: 1px solid var(--line); }
+.doubt .id { font: 500 13px/1.4 var(--mono); color: var(--accent); }
+.doubt .q { margin: 0; }
+.doubt .ans { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.doubt .ans b { color: var(--ink); font-weight: 600; }
+h2.sec { font: 500 22px/1.2 var(--display); margin: 8px 0 12px; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .pages { position: static; flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 6px; }
+  .pages .search { min-width: 200px; margin: 0; }
+  .pagebtn { width: auto; flex: none; max-width: 240px; border: 1px solid var(--line); }
+}
+@media (prefers-reduced-motion: no-preference) { .pagebtn, .tabs a { transition: background-color .15s, color .15s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Figma file map</div>
+    <h1>Enterprise Brain Figma Map</h1>
+    <p class="lede" id="lede"></p>
+    <ul class="stats" id="stats"></ul>
+  </header>
+
+  <nav class="tabs" aria-label="Views">
+    <a href="#journeys" data-view="journeys">Journeys</a>
+    <a href="#nav" data-view="nav">Nav map</a>
+    <a href="#decisions" data-view="decisions">Decisions</a>
+    <a href="#changes" data-view="changes">Figma changes</a>
+  </nav>
+
+  <section id="view-journeys" data-view-panel="journeys">
+    <div class="layout">
+      <div class="pages" id="pages" role="group" aria-label="Figma pages">
+        <input class="search" id="q" type="search" placeholder="Search journeys, labels, node ids" aria-label="Search journeys, labels and node ids">
+      </div>
+      <div id="canvas" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="view-nav" data-view-panel="nav" hidden>
+    <h2 class="sec">Where each nav item goes</h2>
+    <p class="lede" style="margin-bottom:16px">For every item in the prototype's left nav: the Figma frame it should open, what the prototype does today, and what is still open.</p>
+    <div class="tablewrap"><table id="navtable"></table></div>
+  </section>
+
+  <section id="view-decisions" data-view-panel="decisions" hidden>
+    <h2 class="sec">Standing decisions</h2>
+    <ul class="rules" id="rules"></ul>
+    <h2 class="sec">Doubts from mapping the pages</h2>
+    <div id="doubts"></div>
+  </section>
+
+  <section id="view-changes" data-view-panel="changes" hidden>
+    <h2 class="sec">What changed in Figma since 8 Oct</h2>
+    <p class="lede" id="driftlede" style="margin-bottom:16px"></p>
+    <div class="cols" id="themes"></div>
+    <h2 class="sec" style="margin-top:28px">Changed frames</h2>
+    <div class="tablewrap"><table id="changedtable"></table></div>
+  </section>
+</div>
+
+<script id="data" type="application/json">/*__DATA__*/null</script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById('data').textContent);
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const store = { get(k) { try { return localStorage.getItem(k) } catch { return null } }, set(k, v) { try { localStorage.setItem(k, v) } catch {} } };
+  const STATUS = { built: 'Built', 'built-part': 'Partly built', captured: 'Captured', mapped: 'Mapped', 'not-mapped': 'Not mapped yet' };
+
+  // ---- header
+  const pages = D.pages;
+  const mapped = pages.filter(p => p.status !== 'not-mapped');
+  const journeys = pages.flatMap(p => p.journeys);
+  const steps = journeys.flatMap(j => j.steps);
+  $('#lede').innerHTML = `Every page of <a href="${esc(D.file.figma)}" target="_blank" rel="noopener">${esc(D.file.name)}</a> read as journeys: a title card, then frames left to right in step order. Thumbnails exist where frames have been captured; every step links to its frame in Figma.`;
+  $('#stats').innerHTML = [
+    [`${mapped.length}/${pages.length}`, 'pages mapped'], [journeys.length, 'journeys'], [steps.length, 'frames in journeys'],
+    [steps.filter(s => s.built).length, 'built in the prototype'], [steps.filter(s => s.changed).length, 'changed since 8 Oct'],
+  ].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('');
+
+  // ---- journeys view
+  const pagesEl = $('#pages');
+  let current = store.get('fm-page') || pages[0].slug;
+  if (!pages.some(p => p.slug === current)) current = pages[0].slug;
+  pages.forEach(p => {
+    const b = document.createElement('button');
+    b.className = 'pagebtn'; b.type = 'button'; b.dataset.slug = p.slug;
+    const n = p.journeys.length, f = p.journeys.reduce((a, j) => a + j.steps.length, 0);
+    b.innerHTML = `<span class="nm">${esc(p.name)}</span><span class="pill ${p.status}">${STATUS[p.status]}</span>` +
+      `<span class="ct">${p.status === 'not-mapped' ? 'not read yet' : `${n} ${n === 1 ? 'journey' : 'journeys'} · ${f} ${f === 1 ? 'frame' : 'frames'}`}</span>`;
+    b.addEventListener('click', () => { current = p.slug; store.set('fm-page', current); $('#q').value = ''; render(); });
+    pagesEl.appendChild(b);
+  });
+
+  const frameTile = s => `<div class="frame">
+      <div class="shot">${s.thumb ? `<img src="${s.thumb}" alt="" loading="lazy">` : `<span class="mono">${esc(s.node)}<br>no capture yet</span>`}</div>
+      <div class="row"><span class="n">${esc(s.n)}</span>${s.built ? '<span class="pill built">Built</span>' : ''}${s.changed ? `<span class="pill changed" title="${esc(s.changed)}">Changed</span>` : ''}</div>
+      <div class="lbl${s.label ? '' : ' none'}">${esc(s.label || 'No designer label')}</div>
+      ${s.link ? `<a class="fig" href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.node)} ↗</a>` : ''}
+    </div>`;
+
+  const journeyBlock = (j, pageName) => `<article class="journey">
+      <div class="jhead"><h3>${esc(j.title)}</h3>
+        <span class="pill ${j.status}">${STATUS[j.status] || j.status}</span>${j.dimmed ? '<span class="pill dimmed">Dimmed in Figma</span>' : ''}
+        <span class="meta">${pageName ? esc(pageName) + ' · ' : ''}${j.steps.length} ${j.steps.length === 1 ? 'frame' : 'frames'}${j.cardLink ? ` · <a href="${esc(j.cardLink)}" target="_blank" rel="noopener">title card ↗</a>` : ''}</span></div>
+      ${j.steps.length ? `<div class="strip">${j.steps.map(frameTile).join('')}</div>` : '<p class="pagenote">No frames under this card.</p>'}
+    </article>`;
+
+  function render() {
+    [...pagesEl.querySelectorAll('.pagebtn')].forEach(b => b.setAttribute('aria-pressed', String(b.dataset.slug === current)));
+    const q = $('#q').value.trim().toLowerCase();
+    const canvas = $('#canvas');
+    if (q) {
+      const hits = [];
+      pages.forEach(p => p.journeys.forEach(j => {
+        const inTitle = (j.title + ' ' + j.id).toLowerCase().includes(q);
+        const st = inTitle ? j.steps : j.steps.filter(s => (s.label + ' ' + s.node).toLowerCase().includes(q));
+        if (st.length) hits.push(journeyBlock({ ...j, steps: st }, p.name));
+      }));
+      canvas.innerHTML = `<div class="pagehead"><h2>Search</h2><span class="meta">${hits.length} journeys match “${esc(q)}”</span></div>` +
+        (hits.join('') || '<div class="empty">Nothing matches. Try a frame number like 1707:136008, or a word such as share, memory or routine.</div>');
+      return;
+    }
+    const p = pages.find(x => x.slug === current);
+    const extra = [p.loose ? `${p.loose} loose frames ignored` : '', p.ignored ? `${p.ignored} parked options` : ''].filter(Boolean).join(' · ');
+    canvas.innerHTML = `<div class="pagehead"><h2>${esc(p.name)}</h2><span class="pill ${p.status}">${STATUS[p.status]}</span>
+        <a class="mono" href="${esc(p.figma)}" target="_blank" rel="noopener">${esc(p.id)} ↗</a></div>
+      <p class="pagenote">${p.status === 'not-mapped' ? 'This page has not been read yet: it needs the Figma Desktop Bridge plugin running in Figma.' :
+        `${p.journeys.length} journeys, ${p.journeys.reduce((a, j) => a + j.steps.length, 0)} frames${extra ? ' · ' + extra : ''}.`}</p>` +
+      (p.journeys.map(j => journeyBlock(j)).join('') || '<div class="empty">No journeys mapped on this page yet.</div>');
+  }
+  $('#q').addEventListener('input', render);
+  render();
+
+  // ---- nav map
+  $('#navtable').innerHTML = `<thead><tr><th>Nav item</th><th>Opens in Figma</th><th>In the prototype today</th><th>Confidence</th><th>Open question</th></tr></thead><tbody>` +
+    D.nav.map(i => `<tr>
+      <td><b>${esc(i.label)}</b></td>
+      <td>${i.opens && i.opens.frame ? `<a class="mono" href="${esc(i.opens.figma)}" target="_blank" rel="noopener">${esc(i.opens.frame)} ↗</a><div class="sub">${esc(i.opens.page || '')}${i.opens.journey ? ' · ' + esc(i.opens.journey) : ''}${i.opens.step ? ' ' + esc(i.opens.step) : ''}</div>` : '<span class="sub">No frame found</span>'}</td>
+      <td>${i.route ? `<span class="mono">${esc(i.route)}</span>` : '<span class="sub">nothing yet</span>'}${i.routeStatus ? `<div class="sub">${esc(i.routeStatus)}</div>` : ''}</td>
+      <td>${i.confidence ? `<span class="pill ${esc(i.confidence)}">${esc(i.confidence)}</span>` : ''}</td>
+      <td>${i.question ? esc(i.question) : '<span class="sub">None</span>'}</td></tr>`).join('') + '</tbody>';
+
+  // ---- decisions
+  const RULES = [
+    'React prototype, built on the Unify2026 design-system tokens; 1440 wide is the only design baseline.',
+    'Journeys are read from the layout: a title card, then frames left to right. Frames stacked above or below a step are extra states of it.',
+    'Where options sit side by side, the full-opacity one wins; a faded (30%) option is parked. Chat + Artifacts keeps its Option 1 decisions.',
+    'Loose frames outside a titled row are ignored. Dimmed rows are mapped but treated as parked.',
+    'Signed-in person is Roger Bennett. One coherent script per chat; copy that differs between frames is logged as a fix.',
+    'Fixes go back to Figma as corrected copies on a "Prototype fixes" page; the designers\' frames are not edited.',
+  ];
+  $('#rules').innerHTML = RULES.map(r => `<li>${esc(r)}</li>`).join('');
+  $('#doubts').innerHTML = D.doubts.map(d => `<div class="doubt"><span class="id">${esc(d.id)}</span><div>
+      <p class="q">${esc(d.question)} ${d.link ? `<a href="${esc(d.link)}" target="_blank" rel="noopener">Figma ↗</a>` : ''}</p>
+      <p class="ans"><b>${esc(d.decision)}:</b> ${esc(d.proposedDefault)}</p>
+      <p class="ans">${esc(d.page)}</p></div></div>`).join('');
+
+  // ---- figma changes
+  const S = D.drift.summary, R = S.afterReview || {};
+  $('#driftlede').textContent = `${S.framesChecked} captured frames were re-captured and compared with the 8 Oct references. ${R.designChange ?? '?'} have real design changes; most come from a few edits repeated across the file.`;
+  $('#themes').innerHTML = D.drift.themes.map(t => `<div class="card"><h3>${esc(t.title)}</h3><p>${esc(t.what)}</p></div>`).join('');
+  $('#changedtable').innerHTML = `<thead><tr><th>Journey</th><th>Step</th><th>What changed</th><th>Frame</th></tr></thead><tbody>` +
+    D.drift.changed.map(c => `<tr><td>${esc(c.journey)}</td><td class="mono">${esc(c.step)}</td><td>${esc(c.what)}</td>
+      <td><a class="mono" href="${esc(c.figma)}" target="_blank" rel="noopener">${esc(c.node)} ↗</a></td></tr>`).join('') + '</tbody>';
+
+  // ---- views (bare #anchors only)
+  const views = ['journeys', 'nav', 'decisions', 'changes'];
+  function show() {
+    const v = views.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'journeys';
+    document.querySelectorAll('[data-view-panel]').forEach(el => { el.hidden = el.dataset.viewPanel !== v; });
+    document.querySelectorAll('.tabs a').forEach(a => a.toggleAttribute('aria-current', false) || (a.dataset.view === v && a.setAttribute('aria-current', 'page')));
+  }
+  window.addEventListener('hashchange', show);
+  show();
+})();
+</script>
