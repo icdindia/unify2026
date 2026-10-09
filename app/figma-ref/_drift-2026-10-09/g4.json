@@ -1,0 +1,1376 @@
+{
+ "group": "g4",
+ "capturedAt": "2026-10-09",
+ "method": "figma_capture_screenshot (plugin exportAsync, scale 1, PNG); REST fallback failed with Token expired. Compare: both images alpha-composited over white, pixel changed if max channel diff > 40; same if diffPct < 0.15.",
+ "journeys": [
+  "commenters",
+  "queue-1",
+  "input-large",
+  "projects"
+ ],
+ "frames": [
+  {
+   "journey": "commenters",
+   "file": "00-card-8279-198075.png",
+   "nodeId": "8279:198075",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/00-card-8279-198075.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/00-card-8279-198075.png",
+   "refSize": [
+    1499,
+    900
+   ],
+   "newSize": [
+    1499,
+    900
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "01-8279-195355.png",
+   "nodeId": "8279:195355",
+   "status": "same",
+   "diffPct": 0.066,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/01-8279-195355.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/01-8279-195355.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: the inline artifact card 'Pipeline Command' swapped its purple app icon for the new blue/cyan stacked-file Application-HTML icon; title/subtitle shift ~10px right."
+  },
+  {
+   "journey": "commenters",
+   "file": "02-8279-198079.png",
+   "nodeId": "8279:198079",
+   "status": "same",
+   "diffPct": 0.066,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/02-8279-198079.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/02-8279-198079.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: same new blue/cyan file-type icon on the 'Pipeline Command' inline artifact card (text shifts ~10px right)."
+  },
+  {
+   "journey": "commenters",
+   "file": "03-8279-200361.png",
+   "nodeId": "8279:200361",
+   "status": "same",
+   "diffPct": 0.066,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/03-8279-200361.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/03-8279-200361.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: same new blue/cyan file-type icon on the 'Pipeline Command' inline artifact card."
+  },
+  {
+   "journey": "commenters",
+   "file": "04-8279-209548.png",
+   "nodeId": "8279:209548",
+   "status": "same",
+   "diffPct": 0.0678,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/04-8279-209548.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/04-8279-209548.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: same new blue/cyan file-type icon on the 'Pipeline Command' inline artifact card."
+  },
+  {
+   "journey": "commenters",
+   "file": "05-8279-215077.png",
+   "nodeId": "8279:215077",
+   "status": "same",
+   "diffPct": 0.0994,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/05-8279-215077.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/05-8279-215077.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: new file-type icons on the 'Pipeline Command' card (narrow chat) and on the artifact header 'Untitled.xls' (blue doc icon -> stacked blue/cyan icon, title ~4px left)."
+  },
+  {
+   "journey": "commenters",
+   "file": "06-8279-217929.png",
+   "nodeId": "8279:217929",
+   "status": "same",
+   "diffPct": 0.0994,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/06-8279-217929.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/06-8279-217929.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: same new file-type icons on the 'Pipeline Command' card and the 'Untitled.xls' artifact header."
+  },
+  {
+   "journey": "commenters",
+   "file": "07-8279-220537.png",
+   "nodeId": "8279:220537",
+   "status": "same",
+   "diffPct": 0.0504,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/07-8279-220537.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/07-8279-220537.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: the artifact header icon before 'Untitled Applciations' is smaller/greyer and the title moved ~6px left (new file-type icon)."
+  },
+  {
+   "journey": "commenters",
+   "file": "08-8085-469369.png",
+   "nodeId": "8085:469369",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/08-8085-469369.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/08-8085-469369.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "09-8085-469355.png",
+   "nodeId": "8085:469355",
+   "status": "same",
+   "diffPct": 0.0796,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/09-8085-469355.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/09-8085-469355.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: artifact header 'Untitled Applciations' icon replaced by the new smaller file-type icon; title shifted left."
+  },
+  {
+   "journey": "commenters",
+   "file": "10-8085-469620.png",
+   "nodeId": "8085:469620",
+   "status": "same",
+   "diffPct": 0.0796,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/10-8085-469620.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/10-8085-469620.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "what": "Below threshold, but real: artifact header 'Untitled Applciations' icon replaced by the new smaller file-type icon; title shifted left."
+  },
+  {
+   "journey": "commenters",
+   "file": "c01-8279-213062.png",
+   "nodeId": "8279:213062",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c01-8279-213062.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c01-8279-213062.png",
+   "refSize": [
+    245,
+    232
+   ],
+   "newSize": [
+    245,
+    232
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c02-13618-434935.png",
+   "nodeId": "13618:434935",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c02-13618-434935.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c02-13618-434935.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c03-10767-620481.png",
+   "nodeId": "10767:620481",
+   "status": "same",
+   "diffPct": 0.0174,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c03-10767-620481.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c03-10767-620481.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c04-10793-372495.png",
+   "nodeId": "10793:372495",
+   "status": "same",
+   "diffPct": 0.0174,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c04-10793-372495.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c04-10793-372495.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c05-10767-620480.png",
+   "nodeId": "10767:620480",
+   "status": "same",
+   "diffPct": 0.0232,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c05-10767-620480.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c05-10767-620480.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c06-10767-620483.png",
+   "nodeId": "10767:620483",
+   "status": "same",
+   "diffPct": 0.0232,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c06-10767-620483.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c06-10767-620483.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c07-10767-620484.png",
+   "nodeId": "10767:620484",
+   "status": "same",
+   "diffPct": 0.0174,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c07-10767-620484.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c07-10767-620484.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c08-10767-620485.png",
+   "nodeId": "10767:620485",
+   "status": "same",
+   "diffPct": 0.0232,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c08-10767-620485.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c08-10767-620485.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "commenters",
+   "file": "c09-10767-620486.png",
+   "nodeId": "10767:620486",
+   "status": "same",
+   "diffPct": 0.0174,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/commenters/c09-10767-620486.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/commenters/c09-10767-620486.png",
+   "refSize": [
+    400,
+    991
+   ],
+   "newSize": [
+    400,
+    991
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "00-card-8142-470830.png",
+   "nodeId": "8142:470830",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/00-card-8142-470830.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/00-card-8142-470830.png",
+   "refSize": [
+    1499,
+    900
+   ],
+   "newSize": [
+    1499,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "01-8222-498555.png",
+   "nodeId": "8222:498555",
+   "status": "same",
+   "diffPct": 0.0108,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/01-8222-498555.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/01-8222-498555.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "02-8237-502068.png",
+   "nodeId": "8237:502068",
+   "status": "same",
+   "diffPct": 0.0108,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/02-8237-502068.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/02-8237-502068.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "03-8237-503500.png",
+   "nodeId": "8237:503500",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/03-8237-503500.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/03-8237-503500.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "04-8255-522209.png",
+   "nodeId": "8255:522209",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/04-8255-522209.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/04-8255-522209.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "05-8237-500570.png",
+   "nodeId": "8237:500570",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/05-8237-500570.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/05-8237-500570.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "06-8237-505695.png",
+   "nodeId": "8237:505695",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/06-8237-505695.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/06-8237-505695.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "07-8255-508680.png",
+   "nodeId": "8255:508680",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/07-8255-508680.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/07-8255-508680.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "08-8255-510294.png",
+   "nodeId": "8255:510294",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/08-8255-510294.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/08-8255-510294.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "09-8255-520722.png",
+   "nodeId": "8255:520722",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/09-8255-520722.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/09-8255-520722.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "10-8255-512773.png",
+   "nodeId": "8255:512773",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/10-8255-512773.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/10-8255-512773.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "11-8255-514316.png",
+   "nodeId": "8255:514316",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/11-8255-514316.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/11-8255-514316.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "12-8255-515827.png",
+   "nodeId": "8255:515827",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/12-8255-515827.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/12-8255-515827.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "13-8255-517909.png",
+   "nodeId": "8255:517909",
+   "status": "same",
+   "diffPct": 0.0182,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/13-8255-517909.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/13-8255-517909.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "14-8255-519307.png",
+   "nodeId": "8255:519307",
+   "status": "same",
+   "diffPct": 0.0108,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/14-8255-519307.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/14-8255-519307.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "15-8255-524125.png",
+   "nodeId": "8255:524125",
+   "status": "same",
+   "diffPct": 0.0256,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/15-8255-524125.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/15-8255-524125.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "queue-1",
+   "file": "16-8451-366278.png",
+   "nodeId": "8451:366278",
+   "status": "changed",
+   "diffPct": 0.2622,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/queue-1/16-8451-366278.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/16-8451-366278.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/queue-1/16-8451-366278.compare.png",
+   "what": "File-type icon swap only: the 'Pipeline Command' inline card's purple app icon is now the blue/cyan stacked-file icon (text ~10px right), and the 'Untitled.xls' artifact header icon changed the same way (title ~4px left). Queue card, composer and dashboard unchanged apart from sub-pixel text re-rendering."
+  },
+  {
+   "journey": "input-large",
+   "file": "00-card-2532-376700.png",
+   "nodeId": "2532:376700",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/00-card-2532-376700.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/00-card-2532-376700.png",
+   "refSize": [
+    1499,
+    900
+   ],
+   "newSize": [
+    1499,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "01-5220-222334.png",
+   "nodeId": "5220:222334",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/01-5220-222334.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/01-5220-222334.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "02-9256-465524.png",
+   "nodeId": "9256:465524",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/02-9256-465524.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/02-9256-465524.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "03-5220-202780.png",
+   "nodeId": "5220:202780",
+   "status": "same",
+   "diffPct": 0.0,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/03-5220-202780.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/03-5220-202780.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "04-5220-203074.png",
+   "nodeId": "5220:203074",
+   "status": "same",
+   "diffPct": 0.0902,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/04-5220-203074.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/04-5220-203074.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "05-5220-203368.png",
+   "nodeId": "5220:203368",
+   "status": "same",
+   "diffPct": 0.0749,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/05-5220-203368.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/05-5220-203368.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "06-5220-203662.png",
+   "nodeId": "5220:203662",
+   "status": "same",
+   "diffPct": 0.0006,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/06-5220-203662.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/06-5220-203662.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "07-5220-203956.png",
+   "nodeId": "5220:203956",
+   "status": "changed",
+   "diffPct": 0.2192,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/07-5220-203956.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/07-5220-203956.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/07-5220-203956.compare.png",
+   "what": "No visible design change: the first composer line after the '/Tech design requirements' token and the limit tooltip text are re-rendered at a sub-pixel/1px horizontal offset (copy, colours and layout identical)."
+  },
+  {
+   "journey": "input-large",
+   "file": "08-5220-220477.png",
+   "nodeId": "5220:220477",
+   "status": "same",
+   "diffPct": 0.0066,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/08-5220-220477.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/08-5220-220477.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "09-5220-204277.png",
+   "nodeId": "5220:204277",
+   "status": "same",
+   "diffPct": 0.0072,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/09-5220-204277.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/09-5220-204277.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "10-5220-204304.png",
+   "nodeId": "5220:204304",
+   "status": "same",
+   "diffPct": 0.0072,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/10-5220-204304.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/10-5220-204304.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "11-5220-204331.png",
+   "nodeId": "5220:204331",
+   "status": "same",
+   "diffPct": 0.0072,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/11-5220-204331.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/11-5220-204331.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "12-5220-204358.png",
+   "nodeId": "5220:204358",
+   "status": "same",
+   "diffPct": 0.0072,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/12-5220-204358.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/12-5220-204358.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "13-5220-204385.png",
+   "nodeId": "5220:204385",
+   "status": "same",
+   "diffPct": 0.0172,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/13-5220-204385.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/13-5220-204385.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "14-7534-275062.png",
+   "nodeId": "7534:275062",
+   "status": "same",
+   "diffPct": 0.0039,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/14-7534-275062.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/14-7534-275062.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "15-7534-276741.png",
+   "nodeId": "7534:276741",
+   "status": "same",
+   "diffPct": 0.0475,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/15-7534-276741.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/15-7534-276741.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "16-7534-278537.png",
+   "nodeId": "7534:278537",
+   "status": "same",
+   "diffPct": 0.0066,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/16-7534-278537.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/16-7534-278537.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "17-7534-279976.png",
+   "nodeId": "7534:279976",
+   "status": "same",
+   "diffPct": 0.0396,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/17-7534-279976.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/17-7534-279976.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "18-7534-281585.png",
+   "nodeId": "7534:281585",
+   "status": "same",
+   "diffPct": 0.0396,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/18-7534-281585.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/18-7534-281585.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "19-7534-283214.png",
+   "nodeId": "7534:283214",
+   "status": "same",
+   "diffPct": 0.0066,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/19-7534-283214.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/19-7534-283214.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "20-7534-284863.png",
+   "nodeId": "7534:284863",
+   "status": "same",
+   "diffPct": 0.0039,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/20-7534-284863.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/20-7534-284863.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "21-7534-286145.png",
+   "nodeId": "7534:286145",
+   "status": "same",
+   "diffPct": 0.0039,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/21-7534-286145.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/21-7534-286145.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "22-7534-287594.png",
+   "nodeId": "7534:287594",
+   "status": "same",
+   "diffPct": 0.0039,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/22-7534-287594.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/22-7534-287594.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "23-7534-288907.png",
+   "nodeId": "7534:288907",
+   "status": "same",
+   "diffPct": 0.0039,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/23-7534-288907.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/23-7534-288907.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "input-large",
+   "file": "24-7534-290275.png",
+   "nodeId": "7534:290275",
+   "status": "same",
+   "diffPct": 0.074,
+   "ref": "/Users/lisarath/Unify2026/app/figma-ref/chat-artifacts/input-large/24-7534-290275.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/input-large/24-7534-290275.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ]
+  },
+  {
+   "journey": "projects",
+   "file": "projects.png",
+   "nodeId": "11657:386523",
+   "status": "changed",
+   "diffPct": 5.2395,
+   "ref": "/Users/lisarath/Unify2026/prototypes/project-dashboard/_ref/projects.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/projects/projects.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/projects/projects.compare.png",
+   "what": "Project cards redesigned: the '12 items' count line under each title is gone, so cards are shorter and rows sit further apart; the four-icon status cluster (pin/lock/globe/people) is replaced by a single pin or lock icon (or none). Hovered card no longer shows the grey '...' button behind the cursor (menu still open). Toolbar: 'All Types' and 'Newest' lost their grey pill backgrounds and the search field moved ~16px right. Nav: the section above 'Sheet Formula Consultant' is renamed 'Agents' -> 'Chats', that row gains a white unread dot, 'Excel Formula Help From Main Do...' swaps its hollow loading ring for a white dot, and the bell/chevron shift ~4px right."
+  },
+  {
+   "journey": "projects",
+   "file": "dashboard.png",
+   "nodeId": "14045:584747",
+   "status": "changed",
+   "diffPct": 0.4737,
+   "ref": "/Users/lisarath/Unify2026/prototypes/project-dashboard/_ref/dashboard.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/projects/dashboard.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/projects/dashboard.compare.png",
+   "what": "Mostly sub-pixel text re-rendering (1px shifts in the description, table headers and $0.70 column). Real but small nav changes: 'Sheet Formula Consultant' now has a white unread dot, 'Excel Formula Help From Main Do...' shows a white dot instead of the hollow ring, and the account-row bell + chevron moved ~4px right. The reference's corners are grey (#444) where the raw export is transparent (rounded frame) - capture artefact, not a design change."
+  },
+  {
+   "journey": "projects",
+   "file": "dashboard-opt2.png",
+   "nodeId": "15054:105151",
+   "status": "changed",
+   "diffPct": 0.151,
+   "ref": "/Users/lisarath/Unify2026/prototypes/project-dashboard/_ref/dashboard-opt2.png",
+   "new": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/projects/dashboard-opt2.png",
+   "refSize": [
+    1440,
+    900
+   ],
+   "newSize": [
+    1440,
+    900
+   ],
+   "compare": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/projects/dashboard-opt2.compare.png",
+   "what": "Barely over threshold, mostly sub-pixel text re-rendering in the chat table. Real but small: in the nav 'Excel Formula Help From Main Do...' now shows a white unread dot instead of the hollow loading ring, 'Sheet Formula Consultant' gains a white dot, and the account-row bell/chevron moved ~4px right. Reference corners are grey (#444) vs transparent in the raw export (capture artefact)."
+  }
+ ],
+ "newFrames": [
+  {
+   "id": "1768:346105",
+   "type": "FRAME",
+   "name": "12",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 24013,
+   "y": 10371,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/1768-346105.png",
+   "status": "captured",
+   "what": "Collaborative chat 'How does commit actually look?': Matt Rivera's two messages, 'Easier to show you...' and the @Assistant request, Assistant 'Thinking...', plain 'Ask anything...' bottom-small composer (no collaborative bar); sits in the chat-artifact row between frames 11 and 51.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "3518:224083",
+   "type": "FRAME",
+   "name": "2",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 3360,
+   "y": 2129,
+   "w": 1440,
+   "h": 900,
+   "file": null,
+   "status": "uncaptured",
+   "what": "Copilot landing 'Hello Roger' with a Landing Page composer (Tools & Sources=Yes, placeholder), Connect-apps banner carousel; second frame of the logo/thinking-animation row beside 3612:167773 (likely the excluded option 2). Content read from node data.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:225210",
+   "type": "FRAME",
+   "name": "Copilot Landing page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 3337,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-225210.png",
+   "status": "captured",
+   "what": "Landing page with the '+' menu open (Add photos & files, Web search, Deep research, Company Knowledge, Create Image, Skills >) and a short Skills submenu: 'Meeting summary & Action items' + 'Manage Skills'.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:226693",
+   "type": "FRAME",
+   "name": "Copilot Landing page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 4925,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-226693.png",
+   "status": "captured",
+   "what": "Landing page '+' menu with the Skills submenu in its empty state: 'No skill added yet' and a dark '+ New Skill' button.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:229430",
+   "type": "FRAME",
+   "name": "Copilot Landing page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 6488,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-229430.png",
+   "status": "captured",
+   "what": "Landing composer with an attachment row (two image thumbnails, a 'File' card, a red PDF card) above the empty placeholder, Company/Research chips; send disabled.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:232033",
+   "type": "FRAME",
+   "name": "Copilot Landing page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 9614,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-232033.png",
+   "status": "captured",
+   "what": "Landing composer with the same four attachments plus two lines of '/Tech design requirements ...' text; send enabled.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:236168",
+   "type": "FRAME",
+   "name": "Copilot Landing page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 11177,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-236168.png",
+   "status": "captured",
+   "what": "Landing composer with four attachments and Max-line text (about 12 lines), composer overlapping the Connect-apps banner; send enabled.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:237840",
+   "type": "FRAME",
+   "name": "Chat full page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 12865,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-237840.png",
+   "status": "captured",
+   "what": "Chat page (commit answer) with a Bottom-large composer holding four attachments and an empty 'Ask anything...' field; send enabled; header without the comments icon.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:239414",
+   "type": "FRAME",
+   "name": "Chat full page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 14380,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-239414.png",
+   "status": "captured",
+   "what": "Same chat page; Bottom-large composer with four attachments and one line '/Tech design requirements AI-generated insights based on the inputs provided.'",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "5220:240923",
+   "type": "FRAME",
+   "name": "Chat full page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 16005,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/5220-240923.png",
+   "status": "captured",
+   "what": "Same chat page; Bottom-large composer with four attachments and Max-line text, composer grown over the answer.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "11336:561451",
+   "type": "FRAME",
+   "name": "Copilot Landing page",
+   "section": "Chat",
+   "sectionId": "1707:133527",
+   "x": 8051,
+   "y": 4331,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/11336-561451.png",
+   "status": "captured",
+   "what": "Landing '+' menu with a new 'Connectors' item (warning badge 1) and a Connectors submenu: search, Google Calendar, Monday.com, Google Drive toggles, Outlook with a warning, Jira, Github, 'Add More' (+5); composer chips read '6 Sources' and 'Research'.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "8451:363855",
+   "type": "FRAME",
+   "name": "187",
+   "section": "Collaborative Chat flow",
+   "sectionId": "7830:372599",
+   "x": 5092,
+   "y": 5719,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/8451-363855.png",
+   "status": "captured",
+   "what": "Narrow chat + 'Untitled.xls' artifact panel (Acme Inc. dashboard); John Whitaker's second message greyed with the 'Queued \u00b7 the Assistant answers after Grace's reply' label; bar 'Assistant is replying to Mall Riv... \u00b7 1 Queued'.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "8451:363945",
+   "type": "FRAME",
+   "name": "188",
+   "section": "Collaborative Chat flow",
+   "sectionId": "7830:372599",
+   "x": 6756,
+   "y": 5733,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/8451-363945.png",
+   "status": "captured",
+   "what": "Same queued-message state with the Comments panel open on the right (3 Members, Anirudha Roy and Saumya Pandey comments, '@annie please make |' input) and the artifact panel squeezed.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "8289:214408",
+   "type": "FRAME",
+   "name": "1",
+   "section": "Collaborative Chat flow",
+   "sectionId": "7830:372599",
+   "x": 2019,
+   "y": 5712,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/8289-214408.png",
+   "status": "captured",
+   "what": "Collaborative chat queue option 2: Assistant row 'Replying to Matt \u00b7 Reading Pipeline Command...', Grace Coleman's message greyed with a 'Queued \u00b7 the Assistant answers after Grace's reply' label; collaborative bar 'Assistant is replying to Mall Rivera \u00b7 1 Queued', Assistant Replies toggle on.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  },
+  {
+   "id": "8289:223937",
+   "type": "FRAME",
+   "name": "2",
+   "section": "Collaborative Chat flow",
+   "sectionId": "7830:372599",
+   "x": 3563,
+   "y": 5712,
+   "w": 1440,
+   "h": 900,
+   "file": "/Users/lisarath/Unify2026/app/figma-ref/_drift-2026-10-09/new/8289-223937.png",
+   "status": "captured",
+   "what": "Same queue option 2 with the reasoning expanded: 'Reading the quarter \u2014 quota, commit and what is open' with four source rows (Open opportunities, Quota and attainment, FY26 reforecast, Competitive log) above Grace's queued message.",
+   "note": "id predates the 2026-10-08 capture (likely an unmapped/excluded frame, not a fresh addition)"
+  }
+ ],
+ "problems": [
+  "figma_take_screenshot fell back to REST and failed with 403 'Token expired'; all captures used figma_capture_screenshot (plugin exportAsync, scale 1).",
+  "Shared export queue stalled twice (about 15:31-15:41 and 16:13-17:01 IST, no agent's export succeeded); frames were retried after probes and all mapped frames were eventually captured.",
+  "Desktop Bridge disconnected at about 17:03 IST ('No active file connected'); new frame 3518:224083 failed 3 times and is uncaptured (described from node data instead). Plugin was not reloaded per instructions.",
+  "Projects references (prototypes/project-dashboard/_ref) have grey #444 corner pixels where the raw export is transparent (rounded frame corners); ~64 px per frame, negligible but it is a reference-capture artefact.",
+  "Most 'same' frames still show 0.004-0.10% diffs from sub-pixel text re-rendering (1px horizontal shifts); only the items listed in 'what' are real design changes.",
+  "All 15 'new' frames have ids that predate the 2026-10-08 map (largest 11336:561451); they look like rows the confirmed map deliberately excluded (input-box second row 5220:2252xx-2409xx, queue option 2 8289:*, 8451:363855/363945, logo option 2 3518:224083) rather than frames added since yesterday."
+ ],
+ "crossCutting": [
+  "File-wide icon update: inline artifact cards and artifact-panel headers now use a new blue/cyan stacked-file 'file type' icon (Application-HTML / xls) instead of the purple app / blue doc icons; seen in commenters 01-07, 09-10 and queue-1 16. Only queue-1/16 crosses the 0.15% threshold, the others are 0.05-0.10%.",
+  "Nav-rail sidebar (Projects frames): 'Excel Formula Help From Main Do...' hollow ring -> white unread dot, 'Sheet Formula Consultant' gains a white dot, account-row bell/chevron ~4px right; present in all three Projects frames."
+ ]
+}
