@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { navigate, useRoute } from '../router/router'
-import { navMode, rail, useStore } from './store'
+import { navMode, rail, unbuilt, useStore } from './store'
 import { screenNav } from './screenNav'
 import { AppShell } from '../shell/AppShell'
 import { navKeyForPath, type NavKey } from '../shell/nav'
@@ -9,6 +9,8 @@ import { reviewStateOf } from '../review/reviewState'
 import { frameForRoute } from '../figma/frames'
 import { drawnHref, ignoredKeysOf, screenFor } from './routes'
 import { ScreenBoundary } from './ScreenBoundary'
+import { builtNavPages, hideUnbuilt } from './visibility'
+import { NAV_PAGES } from '../shell/nav'
 import { usePageFocusAndTitle } from './pageFocus'
 
 // The route table is in ./routes.tsx (screenFor): add new screens there, above the not-built placeholder.
@@ -19,7 +21,10 @@ export function App() {
   // placeholder's frame) changes with them: re-render on either switch.
   useStore(rail)
   useStore(navMode)
-  const screen = screenFor(route)
+  const hidden = useStore(unbuilt) === 'hide'
+  const drawn = screenFor(route)
+  const screen = hidden ? hideUnbuilt(drawn, route.path) : drawn
+  const pages = hidden ? builtNavPages() : NAV_PAGES
   const redirect = screen.kind === 'redirect' ? screen.redirect : null
 
   useEffect(() => {
@@ -51,7 +56,9 @@ export function App() {
       tools={<ReviewBar undrawn={undrawn} />}
       selected={selected}
       current={routeKey}
-      onSelect={key => setPicked({ path: route.path, key })}
+      onSelect={key => { if (!hidden || pages[key]) setPicked({ path: route.path, key }) }}
+      pages={pages}
+      hideUnbuilt={hidden}
       onNavigate={path => navigate(path)}
       pinFigmaHovers={review === 'frame' || review === 'landing'}
       nodeId={frameForRoute(drawnHref(route, screen))?.nodeId}

@@ -186,3 +186,6 @@
 /* head buttons: white .1 on dark, bg-secondary-hover on light */
 .nav--dark .nbtn:is(:hover, .is-hover) { background: rgba(255,255,255,.1); } /* DRIFT: nav hover (dark) */
 .nav--light .nbtn:is(:hover, .is-hover) { background: var(--colors-background-bg-secondary-hover); }
+
+/* unbuilt screens hidden (app/store.ts unbuilt): a row with no built page keeps its drawn look but does nothing */
+.is-unbuilt { cursor: not-allowed; }

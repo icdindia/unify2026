@@ -19,13 +19,17 @@ The first time on a new machine, run `npm --prefix app install`.
 
 The **review bar** sits at the top right. On narrow windows it folds into "Review ▾".
 
-- **‹ › and the step picker** walk every Figma frame in Figma order: journey by journey, step by step.
-  A screen that is not built yet shows its Figma frame instead, so every step is reachable.
+- **‹ › and the step picker** walk the built Figma frames in Figma order: journey by journey, step by step.
+  With `?unbuilt=show` they walk every frame, and an unbuilt one shows its Figma frame instead.
 - **Figma ↗** opens the exact Figma frame for what you are looking at.
 - **As designed / With fixes** switches the whole app between the Figma design and the design with the
   proposed or approved fixes applied. The fix log lives in `src/fixes/` and is shown in the gallery.
 - **Inside page: Option 1 / 2** (project pages) and **Nav: Dark / Light**.
 - **Open at 1440 / 1280 / 1024 / 787 / 390** opens the same screen at that width.
+
+**Only built screens are reachable.** Nav items without a built page (Routines, Meetings and Artifacts today) do
+nothing, and the step picker skips unbuilt steps. To see the "Not built yet" Figma placeholders for every step,
+open the page with `?unbuilt=show` before the `#`, for example `eb-app.html?unbuilt=show#/artifacts`.
 
 Useful pages:
 - `#/new` starts a chat. Type and press Enter, and the scripted journey plays with Figma's timings.

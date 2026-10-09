@@ -35,3 +35,6 @@ const pick = <T extends string>(key: string, allowed: readonly T[], fallback: T)
 export const navMode = createStore(pick('mode', ['dark', 'light'] as const, 'dark'))
 export const rail = createStore(pick('rail', ['expanded', 'collapsed'] as const, 'expanded'))
 export const fixesMode = createStore(pick('fixes', ['off', 'on'] as const, 'off'))
+// User decision 2026-10-09: screens that are not built yet are hidden (no placeholders, unbuilt nav rows inert).
+// ?unbuilt=show before the '#' brings the "Not built yet" frame placeholders back for reviews.
+export const unbuilt = createStore(pick('unbuilt', ['hide', 'show'] as const, 'hide'))

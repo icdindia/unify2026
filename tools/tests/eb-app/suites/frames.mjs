@@ -5,6 +5,10 @@
 import { newPage, sleep } from '../lib/cdp.mjs'
 import { APP_FILE, fileUrl } from '../lib/harness.mjs'
 
+// This suite checks every frame URL, built or not, so it opens the app with ?unbuilt=show: by default (user decision
+// 2026-10-09) unbuilt screens are hidden and their URLs redirect home. router.mjs checks that default.
+const APP_URL = fileUrl(APP_FILE) + '?unbuilt=show'
+
 const decode = s => { try { return decodeURIComponent(s) } catch { return s } }
 const pathOf = route => decode(route).split('?')[0]
 
@@ -34,7 +38,7 @@ const SCREEN = `(async()=>{
 export default async function frames({ browser, rec, out }) {
   const page = await newPage(browser)
   try {
-    await page.goto(fileUrl(APP_FILE) + '#/gallery/frame-map', { settle: 600 })
+    await page.goto(APP_URL + '#/gallery/frame-map', { settle: 600 })
     const rows = await page.ev(`[...document.querySelectorAll('.fm-row')].map(r=>({
       journey: (r.closest('.gallery-section').querySelector('h2').textContent||'').split(':')[0].trim(),
       stepId: r.querySelector('.fm-step').textContent.trim(), node: r.dataset.frame,
@@ -76,7 +80,7 @@ export default async function frames({ browser, rec, out }) {
 
     // 2. the stepper: next / prev across built and not-built screens, Back, and the picker
     const order = routed
-    await page.goto(fileUrl(APP_FILE) + '#/projects', { settle: 500 })
+    await page.goto(APP_URL + '#/projects', { settle: 500 })
     // the step name in the strip, or in the Review ▾ popover where the bar is folded (the built landing and chat screens
     // float the review tools, so the name is one click away there)
     const face = async () => (await page.ev(SCREEN)).face
@@ -110,7 +114,7 @@ export default async function frames({ browser, rec, out }) {
     }
 
     // 3. the nav reaches the planned screens (placeholders until built), and the highlight follows the page
-    await page.goto(fileUrl(APP_FILE) + '#/projects?rail=e', { settle: 400 })
+    await page.goto(APP_URL + '#/projects?rail=e', { settle: 400 })
     const navWalk = []
     for (const [label, path] of [['New Session', '/new'], ['Routines', '/routines'], ['Artifacts', '/artifacts'], ['Projects', '/projects']]) {
       await page.clickSel(`.shell__nav a[href="#${path}"]`, 0, 250)

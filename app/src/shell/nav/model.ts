@@ -42,6 +42,8 @@ export type NavSelectionProps = {
   onNavigate?: (path: string) => void
   /** Which destinations have pages. Defaults to NAV_PAGES. */
   pages?: NavPages
+  /** Unbuilt screens are hidden: a destination row without a page is inert (aria-disabled) instead of selectable. */
+  hideUnbuilt?: boolean
 }
 
 /** Sidebar chat status, drawn as the animated dot at the end of a chat row. */

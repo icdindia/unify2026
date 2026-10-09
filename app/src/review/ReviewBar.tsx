@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { fixesMode, navMode, rail, useStore } from '../app/store'
+import { fixesMode, navMode, rail, unbuilt, useStore } from '../app/store'
+import { isBuiltHref } from '../app/visibility'
 import { FIXES } from '../fixes/fixes'
 import { framesForRoute, JOURNEYS, STEPS, stepName, type FrameMatch, type FrameRef, type StepEntry } from '../figma/frames'
 import { matchPath, useRoute } from '../router/router'
@@ -256,8 +257,11 @@ function Stepper({ arrowsOnly = false }: { arrowsOnly?: boolean }) {
   const cursor = cursorFor(matches, remembered)
   const onFrame = !!cursor && matches.some(m => m.frame.journey === cursor.journey && m.frame.step === cursor.step)
   const exact = onFrame && matches.some(m => m.exact)
-  const prev = neighbour(cursor, -1)
-  const next = neighbour(cursor, 1)
+  // unbuilt screens hidden (app/store.ts): the stepper only walks steps whose URL opens a built screen
+  const hidden = useStore(unbuilt) === 'hide'
+  const reachable = (st: StepEntry) => !hidden || (!!st.frame && isBuiltHref(st.frame.route))
+  const prev = neighbour(cursor, -1, reachable)
+  const next = neighbour(cursor, 1, reachable)
 
   // remember the step on screen, so prev / next continue from it after a detour through unmapped URLs
   useEffect(() => {
@@ -289,7 +293,8 @@ function Stepper({ arrowsOnly = false }: { arrowsOnly?: boolean }) {
                   value={cursor?.key ?? ''} onChange={e => { const s = stepByKey(e.target.value); if (s) goToStep(s) }}>
             {!cursor && <option value="">Pick a step…</option>}
             {JOURNEYS.map((j, i) => {
-              const steps = STEPS.filter(s => s.journey === j.id)
+              const steps = STEPS.filter(s => s.journey === j.id && (!hidden || reachable(s)))
+              if (hidden && !steps.length) return null
               const label = `${i}. ${j.id}: ${j.title}`
               if (!steps.length) {
                 return (

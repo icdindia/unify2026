@@ -20,10 +20,10 @@ export function cursorFor(matches: FrameMatch[], remembered: string | null): Ste
   return remembered ? byKey.get(remembered) : undefined
 }
 
-/** The next (dir 1) or previous (dir -1) step that has a URL, across journey boundaries. */
-export function neighbour(entry: StepEntry | undefined, dir: 1 | -1): StepEntry | undefined {
+/** The next (dir 1) or previous (dir -1) step that has a URL (and passes `reachable`), across journey boundaries. */
+export function neighbour(entry: StepEntry | undefined, dir: 1 | -1, reachable: (s: StepEntry) => boolean = () => true): StepEntry | undefined {
   const from = entry ? STEPS.indexOf(entry) : dir === 1 ? -1 : STEPS.length
-  for (let i = from + dir; i >= 0 && i < STEPS.length; i += dir) if (STEPS[i].frame) return STEPS[i]
+  for (let i = from + dir; i >= 0 && i < STEPS.length; i += dir) if (STEPS[i].frame && reachable(STEPS[i])) return STEPS[i]
   return undefined
 }
 

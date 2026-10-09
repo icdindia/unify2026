@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import { navMode, rail, useStore } from '../app/store'
-import { Nav, Rail, requestNavFocus, type NavKey } from './nav'
+import { Nav, Rail, requestNavFocus, type NavKey, type NavPages } from './nav'
 import { useMediaQuery } from './useMediaQuery'
 import './app-shell.css'
 
@@ -30,6 +30,10 @@ export type AppShellProps = {
   onSelect: (key: NavKey) => void
   /** A nav destination with a page was pressed. */
   onNavigate: (path: string) => void
+  /** Destinations with a page (defaults to NAV_PAGES). */
+  pages?: NavPages
+  /** Rows without a page are inert (unbuilt screens hidden). */
+  hideUnbuilt?: boolean
   /** Review harness (?state=frame / landing): pin the nav hovers drawn in the Figma frame. */
   pinFigmaHovers?: boolean
   /** Figma frame the current route reproduces (see figma/frames.ts). */
@@ -48,7 +52,7 @@ export type AppShellProps = {
  * Whenever the nav, rail or overlay is swapped out while it holds keyboard focus (a toggle, Esc, the scrim, a
  * destination chosen in the overlay, the window crossing 1200), focus lands on the toggle that replaces it.
  */
-export function AppShell({ bar, tools, children, selected, current, onSelect, onNavigate, pinFigmaHovers, nodeId, fill = false }: AppShellProps) {
+export function AppShell({ bar, tools, children, selected, current, onSelect, onNavigate, pages, hideUnbuilt, pinFigmaHovers, nodeId, fill = false }: AppShellProps) {
   const mode = useStore(navMode)
   const railChoice = useStore(rail)
   const narrow = useMediaQuery(NARROW_QUERY)
@@ -87,6 +91,8 @@ export function AppShell({ bar, tools, children, selected, current, onSelect, on
     selected,
     current,
     onSelect,
+    pages,
+    hideUnbuilt,
     onNavigate: (path: string) => {
       if (overlayOpen) closeOverlay() // a destination chosen in the overlay closes it, like Esc or the scrim
       onNavigate(path)

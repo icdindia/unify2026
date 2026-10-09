@@ -23,7 +23,10 @@ export default async function router({ browser, rec }) {
   // a fresh query every time: Page.navigate to the same file with only a new hash is a same-document navigation, which
   // fires no load event (goto would wait out its 15 s timeout) and would keep the previous route's in-memory state
   let n = 0
-  const url = (hash, search = '') => fileUrl(APP) + (search ? search + '&' : '?') + 'r=' + (++n) + '#' + hash
+  // ?unbuilt=show: these checks walk frame URLs that are not built yet (placeholders), which are hidden by default
+  const url = (hash, search = '') => fileUrl(APP) + '?unbuilt=show&' + (search ? search.replace(/^\?/, '') + '&' : '') + 'r=' + (++n) + '#' + hash
+  // the app as a visitor gets it: unbuilt screens hidden (user decision 2026-10-09)
+  const plainUrl = hash => fileUrl(APP) + '?r=' + (++n) + '#' + hash
   const page = await newPage(browser)
   const st = () => page.ev(STATE)
   // A screen that fills the main area (the landing, the chat) floats the review tools: the step's name is in the
@@ -175,6 +178,25 @@ export default async function router({ browser, rec }) {
     await page.size(1440, 900)
     rec.check('long crumb with fixes on at 390 / 430 / 500: no sideways scroll, the review button clears the crumb',
       crumb.every(c => c.doc <= c.w && c.toolsRight <= c.w && c.toolsLeft >= c.crumbRight && c.hitCrumb), crumb)
+
+    // 9. Default (unbuilt screens hidden): an unbuilt URL lands home, unbuilt nav rows are inert, the picker lists fewer steps
+    await page.goto(plainUrl('/routines'), { settle: 400 })
+    const hiddenRoute = await page.ev(`({ hash: decodeURIComponent(location.hash.slice(1)), placeholder: !!document.querySelector('.not-built') })`)
+    rec.check('hidden by default: #/routines (not built) lands on #/projects, no placeholder',
+      hiddenRoute.hash.split('?')[0] === '/projects' && !hiddenRoute.placeholder, hiddenRoute)
+    const rows = await page.ev(`(async()=>{
+      const row = t => [...document.querySelectorAll('.shell__nav .nrow, .shell__nav .lrow, .shell__nav .ritem')].find(e => (e.textContent.trim() || e.getAttribute('aria-label')) === t);
+      const out = {}; for (const t of ['Routines', 'Meetings', 'Artifacts', 'Projects', 'New Session']) { const e = row(t); out[t] = e ? (e.getAttribute('aria-disabled') || 'enabled') : 'missing' }
+      const r = row('Artifacts'); if (r) r.click(); await new Promise(res => setTimeout(res, 150));
+      out.afterClick = decodeURIComponent(location.hash.slice(1)).split('?')[0]; return out })()`)
+    rec.check('hidden by default: Routines, Meetings and Artifacts rows are aria-disabled and inert; New Session and Projects work',
+      rows.Routines === 'true' && rows.Meetings === 'true' && rows.Artifacts === 'true' && rows.Projects === 'enabled' && rows['New Session'] === 'enabled' && rows.afterClick === '/projects', rows)
+    const count = `[...document.querySelectorAll('.review-bar--measure .review-step__select option')].filter(o => !o.disabled && o.value).length`
+    const hiddenSteps = await page.ev(count)
+    await page.goto(url('/projects'), { settle: 400 })
+    const shownSteps = await page.ev(count)
+    rec.check('hidden by default: the step picker offers only built steps (fewer than with ?unbuilt=show, but some)',
+      hiddenSteps > 0 && hiddenSteps < shownSteps, { hiddenSteps, shownSteps })
   } finally {
     await page.close()
   }

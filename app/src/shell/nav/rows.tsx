@@ -14,16 +14,20 @@ export type Destinations = {
   current: NavKey | null | undefined
   hrefFor: (key: NavKey) => string | undefined
   activate: (key: NavKey) => void
+  /** The row has no built page while unbuilt screens are hidden: it looks as designed but does nothing. */
+  inert: (key: NavKey) => boolean
 }
 
 /** Selection + routing wiring shared by Nav and Rail. */
-export function destinations({ selected, current, onSelect, onNavigate, pages = NAV_PAGES }: NavSelectionProps): Destinations {
+export function destinations({ selected, current, onSelect, onNavigate, pages = NAV_PAGES, hideUnbuilt = false }: NavSelectionProps): Destinations {
   return {
     selected,
     current: current === undefined ? selected : current,
     // hash routes (see src/router/router.ts), so a middle-click / "open in new tab" lands on the page
     hrefFor: key => (pages[key] ? '#' + pages[key] : undefined),
+    inert: key => hideUnbuilt && !pages[key],
     activate: key => {
+      if (hideUnbuilt && !pages[key]) return
       onSelect?.(key)
       const path = pages[key]
       if (path) onNavigate?.(path)
@@ -35,13 +39,15 @@ const isPlainClick = (e: MouseEvent) => e.button === 0 && !e.metaKey && !e.ctrlK
 
 /** A row that does something when pressed: a link when it has a page, a button otherwise.
  *  Rows without a page never navigate (no bare href="#"). */
-export function RowAction({ className, href, current, label, title, onActivate, children }: {
+export function RowAction({ className, href, current, label, title, onActivate, inert = false, children }: {
   className: string
   href?: string
   current?: boolean
   label?: string
   title?: string
   onActivate?: () => void
+  /** No built page yet (unbuilt screens hidden): announced as disabled, and pressing it does nothing. */
+  inert?: boolean
   children: ReactNode
 }) {
   const ariaCurrent = current ? 'page' : undefined
@@ -58,7 +64,9 @@ export function RowAction({ className, href, current, label, title, onActivate, 
     )
   }
   return (
-    <button type="button" className={className} aria-current={ariaCurrent} aria-label={label} title={title} onClick={onActivate}>
+    <button type="button" className={cx(className, inert && 'is-unbuilt')} aria-current={ariaCurrent} aria-label={label}
+            aria-disabled={inert || undefined} title={inert ? `${label ?? title ?? 'This page'}: not built in the prototype yet` : title}
+            onClick={inert ? undefined : onActivate}>
       {children}
     </button>
   )
@@ -83,6 +91,8 @@ export function NavRow({ tone, to, nav, icon, label, className, innerClassName, 
       href={to && nav?.hrefFor(to)}
       current={!!to && nav?.current === to}
       onActivate={to && nav ? () => nav.activate(to) : undefined}
+      inert={!!to && !!nav?.inert(to)}
+      label={to && nav?.inert(to) ? label : undefined}
     >
       <span className={cx('nrow__in', innerClassName)}>
         <img alt="" src={icon} className="ni" />

@@ -68,6 +68,7 @@ export function Rail({ mode, onExpand, ...selection }: RailProps) {
                 label={label}
                 title={label}
                 onActivate={to ? () => nav.activate(to) : undefined}
+                inert={!!to && nav.inert(to)}
               >
                 <img alt="" src={icon} />
               </RowAction>
