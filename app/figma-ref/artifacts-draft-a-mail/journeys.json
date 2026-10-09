@@ -1,0 +1,359 @@
+{
+ "_status": "DRAFT 2026-10-09 — inferred from layout (mapper D). Not yet confirmed with the user.",
+ "page": {
+  "id": "6193:430256",
+  "name": "Artifacts | Draft a Mail"
+ },
+ "sections": [
+  {
+   "id": "10077:286825",
+   "name": "Draft an mail flow",
+   "children": 66
+  },
+  {
+   "id": "6193:430256",
+   "name": "(page level, outside any section)",
+   "note": "Pseudo-section for the parked 30% rows right of the section (add-recipient-alert, schedule option 2), as in notifications/journeys.json."
+  }
+ ],
+ "journeys": [
+  {
+   "id": "draft-mail",
+   "title": "Draft an mail flow",
+   "section": "10077:286825",
+   "card": "10077:286875",
+   "frames": [
+    "10077:286836",
+    "10077:318306",
+    "10077:324349",
+    "10077:312767",
+    "10077:286830",
+    "10077:286838",
+    "10077:286840",
+    "10077:286845"
+   ],
+   "labels": {
+    "10077:318306": "Adding receiver emails",
+    "10077:312767": "Receiver mail hover",
+    "10077:286838": "Receiver email box - Cc & Bcc interaction"
+   },
+   "overlays": {
+    "10077:318306": [
+     "10077:286834 Cursor"
+    ],
+    "10077:312767": [
+     "10077:312768 Cursor"
+    ],
+    "10077:286838": [
+     "10077:286839 Cursor"
+    ]
+   },
+   "components": [
+    "10751:514380"
+   ],
+   "notes": {
+    "10077:286836": "INSTANCE. First frame of the row, at x=1952 (other rows start at 1953).",
+    "10077:318306": "Cursor at section level on the recipient field.",
+    "10077:312767": "INSTANCE. Cursor at section level on a recipient chip.",
+    "10077:286838": "INSTANCE. Cursor at section level on the Cc / Bcc control.",
+    "10077:286845": "INSTANCE. Last frame of the row.",
+    "10751:514380": "Frame 'Frame 2147266811' (560x68) floating above step 2 (y=133). Probably the recipient field spec on its own."
+   }
+  },
+  {
+   "id": "draft-mail-ai-edit",
+   "title": "Editing the mail with AI, quoting text, scheduling (untitled row 2)",
+   "section": "10077:286825",
+   "card": null,
+   "frames": [
+    "10077:326078",
+    "10077:286843",
+    "10077:286846",
+    "10077:286849",
+    "10077:327578",
+    "10077:286853",
+    "10631:1654754",
+    "10734:435033",
+    "10734:438249",
+    "12264:514091"
+   ],
+   "labels": {
+    "10077:326078": "select to edit",
+    "10077:286843": "Editing email content with AI",
+    "10077:286846": "Ai Edit - Input box",
+    "10077:327578": "chat quote style of the portion of text",
+    "10077:286853": "schedule option 1"
+   },
+   "overlays": {
+    "10077:286853": [
+     "10079:318592 Download Dropdown (211x76)",
+     "10077:286854 Cursor"
+    ],
+    "10631:1654754": [
+     "10631:1655977 SnackbarNew (220x76)"
+    ]
+   },
+   "components": [
+    "11044:735230"
+   ],
+   "notes": {
+    "10077:286853": "INSTANCE. A 'Download Dropdown' (211x76) and a cursor sit on its lower part at section level.",
+    "10631:1654754": "INSTANCE. A SnackbarNew (220x76) sits on it at section level: probably the 'scheduled' or 'sent' confirmation.",
+    "10734:438249": "1440x800, not 1440x900: a modal-only frame, like the preview modals further down.",
+    "12264:514091": "INSTANCE, 1440x800 modal-only frame.",
+    "11044:735230": "Nested section 'Section 1' (332x300) under step 7, holding two SnackbarNew variants (11044:735186 174x76, 11044:735208 220x76)."
+   }
+  },
+  {
+   "id": "draft-mail-attachments",
+   "title": "Adding attachment (untitled row 3)",
+   "section": "10077:286825",
+   "card": null,
+   "frames": [
+    "10101:67313",
+    "10101:159115",
+    "10101:160375",
+    "10635:331081"
+   ],
+   "labels": {
+    "10101:67313": "Adding attachment"
+   },
+   "notes": {
+    "10635:331081": "INSTANCE 'Multi File View': the attachments opened in a file viewer."
+   }
+  },
+  {
+   "id": "split-50-50",
+   "title": "50:50 in 1440",
+   "section": "10077:286825",
+   "card": "10631:1650990",
+   "frames": [
+    "10342:201187"
+   ],
+   "labels": {},
+   "notes": {}
+  },
+  {
+   "id": "artifact-only",
+   "title": "artifact only",
+   "section": "10077:286825",
+   "card": "10631:1652215",
+   "subOf": "split-50-50",
+   "frames": [
+    "10631:1652217"
+   ],
+   "labels": {},
+   "notes": {
+    "10631:1652217": "Mid-row card 'artifact only' precedes it."
+   }
+  },
+  {
+   "id": "artifact-only-viewer",
+   "title": "artifact only as a viewer",
+   "section": "10077:286825",
+   "card": "10631:1651005",
+   "subOf": "split-50-50",
+   "frames": [
+    "10631:1651007",
+    "10751:518920"
+   ],
+   "labels": {},
+   "notes": {
+    "10631:1651007": "Mid-row card 'artifact only as a viewer' precedes it."
+   }
+  },
+  {
+   "id": "edit-with-ai",
+   "title": "edit with AI",
+   "section": "10077:286825",
+   "card": "10720:150217",
+   "frames": [
+    "10720:151497",
+    "10720:433770",
+    "10734:513064"
+   ],
+   "labels": {},
+   "overlays": {
+    "10720:151497": [
+     "10720:151495 Cursor"
+    ]
+   },
+   "notes": {
+    "10720:151497": "Cursor at section level on the frame."
+   }
+  },
+  {
+   "id": "one-provider",
+   "title": "when one provider is available ex. only outlook",
+   "section": "10077:286825",
+   "card": "11701:624713",
+   "frames": [
+    "11710:629961"
+   ],
+   "labels": {},
+   "notes": {}
+  },
+  {
+   "id": "one-provider-not-connected",
+   "title": "when one provider is available but without connection.",
+   "section": "10077:286825",
+   "card": "11710:624724",
+   "frames": [
+    "11710:640142",
+    "11730:294972"
+   ],
+   "labels": {},
+   "components": [
+    "11991:748132",
+    "11908:289968"
+   ],
+   "notes": {
+    "11991:748132": "Frame 'Tooltip' (212x102) beside step 2, full opacity.",
+    "11908:289968": "Frame 'Tooltip' (212x102) beside step 2 at 20% opacity: a parked variant."
+   }
+  },
+  {
+   "id": "no-provider",
+   "title": "when no provider is available.",
+   "section": "10077:286825",
+   "card": "11710:627301",
+   "frames": [
+    "11750:517052"
+   ],
+   "labels": {},
+   "notes": {}
+  },
+  {
+   "id": "attachment-failed-preview",
+   "title": "when some attachments are failed to upload then how preview modal should look like, do we need to show some error description in preview modal.",
+   "section": "10077:286825",
+   "card": "11710:629959",
+   "frames": [
+    "11765:534931",
+    "12264:514198",
+    "11765:540541"
+   ],
+   "labels": {},
+   "notes": {
+    "12264:514198": "INSTANCE 'Modal Full Screen', 1440x800.",
+    "11765:540541": "Frame 'Modal Full Screen', 1440x800, right of 12264:514198."
+   }
+  },
+  {
+   "id": "add-recipient-alert",
+   "title": "add atleast one recipient",
+   "section": "6193:430256",
+   "card": "10631:1656046",
+   "frames": [
+    "10631:1659015"
+   ],
+   "labels": {},
+   "dimmed": true,
+   "overlays": {
+    "10631:1659015": [
+     "10631:1660311 Alert (265x32)"
+    ]
+   },
+   "notes": {
+    "10631:1659015": "INSTANCE, 30% opacity, page level. An 'Alert' (265x32) sits on it: the 'add at least one recipient' validation."
+   }
+  }
+ ],
+ "ignoredOptions": [
+  {
+   "journey": "draft-mail-ai-edit",
+   "option": "schedule option 2 - many reduced clicks",
+   "labelNode": "10080:451163",
+   "dimmed": true,
+   "section": "6193:430256",
+   "frames": [
+    "10079:322550",
+    "10079:442810",
+    "10080:450281",
+    "10079:319951"
+   ],
+   "overlays": [
+    "10079:442746 Modal Full Screen on top of 10079:322550",
+    "10080:446731 Platform - Date time picker menu on 10079:442810",
+    "10079:319953 Download Dropdown (211x122) + 10079:319952 Cursor on 10079:319951 (label 'open in')"
+   ],
+   "note": "Page level, right of the section, all at 30% opacity. 10079:322550 is a Draft-Mail with a 'Modal Full Screen' (10079:442746) at the same position; 10079:442810 adds a date-time picker; 10080:450281 carries the 'schedule option 2' label; 10079:319951 carries the label 'open in' with a 211x122 Download Dropdown. The section's 'schedule option 1' (10077:286853, with a 211x76 Download Dropdown on it) is mapped instead."
+  }
+ ],
+ "loose": [
+  {
+   "id": "11016:735031",
+   "name": "Max and scroll",
+   "size": "560x191",
+   "guess": "Page level, just above the section: a component spec for the recipient field at max height with a scroll bar (Frame 2147266813 + Scroll bar)."
+  },
+  {
+   "id": "12767:71607",
+   "name": "File type icon/Simple",
+   "size": "24x24",
+   "guess": "Icon instance parked above step 1 of row 2 ('select to edit'). Not a screen."
+  },
+  {
+   "id": "10079:440706",
+   "name": "Modal Full Screen",
+   "size": "1440x800",
+   "guess": "Page level, far below (y=25003) among reference screenshots. Probably a scratch copy of the preview modal."
+  },
+  {
+   "id": "screenshots",
+   "name": "9 'Screenshot 2026-09-17 ...' rectangles",
+   "size": "189-999 wide",
+   "guess": "Page level, y 23895-25003: 10077:312766, 10079:308981, 10079:318590, 10079:440681, 10079:440683, 10079:440684, 10079:440685, 10079:322549, 10080:460455. Reference screenshots (probably of real mail clients). Not screens."
+  }
+ ],
+ "crossPage": [
+  "The whole page is an artifact type ('Draft a Mail') inside the Chat + Artifacts split. Row '50:50 in 1440' (10342:201187) and its 'artifact only' / 'artifact only as a viewer' sub-journeys repeat the Chat + Artifacts layouts: 'chat-artifact' (chat + artifact split), 'artifact-full-editor' and 'artifact-view-viewer'. Build them as the mail variant of those templates, not as new screens.",
+  "'edit with AI' and the row-2 'Editing email content with AI' / 'Ai Edit - Input box' steps use the same select-text-then-AI-edit pattern as Projects + Chat History 'instructions-ai-edit' (5534:215248). One AI-edit popover component should serve both.",
+  "'Multi File View' (10635:331081) and the 1440x800 'Modal Full Screen' previews are the file viewer / preview modal also used for artifacts and project files.",
+  "'chat quote style of the portion of text' (10077:327578) matches the quote-in-chat behaviour of the Chat + Artifacts composer."
+ ],
+ "doubts": [
+  {
+   "q": "The rows at y=1469 (labels 'select to edit' ... 'schedule option 1') and y=2629 ('Adding attachment') have no title card. Are they the continuation of 'Draft an mail flow' (one long journey: recipients -> AI edit -> schedule -> attachments) or separate journeys?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10077-286875",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10077-326078",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10101-67313"
+   ],
+   "proposedDefault": "Separate journeys under the same card: 'draft-mail-ai-edit' and 'draft-mail-attachments'. Each starts from the composed draft at the end of 'draft-mail' (10077:286845)."
+  },
+  {
+   "q": "Row 2 runs on past 'schedule option 1' with 10631:1654754 (snackbar on it), 10734:435033 and two 1440x800 'Modal Full Screen' frames (10734:438249, 12264:514091). Are the two modals the end of the schedule flow, or a separate preview modal (like the attachment preview at the bottom of the page) parked on the same row?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10077-286853",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10734-435033",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10734-438249",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12264-514091"
+   ],
+   "proposedDefault": "Keep them as steps 8-10 of 'draft-mail-ai-edit' in left-to-right order; if they turn out to be the attachment preview, move them to 'draft-mail-attachments'."
+  },
+  {
+   "q": "The last row's card is a designer question: 'when some attachments are failed to upload then how preview modal should look like, do we need to show some error description in preview modal.' It shows two preview modals side by side (12264:514198, 11765:540541). Are these two competing answers, or two steps (with and without the error description)?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11710-629959",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12264-514198",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11765-540541"
+   ],
+   "proposedDefault": "Treat them as the left-to-right steps of one journey: 11765:534931 (draft with a failed attachment) -> 12264:514198 -> 11765:540541. Show an error line in the preview for each failed file."
+  },
+  {
+   "q": "'add atleast one recipient' (card 10631:1656046, frame 10631:1659015 + Alert) sits outside the section at 30% opacity, next to the parked 'schedule option 2' frames. Is the 'add at least one recipient' validation alert live?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10631-1656046",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10631-1660311"
+   ],
+   "proposedDefault": "Yes, as an error state only: pressing Send with no recipients shows the alert. The frame is mapped and flagged dimmed."
+  }
+ ],
+ "notesGeneral": [
+  "Frame contents on this page were NOT read: the Figma Desktop Bridge disconnected (no plugin client on port 9223 for 7+ minutes) right after the structural read. The map comes only from positions, sizes, opacity, card texts and designer labels. Step descriptions are therefore thin. A follow-up pass should read the texts of each frame's main area (skip Main_nav).",
+  "Frames 74-93 are named by number (74, 78, 79, 80, 81, 85, 86, 87, 88, 89, 90, 91, 92, 93); the rest are 'Draft-Mail' instances or frames. The numbers do not follow the left-to-right order (row 2 runs 85, 79, 80, 81, 86; row 4 runs 90, 92, 91, 93), so step order follows x position, not the number.",
+  "All section frames are 1440 wide (1440x900, or 1440x800 for modal-only frames). Nothing in the section is dimmed except the Tooltip 11908:289968 (20%).",
+  "Everything at page level to the right of the section (x 20174-25995) is at 30% opacity: parked."
+ ]
+}

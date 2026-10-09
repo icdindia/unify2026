@@ -1,0 +1,206 @@
+{
+ "_status": "DRAFT 2026-10-09 — inferred from layout",
+ "page": {
+  "id": "13766:124218",
+  "name": "Search + Agent + Login"
+ },
+ "notes": [
+  "Two sections stacked: 'Login page' on top (page y -2953) and 'Search + Model Switch + agent selector sidenav' below (page y -388).",
+  "Login row: options 1-3 are at 30% opacity and option 4 is at full opacity. We read that as the designer having picked option 4, so option 4 is mapped and 1-3 are ignored (see doubt 1).",
+  "The 'side nav' row contains a wrapper frame 'Light mode' (4485 wide) that holds its own title card ('Light mode nav bar') and two screens: mapped as a mid-row sub-journey.",
+  "Main_nav instances: the Search row uses types=collapsed; every side-nav frame uses types=Expanded. The two Light-mode screens use a separate 'Main_nav light mode' layer.",
+  "'contents' is our reading of layer names, not a designer label."
+ ],
+ "sections": [
+  {
+   "id": "13766:128594",
+   "name": "Login page",
+   "children": 11
+  },
+  {
+   "id": "13766:124219",
+   "name": "Search + Model Switch + agent selector sidenav",
+   "children": 26
+  }
+ ],
+ "journeys": [
+  {
+   "id": "login",
+   "title": "UnifyApps Login (option 4)",
+   "section": "13766:128594",
+   "card": "13766:134986",
+   "frames": [
+    "13766:133389",
+    "13766:134988",
+    "13766:136039"
+   ],
+   "labels": {
+    "13766:133389": "option 4"
+   },
+   "contents": {
+    "13766:133389": "split screen: Chat (720) + Body (720) with a screenshot and the login form",
+    "13766:134988": "spreadsheet-style app window (Top bar 'Acme_Futura Masters…', Tool bar ribbon, Cell selector, Function select) with the 260x292 login form inside",
+    "13766:136039": "same spreadsheet window, second state of the login form"
+   }
+  },
+  {
+   "id": "search",
+   "title": "Search",
+   "section": "13766:124219",
+   "card": "13766:124630",
+   "frames": [
+    "13766:124224",
+    "13766:124306",
+    "13766:124265",
+    "13766:124550"
+   ],
+   "labels": {
+    "13766:124224": "Agent 5 · Project 5"
+   },
+   "contents": {
+    "13766:124224": "collapsed nav + full-screen search modal",
+    "13766:124306": "full-screen search modal",
+    "13766:124265": "full-screen search modal",
+    "13766:124550": "full-screen search modal"
+   },
+   "note": "The 'Agent 5 · Project 5' tag is a small 179x28 frame above step 1, probably the number of agents and projects listed in the modal."
+  },
+  {
+   "id": "side-nav",
+   "title": "Side nav (agent selector)",
+   "section": "13766:124219",
+   "card": "13766:126154",
+   "frames": [
+    "13766:124934",
+    "13766:124635",
+    "13766:125236",
+    "13766:125856",
+    "13766:125232",
+    "9256:477318",
+    "13766:125239"
+   ],
+   "labels": {
+    "13766:124934": "bg color: Brand 500 + 30% of #000000",
+    "13766:124635": "Sub header hover",
+    "13766:125236": "agents page selected",
+    "9256:477318": "three dots hover"
+   },
+   "contents": {
+    "13766:124934": "menu open + cursor",
+    "13766:124635": "four cursors (hover states on the sub header)",
+    "13766:125236": "Agents page selected in the nav",
+    "13766:125856": "menu open + two cursors",
+    "13766:125232": "cursor",
+    "9256:477318": "COMPONENT: menu Run Now / Edit / Add to Project / Keyboard shortcuts (reused as an instance on 'All Empty states & Dropdowns')",
+    "13766:125239": "menu open + cursor"
+   },
+   "note": "The colour note above step 1 is a small annotation frame (13766:124220) with a pasted swatch screenshot (13766:124223)."
+  },
+  {
+   "id": "light-mode-nav",
+   "title": "Light mode nav bar",
+   "section": "13766:124219",
+   "card": "13766:126458",
+   "frames": [
+    "13766:126460",
+    "13766:127525"
+   ],
+   "note": "Mid-row sub-journey wrapped in frame 'Light mode' (13766:126457) inside the side nav row."
+  },
+  {
+   "id": "side-nav-parked",
+   "title": "Side nav: two parked states (20% opacity)",
+   "section": "13766:124219",
+   "card": null,
+   "frames": [
+    "13766:126158",
+    "13766:125554"
+   ],
+   "dimmed": true,
+   "contents": {
+    "13766:126158": "menu open + three cursors",
+    "13766:125554": "cursor + Tooltip"
+   },
+   "note": "At the far right end of the side nav row, after the Light mode block, both at 20% opacity. They use the dark Expanded Main_nav, so they belong with 'side-nav', not with light mode."
+  }
+ ],
+ "ignoredOptions": [
+  {
+   "id": "13766:128595",
+   "label": "option 1 (frame at 30% opacity)",
+   "journey": "login",
+   "chosen": "13766:133389",
+   "note": "Has an extra 'Hero Banner' layer."
+  },
+  {
+   "id": "13766:130193",
+   "label": "option 2 (30% opacity)",
+   "journey": "login",
+   "chosen": "13766:133389"
+  },
+  {
+   "id": "13766:131792",
+   "label": "option 3 (30% opacity)",
+   "journey": "login",
+   "chosen": "13766:133389"
+  }
+ ],
+ "loose": [
+  {
+   "id": "15315:751390",
+   "name": "Container",
+   "size": "1672x1810",
+   "guess": "page-level frame outside both sections ('Filter Actions' bar + a large frame); probably a captured filter/table reference"
+  },
+  {
+   "id": "13766:126156",
+   "name": "image 33",
+   "size": "280x951",
+   "guess": "pasted side-nav screenshot 'ss1' at 20% opacity, left of the side nav row"
+  },
+  {
+   "id": "13766:126157",
+   "name": "image 34",
+   "size": "274x951",
+   "guess": "pasted side-nav screenshot 'ss2' at 20% opacity, left of the side nav row"
+  }
+ ],
+ "crossPage": [
+  {
+   "frame": "13766:126460",
+   "note": "Light mode nav bar duplicates Chat + Artifacts `nav-light` (card 12919:607701, 4 frames)"
+  },
+  {
+   "frame": "9256:477318",
+   "note": "Main component of the 'Drop-downs: Nav' frame 9256:477323 on 'All Empty states & Dropdowns'"
+  },
+  {
+   "frame": "13766:124934",
+   "note": "Side nav states overlap Chat + Artifacts `nav-behaviour` (pins, project hover, three-dots menus)"
+  },
+  {
+   "frame": "13766:124224",
+   "note": "Search modal opened from the nav; the nav search entry is part of the Chat + Artifacts shell"
+  }
+ ],
+ "doubts": [
+  {
+   "q": "Login: options 1-3 are faded to 30% and option 4 is at full opacity, which reads as 'option 4 chosen'. Your rule is 'option 1 only'. Which login design do we build? Also: the two frames after option 4 show the login form inside a spreadsheet-style app window. Are they login steps (login from an add-in) or a different context?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-134986",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-128595",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-133389",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-134988"
+   ],
+   "proposedDefault": "Build option 4, because options 1-3 are faded (parked). Keep the two spreadsheet-window frames as steps 2-3 of the same login journey."
+  },
+  {
+   "q": "Light mode nav bar appears here (2 screens, inside the side nav row) and also as Chat + Artifacts `nav-light` (4 screens). Which is the source of truth?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-126458",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12919-607701"
+   ],
+   "proposedDefault": "Chat + Artifacts `nav-light` stays canonical (already confirmed). Use these two screens only as extra references."
+  }
+ ]
+}

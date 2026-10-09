@@ -1,0 +1,371 @@
+{
+ "_status": "DRAFT 2026-10-09 — inferred from layout",
+ "page": {
+  "id": "6565:313262",
+  "name": "All Empty states & Dropdowns"
+ },
+ "notes": [
+  "Two sections side by side: 'Empty/ default states' (left, page x 210) and 'Dropdowns' (right, page x 7695). Read left section first.",
+  "Small 84x90 badge frames reading 'L1' / 'L2' sit above the empty-state screens; recorded as labels. They appear to mean nav level (L1 = top-level landing, L2 = page nested inside a project).",
+  "Text 'Check main flow' above a dropdown frame means the frame is an instance of a Chat + Artifacts frame (see crossPage).",
+  "'contents' is our reading of the open menu or popover layer names, not a designer label.",
+  "No frame on this page has reduced opacity."
+ ],
+ "sections": [
+  {
+   "id": "11933:741607",
+   "name": "Empty/ default states",
+   "children": 31
+  },
+  {
+   "id": "9271:655350",
+   "name": "Dropdowns",
+   "children": 36
+  }
+ ],
+ "journeys": [
+  {
+   "id": "es-desktop-default-cta",
+   "title": "Desktop default CTA (empty state in the browser frame)",
+   "section": "11933:741607",
+   "card": "15221:1330031",
+   "frames": [
+    "13807:181877"
+   ],
+   "contents": {
+    "13807:181877": "one 'ES Empty State' layer, no Main_nav"
+   }
+  },
+  {
+   "id": "es-artifacts",
+   "title": "Artifacts empty state",
+   "section": "11933:741607",
+   "card": "6565:419177",
+   "frames": [
+    "6565:419134",
+    "6565:420865"
+   ],
+   "labels": {
+    "6565:419134": "L1",
+    "6565:420865": "L1"
+   }
+  },
+  {
+   "id": "es-projects",
+   "title": "Projects empty state",
+   "section": "11933:741607",
+   "card": "6565:491393",
+   "frames": [
+    "6565:492532"
+   ],
+   "labels": {
+    "6565:492532": "L1"
+   }
+  },
+  {
+   "id": "es-project-chat",
+   "title": "Project - Chat empty state",
+   "section": "11933:741607",
+   "card": "6565:493670",
+   "frames": [
+    "6565:493676"
+   ],
+   "labels": {
+    "6565:493676": "L2"
+   },
+   "contents": {
+    "6565:493676": "ES Breadcrumb + page body"
+   }
+  },
+  {
+   "id": "es-project-shared-chats",
+   "title": "Project - Shared Chats empty state",
+   "section": "11933:741607",
+   "card": "6565:493672",
+   "frames": [
+    "6565:493733"
+   ],
+   "labels": {
+    "6565:493733": "L2"
+   },
+   "contents": {
+    "6565:493733": "ES Breadcrumb + page body"
+   }
+  },
+  {
+   "id": "es-project-routines",
+   "title": "Project - Routines empty state",
+   "section": "11933:741607",
+   "card": "6565:493674",
+   "frames": [
+    "6565:493716"
+   ],
+   "labels": {
+    "6565:493716": "L2"
+   },
+   "contents": {
+    "6565:493716": "ES Breadcrumb + page body"
+   }
+  },
+  {
+   "id": "es-agents",
+   "title": "Agents empty state",
+   "section": "11933:741607",
+   "card": "6599:531689",
+   "frames": [
+    "6599:531692",
+    "6632:533338",
+    "6632:533395"
+   ],
+   "labels": {
+    "6599:531692": "L1",
+    "6632:533338": "L1",
+    "6632:533395": "L1"
+   }
+  },
+  {
+   "id": "es-routines",
+   "title": "Routines empty state",
+   "section": "11933:741607",
+   "card": "6565:418200",
+   "frames": [
+    "6565:410734"
+   ],
+   "labels": {
+    "6565:410734": "L2"
+   },
+   "contents": {
+    "6565:410734": "two Cursor layers (hover on the CTA)"
+   }
+  },
+  {
+   "id": "dd-nav",
+   "title": "Drop-downs: Nav",
+   "section": "9271:655350",
+   "card": "9256:477311",
+   "frames": [
+    "9256:477323"
+   ],
+   "labels": {
+    "9256:477323": "Check main flow"
+   },
+   "contents": {
+    "9256:477323": "menu: Run Now / Edit / Add to Project / Keyboard shortcuts (instance of 9256:477318 on the Search + Agent + Login page)"
+   }
+  },
+  {
+   "id": "dd-chat-history",
+   "title": "Chat History: Drop-downs",
+   "section": "9271:655350",
+   "card": "9271:534671",
+   "frames": [
+    "9271:534673",
+    "9271:534832"
+   ]
+  },
+  {
+   "id": "dd-chat-journey",
+   "title": "Drop-downs: Chat Journey",
+   "section": "9271:655350",
+   "card": "9217:450855",
+   "frames": [
+    "9256:465529",
+    "9256:466693",
+    "9256:468124"
+   ],
+   "labels": {
+    "9256:465529": "Check main flow",
+    "9256:466693": "Check main flow"
+   },
+   "contents": {
+    "9256:465529": "instance of Chat + Artifacts 9256:465524 (input-large step 2)",
+    "9256:466693": "instance of Chat + Artifacts 9256:466688 (chat-artifact step 3)",
+    "9256:468124": "instance of Chat + Artifacts 9256:468119 (add-users step 2, share)"
+   }
+  },
+  {
+   "id": "dd-artifact",
+   "title": "Drop-downs: Artifact",
+   "section": "9271:655350",
+   "card": "9229:460505",
+   "frames": [
+    "9256:462657",
+    "9256:473477"
+   ],
+   "labels": {
+    "9256:473477": "Check main flow"
+   },
+   "contents": {
+    "9256:462657": "tall artifact page (1380 high) holding the artifact menus",
+    "9256:473477": "instance of Chat + Artifacts 9256:468119 (share)"
+   }
+  },
+  {
+   "id": "dd-routine",
+   "title": "Drop-downs: Routine",
+   "section": "9271:655350",
+   "card": "9256:474642",
+   "frames": [
+    "9256:474650",
+    "9256:475979",
+    "9256:483232",
+    "9256:484533"
+   ],
+   "contents": {
+    "9256:474650": "create popover: Create with AI / Create manually",
+    "9256:475979": "routine row menu: Edit / Pause / Run now / Share",
+    "9256:483232": "routine page (Page frame), no menu layer at top level",
+    "9256:484533": "run menu: Open the session / Run it again / Pause / Edit with AI"
+   }
+  },
+  {
+   "id": "dd-projects",
+   "title": "Drop-downs: Projects (option 1)",
+   "section": "9271:655350",
+   "card": "9269:523680",
+   "frames": [
+    "9269:524880",
+    "9269:527950",
+    "9269:528038",
+    "9271:530740",
+    "9271:530761",
+    "9271:530700"
+   ],
+   "labels": {
+    "9269:524880": "option 1"
+   },
+   "contents": {
+    "9269:524880": "cursor only, no menu layer at top level",
+    "9269:527950": "menu with user search (Olivia Rhye, Search) then Pin / Mark as unread",
+    "9269:528038": "same layers as the previous step (user search menu), a second state",
+    "9271:530740": "create popover: Create with AI / Create manually",
+    "9271:530761": "chat row menu: Pin / Rename / Add to Project / Keyboard shortcuts",
+    "9271:530700": "page with no menu layer, 970 high"
+   }
+  },
+  {
+   "id": "dd-settings",
+   "title": "Drop-downs: Settings (option 2a)",
+   "section": "9271:655350",
+   "card": "9271:625787",
+   "frames": [
+    "9271:625183"
+   ],
+   "labels": {
+    "9271:625183": "option 2a"
+   },
+   "contents": {
+    "9271:625183": "full-screen settings modal, connection menu: Re-authenticate / Remove Connection / Keyboard shortcuts"
+   }
+  }
+ ],
+ "ignoredOptions": [
+  {
+   "id": "9269:524909",
+   "label": "option 2",
+   "journey": "dd-projects",
+   "chosen": "9269:524880",
+   "note": "Shows the project menu open: Pin / Edit Project / Share Project / Keyboard shortcuts"
+  },
+  {
+   "id": "9271:625340",
+   "label": "option 2b",
+   "journey": "dd-settings",
+   "chosen": "9271:625183",
+   "note": "No 'option 1' exists in this row; 2a is treated as the primary"
+  }
+ ],
+ "loose": [
+  {
+   "id": "14977:393657",
+   "name": "Screenshot 2026-10-08 at 11.06.29 AM 1",
+   "size": "598x455",
+   "guess": "pasted reference screenshot (image rectangle) sitting above the Empty states section, outside any row"
+  },
+  {
+   "id": "6565:418198",
+   "name": "-",
+   "size": "6x16",
+   "guess": "stray text layer '-' inside the Routines row"
+  }
+ ],
+ "crossPage": [
+  {
+   "frame": "9256:465529",
+   "note": "Chat + Artifacts `input-large` step 2 (instance of 9256:465524)"
+  },
+  {
+   "frame": "9256:466693",
+   "note": "Chat + Artifacts `chat-artifact` step 3 (instance of 9256:466688)"
+  },
+  {
+   "frame": "9256:468124",
+   "note": "Chat + Artifacts `add-users` step 2 'share' (instance of 9256:468119)"
+  },
+  {
+   "frame": "9256:473477",
+   "note": "Chat + Artifacts `add-users` step 2 'share' (instance of 9256:468119); also relevant to `share-artifact`"
+  },
+  {
+   "frame": "9256:477323",
+   "note": "Nav dropdown; instance of 9256:477318 which lives on the Search + Agent + Login page. Related to Chat + Artifacts `nav-light` / `nav-behaviour`"
+  },
+  {
+   "frame": "6565:419134",
+   "note": "Artifacts empty state; Chat + Artifacts `artifacts-landing` starts with an empty state (3780:177209). Check for duplication"
+  },
+  {
+   "frame": "6565:492532",
+   "note": "Projects empty state; feeds the Projects landing template (BUILD-PLAN template 7) Also drawn on Projects + Chat History: projects-landing step 1 (3415:323703, COMPONENT) and project-new step 1 (its instance 3415:323706). Added in the overview pass 2026-10-09."
+  },
+  {
+   "frame": "6565:493676",
+   "note": "Project page tabs (Chat / Shared Chats / Routines) empty states; feed the Project page template (BUILD-PLAN template 8) Also drawn on Projects + Chat History: Chats tab empty in project-chat step 1 (901:212182) and project-new step 3 (14975:59510); Routines tab empty in project-routines step 1 (1489:269074). Added in the overview pass 2026-10-09."
+  },
+  {
+   "frame": "6565:410734",
+   "note": "Routines empty state; feeds the Routines landing stub (BUILD-PLAN template 9) Also drawn on Routines: routines-landing step 1 (875:162202, 'First time user will see this Routine landing page'). Added in the overview pass 2026-10-09."
+  },
+  {
+   "frame": "6599:531692",
+   "note": "Agents empty state. No Agents page is mapped; the agents page appears only as Search + Agent + Login side-nav step 3 (13766:125236, 'agents page selected') and as the loose 'Choose your agents' onboarding modal on Settings (9893:422543). Added in the overview pass 2026-10-09."
+  },
+  {
+   "frame": "9271:534673",
+   "note": "Chat History menus; the home flow is Projects + Chat History chat-history (row menu 4853:244291: Pin / Rename / Add to Project / Delete; sort dropdown 3117:187519). Added in the overview pass 2026-10-09."
+  },
+  {
+   "frame": "9256:474650",
+   "note": "Routine menus; the home flows are on Routines: create popover (create-ai-* / create-manually), row kebab menu (routines-landing step 3, 11657:493405) and run menu (scheduled-sessions). Added in the overview pass 2026-10-09."
+  },
+  {
+   "frame": "9269:524880",
+   "note": "Project menus; the home flow is Projects + Chat History project-menu-admin (901:212387: Edit Project Details / Delete) and project-menu-non-admin (901:212281: Leave Project / Log out). The chat row menu here (9271:530761) ends in 'Keyboard shortcuts' where chat-history 4853:244291 ends in 'Delete'. See MAP-OVERVIEW doubts. Added in the overview pass 2026-10-09."
+  },
+  {
+   "frame": "9271:625183",
+   "note": "Settings connection menu (Re-authenticate / Remove Connection / Keyboard shortcuts); the Settings page's own connector menu is 11750:515608 (Forget / Reconnect) in connectors-disruption. See MAP-OVERVIEW doubts. Added in the overview pass 2026-10-09."
+  }
+ ],
+ "doubts": [
+  {
+   "q": "Projects dropdowns row: the 'option 1' frame shows only a cursor with no menu open, while the project menu (Pin / Edit Project / Share Project / Keyboard shortcuts) appears only in 'option 2'. Do the five frames after the two options continue option 1, or are they unrelated project-page menus laid side by side?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9269-523680",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9269-524880",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9269-524909",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9269-527950"
+   ],
+   "proposedDefault": "Keep option 1 as step 1 (hover trigger). Treat the next five frames as separate menu states on the project page (share picker, create-routine popover, chat row menu), mapped left to right. Option 2's open menu stays ignored."
+  },
+  {
+   "q": "Settings dropdowns row has only 'option 2a' and 'option 2b' (no option 1). Which one is the design to build?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9271-625787",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9271-625183",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9271-625340"
+   ],
+   "proposedDefault": "Build option 2a (the leftmost) and record 2b as ignored, in line with the 'first option only' rule."
+  }
+ ]
+}

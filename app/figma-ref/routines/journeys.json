@@ -1,0 +1,469 @@
+{
+ "_status": "DRAFT 2026-10-09 — inferred from layout",
+ "page": {
+  "id": "0:1",
+  "name": "Routines"
+ },
+ "sections": [
+  {
+   "id": "334:112671",
+   "name": "Routines",
+   "children": 108
+  }
+ ],
+ "notes": [
+  "One section holds the whole page. Five nodes sit outside it, far to the right (x 46775-50287); they are listed under 'loose'.",
+  "Several title cards are copies with stale layer names ('Create Routine manually', 'View & edit one Routine'); the card TEXT is used as the title.",
+  "Rails differ across rows: some frames use the 280px expanded rail, newer ones the 56px collapsed rail. Not normalised here.",
+  "'joinsAt' on a journey means its last frame hands over to that frame of another journey (drawn as an arrow in the file).",
+  "'stepNotes' are this mapper's observations, not designer labels."
+ ],
+ "journeys": [
+  {
+   "id": "routines-landing",
+   "title": "Routines landing (first-time user, second-time user, row menu open)",
+   "section": "334:112671",
+   "card": "334:112690",
+   "cardText": "Routine",
+   "frames": [
+    "875:162202",
+    "334:112714",
+    "11657:493405"
+   ],
+   "labels": {
+    "875:162202": "First time user will see this Routine landing page",
+    "334:112714": "Second time user will see this"
+   },
+   "stepNotes": {
+    "875:162202": "component; collapsed 56px rail",
+    "334:112714": "280px rail; carries a 340x220 popover (Frame 2147265891). A 20%-opacity designer note sits above it: \"errors in routine? - indication?\" (5135:479919)",
+    "11657:493405": "component, no label; 280px rail + row kebab Dropdown Menu open. It is the main component of Chat + Artifacts pinning step 03 (instance 11657:493696)"
+   },
+   "crossPage": [
+    "11657:493405 is the main component of Chat + Artifacts 'pinning' step 03 (11657:493696, route #/routines?menu=row:...)"
+   ]
+  },
+  {
+   "id": "create-ai-first-time",
+   "title": "Create Routine with AI (first-time user's AI journey)",
+   "section": "334:112671",
+   "card": "875:163580",
+   "cardText": "Create Routine with AI",
+   "frames": [
+    "967:349204",
+    "967:349249",
+    "875:165388",
+    "875:165544",
+    "875:165686",
+    "905:281421",
+    "1412:240483",
+    "905:282842",
+    "905:300224",
+    "905:301453",
+    "875:166994",
+    "875:167928",
+    "13961:434165",
+    "875:167421",
+    "1704:492669"
+   ],
+   "labels": {
+    "967:349204": "First time user ‘s AI journey",
+    "1412:240483": "choosing if the routine belongs to a project"
+   },
+   "stepNotes": {
+    "875:163580": "mid-row title card (1499 wide) in the same row as the landing",
+    "967:349249": "Arrow 1 (967:351898) runs from this frame's right edge down to the left edge of the next frame (875:165388), which sits one row lower (y 1192). Steps 3 onward are that lower row.",
+    "875:165388": "first frame of the long lower row (y 1192); the rest of the steps run left to right on that row",
+    "13961:433538": "Sidepane header (398x58) above steps 11/167",
+    "13961:433523": "Header (398x40) above steps 11/167",
+    "13961:433524": "Title Stack (374x40) above steps 11/167",
+    "13961:433539": "Content (374x36) above steps 11/167",
+    "2875:179258": "\"139\": same layout (56 rail + Page frame), stacked directly above"
+   },
+   "statesAbove": {
+    "875:165388": [
+     "2875:179258"
+    ]
+   },
+   "components": [
+    "13961:433538",
+    "13961:433523",
+    "13961:433524",
+    "13961:433539"
+   ],
+   "crossPage": [
+    "1412:240483 (routine belongs to a project) touches Projects"
+   ]
+  },
+  {
+   "id": "create-ai-second-time",
+   "title": "Create Routine with AI (second-time user's AI journey)",
+   "section": "334:112671",
+   "card": null,
+   "frames": [
+    "905:297062",
+    "905:297092"
+   ],
+   "joinsAt": "875:165388",
+   "labels": {
+    "905:297062": "Second time user‘s AI journey"
+   },
+   "stepNotes": {
+    "905:297062": "row has no title card of its own; it sits directly under the first-time row, under the same 'Create Routine with AI' card column",
+    "905:297092": "Arrow 2 (967:351899) leaves this frame's right edge but its head lands on empty canvas at about (11537, 2880); see doubt 1"
+   }
+  },
+  {
+   "id": "side-nav",
+   "title": "Side nav (hover states of items and micro items, item menu)",
+   "section": "334:112671",
+   "card": "1440:369045",
+   "cardText": "Side nav",
+   "frames": [
+    "1440:365634",
+    "1440:363167",
+    "1440:364269"
+   ],
+   "labels": {
+    "1440:365634": "hover state of items",
+    "1440:363167": "hover state of micro items"
+   },
+   "stepNotes": {
+    "1440:365634": "Main_nav instance only (280x900), not a full screen",
+    "1440:364269": "Main_nav instance; the Dropdown Menu 11406:633924 (180x141) sits just right of it, with a cursor",
+    "11406:633924": "Dropdown Menu opened from the third nav state"
+   },
+   "components": [
+    "11406:633924"
+   ],
+   "crossPage": [
+    "Duplicates the nav rail states mapped in Chat + Artifacts 'nav-light' and 'nav-behaviour'"
+   ]
+  },
+  {
+   "id": "create-manually",
+   "title": "Create Routine manually",
+   "section": "334:112671",
+   "card": "895:186816",
+   "cardText": "Create Routine manually",
+   "frames": [
+    "895:188495",
+    "11979:551199",
+    "11979:561118",
+    "905:269417",
+    "905:271059"
+   ],
+   "labels": {
+    "11979:561118": "Check Header if using this"
+   },
+   "stepNotes": {
+    "895:188495": "\"14\": 280px rail + editor (1160) + two overlays (340x220, 468x362). Only frame on the card's own row.",
+    "11979:551199": "\"145\" (1440x1145, 56 rail): first full screen of the untitled sub-row under this card (Group 1739333097, 12860:497672); see doubt 2",
+    "11979:561118": "Modal Full Screen (1440x800) holding an 800x700 modal titled 'Instructions'",
+    "905:269417": "\"35\": screen + Modal Full Screen titled 'Summary'",
+    "905:271059": "\"36\": screen + Modal Full Screen titled 'Summary' (second state)",
+    "11865:540738": "Side Panel (Agents / Vibe Hacking Agent / Connect a Tool) — 'updated'",
+    "895:225068": "Side Panel (trigger: New email, Outlook)",
+    "11875:138966": "Panel (Agents / Connect a Tool) — 'updated'",
+    "1421:311764": "Side Panel (trigger: Weekly)",
+    "1710:497789": "Side Panel (trigger: Weekly, second state)",
+    "11875:140539": "Panel (Agents / Connect a Tool) — 'Updated'",
+    "11875:140603": "Side panel footer (400x52, under the previous panel)",
+    "11875:141718": "Panel (Agents / Connect a Tool) — 'Updated'",
+    "895:226426": "Side Panel (trigger: New Email, Gmail)",
+    "11979:548215": "Side Panel (Agents / Connect a Tool) — 'updated'",
+    "11979:548844": "Side Panel (Agents / Connect a Tool) — 'updated'",
+    "11979:549189": "Side Panel (Agents / Connect a Tool) — 'updated'; tool-row states annotated beside it: hover, connected not used, connected and used, not connected",
+    "12860:490015": "\"161\" (30% opacity, 56 rail): newer layout of the same screen, parked"
+   },
+   "alternatesBelow": {
+    "895:188495": [
+     "12860:490015"
+    ]
+   },
+   "dimmedFrames": [
+    "12860:490015"
+   ],
+   "components": [
+    "11865:540738",
+    "895:225068",
+    "11875:138966",
+    "1421:311764",
+    "1710:497789",
+    "11875:140539",
+    "11875:140603",
+    "11875:141718",
+    "895:226426",
+    "11979:548215",
+    "11979:548844",
+    "11979:549189"
+   ]
+  },
+  {
+   "id": "routine-to-project",
+   "title": "Make moving routines to projects more intuitive (option 1 for add to project)",
+   "section": "334:112671",
+   "card": "12860:497673",
+   "cardText": "Make moving routines to projects more intuitive",
+   "frames": [
+    "12033:564274",
+    "12860:487289",
+    "12860:490006"
+   ],
+   "labels": {
+    "12033:564274": "option 1 for add to project",
+    "12860:490006": "Add a trigger"
+   },
+   "stepNotes": {
+    "12860:497673": "mid-row title card (1499 wide) on the 'Create Routine manually' row; layer is named 'Create Routine manually' but its text reads 'Make moving routines to projects more intuitive'",
+    "12860:490006": "component \"160\"; a cursor (12057:581156) sits on it"
+   },
+   "crossPage": [
+    "Routine-to-project assignment touches Projects; option 2 adds pin/unpin (Chat + Artifacts 'pinning')"
+   ]
+  },
+  {
+   "id": "templates",
+   "title": "Create Routine from templates",
+   "section": "334:112671",
+   "card": "334:112693",
+   "cardText": "Create Routine from templates",
+   "frames": [
+    "448:232834",
+    "334:114637",
+    "905:276599",
+    "2599:419069",
+    "929:341275"
+   ],
+   "labels": {
+    "2599:419069": "Loading Routine Animation 🔗"
+   },
+   "stepNotes": {
+    "2599:419069": "the label text (2633:421801) is not above this frame: it sits left of the manual-creation sub-row (x 5595, y 4620), and its hyperlink opens the prototype at this frame",
+    "929:341275": "\"4dashboard7\": the created routine's dashboard"
+   }
+  },
+  {
+   "id": "view-edit",
+   "title": "View & edit one Routine",
+   "section": "334:112671",
+   "card": "334:112695",
+   "cardText": "View & edit one Routine",
+   "frames": [
+    "334:112794",
+    "1196:217178",
+    "1174:212998",
+    "1174:209018",
+    "3413:112115",
+    "1174:207798",
+    "1196:223606",
+    "1196:223735",
+    "1196:225138"
+   ],
+   "labels": {
+    "1174:212998": "On click",
+    "1174:209018": "Edit Routine details / View Instructions"
+   },
+   "stepNotes": {
+    "1196:217178": "component 'Dashboard'",
+    "1174:209018": "1440x992 (taller). 'Edit Routine details' is above the frame; 'View Instructions' (2633:421802) is BELOW it (see doubt 4)",
+    "1174:212998": "caption 'On click' (2633:424284) is BELOW the frame (see doubt 4)",
+    "1174:201430": "Routine card (320x1116 component) between steps 1 and 2"
+   },
+   "components": [
+    "1174:201430"
+   ]
+  },
+  {
+   "id": "read-more",
+   "title": "Read more behavior (instructions)",
+   "section": "334:112671",
+   "card": "6190:428618",
+   "cardText": "Read more behavior",
+   "frames": [
+    "2633:421805",
+    "2599:392642",
+    "2599:392653"
+   ],
+   "labels": {},
+   "stepNotes": {
+    "6190:428618": "layer is named 'View & edit one Routine' but its text reads 'Read more behavior'",
+    "2633:421805": "instance 'Dashboard'"
+   }
+  },
+  {
+   "id": "scheduled-sessions",
+   "title": "Scheduled sessions view (runs of a routine)",
+   "section": "334:112671",
+   "card": "1608:376247",
+   "cardText": "Scheduled sessions view",
+   "frames": [
+    "1588:225613",
+    "1592:358129",
+    "1596:369039",
+    "1596:364052",
+    "1596:367279",
+    "1608:373478",
+    "1608:374610"
+   ],
+   "labels": {
+    "1588:225613": "Landing screen : No runs in a session",
+    "1596:364052": "Run View: Only one Run",
+    "1596:367279": "Error in run",
+    "1608:374610": "Run View: More thn 1 Run / Switch Run from the right panel.",
+    "8486:545082": "Max width of header text"
+   },
+   "stepNotes": {
+    "1608:376247": "layer is named 'Create Routine manually' but its text reads 'Scheduled sessions view'",
+    "1596:364052": "1440x1109: 56 rail + page (984) + Copilot frame (400)",
+    "1596:367279": "1440x1109. The label text 1620:378625 sits right-aligned over the previous frame, ending just before this one (see doubt 3)",
+    "8486:545082": "\"140\": long header title (max width)"
+   },
+   "alternatesBelow": {
+    "1588:225613": [
+     "8486:545082"
+    ]
+   }
+  },
+  {
+   "id": "help-text",
+   "title": "Routine Help Text",
+   "section": "334:112671",
+   "card": "14088:847083",
+   "cardText": "Routine Help Text",
+   "frames": [
+    "14088:843784",
+    "14088:842289",
+    "14088:845275"
+   ],
+   "labels": {},
+   "stepNotes": {
+    "14088:843784": "layer names run 169, 168, 170 left to right; mapped in x order"
+   }
+  }
+ ],
+ "ignoredOptions": [
+  {
+   "journey": "routine-to-project",
+   "title": "option 2 (option 2 for add to project + pin/unpin)",
+   "card": "12860:497676",
+   "frames": [
+    "12860:494090",
+    "12860:497832",
+    "12860:499080"
+   ],
+   "components": [
+    "12860:498921"
+   ],
+   "labels": {
+    "12860:494090": "option 2 for add to project + pin/unpin"
+   }
+  }
+ ],
+ "crossPage": [
+  "routines-landing 11657:493405 = main component of Chat + Artifacts 'pinning' step 03 (11657:493696). BUILD-PLAN item 61 'RoutinesLanding (stub)' should be built from this row.",
+  "side-nav duplicates Chat + Artifacts 'nav-light' / 'nav-behaviour' rail hover states.",
+  "routine-to-project option 2 and create-ai step 106 overlap Projects and Chat + Artifacts 'pinning'.",
+  "Chat + Artifacts 'publish-artifact' uses a chat called 'new-routine' (#/chat/new-routine/...) — the chat-side entry to creating a routine; this page's 'create-ai-*' journeys are the routine-side flow."
+ ],
+ "loose": [
+  {
+   "id": "1161:134508",
+   "name": "Auto-inbox",
+   "size": "1710x951",
+   "guess": "outside the section, far right: an older wide (1710) Auto-inbox concept screen; reference only"
+  },
+  {
+   "id": "1161:135508",
+   "name": "Panel",
+   "size": "400x900",
+   "guess": "side panel next to Auto-inbox, same exploration"
+  },
+  {
+   "id": "1174:202729",
+   "name": "Frame 2147266642",
+   "size": "280x350",
+   "guess": "small menu/popover piece of the Auto-inbox exploration"
+  },
+  {
+   "id": "1161:139324",
+   "name": "image 27",
+   "size": "898x693",
+   "guess": "reference image pasted beside Auto-inbox"
+  },
+  {
+   "id": "366:159880",
+   "name": "explore-ai-agents",
+   "size": "20x20",
+   "guess": "hidden stray icon instance"
+  },
+  {
+   "id": "1537:344371",
+   "name": "Screenshot 2026-08-28 at 8.02.06 PM 1",
+   "size": "1048x550",
+   "guess": "reference screenshot above create-ai step 8 (905:300224)"
+  },
+  {
+   "id": "13959:433114",
+   "name": "Screenshot 2026-10-05 at 11.36.38 AM 1",
+   "size": "390x891",
+   "guess": "reference screenshot of a side pane, above create-ai steps 167/12"
+  },
+  {
+   "id": "1440:367384",
+   "name": "Cursor",
+   "size": "20x20",
+   "guess": "stray cursor between the side-nav row and the AI rows"
+  },
+  {
+   "id": "12176:712294",
+   "name": "Cursor",
+   "size": "20x20",
+   "guess": "stray cursor above the manual-creation sub-row"
+  }
+ ],
+ "doubts": [
+  {
+   "q": "The second-time AI journey (905:297062 -> 905:297092) has no title card, and its Arrow 2 (967:351899) points at empty canvas around (11537, 2880) instead of a frame. Arrow 1 from the first-time journey lands on 875:165388. Does the second-time user also continue into 875:165388 and the same long row (3 ... 138)?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=905-297092",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=967-351899",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=967-351898",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=875-165388"
+   ],
+   "proposedDefault": "Yes: second-time journey = 905:297062 -> 905:297092 -> joins create-ai-first-time at 875:165388 and follows it to the end (recorded as joinsAt)."
+  },
+  {
+   "q": "Under the 'Create Routine manually' card there is an untitled group (Group 1739333097, 12860:497672): a 30%-opacity screen '161', 11 side-panel variants marked 'updated', then '145' (1440x1145), an 'Instructions' full-screen modal and two 'Summary' modal screens '35'/'36'. Is this the continuation of 'Create Routine manually', and is '14' (280 rail, not dimmed) or '161' (56 rail, newer, dimmed) the screen to build?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12860-497672",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=895-188495",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12860-490015",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11979-551199",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11979-561118",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=905-269417"
+   ],
+   "proposedDefault": "Treat the group as the rest of create-manually: 14 -> 145 -> Instructions modal -> Summary 35 -> Summary 36; side panels are panel states (components); '161' stays a parked alternate of '14'."
+  },
+  {
+   "q": "In 'Scheduled sessions view' the label 'Error in run' is right-aligned over frame 4 (1596:364052, 'Run View: Only one Run') and ends just before 1596:367279. Which frame is the error state?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1620-378625",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1596-364052",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1596-367279"
+   ],
+   "proposedDefault": "1596:367279 (the next frame, same 1109 height) is the error-in-run state; 1596:364052 is the single-run view."
+  },
+  {
+   "q": "The captions 'On click' and 'View Instructions' sit between the two 'View & edit' rows, aligned with the upper row's columns (1174:212998, 1174:209018), not over any 'Read more behavior' frame. Do they caption the upper row?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=2633-424284",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=2633-421802",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1174-212998",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1174-209018",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6190-428618"
+   ],
+   "proposedDefault": "Yes: they caption the upper-row frames ('On click' under 1174:212998 opens 1174:209018; 'View Instructions' under 1174:209018 leads to 3413:112115 Instructions)."
+  }
+ ]
+}

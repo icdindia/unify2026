@@ -1,0 +1,407 @@
+{
+ "_status": "DRAFT 2026-10-09 — inferred from layout (mapper D). Not yet confirmed with the user.",
+ "page": {
+  "id": "563:116774",
+  "name": "Projects + Chat History"
+ },
+ "sections": [
+  {
+   "id": "1495:272101",
+   "name": "projects",
+   "children": 86
+  },
+  {
+   "id": "5534:215250",
+   "name": "Instructions AI Edit",
+   "children": 21
+  },
+  {
+   "id": "3192:75059",
+   "name": "Chat History",
+   "children": 11
+  }
+ ],
+ "journeys": [
+  {
+   "id": "projects-landing",
+   "title": "Projects",
+   "section": "1495:272101",
+   "card": "901:211600",
+   "frames": [
+    "3415:323703",
+    "11657:386523"
+   ],
+   "labels": {
+    "11657:386523": "option 1"
+   },
+   "notes": {
+    "3415:323703": "COMPONENT. Projects landing, empty state: 'Create a Project' card with New Project button.",
+    "11657:386523": "COMPONENT. Projects landing with list: All / Yours / Shared with you, Search, All Types, Newest, project rows. Cursor in frame. Chat + Artifacts reuses it (11657:386528 is an instance)."
+   }
+  },
+  {
+   "id": "project-new",
+   "title": "Project - New project",
+   "section": "1495:272101",
+   "card": "1504:410744",
+   "frames": [
+    "3415:323706",
+    "901:211683",
+    "14975:59510",
+    "15054:105151"
+   ],
+   "labels": {},
+   "notes": {
+    "3415:323706": "INSTANCE of 3415:323703 (Projects landing, empty).",
+    "901:211683": "Create New Project modal: Project name, 'What are you trying to achieve?', Cancel / Create Project.",
+    "14975:59510": "New project page, Chats tab empty ('No chat history'). Tabs: Chats / Routines / Artifacts / Files / Settings.",
+    "15054:105151": "Same project, Chats tab with the chat list (All / Newest). Hidden dropdown menus and cursor inside the frame."
+   }
+  },
+  {
+   "id": "project-chat",
+   "title": "Project - Chat",
+   "section": "1495:272101",
+   "card": "901:211602",
+   "frames": [
+    "901:212182",
+    "11715:643488",
+    "14045:584747"
+   ],
+   "labels": {
+    "901:212182": "Project - Chat - Empty State",
+    "11715:643488": "Chat list items"
+   },
+   "overlays": {
+    "14045:584747": [
+     "14045:586511 Dropdown Menu (125x72)",
+     "14964:112359 Cursor",
+     "14045:586500 Cursor"
+    ]
+   },
+   "notes": {
+    "901:212182": "Chats tab empty ('No chat history'). Older tab set: Chats / Routines / Artifacts / Context / Settings.",
+    "11715:643488": "COMPONENT. Chats tab with chat list. Three dropdown menus and a cursor are visible in the frame. Tab says 'Context'.",
+    "14045:584747": "INSTANCE of 11715:643488 with the tab renamed 'Files'. A dropdown menu and two cursors sit on top of it at section level. This is the frame already rebuilt as prototypes/project-dashboard (port 4187)."
+   }
+  },
+  {
+   "id": "project-share",
+   "title": "Project - Basic Share Modal",
+   "section": "1495:272101",
+   "card": null,
+   "subOf": "project-chat",
+   "labelNode": "901:213109",
+   "frames": [
+    "901:212791",
+    "901:212820",
+    "901:212850",
+    "901:212896",
+    "901:212941",
+    "901:212970",
+    "901:213000",
+    "901:213043",
+    "901:213075",
+    "2533:429067"
+   ],
+   "labels": {
+    "901:212791": "Project - Basic Share Modal",
+    "901:212820": "User dropdown",
+    "901:212850": "General access dropdown",
+    "901:212896": "General access dropdown",
+    "901:212941": "Everyone at UnifyApps - Dropdown",
+    "901:213000": "Search for a person to invite",
+    "901:213043": "After user selection — Invite box with message",
+    "2533:429067": "Multiple users state"
+   },
+   "notes": {
+    "901:212791": "Share Project modal: Invite people and groups, People with Access (Owner, Can Chat).",
+    "901:212820": "Role dropdown on a member, with cursor: Can Chat / Can Edit / Remove from Project.",
+    "901:212850": "General access control (first of two frames with the same label).",
+    "901:212896": "General access control (second frame with the same label).",
+    "901:212941": "'Everyone at UnifyApps' role dropdown with cursor: Can Chat / Can Edit.",
+    "901:212970": "No label. Same modal with a 'clock' layer. Probably the state after choosing Everyone at UnifyApps.",
+    "901:213000": "Typing in 'Invite people and groups', with a Can Chat role picker.",
+    "901:213043": "Chips (Olivia@untitled.com, Phoenix), Notify people, invite message, Copy Link / Cancel / Invite.",
+    "901:213075": "No label. Invite box with the role dropdown open (Can Chat / Can Edit).",
+    "2533:429067": "Five chips and a typed message."
+   }
+  },
+  {
+   "id": "project-routines",
+   "title": "Project - Routines",
+   "section": "1495:272101",
+   "card": "1504:411219",
+   "frames": [
+    "1489:269074",
+    "14045:583270"
+   ],
+   "labels": {
+    "1489:269074": "Routines - empty state"
+   },
+   "overlays": {
+    "1489:269074": [
+     "14045:586735 Cursor"
+    ]
+   },
+   "notes": {
+    "1489:269074": "Routines tab empty: 'No routines yet', New Routine options (Create with AI, Create Manually, Choose from Templates).",
+    "14045:583270": "Routines tab with a list (Morning brief, What I owe people, Escalation watch...), Create Routine button, costs."
+   }
+  },
+  {
+   "id": "project-settings",
+   "title": "Project - Settings",
+   "section": "1495:272101",
+   "card": "901:211606",
+   "frames": [
+    "901:212550",
+    "14045:589425",
+    "14045:589504",
+    "1504:416167",
+    "14045:590921",
+    "1504:414571",
+    "1504:421567",
+    "14045:590970",
+    "1504:429675"
+   ],
+   "labels": {
+    "901:212550": "Settings - Empty state",
+    "14045:589425": "Add Project Memory",
+    "14045:589504": "Add Project Instructions",
+    "1504:416167": "Adding context file",
+    "1504:414571": "Context Files - Syncing & list view",
+    "1504:421567": "Add Context Files - Dropdown",
+    "14045:590970": "Add text content - Model",
+    "1504:429675": "Syncing file"
+   },
+   "notes": {
+    "901:212550": "Settings tab empty: Memory, Instructions, Context Files (Click to upload / drag and drop, Add Text Input, Add Google Drive).",
+    "14045:589425": "GROUP: 25% black scrim + 'Project Memory' modal (14045:589427, 600x246). No screen under it: it overlays the previous step.",
+    "14045:589504": "GROUP: scrim + 'Set Project Instructions' modal (14045:589544, 600x454). Plain version, no AI 'Edit' button. See the Instructions AI Edit journey.",
+    "1504:416167": "1440x970. Settings filled: Memory ('Updated 8 hrs ago'), Instructions text, Context Files upload zone.",
+    "14045:590921": "No label. 'image 171' (882x450, image fill) on a 25% scrim rectangle (14045:590920). Probably the OS file picker screenshot between choosing a file and the sync list.",
+    "1504:414571": "1440x970. '3 files added' list, one Syncing.",
+    "1504:421567": "1440x970. Add menu open: Add photos & files / Add text content / Add from Google Drive / Log out.",
+    "14045:590970": "GROUP: scrim + 'Add Text Content' modal (14045:590972, 600x338): Title, Content, Cancel / Add Content.",
+    "1504:429675": "1440x1044. List with new file Syncing, others Complete."
+   },
+   "components": [
+    "12730:607105",
+    "12730:607797"
+   ],
+   "componentNotes": {
+    "12730:607105": "Frame 760x588: File Upload Unit ('3 files added', Syncing / Complete rows). The text 12730:607360 beside it lists the supported file types (pdf, csv, xlsx, pptx, docx, json, md, txt, xml, zip, image, video...).",
+    "12730:607797": "Frame 848x283: file-type 'Featured icon' sheet. Three more Featured icon instances (12730:608224, 12730:608225, 12730:608226) sit on top of it."
+   }
+  },
+  {
+   "id": "project-menu-admin",
+   "title": "Dropdowns & Alert — Project dropdown (Admin)",
+   "section": "1495:272101",
+   "card": "901:211608",
+   "frames": [
+    "901:212387",
+    "12278:515018"
+   ],
+   "labels": {
+    "901:212387": "Project - Dropdown (Admin)"
+   },
+   "notes": {
+    "901:212387": "Header menu open with cursor: Edit Project Details / Delete.",
+    "12278:515018": "INSTANCE 'Modal Unit' (360x138) 'Delete Project' (Cancel / Delete) on a 25% scrim rectangle 901:212493 (1453x900). No screen under it: it overlays step 1."
+   }
+  },
+  {
+   "id": "project-menu-non-admin",
+   "title": "Dropdowns & Alert — Project dropdown (Non Admin)",
+   "section": "1495:272101",
+   "card": null,
+   "subOf": "project-menu-admin",
+   "labelNode": "901:213119",
+   "frames": [
+    "901:212281",
+    "12278:515047"
+   ],
+   "labels": {
+    "901:212281": "Project - Dropdown (Non Admin)"
+   },
+   "notes": {
+    "901:212281": "Header menu open with cursor: Leave Project / Log out. 'Log out' is probably a component default left in (see Notes).",
+    "12278:515047": "INSTANCE 'Modal Unit' 'Leave Project' (Cancel / Leave) on a scrim rectangle 901:212547."
+   }
+  },
+  {
+   "id": "project-tabs-new",
+   "title": "Routine, Project, Artifacts & New Addition",
+   "section": "1495:272101",
+   "card": "12085:590623",
+   "frames": [
+    "12085:590629",
+    "12097:592297",
+    "12183:712603"
+   ],
+   "labels": {},
+   "notes": {
+    "12085:590629": "Artifacts tab empty: 'Create an Artifact', 'You haven't created or moved any...'. Tab still says 'Context'.",
+    "12097:592297": "Artifacts tab with list (All Types / Newest): Overview brief, Next steps..., types Document / PDF / Application / Presentation.",
+    "12183:712603": "Files tab with list (All / Newest, Upload File): name, size, owner, date."
+   }
+  },
+  {
+   "id": "instructions-ai-edit",
+   "title": "Project - Settings Instructions AI Edit",
+   "section": "5534:215250",
+   "card": "5534:215248",
+   "frames": [
+    "5534:200639",
+    "5534:202104",
+    "5534:203904",
+    "5534:205318",
+    "5534:215253",
+    "5603:362807",
+    "5534:206736",
+    "5534:208157",
+    "5534:212128",
+    "5534:288213",
+    "5534:213754"
+   ],
+   "labels": {
+    "5534:215253": "Generating Instructions",
+    "5534:206736": "Editing particular point or text",
+    "5534:213754": "Accept or Undo - Generated content"
+   },
+   "alternatesBelow": {
+    "5534:215253": [
+     "5690:67225",
+     "5690:69335"
+    ]
+   },
+   "alternateLabels": {
+    "5690:67225": "Close interaction"
+   },
+   "notes": {
+    "5534:200639": "Project page with a scrim and the 'Set Project Instructions' modal, empty ('Enter a description...'), with an AI 'Edit' button.",
+    "5534:202104": "Modal filled ('Scope This project covers...'), cursor.",
+    "5534:203904": "Same, cursor (hover state of the AI Edit control).",
+    "5534:205318": "Same, cursor (next state of the AI Edit control).",
+    "5534:215253": "Extra layer 'Frame 2147266852': generating indicator.",
+    "5603:362807": "Generated result in the modal, no cursor. Sits at x=9505 (grid would be 9436).",
+    "5534:206736": "In-box AI edit popover, second variant visible, cursor.",
+    "5534:208157": "In-box AI edit popover, first variant visible, cursor.",
+    "5534:212128": "Same popover, cursor.",
+    "5534:288213": "Same popover, no cursor.",
+    "5534:213754": "Second popover variant (accept / undo), cursor.",
+    "5690:67225": "Sub-row under 'Generating Instructions': popover closed, cursor.",
+    "5690:69335": "Sub-row step 2: modal back at rest, no popover."
+   },
+   "components": [
+    "5534:198966",
+    "5534:286917",
+    "5534:199179"
+   ],
+   "componentNotes": {
+    "5534:198966": "COMPONENT 'Instructions-Ai Edit' (440x159), under the title card.",
+    "5534:286917": "COMPONENT 'In-box Instructions-Ai Edit' (318x183), under the title card.",
+    "5534:199179": "COMPONENT 'Instructions Model' (600x456), under the title card."
+   }
+  },
+  {
+   "id": "chat-history",
+   "title": "Chat History",
+   "section": "3192:75059",
+   "card": "3192:75055",
+   "frames": [
+    "3098:185026",
+    "4853:244291",
+    "3117:187519",
+    "3117:188643",
+    "3117:189734",
+    "3117:191120",
+    "4853:246286",
+    "6877:502572"
+   ],
+   "labels": {
+    "3098:185026": "new chat format with cost",
+    "4853:244291": "new chat format hover"
+   },
+   "notes": {
+    "3098:185026": "History page ('Find all your chat history here'): Search, All / Yours / Shared with you, All Types, Newest; groups Pinned, Chat; cost and time columns.",
+    "4853:244291": "Row hover with the row menu open and a cursor: Pin / Rename / Add to Project / Delete.",
+    "3117:187519": "Sort dropdown open: Most Recent / Oldest First / Most Costly / Least Costly / A to Z / Z to A. List shows a 'Routines' group.",
+    "3117:188643": "List grouped: Pinned, Meetings (cost $0.70, '3h ago').",
+    "3117:189734": "List showing the 'Artifacts' group.",
+    "3117:191120": "List showing the 'To Dos' group.",
+    "4853:246286": "'Modal Full Screen': Rename Session modal (Cancel / Update). Follows Rename in the row menu.",
+    "6877:502572": "Search typed 'Hello', matching results with snippets."
+   }
+  }
+ ],
+ "ignoredOptions": [
+  {
+   "journey": "projects-landing",
+   "option": "option 2",
+   "labelNode": "4830:241562",
+   "frames": [
+    "4767:136175"
+   ],
+   "components": [
+    "4767:240913",
+    "4767:240912"
+   ],
+   "overlays": [
+    "11577:485421 Buttons/Button Neutral (24x24)",
+    "14872:112825 Cursor"
+   ],
+   "note": "Projects landing as a grid of project cards ('Marketing Research · 12 items'). The two 'Projects card' components (299x130) sit above it. A button and cursor overlay sit on the frame."
+  }
+ ],
+ "loose": [
+  {
+   "id": "719:164641",
+   "name": "Files icon",
+   "size": "38x38",
+   "guess": "COMPONENT master for the files icon, parked beside the 'Add Project Instructions' label. Not a screen."
+  },
+  {
+   "id": "12730:607360",
+   "name": "pdf csv xlsx / xls ...",
+   "size": "283x312",
+   "guess": "Text annotation: supported upload file types, beside the File Upload Unit (12730:607105)."
+  }
+ ],
+ "crossPage": [
+  "projects-landing 11657:386523 is the main component of Chat + Artifacts 'pinning' step 11657:386528 (an INSTANCE). Pinning a project from its title lands here.",
+  "project-share (Share Project modal) uses the same share pattern as Chat + Artifacts 'share-artifact' (1819:316164...) and 'add-users'. Build one share modal with a project, artifact or chat subject.",
+  "chat-history 4853:244291 row menu (Pin / Rename / Add to Project / Delete) and the Rename Session modal 4853:246286 match the chat rename in Chat + Artifacts 'chat-artifact' (statesAbove 6405:308388 'edit name') and 'nav-behaviour' (>10 chats). The nav's 'view all chats' probably goes to this History page.",
+  "project-chat 14045:584747 is already rebuilt as prototypes/project-dashboard (port 4187); its main component is 11715:643488.",
+  "project-routines and project-tabs-new overlap with the Routines page (mapped separately in figma-ref/routines): the routine list rows and 'New Routine' options should come from there."
+ ],
+ "doubts": [
+  {
+   "q": "The project tab is called 'Context' in older frames (901:212182, 11715:643488, 1489:269074, 901:212550, 12085:590629) and 'Files' in newer ones (14975:59510, 15054:105151, 14045:584747, 12097:592297, 12183:712603). The Chats-tab empty and list states are drawn twice: in 'Project - Chat' (Context) and at the end of 'Project - New project' (Files). Which tab name and which pair is canonical?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=901-212182",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11715-643488",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14975-59510",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=15054-105151",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12183-712603"
+   ],
+   "proposedDefault": "Use 'Files' everywhere: the newer frames and the Files-tab list (12183:712603) use it. Both rows route to the same Chats-tab screen, with 14975:59510 as empty and 14045:584747 (the built dashboard) as the list. 'Context Files' stays as the heading inside Settings."
+  },
+  {
+   "q": "'Add Project Instructions' in Project - Settings opens a plain instructions modal (14045:589544, Cancel / Save only). The 'Instructions AI Edit' section shows the same modal with an AI 'Edit' control and a generate / edit / accept-undo flow. Is the AI version the one the prototype should open?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-589504",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=5534-200639",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=5534-215248"
+   ],
+   "proposedDefault": "Yes. Step 3 of project-settings opens the AI version (5534:200639), and the instructions-ai-edit journey continues from there. The plain modal is kept as the no-AI fallback."
+  }
+ ],
+ "notesGeneral": [
+  "Modal steps in Project - Settings and Dropdowns & Alert are a 25% black scrim plus a modal floating at section level, with no screen under them. Render each one over the previous step's screen.",
+  "'Log out' appears as the last item in the non-admin project menu (901:212281) and in the Add Context Files menu (1504:421567). It looks like a Dropdown Menu default left in. The project-dashboard UX pass already removed it from the row menu.",
+  "All frames are 1440 wide (some 970 or 1044 tall). Nothing is dimmed or hidden at section level."
+ ]
+}

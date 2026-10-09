@@ -1,0 +1,735 @@
+{
+ "_status": "DRAFT 2026-10-09 — inferred from layout",
+ "page": {
+  "id": "3612:185217",
+  "name": "Settings"
+ },
+ "sections": [
+  {
+   "id": "3612:185218",
+   "name": "Settings",
+   "children": 104
+  }
+ ],
+ "pageLevelOutsideSection": 95,
+ "journeys": [
+  {
+   "id": "connectors",
+   "title": "Settings / Connectors (option 1): All tab, hover, disconnect, Connected, connector detail, Not Connected",
+   "section": "3612:185218",
+   "card": "3612:185220",
+   "frames": [
+    "10647:196002",
+    "10647:198869",
+    "10647:200341",
+    "9918:406291",
+    "10675:205750",
+    "14269:733446",
+    "10675:205820"
+   ],
+   "labels": {
+    "10647:196002": "All / Option 1 (recommended)-",
+    "10647:198869": "Hover state",
+    "10675:205750": "Connected",
+    "10675:205820": "Not Connected"
+   },
+   "components": [
+    "14075:841152"
+   ],
+   "notes": "14075:841152 is a 'Button Tab base' instance placed just above step 1 (tab callout). Reference screenshot 14269:734712 (page level, above the section) matches the connector-detail step 14269:733446."
+  },
+  {
+   "id": "connectors-disruption",
+   "title": "Connectors: on a disruption in connection (option 1, Reconnect)",
+   "section": "3612:185218",
+   "card": "3612:185220",
+   "frames": [
+    "10675:214174",
+    "10675:219889"
+   ],
+   "labels": {
+    "10675:214174": "on a disruption in connection. Option 1"
+   },
+   "components": [
+    "11750:508846",
+    "11750:515608"
+   ],
+   "notes": "Sub-journey of the connectors row (same card). Callouts above step 2: 11750:508846 'Apps' row (Slack, expired) and 11750:515608 'Dropdown Menu' (Forget / Reconnect)."
+  },
+  {
+   "id": "connectors-input-error",
+   "title": "Input box dropdown showing an error in connectors",
+   "section": "3612:185218",
+   "card": "3612:185220",
+   "frames": [
+    "10179:645699",
+    "10179:637832"
+   ],
+   "labels": {
+    "10179:645699": "Input box dropdown- showing error in connectiors"
+   },
+   "notes": "End of the connectors row; switches to the landing page composer '+' menu."
+  },
+  {
+   "id": "connectors-input-cta-parked",
+   "title": "Input box connectors submenu: CTA and scroll-bar variants (parked)",
+   "section": "3612:185218",
+   "card": null,
+   "frames": [
+    "10179:643777",
+    "10179:639707"
+   ],
+   "labels": {
+    "10179:643777": "CTA? Add connectors?",
+    "10179:639707": "Scroll bar"
+   },
+   "dimmed": true,
+   "notes": "30% opacity, far right of the section at the Skills row's height. Same subject as connectors-input-error."
+  },
+  {
+   "id": "skills",
+   "title": "Updated - Settings / Skills",
+   "section": "3612:185218",
+   "card": "14101:122320",
+   "frames": [
+    "14088:847085",
+    "14101:122322",
+    "14112:231868"
+   ],
+   "labels": {},
+   "components": [
+    "14112:233252",
+    "14112:233282"
+   ],
+   "notes": "Frames are named 9, 10, 11. 14112:233252 'AI Agent Tooltip' (skill detail: Meetings, When to use, Benefit) + 14112:233282 Cursor are overlaid on step 3. Reference rectangle 'image 1' 14092:853809 sits above the row."
+  },
+  {
+   "id": "get-app-extensions",
+   "title": "Updated - Settings / Get App & Extensions (option 1)",
+   "section": "3612:185218",
+   "card": "6661:524252",
+   "frames": [
+    "7899:234202"
+   ],
+   "labels": {
+    "7899:234202": "option 1"
+   },
+   "components": [
+    "8288:313091"
+   ],
+   "notes": "Frame named '1'. 8288:313091 'Modal Unit' 960x810 beside it is the full-height modal content (Chrome Extension, Desktop App, Add-In)."
+  },
+  {
+   "id": "memory-enable-import",
+   "title": "Memory: enable, empty state, import from other AI tools (incl. import into an existing set)",
+   "section": "3612:185218",
+   "card": "9934:227128",
+   "frames": [
+    "10136:549616",
+    "10136:576334",
+    "10136:580746",
+    "10136:581902",
+    "10136:583550",
+    "10136:584819",
+    "10136:589218",
+    "12188:130566",
+    "12188:120965",
+    "12188:131793"
+   ],
+   "labels": {
+    "10136:549616": "Enable Memory",
+    "10136:576334": "Empty state",
+    "10136:580746": "Importing memory from other tools",
+    "10136:581902": "Import Modal",
+    "10136:583550": "Input box max height",
+    "12188:120965": "Loading State - Import memory to existing memories set"
+   },
+   "notes": "Card 'Updated - Settings / Memory' (also carries the link https://es-app-base.vercel.app/app#home). Steps 8-10 (12188:*) are a later addition: importing into an existing memory set."
+  },
+  {
+   "id": "memory-individual",
+   "title": "Individual memory: hover, open, edit with AI, rename, add details (row has no title)",
+   "section": "3612:185218",
+   "card": "9934:227128",
+   "frames": [
+    "10112:406770",
+    "9934:230833",
+    "10101:531120",
+    "10204:707457",
+    "10101:535957",
+    "10101:541535",
+    "10093:26893",
+    "10204:698841",
+    "10204:701397"
+   ],
+   "labels": {
+    "9934:230833": "Individual Memory Hover State",
+    "10101:531120": "Edit using AI input box",
+    "10093:26893": "Memory name and summary editing",
+    "10204:698841": "Add more details"
+   },
+   "notes": "Second row under the Memory card; step 1 is the COMPONENT master 'Memory'."
+  },
+  {
+   "id": "memory-edit-ai-list",
+   "title": "Edit using AI input box (from the Memory list), incl. 'No changes were made'",
+   "section": "3612:185218",
+   "card": "9934:227128",
+   "frames": [
+    "10190:645881",
+    "10190:650158",
+    "10190:658333",
+    "11674:411769",
+    "11674:413355",
+    "11674:415443",
+    "11690:440078"
+   ],
+   "labels": {
+    "10190:645881": "Edit using AI input box",
+    "11674:411769": "No changes were made - State"
+   },
+   "components": [
+    "10190:647477",
+    "11674:413348",
+    "11674:417057"
+   ],
+   "notes": "Components are Cursor instances overlaid on steps 1, 4 and 6. Steps 4-7 are the no-op branch."
+  },
+  {
+   "id": "memory-delete",
+   "title": "Delete Memory",
+   "section": "3612:185218",
+   "card": "9934:227128",
+   "frames": [
+    "10228:716958",
+    "10228:779760",
+    "10228:783563"
+   ],
+   "labels": {
+    "10228:716958": "Delete Memory"
+   }
+  },
+  {
+   "id": "memory-disable-pause",
+   "title": "Disable Memory, then Turn off - Pause Memory",
+   "section": "3612:185218",
+   "card": "9934:227128",
+   "frames": [
+    "10136:595120",
+    "10136:598809",
+    "10136:603483"
+   ],
+   "labels": {
+    "10136:595120": "Disable Memory",
+    "10136:598809": "Turn off - Pause Memory"
+   }
+  },
+  {
+   "id": "memory-disable-reset",
+   "title": "Disable Memory, then Turn off - Reset Memory",
+   "section": "3612:185218",
+   "card": "9934:227128",
+   "startsFrom": "10136:595120",
+   "frames": [
+    "10136:633023",
+    "10136:631913"
+   ],
+   "labels": {
+    "10136:633023": "Turn off - Reset Memory"
+   },
+   "notes": "Branch row: its first column is empty, so it starts from step 1 of memory-disable-pause (10136:595120, row above), recorded as startsFrom (the mirror of routines' joinsAt) so that frame stays in exactly one journey. A stepper shows 10136:595120 as step 0."
+  },
+  {
+   "id": "project-memory",
+   "title": "Projects - Settings / Memory",
+   "section": "3612:185218",
+   "card": "10204:714503",
+   "frames": [
+    "10190:662974",
+    "10204:683547",
+    "10204:711988"
+   ],
+   "labels": {}
+  }
+ ],
+ "ignoredOptions": [
+  {
+   "what": "Connectors 'on a disruption in connection. Option 2' (inside the option 1 row)",
+   "label": "10675:218594",
+   "frames": [
+    "10675:217276",
+    "10675:218595"
+   ],
+   "keptInstead": "connectors-disruption"
+  },
+  {
+   "what": "Get App & Extensions option 2",
+   "label": "8288:316144",
+   "frames": [
+    "8288:316145",
+    "8288:320194",
+    "8694:39267"
+   ],
+   "keptInstead": "get-app-extensions",
+   "note": "8288:316145 is frame '8'; 8288:320194 and 8694:39267 are 960x1073 Modal Units."
+  },
+  {
+   "what": "Settings / connectors Option 2 (whole row, 30% opacity, parked ABOVE the section at page level)",
+   "card": "10675:214170",
+   "dimmed": true,
+   "frames": [
+    "10675:204406",
+    "10647:201632",
+    "10647:202929",
+    "10793:673831",
+    "10793:675248",
+    "10793:675280",
+    "10793:675117",
+    "10793:675151",
+    "10793:675180",
+    "10793:675216",
+    "10793:674177",
+    "10793:673865",
+    "10793:674488",
+    "10793:674800"
+   ],
+   "labels": {
+    "14269:733399": "Connected",
+    "14269:733400": "Not Connected",
+    "14269:733397": "on a disruption in connection. Option 1",
+    "14269:733398": "on a disruption in connection. Option 2",
+    "14269:733393": "Input box dropdown- showing error in connectiors",
+    "14269:733394": "CTA? Manage connectors?",
+    "14269:733395": "CTA? Add connectors?",
+    "14269:733396": "Scroll bar"
+   },
+   "keptInstead": "connectors"
+  },
+  {
+   "what": "Settings / connectors Option 3 (30% opacity, page level above the section)",
+   "card": "10675:214172",
+   "dimmed": true,
+   "frames": [
+    "10558:425637",
+    "10675:212860"
+   ],
+   "labels": {
+    "10558:428236": "Option 3- Horizontal three dots (only if 2 or more options are available in dropdown"
+   },
+   "keptInstead": "connectors"
+  },
+  {
+   "what": "Orphan labels 'Option 2- As per prototype' (10647:204239) and 'Hover state' (10675:210847) under the option 1 connectors row, with no frames below them",
+   "frames": [],
+   "note": "Presumably the frames moved into the parked Option 2 row above."
+  }
+ ],
+ "loose": [
+  {
+   "id": "14092:853809",
+   "name": "image 1 (RECTANGLE)",
+   "size": "1745x977",
+   "where": "section, above the Skills row",
+   "guess": "pasted reference screenshot for Skills"
+  },
+  {
+   "id": "14269:734712",
+   "name": "Screenshot 2026-10-06 at 9.53.48 AM 1 (RECTANGLE)",
+   "size": "1051x860",
+   "where": "page, just above the section",
+   "guess": "reference screenshot for the connector detail step 14269:733446"
+  },
+  {
+   "id": "9893:418298",
+   "name": "Dialog - Settings",
+   "size": "960x723",
+   "where": "page, x 36848",
+   "guess": "Settings dialog with nav General / Memory / Connectors / Skills / Get App & Extension, Memory tab (Profile / Topics / Areas)"
+  },
+  {
+   "id": "10136:552529",
+   "name": "Dialog - Settings",
+   "size": "960x723",
+   "where": "page, x 32468",
+   "guess": "same dialog, 'Memory is paused. Nothing was deleted.'"
+  },
+  {
+   "id": "9934:223475",
+   "name": "Container",
+   "size": "740x723",
+   "where": "page",
+   "guess": "memory detail panel (Summary / Details, How the week runs)"
+  },
+  {
+   "id": "9934:223561",
+   "name": "Modal (INSTANCE)",
+   "size": "960x720",
+   "where": "page",
+   "guess": "empty modal shell"
+  },
+  {
+   "id": "9875:81021",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page, x 32151",
+   "guess": "earlier shell (persona Kiran), no dialog: base of the early memory exploration"
+  },
+  {
+   "id": "9875:399115",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early Settings dialog, Memory"
+  },
+  {
+   "id": "9875:399875",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early 'Turn off memory' dialog (Pause / Reset)"
+  },
+  {
+   "id": "9875:400325",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early 'Memory paused' snackbar with Undo"
+  },
+  {
+   "id": "9875:400829",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early memory exploration state"
+  },
+  {
+   "id": "9875:401390",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early memory exploration state"
+  },
+  {
+   "id": "9875:401958",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early memory exploration state"
+  },
+  {
+   "id": "9875:402527",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early memory exploration state"
+  },
+  {
+   "id": "9875:403641",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early memory exploration state"
+  },
+  {
+   "id": "9875:404218",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early 'Import memory to Unify AI' modal"
+  },
+  {
+   "id": "9875:404679",
+   "name": "UnifyApps",
+   "size": "1243x871",
+   "where": "page",
+   "guess": "early Settings dialog, Memory"
+  },
+  {
+   "id": "10136:600391",
+   "name": "Dialog",
+   "size": "480x327",
+   "where": "page",
+   "guess": "'Turn off memory' dialog component (Pause memory / Reset memory)"
+  },
+  {
+   "id": "10101:548623",
+   "name": "Modal Unit",
+   "size": "600x470",
+   "where": "page",
+   "guess": "'Import memory to Unify AI' modal component"
+  },
+  {
+   "id": "10136:602967",
+   "name": "Modal Unit",
+   "size": "600x360",
+   "where": "page",
+   "guess": "'Add Text Content' modal (adds text to a project) - Projects"
+  },
+  {
+   "id": "10101:548663",
+   "name": "Modal Unit",
+   "size": "600x360",
+   "where": "page",
+   "guess": "'Add Text Content' modal, second copy - Projects"
+  },
+  {
+   "id": "10136:603182",
+   "name": "Modal Unit",
+   "size": "440x237",
+   "where": "page",
+   "guess": "'Who can view this?' access picker (workspace / everyone / restricted)"
+  },
+  {
+   "id": "10101:548721",
+   "name": "Modal Unit",
+   "size": "440x456",
+   "where": "page",
+   "guess": "'Share Project' modal (copy link, invite, people with access)"
+  },
+  {
+   "id": "10101:548486",
+   "name": "Frame 2147266828",
+   "size": "560x334",
+   "where": "page",
+   "guess": "time picker (Tonight 9:00pm / Tomorrow 6:00am ...) - routines/reminders"
+  },
+  {
+   "id": "10101:549390",
+   "name": "Screenshot 2026-09-17 at 1.10.55 PM 1 (RECTANGLE)",
+   "size": "447x412",
+   "where": "page",
+   "guess": "reference screenshot"
+  },
+  {
+   "id": "8279:340448",
+   "name": "Frame 2147266900",
+   "size": "334x495",
+   "where": "page",
+   "guess": "Office Add-In side panel (Excel / PowerPoint / Word / Outlook) - reference for Get App & Extensions"
+  },
+  {
+   "id": "9893:422543",
+   "name": "Content",
+   "size": "600x836",
+   "where": "page",
+   "guess": "'Choose your agents. 6 agents enabled, Continue' - onboarding/agents, another page"
+  },
+  {
+   "id": "9890:402740",
+   "name": "Modal Unit",
+   "size": "880x620",
+   "where": "page",
+   "guess": "Templates modal (Customer: Discovery, Apply Template) - another page"
+  },
+  {
+   "id": "9890:402769",
+   "name": "Modal Unit",
+   "size": "880x620",
+   "where": "page",
+   "guess": "Templates modal, new untitled template"
+  },
+  {
+   "id": "9890:402778",
+   "name": "Modal Unit",
+   "size": "880x620",
+   "where": "page",
+   "guess": "Templates modal, 'Customer: Existing'"
+  },
+  {
+   "id": "10647:197504",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page, x 45925",
+   "guess": "older connectors list"
+  },
+  {
+   "id": "9722:237757",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page, x 44355",
+   "guess": "older connectors list"
+  },
+  {
+   "id": "10179:662452",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older connectors list"
+  },
+  {
+   "id": "10179:658309",
+   "name": "Dashboard (20% opacity)",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older 'Hover state option 1-' / 'Vertical three dots'"
+  },
+  {
+   "id": "10179:654093",
+   "name": "Dashboard (20% opacity)",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older hover option 1"
+  },
+  {
+   "id": "10558:426931",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older 'Hover state option 3 (recommended)-' / 'Tertiary button'"
+  },
+  {
+   "id": "10566:428240",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older 'on user disconnecting'"
+  },
+  {
+   "id": "10566:430790",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older 'on a disruption in connection -1'"
+  },
+  {
+   "id": "10566:432125",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older disruption -1, second state"
+  },
+  {
+   "id": "10566:510080",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page",
+   "guess": "older 'on a disruption in connection -2'"
+  },
+  {
+   "id": "10632:82592",
+   "name": "Apps (INSTANCE)",
+   "size": "690x56",
+   "where": "page",
+   "guess": "connector row callout"
+  },
+  {
+   "id": "10339:422881",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "connectors modal, 'hover of option 1'"
+  },
+  {
+   "id": "10339:423531",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "connectors modal, 'option 2- dot to show connected'"
+  },
+  {
+   "id": "10369:424126",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "connectors modal, 'option 3- just disconnected CTA in tertiary'"
+  },
+  {
+   "id": "3612:185364",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "original connectors modal 'option 1'"
+  },
+  {
+   "id": "3612:185519",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "original connectors modal 'option 2' (+ Tooltip 3622:188509)"
+  },
+  {
+   "id": "3622:188176",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "original connectors modal 'option 2a' (+ Dropdown Menu 3622:188331)"
+  },
+  {
+   "id": "3620:187796",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "original connectors modal 'option 2b' (+ Dropdown Menu 3620:187950)"
+  },
+  {
+   "id": "3612:187003",
+   "name": "Modal Unit",
+   "size": "960x720",
+   "where": "page",
+   "guess": "original connectors modal 'option 2c'"
+  },
+  {
+   "id": "6817:609830",
+   "name": "Dashboard",
+   "size": "1440x900",
+   "where": "page, x 52356",
+   "guess": "early connectors list (Connect buttons)"
+  }
+ ],
+ "doubts": [
+  {
+   "q": "The Settings modal's left nav differs between rows. Connectors row: General / Data and memory / Connectors / Skills. Skills and Get App rows: the same plus Get App & Extensions. Memory rows: General / Memory / Models / Skills / Get App & Extensions. The two loose 'Dialog - Settings' frames: General / Memory / Connectors / Skills / Get App & Extension. Which list does the prototype use everywhere?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10647-196002",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14088-847085",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10136-549616",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9893-418298"
+   ],
+   "proposedDefault": "One nav on every Settings screen: General, Memory, Connectors, Skills, Get App & Extensions (the loose consolidated dialog). Memory opens the Memory journeys. Models is dropped because no frame designs it."
+  },
+  {
+   "q": "No frame designs the General tab, or Models, which only appears in the Memory rows. What should Settings show when General is clicked, and which tab opens first?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10136-549616",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9893-418298"
+   ],
+   "proposedDefault": "Settings opens on the tab the journey starts from. General shows a 'not designed yet' stub with the modal chrome, and Models is not shown."
+  },
+  {
+   "q": "Two rows are both labelled 'Edit using AI input box'. One row (10101/10204 ids) edits from inside one memory's detail view and ends with 'Updated Memory / Undo'. The other (10190/11674 ids, newer) edits from the Memory list input and adds the 'No changes were made' branch. Are these two entry points, or is the newer row a replacement?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10101-531120",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10204-707457",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10190-645881",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11674-411769"
+   ],
+   "proposedDefault": "Two entry points, both kept: memory-individual (in-detail edit) and memory-edit-ai-list (list-level edit, including the no-op branch)."
+  },
+  {
+   "q": "The second Memory row has no title label. It starts with the 'Memory' COMPONENT master 10112:406770 and runs hover, open detail, edit with AI, rename, add details. Is the component master a real step, and is this one journey?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10112-406770",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9934-230833",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10093-26893"
+   ],
+   "proposedDefault": "One journey, 'Individual memory', with the component master as step 1 (the populated list)."
+  },
+  {
+   "q": "Several loose frames on this page seem to belong to other pages' journeys: Share Project (10101:548721), 'Who can view this?' (10136:603182), Add Text Content (10136:602967, 10101:548663), a Templates modal (9890:402740/402769/402778), 'Choose your agents' (9893:422543) and a time picker (10101:548486). Should they be mapped here?",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10101-548721",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10136-603182",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9890-402740",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9893-422543"
+   ],
+   "proposedDefault": "Ignore them here (they are listed under loose). Take them from their home pages; fall back to these frames only if a home page lacks them."
+  }
+ ],
+ "crossPage": [
+  "connectors-input-error (10179:645699, 10179:637832) and the parked 10179:643777 / 10179:639707: the landing-page composer '+' menu with its connectors submenu. This continues the Chat + Artifacts composer: header-dropdowns 'Input menu' (6077:427693, 6077:427694) and input-large.",
+  "project-memory 10190:662974: the Project page 'Tricon' with a project settings panel and 'View Memory'. It is the same Project page the shell workflow builds (Chat + Artifacts nav / projects). View Memory opens the Memory modal scoped to the project.",
+  "Memory journeys: memories created in chat (Chat + Artifacts 'new-memory', card 9860:711733) are the items listed and edited here.",
+  "The Settings modal is opened from the 'Settings' item at the bottom of the left rail or from the account menu (Chat + Artifacts nav-light; notification-flow account menu). No frame on this page shows that entry.",
+  "Loose frames for other journeys: Share Project 10101:548721 and 'Who can view this?' 10136:603182 (Chat + Artifacts share-artifact / publish 'who has access'); Add Text Content 10136:602967 (projects); Templates modal 9890:402740 (templates); time picker 10101:548486 (routines); 'Choose your agents' 9893:422543 (agents/onboarding)."
+ ]
+}

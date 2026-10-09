@@ -1,0 +1,3848 @@
+{
+ "_status": "DRAFT 2026-10-09. Built from the page maps only (no Figma access). Pages 12 and 13 are not mapped.",
+ "file": "lqKjNjyifEXCeywg69Knr2",
+ "figmaLink": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=<id with ->",
+ "sources": [
+  "app/src/shell/nav/{model.ts, NavItems.tsx, rows.tsx, Rail.tsx, Nav.tsx}",
+  "app/src/shell/AppShell.tsx",
+  "app/src/app/{App.tsx, routes.tsx}",
+  "app/src/review/NotBuilt.tsx",
+  "app/src/figma/{frames.ts, frames.generated.ts, journeys.chat-artifacts.json}",
+  "app/figma-ref/<page>/{journeys.json, MAP.md}",
+  "app/figma-ref/chat-artifacts/{BUILD-PLAN.md, */journey.md}",
+  "app/figma-ref/MAP-OVERVIEW.md",
+  "app/figma-ref/_drift-2026-10-09/DRIFT-REPORT.md"
+ ],
+ "pages": {
+  "chat-artifacts": {
+   "name": "Chat + Artifacts",
+   "id": "1707:115989",
+   "map": "src/figma/journeys.chat-artifacts.json",
+   "status": "CONFIRMED 2026-10-08"
+  },
+  "projects-chat-history": {
+   "name": "Projects + Chat History",
+   "id": "563:116774",
+   "map": "figma-ref/projects-chat-history/journeys.json",
+   "status": "DRAFT"
+  },
+  "routines": {
+   "name": "Routines",
+   "id": "0:1",
+   "map": "figma-ref/routines/journeys.json",
+   "status": "DRAFT"
+  },
+  "meetings": {
+   "name": "Meetings",
+   "id": "8367:7825",
+   "map": "figma-ref/meetings/journeys.json",
+   "status": "DRAFT"
+  },
+  "search-agent-login": {
+   "name": "Search + Agent + Login",
+   "id": "13766:124218",
+   "map": "figma-ref/search-agent-login/journeys.json",
+   "status": "DRAFT"
+  },
+  "notifications": {
+   "name": "Notifications",
+   "id": "13752:451556",
+   "map": "figma-ref/notifications/journeys.json",
+   "status": "DRAFT"
+  },
+  "settings": {
+   "name": "Settings",
+   "id": "3612:185217",
+   "map": "figma-ref/settings/journeys.json",
+   "status": "DRAFT"
+  },
+  "empty-states-dropdowns": {
+   "name": "All Empty states & Dropdowns",
+   "id": "6565:313262",
+   "map": "figma-ref/empty-states-dropdowns/journeys.json",
+   "status": "DRAFT"
+  },
+  "artifacts-draft-a-mail": {
+   "name": "Artifacts | Draft a Mail",
+   "id": "6193:430256",
+   "map": "figma-ref/artifacts-draft-a-mail/journeys.json",
+   "status": "DRAFT"
+  },
+  "artifacts-flow-charts": {
+   "name": "Artifacts | Flow Charts",
+   "id": "11780:375551",
+   "map": "figma-ref/artifacts-flow-charts/journeys.json",
+   "status": "DRAFT"
+  },
+  "comments-on-artifact": {
+   "name": "Comments on Artifact",
+   "id": "13946:324390",
+   "map": "figma-ref/comments-on-artifact/journeys.json",
+   "status": "DRAFT"
+  }
+ },
+ "unmappedPages": {
+  "landing-pages": {
+   "name": "All landing pages : Artifact Routine Projects",
+   "id": "12382:295660",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12382-295660",
+   "matters": [
+    "projects",
+    "routines",
+    "artifacts",
+    "pinned-artifact"
+   ]
+  },
+  "chrome-extension": {
+   "name": "Chrome Extension ES",
+   "id": "13779:456774",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13779-456774",
+   "matters": [
+    "new-session",
+    "search",
+    "account-menu"
+   ]
+  }
+ },
+ "codeInventory": [
+  {
+   "control": "Logo + wordmark (expanded header)",
+   "modes": "dark, light",
+   "where": "shell/nav/Nav.tsx:45-48",
+   "today": "Static. Not a control in the expanded nav."
+  },
+  {
+   "control": "Search icon (expanded header)",
+   "modes": "dark, light",
+   "where": "shell/nav/Nav.tsx:50-52",
+   "today": "Button with no onClick: does nothing."
+  },
+  {
+   "control": "Collapse navigation (expanded header)",
+   "modes": "dark, light",
+   "where": "shell/nav/Nav.tsx:53-55",
+   "today": "rail.set('collapsed') through AppShell onCollapse; in the narrow overlay it closes the overlay."
+  },
+  {
+   "control": "New Session",
+   "modes": "dark, light, rail",
+   "where": "NavItems.tsx:20, :73; Rail.tsx:22, :31",
+   "today": "Link #/new (NAV_PAGES.new, model.ts:18)."
+  },
+  {
+   "control": "Projects",
+   "modes": "dark, light, rail",
+   "where": "NavItems.tsx:22, :74; Rail.tsx:24, :32",
+   "today": "Link #/projects (built)."
+  },
+  {
+   "control": "Routines",
+   "modes": "dark, light, rail",
+   "where": "NavItems.tsx:23, :75; Rail.tsx:25, :33",
+   "today": "Link #/routines (Not built yet placeholder)."
+  },
+  {
+   "control": "Meetings",
+   "modes": "dark, light, rail",
+   "where": "NavItems.tsx:24, :76; Rail.tsx:26, :34",
+   "today": "Button: not in NAV_PAGES, so it only highlights the row (App.tsx setPicked) and never navigates."
+  },
+  {
+   "control": "Artifacts",
+   "modes": "dark, light, rail",
+   "where": "NavItems.tsx:26, :78; Rail.tsx:27, :35",
+   "today": "Link #/artifacts (Not built yet placeholder)."
+  },
+  {
+   "control": "Search (rail icon)",
+   "modes": "rail dark only",
+   "where": "Rail.tsx:23",
+   "today": "No `to`: a button with no handler. The light rail has no Search, as drawn."
+  },
+  {
+   "control": "Agents (rail icon)",
+   "modes": "rail dark, rail light",
+   "where": "Rail.tsx:28, :36",
+   "today": "No `to`: a button with no handler. NavKey has no 'agents'."
+  },
+  {
+   "control": "Section header + chevron: Agents, Pinned, Routines, Chats (dark) / History (light)",
+   "modes": "dark, light",
+   "where": "NavItems.tsx:31, 37, 52, 57 / 83, 89, 97, 102; rows.tsx:189-218",
+   "today": "Collapses / expands the group in place (local state, aria-expanded)."
+  },
+  {
+   "control": "Agent rows: Financial Analysis Agent, Sheet Sage Agent, Formula Falcon Agent",
+   "modes": "dark, light",
+   "where": "NavItems.tsx:32-34, :84-86; rows.tsx:96-108",
+   "today": "RowAction with no href and no onActivate: a button that does nothing."
+  },
+  {
+   "control": "Pinned > Artifacts",
+   "modes": "dark, light",
+   "where": "NavItems.tsx:38, :90",
+   "today": "NavRow without `to`: a button that does nothing (the diff harness pins its drawn hover)."
+  },
+  {
+   "control": "Pinned > Projects",
+   "modes": "dark, light",
+   "where": "NavItems.tsx:39, :91",
+   "today": "NavRow without `to`: does nothing. Dark draws its two chats as a static tree; light draws no tree."
+  },
+  {
+   "control": "Pinned > project chats: 'Excel Formula Help From Main Document' (progress), 'Chat 2 inside this Project' (waiting)",
+   "modes": "dark only",
+   "where": "NavItems.tsx:43-44; rows.tsx:136-159",
+   "today": "ChatRow: an open button and a ⋯ button, neither has a handler."
+  },
+  {
+   "control": "Pinned > 'Plan launch timeline' (progress), 'Review customer feedback' (failed)",
+   "modes": "dark, light",
+   "where": "NavItems.tsx:47-48, :92-93",
+   "today": "Dark: open + ⋯, no handlers. Light: open only, no handler."
+  },
+  {
+   "control": "Routines rows: 'Get all granola notes summarized and del ' (waiting), 'Excel Formula Help From Main Document' (progress), 'Design Stand up follow-up  meeting' (progress)",
+   "modes": "dark, light",
+   "where": "NavItems.tsx:53-55, :98-100",
+   "today": "Dark: open + ⋯ (⋯ replaces the dot on hover), no handlers. Light: open only."
+  },
+  {
+   "control": "Chats rows (dark): 'Sheet Formula Consultant' (unread), 'Workbook Support Hub', 'Morning Digest' (2h), 'Spreadsheet Formula Advisor'",
+   "modes": "dark",
+   "where": "NavItems.tsx:58-61",
+   "today": "Open + ⋯ on hover, no handlers. The unread dot shows only with the nav-unread-dot fix."
+  },
+  {
+   "control": "History rows (light): 'Sheet Formula Consultant', 'Workbook Support Hub', 'Excel Formula Help From Main Document' x2 (one with 2h)",
+   "modes": "light",
+   "where": "NavItems.tsx:103-106; rows.tsx:163-186",
+   "today": "Open, plus an always-visible ⋯ on the first three. No handlers."
+  },
+  {
+   "control": "Footer: avatar + name",
+   "modes": "dark, light",
+   "where": "Nav.tsx:66-67, :79-80",
+   "today": "Spans, not controls."
+  },
+  {
+   "control": "Footer: Notifications bell",
+   "modes": "dark only",
+   "where": "Nav.tsx:69-71",
+   "today": "Calls onNotifications, which AppShell never passes (AppShell.tsx:85-94, 102, 110): does nothing."
+  },
+  {
+   "control": "Footer: Account menu chevron",
+   "modes": "dark, light",
+   "where": "Nav.tsx:72-74, :81-83",
+   "today": "Calls onAccountMenu, which AppShell never passes: does nothing."
+  },
+  {
+   "control": "Rail logo (Expand navigation)",
+   "modes": "rail dark, rail light",
+   "where": "Rail.tsx:57-59; AppShell.tsx:100",
+   "today": "rail.set('expanded'); below 1200 px it opens the expanded nav as an overlay with a scrim (Esc, scrim or a destination close it)."
+  },
+  {
+   "control": "Rail footer avatar",
+   "modes": "rail dark, rail light",
+   "where": "Rail.tsx:78",
+   "today": "Span, not a control."
+  }
+ ],
+ "items": [
+  {
+   "id": "new-session",
+   "label": "New Session",
+   "controls": [
+    "primary row (dark + light)",
+    "rail icon (dark + light)"
+   ],
+   "code": "NavRow to='new' (NavItems.tsx:20, :73), Rail item (Rail.tsx:22, :31); NAV_PAGES.new = '/new'. The chat screens also highlight it (app/screenNav.ts).",
+   "routeToday": "/new",
+   "routeStatus": "built",
+   "routeNote": "LandingPage (routes.tsx:83-93): draws chat-artifact 01-02 (compose, hover, seed=no-chips). Other /new keys (menu=account, drag=, open=, modal=) are ignored and reported as a closest match.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "chat-artifact",
+    "step": "01",
+    "frame": "1707:136008",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1707-136008",
+    "size": "1440x900",
+    "note": "Rail collapsed. With the rail expanded the same landing is nav-behaviour 01 (11614:672894)."
+   },
+   "routeProposed": null,
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "chat-artifact",
+     "step": "01",
+     "frame": "1707:136008",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1707-136008",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "rest state",
+     "why": "Confirmed page, routed /new?rail=c, already built. Dark collapsed rail, composer with the Company / Research chips."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "01",
+     "frame": "11614:672894",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11614-672894",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "rest state, rail expanded",
+     "why": "The same landing with the dark nav expanded (/new?seed=no-chips&rail=e). Newer id (11614). Drift 9 Oct: only the status dots changed."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "logo-options",
+     "step": "01",
+     "frame": "3612:167773",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3612-167773",
+     "frameName": "COMPONENT \"1\"",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "variant",
+     "why": "Circular-dots logo, no chips (/new?seed=no-chips&rail=c). Option 1 of the logo row."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "input-large",
+     "step": "01",
+     "frame": "5220:222334",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=5220-222334",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "alias",
+     "why": "Alias of the same URL; the source of the rotating placeholder."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-light",
+     "step": "01",
+     "frame": "12829:289253",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-289253",
+     "frameName": "208",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "light mode",
+     "why": "The landing in light mode (nav=light); 02 (12829:292060, \"209\") is the same with the rail expanded."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "ignored:notification-collapsed-1",
+     "step": "option 2 / 1",
+     "frame": "14045:596902",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-596902",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100% (ignored option, see D1)",
+     "role": "newest drawing",
+     "why": "Newest landing drawing (14045). Dark collapsed rail with an unread badge on the avatar: it starts the account-menu flow, it is not a different landing."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "notification-collapsed-1",
+     "step": "01",
+     "frame": "13760:757632",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13760-757632",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "30% (dimmed)",
+     "role": "parked",
+     "why": "Parked option 1 of Notifications."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "connectors-input-error",
+     "step": "01",
+     "frame": "10179:645699",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10179-645699",
+     "frameName": "Copilot Landing page",
+     "size": "(size not recorded)",
+     "opacity": "100%",
+     "role": "composer state",
+     "why": "The landing with the composer + menu open (a composer state, not an entry)."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "es-desktop-default-cta",
+     "step": "01",
+     "frame": "13807:181877",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13807-181877",
+     "frameName": "Browser",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "other surface",
+     "why": "Empty state inside a browser frame with no Main_nav. Probably the extension / desktop default, not the web landing."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 19,
+     "frameCount": 137,
+     "journeys": [
+      {
+       "journey": "chat-artifact",
+       "frames": 22
+      },
+      {
+       "journey": "input-large",
+       "frames": 24
+      },
+      {
+       "journey": "logo-options",
+       "frames": 1
+      },
+      {
+       "journey": "enhance-prompt",
+       "frames": 5
+      },
+      {
+       "journey": "thinking",
+       "frames": 2
+      },
+      {
+       "journey": "graphs",
+       "frames": 6
+      },
+      {
+       "journey": "cost",
+       "frames": 9
+      },
+      {
+       "journey": "chat-questions",
+       "frames": 1
+      },
+      {
+       "journey": "new-memory",
+       "frames": 3
+      },
+      {
+       "journey": "queue-1",
+       "frames": 16
+      },
+      {
+       "journey": "consecutive",
+       "frames": 1
+      },
+      {
+       "journey": "add-users",
+       "frames": 11
+      },
+      {
+       "journey": "collab-chat",
+       "frames": 10
+      },
+      {
+       "journey": "share-artifact",
+       "frames": 10
+      },
+      {
+       "journey": "deleted-artifact",
+       "frames": 1
+      },
+      {
+       "journey": "publish-artifact",
+       "frames": 1
+      },
+      {
+       "journey": "canvas-comments",
+       "frames": 4
+      },
+      {
+       "journey": "header-dropdowns",
+       "frames": 0,
+       "note": "components only"
+      },
+      {
+       "journey": "commenters",
+       "frames": 10
+      }
+     ]
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "pageKey": "settings",
+     "journeyCount": 1,
+     "frameCount": 2,
+     "journeys": [
+      {
+       "journey": "connectors-input-error",
+       "frames": 2
+      }
+     ]
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "pageKey": "empty-states-dropdowns",
+     "journeyCount": 1,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "dd-chat-journey",
+       "frames": 3
+      }
+     ]
+    },
+    {
+     "page": "Artifacts | Draft a Mail",
+     "pageId": "6193:430256",
+     "pageKey": "artifacts-draft-a-mail",
+     "journeyCount": 12,
+     "frameCount": 37,
+     "journeys": [
+      {
+       "journey": "draft-mail",
+       "frames": 8
+      },
+      {
+       "journey": "draft-mail-ai-edit",
+       "frames": 10
+      },
+      {
+       "journey": "draft-mail-attachments",
+       "frames": 4
+      },
+      {
+       "journey": "split-50-50",
+       "frames": 1
+      },
+      {
+       "journey": "artifact-only",
+       "frames": 1
+      },
+      {
+       "journey": "artifact-only-viewer",
+       "frames": 2
+      },
+      {
+       "journey": "edit-with-ai",
+       "frames": 3
+      },
+      {
+       "journey": "one-provider",
+       "frames": 1
+      },
+      {
+       "journey": "one-provider-not-connected",
+       "frames": 2
+      },
+      {
+       "journey": "no-provider",
+       "frames": 1
+      },
+      {
+       "journey": "attachment-failed-preview",
+       "frames": 3
+      },
+      {
+       "journey": "add-recipient-alert",
+       "frames": 1,
+       "dimmed": true
+      }
+     ]
+    },
+    {
+     "page": "Artifacts | Flow Charts",
+     "pageId": "11780:375551",
+     "pageKey": "artifacts-flow-charts",
+     "journeyCount": 6,
+     "frameCount": 19,
+     "journeys": [
+      {
+       "journey": "fc-artifact-ui",
+       "frames": 6
+      },
+      {
+       "journey": "fc-staging-comments",
+       "frames": 9
+      },
+      {
+       "journey": "fc-color-options",
+       "frames": 1
+      },
+      {
+       "journey": "fc-nodes-icons",
+       "frames": 1
+      },
+      {
+       "journey": "fc-viewing-sources",
+       "frames": 2
+      },
+      {
+       "journey": "fc-swimlanes",
+       "frames": 0,
+       "dimmed": true
+      }
+     ]
+    },
+    {
+     "page": "Comments on Artifact",
+     "pageId": "13946:324390",
+     "pageKey": "comments-on-artifact",
+     "journeyCount": 1,
+     "frameCount": 6,
+     "journeys": [
+      {
+       "journey": "comment-on-artifact",
+       "frames": 6
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 6,
+    "journeys": 40,
+    "frames": 204
+   },
+   "unmappedPages": [
+    {
+     "page": "Chrome Extension ES",
+     "pageId": "13779:456774",
+     "note": "May hold an extension-side composer / New Session (Settings > Get App & Extensions lists a Chrome Extension). It would be a second surface, not a change to the web nav entry."
+    }
+   ],
+   "recommendation": "Keep /new as built. Entry chat-artifact 01 (1707:136008) with the rail collapsed, nav-behaviour 01 (11614:672894) with it expanded. No change needed.",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null,
+   "doubts": []
+  },
+  {
+   "id": "search",
+   "label": "Search (header icon, dark rail icon)",
+   "controls": [
+    "expanded header icon (dark + light)",
+    "rail icon (dark only)"
+   ],
+   "code": "Nav header button (Nav.tsx:50-52) has no onClick. The dark rail item (Rail.tsx:23) has no `to`, so it renders as a button with no handler. The light rail draws no Search; the light expanded header does.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Search + Agent + Login",
+    "pageId": "13766:124218",
+    "journey": "search",
+    "step": "01",
+    "frame": "13766:124224",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124224",
+    "size": "1440x900",
+    "note": "Full-screen search modal over the page (drawn with the collapsed nav)."
+   },
+   "routeProposed": "?modal=search on the current route (new key: BUILD-PLAN 2.1 has no search value).",
+   "candidates": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "search",
+     "step": "01",
+     "frame": "13766:124224",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124224",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "entry",
+     "why": "The only drawing of the global search: collapsed nav + full-screen search modal. Label 'Agent 5 · Project 5' (probably the counts listed in the modal). Page ids are recent (13766)."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "search",
+     "step": "02-04",
+     "frame": "13766:124306",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124306",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "states",
+     "why": "Later states of the same modal (13766:124306, 13766:124265, 13766:124550). Contents were mapped from layer names only."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "chat-history",
+     "step": "08",
+     "frame": "6877:502572",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6877-502572",
+     "frameName": "Dashboard",
+     "size": "1440 wide",
+     "opacity": "100%",
+     "role": "not this",
+     "why": "Search typed 'Hello' on the History page: an in-page search, not the nav search."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifacts-landing",
+     "step": "04",
+     "frame": "8412:194488",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8412-194488",
+     "frameName": "185",
+     "size": "1728x2026",
+     "opacity": "100%",
+     "role": "not this",
+     "why": "Search field expanded on the Artifacts toolbar: an in-page search."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "pageKey": "search-agent-login",
+     "journeyCount": 1,
+     "frameCount": 4,
+     "journeys": [
+      {
+       "journey": "search",
+       "frames": 4
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 1,
+    "frames": 4
+   },
+   "unmappedPages": [
+    {
+     "page": "Chrome Extension ES",
+     "pageId": "13779:456774",
+     "note": "Not mapped. It may hold another search surface (the extension), so check it before building search states 02-04."
+    }
+   ],
+   "recommendation": "Both the header icon and the dark-rail icon open the full-screen search modal (search 01, 13766:124224) over the current page; steps 02-04 are its states. Add a route key such as ?modal=search.",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Is the full-screen modal on 'Search + Agent + Login' (13766:124224 to 13766:124550) the global search for both the header icon and the rail icon? Should the light rail get a Search icon too (the light expanded header has one)?",
+   "doubts": [
+    "D6"
+   ]
+  },
+  {
+   "id": "projects",
+   "label": "Projects",
+   "controls": [
+    "primary row (dark + light)",
+    "rail icon (dark + light)"
+   ],
+   "code": "NavRow to='projects' (NavItems.tsx:22, :74), Rail item (Rail.tsx:24, :32); NAV_PAGES.projects = '/projects'. The designed rest state selects it.",
+   "routeToday": "/projects",
+   "routeStatus": "built",
+   "routeNote": "ProjectsPage (routes.tsx:66-68), tagged 11657:386523 (frames.ts). A card opens /projects/:slug (ProjectDashboard: 14045:584747, and 15054:105151 with opt=2).",
+   "opens": {
+    "page": "Projects + Chat History",
+    "pageId": "563:116774",
+    "journey": "projects-landing",
+    "step": "02",
+    "frame": "11657:386523",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-386523",
+    "size": "1440x900 (via its instance 11657:386528)",
+    "note": "Labelled \"option 1\". COMPONENT."
+   },
+   "routeProposed": null,
+   "discrepancy": "The Projects + Chat History map describes 11657:386523 as a list of 'project rows'; the capture of its instance (chat-artifacts/pinning/02-11657-386528.png) shows a 3-column card grid with a grid / list toggle. The ignored option 2 (4767:136175) is also a card grid. The prototype follows the capture.",
+   "candidates": [
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "projects-landing",
+     "step": "02",
+     "frame": "11657:386523",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-386523",
+     "frameName": "Dashboard (COMPONENT)",
+     "size": "1440x900 (via instance 11657:386528)",
+     "opacity": "100%",
+     "role": "rest state",
+     "why": "On its home page, labelled option 1, the newest landing drawing (11657), main component of Chat + Artifacts pinning 02. Already built and hand-routed in frames.ts. Drift 9 Oct (theme D): cards lost '12 items', one status icon instead of four, All Types / Newest unfilled."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "projects-landing",
+     "step": "01",
+     "frame": "3415:323703",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3415-323703",
+     "frameName": "Dashboard (COMPONENT)",
+     "size": "1440 wide (height not recorded)",
+     "opacity": "100%",
+     "role": "empty state",
+     "why": "Empty state: 'Create a Project' card with New Project."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "project-new",
+     "step": "01",
+     "frame": "3415:323706",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3415-323706",
+     "frameName": "Dashboard (INSTANCE of 3415:323703)",
+     "size": "1440 wide",
+     "opacity": "100%",
+     "role": "instance",
+     "why": "The same empty state, as the first step of New project."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "ignored:projects-landing",
+     "step": "option 2",
+     "frame": "4767:136175",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=4767-136175",
+     "frameName": "Dashboard",
+     "size": "1440 wide",
+     "opacity": "100% (ignored option)",
+     "role": "parked option",
+     "why": "Older (4767) card grid ('Marketing Research · 12 items'). Parked by the option 1 rule."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "pinning",
+     "step": "02",
+     "frame": "11657:386528",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-386528",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "instance, menu open",
+     "why": "Instance of 11657:386523 with a card menu open (Pin hovered). Routed /projects?menu=card:docebo-ui-assets&hover=menu:pin&rail=e."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "es-projects",
+     "step": "01",
+     "frame": "6565:492532",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6565-492532",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "empty state redraw",
+     "why": "Redraw of the empty state (L1). D4 default: if its empty-state block differs, this later drawing wins."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "pageKey": "projects-chat-history",
+     "journeyCount": 10,
+     "frameCount": 48,
+     "journeys": [
+      {
+       "journey": "projects-landing",
+       "frames": 2
+      },
+      {
+       "journey": "project-new",
+       "frames": 4
+      },
+      {
+       "journey": "project-chat",
+       "frames": 3
+      },
+      {
+       "journey": "project-share",
+       "frames": 10
+      },
+      {
+       "journey": "project-routines",
+       "frames": 2
+      },
+      {
+       "journey": "project-settings",
+       "frames": 9
+      },
+      {
+       "journey": "project-menu-admin",
+       "frames": 2
+      },
+      {
+       "journey": "project-menu-non-admin",
+       "frames": 2
+      },
+      {
+       "journey": "project-tabs-new",
+       "frames": 3
+      },
+      {
+       "journey": "instructions-ai-edit",
+       "frames": 11
+      }
+     ]
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 2,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "pinning",
+       "frames": 1,
+       "part": "1 of 3 frames",
+       "steps": [
+        "11657:386528"
+       ]
+      },
+      {
+       "journey": "nav-behaviour",
+       "frames": 2,
+       "part": "2 of 9 frames",
+       "steps": [
+        "13701:756891",
+        "11780:448662"
+       ],
+       "note": "project page with the title pin"
+      }
+     ]
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "pageKey": "settings",
+     "journeyCount": 1,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "project-memory",
+       "frames": 3
+      }
+     ]
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "pageKey": "empty-states-dropdowns",
+     "journeyCount": 5,
+     "frameCount": 10,
+     "journeys": [
+      {
+       "journey": "es-projects",
+       "frames": 1
+      },
+      {
+       "journey": "es-project-chat",
+       "frames": 1
+      },
+      {
+       "journey": "es-project-shared-chats",
+       "frames": 1
+      },
+      {
+       "journey": "es-project-routines",
+       "frames": 1
+      },
+      {
+       "journey": "dd-projects",
+       "frames": 6
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 4,
+    "journeys": 18,
+    "frames": 64
+   },
+   "unmappedPages": [
+    {
+     "page": "All landing pages : Artifact Routine Projects",
+     "pageId": "12382:295660",
+     "note": "Not mapped. MAP-OVERVIEW expects it to repeat projects-landing; its page id (12382) is newer than 11657, so it may hold a newer drawing of this landing."
+    }
+   ],
+   "recommendation": "Keep /projects on 11657:386523 as built, updated with the 9 Oct card changes (theme D). Empty state 3415:323703, using the 6565:492532 block if it differs (D4). Map the landing-pages page before the next re-capture.",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null,
+   "doubts": [
+    "D4",
+    "D7"
+   ]
+  },
+  {
+   "id": "routines",
+   "label": "Routines",
+   "controls": [
+    "primary row (dark + light)",
+    "rail icon (dark + light)"
+   ],
+   "code": "NavRow to='routines' (NavItems.tsx:23, :75), Rail item (Rail.tsx:25, :33); NAV_PAGES.routines = '/routines'.",
+   "routeToday": "/routines",
+   "routeStatus": "placeholder",
+   "routeNote": "Renders 'Not built yet: Routines landing' (review/NotBuilt.tsx template) with no frame: the only /routines frame is pinning 03 (menu=row:board-pre-read), and the closest-match pass never drops menu=.",
+   "opens": {
+    "page": "Routines",
+    "pageId": "0:1",
+    "journey": "routines-landing",
+    "step": "03",
+    "frame": "11657:493405",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-493405",
+    "size": "1440x900",
+    "note": "With its row menu closed (no frame draws that rest state with a current id)."
+   },
+   "routeProposed": "/routines (rest), /routines?seed=empty (first-time), /routines?menu=row:<id> (pinning 03). Add a /routines?rail=e frame entry for 11657:493405 so the bare nav URL resolves to a frame.",
+   "extraNote": "Chat-side entry: Chat + Artifacts publish-artifact runs in a chat called 'new-routine' (#/chat/new-routine/...).",
+   "candidates": [
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "routines-landing",
+     "step": "01",
+     "frame": "875:162202",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=875-162202",
+     "frameName": "Routine Landing page (COMPONENT)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "first-time / empty",
+     "why": "'First time user will see this Routine landing page'. 56 px rail."
+    },
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "routines-landing",
+     "step": "02",
+     "frame": "334:112714",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=334-112714",
+     "frameName": "Routine Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "populated, old",
+     "why": "'Second time user will see this': the only populated frame with no row menu, but the oldest id (334). Carries a 340x220 popover and a 20% note 'errors in routine? - indication?'."
+    },
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "routines-landing",
+     "step": "03",
+     "frame": "11657:493405",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-493405",
+     "frameName": "Routine Landing page (COMPONENT)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "populated, newest",
+     "why": "Newest drawing (11657), 280 px rail, row kebab menu open. Main component of Chat + Artifacts pinning 03; BUILD-PLAN item 61 builds RoutinesLanding from it."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "pinning",
+     "step": "03",
+     "frame": "11657:493696",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-493696",
+     "frameName": "Routine Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "instance, menu open",
+     "why": "Instance of 11657:493405 with the pinned row menu open (Unpin, Edit, Pause, Run Now, Share, Delete). The only routed Routines frame. Drift 9 Oct: dots only."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "es-routines",
+     "step": "01",
+     "frame": "6565:410734",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6565-410734",
+     "frameName": "1",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "empty state redraw",
+     "why": "Redraw of the empty state with the CTA hovered (badge L2). D4 default: this block wins over 875:162202 if they differ."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "dd-routine",
+     "step": "01-02",
+     "frame": "9256:474650",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9256-474650",
+     "frameName": "Routine Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "menus",
+     "why": "Menus on the landing: create popover (Create with AI / Create manually) and, in 9256:475979, the row menu (Edit / Pause / Run now / Share)."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "pageKey": "routines",
+     "journeyCount": 10,
+     "frameCount": 55,
+     "journeys": [
+      {
+       "journey": "routines-landing",
+       "frames": 3
+      },
+      {
+       "journey": "create-ai-first-time",
+       "frames": 15
+      },
+      {
+       "journey": "create-ai-second-time",
+       "frames": 2
+      },
+      {
+       "journey": "create-manually",
+       "frames": 5
+      },
+      {
+       "journey": "routine-to-project",
+       "frames": 3
+      },
+      {
+       "journey": "templates",
+       "frames": 5
+      },
+      {
+       "journey": "view-edit",
+       "frames": 9
+      },
+      {
+       "journey": "read-more",
+       "frames": 3
+      },
+      {
+       "journey": "scheduled-sessions",
+       "frames": 7
+      },
+      {
+       "journey": "help-text",
+       "frames": 3
+      }
+     ]
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "pinning",
+       "frames": 1,
+       "part": "1 of 3 frames",
+       "steps": [
+        "11657:493696"
+       ]
+      }
+     ]
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "pageKey": "empty-states-dropdowns",
+     "journeyCount": 2,
+     "frameCount": 5,
+     "journeys": [
+      {
+       "journey": "es-routines",
+       "frames": 1
+      },
+      {
+       "journey": "dd-routine",
+       "frames": 4
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 3,
+    "journeys": 13,
+    "frames": 61
+   },
+   "unmappedPages": [
+    {
+     "page": "All landing pages : Artifact Routine Projects",
+     "pageId": "12382:295660",
+     "note": "Not mapped. Expected to repeat routines-landing and may hold a newer drawing (page id 12382 is newer than 11657)."
+    }
+   ],
+   "recommendation": "/routines at rest = 11657:493405 with the row menu closed (populated, 280 px rail). seed=empty = first-time 875:162202, with the 6565:410734 block if it differs (D4). menu=row:<id> = pinning 03.",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Build the Routines landing from 11657:493405 with its row menu closed (the populated rest state is only drawn in the old 334:112714)? And should a first visit show the first-time page 875:162202 instead?",
+   "doubts": [
+    "D4"
+   ]
+  },
+  {
+   "id": "meetings",
+   "label": "Meetings",
+   "controls": [
+    "primary row (dark + light)",
+    "rail icon (dark + light)"
+   ],
+   "code": "NavRow to='meetings' (NavItems.tsx:24, :76), Rail item (Rail.tsx:26, :34). Not in NAV_PAGES: pressing it highlights the row (App.tsx setPicked) and never navigates; the next route change drops the highlight.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Selects the row only.",
+   "opens": {
+    "page": "Meetings",
+    "pageId": "8367:7825",
+    "journey": "meetings-home",
+    "step": "01",
+    "frame": "8490:262262",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8490-262262",
+    "size": "1440x900",
+    "note": "'Meeting Listing Page'."
+   },
+   "routeProposed": "/meetings (new template); seed=first-time -> onboarding 01, seed=no-calendar -> 12618:544826, seed=empty -> meetings-home 05.",
+   "extraNote": "Not reached from the web nav: the three macOS rows desktop-mac, teams-notifications and system-tray (14 frames at 1504x945; D13 proposes a separate /desktop route).",
+   "candidates": [
+    {
+     "page": "Meetings",
+     "pageId": "8367:7825",
+     "journey": "meetings-home",
+     "step": "01",
+     "frame": "8490:262262",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8490-262262",
+     "frameName": "01",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "listing",
+     "why": "'Meeting Listing Page'. The title card links the older HTML prototype (dist-one-psi-98.vercel.app/#meetings)."
+    },
+    {
+     "page": "Meetings",
+     "pageId": "8367:7825",
+     "journey": "meetings-home",
+     "step": "05",
+     "frame": "8663:56472",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8663-56472",
+     "frameName": "05",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "empty state",
+     "why": "'Empty State'."
+    },
+    {
+     "page": "Meetings",
+     "pageId": "8367:7825",
+     "journey": "meetings-home",
+     "step": "06-08",
+     "frame": "13185:846896",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13185-846896",
+     "frameName": "202",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "newest listing states",
+     "why": "'Highlighted State', then hover states (13185:848346 '203', 13185:850454 '204'). Much newer ids (13185 against 8490), so the listing may have been redrawn: compare with 01."
+    },
+    {
+     "page": "Meetings",
+     "pageId": "8367:7825",
+     "journey": "onboarding",
+     "step": "01",
+     "frame": "9325:402586",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9325-402586",
+     "frameName": "01",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "first-time",
+     "why": "'Onboarding Landing' for a first-time user. A state above (9325:400673 'Option 01') drops the Meetings page header."
+    },
+    {
+     "page": "Meetings",
+     "pageId": "8367:7825",
+     "journey": "meetings-home-no-calendar",
+     "step": "01",
+     "frame": "12618:544826",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12618-544826",
+     "frameName": "197",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "state",
+     "why": "Meetings added, no calendar connected ('#01 Card with graphics'). Newer (12618)."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Meetings",
+     "pageId": "8367:7825",
+     "pageKey": "meetings",
+     "journeyCount": 16,
+     "frameCount": 69,
+     "journeys": [
+      {
+       "journey": "onboarding",
+       "frames": 7
+      },
+      {
+       "journey": "meetings-home",
+       "frames": 8
+      },
+      {
+       "journey": "meetings-home-no-calendar",
+       "frames": 1
+      },
+      {
+       "journey": "meeting-briefs",
+       "frames": 9
+      },
+      {
+       "journey": "people-insights",
+       "frames": 3
+      },
+      {
+       "journey": "proactive-artefacts",
+       "frames": 4
+      },
+      {
+       "journey": "meeting-details",
+       "frames": 5
+      },
+      {
+       "journey": "meeting-details-people",
+       "frames": 4
+      },
+      {
+       "journey": "ask-meeting",
+       "frames": 2
+      },
+      {
+       "journey": "cues",
+       "frames": 5
+      },
+      {
+       "journey": "native-recording",
+       "frames": 9
+      },
+      {
+       "journey": "meeting-summaries",
+       "frames": 2
+      },
+      {
+       "journey": "templates",
+       "frames": 6
+      },
+      {
+       "journey": "multiplayer-invite",
+       "frames": 1
+      },
+      {
+       "journey": "multiplayer-presence",
+       "frames": 1
+      },
+      {
+       "journey": "connection-error",
+       "frames": 2
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 16,
+    "frames": 69
+   },
+   "unmappedPages": [],
+   "recommendation": "Add a /meetings route and NAV_PAGES entry. Default to the listing 8490:262262 (with the 13185 states if the listing was redrawn), onboarding 9325:402586 for a first-time user, 12618:544826 and 8663:56472 as seeds.",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Which Meetings page does the nav open by default: the listing (8490:262262), onboarding for a first-time user (9325:402586), or the no-calendar state (12618:544826)? Are the newer listing states (13185:846896 to 13185:850454) the current look of the listing?",
+   "doubts": [
+    "D13",
+    "D14",
+    "D15"
+   ]
+  },
+  {
+   "id": "artifacts",
+   "label": "Artifacts",
+   "controls": [
+    "primary row (dark + light)",
+    "rail icon (dark + light)"
+   ],
+   "code": "NavRow to='artifacts' (NavItems.tsx:26, :78), Rail item (Rail.tsx:27, :35); NAV_PAGES.artifacts = '/artifacts'.",
+   "routeToday": "/artifacts",
+   "routeStatus": "placeholder",
+   "routeNote": "Renders 'Not built yet' with artifacts-landing 02 (7907:305055): an exact match with the rail collapsed, the closest match with it expanded.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "artifacts-landing",
+    "step": "02",
+    "frame": "7907:305055",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=7907-305055",
+    "size": "1440x1380",
+    "note": "Grid at rest; routed /artifacts?rail=c."
+   },
+   "routeProposed": null,
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifacts-landing",
+     "step": "01",
+     "frame": "3780:177209",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3780-177209",
+     "frameName": "38",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "empty state",
+     "why": "Empty state (seed=empty)."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifacts-landing",
+     "step": "02",
+     "frame": "7907:305055",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=7907-305055",
+     "frameName": "132",
+     "size": "1440x1380",
+     "opacity": "100%",
+     "role": "rest state",
+     "why": "Grid at rest on the confirmed page; already the frame the nav URL lands on. Drift 9 Oct: new type icons, cards ~4 px shorter (themes A, E)."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifacts-landing",
+     "step": "03",
+     "frame": "12868:502599",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12868-502599",
+     "frameName": "1729",
+     "size": "1440x827",
+     "opacity": "100%",
+     "role": "list view",
+     "why": "List view (view=list). Newest rest-state drawing (12868)."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifacts-landing",
+     "step": "04",
+     "frame": "8412:194488",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8412-194488",
+     "frameName": "185",
+     "size": "1728x2026",
+     "opacity": "100%",
+     "role": "search / wide",
+     "why": "1728 px, search expanded. 1440 is the only baseline, so use it for the search state only."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifacts-landing",
+     "step": "05",
+     "frame": "11648:688356",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11648-688356",
+     "frameName": "COMPONENT \"186\"",
+     "size": "1440x1380",
+     "opacity": "100%",
+     "role": "states sheet",
+     "why": "States sheet (tooltip, type filter, both card menus). Pinning 01 (11648:688362) is its instance."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "cloned-artifact",
+     "step": "01",
+     "frame": "13750:280936",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13750-280936",
+     "frameName": "1744",
+     "size": "1440x1648",
+     "opacity": "100%",
+     "role": "later state",
+     "why": "Newest grid drawing (13750), but with the Clone menu open and the cloned card added (seed=cloned)."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "es-artifacts",
+     "step": "01-02",
+     "frame": "6565:419134",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6565-419134",
+     "frameName": "38",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "empty state redraw",
+     "why": "Redraws of the empty state (badge L1). Same frame name '38' as 3780:177209; 6565:420865 ('39') is the second. D4 applies."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "project-tabs-new",
+     "step": "01-02",
+     "frame": "12085:590629",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12085-590629",
+     "frameName": "Dashboard",
+     "size": "1440 wide",
+     "opacity": "100%",
+     "role": "not this",
+     "why": "The project page's Artifacts tab (with 12097:592297). Not the nav destination."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 10,
+     "frameCount": 44,
+     "journeys": [
+      {
+       "journey": "artifacts-landing",
+       "frames": 8
+      },
+      {
+       "journey": "cloned-artifact",
+       "frames": 3
+      },
+      {
+       "journey": "pinning",
+       "frames": 1,
+       "part": "1 of 3 frames",
+       "steps": [
+        "11648:688362"
+       ]
+      },
+      {
+       "journey": "artifact-full-editor",
+       "frames": 6
+      },
+      {
+       "journey": "artifact-view-editor-main",
+       "frames": 3
+      },
+      {
+       "journey": "artifact-view-viewer",
+       "frames": 8
+      },
+      {
+       "journey": "commenters",
+       "frames": 10
+      },
+      {
+       "journey": "publish-artifact",
+       "frames": 1
+      },
+      {
+       "journey": "canvas-comments",
+       "frames": 4
+      },
+      {
+       "journey": "header-dropdowns",
+       "frames": 0,
+       "note": "components only"
+      }
+     ]
+    },
+    {
+     "page": "Comments on Artifact",
+     "pageId": "13946:324390",
+     "pageKey": "comments-on-artifact",
+     "journeyCount": 1,
+     "frameCount": 6,
+     "journeys": [
+      {
+       "journey": "comment-on-artifact",
+       "frames": 6
+      }
+     ]
+    },
+    {
+     "page": "Artifacts | Flow Charts",
+     "pageId": "11780:375551",
+     "pageKey": "artifacts-flow-charts",
+     "journeyCount": 6,
+     "frameCount": 19,
+     "journeys": [
+      {
+       "journey": "fc-artifact-ui",
+       "frames": 6
+      },
+      {
+       "journey": "fc-staging-comments",
+       "frames": 9
+      },
+      {
+       "journey": "fc-color-options",
+       "frames": 1
+      },
+      {
+       "journey": "fc-nodes-icons",
+       "frames": 1
+      },
+      {
+       "journey": "fc-viewing-sources",
+       "frames": 2
+      },
+      {
+       "journey": "fc-swimlanes",
+       "frames": 0,
+       "dimmed": true
+      }
+     ]
+    },
+    {
+     "page": "Artifacts | Draft a Mail",
+     "pageId": "6193:430256",
+     "pageKey": "artifacts-draft-a-mail",
+     "journeyCount": 2,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "artifact-only",
+       "frames": 1
+      },
+      {
+       "journey": "artifact-only-viewer",
+       "frames": 2
+      }
+     ]
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "pageKey": "empty-states-dropdowns",
+     "journeyCount": 2,
+     "frameCount": 4,
+     "journeys": [
+      {
+       "journey": "es-artifacts",
+       "frames": 2
+      },
+      {
+       "journey": "dd-artifact",
+       "frames": 2
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 5,
+    "journeys": 21,
+    "frames": 76
+   },
+   "unmappedPages": [
+    {
+     "page": "All landing pages : Artifact Routine Projects",
+     "pageId": "12382:295660",
+     "note": "Not mapped. Expected to repeat artifacts-landing; check it for a newer grid before building."
+    }
+   ],
+   "recommendation": "Keep /artifacts on 7907:305055 (grid at rest), with 3780:177209 for seed=empty and 12868:502599 for view=list. Build it with the 9 Oct icon and card changes. Every Artifacts frame draws the rail collapsed; the rail stays the user's choice (Q9).",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null,
+   "doubts": [
+    "D4"
+   ]
+  },
+  {
+   "id": "agents-page",
+   "label": "Agents (rail icon) / Agents page",
+   "controls": [
+    "rail icon (dark + light)",
+    "the 'Agents' group title in the expanded nav only collapses its rows"
+   ],
+   "code": "Rail item 'Agents' (Rail.tsx:28, :36) has no `to`: a button with no handler that never selects. NavKey has no 'agents'.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Search + Agent + Login",
+    "pageId": "13766:124218",
+    "journey": "side-nav",
+    "step": "03",
+    "frame": "13766:125236",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-125236",
+    "size": "1440x900",
+    "note": "'agents page selected' in the nav. The page content was not read."
+   },
+   "routeProposed": "/agents with NavKey 'agents' (new template).",
+   "candidates": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "side-nav",
+     "step": "03",
+     "frame": "13766:125236",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-125236",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "entry",
+     "why": "The only frame with an Agents destination selected ('agents page selected')."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "es-agents",
+     "step": "01-03",
+     "frame": "6599:531692",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=6599-531692",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "empty state",
+     "why": "Agents page empty state (L1), three frames: 6599:531692, 6632:533338, 6632:533395."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "(loose)",
+     "step": "-",
+     "frame": "9893:422543",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9893-422543",
+     "frameName": "Content",
+     "size": "600x836",
+     "opacity": "100%",
+     "role": "related modal",
+     "why": "'Choose your agents · 6 agents enabled · Continue': an onboarding modal with no home page."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "pageKey": "search-agent-login",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "side-nav",
+       "frames": 1,
+       "part": "1 of 7 frames",
+       "steps": [
+        "13766:125236"
+       ]
+      }
+     ]
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "pageKey": "empty-states-dropdowns",
+     "journeyCount": 1,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "es-agents",
+       "frames": 3
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 2,
+    "journeys": 2,
+    "frames": 4
+   },
+   "unmappedPages": [],
+   "recommendation": "Add an 'agents' destination (/agents): selected state as 13766:125236, empty state 6599:531692. Hold the page content until the designer says what it lists.",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Is there an Agents page beyond the empty state (6599:531692) and the 'agents page selected' frame (13766:125236)? What does it list?",
+   "doubts": [
+    "D6"
+   ]
+  },
+  {
+   "id": "agent-rows",
+   "label": "Agents group rows (Financial Analysis Agent, Sheet Sage Agent, Formula Falcon Agent)",
+   "controls": [
+    "3 rows under Agents (dark + light)"
+   ],
+   "code": "AgentRow (NavItems.tsx:32-34, :84-86; rows.tsx:96-108) is a RowAction with no href and no onActivate: a button that does nothing.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Search + Agent + Login",
+    "pageId": "13766:124218",
+    "journey": "side-nav",
+    "step": "01",
+    "frame": "13766:124934",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124934",
+    "size": "1440x900",
+    "note": "Agent-selector state ('bg color: Brand 500 + 30% of #000000'). No frame shows where a click lands."
+   },
+   "routeProposed": "/new?agent=<id> (a New Session scoped to the agent; new key).",
+   "candidates": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "side-nav",
+     "step": "01",
+     "frame": "13766:124934",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124934",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "selector state",
+     "why": "Section 'Search + Model Switch + agent selector sidenav'. Label 'bg color: Brand 500 + 30% of #000000' (probably the selected agent row). Menu open + cursor."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "side-nav",
+     "step": "04, 05, 07",
+     "frame": "13766:125856",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-125856",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "states",
+     "why": "More menus and cursors in the same row (13766:125856, 13766:125232, 13766:125239). Contents were not read."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "side-nav-parked",
+     "step": "01-02",
+     "frame": "13766:126158",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-126158",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "20% (dimmed)",
+     "role": "parked",
+     "why": "Parked states (13766:126158, 13766:125554)."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "pageKey": "search-agent-login",
+     "journeyCount": 2,
+     "frameCount": 9,
+     "journeys": [
+      {
+       "journey": "side-nav",
+       "frames": 7
+      },
+      {
+       "journey": "side-nav-parked",
+       "frames": 2,
+       "dimmed": true
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 2,
+    "frames": 9
+   },
+   "unmappedPages": [],
+   "recommendation": "Treat a click as choosing that agent for a new session: open /new with the agent selected and the row drawn in the 13766:124934 colour. Read side-nav 01, 04, 05 and 07 before building.",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "What does clicking an agent in the nav do: start a new session with that agent, or open the agent's own page? The row is titled 'agent selector' but no frame shows the result.",
+   "doubts": [
+    "D6"
+   ]
+  },
+  {
+   "id": "pinned-artifact",
+   "label": "Pinned > Artifacts",
+   "controls": [
+    "pinned row (dark + light)"
+   ],
+   "code": "NavRow without `to` (NavItems.tsx:38, :90): a button with no handler. The dark row pins its drawn hover in the diff harness.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "artifact-full-editor",
+    "step": "01-06",
+    "frame": "7809:278865",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=7809-278865",
+    "size": "1440x900",
+    "note": "In-shell full view by type (01 App 7809:278865, 02 Spreadsheet 7809:273518, ...), without the back button (not from=artifacts)."
+   },
+   "routeProposed": "/artifacts/<id> (template 5); ⋯ = menu=pin:artifacts (already the URL of nav-behaviour 09).",
+   "reading": "A single pinned artifact whose placeholder title is 'Artifacts': its ⋯ menu (nav-behaviour 09) is Unpin / Move Up / Move Down / Download / Delete, which only makes sense for one artifact.",
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "09",
+     "frame": "11635:685715",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11635-685715",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "row states",
+     "why": "The row itself: hover with the open arrow and its ⋯ menu (Unpin, Move Up, Move Down, Download, Delete)."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifact-full-editor",
+     "step": "01",
+     "frame": "7809:278865",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=7809-278865",
+     "frameName": "118",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "in shell",
+     "why": "App artifact full view inside the shell (/artifacts/acme-app?from=artifacts). 02-06 are the other types."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifact-view-editor-main",
+     "step": "01",
+     "frame": "5310:276790",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=5310-276790",
+     "frameName": "77",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "standalone",
+     "why": "Standalone full-screen editor (/view/reference-xls), 'from main artifact page'."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "artifact-view-viewer",
+     "step": "01",
+     "frame": "3838:248160",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3838-248160",
+     "frameName": "1",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "viewer",
+     "why": "Standalone viewer (role=viewer)."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 4,
+     "frameCount": 13,
+     "journeys": [
+      {
+       "journey": "nav-behaviour",
+       "frames": 1,
+       "part": "1 of 9 frames",
+       "steps": [
+        "11635:685715"
+       ]
+      },
+      {
+       "journey": "drag-pinned",
+       "frames": 3
+      },
+      {
+       "journey": "artifact-full-editor",
+       "frames": 6
+      },
+      {
+       "journey": "artifact-view-editor-main",
+       "frames": 3
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 4,
+    "frames": 13
+   },
+   "unmappedPages": [
+    {
+     "page": "All landing pages : Artifact Routine Projects",
+     "pageId": "12382:295660",
+     "note": "May redraw the pinned state of an artifact on the Artifacts landing."
+    }
+   ],
+   "recommendation": "Open the artifact in the shell (/artifacts/<id>, artifact-full-editor by type, no back button). The hover open-arrow goes to the same place. ⋯ opens the nav-behaviour 09 menu (Move Up hidden on the first pin, Move Down on the last: Q14).",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Is 'Artifacts' under Pinned one pinned artifact (its menu has Download and Delete)? Does it open inside the shell (/artifacts/<id>) or standalone (/view/<id>)?",
+   "doubts": []
+  },
+  {
+   "id": "pinned-project",
+   "label": "Pinned > Projects",
+   "controls": [
+    "pinned row (dark + light)"
+   ],
+   "code": "NavRow without `to` (NavItems.tsx:39, :91): a button with no handler. Dark draws its two chats as a static tree; light draws no tree.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click. /projects/project-name already resolves (NAV_BEHAVIOUR_PROJECT in data/projects.ts) and renders the dashboard.",
+   "opens": {
+    "page": "Projects + Chat History",
+    "pageId": "563:116774",
+    "journey": "project-chat",
+    "step": "03",
+    "frame": "14045:584747",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-584747",
+    "size": "1440 wide",
+    "note": "Project page layout (D7 default), title pin filled as in nav-behaviour 08 (11780:448662)."
+   },
+   "routeProposed": "/projects/project-name (seed=project-pinned); chevron = open=pin:project; ⋯ = menu=pin:project.",
+   "reading": "A single pinned project (nav-behaviour 04 and the drag frames call it 'Project Name'); its menu is Unpin / Move Down / Edit Project / Share Project / Delete.",
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "02",
+     "frame": "11614:676434",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11614-676434",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "row hover",
+     "why": "Hover: open arrow + ⋯."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "pinned-chevron",
+     "step": "01-02",
+     "frame": "11661:497681",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11661-497681",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "row hover",
+     "why": "Hover: a chevron replaces the folder; clicking it expands the chats (11661:514386). Q13 default prefers this to the arrow."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "03",
+     "frame": "11715:658763",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11715-658763",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "menu",
+     "why": "Expanded with its ⋯ menu: Unpin, Move Down, Edit Project, Share Project, Delete."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "07",
+     "frame": "13701:756891",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13701-756891",
+     "frameName": "Group 1171274973",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "project page",
+     "why": "The project page reached from the pinned project (View All / open arrow). Older tab name 'Context', title pin unfilled, routed /projects/project-name?..."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "08",
+     "frame": "11780:448662",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11780-448662",
+     "frameName": "Group 1171274972",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "project page, pinned",
+     "why": "Same page with the project pinned (filled pin, tooltip 'Unpin Project')."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "project-chat",
+     "step": "03",
+     "frame": "14045:584747",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-584747",
+     "frameName": "Dashboard (INSTANCE of 11715:643488)",
+     "size": "1440 wide",
+     "opacity": "100%",
+     "role": "project page, built",
+     "why": "The built project page (tab 'Files'); D7 default."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "project-new",
+     "step": "04",
+     "frame": "15054:105151",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=15054-105151",
+     "frameName": "Dashboard",
+     "size": "1440 wide",
+     "opacity": "100%",
+     "role": "project page, newest",
+     "why": "Newest project page (pill tabs, small header buttons): the prototype opt=2."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 3,
+     "frameCount": 12,
+     "journeys": [
+      {
+       "journey": "nav-behaviour",
+       "frames": 7,
+       "part": "7 of 9 frames",
+       "steps": [
+        "11614:676434",
+        "11715:658763",
+        "11614:677973",
+        "11693:260033",
+        "11715:627268",
+        "13701:756891",
+        "11780:448662"
+       ]
+      },
+      {
+       "journey": "pinned-chevron",
+       "frames": 2
+      },
+      {
+       "journey": "drag-pinned",
+       "frames": 3
+      }
+     ]
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "pageKey": "projects-chat-history",
+     "journeyCount": 8,
+     "frameCount": 42,
+     "journeys": [
+      {
+       "journey": "project-chat",
+       "frames": 3
+      },
+      {
+       "journey": "project-share",
+       "frames": 10
+      },
+      {
+       "journey": "project-routines",
+       "frames": 2
+      },
+      {
+       "journey": "project-settings",
+       "frames": 9
+      },
+      {
+       "journey": "instructions-ai-edit",
+       "frames": 11
+      },
+      {
+       "journey": "project-menu-admin",
+       "frames": 2
+      },
+      {
+       "journey": "project-menu-non-admin",
+       "frames": 2
+      },
+      {
+       "journey": "project-tabs-new",
+       "frames": 3
+      }
+     ]
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "pageKey": "settings",
+     "journeyCount": 1,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "project-memory",
+       "frames": 3
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 3,
+    "journeys": 12,
+    "frames": 57
+   },
+   "unmappedPages": [],
+   "recommendation": "Name opens /projects/project-name (layout 14045:584747, pin filled as 11780:448662). The chevron over the folder toggles its chats (Q13 default, pinned-chevron). ⋯ opens the nav-behaviour 03 menu.",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Confirm Q13 (the chevron toggles the chats, the name opens the project, the open arrow is dropped). Is the project page 14045:584747 (tab 'Files', D7) rather than nav-behaviour 07's 'Context' version (13701:756891)?",
+   "doubts": [
+    "D7"
+   ]
+  },
+  {
+   "id": "pinned-project-chats",
+   "label": "Pinned > project chats (+ View All)",
+   "controls": [
+    "'Excel Formula Help From Main Document', 'Chat 2 inside this Project' (dark only)",
+    "View All (drawn, not built)"
+   ],
+   "code": "ChatRow x2 inside the static tree (NavItems.tsx:43-44): open + ⋯ buttons with no handlers. No View All row in code.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "chat-artifact",
+    "step": "08",
+    "frame": "1809:501331",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+    "size": "1440x900",
+    "note": "Chat template at rest with the rail expanded (/chat/commit?at=answer&rail=e). No frame draws a chat opened from inside a project."
+   },
+   "routeProposed": "/chat/<id>; ⋯ = menu=pin-chat:<id> (submenu >switch-project); View All = /projects/project-name.",
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "04",
+     "frame": "11614:677973",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11614-677973",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "menu",
+     "why": "The chat ⋯ menu: Pin Chat, Rename, Switch Project ›, Remove from Project, Delete, with the Switch Project picker."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "05",
+     "frame": "11693:260033",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11693-260033",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "overflow",
+     "why": "More than 10 chats: the list stops at 10 and adds View All."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "06",
+     "frame": "11715:627268",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11715-627268",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "overflow",
+     "why": "View All hovered."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "07",
+     "frame": "13701:756891",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13701-756891",
+     "frameName": "Group 1171274973",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "View All target",
+     "why": "Where View All lands (Q16 default: the project page)."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "chat-artifact",
+     "step": "08",
+     "frame": "1809:501331",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "chat page",
+     "why": "The only drawing of a chat at rest in the shell with the rail expanded."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 2,
+     "frameCount": 26,
+     "journeys": [
+      {
+       "journey": "nav-behaviour",
+       "frames": 4,
+       "part": "4 of 9 frames",
+       "steps": [
+        "11614:677973",
+        "11693:260033",
+        "11715:627268",
+        "13701:756891"
+       ]
+      },
+      {
+       "journey": "chat-artifact",
+       "frames": 22
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 2,
+    "frames": 26
+   },
+   "unmappedPages": [],
+   "recommendation": "A project chat opens the chat page (/chat/<id>, chat template). Its ⋯ opens the nav-behaviour 04 menu, anchored to its own row (Q14). Past 10 chats show View All, which opens the project page (Q16).",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Does a chat inside a pinned project open the normal chat page (with the project in its breadcrumb)? No frame draws it.",
+   "doubts": []
+  },
+  {
+   "id": "pinned-items",
+   "label": "Pinned > 'Plan launch timeline', 'Review customer feedback'",
+   "controls": [
+    "2 pinned rows (dark: open + ⋯; light: open only)"
+   ],
+   "code": "ChatRow (NavItems.tsx:47-48) / LightChatRow (:92-93): no handlers.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "chat-artifact",
+    "step": "08",
+    "frame": "1809:501331",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+    "size": "1440x900",
+    "note": "For a pinned chat. A pinned routine opens the routine page (see Routines rows)."
+   },
+   "routeProposed": "/chat/<id> for a chat, the routine page for a routine; drag= keys already exist (drag-unpin, drag-pinned).",
+   "reading": "Pinned rows mix item types: when 'Plan launch timeline' is unpinned it returns to the Routines group (drag-unpin 02, 11671:670376), so it is a routine. 'Review customer feedback' has no drawn home.",
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "drag-unpin",
+     "step": "01",
+     "frame": "11671:666296",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11671-666296",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "drag",
+     "why": "'Plan launch timeline' dragged out of Pinned with 'Release to unpin'."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "drag-unpin",
+     "step": "02",
+     "frame": "11671:670376",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11671-670376",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "drag result",
+     "why": "After release: it sits second in the Routines group."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "drag-pinned",
+     "step": "01-03",
+     "frame": "11661:517917",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11661-517917",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "drag",
+     "why": "Reorder inside Pinned (11661:517917, 11671:661281, 11671:662888)."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "chat-artifact",
+     "step": "08",
+     "frame": "1809:501331",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "chat page",
+     "why": "Chat page at rest, rail expanded."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 3,
+     "frameCount": 6,
+     "journeys": [
+      {
+       "journey": "drag-unpin",
+       "frames": 2
+      },
+      {
+       "journey": "drag-pinned",
+       "frames": 3
+      },
+      {
+       "journey": "nav-behaviour",
+       "frames": 1,
+       "part": "1 of 9 frames",
+       "steps": [
+        "11614:672894"
+       ]
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 3,
+    "frames": 6
+   },
+   "unmappedPages": [],
+   "recommendation": "Open the item's own page (chat -> /chat/<id>, routine -> the routine page). No ⋯ menu is drawn for these rows: reuse the menu of the item's home group with Unpin in place of Pin. Drag to reorder and to unpin as drawn.",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Is 'Review customer feedback' a chat (and 'Plan launch timeline' a routine, as drag-unpin 02 shows)? Which ⋯ menu do pinned rows use? None is drawn.",
+   "doubts": []
+  },
+  {
+   "id": "routine-rows",
+   "label": "Routines list rows (+ ⋯ menu)",
+   "controls": [
+    "'Get all granola notes summarized and del ', 'Excel Formula Help From Main Document', 'Design Stand up follow-up  meeting'"
+   ],
+   "code": "Dark ChatRow x3 (NavItems.tsx:53-55): open + ⋯ (⋯ replaces the dot on hover), no handlers. Light LightChatRow x3 (:98-100): open only, no ⋯.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Routines",
+    "pageId": "0:1",
+    "journey": "scheduled-sessions",
+    "step": "01",
+    "frame": "1588:225613",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1588-225613",
+    "size": "1440x900",
+    "note": "'Landing screen : No runs in a session': the routine's runs."
+   },
+   "routeProposed": "/routines/<id> (new template); ⋯ = menu=routine:<id> (new value).",
+   "menuOpens": {
+    "page": "Search + Agent + Login",
+    "pageId": "13766:124218",
+    "journey": "side-nav",
+    "step": "06",
+    "frame": "9256:477318",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9256-477318",
+    "size": "1440x900",
+    "note": "'three dots hover': Run Now / Edit / Add to Project / Keyboard shortcuts (D6 takes it, D5 drops Keyboard shortcuts)."
+   },
+   "candidates": [
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "scheduled-sessions",
+     "step": "01",
+     "frame": "1588:225613",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1588-225613",
+     "frameName": "1",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "open: runs",
+     "why": "The routine's sessions. The row's status dot is a run state, and 'Error in run' lives in this journey. Alternate below: 8486:545082 ('140', long header)."
+    },
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "scheduled-sessions",
+     "step": "07",
+     "frame": "1608:374610",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1608-374610",
+     "frameName": "137",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "open: run view",
+     "why": "Run view with more than one run (switch runs from the right panel)."
+    },
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "view-edit",
+     "step": "01-02",
+     "frame": "334:112794",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=334-112794",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "open: dashboard",
+     "why": "The routine dashboard (334:112794, oldest) and its component 1196:217178."
+    },
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "templates",
+     "step": "05",
+     "frame": "929:341275",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=929-341275",
+     "frameName": "4dashboard7",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "open: dashboard",
+     "why": "A newly created routine's dashboard."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "notification-collapsed-1",
+     "step": "04-05",
+     "frame": "13760:837613",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13760-837613",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "30% (dimmed)",
+     "role": "parked",
+     "why": "Where a 'Routine completion' notification lands; looks like a routine dashboard (with 14045:597791)."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "side-nav",
+     "step": "06",
+     "frame": "9256:477318",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9256-477318",
+     "frameName": "Dashboard (COMPONENT)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "⋯ menu",
+     "why": "⋯ menu: Run Now / Edit / Add to Project / Keyboard shortcuts. Routine actions, newest drawing; D6 default takes it."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "dd-nav",
+     "step": "01",
+     "frame": "9256:477323",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9256-477323",
+     "frameName": "Dashboard (instance)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "⋯ menu, instance",
+     "why": "Instance of 9256:477318 ('Check main flow')."
+    },
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "journey": "side-nav",
+     "step": "01-03",
+     "frame": "1440:365634",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1440-365634",
+     "frameName": "Main_nav",
+     "size": "280x900",
+     "opacity": "100%",
+     "role": "hover + older menu",
+     "why": "Nav only: hover of items (1440:365634), hover of micro items (1440:363167), item menu (1440:364269 + Dropdown Menu 11406:633924, 180x141, contents not read)."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Routines",
+     "pageId": "0:1",
+     "pageKey": "routines",
+     "journeyCount": 4,
+     "frameCount": 22,
+     "journeys": [
+      {
+       "journey": "scheduled-sessions",
+       "frames": 7
+      },
+      {
+       "journey": "view-edit",
+       "frames": 9
+      },
+      {
+       "journey": "read-more",
+       "frames": 3
+      },
+      {
+       "journey": "side-nav",
+       "frames": 3
+      }
+     ]
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "pageKey": "search-agent-login",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "side-nav",
+       "frames": 1,
+       "part": "1 of 7 frames",
+       "steps": [
+        "9256:477318"
+       ]
+      }
+     ]
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "pageKey": "empty-states-dropdowns",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "dd-nav",
+       "frames": 1
+      }
+     ]
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "drag-unpin",
+       "frames": 1,
+       "part": "1 of 2 frames",
+       "steps": [
+        "11671:670376"
+       ]
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 4,
+    "journeys": 7,
+    "frames": 25
+   },
+   "unmappedPages": [],
+   "recommendation": "Open the routine's sessions view (scheduled-sessions 01, 1588:225613) at a new /routines/<id>. ⋯ opens 9256:477318 without Keyboard shortcuts.",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Does a routine in the nav open its runs (scheduled-sessions, 1588:225613) or its dashboard (view-edit, 334:112794 / 1196:217178)? Is 9256:477318 (Run Now / Edit / Add to Project) its ⋯ menu, rather than the Routines-page nav menu 11406:633924?",
+   "doubts": [
+    "D5",
+    "D6",
+    "D18",
+    "D19"
+   ]
+  },
+  {
+   "id": "chat-rows",
+   "label": "Chats (dark) / History (light) rows (+ ⋯ menu)",
+   "controls": [
+    "4 rows per mode"
+   ],
+   "code": "Dark ChatRow x4 under Chats (NavItems.tsx:58-61): open + ⋯ on hover. Light LightChatRow x4 under History (:103-106): ⋯ always visible on the first three. No handlers. Only the commit chat (/chat/commit) is built.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "chat-artifact",
+    "step": "08",
+    "frame": "1809:501331",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+    "size": "1440x900",
+    "note": "Chat template at rest (/chat/commit?at=answer&rail=e)."
+   },
+   "routeProposed": "/chat/<id> (template exists; other slugs show the Not built placeholder); History page /history (new).",
+   "menuOpens": {
+    "page": "Projects + Chat History",
+    "pageId": "563:116774",
+    "journey": "chat-history",
+    "step": "02",
+    "frame": "4853:244291",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=4853-244291",
+    "size": "1440 wide",
+    "note": "Row menu Pin / Rename / Add to Project / Delete; Rename -> Rename Session modal 4853:246286."
+   },
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "chat-artifact",
+     "step": "08",
+     "frame": "1809:501331",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "open",
+     "why": "The only chat drawn at rest in the shell with the rail expanded; built."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "chat-history",
+     "step": "02",
+     "frame": "4853:244291",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=4853-244291",
+     "frameName": "Dashboard",
+     "size": "1440 wide",
+     "opacity": "100%",
+     "role": "⋯ menu",
+     "why": "Chat row menu on its home page: Pin / Rename / Add to Project / Delete. D3 default: the home page wins."
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "journey": "dd-projects",
+     "step": "05",
+     "frame": "9271:530761",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9271-530761",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "⋯ menu",
+     "why": "Chat row menu: Pin / Rename / Add to Project / Keyboard shortcuts (D3, D5)."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "chat-artifact",
+     "step": "03",
+     "frame": "9256:466688",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9256-466688",
+     "frameName": "COMPONENT \"3\"",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "title menu",
+     "why": "Chat title menu: View files in Chat, Pin Chat, Rename, Add to Project ›, Archive, Delete."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "04",
+     "frame": "11614:677973",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11614-677973",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "project chat menu",
+     "why": "The nav menu of a chat inside a project."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "side-nav",
+     "step": "01, 04, 07",
+     "frame": "13766:124934",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124934",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "unread",
+     "why": "Nav menus open (13766:124934, 13766:125856, 13766:125239); contents not read, one may be the chat row menu."
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "journey": "chat-history",
+     "step": "01",
+     "frame": "3098:185026",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=3098-185026",
+     "frameName": "Dashboard",
+     "size": "1440 wide",
+     "opacity": "100%",
+     "role": "History page",
+     "why": "History page ('Find all your chat history here'). No nav entry reaches it today."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 1,
+     "frameCount": 22,
+     "journeys": [
+      {
+       "journey": "chat-artifact",
+       "frames": 22
+      }
+     ]
+    },
+    {
+     "page": "Projects + Chat History",
+     "pageId": "563:116774",
+     "pageKey": "projects-chat-history",
+     "journeyCount": 1,
+     "frameCount": 8,
+     "journeys": [
+      {
+       "journey": "chat-history",
+       "frames": 8
+      }
+     ]
+    },
+    {
+     "page": "All Empty states & Dropdowns",
+     "pageId": "6565:313262",
+     "pageKey": "empty-states-dropdowns",
+     "journeyCount": 2,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "dd-chat-history",
+       "frames": 2
+      },
+      {
+       "journey": "dd-projects",
+       "frames": 1,
+       "part": "1 of 6 frames",
+       "steps": [
+        "9271:530761"
+       ]
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 3,
+    "journeys": 4,
+    "frames": 33
+   },
+   "unmappedPages": [],
+   "recommendation": "A row opens /chat/<id>. ⋯ opens the History-page row menu (4853:244291: Pin / Rename / Add to Project / Delete; Rename uses 4853:246286), which matches the chat title menu. Label the group 'Chats' (Q11; the 9 Oct Projects frames also say Chats). Add a way to the History page (3098:185026).",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Which ⋯ menu does a nav chat row open: 4853:244291, 9271:530761 or one of the unread side-nav menus? Should the Chats / History group link to the History page (3098:185026), which nothing in the nav reaches today?",
+   "doubts": [
+    "D3",
+    "D5"
+   ]
+  },
+  {
+   "id": "section-headers",
+   "label": "Section headers and chevrons (Agents, Pinned, Routines, Chats / History)",
+   "controls": [
+    "4 group titles with a chevron (dark + light)"
+   ],
+   "code": "NavSection (rows.tsx:189-218): the chevron collapses / expands the group in place (aria-expanded). Not routed.",
+   "routeToday": "no route (in-place toggle)",
+   "routeStatus": "built",
+   "routeNote": "Works: local state only.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "nav-light",
+    "step": "02",
+    "frame": "12829:292060",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-292060",
+    "size": "1440x900",
+    "note": "Light nav with groups open and closed."
+   },
+   "routeProposed": null,
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-light",
+     "step": "02",
+     "frame": "12829:292060",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-292060",
+     "frameName": "209",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "state",
+     "why": "Light: Agents and Pinned drawn with a right chevron, Routines and History with a down chevron."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "01",
+     "frame": "11614:672894",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11614-672894",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "state",
+     "why": "Dark: every group open (down chevrons)."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "side-nav",
+     "step": "02",
+     "frame": "13766:124635",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124635",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "hover",
+     "why": "'Sub header hover' (four cursors): the header hover state."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "nav-light",
+       "frames": 1,
+       "part": "1 of 4 frames",
+       "steps": [
+        "12829:292060"
+       ]
+      }
+     ]
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "pageKey": "search-agent-login",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "side-nav",
+       "frames": 1,
+       "part": "1 of 7 frames",
+       "steps": [
+        "13766:124635"
+       ]
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 2,
+    "journeys": 2,
+    "frames": 2
+   },
+   "unmappedPages": [],
+   "recommendation": "Keep as built. Add the sub-header hover from 13766:124635.",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null,
+   "doubts": []
+  },
+  {
+   "id": "account-menu",
+   "label": "Footer avatar / name / chevron -> account menu (and the rail avatar)",
+   "controls": [
+    "dark footer chevron",
+    "light footer chevron",
+    "avatar + name (spans today)",
+    "rail avatar (span today)"
+   ],
+   "code": "Dark footer chevron (Nav.tsx:72-74) and light footer chevron (:81-83) call onAccountMenu, which AppShell never passes. Avatars and names are spans (Nav.tsx:66-67, :79-80; Rail.tsx:78). Nothing opens.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Frames exist at /new?menu=account&rail=c|e&nav=light, but the /new screen ignores menu=.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "nav-light",
+    "step": "03",
+    "frame": "12829:296297",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-296297",
+    "size": "1440x900",
+    "note": "Collapsed light; 04 (12919:607703) is the expanded light menu. Dark: Notifications option 2, 14045:602095 / 14045:606876."
+   },
+   "routeProposed": "?menu=account on the current route (key already in BUILD-PLAN 2.1).",
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-light",
+     "step": "03",
+     "frame": "12829:296297",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-296297",
+     "frameName": "210",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "collapsed, light",
+     "why": "Collapsed light rail, avatar Clicked: Anurag Kashyap / Notifications (red dot) / Settings / Log Out. Confirmed page."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-light",
+     "step": "04",
+     "frame": "12919:607703",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12919-607703",
+     "frameName": "1730",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "expanded, light",
+     "why": "Expanded light: Anurag Kashyap / Settings / Log Out. No Notifications row (Q12)."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "ignored:notification-collapsed-1",
+     "step": "option 2 / 2",
+     "frame": "14045:602095",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-602095",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100% (ignored option, see D1)",
+     "role": "collapsed, dark",
+     "why": "Dark collapsed rail; 'on hover' opens the Tentant Switcher (268x156). BUILD-PLAN item 2; HTML reference prototypes/notification-flow."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "ignored:notification-collapsed-1",
+     "step": "option 2 / 4",
+     "frame": "14045:606876",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-606876",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100% (ignored option)",
+     "role": "expanded, dark",
+     "why": "Dark expanded (280): Tentant Switcher (268x144). The footer is avatar + name + chevron, with no bell."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "ignored:notification-collapsed-1",
+     "step": "option 2 / 5",
+     "frame": "15460:171060",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=15460-171060",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100% (ignored option)",
+     "role": "expanded + panel",
+     "why": "Newest frame on the page (15460): expanded, menu + Notification Panel."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 1,
+     "frameCount": 2,
+     "journeys": [
+      {
+       "journey": "nav-light",
+       "frames": 2,
+       "part": "2 of 4 frames",
+       "steps": [
+        "12829:296297",
+        "12919:607703"
+       ]
+      }
+     ]
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "pageKey": "notifications",
+     "journeyCount": 1,
+     "frameCount": 5,
+     "journeys": [
+      {
+       "journey": "ignored:notification-collapsed-1",
+       "frames": 5,
+       "note": "option 2"
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 2,
+    "journeys": 2,
+    "frames": 7
+   },
+   "unmappedPages": [
+    {
+     "page": "Chrome Extension ES",
+     "pageId": "13779:456774",
+     "note": "Settings > Get App & Extensions (7899:234202) points at the extension; nothing else in the account menu depends on it."
+    }
+   ],
+   "recommendation": "The avatar (footer and rail), the name row and the chevron all open the account menu (?menu=account). Light: nav-light 03 / 04. Dark: option 2 (14045:602095 collapsed, 14045:606876 expanded), per the D1 default. Show the Notifications row in both widths (Q12 default).",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Confirm D1 for this flow (build option 2: the account menu with a Notifications row) and Q12 (the Notifications row in the expanded menu too).",
+   "doubts": [
+    "D1"
+   ]
+  },
+  {
+   "id": "account-settings",
+   "label": "Account menu > Settings",
+   "controls": [
+    "menu item"
+   ],
+   "code": "Not built (no account menu yet).",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "/new?seed=no-chips&modal=settings>memory exists as a URL (new-memory 03) but the /new screen ignores modal=.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "new-memory",
+    "step": "03",
+    "frame": "10112:408460",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10112-408460",
+    "size": "1440x900",
+    "note": "Settings > Memory over the current page; instance of the Memory list 10112:406770."
+   },
+   "routeProposed": "?modal=settings>memory (exists); add settings>connectors, settings>skills, settings>apps.",
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "new-memory",
+     "step": "03",
+     "frame": "10112:408460",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10112-408460",
+     "frameName": "INSTANCE of Memory",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "Memory",
+     "why": "The only Settings frame on the confirmed page. Drift 9 Oct: a new 'Settings ›' item at the bottom of the modal nav (theme K)."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "memory-individual",
+     "step": "01",
+     "frame": "10112:406770",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10112-406770",
+     "frameName": "Memory (COMPONENT)",
+     "size": "(size not recorded)",
+     "opacity": "100%",
+     "role": "Memory",
+     "why": "The populated Memory list that 10112:408460 instances."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "memory-enable-import",
+     "step": "01",
+     "frame": "10136:549616",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10136-549616",
+     "frameName": "Dashboard",
+     "size": "(size not recorded)",
+     "opacity": "100%",
+     "role": "Memory, first-time",
+     "why": "Memory tab with memory off ('Generate memory from chats')."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "connectors",
+     "step": "01",
+     "frame": "10647:196002",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10647-196002",
+     "frameName": "Dashboard",
+     "size": "(size not recorded)",
+     "opacity": "100%",
+     "role": "Connectors",
+     "why": "Connectors, All tab: 'Option 1 (recommended)'. First title card on the page."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "skills",
+     "step": "01",
+     "frame": "14088:847085",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14088-847085",
+     "frameName": "9",
+     "size": "(size not recorded)",
+     "opacity": "100%",
+     "role": "Skills",
+     "why": "Skills list. Newest tab drawing (14088)."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "get-app-extensions",
+     "step": "01",
+     "frame": "7899:234202",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=7899-234202",
+     "frameName": "1",
+     "size": "(size not recorded)",
+     "opacity": "100%",
+     "role": "Get App",
+     "why": "Get App & Extensions (Chrome Extension, Desktop App, Add-In)."
+    },
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "journey": "(loose)",
+     "step": "-",
+     "frame": "9893:418298",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=9893-418298",
+     "frameName": "Dialog - Settings",
+     "size": "960x723",
+     "opacity": "100%",
+     "role": "older",
+     "why": "Older dialog whose nav is General / Memory / Connectors / Skills / Get App & Extension."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Settings",
+     "pageId": "3612:185217",
+     "pageKey": "settings",
+     "journeyCount": 10,
+     "frameCount": 47,
+     "journeys": [
+      {
+       "journey": "connectors",
+       "frames": 7
+      },
+      {
+       "journey": "connectors-disruption",
+       "frames": 2
+      },
+      {
+       "journey": "skills",
+       "frames": 3
+      },
+      {
+       "journey": "get-app-extensions",
+       "frames": 1
+      },
+      {
+       "journey": "memory-enable-import",
+       "frames": 10
+      },
+      {
+       "journey": "memory-individual",
+       "frames": 9
+      },
+      {
+       "journey": "memory-edit-ai-list",
+       "frames": 7
+      },
+      {
+       "journey": "memory-delete",
+       "frames": 3
+      },
+      {
+       "journey": "memory-disable-pause",
+       "frames": 3
+      },
+      {
+       "journey": "memory-disable-reset",
+       "frames": 2
+      }
+     ]
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 1,
+     "frameCount": 1,
+     "journeys": [
+      {
+       "journey": "new-memory",
+       "frames": 1,
+       "part": "1 of 3 frames",
+       "steps": [
+        "10112:408460"
+       ]
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 2,
+    "journeys": 11,
+    "frames": 48
+   },
+   "unmappedPages": [],
+   "recommendation": "Open the Settings modal over the current page. D9 puts General first, but General is not designed, so open on Memory (10112:408460) until the designer says otherwise.",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Which tab does Settings open on from the account menu? D9 puts General first, but no frame designs General.",
+   "doubts": [
+    "D9",
+    "D10",
+    "D11"
+   ]
+  },
+  {
+   "id": "account-logout",
+   "label": "Account menu > Log Out",
+   "controls": [
+    "menu item"
+   ],
+   "code": "Not built (no account menu yet).",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "BUILD-PLAN section 3 lists Log Out as a gap.",
+   "opens": {
+    "page": "Search + Agent + Login",
+    "pageId": "13766:124218",
+    "journey": "login",
+    "step": "01",
+    "frame": "13766:133389",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-133389",
+    "size": "1440x900",
+    "note": "Login option 4 (split screen: chat + login form)."
+   },
+   "routeProposed": "/login (new, no shell).",
+   "candidates": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "login",
+     "step": "01",
+     "frame": "13766:133389",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-133389",
+     "frameName": "Login (option 4)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "entry",
+     "why": "The only full-opacity login; D1 default."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "ignored:login",
+     "step": "options 1-3",
+     "frame": "13766:128595",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-128595",
+     "frameName": "Login (option 1)",
+     "size": "1440x900",
+     "opacity": "30% (ignored)",
+     "role": "parked",
+     "why": "Options 1-3 (13766:128595, 13766:130193, 13766:131792) are faded."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "pageKey": "search-agent-login",
+     "journeyCount": 1,
+     "frameCount": 3,
+     "journeys": [
+      {
+       "journey": "login",
+       "frames": 3
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 1,
+    "frames": 3
+   },
+   "unmappedPages": [],
+   "recommendation": "Log Out lands on the login page, option 4 (13766:133389), outside the shell.",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Does Log Out land on the login page (option 4, 13766:133389)?",
+   "doubts": [
+    "D1",
+    "D23"
+   ]
+  },
+  {
+   "id": "notifications",
+   "label": "Footer notifications bell (and Account menu > Notifications)",
+   "controls": [
+    "dark footer bell",
+    "account menu row (collapsed menu)"
+   ],
+   "code": "Dark footer bell (Nav.tsx:69-71) calls onNotifications, which AppShell never passes. The light footer and the rail draw no bell. The account-menu row is not built.",
+   "routeToday": null,
+   "routeStatus": "none",
+   "routeNote": "Nothing happens on click.",
+   "opens": {
+    "page": "Notifications",
+    "pageId": "13752:451556",
+    "journey": "ignored:notification-collapsed-1",
+    "step": "option 2 / 3",
+    "frame": "14553:287625",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14553-287625",
+    "size": "1440x900",
+    "note": "Notification Panel 440x640 (from the account menu); expanded: 15460:171060."
+   },
+   "routeProposed": "?pop=notifications (pop is the BUILD-PLAN popover key; the value is new).",
+   "evidence": "The bell is still drawn in the dark footer of nav-behaviour 01 (11614:672894, 'footer shows bell with red dot') and of the Projects frames 14045:584747 / 15054:105151 (drift 9 Oct: moved ~4 px right). Option 2's expanded footer (14045:606876) has no bell.",
+   "extraNote": "Not reached from the web nav: Meetings teams-notifications (macOS desktop notifications, 3 frames).",
+   "candidates": [
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "ignored:notification-collapsed-1",
+     "step": "option 2 / 3",
+     "frame": "14553:287625",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14553-287625",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100% (ignored option, see D1)",
+     "role": "panel",
+     "why": "Notification Panel (440x640) opened from the account menu. The notification-types spec sits under it."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "ignored:notification-collapsed-1",
+     "step": "option 2 / 5",
+     "frame": "15460:171060",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=15460-171060",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100% (ignored option)",
+     "role": "panel, expanded",
+     "why": "Newest frame on the page: expanded rail, menu + panel."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "notification-expanded",
+     "step": "01",
+     "frame": "13760:839717",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13760-839717",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "30% (dimmed)",
+     "role": "bell -> panel",
+     "why": "The only frame where the footer bell opens the panel: cursor on the bell position (233, 878), panel 440x610 at x 289."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "notification-collapsed-1",
+     "step": "02-03",
+     "frame": "13760:760395",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13760-760395",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "30% (dimmed)",
+     "role": "parked",
+     "why": "Option 1: the panel opens straight from a rail entry (13760:760395 tooltip, 13760:761707 panel)."
+    },
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "journey": "notification-collapsed-1",
+     "step": "04-05",
+     "frame": "13760:837613",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13760-837613",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "30% (dimmed)",
+     "role": "landing",
+     "why": "Where a clicked notification lands (with 14045:597791); looks like a routine dashboard."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Notifications",
+     "pageId": "13752:451556",
+     "pageKey": "notifications",
+     "journeyCount": 3,
+     "frameCount": 11,
+     "journeys": [
+      {
+       "journey": "notification-collapsed-1",
+       "frames": 5,
+       "dimmed": true
+      },
+      {
+       "journey": "notification-expanded",
+       "frames": 1,
+       "dimmed": true
+      },
+      {
+       "journey": "ignored:notification-collapsed-1",
+       "frames": 5,
+       "note": "option 2"
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 1,
+    "journeys": 3,
+    "frames": 11
+   },
+   "unmappedPages": [],
+   "recommendation": "One Notification Panel (option 2 content, 440x640, with the What's New tab of prototypes/notification-flow), opened from the account menu's Notifications row. Keep the dark footer bell as a shortcut to the same panel, placed as in 13760:839717, until the designer decides.",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Keep the footer bell (still drawn in the Projects and nav-behaviour frames) as a direct way into the panel, or drop it as option 2's expanded footer (14045:606876) does, so Notifications open only from the account menu? (D1)",
+   "doubts": [
+    "D1"
+   ]
+  },
+  {
+   "id": "collapse-expand",
+   "label": "Collapse / expand control",
+   "controls": [
+    "expanded header 'Collapse navigation'",
+    "rail logo 'Expand navigation'",
+    "narrow overlay (< 1200 px)"
+   ],
+   "code": "Nav.tsx:53-55 -> rail.set('collapsed'); Rail.tsx:57-59 -> rail.set('expanded'), or below 1200 px an overlay over a scrim (AppShell.tsx:56-113). Focus moves between the two buttons. The hash keeps rail=c|e when the URL pins it (router.ts).",
+   "routeToday": "no path change (rail=c / rail=e on the current route)",
+   "routeStatus": "built",
+   "routeNote": "Works as designed.",
+   "opens": {
+    "page": "Chat + Artifacts",
+    "pageId": "1707:115989",
+    "journey": "nav-light",
+    "step": "01-02",
+    "frame": "12829:289253",
+    "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-289253",
+    "size": "1440x900",
+    "note": "Light collapsed 12829:289253 / expanded 12829:292060. Dark: chat-artifact 01 (rail=c) / nav-behaviour 01 (rail=e). Nav modes component 14992:112150."
+   },
+   "routeProposed": null,
+   "candidates": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-light",
+     "step": "01",
+     "frame": "12829:289253",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-289253",
+     "frameName": "208",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "collapsed",
+     "why": "Light, collapsed."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-light",
+     "step": "02",
+     "frame": "12829:292060",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-292060",
+     "frameName": "209",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "expanded",
+     "why": "Light, expanded."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "chat-artifact",
+     "step": "01",
+     "frame": "1707:136008",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1707-136008",
+     "frameName": "(name not recorded)",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "collapsed",
+     "why": "Dark, collapsed."
+    },
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "journey": "nav-behaviour",
+     "step": "01",
+     "frame": "11614:672894",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11614-672894",
+     "frameName": "Copilot Landing page",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "expanded",
+     "why": "Dark, expanded."
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "journey": "light-mode-nav",
+     "step": "01-02",
+     "frame": "13766:126460",
+     "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-126460",
+     "frameName": "Dashboard",
+     "size": "1440x900",
+     "opacity": "100%",
+     "role": "duplicate",
+     "why": "Duplicate light screens (13766:126460, 13766:127525). D6: reference only."
+    }
+   ],
+   "reachable": [
+    {
+     "page": "Chat + Artifacts",
+     "pageId": "1707:115989",
+     "pageKey": "chat-artifacts",
+     "journeyCount": 1,
+     "frameCount": 2,
+     "journeys": [
+      {
+       "journey": "nav-light",
+       "frames": 2,
+       "part": "2 of 4 frames",
+       "steps": [
+        "12829:289253",
+        "12829:292060"
+       ]
+      }
+     ]
+    },
+    {
+     "page": "Search + Agent + Login",
+     "pageId": "13766:124218",
+     "pageKey": "search-agent-login",
+     "journeyCount": 1,
+     "frameCount": 2,
+     "journeys": [
+      {
+       "journey": "light-mode-nav",
+       "frames": 2
+      }
+     ]
+    }
+   ],
+   "reachableTotal": {
+    "pages": 2,
+    "journeys": 2,
+    "frames": 4
+   },
+   "unmappedPages": [],
+   "recommendation": "Keep as built: the logo expands (Q10 default), layout-left collapses, and the rail is the user's choice (Q9).",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null,
+   "doubts": [
+    "D6"
+   ]
+  }
+ ],
+ "summary": [
+  {
+   "item": "New Session",
+   "id": "new-session",
+   "entryFrame": "1707:136008",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1707-136008",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null
+  },
+  {
+   "item": "Search (header icon, dark rail icon)",
+   "id": "search",
+   "entryFrame": "13766:124224",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124224",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Is the full-screen modal on 'Search + Agent + Login' (13766:124224 to 13766:124550) the global search for both the header icon and the rail icon? Should the light rail get a Search icon too (the light expanded header has one)?"
+  },
+  {
+   "item": "Projects",
+   "id": "projects",
+   "entryFrame": "11657:386523",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-386523",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null
+  },
+  {
+   "item": "Routines",
+   "id": "routines",
+   "entryFrame": "11657:493405",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=11657-493405",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Build the Routines landing from 11657:493405 with its row menu closed (the populated rest state is only drawn in the old 334:112714)? And should a first visit show the first-time page 875:162202 instead?"
+  },
+  {
+   "item": "Meetings",
+   "id": "meetings",
+   "entryFrame": "8490:262262",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=8490-262262",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Which Meetings page does the nav open by default: the listing (8490:262262), onboarding for a first-time user (9325:402586), or the no-calendar state (12618:544826)? Are the newer listing states (13185:846896 to 13185:850454) the current look of the listing?"
+  },
+  {
+   "item": "Artifacts",
+   "id": "artifacts",
+   "entryFrame": "7907:305055",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=7907-305055",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null
+  },
+  {
+   "item": "Agents (rail icon) / Agents page",
+   "id": "agents-page",
+   "entryFrame": "13766:125236",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-125236",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Is there an Agents page beyond the empty state (6599:531692) and the 'agents page selected' frame (13766:125236)? What does it list?"
+  },
+  {
+   "item": "Agents group rows (Financial Analysis Agent, Sheet Sage Agent, Formula Falcon Agent)",
+   "id": "agent-rows",
+   "entryFrame": "13766:124934",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-124934",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "What does clicking an agent in the nav do: start a new session with that agent, or open the agent's own page? The row is titled 'agent selector' but no frame shows the result."
+  },
+  {
+   "item": "Pinned > Artifacts",
+   "id": "pinned-artifact",
+   "entryFrame": "7809:278865",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=7809-278865",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Is 'Artifacts' under Pinned one pinned artifact (its menu has Download and Delete)? Does it open inside the shell (/artifacts/<id>) or standalone (/view/<id>)?"
+  },
+  {
+   "item": "Pinned > Projects",
+   "id": "pinned-project",
+   "entryFrame": "14045:584747",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14045-584747",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Confirm Q13 (the chevron toggles the chats, the name opens the project, the open arrow is dropped). Is the project page 14045:584747 (tab 'Files', D7) rather than nav-behaviour 07's 'Context' version (13701:756891)?"
+  },
+  {
+   "item": "Pinned > project chats (+ View All)",
+   "id": "pinned-project-chats",
+   "entryFrame": "1809:501331",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Does a chat inside a pinned project open the normal chat page (with the project in its breadcrumb)? No frame draws it."
+  },
+  {
+   "item": "Pinned > 'Plan launch timeline', 'Review customer feedback'",
+   "id": "pinned-items",
+   "entryFrame": "1809:501331",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Is 'Review customer feedback' a chat (and 'Plan launch timeline' a routine, as drag-unpin 02 shows)? Which ⋯ menu do pinned rows use? None is drawn."
+  },
+  {
+   "item": "Routines list rows (+ ⋯ menu)",
+   "id": "routine-rows",
+   "entryFrame": "1588:225613",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1588-225613",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Does a routine in the nav open its runs (scheduled-sessions, 1588:225613) or its dashboard (view-edit, 334:112794 / 1196:217178)? Is 9256:477318 (Run Now / Edit / Add to Project) its ⋯ menu, rather than the Routines-page nav menu 11406:633924?"
+  },
+  {
+   "item": "Chats (dark) / History (light) rows (+ ⋯ menu)",
+   "id": "chat-rows",
+   "entryFrame": "1809:501331",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1809-501331",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Which ⋯ menu does a nav chat row open: 4853:244291, 9271:530761 or one of the unread side-nav menus? Should the Chats / History group link to the History page (3098:185026), which nothing in the nav reaches today?"
+  },
+  {
+   "item": "Section headers and chevrons (Agents, Pinned, Routines, Chats / History)",
+   "id": "section-headers",
+   "entryFrame": "12829:292060",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-292060",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null
+  },
+  {
+   "item": "Footer avatar / name / chevron -> account menu (and the rail avatar)",
+   "id": "account-menu",
+   "entryFrame": "12829:296297",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-296297",
+   "confidence": "medium",
+   "needsConfirmation": true,
+   "question": "Confirm D1 for this flow (build option 2: the account menu with a Notifications row) and Q12 (the Notifications row in the expanded menu too)."
+  },
+  {
+   "item": "Account menu > Settings",
+   "id": "account-settings",
+   "entryFrame": "10112:408460",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=10112-408460",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Which tab does Settings open on from the account menu? D9 puts General first, but no frame designs General."
+  },
+  {
+   "item": "Account menu > Log Out",
+   "id": "account-logout",
+   "entryFrame": "13766:133389",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13766-133389",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Does Log Out land on the login page (option 4, 13766:133389)?"
+  },
+  {
+   "item": "Footer notifications bell (and Account menu > Notifications)",
+   "id": "notifications",
+   "entryFrame": "14553:287625",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=14553-287625",
+   "confidence": "low",
+   "needsConfirmation": true,
+   "question": "Keep the footer bell (still drawn in the Projects and nav-behaviour frames) as a direct way into the panel, or drop it as option 2's expanded footer (14045:606876) does, so Notifications open only from the account menu? (D1)"
+  },
+  {
+   "item": "Collapse / expand control",
+   "id": "collapse-expand",
+   "entryFrame": "12829:289253",
+   "figma": "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=12829-289253",
+   "confidence": "high",
+   "needsConfirmation": false,
+   "question": null
+  }
+ ]
+}

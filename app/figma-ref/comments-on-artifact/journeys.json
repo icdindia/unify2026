@@ -1,0 +1,106 @@
+{
+ "_status": "DRAFT 2026-10-09 — inferred from layout",
+ "page": {
+  "id": "13946:324390",
+  "name": "Comments on Artifact"
+ },
+ "sections": [
+  {
+   "id": "15160:1022869",
+   "name": "comments on a artifact",
+   "children": 26
+  }
+ ],
+ "notes": [
+  "One section, one row. The bubble column (x 7691) and the two popovers at the end (x 11204) are component states shown beside the row, not steps.",
+  "Labels 'on click' and 'on all comments' sit in the gaps BEFORE 1740 and 1742 respectively: read as the action that leads into that frame.",
+  "'stepNotes' are this mapper's observations (from direct-child layer names), not designer labels."
+ ],
+ "journeys": [
+  {
+   "id": "comment-on-artifact",
+   "title": "Comment on artifact (canvas bubbles -> thread menu -> all comments -> comment in chat)",
+   "section": "15160:1022869",
+   "card": "13946:324825",
+   "cardText": "comment on artifact",
+   "frames": [
+    "13946:324391",
+    "13946:324827",
+    "13946:324917",
+    "13946:325448",
+    "13946:325009",
+    "13946:325110"
+   ],
+   "labels": {
+    "13946:325448": "on click",
+    "13946:325009": "on all comments",
+    "13946:325110": "comment in chat"
+   },
+   "stepNotes": {
+    "13946:324391": "\"1732\": 56 rail + 'Page content' (1384), no split handle: the artifact before commenting. A 12px 'Pill solid' (13946:324824) sits just above its top-right corner",
+    "13946:324827": "\"1736\": 56 rail + split layout with a drag handle at x 500 (chat | artifact)",
+    "13946:324917": "\"1739\": as 1736 + a Canvas-Comments-Bouble (321x106) on the artifact at (1106,172)",
+    "13946:325448": "\"1740\": bubble (321x90) + Tooltip (89x34). Label text 13946:325870 sits between 1739 and 1740 (x 5822-6064), i.e. the click that leads here",
+    "13946:325009": "\"1741\": split, no overlay; a cursor (13946:325874) sits on it. Label text 13946:325872 is right-aligned to this frame's right edge, next to 1742",
+    "13946:325110": "\"1742\": split, no overlay; label over its left edge",
+    "13946:325541": "bubble: mention picker state (Team member / Plan / @olivia)",
+    "13946:325546": "bubble: one comment (Anuj Mittal, now)",
+    "13946:325594": "bubble: comment thread; captions to its right: 'comment artifact' (13946:325871) and 'comment artifact hover' (13958:332608)",
+    "13946:325642": "bubble (layer 'Canvas-Comments-Bouble'): thread with the Dropdown Menu 13946:325857 open beside it",
+    "13946:325690": "bubble: thread state",
+    "13946:325738": "bubble: longest thread (321x340) with the Dropdown Menu 13946:325858 beside it",
+    "13946:325857": "thread menu (Edit / Label / ⌘K->P / Delete Thread)",
+    "13946:325858": "thread menu, collapsed single-row variant (140x32)",
+    "13946:325278": "popover listing more comments — label 'two or more artifact commented upon' (13958:332586)",
+    "13946:325385": "the same popover, hover state — label 'hover state' (13958:332585)"
+   },
+   "components": [
+    "13946:325541",
+    "13946:325546",
+    "13946:325594",
+    "13946:325642",
+    "13946:325690",
+    "13946:325738",
+    "13946:325857",
+    "13946:325858",
+    "13946:325278",
+    "13946:325385"
+   ],
+   "crossPage": [
+    "Continues / overlaps Chat + Artifacts 'canvas-comments' (card 1969:507282: hover, select + compose with @agent, composer states, modal) and 'commenters' (comments panel). Bubble layer names match BUILD-PLAN item 54 'CanvasComments' (Canvas-Comments-Bouble 1902:350642)."
+   ]
+  }
+ ],
+ "ignoredOptions": [],
+ "crossPage": [
+  "Chat + Artifacts 'canvas-comments' (1969:507282) covers creating a comment on the canvas (hover, select, compose with @agent). This page covers the next part: bubbles on the canvas, the thread menu, 'all comments', and sending a comment into the chat. The two read as consecutive halves of one flow (see doubt 1).",
+  "Chat + Artifacts 'commenters' (8279:198075) is the comments-panel flow for commenter-only users; this page's 'comment in chat' (1742) touches the same chat column."
+ ],
+ "loose": [
+  {
+   "id": "13959:332731",
+   "name": "claude",
+   "size": "3491x537",
+   "guess": "30%-opacity strip of 8 reference screenshots (Oct 2/5) above the section, outside it: comment UI references from another product"
+  },
+  {
+   "id": "13946:324824",
+   "name": "Pill solid",
+   "size": "12x12",
+   "guess": "small dot just above 1732's top-right corner; reads as a 'new/updated' marker on the frame"
+  }
+ ],
+ "doubts": [
+  {
+   "q": "This page (13946 ids, Oct 2026) and Chat + Artifacts 'canvas-comments' (1969 ids, older) both design comments on an artifact canvas. Are they two halves of one flow (hover/select/compose there -> bubbles, thread menu, all comments, comment-in-chat here), or is this page a newer version that replaces canvas-comments? (Whether the bubbles here are instances of the same 'Canvas-Comments-Bouble' component 1902:350642 was not checked: the bridge dropped.)",
+   "figmaLinks": [
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13946-324825",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13946-324917",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=13946-325541",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1969-507282",
+    "https://www.figma.com/design/lqKjNjyifEXCeywg69Knr2/?node-id=1969-507495"
+   ],
+   "proposedDefault": "Two halves of one flow: keep canvas-comments for hover/select/compose, use this page for bubbles, the thread menu, all comments and comment-in-chat; where bubble states differ, the ones on this page (newer) win."
+  }
+ ]
+}
