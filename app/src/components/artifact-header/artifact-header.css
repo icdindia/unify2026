@@ -49,6 +49,25 @@
   color: var(--colors-text-text-secondary-700);
 }
 
+/* back (12191:716323: Button Neutral xs tertiary, 24, chevron-left-sm) 4px before the mark (7809:278865: back 64-88, mark 92) */
+.ahdr__back { flex: none; margin-right: var(--spacing-xs); }
+.ahdr__back:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+
+/* "Edit with Chat" / "Start Chat" (I7809:279754;6303:301118): Button Neutral sm tertiary 28 tall, pad 4 8, gap 2, ai-star 14,
+   text pad 0 2, 13/20 Medium text-primary; right after the name button (x 271 = name 112 + 159) */
+.ahdr__cta {
+  flex: none; display: inline-flex; align-items: center; gap: var(--spacing-xxs);
+  height: 28px; /* DRIFT: Button Neutral sm */
+  padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--button-sm); white-space: nowrap;
+  font-family: var(--text-sm-medium-font-family); font-size: var(--text-sm-medium-font-size);
+  font-weight: var(--text-sm-medium-font-weight); line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.ahdr__cta svg { flex: none; }
+.ahdr__cta-t { padding: 0 var(--spacing-xxs); }
+.ahdr__cta:is(:hover, .is-hover) { background: var(--colors-background-bg-tertiary); }
+.ahdr__left--cta .ahdr__name { flex: 0 1 auto; }
+
 /* ---- rename field (21b) ---- */
 .ahdr__edit { display: flex; align-items: center; min-width: 0; max-width: 100%; }
 .ahdr__field {

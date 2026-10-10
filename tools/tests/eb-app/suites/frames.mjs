@@ -17,7 +17,8 @@ const pathOf = route => decode(route).split('?')[0]
 const SCREEN = `(async()=>{
   const nb=document.querySelector('.not-built'); const gal=document.querySelector('[data-gallery-page]');
   const kind = nb ? 'placeholder' : gal ? 'gallery' : document.querySelector('.pl') ? 'projects' : document.querySelector('.pd') ? 'dashboard'
-    : document.querySelector('.landing') ? 'landing' : document.querySelector('.chat') ? 'chat' : document.querySelector('.screen-error') ? 'error' : 'other';
+    : document.querySelector('.landing') ? 'landing' : document.querySelector('.chat') ? 'chat'
+    : document.querySelector('.art') ? 'artifacts' : document.querySelector('.apage') ? 'artifact' : document.querySelector('.screen-error') ? 'error' : 'other';
   const live = el => !el.closest('.review-bar--measure');
   const read = () => ({
     face: [...document.querySelectorAll('.shell__tools .review-step__face')].filter(live).map(e=>e.textContent.trim())[0] || null,
@@ -122,9 +123,9 @@ export default async function frames({ browser, rec, out }) {
         current: [...document.querySelectorAll('.shell__nav [aria-current=page]')].map(e=>(e.getAttribute('aria-label')||e.textContent).trim()) })`)
       navWalk.push({ label, ...s })
     }
-    rec.check('the nav opens New Session (built), Routines and Artifacts (placeholders) and Projects (built), each marked current',
+    rec.check('the nav opens New Session, Artifacts and Projects (built) and Routines (placeholder), each marked current',
       navWalk.every(w => w.path === { 'New Session': '/new', Routines: '/routines', Artifacts: '/artifacts', Projects: '/projects' }[w.label]
-        && w.placeholder === !['Projects', 'New Session'].includes(w.label) && w.current.some(c => c.startsWith(w.label))), navWalk)
+        && w.placeholder === (w.label === 'Routines') && w.current.some(c => c.startsWith(w.label))), navWalk)
 
     // 4. the contracts on the build-coverage page
     await page.hash('/gallery/build-coverage', 500)

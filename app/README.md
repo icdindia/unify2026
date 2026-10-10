@@ -27,13 +27,15 @@ The **review bar** sits at the top right. On narrow windows it folds into "Revie
 - **Inside page: Option 1 / 2** (project pages) and **Nav: Dark / Light**.
 - **Open at 1440 / 1280 / 1024 / 787 / 390** opens the same screen at that width.
 
-**Only built screens are reachable.** Nav items without a built page (Routines, Meetings and Artifacts today) do
+**Only built screens are reachable.** Nav items without a built page (Routines and Meetings today) do
 nothing, and the step picker skips unbuilt steps. To see the "Not built yet" Figma placeholders for every step,
-open the page with `?unbuilt=show` before the `#`, for example `eb-app.html?unbuilt=show#/artifacts`.
+open the page with `?unbuilt=show` before the `#`, for example `eb-app.html?unbuilt=show#/routines`.
 
 Useful pages:
 - `#/new` starts a chat. Type and press Enter, and the scripted journey plays with Figma's timings.
 - `#/projects` is the Projects landing and project dashboard.
+- `#/artifacts` is the Artifacts landing: open a card, use its ⋯ menu (Pin, Edit with Chat, Clone, Delete), the type
+  filter, search and the list view. Clones, renames, pins and deletes last until the page is reloaded.
 - `#/gallery` lists every component on its own, with its Figma component links. This is the dev team's reference.
 - `#/gallery/frame-map` lists every mapped Figma frame with the prototype URL that reproduces it. This is the handoff map.
 

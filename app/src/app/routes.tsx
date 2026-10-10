@@ -14,6 +14,7 @@ import { ChatScreen } from '../screens/chat/ChatScreen'
 import { chatPathOf, chatRouteState } from '../screens/chat/route'
 import { journeyFrameOf } from '../screens/chat/drawn'
 import { SCRIPTS } from '../fixtures/scripts'
+import { artifactsScreen } from '../screens/artifacts/route'
 
 // The route table (hash routes, see router/router.ts). Kept apart from App.tsx so the review harness (the build
 // coverage page, the regression suite through it) can ask how any URL resolves without rendering the app.
@@ -105,6 +106,7 @@ export function screenFor(route: Route): Screen {
   }
   // ROUTES-BEGIN: Routines and Search screens. Each screens/<area>/route.tsx exports a `<area>Screen(route): Screen | null`;
   // add one `const x = fooScreen(route); if (x) return x` line per area here (agents editing in parallel: one line each).
+  const artifacts = artifactsScreen(route); if (artifacts) return artifacts
   // ROUTES-END
   // Keep this fallback last: a planned screen that is not built yet shows its frame record (review/NotBuilt.tsx).
   const placeholder = notBuiltScreen(route)

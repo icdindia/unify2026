@@ -11,7 +11,7 @@ import { join } from 'node:path'
 import { launchChrome } from './lib/cdp.mjs'
 import { APP_FILE, HERE, ROOT, makeRecorder, startServer } from './lib/harness.mjs'
 
-const ORDER = ['static', 'frames', 'router', 'gallery', 'playback', 'contexts', 'keyboard', 'overlays', 'composer', 'responsive', 'parity', 'chat-journey']
+const ORDER = ['static', 'frames', 'router', 'artifacts', 'gallery', 'playback', 'contexts', 'keyboard', 'overlays', 'composer', 'responsive', 'parity', 'chat-journey']
 const args = process.argv.slice(2)
 const build = args.includes('--build')
 const picked = args.filter(a => !a.startsWith('--'))

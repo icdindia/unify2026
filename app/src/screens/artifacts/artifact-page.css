@@ -1,0 +1,8 @@
+/* The artifact page (artifact-full-editor 01-06, cloned-artifact 02-03): the 40px Arifact Header across the main area
+   over the canvas, which fills the rest and scrolls. */
+.apage { position: relative; height: 100%; min-height: 0; display: flex; flex-direction: column; background: var(--colors-background-bg-workspace); }
+.apage > .apanel { flex: 1 1 0; }
+.apage__hdr { position: relative; flex: none; }
+.apage__h1 {
+  position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; /* DRIFT: visually-hidden page title (the header's name button carries it visibly) */
+}

@@ -95,3 +95,17 @@ export const Close16 = (p: IconProps) => (
     <path transform="translate(2.667 2.667)" d="M10.6667 0L0 10.6667M0 0L10.6667 10.6667" />
   </svg>
 )
+
+/** ai-star 14 of "Edit with Chat" / "Start Chat" (I7809:279754;6303:301118;17992:18390): the 11.67 glyph at 1.17. */
+export const AiStar14 = (p: IconProps) => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden focusable={false} {...p}>
+    <path transform="translate(1.167 1.167)" d="M5.79 0.105L5.82 0L5.836 0.003L5.86 0.104C5.864 0.234 5.886 0.357 5.902 0.486C6.078 1.914 6.636 3.283 7.725 4.267C8.762 5.204 10.094 5.651 11.473 5.779C11.528 5.784 11.583 5.791 11.638 5.792L11.667 5.833C11.628 5.841 11.61 5.845 11.573 5.859C9.831 6.043 8.349 6.558 7.184 7.954C6.39 8.905 5.895 10.425 5.857 11.657C5.84 11.671 5.851 11.666 5.822 11.664L5.79 11.59C5.795 11.487 5.737 11.09 5.72 10.974C5.551 9.845 5.143 8.744 4.391 7.866C3.256 6.542 1.705 5.999 0.008 5.859C-0.004 5.841 0.001 5.851 0.003 5.821L0.055 5.792C0.229 5.783 0.482 5.744 0.658 5.718C1.763 5.556 2.86 5.153 3.726 4.437C5.089 3.309 5.626 1.8 5.79 0.105Z" />
+  </svg>
+)
+
+/** chevron-left-sm in the 24px back button (Buttons/Button Neutral xs, 12191:716323). */
+export const ChevronLeft16 = (p: IconProps) => (
+  <svg width="16" height="16" viewBox="0 0 16 16" strokeWidth={1} {...stroke} {...p}>
+    <path transform="translate(6.286 5.298)" d="M3.3333 0L0 2.7395L3.3333 5.4167" />
+  </svg>
+)

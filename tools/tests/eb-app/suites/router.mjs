@@ -187,10 +187,10 @@ export default async function router({ browser, rec }) {
     const rows = await page.ev(`(async()=>{
       const row = t => [...document.querySelectorAll('.shell__nav .nrow, .shell__nav .lrow, .shell__nav .ritem')].find(e => (e.textContent.trim() || e.getAttribute('aria-label')) === t);
       const out = {}; for (const t of ['Routines', 'Meetings', 'Artifacts', 'Projects', 'New Session']) { const e = row(t); out[t] = e ? (e.getAttribute('aria-disabled') || 'enabled') : 'missing' }
-      const r = row('Artifacts'); if (r) r.click(); await new Promise(res => setTimeout(res, 150));
+      const r = row('Routines'); if (r) r.click(); await new Promise(res => setTimeout(res, 150));
       out.afterClick = decodeURIComponent(location.hash.slice(1)).split('?')[0]; return out })()`)
-    rec.check('hidden by default: Routines, Meetings and Artifacts rows are aria-disabled and inert; New Session and Projects work',
-      rows.Routines === 'true' && rows.Meetings === 'true' && rows.Artifacts === 'true' && rows.Projects === 'enabled' && rows['New Session'] === 'enabled' && rows.afterClick === '/projects', rows)
+    rec.check('hidden by default: Routines and Meetings rows are aria-disabled and inert; New Session, Artifacts and Projects work',
+      rows.Routines === 'true' && rows.Meetings === 'true' && rows.Artifacts === 'enabled' && rows.Projects === 'enabled' && rows['New Session'] === 'enabled' && rows.afterClick === '/projects', rows)
     const count = `[...document.querySelectorAll('.review-bar--measure .review-step__select option')].filter(o => !o.disabled && o.value).length`
     const hiddenSteps = await page.ev(count)
     await page.goto(url('/projects'), { settle: 400 })

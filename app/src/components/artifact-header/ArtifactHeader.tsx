@@ -14,7 +14,7 @@ import { useArtifactFix } from './fixes'
 import { TYPE_ICONS } from './typeIcons'
 import { VersionMenu, type ArtifactVersionRow } from './VersionMenu'
 import {
-  ChevronDown12, ChevronDown14, Close16, Comment16, Copy16, Download16, Maximize16, Minimize16, Play14, Refresh16,
+  AiStar14, ChevronDown12, ChevronDown14, ChevronLeft16, Close16, Comment16, Copy16, Download16, Maximize16, Minimize16, Play14, Refresh16,
 } from './icons'
 import './artifact-header.css'
 
@@ -86,6 +86,20 @@ export type ArtifactHeaderProps = {
   /** Hide expand / collapse (the artifact opened over the chat on a narrow screen has nowhere to collapse to). */
   noExpand?: boolean
 
+  /** The artifact page (opened from the Artifacts landing, 7809:278865 / 13750:301988 / 5310:276790): the tool set without
+   *  copy, the version button and expand; close only when onClose is given. */
+  page?: boolean
+  /** Back to where the artifact was opened from (from=artifacts): a chevron-left xs button before the mark (7809:278865, 12195:302725). */
+  onBack?: () => void
+  /** Pin the back button's hover (review hover=back, 13155:271308). */
+  backHover?: boolean
+  /** The chat button after the name (Buttons/Button Neutral sm tertiary with ai-star 14, I7809:279754;6303:301118):
+   *  "Edit with Chat" when the artifact has a chat, "Start Chat" for a fresh clone (13750:301988, Q59). */
+  cta?: { label: string; onClick?: () => void }
+  /** The name opens a menu (Rename, Clone, Versions, Delete) instead of renaming in place. Gets the name button. */
+  onNameMenu?: (anchor: HTMLElement, focus?: MenuFocus) => void
+  nameMenuOpen?: boolean
+
   nodeId?: string
   className?: string
 }
@@ -114,10 +128,10 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
   const {
     name, icon, interactive = true, iconSet, view = 'preview', onViewChange, versions = [], version, onVersionChange,
     draft, onRename, nameHover, focusOnEdit = true, onCopy, onRefresh, onPublish, commentsOn, onComment, onCommentMenu, onDownload,
-    onToggleFull, onClose, nodeId, className,
+    onToggleFull, onClose, page = false, onBack, backHover, cta, onNameMenu, nameMenuOpen, nodeId, className,
   } = props
   const panel = useContext(ArtifactPanelContext)
-  const noExpand = props.noExpand ?? !!panel?.stacked
+  const noExpand = page || (props.noExpand ?? !!panel?.stacked)
   const full = (props.variant ?? (panel?.full ? 'full' : 'split')) === 'full'
   const oneSet = useArtifactFix('artifact-header-one-icon-set')
   const oneSize = useArtifactFix('artifact-name-one-size')
@@ -136,8 +150,8 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
 
   // ---- which tools show
   const drawn: ArtifactHeaderIconSet = iconSet ?? (full || menuOpen || editing || nameHover ? 'refresh' : 'preview')
-  const showToggle = oneSet ? interactive : drawn === 'preview'
-  const showRefresh = oneSet || drawn === 'refresh'
+  const showToggle = !page && (oneSet ? interactive : drawn === 'preview')
+  const showRefresh = page || oneSet || drawn === 'refresh'
   // step 20 (the plain split) draws the grey .md mark where 21-22 draw the blue document (fix artifact-header-one-icon-set)
   const typeIcon: HeaderIcon = !oneSet && drawn === 'preview' && icon === 'Documents' ? 'Markdowns' : icon
 
@@ -209,7 +223,7 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
   }
   const closeMenu = useCallback(() => setMenuOpen(false), [setMenuOpen])
 
-  const nameLabel = `${name}, rename`
+  const nameLabel = onNameMenu ? `${name}, options` : `${name}, rename`
   const cls = cx('ahdr', full ? 'ahdr--full' : 'ahdr--split', oneSize && 'ahdr--one-size', className)
 
   const tool = (label: string, onClick: (() => void) | undefined, glyph: ReactNode, extra?: { className?: string; nodeId?: string }) => (
@@ -221,7 +235,14 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
   return (
     <div ref={setRoot} className={cls} data-node-id={nodeId ?? ARTIFACT_HEADER_NODE}>
       <div className="ahdr__row">
-        <div className="ahdr__left">
+        <div className={cx('ahdr__left', cta && 'ahdr__left--cta')}>
+          {onBack && (
+            <Tooltip text="Back" arrow="top-left">
+              <IconButton size="xs" aria-label="Back" className={cx('ahdr__back', backHover && 'is-hover')} nodeId="12191:716323" onClick={onBack}>
+                <ChevronLeft16 />
+              </IconButton>
+            </Tooltip>
+          )}
           {editing ? (
             <div className="ahdr__edit">
               <span className="ahdr__icon"><img alt="" src={TYPE_ICONS[typeIcon]} /></span>
@@ -240,7 +261,10 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
             <>
               <button
                 {...tip.triggerProps} ref={setNameBtn} type="button" className={cx('ahdr__name', nameHover && 'is-hover')}
-                aria-label={nameLabel} data-node-id="6303:300931" onClick={() => setEditing(true)}
+                aria-label={nameLabel} data-node-id="6303:300931"
+                aria-haspopup={onNameMenu ? 'menu' : undefined} aria-expanded={onNameMenu ? !!nameMenuOpen : undefined}
+                onClick={e => (onNameMenu ? onNameMenu(e.currentTarget, keyboardFocus(e)) : setEditing(true))}
+                onKeyDown={onNameMenu ? openMenuOnArrowDown : undefined}
               >
                 <span className="ahdr__icon"><img alt="" src={TYPE_ICONS[typeIcon]} /></span>
                 <span ref={textRef} className="ahdr__text">{name}</span>
@@ -248,6 +272,12 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
               </button>
               {tip.tooltip}
             </>
+          )}
+          {cta && (
+            <button type="button" className="ahdr__cta" data-node-id="6303:301118" onClick={cta.onClick}>
+              <AiStar14 />
+              <span className="ahdr__cta-t">{cta.label}</span>
+            </button>
           )}
         </div>
 
@@ -261,16 +291,16 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
               ]}
             />
           )}
-          {tool('Copy', onCopy, <Copy16 />, { className: 'ahdr__opt', nodeId: '6424:330782' })}
+          {!page && tool('Copy', onCopy, <Copy16 />, { className: 'ahdr__opt', nodeId: '6424:330782' })}
           {showRefresh && tool('Refresh', onRefresh, <Refresh16 />, { className: 'ahdr__opt', nodeId: '6944:509804' })}
-          <button
+          {!page && <button
             ref={setVerBtn} type="button" className="ahdr__ver" data-node-id="3792:244988"
             aria-haspopup="menu" aria-expanded={menuOpen} aria-label={`v${current}, version history`}
             onClick={toggleMenu} onKeyDown={openMenuOnArrowDown}
           >
             <span className="ahdr__ver-t">v{current}</span>
             <ChevronDown12 />
-          </button>
+          </button>}
           <button type="button" className="ahdr__publish" data-node-id="3792:244997" aria-label="Publish" onClick={onPublish}>
             <Play14 />
             <span className="ahdr__publish-t">Publish</span>
@@ -305,7 +335,7 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
               </svg>
             </IconButton>
             {!noExpand && tool(full ? 'Collapse' : 'Expand', onToggleFull, full ? <Minimize16 /> : <Maximize16 />, { nodeId: '3792:244998' })}
-            {tool('Close artifact', onClose, <Close16 />, { nodeId: '3792:244999' })}
+            {(!page || onClose) && tool('Close artifact', onClose, <Close16 />, { nodeId: '3792:244999' })}
           </div>
         </div>
       </div>
@@ -320,7 +350,7 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
         <MoreMenu
           anchor={moreBtn} container={container} focus={more.focus} onClose={() => setMore(null)}
           view={showToggle ? view : undefined} onViewChange={onViewChange} refresh={showRefresh}
-          onCopy={onCopy} onRefresh={onRefresh} onDownload={() => onDownload?.(moreBtn)} onPublish={onPublish}
+          copy={!page} onCopy={onCopy} onRefresh={onRefresh} onDownload={() => onDownload?.(moreBtn)} onPublish={onPublish}
           onCommentMenu={onCommentMenu ? () => onCommentMenu(moreBtn) : undefined}
         />
       )}
@@ -329,9 +359,9 @@ export function ArtifactHeader(props: ArtifactHeaderProps) {
 }
 
 /** The overflow menu of a narrow header: the tools CSS hides (.ahdr__opt, and under 440px Publish and the comment chevron). */
-function MoreMenu({ anchor, container, focus, onClose, view, onViewChange, refresh, onCopy, onRefresh, onDownload, onPublish, onCommentMenu }: {
+function MoreMenu({ anchor, container, focus, onClose, view, onViewChange, refresh, copy, onCopy, onRefresh, onDownload, onPublish, onCommentMenu }: {
   anchor: HTMLElement; container: HTMLElement; focus?: MenuFocus; onClose: () => void
-  view?: ArtifactView; onViewChange?: (v: ArtifactView) => void; refresh: boolean
+  view?: ArtifactView; onViewChange?: (v: ArtifactView) => void; refresh: boolean; copy: boolean
   onCopy?: () => void; onRefresh?: () => void; onDownload: () => void; onPublish?: () => void; onCommentMenu?: () => void
 }) {
   const [narrow] = useState(() => (anchor.closest('.ahdr') as HTMLElement | null)?.offsetWidth ?? 9999)
@@ -346,7 +376,7 @@ function MoreMenu({ anchor, container, focus, onClose, view, onViewChange, refre
           <DropdownSeparator />
         </>
       )}
-      <DropdownItem label="Copy" onClick={run(onCopy)} />
+      {copy && <DropdownItem label="Copy" onClick={run(onCopy)} />}
       {refresh && <DropdownItem label="Refresh" onClick={run(onRefresh)} />}
       <DropdownItem label="Download" onClick={run(onDownload)} />
       {narrow < 440 && <DropdownItem label="Publish" onClick={run(onPublish)} />}

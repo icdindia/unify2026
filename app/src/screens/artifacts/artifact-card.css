@@ -1,0 +1,77 @@
+/* Artifact card — "artifacts" set, Property 1=full image 7907:305066 / hover 2 8412:196459 (figma-console, 2026-10-10):
+     card     288 x 260, radius 12, bg-primary, 1px border-secondary inside; hover: border-tertiary-ish #b4ada7 ring and the
+              0 2 4 -2 + 0 4 8 -2 shadows, the ⋯ (Small Icon Button 20, white, 1px border-secondary, radius 4) at 259,8
+     thumb    286 x 164 in the type tint ("bg colour scheme" 13750:280568), pad 12; image 262 x 140, radius 4, shadow 0 2 8 8 4%
+     body     pad 8 8 12 8, gap 4: type row 14 (pad-left 4, gap 4: 14 mark + JetBrains Mono 10/12 text-tertiary),
+              then pad 0 4, gap 6: title Geist SemiBold 13/17 primary in a 34 box (two lines), meta 16 (12/16, glyphs 12 gap 4) */
+.acard {
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  height: 260px; /* DRIFT: card height */
+  background: var(--colors-background-bg-primary); border-radius: var(--radius-4xl); overflow: clip;
+}
+.acard::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); /* 1px inside stroke */
+}
+.acard:is(:hover, .is-hover) { overflow: visible; box-shadow: 0 2px 4px -2px rgba(16, 24, 40, .06), 0 4px 8px -2px rgba(16, 24, 40, .1); } /* DRIFT: hover 2 drop shadows (colour from the shadow-md effect style) */
+.acard:is(:hover, .is-hover)::after { box-shadow: inset 0 0 0 1px var(--colors-text-text-placeholder); } /* hover stroke #b4ada7 */
+
+/* the link that opens the artifact covers the whole card; the ⋯ sits above it */
+.acard__open { position: absolute; inset: 0; z-index: 1; border-radius: inherit; cursor: pointer; }
+.acard__open:focus-visible { outline: none; }
+.acard:has(.acard__open:focus-visible) { outline: 2px solid var(--colors-utility-brand-utility-brand-500); outline-offset: 2px; }
+
+.acard__thumb {
+  position: relative; flex: none; display: flex; align-items: center; justify-content: center;
+  height: 164px; /* DRIFT: thumbnail area */
+  margin: 1px 1px 0; padding: var(--spacing-lg); /* DRIFT: inside the 1px stroke */
+  border-radius: 11px 11px 0 0; /* the type tint is set inline (ARTIFACT_TYPES tint) */ /* DRIFT: radius 12 less the 1px stroke */
+}
+.acard__img { position: relative; flex: none; width: 262px; height: 140px; border-radius: var(--radius-xs); } /* DRIFT: image box */
+/* the export carries its shadow: 13px around the image, 17 below */
+.acard__img img { position: absolute; left: -13px; top: -13px; width: 288px; height: 170px; max-width: none; } /* DRIFT: export bleed */
+.acard__img--empty {
+  display: flex; align-items: center; justify-content: center; color: var(--colors-icon-icon-tertiary);
+  background: linear-gradient(180deg, var(--colors-background-bg-primary), var(--colors-background-bg-tertiary));
+  box-shadow: 0 2px 8px 8px rgba(0, 0, 0, .04); /* DRIFT: image shadow 0 2 8 8 4% */
+}
+@media (max-width: 1199.98px) { /* narrower tracks: the image scales with the card, keeping its 262:140 */
+  .acard__img { width: 100%; height: auto; aspect-ratio: 262 / 140; }
+  .acard__img img { left: -4.96%; top: -9.29%; width: 109.92%; height: auto; } /* DRIFT: the bleed as a share of 262 x 140 */
+}
+
+.acard__more {
+  position: absolute; z-index: 3; top: var(--spacing-md); right: 8px; /* DRIFT: ⋯ at 259,8 in the 288 card */
+  width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xs); /* DRIFT: Small Icon Button 20 */
+  opacity: 0; /* shown on hover / focus; kept in the layout so the menu can measure it */
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.acard__more img { width: 16px; height: 16px; } /* DRIFT: dots-horizontal 16 */
+.acard:is(:hover, .is-hover, :focus-within) .acard__more { opacity: 1; }
+.acard__more:hover { background: var(--colors-background-bg-tertiary); }
+
+.acard__body { display: flex; flex-direction: column; gap: var(--spacing-xs); margin: 0 1px; padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg); min-width: 0; } /* DRIFT: inside the 1px stroke, as the file's frame at x 1 */
+.acard__type { height: 14px; } /* DRIFT: type row */
+.acard__type {
+  display: flex; align-items: center; gap: var(--spacing-xs); padding-left: var(--spacing-xs);
+  font-family: var(--font-family-code); font-size: 10px; line-height: 12px; /* DRIFT: JetBrains Mono 10/12, no DS style */
+  color: var(--colors-text-text-tertiary-600); text-transform: uppercase;
+}
+.acard__type img { width: 12.7px; height: 14px; } /* DRIFT: the 14 mark (.md glyph 12.7 x 14) */
+.acard__txt { display: flex; flex-direction: column; gap: var(--spacing-sm); padding: 0 var(--spacing-xs); min-width: 0; }
+.acard__title {
+  height: 34px; /* DRIFT: two-line title box */
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  font-family: var(--font-family-body); font-weight: 600; font-size: 13px; line-height: 17px; /* DRIFT: Geist SemiBold 13/17, no DS style */
+  color: var(--colors-text-text-primary-900);
+}
+.acard__meta { height: 16px; } /* DRIFT: meta row */
+.acard__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-xl); }
+.acard__who {
+  min-width: 0; display: flex; align-items: center; gap: 5px; white-space: nowrap; /* DRIFT: off-scale gap 5 */
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-tertiary-600);
+}
+.acard__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; color: var(--colors-text-text-secondary-700); }
+.acard__dot { color: #737373; } /* DRIFT: the file's "Dot" fill (a gray-true variable with no semantic token) */
+.acard__status { flex: none; display: flex; align-items: center; gap: var(--spacing-xs); }
+.acard__status img { width: 12px; height: 12px; } /* DRIFT: status glyphs 12 */

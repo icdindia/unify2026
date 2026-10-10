@@ -1,0 +1,76 @@
+/* Artifacts landing — artifacts-landing 01 (3780:177209), 02 (7907:305055), 03 (12868:502599), cloned-artifact 01.
+   The same 928 column as the Projects landing (x 284-1212 at 1440): title row 44 (Spectral, New Artifact), the filter
+   strip 28 tall 32 below, the cards 32 below that. The filter strip is the Projects one with tertiary chips flush
+   (search icon | All Types | Newest) and the grid / list toggle 8px after (filter frame / Type=Default). */
+.art { width: min(928px, 100% - 2 * var(--spacing-3xl)); margin: var(--spacing-2xl) auto var(--spacing-4xl); display: flex; flex-direction: column; } /* DRIFT: 928 column from the frame */
+@media (max-width: 767px) { .art { width: calc(100% - 2 * var(--spacing-xl)); } } /* DRIFT: 768 breakpoint (mobile design to come) */
+
+.art__head { height: 44px; } /* DRIFT: row height */
+.art__head { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-xl); }
+.art__title {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: var(--display-md-regular-font-family); font-weight: var(--display-md-regular-font-weight);
+  font-size: var(--display-md-regular-font-size); line-height: var(--display-md-regular-line-height); letter-spacing: var(--display-md-regular-letter-spacing);
+  color: var(--colors-text-text-primary-900);
+  position: relative; top: 1px; /* DRIFT: baseline offset, as the Projects title */
+}
+.art__head .bbtn.is-hover { filter: brightness(1.15); } /* DRIFT: Button Brand State=Hover, pinned for review (05) */
+
+.art__filters { height: 28px; } /* DRIFT: row height */
+.art__filters { margin-top: var(--spacing-4xl); display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-xl); }
+.art__right { display: flex; align-items: center; gap: 0; margin-left: auto; }
+.art__right .vtoggle { margin-left: var(--spacing-md); }
+.art__right .ftab.is-hover { background: var(--colors-background-bg-tertiary); }
+/* the file's text boxes (Chrome sets each about a pixel narrower, which moved the chips): All Types 51, Newest 43 */
+.art__types .ftab__t { width: 51px; } /* DRIFT: text box from the file */
+.art__sort .ftab__t { width: 43px; } /* DRIFT: text box from the file */
+@media (max-width: 767px) { /* DRIFT: 768 breakpoint (mobile design to come) */
+  .art__filters { height: auto; flex-wrap: wrap; row-gap: var(--spacing-md); }
+  .art__right { max-width: 100%; flex-wrap: wrap; justify-content: flex-end; row-gap: var(--spacing-md); }
+}
+
+/* three 288 cards to a row at 1440 (928 = 3 x 288 + 2 x 32), rows 32 apart; fewer as the column narrows */
+.art__grid {
+  margin-top: var(--spacing-4xl); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); /* DRIFT: smallest card before the grid drops a column */
+  gap: var(--spacing-4xl);
+}
+.art__none, .art__empty { margin-top: var(--spacing-6xl); }
+.art__none { padding: var(--spacing-5xl) 0; text-align: center; font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-tertiary-600); }
+.art__empty { align-self: center; width: min(472px, 100%); margin-top: 92px; } /* DRIFT: ES Empty State 6660:536040, 472 wide, 92 under the title row (y 196) */
+
+/* ---- list view (12868:502599): header 36, rows 48, NAME | TYPE 132 | STATUS 42 | ⋮ 56 (sticky, a left rule) ---- */
+.alist { margin-top: var(--spacing-3xl); display: flex; flex-direction: column; }
+.alist__head, .alist__row {
+  display: grid; grid-template-columns: minmax(0, 1fr) 132px 42px 56px; /* DRIFT: column widths from the frame */
+  align-items: center; box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+.alist__head { height: 36px; } /* DRIFT: Col Header Cell */
+.alist__head > span {
+  padding: 0 var(--spacing-lg); font-size: 11px; line-height: 16px; letter-spacing: .04em; text-transform: uppercase; /* DRIFT: column header caps */
+  color: var(--colors-text-text-tertiary-600);
+}
+.alist__row { position: relative; height: 48px; } /* DRIFT: Table cell md */
+.alist__row:is(:hover, .is-active) { background: var(--colors-background-bg-primary); }
+.alist__open { position: absolute; inset: 0; z-index: 1; }
+.alist__open:focus-visible { outline-offset: -2px; }
+.alist__name { min-width: 0; display: flex; align-items: center; gap: var(--spacing-md); padding: 0 var(--spacing-lg); }
+.alist__thumb {
+  flex: none; width: 62px; height: 36px; padding: 2px; border-radius: var(--radius-xs); overflow: hidden; /* DRIFT: list thumbnail */
+}
+.alist__thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; border-radius: var(--radius-xxs); }
+.alist__title {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: var(--font-family-display); font-size: 17px; line-height: 24px; /* DRIFT: Spectral 17, no DS text style */
+  color: var(--colors-text-text-primary-900);
+}
+.alist__type { display: flex; align-items: center; gap: var(--spacing-md); padding: 0 var(--spacing-lg); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-secondary-700); }
+.alist__type img { width: 18.13px; height: 20px; } /* DRIFT: the 20 type mark */
+.alist__status { display: flex; justify-content: center; }
+.alist__status img { width: 14px; height: 14px; } /* DRIFT: status glyph */
+.alist__act { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; box-shadow: inset 1px 0 0 var(--colors-border-border-secondary); }
+.alist__more { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); } /* DRIFT: Action three dot icon */
+.alist__more:hover, .alist__more[aria-expanded="true"] { background: var(--colors-background-bg-tertiary); }
+@media (max-width: 767px) { /* DRIFT: 768 breakpoint — the type column goes */
+  .alist__head, .alist__row { grid-template-columns: minmax(0, 1fr) 42px 48px; }
+  .alist__head > :nth-child(2), .alist__type { display: none; }
+}

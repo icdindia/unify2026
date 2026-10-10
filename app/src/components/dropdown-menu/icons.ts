@@ -10,5 +10,10 @@ import plus from '../../assets/chrome/dd-plus.svg'
 import logout from '../../assets/chrome/dd-logout.svg'
 import folder from '../../assets/chrome/dd-folder.svg'
 import prohibition from '../../assets/chrome/dd-prohibition.svg' // "prohibition" 14px, error red: Remove Access (11991:747749)
+// the artifact card menu (Dropdown Menu 12057:581998 / pinned variant 12057:582131): AI Edit, copy-01, download-01, unpin
+import aiEdit from '../../assets/chrome/dd-ai-edit.svg'
+import copy from '../../assets/chrome/dd-copy.svg'
+import download from '../../assets/chrome/dd-download.svg'
+import unpin from '../../assets/chrome/dd-unpin.svg'
 
-export const menuIcons = { pin, pencil, users, archive, trash, folderSolid, plus, logout, folder, prohibition }
+export const menuIcons = { pin, pencil, users, archive, trash, folderSolid, plus, logout, folder, prohibition, aiEdit, copy, download, unpin }
