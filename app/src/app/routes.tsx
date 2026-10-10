@@ -103,6 +103,9 @@ export function screenFor(route: Route): Screen {
       content: <ChatScreen state={s} frame={journeyFrameOf(href)} />,
     }
   }
+  // ROUTES-BEGIN: Routines and Search screens. Each screens/<area>/route.tsx exports a `<area>Screen(route): Screen | null`;
+  // add one `const x = fooScreen(route); if (x) return x` line per area here (agents editing in parallel: one line each).
+  // ROUTES-END
   // Keep this fallback last: a planned screen that is not built yet shows its frame record (review/NotBuilt.tsx).
   const placeholder = notBuiltScreen(route)
   if (placeholder) return { kind: 'placeholder', ...placeholder }
