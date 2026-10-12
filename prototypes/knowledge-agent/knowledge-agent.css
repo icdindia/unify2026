@@ -2345,20 +2345,20 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
 .landing--v2 { justify-content: flex-start; }
 .landing__col--v2 {
   width: 640px; max-width: 100%;                                                  /* central-panel width per Figma */
-  padding: 200px 0 24px;                                                          /* 200 above the avatar per design */
-  gap: 36px;                                                                      /* hero → composer, composer → cards */
+  padding: 200px 0 var(--spacing-3xl);                                                          /* 200 above the avatar per design */ /* DRIFT: matches Figma, no token */
+  gap: 36px;                                                                      /* hero → composer, composer → cards */ /* DRIFT: matches Figma, no token */
   align-items: stretch;
 }
 /* Hero (10159:387120) — 40 avatar → 16 gap → 44 title → 8 gap → 20 subtitle. */
 .landing__hero {
   display: flex; flex-direction: column; align-items: center;
-  gap: 16px;
+  gap: var(--spacing-xl);
   text-align: center;
 }
 .landing__brand {
   display: inline-flex; align-items: center; justify-content: center;
   width: 40px; height: 40px;                                                      /* Figma: 40, not 48 */
-  border-radius: 12px;                                                            /* radius-4xl */
+  border-radius: var(--radius-4xl);                                                            /* radius-4xl */
   background: transparent;                                                        /* SVG carries the olive fill */
   margin: 0;
 }
@@ -2366,25 +2366,25 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
 .landing__brand svg { display: block; width: 40px; height: 40px; }
 /* Name + Description (10159:387123) — 8 gap between title row and subtitle. */
 .landing__name-desc {
-  display: flex; flex-direction: column; gap: 8px;
+  display: flex; flex-direction: column; gap: var(--spacing-md);
   width: 100%;
   text-align: center;
 }
 .landing__title {
   font-family: var(--display-md-regular-font-family);                             /* Spectral 36/44 */
-  font-size: 36px;
-  line-height: 44px;
+  font-size: var(--display-md-bold-font-size);
+  line-height: var(--display-md-bold-line-height);
   font-weight: 400;
   letter-spacing: -0.72px;                                                        /* Figma: -2 (unitless) → -0.72 px at 36 */
   color: var(--colors-text-text-primary-900);                                     /* #201f1e */
   margin: 0;
   white-space: nowrap;
 }
-.landing__title em { font-style: italic; margin-left: 7px; }                      /* 7 px gap between "Knowledge" and "Agent" */
+.landing__title em { font-style: italic; margin-left: 7px; }                      /* 7 px gap between "Knowledge" and "Agent" */ /* DRIFT: matches Figma, no token */
 .landing__sub {
   font-family: var(--display-md-regular-font-family);                             /* Text lg/Regular in DS is Spectral 17/20 */
-  font-size: 17px;
-  line-height: 20px;
+  font-size: var(--text-lg-regular-font-size);
+  line-height: 20px; /* DRIFT: matches Figma, no token */
   font-weight: 400;
   color: var(--colors-text-text-secondary-700);                                   /* #4a4745 */
   margin: 0;
@@ -2394,7 +2394,7 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
 .qs-grid--v2 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;                                                                      /* both row + column gaps 16 */
+  gap: var(--spacing-xl);                                                                      /* both row + column gaps 16 */
 }
 /* Conv-_starters card (10626:287024) — 202.667 × 112, border border-tertiary,
    radius 20, padding 16, gap 6, icon 20, title Geist Medium 15/24 h-22 ellipsis,
@@ -2402,9 +2402,9 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
 .qs-card--v2 {
   background: var(--colors-background-bg-primary);                                /* #ffffff */
   border: 0;                                                                      /* border is drawn as inset shadow so it doesn't add to the 112 outer */
-  border-radius: 20px;
-  padding: 16px;
-  gap: 6px;
+  border-radius: 20px; /* DRIFT: matches Figma, no token */
+  padding: var(--spacing-xl);
+  gap: var(--spacing-sm);
   text-align: left;
   box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);               /* #f0f0f0 */
   box-sizing: border-box;
@@ -2429,8 +2429,8 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
 }
 .qs-card--v2 .qs-card__title {
   font-family: var(--text-md-medium-font-family);                                 /* Geist */
-  font-size: 13px;
-  line-height: 20px;
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
   font-weight: 500;
   letter-spacing: 0;
   color: var(--colors-text-text-primary-900);                                     /* #201f1e */
@@ -2442,8 +2442,8 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
 }
 .qs-card--v2 .qs-card__desc {
   font-family: var(--text-xs-regular-font-family);                                /* Geist */
-  font-size: 12px;
-  line-height: 16px;
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
   font-weight: 400;
   color: var(--colors-text-text-quaternary-500);                                  /* #737373 */
   width: 100%;
@@ -2484,12 +2484,12 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
    640×116, 24 radius, 1px border-secondary, padding 10, column gap 12. */
 .copilot-input--stacked {
   display: flex; flex-direction: column;
-  gap: 12px;                                                                      /* Spacing/3 */
-  padding: 10px;
+  gap: var(--spacing-lg);                                                                      /* Spacing/3 */
+  padding: 10px; /* DRIFT: matches Figma, no token */
   box-sizing: border-box;
   background: var(--colors-background-bg-primary);                                /* #ffffff */
   border: 0;                                                                      /* border is drawn as inset shadow so it doesn't add to the 116 outer */
-  border-radius: 24px;
+  border-radius: 24px; /* DRIFT: matches Figma, no token */
   box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);              /* #edebe8 */
   overflow: hidden;                                                               /* overflow-clip */
   align-items: center;
@@ -2506,9 +2506,9 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
   flex: 0 0 auto;
   width: 100%;
   height: 52px;
-  padding: 0 8px;
+  padding: 0 var(--spacing-md);
   overflow: hidden;
-  gap: 4px;
+  gap: var(--spacing-xs);
 }
 .copilot-input__field--stacked textarea {
   flex: 1 0 0; min-width: 0;
@@ -2519,8 +2519,8 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
   outline: 0;
   resize: none;
   font-family: var(--text-md-regular-para-font-family);                           /* Geist */
-  font-size: 15px;
-  line-height: 26px;                                                              /* Text md/Regular para */
+  font-size: var(--text-md-regular-font-size);
+  line-height: 26px;                                                              /* Text md/Regular para */ /* DRIFT: matches Figma, no token */
   font-weight: 400;
   color: var(--colors-text-text-primary-900);
   padding: 0;                                                                     /* Figma text is at y=2 inside a 56 container, but the message row is 52 exact */
@@ -2549,18 +2549,18 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
 /* Right "Actions" (10159:504138): 3 icon buttons, 4 gap. */
 .copilot-input--stacked .copilot-input__actions {
   display: inline-flex; align-items: center;
-  gap: 4px;                                                                       /* spacing-xs */
+  gap: var(--spacing-xs);                                                                       /* spacing-xs */
   margin-left: auto;
 }
 /* + button (10159:504132): 32×32, padding 8, rounded-full, icon 16, transparent bg. */
 .copilot-input--stacked .copilot-input__btn {
   display: inline-flex; align-items: center; justify-content: center;
   width: 32px; height: 32px;
-  padding: 8px;
+  padding: var(--spacing-md);
   box-sizing: border-box;
   background: transparent;
   border: 0;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   color: var(--colors-icon-icon-secondary);                                       /* #6a6662 */
   cursor: pointer;
 }
@@ -2569,32 +2569,32 @@ input.search-input__text::-webkit-search-cancel-button { appearance: none; }
    text Geist 13/20 steel-blue-400. */
 .copilot-input--stacked .copilot-input__pill {
   display: inline-flex; align-items: center; justify-content: center;
-  gap: 4px;
-  padding: 6px 8px;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
   background: var(--colors-background-bg-primary);
   border: 0;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   color: var(--colors-utility-brand-utility-brand-500);
   cursor: pointer;
   overflow: hidden;
   font-family: var(--text-sm-regular-font-family);                                /* Geist */
-  font-size: 13px;
-  line-height: 20px;
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
   font-weight: 400;
   letter-spacing: 0;
 }
-.copilot-input--stacked .copilot-input__pill { color: #3870a8; }                  /* Colors/Utility/Steel Blue/utility-steel-blue-400 */
+.copilot-input--stacked .copilot-input__pill { color: #3870a8; }                  /* Colors/Utility/Steel Blue/utility-steel-blue-400 */ /* DRIFT: matches Figma, no token */
 .copilot-input--stacked .copilot-input__pill-icon { display: inline-flex; width: 16px; height: 16px; color: currentColor; }
 .copilot-input--stacked .copilot-input__pill-icon svg { display: block; width: 16px; height: 16px; }
 /* Action buttons (Model / Mic / Voice): 32×32, padding 8, rounded 8, icon 16. */
 .copilot-input--stacked .copilot-input__action {
   display: inline-flex; align-items: center; justify-content: center;
   width: 32px; height: 32px;
-  padding: 8px;
+  padding: var(--spacing-md);
   box-sizing: border-box;
   background: transparent;
   border: 0;
-  border-radius: 8px;                                                             /* Button/md */
+  border-radius: var(--radius-md);                                                             /* Button/md */
   color: var(--colors-icon-icon-secondary);                                       /* #6a6662 */
   cursor: pointer;
   overflow: hidden;
