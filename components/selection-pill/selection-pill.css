@@ -1,0 +1,93 @@
+/* ----------------------------------------------------------------------------
+   selection-pill — DS Selection Pill page (22081:8383)
+   Selection Pill 9202:1961 (Style Outline|Solid · Icon Only · Size xs 24 / sm 28 / md 32
+   · Current · State Default/Hover/Focus/Disabled · Dropdown)
+   _Double Line Selection Pill 17112:16030 · Selection Pill group 22081:15200
+   (Size md/sm/xs · Dropdown · Counter On/Off)  -- group and double-line NOT built (DRIFT: unread).
+
+   Related: tabs.css .filter-tab is the same family at 24/28/32/36 (Filter Tabs Base).
+
+   Markup: <button class="selection-pill [selection-pill--solid|--xs|--md|--icon-only]" aria-pressed="true">
+             <svg class="selection-pill__icon"/><span class="selection-pill__label">Label</span>
+             <span class="selection-pill__counter">5</span><svg class="selection-pill__chevron"/></button>
+   Current = [aria-pressed="true"] (or [data-current]). Static: data-force="hover|focus".
+   Strokes inside -> inset box-shadow ring (stroke 1 inside, 80 = 8+12+4+... no layout cost).
+   DRIFT: Focus ring (4px #e6e4e0 = border-primary) shown for Default only; Solid hover/focus not read.
+---------------------------------------------------------------------------- */
+
+.selection-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  height: 28px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+}
+.selection-pill--md {
+  height: 32px;
+  padding-inline: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+}
+.selection-pill--xs { height: 24px; padding-block: var(--spacing-xs); } /* DRIFT: matches Figma, no token */
+.selection-pill--solid { box-shadow: none; }
+.selection-pill--icon-only { padding-inline: var(--spacing-sm); width: 28px; justify-content: center; } /* DRIFT: matches Figma, no token */
+.selection-pill--md.selection-pill--icon-only { width: 32px; }
+.selection-pill--xs.selection-pill--icon-only { width: 24px; }
+
+.selection-pill__icon { width: 12px; height: 12px; flex: none; color: var(--colors-icon-icon-secondary); }
+.selection-pill--md .selection-pill__icon { width: 16px; height: 16px; }
+.selection-pill--xs .selection-pill__icon { width: 10px; height: 10px; }
+.selection-pill__chevron { width: 14px; height: 14px; flex: none; color: var(--colors-icon-icon-secondary); margin-inline-end: calc(var(--spacing-xs) * -1); }
+.selection-pill__label, .selection-pill__counter { display: inline-flex; }
+.selection-pill__label + .selection-pill__counter { margin-inline-start: var(--spacing-xs); } /* label&counter gap 8 = 4 flex + 4 */
+
+.selection-pill:hover:not(:disabled),
+.selection-pill[data-force="hover"] { background: var(--colors-background-bg-secondary); }
+
+.selection-pill:focus-visible,
+.selection-pill[data-force="focus"] {
+  outline: 0;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary), 0 0 0 4px var(--colors-border-border-primary);
+}
+
+.selection-pill[aria-pressed="true"],
+.selection-pill[data-current] {
+  background: var(--colors-background-bg-workspace);
+  box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-500);
+  color: var(--colors-text-text-primary-900);
+}
+.selection-pill[aria-pressed="true"]:hover:not(:disabled),
+.selection-pill[data-current][data-force="hover"] { background: var(--colors-background-bg-secondary); }
+.selection-pill[aria-pressed="true"]:has(.selection-pill__chevron) { padding-inline-end: var(--spacing-xs); }
+
+.selection-pill--solid[aria-pressed="true"] {
+  background: var(--colors-background-bg-brand-primary);
+  box-shadow: none;
+  color: var(--colors-text-text-white);
+}
+.selection-pill--solid[aria-pressed="true"] .selection-pill__icon { color: var(--colors-icon-icon-white); }
+
+.selection-pill:disabled,
+.selection-pill[aria-disabled="true"] {
+  background: var(--colors-background-bg-workspace);
+  color: var(--colors-text-text-disabled);
+  cursor: not-allowed;
+}
+.selection-pill:disabled .selection-pill__icon { color: var(--colors-icon-icon-tertiary); }

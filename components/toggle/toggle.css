@@ -1,0 +1,158 @@
+/* ----------------------------------------------------------------------------
+   toggle — DS Toggles page (1102:4631)
+   _Toggle base 122:3294 (Pressed False/True/Intermediate · Size md 44x24 / sm 36x20
+   / xs 28x16 / xxs 24x14 / xxxs 20x12 · State Default/Hover/Focus/Disabled)
+   Toggle 1102:4208 (base + Text and supporting text, Label Position Left/Right)
+   _Text Toggle base 8975:110523 · Text Toggle 9488:161 (pill segment: Current, md 28 / sm 24)
+
+   Markup: <label class="toggle"><input class="toggle__input" type="checkbox" role="switch">
+             <span class="toggle__track"><span class="toggle__knob"></span></span>   (track after input)
+             <span class="toggle__text"><span class="toggle__label"></span><span class="toggle__hint"></span></span></label>
+   Bare switch: <button class="toggle-switch" role="switch" aria-checked="true"><span class="toggle-switch__knob"></span></button>
+   Intermediate: aria-checked="mixed" / [data-indeterminate]: 16x3 white bar centred.
+   Static previews: data-force="hover|focus".
+   Track padding 2, knob = track height - 4. Disabled-off has a 1px gray-200 stroke
+   (inside, and no layout cost -> inset ring).
+   DRIFT: label text style for sm/xs/xxs/xxxs assumed (only xxxs read: Text xs/Medium + xs/Regular,
+   gap 2); md/sm use Text sm/Medium. Focus ring layer 2 (#101828 @5%, 0 1 1 1) has no token.
+---------------------------------------------------------------------------- */
+
+.toggle-switch,
+.toggle__track {
+  --_h: 24px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex: none;
+  width: calc(var(--_h) * 11 / 6);
+  height: var(--_h);
+  padding: var(--spacing-xxs);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-300);
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 120ms ease;
+}
+.toggle-switch__knob,
+.toggle__knob {
+  display: block;
+  width: calc(var(--_h) - 4px);
+  height: calc(var(--_h) - 4px);
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-white);
+  transition: transform 120ms ease;
+}
+.toggle--md { --_h: 24px; } .toggle--sm { --_h: 20px; } .toggle--xs { --_h: 16px; }
+.toggle--xxs { --_h: 14px; } .toggle--xxxs { --_h: 12px; }
+.toggle-switch--md { --_h: 24px; } .toggle-switch--sm { --_h: 20px; } .toggle-switch--xs { --_h: 16px; }
+.toggle-switch--xxs { --_h: 14px; } .toggle-switch--xxxs { --_h: 12px; }
+/* sizes: 44x24, 36x20, 28x16, 24x14, 20x12 -> widths are not a constant ratio, pin them */
+.toggle--sm .toggle__track, .toggle-switch--sm { width: 36px; }
+.toggle--xs .toggle__track, .toggle-switch--xs { width: 28px; }
+.toggle--xxs .toggle__track, .toggle-switch--xxs { width: 24px; }
+.toggle--xxxs .toggle__track, .toggle-switch--xxxs { width: 20px; }
+.toggle--md .toggle__track, .toggle-switch--md, .toggle-switch:not([class*="toggle-switch--"]) { width: 44px; }
+
+/* hover */
+.toggle:hover .toggle__input:not(:disabled) ~ .toggle__track,
+.toggle-switch:hover:not(:disabled),
+.toggle-switch[data-force="hover"],
+.toggle__input[data-force="hover"] ~ .toggle__track { background: var(--colors-utility-gray-utility-gray-400); }
+
+/* pressed */
+.toggle__input:checked ~ .toggle__track,
+.toggle-switch[aria-checked="true"],
+.toggle-switch[aria-checked="mixed"] { background: var(--colors-background-bg-brand-solid); }
+.toggle:hover .toggle__input:checked:not(:disabled) ~ .toggle__track,
+.toggle-switch[aria-checked="true"]:hover:not(:disabled) { background: var(--colors-background-bg-brand-solid); }
+.toggle__input:checked ~ .toggle__track { justify-content: flex-end; }
+.toggle-switch[aria-checked="true"] { justify-content: flex-end; }
+
+/* intermediate: 16x3 white bar */
+.toggle-switch[aria-checked="mixed"],
+.toggle__input:indeterminate ~ .toggle__track { justify-content: center; }
+.toggle-switch[aria-checked="mixed"] .toggle-switch__knob,
+.toggle__input:indeterminate ~ .toggle__track .toggle__knob { width: 16px; height: 3px; }
+
+/* focus (spread 2 border-secondary ring) */
+.toggle-switch:focus-visible,
+.toggle-switch[data-force="focus"],
+.toggle__input:focus-visible ~ .toggle__track,
+.toggle__input[data-force="focus"] ~ .toggle__track {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--colors-border-border-secondary), 0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT literal */
+}
+
+/* disabled */
+.toggle-switch:disabled,
+.toggle__input:disabled ~ .toggle__track {
+  cursor: not-allowed;
+  background: var(--colors-utility-gray-utility-gray-200);
+  box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-200);
+}
+.toggle-switch[aria-checked="true"]:disabled,
+.toggle__input:checked:disabled ~ .toggle__track { background: var(--colors-utility-gray-utility-gray-300); box-shadow: none; }
+
+/* labelled toggle */
+.toggle { display: inline-flex; align-items: flex-start; gap: var(--spacing-md); cursor: pointer; position: relative; }
+.toggle--label-left { flex-direction: row-reverse; }
+.toggle__input { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; }
+.toggle__text { display: flex; flex-direction: column; gap: var(--spacing-xxs); min-width: 0; }
+.toggle__label {
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.toggle__hint {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.toggle--xs .toggle__label, .toggle--xxs .toggle__label, .toggle--xxxs .toggle__label {
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+}
+.toggle:has(.toggle__input:disabled) { cursor: not-allowed; }
+.toggle:has(.toggle__input:disabled) .toggle__label,
+.toggle:has(.toggle__input:disabled) .toggle__hint { color: var(--colors-text-text-disabled); }
+
+/* ---- Text Toggle (8975:110523): pill segment, Current / Default / Hover ---- */
+.text-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  height: 28px;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  font-family: var(--text-sm-semibold-font-family);
+  font-weight: var(--text-sm-semibold-font-weight);
+  font-size: var(--text-sm-semibold-font-size);
+  line-height: var(--text-sm-semibold-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.text-toggle--sm {
+  height: 24px;
+  padding-inline: var(--spacing-md);
+  font-family: var(--text-xs-semibold-font-family);
+  font-weight: var(--text-xs-semibold-font-weight);
+  font-size: var(--text-xs-semibold-font-size);
+  line-height: var(--text-xs-semibold-line-height);
+}
+.text-toggle:hover, .text-toggle[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.text-toggle[aria-pressed="true"] { background: var(--colors-background-bg-brand-solid); color: var(--colors-text-text-white); }
+.text-toggle:focus-visible, .text-toggle[data-force="focus"] { outline: 0; box-shadow: 0 0 0 2px var(--colors-border-border-secondary); /* DRIFT: focus not read */ }

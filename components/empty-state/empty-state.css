@@ -1,0 +1,87 @@
+/* ----------------------------------------------------------------------------
+   empty-state — DS Empty states page 1172:31
+   Platform-Empty State 34650:5767: Size md (380 wide, gap 20, 40 featured icon r8,
+   title text-md-semibold) / sm (240 wide, gap 12, 32 icon r6, title text-sm-semibold)
+   x Type Default / Descriptive (440, sections divided by border-tertiary rules).
+   Empty State - Button 34675:3431: dashed-less outlined CTA row, 480x44 (sm 36),
+   r8, border-secondary, states hover/focus/disabled.
+   _Illustration 1182:1085 / _EmptyState 60189:75902 are vector illustrations
+   (Cloud/Box/Documents/Credit card, Primary/Gray, sm/md/lg): consumer provides the
+   art; .empty-state__art is the slot.
+   DRIFT: Empty State - Button focus ring is a drop shadow (0,0,0,4 spread) in
+   Figma; colour not read -> uses the repo focus ring convention.
+   DRIFT: Stepper variant (34650:27137), Chat Empty State (30196:6012),
+   Empty State_Status (34731:1963) not built.
+---------------------------------------------------------------------------- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2xl);
+  width: 380px;
+  max-width: 100%;
+}
+.empty-state--center { align-items: center; text-align: center; }
+.empty-state__content { display: flex; flex-direction: column; gap: var(--spacing-2xl); width: 100%; }
+.empty-state--center .empty-state__content { align-items: center; }
+.empty-state__art { display: flex; align-items: flex-end; justify-content: center; }
+.empty-state__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--colors-utility-gray-utility-gray-50);
+  color: var(--colors-icon-icon-secondary);
+}
+.empty-state__icon svg { width: 20px; height: 20px; display: block; }
+.empty-state__text { display: flex; flex-direction: column; width: 100%; }
+.empty-state__title { margin: 0; color: var(--colors-text-text-secondary-700); font-family: var(--text-md-semibold-font-family); font-weight: var(--text-md-semibold-font-weight); font-size: var(--text-md-semibold-font-size); line-height: var(--text-md-semibold-line-height); }
+.empty-state__body { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.empty-state__supporting { margin: 0; color: var(--colors-text-text-tertiary-600); font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.empty-state__actions { display: flex; gap: var(--spacing-lg); }
+
+.empty-state--sm { width: 240px; gap: var(--spacing-lg); } /* DRIFT: Figma literal, off scale */
+.empty-state--sm .empty-state__content { gap: var(--spacing-lg); }
+.empty-state--sm .empty-state__icon { width: 32px; height: 32px; border-radius: var(--radius-sm); } /* DRIFT: Figma literal, off scale */
+.empty-state--sm .empty-state__icon svg { width: 16px; height: 16px; }
+.empty-state--sm .empty-state__text { gap: var(--spacing-xs); }
+.empty-state--sm .empty-state__title { font-family: var(--text-sm-semibold-font-family); font-weight: var(--text-sm-semibold-font-weight); font-size: var(--text-sm-semibold-font-size); line-height: var(--text-sm-semibold-line-height); }
+.empty-state--sm .empty-state__body { gap: var(--spacing-sm); }
+.empty-state--sm .empty-state__supporting { font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+
+.empty-state--descriptive { width: 440px; gap: var(--spacing-2xl); } /* DRIFT: Figma literal, off scale */
+.empty-state--descriptive .empty-state__content { gap: var(--spacing-xl); }
+.empty-state__section { padding-bottom: var(--spacing-xl); box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary); }
+
+/* CTA row */
+.empty-state-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-sizing: border-box;
+  width: 480px; max-width: 100%;
+  min-height: 44px;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  color: var(--colors-text-text-primary-900);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+}
+.empty-state-cta__icon { flex: none; width: 20px; height: 20px; color: var(--colors-icon-icon-secondary); }
+.empty-state-cta__icon svg { width: 100%; height: 100%; display: block; }
+.empty-state-cta__text { flex: 1 0 0; }
+.empty-state-cta--sm { min-height: 36px; font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); } /* DRIFT: Figma literal, off scale */
+.empty-state-cta:hover, .empty-state-cta[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.empty-state-cta:focus-visible, .empty-state-cta[data-force="focus"] {
+  outline: 0; background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 0 0 4px var(--colors-utility-gray-utility-gray-100);
+}
+.empty-state-cta:disabled, .empty-state-cta[aria-disabled="true"], .empty-state-cta[data-force="disabled"] {
+  cursor: not-allowed; color: var(--colors-text-text-disabled);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-disabled);
+  background: transparent;
+}
+.empty-state-cta:disabled .empty-state-cta__icon, .empty-state-cta[aria-disabled="true"] .empty-state-cta__icon, .empty-state-cta[data-force="disabled"] .empty-state-cta__icon { color: var(--colors-icon-icon-disabled); }

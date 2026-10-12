@@ -1,0 +1,109 @@
+/* ----------------------------------------------------------------------------
+   pagination — DS Pagination page (225:7288, qT9zH1YYapGTwpJxwNEGzt)
+   Pagination bar 1115:68622 (inside Table 1227:110587) · _Pagination number base
+   1114:68174 (Shape Circle|Square x Default|Hover/active|Focused) ·
+   dot indicator 1111:1 (Dot|Line x md|lg x Current) · dot group 1111:38
+   (Framed True|False) · _Carousel arrow 1253:164.
+
+   Bar: p 8/12, gap 8, bg-primary, 1px border-secondary on the OUTSIDE (top rule).
+   Number 36x36 radius 8 (square) / full (circle), 13/20 Medium text-tertiary;
+   hover/active bg-primary-hover + text-primary; focus adds a 4px ring.
+   Dot 8 / 10, line 40x6 / 40x8, current = bg-brand-solid, rest = utility-gray-200.
+
+   DRIFT: dot fills carry two layers (bg-quaternary + utility-gray-200); the top
+   one (gray-200) is used. Focus ring colour is a variable-bound #e6e4e0
+   (4px, spread 4, blur 0) -> utility-gray-200 approximation.
+   DRIFT: carousel arrow bg is Palette/Gray (dark mode alpha)/900 - a primitive.
+   Stated as the palette var, no semantic token.
+---------------------------------------------------------------------------- */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--colors-background-bg-primary);
+  box-shadow: 0 -1px 0 var(--colors-border-border-secondary);
+}
+.pagination__info,
+.pagination__label {
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.pagination__label { color: var(--colors-text-text-secondary-700); }
+.pagination__pages { display: flex; align-items: center; gap: var(--spacing-sm); }
+.pagination__rows { display: flex; align-items: center; gap: var(--spacing-md); }
+
+/* ---- number ---- */
+.page-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  padding: var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  cursor: pointer;
+  appearance: none;
+}
+.page-num--circle { border-radius: var(--radius-full); }
+.page-num:hover,
+.page-num[data-force="hover"],
+.page-num[aria-current="page"] {
+  background: var(--colors-background-bg-primary-hover);
+  color: var(--colors-text-text-primary-900);
+}
+.page-num:focus-visible,
+.page-num[data-force="focus"] {
+  outline: none;
+  background: var(--colors-background-bg-primary-hover);
+  box-shadow: 0 0 0 4px var(--colors-utility-gray-utility-gray-200);
+}
+
+/* ---- dots / lines ---- */
+.dots { display: inline-flex; align-items: center; gap: var(--spacing-lg); }
+.dots--line { gap: var(--spacing-md); }
+.dots--lg { gap: var(--spacing-xl); }
+.dots--lg.dots--line { gap: var(--spacing-lg); }
+.dots--framed {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-primary);
+  box-shadow: var(--shadow-xs, 0 1px 2px rgba(16, 24, 40, 0.05)); /* DRIFT: fx1 on frame, shadow-xs approximated */
+}
+.dots--framed.dots--lg { padding: var(--spacing-lg); }
+.dot {
+  width: 8px; height: 8px; flex: none;
+  border: 0; padding: 0;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-200);
+}
+.dots--lg .dot { width: 10px; height: 10px; }
+.dots--line .dot { width: 40px; height: 6px; }
+.dots--line.dots--lg .dot { width: 40px; height: 8px; }
+.dot[aria-current="true"],
+.dot--current { background: var(--colors-background-bg-brand-solid); }
+
+/* ---- carousel arrow ---- */
+.carousel-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box; width: 36px; height: 36px; padding: var(--spacing-md); /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+  border: 0; border-radius: var(--radius-full);
+  background: var(--palette-gray-dark-mode-alpha-900); /* DRIFT: primitive, no semantic token (Figma binds Palette/Gray (dark mode alpha)/900) */
+  color: var(--colors-icon-icon-primary);
+  cursor: pointer;
+}
+.carousel-arrow svg { width: 20px; height: 20px; }

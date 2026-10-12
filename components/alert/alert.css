@@ -62,3 +62,69 @@
   color: var(--colors-text-text-tertiary-600);
 }
 .alert--neutral .alert__icon { color: var(--colors-icon-icon-primary); }
+
+/* ============================================================================
+   AUDIT 2026-10: DS Alert set 1130:81134 (page 176:4256) is a banner, not the
+   single-line bar above. Added (non-breaking, opt-in via .alert--sm|md|lg):
+   Size sm 36 / md 48 / lg 96 · Color Error Warning Brand Default Success Grey
+   Brand Secondary (+ existing neutral kept) · Double Stack (title over
+   supporting text, solid featured icon) · actions + close.
+   Figma: md Error 4893:412330 · Warning 4893:412516 · Default 8133:155486 · Brand
+   8133:155545 · Grey 54675:11692 · Success 4893:412616 · Brand Secondary 59989:15546
+   · Double stack Error 36293:6750 · sm Error 36150:141098 · lg Error double 9171:26766.
+   Previously missing: error / success / brand / default / grey / brand-secondary
+   tones, md+lg sizes, featured icon chip, action buttons, close, double stack.
+   DRIFT (existing): .alert--warning text is warning-700 but Figma md warning uses
+   text-warning-primary-600 (#d37c25); left on 700 for the sm bar, md uses 600.
+   DRIFT: double-stack solid icon colour only read for Error (error-500); other
+   tones assumed to use their -500 utility step.
+   ============================================================================ */
+.alert { --alert-fg: currentColor; --alert-chip: transparent; --alert-chip-solid: var(--colors-utility-error-utility-error-500); }
+.alert--error   { background: var(--colors-utility-error-utility-error-25); color: var(--colors-text-text-error-primary-600); --alert-chip: var(--colors-utility-error-utility-error-50); --alert-chip-solid: var(--colors-utility-error-utility-error-500); }
+.alert--error .alert__icon { color: var(--colors-icon-icon-error-600); }
+.alert--success { background: var(--colors-utility-success-utility-success-25); color: var(--colors-text-text-success-primary-600); --alert-chip: var(--colors-utility-success-utility-success-50); --alert-chip-solid: var(--colors-utility-success-utility-success-500); }
+.alert--brand   { background: var(--colors-utility-brand-utility-brand-25); color: var(--colors-text-text-brand-secondary-700); --alert-chip: var(--colors-utility-brand-utility-brand-50); --alert-chip-solid: var(--colors-utility-brand-utility-brand-500); }
+.alert--default { background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); color: var(--colors-text-text-secondary-700); --alert-chip: var(--colors-utility-gray-utility-gray-50); --alert-chip-solid: var(--colors-utility-gray-utility-gray-500); }
+.alert--grey    { background: var(--colors-utility-gray-utility-gray-100); color: var(--colors-text-text-primary-900); --alert-chip: var(--colors-utility-gray-utility-gray-200); --alert-chip-solid: var(--colors-utility-gray-utility-gray-500); }
+.alert--brand-secondary { background: var(--colors-utility-brand-tertiary-utility-brand-tertiary-25); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); color: var(--colors-utility-brand-secondary-utility-brand-secondary-900); --alert-chip: var(--colors-utility-brand-tertiary-utility-brand-tertiary-50); --alert-chip-solid: var(--colors-utility-brand-tertiary-utility-brand-tertiary-500); }
+.alert--md.alert--warning { color: var(--colors-text-text-warning-primary-600); --alert-chip: var(--colors-utility-warning-utility-warning-50); --alert-chip-solid: var(--colors-utility-warning-utility-warning-500); }
+.alert--warning { --alert-chip: var(--colors-utility-warning-utility-warning-50); --alert-chip-solid: var(--colors-utility-warning-utility-warning-500); }
+
+/* md: 48 high, padding 10 8 10 12, gap 20, text-sm */
+.alert--md { gap: var(--spacing-2xl); min-height: 48px; padding: 10px var(--spacing-md) 10px var(--spacing-lg); }   /* DRIFT: 10px off scale */
+.alert--md .alert__content { gap: var(--spacing-md); }
+.alert--md .alert__text { gap: 0 var(--spacing-sm); padding-block: var(--spacing-xs); font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.alert--md .alert__lead { font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+.alert__featured {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: var(--radius-sm); /* DRIFT: Figma literal, off scale */
+  background: var(--alert-chip);
+  color: inherit;
+}
+.alert__featured svg { width: 12px; height: 12px; display: block; }
+.alert--solid .alert__featured { background: var(--alert-chip-solid); color: var(--colors-text-text-white); }
+.alert__actions { display: flex; flex: none; align-items: center; gap: var(--spacing-xs); }
+.alert__close {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none; width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--radius-sm); /* DRIFT: Figma literal, off scale */
+  background: transparent; color: var(--colors-icon-icon-tertiary); cursor: pointer;
+}
+.alert__close svg { width: 16px; height: 16px; display: block; }
+.alert__close:hover, .alert__close[data-force="hover"] { background: color-mix(in srgb, currentColor 8%, transparent); }
+.alert__close:focus-visible { outline: 2px solid var(--colors-utility-gray-utility-gray-300); outline-offset: 1px; }
+
+/* double stack: title over supporting text, always solid chip, 60 high */
+.alert--stack .alert__content { align-items: flex-start; }
+.alert--stack .alert__text { flex-direction: column; align-items: stretch; gap: 0; padding-block: 0; }
+.alert--stack .alert__text > :first-child { color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+.alert--stack .alert__text > :last-child:not(:first-child) { color: var(--colors-text-text-tertiary-600); font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.alert--stack .alert__featured { background: var(--alert-chip-solid); color: var(--colors-text-text-white); }
+.alert--stack .alert__actions { align-self: flex-start; }
+
+/* sm: 36 high, padding 8 6 8 8, gap 12, text-xs, bare 14px icon */
+.alert--sm { gap: var(--spacing-lg); min-height: 36px; padding: var(--spacing-md) var(--spacing-sm) var(--spacing-md) var(--spacing-md); } /* DRIFT: Figma literal, off scale */
+
+/* lg: icon + content column, close top right */
+.alert--lg { align-items: flex-start; gap: var(--spacing-md); min-height: var(--spacing-9xl); padding: 10px var(--spacing-lg); } /* DRIFT: Figma literal, off scale */
+.alert--lg .alert__content { flex-direction: column; align-items: stretch; gap: var(--spacing-lg); }
+.alert--lg .alert__text { padding-right: var(--spacing-xl); flex-direction: column; align-items: stretch; gap: 0; font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }

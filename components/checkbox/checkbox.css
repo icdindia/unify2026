@@ -1,0 +1,175 @@
+/* ----------------------------------------------------------------------------
+   checkbox — DS Checkboxes page (1097:63638, qT9zH1YYapGTwpJxwNEGzt)
+   _Checkbox base 1097:63886 (Size xs 14 / sm 16 / md 20 · Type Checkbox|Radio
+   · Checked · Indeterminate · State Default/Hover/Focused/Disabled)
+   Checkbox 1097:63652 (base + Text + Supporting text) · Checkbox List 9609:100935
+
+   Markup:
+     <label class="checkbox">
+       <span class="checkbox__control">
+         <input class="checkbox__input" type="checkbox">      (type="radio" for radio)
+         <svg class="checkbox__check">…</svg><svg class="checkbox__minus">…</svg>
+       </span>
+       <span class="checkbox__text"><span class="checkbox__label">…</span>
+         <span class="checkbox__hint">…</span></span>
+     </label>
+   Indeterminate: set input.indeterminate = true (or [data-indeterminate]).
+   Static previews: data-force="hover|focus" on the input.
+
+   Strokes: unchecked box stroke is INSIDE (1 inset) -> inset box-shadow ring.
+   Checked checkbox has no stroke; checked radio = brand-solid disc + white dot
+   (6 @16, 8 @20). Focus = 4px ring in border-secondary (Figma #edebe8, spread 4).
+   DRIFT: xs (14px) radio dot and xs label text sizes not read; xs uses sm label.
+---------------------------------------------------------------------------- */
+
+.checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  cursor: pointer;
+  font-family: var(--text-sm-medium-font-family);
+}
+
+.checkbox__control {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  padding-top: 3px; /* Figma "Input" wrapper 16x19: box sits on the first text line */ /* DRIFT: matches Figma, no token */
+}
+
+.checkbox__input {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+  cursor: inherit;
+}
+.checkbox__input[type="radio"] { border-radius: var(--radius-full); }
+
+.checkbox--md .checkbox__input { width: 20px; height: 20px; border-radius: var(--radius-sm); } /* DRIFT: matches Figma, no token */
+.checkbox--md .checkbox__input[type="radio"] { border-radius: var(--radius-full); }
+.checkbox--xs .checkbox__input { width: 14px; height: 14px; box-shadow: inset 0 0 0 0.875px var(--colors-border-border-primary); }
+
+/* hover */
+.checkbox__input:hover:not(:disabled),
+.checkbox__input[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+
+/* focus */
+.checkbox__input:focus-visible,
+.checkbox__input[data-force="focus"] {
+  outline: 0;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary), 0 0 0 4px var(--colors-border-border-secondary);
+}
+
+/* checked checkbox: filled, stroke gone */
+.checkbox__input[type="checkbox"]:checked {
+  background: var(--colors-background-bg-brand-solid);
+  box-shadow: none;
+}
+.checkbox__input[type="checkbox"]:checked:hover:not(:disabled),
+.checkbox__input[type="checkbox"]:checked[data-force="hover"] { background: var(--colors-background-bg-brand-solid-hover); }
+.checkbox__input[type="checkbox"]:checked:focus-visible,
+.checkbox__input[type="checkbox"]:checked[data-force="focus"] { box-shadow: 0 0 0 4px var(--colors-border-border-secondary); }
+
+/* indeterminate: white box, brand ring, brand dash */
+.checkbox__input[type="checkbox"]:indeterminate,
+.checkbox__input[type="checkbox"][data-indeterminate] {
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-solid);
+}
+
+/* checked radio: disc + dot */
+.checkbox__input[type="radio"]:checked {
+  background:
+    radial-gradient(circle at center, var(--colors-background-bg-white) 0 3px, transparent 3.5px),
+    var(--colors-background-bg-brand-solid);
+  box-shadow: none;
+}
+.checkbox--md .checkbox__input[type="radio"]:checked {
+  background:
+    radial-gradient(circle at center, var(--colors-background-bg-white) 0 4px, transparent 4.5px),
+    var(--colors-background-bg-brand-solid);
+}
+.checkbox__input[type="radio"]:checked:hover:not(:disabled),
+.checkbox__input[type="radio"]:checked[data-force="hover"] {
+  background-color: var(--colors-background-bg-brand-solid-hover);
+}
+.checkbox__input[type="radio"]:checked:focus-visible,
+.checkbox__input[type="radio"]:checked[data-force="focus"] { box-shadow: 0 0 0 4px var(--colors-border-border-secondary); }
+
+/* glyphs, centred over the box (8x6 check / 7x0 dash, 1px round stroke) */
+.checkbox__check,
+.checkbox__minus {
+  position: absolute;
+  top: calc(3px + 8px);
+  left: 8px;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  pointer-events: none;
+  display: none;
+  fill: none;
+  stroke: var(--colors-icon-icon-white);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.checkbox--md .checkbox__check, .checkbox--md .checkbox__minus { top: calc(3px + 10px); left: 10px; }
+.checkbox--xs .checkbox__check, .checkbox--xs .checkbox__minus { top: calc(3px + 7px); left: 7px; }
+.checkbox__input:checked ~ .checkbox__check { display: block; }
+.checkbox__input[type="radio"] ~ .checkbox__check,
+.checkbox__input[type="radio"] ~ .checkbox__minus { display: none !important; }
+.checkbox__input:indeterminate ~ .checkbox__check,
+.checkbox__input[data-indeterminate] ~ .checkbox__check { display: none; }
+.checkbox__input:indeterminate ~ .checkbox__minus,
+.checkbox__input[data-indeterminate] ~ .checkbox__minus { display: block; stroke: var(--colors-border-border-brand-solid); }
+
+/* disabled */
+.checkbox__input:disabled {
+  background: var(--colors-background-bg-disabled);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  cursor: not-allowed;
+}
+.checkbox__input[type="radio"]:disabled:checked {
+  background:
+    radial-gradient(circle at center, var(--colors-utility-gray-utility-gray-300) 0 3px, transparent 3.5px),
+    var(--colors-background-bg-disabled);
+  box-shadow: inset 0 0 0 1px var(--colors-icon-icon-disabled);
+}
+.checkbox--md .checkbox__input[type="radio"]:disabled:checked {
+  background:
+    radial-gradient(circle at center, var(--colors-utility-gray-utility-gray-300) 0 4px, transparent 4.5px),
+    var(--colors-background-bg-disabled);
+}
+.checkbox__input:disabled ~ .checkbox__check,
+.checkbox__input:disabled ~ .checkbox__minus { stroke: var(--colors-icon-icon-disabled); }
+.checkbox:has(.checkbox__input:disabled) { cursor: not-allowed; }
+
+/* label block: Text sm/Medium secondary-700 over Text xs/Regular tertiary-600 */
+.checkbox__text { display: flex; flex-direction: column; min-width: 0; }
+.checkbox__label {
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.checkbox__hint {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.checkbox:has(.checkbox__input:disabled) .checkbox__label,
+.checkbox:has(.checkbox__input:disabled) .checkbox__hint { color: var(--colors-text-text-disabled); }
+
+/* Checkbox List 9609:100935: label / list (gap 12) / hint; double column gap 16 */
+.checkbox-group { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.checkbox-group__list { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.checkbox-group--double .checkbox-group__list { flex-direction: row; gap: var(--spacing-xl); }

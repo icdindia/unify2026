@@ -1,0 +1,43 @@
+/* ----------------------------------------------------------------------------
+   tag — DS Tags page (3306:403749, qT9zH1YYapGTwpJxwNEGzt)
+   Tag 3307:417515 (Icon False|Country|Avatar|Dot|Icon x Action X close|Text only|
+   Count|Link x Size sm|xs x Type Outline|Solid x State Default|Hover) ·
+   _Tag close X 3307:417672 · _Tag count 3307:417827 (sm|md|lg x Selected).
+
+   sm: 24 tall, radius 6, p 4/8 ; xs: 20 tall, radius 4, p 2/8. Text 12/16 Medium.
+   Outline: bg-primary + 1px border-secondary inside, text-secondary, hover bg-primary-hover.
+   Solid: utility-pigeon-blue-50 / text pigeon-blue-700 (hover unchanged in Figma).
+   X close: padding right 4 (left 6), 12px close button radius 4, hover bg-primary-hover.
+   Dot: 8px, p-left 6. Avatar 16px, p-left 4. Count chip 16px radius 2.
+   DRIFT: Country flag and Icon leading variants, Count chip colours (_Tag count)
+   not coded - supply content via the leading slot. Solid hover = default (as drawn).
+---------------------------------------------------------------------------- */
+
+.tag {
+  display: inline-flex; align-items: center; gap: 3px; /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+  box-sizing: border-box; height: 24px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+  white-space: nowrap; text-decoration: none;
+}
+.tag--xs { height: 20px; padding: var(--spacing-xxs) var(--spacing-md); border-radius: var(--radius-xs); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+a.tag:hover, button.tag:hover, .tag[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.tag--solid { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-50); box-shadow: none; color: var(--colors-utility-pigeon-blue-utility-pigeon-blue-700); }
+a.tag--solid:hover, button.tag--solid:hover, .tag--solid[data-force="hover"] { background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-50); }
+.tag--dot { padding-inline-start: var(--spacing-sm); }
+.tag--avatar { padding-inline-start: var(--spacing-xs); }
+.tag--close { padding-inline-end: var(--spacing-xs); padding-inline-start: var(--spacing-sm); gap: var(--spacing-xxs); }
+.tag--link { padding-inline-end: var(--spacing-xs); padding-inline-start: var(--spacing-sm); }
+.tag--count { padding-inline-end: var(--spacing-xs); padding-inline-start: var(--spacing-sm); gap: 0; }
+.tag__dot { width: 8px; height: 8px; border-radius: var(--radius-full); background: currentColor; } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.tag__avatar { width: 16px; height: 16px; border-radius: var(--radius-full); background: var(--colors-utility-gray-utility-gray-200); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.tag__icon { width: 12px; height: 12px; flex: none; }
+.tag__count { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-width: 16px; height: 16px; padding: 0 var(--spacing-xs); border-radius: var(--radius-xxs); background: var(--colors-utility-gray-utility-gray-100); color: var(--colors-utility-gray-utility-gray-700); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.tag__close { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 12px; height: 12px; padding: var(--spacing-xxs); border: 0; border-radius: var(--radius-xs); background: transparent; color: var(--colors-icon-icon-secondary); cursor: pointer; } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.tag__close:hover { background: var(--colors-background-bg-primary-hover); }
+.tag__close svg { width: 8px; height: 8px; }

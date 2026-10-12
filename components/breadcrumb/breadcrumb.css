@@ -1,0 +1,33 @@
+/* ----------------------------------------------------------------------------
+   breadcrumb — DS Breadcrumbs page (43:3087, qT9zH1YYapGTwpJxwNEGzt)
+   _Breadcrumbs 1122:153 (Size xs|sm|md, each with dropdown variant) ·
+   _Breadcrumb button base 43:3221 (Current x Icon x State Default|Hover|Focused x
+   Size sm|md) · Breadcrumb Bar 36664:35617 (Default|With Button|With workspace).
+
+   NOT the same as components/es-breadcrumb (the chat header) and the bar inside
+   page-header (.breadcrumb-bar, Screen 16740:306222 variant). This is the DS
+   standalone trail. xs/sm link: 11/12 Regular text-tertiary, current text-primary;
+   md link 13/20 Medium. Separator = 10px slash chevron utility-gray-300, gap 4.
+   Bar: p 8/20/0/20, 20 tall.
+   DRIFT: Hover/Focused colours were not distinguishable in the read (same
+   text-tertiary); hover is underline only, flagged for designer confirmation.
+   Dropdown ("...") variants render as a plain "…" link. Icon crumb: home-02 14px.
+---------------------------------------------------------------------------- */
+
+.breadcrumb { display: flex; align-items: center; gap: var(--spacing-xs); margin: 0; padding: 0; list-style: none; }
+.breadcrumb__item { display: inline-flex; align-items: center; gap: var(--spacing-xs); }
+.breadcrumb__link {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; padding: 0; background: transparent; text-decoration: none; cursor: pointer;
+  font-family: var(--text-xxs-regular-font-family); font-weight: var(--text-xxs-regular-font-weight);
+  font-size: var(--text-xxs-regular-font-size); line-height: var(--text-xxs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.breadcrumb__link:hover, .breadcrumb__link[data-force="hover"] { text-decoration: underline; }   /* DRIFT */
+.breadcrumb__link:focus-visible, .breadcrumb__link[data-force="focus"] { outline: none; border-radius: var(--radius-xxs); box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.breadcrumb__link[aria-current="page"] { color: var(--colors-text-text-primary-900); cursor: default; text-decoration: none; }
+.breadcrumb__sep { width: 10px; height: 10px; flex: none; color: var(--colors-utility-gray-utility-gray-300); }
+.breadcrumb__icon { width: 14px; height: 14px; color: var(--colors-icon-icon-secondary); }
+.breadcrumb--md { gap: var(--spacing-sm); }
+.breadcrumb--md .breadcrumb__link { gap: var(--spacing-sm); font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+.breadcrumb-bar-std { display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; padding: var(--spacing-md) var(--spacing-2xl) 0; }

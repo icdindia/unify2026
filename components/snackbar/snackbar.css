@@ -1,0 +1,62 @@
+/* ----------------------------------------------------------------------------
+   snackbar — DS Alerts & notifications page 176:4256, SnackbarNew 46477:18222
+   Color Neutral / Grey / Error / Warning / Success x Description off|on.
+   Neutral off 46477:18251 (275x76) · on 46477:18265 (275x92) · error 46477:18279.
+   Surface: padding 8 12, gap 4, radius 8, 1px inset ring (Neutral gray-300, Error
+   error-200), two-layer drop shadow rgb(237,235,232): 0 2 4 -2 and 0 4 8 -2.
+   Close: 16px circular icon button (bg = tone bg, ring as surface, 12px x icon).
+   Action row: padding 4 4 4 26 (aligns under the text, past the 22px icon + gap).
+   Tones read: Neutral bg-primary/ring gray-300 · Grey gray-25/gray-300 · Error
+   error-25/error-200. DRIFT: Warning and Success surface values assumed from the
+   Alert tone pairs (warning-25/warning-200, success-25/success-200); verify.
+   DRIFT: close-button placement (offset from corner) and the in-content icon/text
+   styles of Content (4,0,4 / gap 8) not read; icon is a 14px alert icon, text
+   text-sm-medium.
+   The page also holds _Notification 1135:618, Notification panel/popup units,
+   Information Box 13079:6170, Global Errors 14586:61697: not built here
+   (notification-panels prototype owns the panels).
+---------------------------------------------------------------------------- */
+.snackbar {
+  --sb-bg: var(--colors-background-bg-primary);
+  --sb-ring: var(--colors-utility-gray-utility-gray-300);
+  --sb-fg: var(--colors-text-text-secondary-700);
+  --sb-icon: var(--colors-icon-icon-primary);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  width: 275px; max-width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  background: var(--sb-bg);
+  box-shadow: inset 0 0 0 1px var(--sb-ring),
+              0 2px 4px -2px var(--colors-utility-gray-utility-gray-200),
+              0 4px 8px -2px var(--colors-utility-gray-utility-gray-200);
+  color: var(--sb-fg);
+}
+.snackbar--grey    { --sb-bg: var(--colors-utility-gray-utility-gray-25); }
+.snackbar--error   { --sb-bg: var(--colors-utility-error-utility-error-25); --sb-ring: var(--colors-utility-error-utility-error-200); --sb-fg: var(--colors-text-text-error-primary-600); --sb-icon: var(--colors-icon-icon-error-600); }
+.snackbar--warning { --sb-bg: var(--colors-utility-warning-utility-warning-25); --sb-ring: var(--colors-utility-warning-utility-warning-200); --sb-fg: var(--colors-text-text-warning-primary-600); --sb-icon: var(--colors-icon-icon-warning-600); }
+.snackbar--success { --sb-bg: var(--colors-utility-success-utility-success-25); --sb-ring: var(--colors-utility-success-utility-success-200); --sb-fg: var(--colors-text-text-success-primary-600); --sb-icon: var(--colors-utility-success-utility-success-500); }
+
+.snackbar__content { display: flex; align-items: flex-start; gap: var(--spacing-md); padding: var(--spacing-xs) 0; }
+.snackbar__icon { flex: none; width: 14px; height: 14px; margin-top: 3px; color: var(--sb-icon); } /* DRIFT: Figma literal, off scale */
+.snackbar__icon svg { display: block; width: 100%; height: 100%; }
+.snackbar__text { display: flex; flex: 1 0 0; flex-direction: column; min-width: 0; }
+.snackbar__title { font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+.snackbar__description { color: var(--colors-text-text-tertiary-600); font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.snackbar__actions { display: flex; align-items: center; padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) 26px; } /* DRIFT: Figma literal, off scale */
+.snackbar__close {
+  position: absolute; top: -8px; right: -8px;   /* DRIFT: offset assumed */
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box;
+  width: var(--spacing-xl); height: var(--spacing-xl); padding: var(--spacing-xxs);
+  border: 0; border-radius: var(--radius-full);
+  background: var(--sb-bg);
+  box-shadow: 0 0 0 1px var(--sb-ring);
+  color: var(--sb-icon);
+  cursor: pointer;
+}
+.snackbar__close svg { width: 12px; height: 12px; display: block; }
+.snackbar__close:focus-visible { outline: 2px solid var(--colors-utility-gray-utility-gray-300); outline-offset: 2px; }

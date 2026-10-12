@@ -10,7 +10,7 @@
      "Text xs/Bold-ALL CAPS"-> .text-xs-bold-all-caps
 
    Families: display=Spectral  body=Geist  code=JetBrains Mono
-   106 styles · 5 code/mono · 9 all-caps
+   106 styles · 8 code/mono · 9 all-caps
 
    Consumer markup uses these classes. An atom's own CSS may set font-size /
    weight / line-height inline where the atom owns its type (see FIGMA-TO-HTML.md).
@@ -154,50 +154,50 @@
   --display-xs-semibold-font-size: 24px;
   --display-xs-semibold-line-height: 32px;
   --display-xs-semibold-letter-spacing: -0.0200em;
-  --text-lg-bold-font-family: var(--font-family-body);
+  --text-lg-bold-font-family: var(--font-family-display);
   --text-lg-bold-font-weight: 700;
   --text-lg-bold-font-size: 17px;
-  --text-lg-bold-line-height: 28px;
-  --text-lg-bold-italic-font-family: var(--font-family-body);
+  --text-lg-bold-line-height: 20px;
+  --text-lg-bold-italic-font-family: var(--font-family-display);
   --text-lg-bold-italic-font-weight: 400;
   --text-lg-bold-italic-font-size: 17px;
-  --text-lg-bold-italic-line-height: 28px;
-  --text-lg-medium-font-family: var(--font-family-body);
+  --text-lg-bold-italic-line-height: 20px;
+  --text-lg-medium-font-family: var(--font-family-display);
   --text-lg-medium-font-weight: 500;
   --text-lg-medium-font-size: 17px;
-  --text-lg-medium-line-height: 28px;
-  --text-lg-medium-italic-font-family: var(--font-family-body);
+  --text-lg-medium-line-height: 20px;
+  --text-lg-medium-italic-font-family: var(--font-family-display);
   --text-lg-medium-italic-font-weight: 400;
   --text-lg-medium-italic-font-size: 17px;
-  --text-lg-medium-italic-line-height: 28px;
-  --text-lg-medium-underlined-font-family: var(--font-family-body);
+  --text-lg-medium-italic-line-height: 20px;
+  --text-lg-medium-underlined-font-family: var(--font-family-display);
   --text-lg-medium-underlined-font-weight: 500;
   --text-lg-medium-underlined-font-size: 17px;
-  --text-lg-medium-underlined-line-height: 28px;
-  --text-lg-regular-font-family: var(--font-family-body);
+  --text-lg-medium-underlined-line-height: 20px;
+  --text-lg-regular-font-family: var(--font-family-display);
   --text-lg-regular-font-weight: 400;
   --text-lg-regular-font-size: 17px;
-  --text-lg-regular-line-height: 28px;
-  --text-lg-regular-italic-font-family: var(--font-family-body);
+  --text-lg-regular-line-height: 20px;
+  --text-lg-regular-italic-font-family: var(--font-family-display);
   --text-lg-regular-italic-font-weight: 400;
   --text-lg-regular-italic-font-size: 17px;
-  --text-lg-regular-italic-line-height: 28px;
-  --text-lg-regular-underlined-font-family: var(--font-family-body);
+  --text-lg-regular-italic-line-height: 20px;
+  --text-lg-regular-underlined-font-family: var(--font-family-display);
   --text-lg-regular-underlined-font-weight: 400;
   --text-lg-regular-underlined-font-size: 17px;
-  --text-lg-regular-underlined-line-height: 28px;
-  --text-lg-semibold-font-family: var(--font-family-body);
+  --text-lg-regular-underlined-line-height: 20px;
+  --text-lg-semibold-font-family: var(--font-family-display);
   --text-lg-semibold-font-weight: 600;
   --text-lg-semibold-font-size: 17px;
-  --text-lg-semibold-line-height: 28px;
-  --text-lg-semibold-italic-font-family: var(--font-family-body);
+  --text-lg-semibold-line-height: 20px;
+  --text-lg-semibold-italic-font-family: var(--font-family-display);
   --text-lg-semibold-italic-font-weight: 400;
   --text-lg-semibold-italic-font-size: 17px;
-  --text-lg-semibold-italic-line-height: 28px;
-  --text-lg-semibold-underlined-font-family: var(--font-family-body);
+  --text-lg-semibold-italic-line-height: 20px;
+  --text-lg-semibold-underlined-font-family: var(--font-family-display);
   --text-lg-semibold-underlined-font-weight: 600;
   --text-lg-semibold-underlined-font-size: 17px;
-  --text-lg-semibold-underlined-line-height: 28px;
+  --text-lg-semibold-underlined-line-height: 20px;
   --text-md-bold-font-family: var(--font-family-body);
   --text-md-bold-font-weight: 700;
   --text-md-bold-font-size: 15px;
@@ -423,7 +423,7 @@
   --text-xxs-bold-all-caps-font-size: 11px;
   --text-xxs-bold-all-caps-line-height: 12px;
   --text-xxs-bold-all-caps-letter-spacing: 0.1000em;
-  --text-xxs-bold-code-font-family: var(--font-family-body);
+  --text-xxs-bold-code-font-family: var(--font-family-code);
   --text-xxs-bold-code-font-weight: 700;
   --text-xxs-bold-code-font-size: 11px;
   --text-xxs-bold-code-line-height: 12px;
@@ -436,7 +436,7 @@
   --text-xxs-medium-all-caps-font-size: 11px;
   --text-xxs-medium-all-caps-line-height: 12px;
   --text-xxs-medium-all-caps-letter-spacing: 0.1000em;
-  --text-xxs-medium-code-font-family: var(--font-family-body);
+  --text-xxs-medium-code-font-family: var(--font-family-code);
   --text-xxs-medium-code-font-weight: 500;
   --text-xxs-medium-code-font-size: 11px;
   --text-xxs-medium-code-line-height: 12px;
@@ -444,7 +444,7 @@
   --text-xxs-regular-font-weight: 400;
   --text-xxs-regular-font-size: 11px;
   --text-xxs-regular-line-height: 12px;
-  --text-xxs-regular-code-font-family: var(--font-family-body);
+  --text-xxs-regular-code-font-family: var(--font-family-code);
   --text-xxs-regular-code-font-weight: 400;
   --text-xxs-regular-code-font-size: 11px;
   --text-xxs-regular-code-line-height: 12px;
@@ -731,96 +731,96 @@
 
 /* Text lg/Bold */
 .text-lg-bold {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 700;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
 }
 
 /* Text lg/Bold italic */
 .text-lg-bold-italic {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
   font-style: italic;
 }
 
 /* Text lg/Medium */
 .text-lg-medium {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 500;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
 }
 
 /* Text lg/Medium italic */
 .text-lg-medium-italic {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
   font-style: italic;
 }
 
 /* Text lg/Medium underlined */
 .text-lg-medium-underlined {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 500;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
   text-decoration: underline;
 }
 
 /* Text lg/Regular */
 .text-lg-regular {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
 }
 
 /* Text lg/Regular italic */
 .text-lg-regular-italic {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
   font-style: italic;
 }
 
 /* Text lg/Regular underlined */
 .text-lg-regular-underlined {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
   text-decoration: underline;
 }
 
 /* Text lg/Semibold */
 .text-lg-semibold {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 600;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
 }
 
 /* Text lg/Semibold italic */
 .text-lg-semibold-italic {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
   font-style: italic;
 }
 
 /* Text lg/Semibold underlined */
 .text-lg-semibold-underlined {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-weight: 600;
   font-size: 17px;
-  line-height: 28px;
+  line-height: 20px;
   text-decoration: underline;
 }
 
@@ -1285,7 +1285,7 @@
 
 /* Text xxs/Bold-Code */
 .text-xxs-bold-code {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-code);
   font-weight: 700;
   font-size: 11px;
   line-height: 12px;
@@ -1311,7 +1311,7 @@
 
 /* Text xxs/Medium-Code */
 .text-xxs-medium-code {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-code);
   font-weight: 500;
   font-size: 11px;
   line-height: 12px;
@@ -1327,7 +1327,7 @@
 
 /* Text xxs/Regular-Code */
 .text-xxs-regular-code {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-code);
   font-weight: 400;
   font-size: 11px;
   line-height: 12px;

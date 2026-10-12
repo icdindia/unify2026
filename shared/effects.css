@@ -1,0 +1,45 @@
+/* ============================================================================
+   effects.css — UnifyApps DS 2.0 effect styles (shadows, focus rings, backdrop blur)
+   Source: Figma local effect styles, file qT9zH1YYapGTwpJxwNEGzt, read 2026-10-12.
+   Naming: Figma style path, lowercased: `Shadows/shadow-md` -> --shadow-md,
+   `Focus rings/ring-gray-shadow-xs` -> --ring-gray-shadow-xs.
+   LIGHT THEME ONLY. The Figma styles carry no dark-mode variant (the shadow colours
+   are literal light greys), so a dark theme needs its own values: DRIFT, not yet designed.
+   Use: box-shadow: var(--ring-gray); box-shadow: var(--shadow-md);
+   Not included: the five "Portfolio mockup shadows" (marketing mockups).
+   ============================================================================ */
+
+:root {
+  --ring-brand: 0px 0 0 4px #edebe8;
+  --ring-brand-shadow-xs: 0px 0 0 2px #edebe8, 0px 1px 1px 1px rgba(16, 24, 40, 0.05);
+  --ring-brand-shadow-sm: 0px 0 0 4px #edebe8;
+  --ring-gray: 0px 0 0 4px #e6e4e0;
+  --ring-gray-shadow-xs: 0px 0 0 2px #e6e4e0, 0px 1px 1px 1px rgba(16, 24, 40, 0.05);
+  --ring-gray-shadow-sm: 0px 0 0 4px #e6e4e0, 0px 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --ring-error: 0px 0 0 4px #f1d3d1;
+  --ring-error-shadow-xs: 0px 0 0 2px #f1d3d1, 0px 1px 1px 1px rgba(0, 0, 0, 0.05);
+  --ring-error-shadow-sm: 0px 0 0 4px #f1d3d1, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ring-success: 0px 0 0 4px #cce1d2;
+  --ring-success-shadow-xs: 0px 0 0 2px #cce1d2, 0px 1px 1px 1px rgba(0, 0, 0, 0.05);
+  --ring-success-shadow-sm: 0px 0 0 4px #cce1d2, 0px 1px 1px 1px rgba(0, 0, 0, 0.05);
+  --shadow-xs: 0px 1px 2px 0 #edebe8;
+  --shadow-sm: 0px 1px 2px 0 #edebe8, 0px 1px 3px 0 #edebe8;
+  --shadow-md: 0px 2px 4px -2px #edebe8, 0px 4px 8px -2px #edebe8;
+  --shadow-lg: 0px 4px 12px -2px #e6e4e0, 0px 12px 12px -80px #e6e4e0;
+  --shadow-xl: 0px 8px 8px -4px #edebe8, 0px 20px 24px -4px #edebe8;
+  --shadow-2xl: 0px 24px 48px -12px #e6e4e0;
+  --shadow-3xl: 0px 32px 64px -12px #b4ada7;
+  --shadow-lg-left: -4px 0 6px -2px rgba(16, 24, 40, 0.03), -8px 0 16px -4px rgba(16, 24, 40, 0.08);
+  --shadow-overflow-right: 2px 0 4px 0 rgba(16, 24, 40, 0.05);
+  --shadow-overflow-left: -2px 0 10px 0 #f7f5f3;
+  --shadow-overflow-bottom: 0px 2px 4px 0 rgba(16, 24, 40, 0.05);
+  --shadow-overflow-top: 0px -2px 4px 0 rgba(16, 24, 40, 0.05);
+  --shadow-table-overflow-right: 4px 0 0 -2px rgba(152, 162, 179, 0.1);
+  --shadow-table-overflow-left: -4px 0 0 -2px rgba(152, 162, 179, 0.1);
+  --shadow-table-overflow-bottom: 0px 4px 0 -2px rgba(152, 162, 179, 0.1);
+  --shadow-table-overflow-top: 0px -4px 0 -2px rgba(152, 162, 179, 0.1);
+  --backdrop-blur-sm: 8px;
+  --backdrop-blur-md: 16px;
+  --backdrop-blur-lg: 24px;
+  --backdrop-blur-xl: 40px;
+}

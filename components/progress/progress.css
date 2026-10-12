@@ -1,0 +1,103 @@
+/* ----------------------------------------------------------------------------
+   progress — DS Progress indicators page 1154:89940
+   Bar 1085:57382 (Progress 0-100% x Label False/Side/Bottom/Top floating/Bottom
+   floating) · Circle 1154:89981 (Size xxxs..lg, Shape Circle/Half circle, Label)
+   · Dots 9446:22778 (Stages 6/9/10, Selected, Last step error).
+   Bar: 8px track utility-gray-200, fill bg-brand-solid, both r9999.
+   Fill width is --progress (0-100%). Label = text-sm-medium text-secondary-700.
+   Circle: ring diameter = box - 2*stroke/2... Figma box 240 holds a 216 ellipse with
+   a 24 CENTER stroke, so outer = box, stroke = 24 (lg 280/28, md 240/24, sm 200/20,
+   xs 160/16). Track border-tertiary, arc border-brand-solid. Built with
+   conic-gradient + radial mask driven by --progress.
+   Dots: 10px cell, 8px dot, gap 2; filled = utility-success-500, rest gray-300,
+   error = utility-error-500 on the selected (last) dot.
+   DRIFT: Circle xxs/xxxs and Half circle not read (sizes unread, no CSS emitted).
+   DRIFT: round caps on the circle arc not verified. Floating tip: bg-primary,
+   border-primary, r8, 8/12, text-xs-semibold; the Figma tooltip also carries a
+   two-layer drop shadow (not emitted: no shadow token).
+---------------------------------------------------------------------------- */
+.progress { --progress: 0%; display: flex; align-items: center; gap: var(--spacing-sm); width: 100%; }
+.progress__track {
+  position: relative;
+  flex: 1 0 0;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-200);
+}
+.progress__fill {
+  display: block;
+  width: var(--progress);
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-brand-solid);
+}
+.progress__label {
+  flex: none;
+  min-width: 37px;
+  color: var(--colors-text-text-secondary-700);
+  font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height);
+}
+.progress--bottom { flex-direction: column; align-items: stretch; gap: var(--spacing-md); }
+.progress--bottom .progress__label { align-self: flex-end; min-width: 0; }
+.progress--top-floating, .progress--bottom-floating { flex-direction: column; align-items: stretch; gap: var(--spacing-md); }
+.progress--top-floating { flex-direction: column-reverse; }
+.progress__tip {
+  position: absolute;
+  left: var(--progress);
+  transform: translateX(-50%);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+  color: var(--colors-text-text-secondary-700);
+  white-space: nowrap;
+  font-family: var(--text-xs-semibold-font-family); font-weight: var(--text-xs-semibold-font-weight); font-size: var(--text-xs-semibold-font-size); line-height: var(--text-xs-semibold-line-height);
+}
+.progress--top-floating .progress__tip { bottom: calc(100% + var(--spacing-md)); }
+.progress--bottom-floating .progress__tip { top: calc(100% + var(--spacing-md)); }
+.progress--top-floating, .progress--bottom-floating { position: relative; }
+
+/* circle */
+.progress-circle {
+  --progress: 0%;
+  --pc-size: 240px; --pc-stroke: 24px;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: var(--pc-size); height: var(--pc-size);
+  border-radius: var(--radius-full);
+  text-align: center;
+}
+.progress-circle::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(var(--colors-border-border-brand-solid) var(--progress), var(--colors-border-border-tertiary) 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--pc-stroke)), black calc(100% - var(--pc-stroke) + 0.5px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - var(--pc-stroke)), black calc(100% - var(--pc-stroke) + 0.5px));
+}
+.progress-circle--lg { --pc-size: 280px; --pc-stroke: 28px; }
+.progress-circle--md { --pc-size: 240px; --pc-stroke: 24px; }
+.progress-circle--sm { --pc-size: 200px; --pc-stroke: 20px; }
+.progress-circle--xs { --pc-size: 160px; --pc-stroke: 16px; }
+.progress-circle__label { position: relative; color: var(--colors-text-text-tertiary-600); font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+.progress-circle__value { position: relative; color: var(--colors-text-text-primary-900); font-family: var(--display-md-semibold-font-family); font-weight: var(--display-md-semibold-font-weight); font-size: var(--display-md-semibold-font-size); line-height: var(--display-md-semibold-line-height); }
+.progress-circle--lg .progress-circle__value { font-family: var(--display-lg-semibold-font-family); font-weight: var(--display-lg-semibold-font-weight); font-size: var(--display-lg-semibold-font-size); line-height: var(--display-lg-semibold-line-height); }
+.progress-circle--sm .progress-circle__value { font-family: var(--display-sm-semibold-font-family); font-weight: var(--display-sm-semibold-font-weight); font-size: var(--display-sm-semibold-font-size); line-height: var(--display-sm-semibold-line-height); }
+.progress-circle--xs .progress-circle__value { font-family: var(--display-xs-semibold-font-family); font-weight: var(--display-xs-semibold-font-weight); font-size: var(--display-xs-semibold-font-size); line-height: var(--display-xs-semibold-line-height); }
+.progress-circle--sm .progress-circle__label, .progress-circle--xs .progress-circle__label { font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); }
+
+/* step dots */
+.progress-dots { display: inline-flex; gap: var(--spacing-xxs); }
+.progress-dots__dot {
+  box-sizing: border-box;
+  width: 10px; height: 10px;
+  padding: 1px; /* DRIFT: Figma literal, off scale */
+  background-clip: content-box;
+  border-radius: var(--radius-full);
+  background-color: var(--colors-utility-gray-utility-gray-300);
+}
+.progress-dots__dot[aria-current], .progress-dots__dot[data-done] { background-color: var(--colors-utility-success-utility-success-500); }
+.progress-dots__dot[data-error] { background-color: var(--colors-utility-error-utility-error-500); }

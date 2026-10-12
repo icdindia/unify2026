@@ -1,0 +1,61 @@
+/* ----------------------------------------------------------------------------
+   message — DS Messaging page 10021:10301, set 10021:11992
+   Type: Received message / Sent message / Writing / Sent attachment / Received
+   attachment x Reactions. Received 10021:11993 (412 wide), sent 10021:12052.
+   Row: gap 12; 40px avatar (border-tertiary ring) with 10px online dot
+   (success-500, 1.5 bg-primary ring). Meta row: name text-sm-medium text-secondary-700,
+   time text-xs-regular text-tertiary-600, space-between, gap 8.
+   Bubble: padding 10 14, text-md-regular text-primary-900. Received: bg-tertiary,
+   1px inset border-secondary, radius 0 10 10 10. Sent: bg-brand-solid, white text,
+   radius 10 0 10 10. Writing: 40x28 bubble, padding 10, three 4x8 dots (gap 4).
+   DRIFT: attachment and reaction sub-components (10021:12096 _Message reaction,
+   Received/Sent attachment) not built. Typing-dot motion is a repo choice (bounce
+   0.9s staggered), the Figma frames are static.
+---------------------------------------------------------------------------- */
+.message { display: flex; align-items: flex-start; gap: var(--spacing-lg); max-width: 412px; } /* DRIFT: Figma literal, off scale */
+.message--sent { flex-direction: row-reverse; margin-left: auto; }
+.message__avatar {
+  position: relative; flex: none; width: 40px; height: 40px;
+  border-radius: var(--radius-full);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+  background: var(--colors-utility-gray-utility-gray-100);
+}
+.message__avatar img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; display: block; }
+.message__online {
+  position: absolute; right: 0; bottom: 0;
+  width: 10px; height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-success-utility-success-500);
+  box-shadow: 0 0 0 1.5px var(--colors-background-bg-primary);
+}
+.message__content { display: flex; flex: 1 0 0; flex-direction: column; gap: var(--spacing-sm); min-width: 0; }
+.message__meta { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--spacing-md); }
+.message__name { color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+.message__time { color: var(--colors-text-text-tertiary-600); font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+.message__bubble {
+  box-sizing: border-box;
+  padding: 10px 14px;       /* DRIFT: Figma 10/14 sits off the spacing scale */
+  border-radius: 0 var(--radius-3xl) var(--radius-3xl) var(--radius-3xl);
+  background: var(--colors-background-bg-tertiary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--text-md-regular-font-family); font-weight: var(--text-md-regular-font-weight); font-size: var(--text-md-regular-font-size); line-height: var(--text-md-regular-line-height);
+}
+.message--sent .message__content { flex: 0 1 auto; }
+.message--sent .message__bubble {
+  border-radius: var(--radius-3xl) 0 var(--radius-3xl) var(--radius-3xl);
+  background: var(--colors-background-bg-brand-solid);
+  box-shadow: none;
+  color: var(--colors-text-text-white);
+}
+.message--writing .message__bubble { display: inline-flex; align-items: center; gap: var(--spacing-xs); width: fit-content; padding: 10px; } /* DRIFT: Figma literal, off scale */
+.message__dot {
+  width: 4px; height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--colors-icon-icon-tertiary);
+  animation: message-dot 0.9s ease-in-out infinite;
+}
+.message__dot:nth-child(2) { animation-delay: .15s; }
+.message__dot:nth-child(3) { animation-delay: .3s; }
+@keyframes message-dot { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) { .message__dot { animation: none; } }

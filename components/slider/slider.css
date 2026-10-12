@@ -1,0 +1,106 @@
+/* ----------------------------------------------------------------------------
+   slider — DS Sliders page (1086:1423)
+   Slider 1086:534 (range: Label False|Bottom|Top floating · Left control 0-75% · Right control 25-100%)
+   Single Slider 22235:3536 (+ Stepper dots) · Control handle 3287:442783
+   (State Default/Hover/Focused · Type False|Text|Tooltip · Size sm 24 / xs 20)
+
+   Presentational: position is driven by CSS vars on .slider, no JS required for static states.
+     <div class="slider" style="--from:0%; --to:25%">
+       <div class="slider__fill"></div>
+       <span class="slider__handle slider__handle--from"><span class="slider__value">0%</span></span>
+       <span class="slider__handle slider__handle--to"><span class="slider__value">25%</span></span>
+     </div>
+   Single: omit --from handle (set --from:0%) and use .slider--single; add .slider__dots for steps.
+   Track: 8 high, radius full, utility-gray-300 (single: bg-quaternary); fill bg-brand-solid.
+   Handle: 24 circle, white, 2px brand ring INSIDE (inset shadow); outer 1.5 brand ring in the
+   Control handle wrapper is the same stroke, so a single ring is drawn.
+   Focus: 4px border-secondary halo. Hover: Figma shows no change from Default.
+   DRIFT: Tooltip type content (43x32, shadow-lg two-layer literal) and Label=Top floating vertical
+   offset not built; range thumb dragging needs JS (not provided).
+---------------------------------------------------------------------------- */
+
+.slider {
+  --from: 0%;
+  --to: 50%;
+  position: relative;
+  box-sizing: border-box;
+  width: 320px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-300);
+  margin: var(--spacing-md) 0; /* handle overhangs 8 above/below */
+}
+.slider--single { background: var(--colors-background-bg-quaternary); }
+.slider--label-bottom { margin-bottom: var(--spacing-4xl); }
+.slider--label-top { margin-top: var(--spacing-4xl); }
+
+.slider__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--from);
+  width: calc(var(--to) - var(--from));
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-brand-solid);
+}
+
+.slider__handle {
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-white);
+  box-shadow: inset 0 0 0 2px var(--colors-border-border-brand-solid);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+}
+.slider__handle--from { left: var(--from); }
+.slider__handle--to { left: var(--to); }
+.slider--xs .slider__handle { width: 20px; height: 20px; }
+
+.slider__handle:focus-visible,
+.slider__handle[data-force="focus"] {
+  outline: 0;
+  box-shadow: inset 0 0 0 2px var(--colors-border-border-brand-solid), 0 0 0 4px var(--colors-border-border-secondary);
+}
+
+/* value label: Text md/Medium (xs/Medium on xs), centred under (or above) the handle */
+.slider__value {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + var(--spacing-xs));
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: var(--text-md-medium-font-family);
+  font-weight: var(--text-md-medium-font-weight);
+  font-size: var(--text-md-medium-font-size);
+  line-height: var(--text-md-medium-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.slider--label-top .slider__value { top: auto; bottom: calc(100% + var(--spacing-xs)); }
+.slider--xs .slider__value {
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+}
+
+/* stepper dots (Single Slider): 6px gray-300 dots spaced evenly across the track */
+.slider__dots {
+  position: absolute;
+  inset: 1px 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.slider__dots > i {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-300);
+}
+
+.slider[aria-disabled="true"] { opacity: .5; pointer-events: none; } /* DRIFT: no disabled state in Figma */

@@ -1,0 +1,150 @@
+/* ----------------------------------------------------------------------------
+   file-upload — DS File upload page (1157:90306)
+   File Upload empty state 1175:100312 (State Default/Hover/Disabled/File Dragged · Size xl 108 /
+   lg / md 46, all 512 wide) · Uploaded File base 1175:100366 / _Uploaded File base 46533:18950
+   · _File upload item base 37688:5727 (Progress bar|File type|Image|Simple × Complete|Error|
+   In progress; 512x88) · File Upload Unit 22141:10632 · _Upload-Empty 46542:20044 NOT built.
+
+   Markup:
+     <div class="file-drop [file-drop--md]" data-force="hover|dragged">
+       <span class="file-drop__icon"><svg/></span>
+       <div class="file-drop__text"><span class="file-drop__action"><a class="file-drop__link">Click to upload</a>
+         <span>or drag and drop</span></span><span class="file-drop__hint">SVG, PNG, JPG or GIF</span></div></div>
+     <div class="file-item"> <span class="file-item__icon"/> <div class="file-item__body">
+         <span class="file-item__name"/><span class="file-item__meta"/><div class="file-item__progress"><i style="width:10%"/></div>
+       </div><button class="file-item__remove"/></div>
+
+   The dashed 1px stroke is INSIDE and not in layout (xl: 12+40+4+40... = 108), so it is drawn
+   with outline + negative offset (no layout cost, follows radius); dash length 4/4 is the
+   browser default for 1px dashed (DRIFT: not pixel-matched). File item stroke is a plain inset ring.
+   DRIFT: md/lg paddings are derived from the 46px height (8/16, gap 2); lg not read; progress bar
+   fill/track colours and file-type badge not read (progress uses brand-solid on gray-200 as
+   placeholder); Percentage label Text sm/Medium secondary-700.
+---------------------------------------------------------------------------- */
+
+.file-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  width: 512px;
+  max-width: 100%;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: var(--colors-background-bg-primary);
+  outline: 1px dashed var(--colors-border-border-secondary);
+  outline-offset: -1px;
+  cursor: pointer;
+  text-align: center;
+}
+.file-drop--md { gap: var(--spacing-xxs); padding: var(--spacing-md) var(--spacing-xl); }
+.file-drop:hover:not([aria-disabled="true"]),
+.file-drop[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.file-drop[data-force="dragged"],
+.file-drop.is-dragover {
+  background: var(--colors-background-bg-tertiary-hover);
+  outline-color: var(--colors-border-border-primary);
+}
+.file-drop[aria-disabled="true"] {
+  background: var(--colors-background-bg-disabled);
+  outline-color: var(--colors-border-border-disabled);
+  cursor: not-allowed;
+}
+
+.file-drop__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--colors-utility-gray-utility-gray-50);
+  color: var(--colors-icon-icon-secondary);
+}
+.file-drop__icon svg { width: 24px; height: 24px; }
+.file-drop--md .file-drop__icon { display: none; } /* md is the compact one-row variant: no featured icon */
+
+.file-drop__text { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xs); }
+.file-drop--md .file-drop__text { gap: var(--spacing-xxs); }
+.file-drop__action {
+  display: inline-flex;
+  gap: var(--spacing-xs);
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.file-drop__link {
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  color: var(--component-link-brand-link-brand-fg);
+  text-decoration: none;
+}
+.file-drop__hint {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-quaternary-500);
+}
+.file-drop--md .file-drop__hint { font-size: var(--text-xxs-regular-font-size); line-height: var(--text-xxs-regular-line-height); }
+
+/* ---- uploaded file row (_File upload item base 37688:5727) ---- */
+.file-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  width: 512px;
+  max-width: 100%;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  background: var(--colors-background-bg-white);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+}
+.file-item__main { display: flex; flex: 1; align-items: center; gap: var(--spacing-lg); min-width: 0; }
+.file-item__icon { width: 40px; height: 40px; flex: none; }
+.file-item__body { display: flex; flex: 1; flex-direction: column; gap: var(--spacing-xs); min-width: 0; }
+.file-item__name {
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.file-item__meta {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.file-item__progress { display: flex; align-items: center; gap: var(--spacing-sm); }
+.file-item__track { flex: 1; height: 8px; border-radius: var(--radius-full); background: var(--colors-utility-gray-utility-gray-200); overflow: hidden; } /* DRIFT: matches Figma, no token */
+.file-item__track > i { display: block; height: 100%; border-radius: inherit; background: var(--colors-background-bg-brand-solid); }
+.file-item__percent {
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.file-item__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg);
+  cursor: pointer;
+}
+.file-item__remove:hover { background: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-bg-hover); }
+.file-item--error { box-shadow: inset 0 0 0 1px var(--colors-border-border-error); background: var(--colors-background-bg-error-primary); } /* DRIFT: error variant colours assumed */

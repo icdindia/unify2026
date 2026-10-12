@@ -1,0 +1,81 @@
+/* ----------------------------------------------------------------------------
+   tooltip — DS Tooltips page 1052:485, set 1052:489 (Supporting text x Arrow)
+   Samples: 1052:577 (support text, no arrow) · 1052:582 (bottom center, 1-line
+   with copy icon + shortcut pill + neutral button).
+   Dark tooltip: bg-base-dark, 1px inset ring utility-gray-700 (Figma INSIDE),
+   radius 6, padding 6 (single line) / 12 (supporting text), width 320 max.
+   Arrow: 16x6 notch (shape 12x12, r1, rotated); side via .tooltip--top|bottom|left|right
+   (the edge that carries the arrow), alignment via --start / --end (default centre).
+   DRIFT: arrow start/end inset (12px) not read from Figma; notch is a rotated 12px
+   square clipped to 16x6 (approximation of "Tooltip shape" vectors).
+   DRIFT: Figma "Frame 1"/"Content" code-block + link rows inside support text not built.
+---------------------------------------------------------------------------- */
+.tooltip {
+  --tooltip-arrow-inset: var(--spacing-lg);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 320px;
+}
+.tooltip--top    { flex-direction: column-reverse; }
+.tooltip--bottom { flex-direction: column; }
+.tooltip--left   { flex-direction: row-reverse; }
+.tooltip--right  { flex-direction: row; }
+
+.tooltip__content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-sizing: border-box;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  background: var(--colors-background-bg-base-dark);
+  box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-700);
+  color: var(--colors-text-text-white);
+  font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+}
+.tooltip__icon { flex: none; width: 12px; height: 12px; color: var(--colors-icon-icon-tertiary); }
+.tooltip__icon svg { display: block; width: 100%; height: 100%; }
+.tooltip__kbd {
+  flex: none;
+  box-sizing: border-box;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  color: var(--colors-utility-gray-utility-gray-600);
+  font-family: var(--text-xxs-regular-font-family); font-weight: var(--text-xxs-regular-font-weight); font-size: var(--text-xxs-regular-font-size); line-height: var(--text-xxs-regular-line-height);
+  line-height: 12px; /* DRIFT: Figma literal, off scale */
+}
+
+.tooltip--support .tooltip__content {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-lg);
+}
+.tooltip__title { font-family: var(--text-sm-semibold-font-family); font-weight: var(--text-sm-semibold-font-weight); font-size: var(--text-sm-semibold-font-size); line-height: var(--text-sm-semibold-line-height); }
+.tooltip__text  { font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+
+/* arrow notch */
+.tooltip__arrow { position: relative; flex: none; overflow: hidden; width: 16px; height: 6px; }
+.tooltip__arrow::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: -6px;           /* centre of the square sits on the tooltip edge */
+  width: 12px; height: 12px;
+  border-radius: var(--radius-xxs);
+  background: var(--colors-background-bg-base-dark);
+  box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-700);
+  transform: rotate(45deg);
+}
+/* square centre sits on the box edge: top arrow -> (8,6), bottom -> (8,0), left -> (6,8), right -> (0,8) */
+.tooltip--top    .tooltip__arrow::before { left: 2px;  top: 0; }
+.tooltip--bottom .tooltip__arrow::before { left: 2px;  top: -6px; }
+.tooltip--left   .tooltip__arrow, .tooltip--right .tooltip__arrow { width: 6px; height: 16px; }
+.tooltip--left   .tooltip__arrow::before { left: 0;    top: 2px; }
+.tooltip--right  .tooltip__arrow::before { left: -6px; top: 2px; }
+
+.tooltip--start.tooltip--top, .tooltip--start.tooltip--bottom { align-items: flex-start; }
+.tooltip--end.tooltip--top,   .tooltip--end.tooltip--bottom   { align-items: flex-end; }
+.tooltip--start.tooltip--top .tooltip__arrow, .tooltip--start.tooltip--bottom .tooltip__arrow { margin-left: var(--tooltip-arrow-inset); }
+.tooltip--end.tooltip--top .tooltip__arrow,   .tooltip--end.tooltip--bottom .tooltip__arrow   { margin-right: var(--tooltip-arrow-inset); }

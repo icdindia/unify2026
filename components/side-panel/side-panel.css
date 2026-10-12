@@ -1,0 +1,63 @@
+/* ----------------------------------------------------------------------------
+   side-panel — DS Side Panel page 9501:2358
+   Panel 9501:14434: Type Without frame (440x900, 9501:14435) / Table (550,
+   30554:31409). Header set 9501:14415 (560 wide): Basic / With Icon+Subtitle /
+   Tab only x Tabs False|True. Header 56 high, padding 0 8 0 16, title stack gap 12,
+   bottom rule border-tertiary (centre stroke, rendered as inset ring); with
+   tabs: Tabs Wrap 32 high, padding 0 16 0 20 (basic) / 0 16 (icon+subtitle),
+   tab row carries its own bottom rule.
+   Panel shadow: -2px 0 10px rgb(247,245,243) (left edge). Body: column gap 24;
+   cards: bg-primary, 1px inset border-secondary, radius 12 (.side-panel__card).
+   DRIFT: panel fill is empty in Figma (transparent over bg-workspace); here the
+   panel takes bg-workspace so the white cards read. Back / move-icon header
+   variants (11604:4871, 9513:12917) share the same layout + extra icon buttons;
+   not separately styled.
+---------------------------------------------------------------------------- */
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 440px;
+  height: 100%;
+  background: var(--colors-background-bg-workspace);
+  box-shadow: -2px 0 10px var(--colors-utility-gray-utility-gray-50);
+}
+.side-panel--table { width: 550px; }
+
+.side-panel__header {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  background: var(--colors-background-bg-primary);
+}
+.side-panel__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  min-height: 56px;
+  padding: 0 var(--spacing-md) 0 var(--spacing-xl);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary);
+}
+.side-panel__header--tabs .side-panel__title-row { box-shadow: none; }
+.side-panel__titles { display: flex; flex: 1 0 0; flex-direction: column; min-width: 0; }
+.side-panel__title { margin: 0; color: var(--colors-text-text-primary-900); font-family: var(--text-lg-medium-font-family); font-weight: var(--text-lg-medium-font-weight); font-size: var(--text-lg-medium-font-size); line-height: var(--text-lg-medium-line-height); }
+.side-panel__subtitle { margin: 0; color: var(--colors-text-text-tertiary-600); font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+.side-panel__icon { flex: none; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; color: var(--colors-icon-icon-secondary); }
+.side-panel__tabs { padding: 0 var(--spacing-xl) 0 var(--spacing-2xl); }
+.side-panel__header--icon .side-panel__tabs { padding-left: var(--spacing-xl); }
+
+.side-panel__body {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  min-height: 0;
+  overflow: auto;
+}
+.side-panel__section { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.side-panel__card {
+  background: var(--colors-background-bg-primary);
+  border-radius: var(--radius-4xl);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}

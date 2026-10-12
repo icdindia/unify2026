@@ -1,0 +1,47 @@
+/* ----------------------------------------------------------------------------
+   spinner — DS Loading indicators page 1172:32, set 1192:610
+   Style (Line simple / Line spinner / Dot circle) x Size (xs sm md lg xl).
+   Ring box / stroke: xs 20/2 · sm 32/4 · md 48/6 · lg 56/6 · xl 64/8 (Figma
+   ellipse is box-stroke with a CENTER stroke, so outer = box). Track =
+   border-tertiary (Line simple) or bg-white (Line spinner). Arc =
+   border-brand-solid, 90deg sweep from 12 o'clock (Figma arc 270 -> 360).
+   Label: "Loading..." text-sm-medium text-secondary-700 (lg/xl: text-lg-medium).
+   Gap ring->label: xs 8, sm/md/lg 16, xl 20.
+   Motion: 1s linear rotation (Figma prototype speed not exposed; DRIFT).
+   DRIFT: "Dot circle" style (angular-gradient mask) not built: use --dots stub
+   (8 dots, static) is NOT provided. Line simple lg stroke read as 6 (ellipse 50).
+---------------------------------------------------------------------------- */
+.spinner {
+  --sp-size: 48px; --sp-stroke: 6px; --sp-gap: var(--spacing-xl);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-gap);
+}
+.spinner__ring {
+  position: relative;
+  width: var(--sp-size); height: var(--sp-size);
+  border-radius: var(--radius-full);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--sp-stroke)), black calc(100% - var(--sp-stroke) + 0.5px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - var(--sp-stroke)), black calc(100% - var(--sp-stroke) + 0.5px));
+  background: var(--colors-border-border-tertiary);
+}
+.spinner--white .spinner__ring { background: var(--colors-background-bg-white); }
+.spinner__ring::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(var(--colors-border-border-brand-solid) 0 25%, transparent 0);
+  animation: spinner-rotate 1s linear infinite;
+}
+@keyframes spinner-rotate { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner__ring::after { animation-duration: 3s; } }
+
+.spinner__label { color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+
+.spinner--xs { --sp-size: 20px; --sp-stroke: 2px; --sp-gap: var(--spacing-md); }
+.spinner--sm { --sp-size: 32px; --sp-stroke: 4px; }
+.spinner--md { --sp-size: 48px; --sp-stroke: 6px; }
+.spinner--lg { --sp-size: 56px; --sp-stroke: 6px; }
+.spinner--xl { --sp-size: 64px; --sp-stroke: 8px; --sp-gap: var(--spacing-2xl); }
+.spinner--lg .spinner__label, .spinner--xl .spinner__label { font-family: var(--text-lg-medium-font-family); font-weight: var(--text-lg-medium-font-weight); font-size: var(--text-lg-medium-font-size); line-height: var(--text-lg-medium-line-height); }
