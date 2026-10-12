@@ -44,3 +44,36 @@
 /* --interactive: the whole card is a button, no trailing action */
 .list-item--interactive { border: 0; background: var(--colors-background-bg-primary); appearance: none; cursor: pointer; text-align: left; }
 .list-item--interactive:hover { background: var(--colors-background-bg-secondary); }
+
+/* ============================================================================
+   AUDIT 2026-10 (Figma 122:3484). The existing .list-item is the connected-
+   system row from another file. This page's DS components are:
+     List Item 34509:23675  (Size sm/xs x Type Icon simple/Radio/Checkbox/Toggle
+                             x Selected x State Default/Hover/Focused/Disabled)
+     List Item Cardified 124:2838 (adds Size md, Background Gray/White)
+     Groups 34511:3212 / 1142:87213, Vertical 21436:16705.
+   Added below as the --row modifier family (additive). Geometry read from
+   List Item: pad 8/12 (sm) or 4/12 (xs), gap 4 (8 for Toggle), radius 8.
+   DRIFT: default-state stroke is per-side (mixed) in Figma; modelled as a
+   bottom divider, not read side-by-side. Cardified/md/radio/checkbox/toggle
+   control chrome not read; compose with components/checkbox, toggle.
+   ============================================================================ */
+.list-item--row {
+  flex-direction: column; align-items: stretch; gap: var(--spacing-xs);
+  min-height: 0;
+  padding: var(--spacing-sm) var(--spacing-md);   /* sm 8/12 */
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+.list-item--row.list-item--xs { padding-block: var(--spacing-xs); }   /* 4/12 */
+.list-item--row + .list-item--row { margin-top: 0; }
+.list-item--row .list-item__title { font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); }
+.list-item__meta { font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-quaternary-500); }
+.list-item__tag { color: var(--colors-text-text-secondary-700); }
+.list-item--row:hover, .list-item--row[data-force="hover"] { background: var(--colors-background-bg-primary-hover); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.list-item--row[aria-selected="true"], .list-item--row[data-force="selected"] { background: var(--colors-background-bg-secondary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.list-item--row:focus-visible, .list-item--row[data-force="focus"] { outline: 0; box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary), 0 0 0 4px var(--colors-utility-gray-utility-gray-200); }   /* DRIFT: focus effect colour unread */
+.list-item--row[aria-disabled="true"], .list-item--row[data-force="disabled"] { background: var(--colors-background-bg-disabled); pointer-events: none; }
+.list-item--row[aria-disabled="true"] .list-item__title, .list-item--row[aria-disabled="true"] .list-item__sub,
+.list-item--row[data-force="disabled"] .list-item__title, .list-item--row[data-force="disabled"] .list-item__sub { color: var(--colors-text-text-disabled); }
+.list-item-group { display: flex; flex-direction: column; }
