@@ -58,10 +58,17 @@ def style(pre):
     return {"name": pre, "fontSize": g("font-size")[1].strip(), "lineHeight": lh[1].strip() if lh else "1.4",
             "fontWeight": int(g("font-weight")[1])}
 disp = [style(p) for p in ["display-sm-medium", "display-xs-medium"]]
-text = [style(f"text-{s}-{w}") for s in ["xl", "lg", "md", "sm", "xs", "xxs", "xxxs"] for w in ["regular", "medium", "semibold"]]
+text = [style(f"text-{s}-{w}") for s in ["md", "sm", "xs", "xxs", "xxxs"] for w in ["regular", "medium", "semibold"]]
+serif = [style(f"text-{s}-{w}") for s in ["xl", "lg"] for w in ["regular", "medium", "semibold"]]
 sp = [{"name": k[2:], "value": v, "usage": "Spacing step."} for k, v in base.items() if k.startswith("--spacing-") and v != "0px"]
 rd = [{"name": k[2:], "value": v, "usage": "Radius."} for k, v in base.items()
       if k.startswith("--radius-") and v != "0px" and k not in ("--radius-lg", "--radius-xl", "--radius-2xl")]
+# effect styles (shared/effects.css): shadows and focus rings; light theme only
+import os
+sh = []
+if os.path.exists("shared/effects.css"):
+    for k, v in re.findall(r"^\s*--((?:shadow|ring)-[a-z0-9-]+):\s*([^;]+);", open("shared/effects.css").read(), re.M):
+        sh.append({"name": k, "value": v.strip(), "usage": "Figma effect style; light theme only (no dark variant designed)."})
 t = {"name": "UnifyApps Platform", "version": 1,
      "color": {"themes": [{"id": "light", "name": "Light"}, {"id": "dark", "name": "Dark"}], "tokens": toks},
      "type": {"fonts": [], "families": {
@@ -69,7 +76,9 @@ t = {"name": "UnifyApps Platform", "version": 1,
          "body": "\"Geist\", \"Inter\", system-ui, -apple-system, sans-serif",
          "code": "\"JetBrains Mono\", \"SFMono-Regular\", Menlo, Consolas, monospace"},
          "groups": [{"name": "Display", "family": "display", "styles": [s for s in disp if s]},
+                    {"name": "Text serif", "family": "display", "styles": [s for s in serif if s]},
                     {"name": "Text", "family": "body", "styles": [s for s in text if s]}]},
      "spacing": {"tokens": sp}, "radius": {"tokens": rd}}
+if sh: t["shadow"] = {"tokens": sh}
 json.dump(t, open(OUT, "w"), indent=1)
 print(f"{len(toks)} colours, {len(sp)} spacing, {len(rd)} radius -> {OUT}")
