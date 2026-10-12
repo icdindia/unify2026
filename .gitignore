@@ -14,3 +14,7 @@ tools/tests/eb-app/out/
 
 # a separate git repository of its own; not tracked here
 chargepoint-playbook-studio/
+
+# credentials and large local exports: never commit
+.safe/
+*.fig

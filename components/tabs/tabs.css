@@ -4,8 +4,8 @@
    Vertical tabs 8102:114435 · Filter Tabs Base 9445:44304
    Button Tab base (pill style) lives in components/horizontal-tabs — not repeated.
 
-   NOT BUILT: Folder / Rounded Folder (44587:6646), Progress (_Progress Tab base),
-   Step Arrows (11773:19192), Double Line style, Size=xs underline/vertical.
+   Also: Folder + Rounded Folder 44587:6646 · Progress 14432:19306 / icon 14432:13097
+   · Step Arrows 11773:19192 · Double Line 17107:12312 · xs underline/vertical.
 
    State hooks: [aria-selected="true"] = Current, [aria-disabled="true"] = Disabled,
    :hover / :focus-visible; [data-force] mirrors each for static previews.
@@ -29,7 +29,7 @@
 .tab {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   box-sizing: border-box;
   padding: var(--spacing-xs) var(--spacing-md) var(--spacing-md);
   border: 0;
@@ -49,6 +49,7 @@
   width: 14px;
   height: 14px;
   flex: none;
+  margin-inline-end: var(--spacing-xxs); /* icon->text 6 = gap 4 + 2 */
   color: var(--colors-icon-icon-secondary);
 }
 
@@ -60,7 +61,7 @@
   box-sizing: border-box;
   min-width: 20px;
   height: 20px;
-  padding: 0 var(--spacing-xs);
+  padding: var(--spacing-xxs) var(--spacing-sm);
   border-radius: var(--radius-full);
   background: var(--colors-utility-gray-utility-gray-100);
   color: var(--colors-utility-gray-utility-gray-700);
@@ -90,7 +91,7 @@
   background: var(--colors-utility-brand-secondary-utility-brand-secondary-25);
   box-shadow:
     0 0 0 2px var(--colors-utility-gray-utility-gray-300),
-    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs second layer #1018280D, no shadow token */
+    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs layer 2 (#101828 @5%, y1 blur1 spread1, read 9445:64185/8102:114076) - no shadow token */
 }
 
 .tab[aria-disabled="true"],
@@ -107,22 +108,222 @@
 /* Destructive=True: icon binds icon-error-600; rule/text unchanged in Default */
 .tab--destructive .tab__icon { color: var(--colors-icon-icon-error-600); }
 
-/* ---- vertical tab (36 = 8 + 20 + 8; text frame inset 8 inside an 8 outer pad)
-   Current binds border-brand-primary; which edge/width it draws on was not
-   readable from get_metadata/variable_defs. */
+/* ---- vertical tab (_Tab base Align=Vertical 13296:18005/18071)
+   Outer 4/8, inner "Tab Text" radius Tabs/sm (6) pad 4/8; Current draws a 2px
+   LEFT stroke #0c2011 (border-brand-primary) INSIDE (read via figma_execute:
+   strokeLeftWeight 2, align INSIDE) -> inset shadow. */
 .tab--vertical {
   display: flex;
   width: 100%;
-  padding: var(--spacing-md) var(--spacing-xl);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 0;
+}
+
+.tab--vertical > .tab__text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
 }
 
 .tab--vertical[aria-selected="true"],
 .tab--vertical[data-force="current"] {
-  box-shadow: inset -2px 0 0 var(--colors-border-border-brand-primary); /* DRIFT: edge + 2px width not read from Figma */
+  box-shadow: inset 2px 0 0 var(--colors-border-border-brand-primary);
 }
 
 .tab--vertical:hover,
-.tab--vertical[data-force="hover"] { box-shadow: none; background: var(--colors-background-bg-secondary-hover); }
+.tab--vertical[data-force="hover"] { box-shadow: none; }
+.tab--vertical:hover > .tab__text,
+.tab--vertical[data-force="hover"] > .tab__text { background: var(--colors-background-bg-secondary-hover); }
+
+/* xs: text xs/regular, outer 2/8, inner radius Tabs/xs (4) pad 4/6 */
+.tab--xs {
+  font-family: var(--text-xs-regular-font-family);
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-md);
+}
+.tab--xs .tab__icon { width: 12px; height: 12px; }
+.tab--vertical.tab--xs { padding: var(--spacing-xxs) var(--spacing-md); }
+.tab--vertical.tab--xs > .tab__text { padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-xs); }
+
+/* ---- double line: 13/20 SemiBold + 12/16 subtext, 2px rule (17107:12312) */
+.tab--double {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: var(--spacing-xxs) var(--spacing-md) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--text-sm-semibold-font-weight);
+}
+.tab--double .tab__sub {
+  font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+}
+.tab--double[aria-selected="true"],
+.tab--double[data-force="current"] { color: var(--colors-text-text-brand-secondary-700); }
+.tab--double:hover,
+.tab--double[data-force="hover"] { background: var(--colors-background-bg-secondary-hover); }
+.tab--md.tab--double {
+  font-size: var(--text-md-semibold-font-size);
+  line-height: var(--text-md-semibold-line-height);
+}
+
+/* ---- progress tab (14432:19306): 28 row radius 8 pad 4/8 gap 8 + 14px status icon */
+.tab--progress {
+  gap: var(--spacing-md);
+  padding: 0 0 var(--spacing-md);
+  font-weight: var(--text-sm-medium-font-weight);
+}
+.tab--progress > .tab__text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+.tab--progress:hover,
+.tab--progress[data-force="hover"],
+.tab--progress:focus-visible,
+.tab--progress[data-force="focus"] { box-shadow: none; background: transparent; }
+.tab--progress:hover > .tab__text,
+.tab--progress[data-force="hover"] > .tab__text { background: var(--colors-background-bg-secondary-hover); }
+.tab--progress:focus-visible > .tab__text,
+.tab--progress[data-force="focus"] > .tab__text {
+  background: var(--colors-background-bg-primary);
+  box-shadow:
+    0 0 0 2px var(--colors-utility-gray-utility-gray-300),
+    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs layer 2 (#101828 @5%, y1 blur1 spread1, read 14432:13372) - no shadow token */
+}
+.tab--progress[aria-selected="true"],
+.tab--progress[data-force="current"] {
+  color: var(--colors-text-text-brand-secondary-700);
+  box-shadow: inset 0 -2px 0 var(--colors-border-border-brand-solid);
+}
+.tab--progress.tab--vertical { padding: var(--spacing-xxs) var(--spacing-md); }
+.tab--progress.tab--vertical[aria-selected="true"] { box-shadow: inset 2px 0 0 var(--colors-border-border-brand-primary); }
+
+.progress-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  flex: none;
+  border-radius: var(--radius-full);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+  color: var(--colors-text-text-brand-tertiary-600);
+}
+.progress-icon svg { width: 8px; height: 6px; display: none; }
+.progress-icon--current { box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-primary); }
+.progress-icon--current svg,
+.progress-icon--complete svg { display: block; }
+.progress-icon--complete {
+  background: var(--colors-background-bg-brand-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-primary);
+  color: var(--colors-background-bg-primary);
+}
+.tab[aria-disabled="true"] .progress-icon,
+.tab[data-force="disabled"] .progress-icon { box-shadow: inset 0 0 0 1px var(--colors-border-border-disabled); color: var(--colors-icon-icon-disabled); }
+.tab[aria-disabled="true"] .progress-icon--complete,
+.tab[data-force="disabled"] .progress-icon--complete { background: var(--colors-background-bg-disabled); box-shadow: none; }
+
+/* ---- step arrow (11773:19192): 20 arrow, 6 bottom pad */
+.step-arrow {
+  display: inline-flex;
+  padding-bottom: var(--spacing-sm);
+  color: var(--colors-icon-icon-secondary);
+}
+.step-arrow svg { width: 20px; height: 20px; }
+.step-arrow--off { color: var(--colors-icon-icon-disabled); }
+
+/* ---- folder tab (44587:6646): 36, top radius 8, 1px top/left/right stroke inside,
+   no bottom stroke. Current is bg-workspace and joins the panel with 8px
+   inverse curves; inactive bg-secondary. */
+.tab--folder {
+  position: relative;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: var(--colors-background-bg-secondary);
+  font-weight: var(--text-sm-regular-font-weight);
+}
+.tab--folder .tab__icon { margin-inline-end: 0; }
+.tab--folder:hover,
+.tab--folder[data-force="hover"] { box-shadow: none; background: var(--colors-background-bg-secondary-hover); }
+.tab--folder:focus-visible,
+.tab--folder[data-force="focus"] {
+  background: var(--colors-background-bg-secondary);
+  box-shadow:
+    0 0 0 2px var(--colors-utility-gray-utility-gray-300),
+    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs layer 2 (read 44587:6632) - no shadow token */
+}
+.tab--folder[aria-selected="true"],
+.tab--folder[data-force="current"] {
+  background: var(--colors-background-bg-workspace);
+  color: var(--colors-text-text-brand-secondary-700);
+  font-weight: var(--text-sm-medium-font-weight);
+  box-shadow: inset 1px 0 0 var(--colors-border-border-secondary), inset -1px 0 0 var(--colors-border-border-secondary), inset 0 1px 0 var(--colors-border-border-secondary);
+}
+.tab--folder[aria-selected="true"] .tab__icon,
+.tab--folder[data-force="current"] .tab__icon { color: var(--colors-icon-icon-brand-600); }
+.tab--folder[aria-selected="true"]::before,
+.tab--folder[aria-selected="true"]::after,
+.tab--folder[data-force="current"]::before,
+.tab--folder[data-force="current"]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: var(--radius-md);
+  height: var(--radius-md);
+  background: transparent;
+}
+.tab--folder[aria-selected="true"]::before,
+.tab--folder[data-force="current"]::before {
+  left: calc(-1 * var(--radius-md));
+  border-bottom-right-radius: var(--radius-md);
+  box-shadow: 4px 4px 0 4px var(--colors-background-bg-workspace); /* inverse-curve fill = 8px radius / 2 */
+}
+.tab--folder[aria-selected="true"]::after,
+.tab--folder[data-force="current"]::after {
+  right: calc(-1 * var(--radius-md));
+  border-bottom-left-radius: var(--radius-md);
+  box-shadow: -4px 4px 0 4px var(--colors-background-bg-workspace);
+}
+.tab--folder[aria-disabled="true"],
+.tab--folder[data-force="disabled"] { background: var(--colors-background-bg-disabled); box-shadow: none; }
+.tab--folder.tab--xs { padding-block: calc(var(--spacing-md) + var(--spacing-xxs)); }
+
+/* rounded folder (44889:2837): 44 pill with 1px full stroke, Featured icon 32, pad 6/16/6/6;
+   current has 22px top radius */
+.tab--rounded-folder {
+  padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-sm) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-workspace);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  font-weight: var(--text-sm-medium-font-weight);
+  margin-bottom: var(--spacing-md);
+}
+.tab--rounded-folder[aria-selected="true"],
+.tab--rounded-folder[data-force="current"] { color: var(--colors-text-text-brand-secondary-700); }
+.tab__featured {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: var(--radius-full);
+  background: var(--colors-background-bg-secondary);
+  color: var(--colors-icon-icon-secondary);
+}
+.tab--rounded-folder[aria-selected="true"] .tab__featured,
+.tab--rounded-folder[data-force="current"] .tab__featured { background: var(--colors-utility-brand-utility-brand-50); color: var(--colors-icon-icon-brand-600); }
+.tab__featured svg { width: 16px; height: 16px; }
 
 /* ---- filter tab (Filter Tabs Base 9445:44304) -----------------------------
    lg 36 / md 32 radius-md, sm 28 / xs 24 radius-sm. Label=Off is square. */
@@ -154,7 +355,7 @@
   color: var(--colors-icon-icon-secondary);
 }
 
-.filter-tab__count { margin-inline-start: calc(var(--spacing-xxs) - var(--spacing-sm)); } /* count 2px after label: gap 6 - 4 */
+.filter-tab__text { display: inline-flex; gap: var(--spacing-xxs); } /* "Filter" + "(2)" Counter: same style/colour, gap 2 (25672:80679) */
 
 .filter-tab--md { padding: var(--spacing-sm); }
 
@@ -200,5 +401,5 @@
   outline: none;
   box-shadow:
     0 0 0 2px var(--colors-utility-gray-utility-gray-300),
-    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs second layer, no shadow token */
+    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs layer 2 (read 9445:64185) - no shadow token */
 }

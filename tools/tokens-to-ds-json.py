@@ -21,6 +21,12 @@ def blk(a, b):
 
 base = blk(idx[0], idx[1]); pal = blk(idx[1], idx[2])
 L = blk(idx[2], idx[3]); D = {**L, **blk(idx[3], idx[4])}
+# live overrides win over the generated file (light block, then dark block)
+_ov = open("shared/tokens.live-overrides.css").read()
+for sel, tgt in ((r':root:not\(\[data-theme="dark"\]\)\s*\{([^}]*)\}', L), (r':root\[data-theme="dark"\]\s*\{([^}]*)\}', D)):
+    for body in re.findall(sel, _ov):
+        for k, v in re.findall(r"(--[a-z0-9-]+):\s*([^;]+);", body):
+            tgt[k] = v.strip()
 
 def hexv(v):
     m = re.fullmatch(r"rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)", v.strip())

@@ -60,3 +60,12 @@
 }
 :root:not([data-theme="dark"]) {
 }
+
+
+/* Accessibility decision, 2026-10-12 (user-approved, Design System "Fix with Claude"):
+   text-quaternary-500 was #8f8a85 in Figma = 3.0:1 on bg-tertiary, 3.1:1 on bg-secondary.
+   #716d69 (same warm gray, darker) = 4.51:1 / 4.72:1 / 5.13:1 on bg-tertiary / bg-secondary / white.
+   DIVERGES FROM FIGMA until the Figma variable is changed to match; a token re-export will show it as drift. */
+:root:not([data-theme="dark"]) {
+  --colors-text-text-quaternary-500: #716d69;
+}
