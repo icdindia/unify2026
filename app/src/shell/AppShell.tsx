@@ -44,6 +44,11 @@ export type AppShellProps = {
    * composer) instead of taking the strip's right end, where the chat header's actions are.
    */
   fill?: boolean
+  /**
+   * A standalone page with no app nav (the artifact opened on its own, /view/:id: every frame of it is drawn full width
+   * with no rail). Implies `fill`.
+   */
+  standalone?: boolean
 }
 
 /**
@@ -52,7 +57,7 @@ export type AppShellProps = {
  * Whenever the nav, rail or overlay is swapped out while it holds keyboard focus (a toggle, Esc, the scrim, a
  * destination chosen in the overlay, the window crossing 1200), focus lands on the toggle that replaces it.
  */
-export function AppShell({ bar, tools, children, selected, current, onSelect, onNavigate, pages, hideUnbuilt, pinFigmaHovers, nodeId, fill = false }: AppShellProps) {
+export function AppShell({ bar, tools, children, selected, current, onSelect, onNavigate, pages, hideUnbuilt, pinFigmaHovers, nodeId, fill = false, standalone = false }: AppShellProps) {
   const mode = useStore(navMode)
   const railChoice = useStore(rail)
   const narrow = useMediaQuery(NARROW_QUERY)
@@ -100,16 +105,21 @@ export function AppShell({ bar, tools, children, selected, current, onSelect, on
   }
 
   return (
-    <div className={fill ? 'shell shell--fill' : 'shell'} data-node-id={nodeId} data-nav-mode={mode} data-rail={collapsed ? 'collapsed' : 'expanded'}>
-      <div className="shell__nav" inert={overlayOpen}>
-        {collapsed ? (
-          <Rail {...nav} onExpand={() => (narrow ? setOverlay(true) : rail.set('expanded'))} />
-        ) : (
-          <Nav {...nav} onCollapse={() => rail.set('collapsed')} pinFigmaHovers={pinFigmaHovers} />
-        )}
-      </div>
+    <div
+      className={fill || standalone ? 'shell shell--fill' : 'shell'} data-node-id={nodeId} data-nav-mode={mode}
+      data-rail={collapsed ? 'collapsed' : 'expanded'} data-standalone={standalone || undefined}
+    >
+      {!standalone && (
+        <div className="shell__nav" inert={overlayOpen}>
+          {collapsed ? (
+            <Rail {...nav} onExpand={() => (narrow ? setOverlay(true) : rail.set('expanded'))} />
+          ) : (
+            <Nav {...nav} onCollapse={() => rail.set('collapsed')} pinFigmaHovers={pinFigmaHovers} />
+          )}
+        </div>
+      )}
 
-      {overlayOpen && (
+      {!standalone && overlayOpen && (
         <>
           <div className="shell__scrim" aria-hidden="true" onClick={closeOverlay} />
           <div className="shell__overlay">
@@ -118,7 +128,7 @@ export function AppShell({ bar, tools, children, selected, current, onSelect, on
         </>
       )}
 
-      <div className="shell__main" inert={overlayOpen}>
+      <div className="shell__main" inert={!standalone && overlayOpen}>
         {!fill && <div className="shell__bar">{bar}</div>}
         <main className="shell__scroll" ref={setMenuLayer}>
           <MenuLayerContext value={menuLayer}>{children}</MenuLayerContext>

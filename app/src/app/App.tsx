@@ -63,6 +63,7 @@ export function App() {
       pinFigmaHovers={review === 'frame' || review === 'landing'}
       nodeId={frameForRoute(drawnHref(route, screen))?.nodeId}
       fill={screen.kind === 'screen' && !!screen.fill}
+      standalone={screen.kind === 'screen' && !!screen.standalone}
     >
       <ScreenBoundary resetKey={route.href}>{screen.kind === 'redirect' ? null : screen.content}</ScreenBoundary>
     </AppShell>

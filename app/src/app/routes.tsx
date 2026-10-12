@@ -38,6 +38,8 @@ export type Screen =
       ignored?: string[]
       /** The screen draws its own top strip (or none) and fills the main area; the review tools float (AppShell `fill`). */
       fill?: boolean
+      /** No app nav at all: the page stands alone, full width (AppShell `standalone`; the /view/:id artifact page). */
+      standalone?: boolean
     }
   | { kind: 'redirect'; redirect: string }
 

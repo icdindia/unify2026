@@ -58,7 +58,8 @@ function artifactPage(route: Route, id: string, view: boolean): Screen | null {
     deleting: take('modal', get('modal') === `delete:${id}`),
   }
   const name = typeof entry.name === 'string' ? entry.name : entry.name.designed
-  return { kind: 'screen', title: name, fill: true, ignored: unread(route, read), content: <ArtifactPage id={id} state={state} /> }
+  // /view/:id stands alone (no app nav: every frame of it is drawn full width); /artifacts/:id sits in the app shell
+  return { kind: 'screen', title: name, fill: true, standalone: view, ignored: unread(route, read), content: <ArtifactPage id={id} state={state} /> }
 }
 
 /** The Artifacts screens for a route, or null when the route is not theirs. */
