@@ -1,0 +1,156 @@
+/* ----------------------------------------------------------------------------
+   button-group — DS "Button+Toggle groups" page (16:399)
+   _Button group base 1046:9312 · Button group 1046:10171 (Size lg 36 / md / sm 28 / xs 20)
+   _Toggle group base 15359:31027 · Toggle group 15359:31718 (Type Inset|Default)
+
+   AUDIT: components/filter-bar already has .toggle-group (28 tall, padding 4, radius 6) which is
+   the Toggle group Size=xs/sm cut used on the filter row. THIS file adds the general Button
+   group (.button-group) and the full Toggle group (.toggle-bar, 2px inset, radius 8, sizes
+   xl..xs, variants Default/Brand Primary/Gray). They don't collide with filter-bar classes.
+
+   Button group: outer 1px border-primary INSIDE (inset ring), radius 8; each item has a 1px
+   RIGHT divider (strokeWeights 0,1,0,0, button-neutral-secondary-border), no radius on items.
+   Toggle bar: bg-tertiary, border-secondary 1 inside, padding 2, gap 4, item radius 6.
+   Current item: neutral = bg-primary + shadow-sm (two edebe8 drops); brand = bg-brand-solid;
+   gray = utility-gray-600.
+
+   Markup:
+     <div class="button-group" role="group"><button class="button-group__item">Text</button>…</div>
+     <div class="toggle-bar" role="group"><button class="toggle-bar__item" aria-pressed="true">…</button></div>
+   Item state: :hover, :focus-visible, [disabled], [aria-pressed="true"]; data-force hooks.
+   DRIFT: Toggle group Size=xl/xs paddings, Icon variants and the 'Gray' Inset current not read;
+   toggle-bar xl maps to lg metrics; button-group icon-only squares built from sm/md heights.
+---------------------------------------------------------------------------- */
+
+.button-group {
+  display: inline-flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--colors-background-bg-primary);
+  position: relative;
+  isolation: isolate;
+}
+.button-group::after { /* outer ring painted above items, inside the box */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+  pointer-events: none;
+}
+
+.button-group__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  height: 36px;
+  padding: var(--spacing-md) var(--spacing-xl);
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--component-buttons-neutral-secondary-button-neutral-secondary-bg);
+  box-shadow: inset -1px 0 0 var(--component-buttons-neutral-secondary-button-neutral-secondary-border);
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+}
+.button-group__item:last-child { box-shadow: none; }
+.button-group--md .button-group__item { height: 36px; } /* DRIFT: md/lg both read as 58x36 in the base set */
+.button-group--sm .button-group__item { height: 28px; padding: var(--spacing-xs) var(--spacing-lg); } /* DRIFT: matches Figma, no token */
+.button-group--xs .button-group__item {
+  height: 20px;
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+}
+.button-group__icon { width: 16px; height: 16px; flex: none; color: var(--colors-icon-icon-secondary); }
+
+.button-group__item:hover:not(:disabled),
+.button-group__item[data-force="hover"] { background: var(--colors-background-bg-secondary); }
+.button-group__item[aria-pressed="true"],
+.button-group__item[data-current] { background: var(--colors-background-bg-secondary); color: var(--colors-text-text-secondary-700); }
+.button-group__item:focus-visible,
+.button-group__item[data-force="focus"] {
+  outline: 0;
+  background: transparent;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--colors-border-border-primary), 0 1px 2px rgba(16, 24, 40, 0.05); /* DRIFT: layer 2 literal */
+}
+.button-group__item:disabled { background: transparent; color: var(--colors-text-text-disabled); cursor: not-allowed; }
+
+/* ---- toggle bar (Toggle group 15359:31718) ---- */
+.toggle-bar {
+  display: inline-flex;
+  align-items: stretch;
+  gap: var(--spacing-xs);
+  box-sizing: border-box;
+  padding: var(--spacing-xxs);
+  border-radius: var(--radius-md);
+  background: var(--colors-background-bg-tertiary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+}
+.toggle-bar--default { background: transparent; box-shadow: none; padding: 0; gap: 0; }
+
+.toggle-bar__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  height: 32px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--colors-text-text-tertiary-600);
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+}
+.toggle-bar--lg .toggle-bar__item, .toggle-bar--xl .toggle-bar__item { height: 36px; padding: var(--spacing-md) var(--spacing-xl); } /* DRIFT: matches Figma, no token */
+.toggle-bar--sm .toggle-bar__item { height: 28px; padding: var(--spacing-xs) var(--spacing-lg); } /* DRIFT: matches Figma, no token */
+.toggle-bar--xs .toggle-bar__item {
+  height: 20px;
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+}
+.toggle-bar__item:hover:not(:disabled):not([aria-pressed="true"]),
+.toggle-bar__item[data-force="hover"] { background: var(--colors-background-bg-tertiary-hover); }
+.toggle-bar__item[aria-pressed="true"] {
+  background: var(--colors-background-bg-primary);
+  color: var(--colors-text-text-primary-900);
+  box-shadow: 0 1px 2px var(--colors-border-border-secondary), 0 1px 3px var(--colors-border-border-secondary);
+}
+.toggle-bar--brand .toggle-bar__item[aria-pressed="true"] {
+  background: var(--colors-background-bg-brand-solid);
+  color: var(--colors-text-text-white);
+  box-shadow: none;
+}
+.toggle-bar--gray .toggle-bar__item[aria-pressed="true"] {
+  background: var(--colors-utility-gray-utility-gray-600);
+  color: var(--colors-text-text-white);
+  box-shadow: none;
+}
+.toggle-bar__item:focus-visible,
+.toggle-bar__item[data-force="focus"] { outline: 0; box-shadow: 0 0 0 4px var(--colors-border-border-primary); }
+.toggle-bar__item:disabled { color: var(--colors-text-text-disabled); cursor: not-allowed; background: transparent; box-shadow: none; }
+.toggle-bar__icon { width: 16px; height: 16px; flex: none; color: var(--colors-icon-icon-secondary); }

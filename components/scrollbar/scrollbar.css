@@ -1,0 +1,59 @@
+/* ----------------------------------------------------------------------------
+   scrollbar — DS Scrollbar page 30309:23743, set 30309:27872
+   Props: Orientation (Vertical/Horizontal) · Bg (False/true) · Position
+   (thumb at Top/Bottom/Left/Right: expressed here as --start / --end alignment,
+   the real thumb moves with scroll) · Size (md / sm).
+   md: 16 track, 4 padding, 8 rail, thumb utility-gray-300 radius 5 (inset 200/400
+   sample). sm: 8 track, 2 padding, 4 rail. Bg=true: bg-primary + 1px
+   border-tertiary on the content-facing edge (inside ring, no layout).
+   Also ships .scrollbar-styled: native ::-webkit-scrollbar / scrollbar-color
+   skin to apply the same look to any overflow container.
+   DRIFT: thumb radius 5 is off the radius scale (kept literal); Bg=true stroke side
+   read as left (vertical) only; horizontal assumed top.
+---------------------------------------------------------------------------- */
+.scrollbar {
+  --scrollbar-pad: var(--spacing-xs);
+  --scrollbar-rail: var(--spacing-md);
+  display: flex;
+  box-sizing: border-box;
+  padding: var(--scrollbar-pad);
+}
+.scrollbar--sm { --scrollbar-pad: var(--spacing-xxs); --scrollbar-rail: var(--spacing-xs); }
+
+.scrollbar--vertical   { flex-direction: column; width: calc(var(--scrollbar-rail) + 2 * var(--scrollbar-pad)); }
+.scrollbar--horizontal { flex-direction: row; height: calc(var(--scrollbar-rail) + 2 * var(--scrollbar-pad)); }
+
+.scrollbar__rail {
+  display: flex;
+  flex: 1 0 0;
+  min-height: 0; min-width: 0;
+  border-radius: var(--radius-md);
+}
+.scrollbar--vertical   .scrollbar__rail { flex-direction: column; width: var(--scrollbar-rail); }
+.scrollbar--horizontal .scrollbar__rail { flex-direction: row; height: var(--scrollbar-rail); }
+
+.scrollbar__thumb {
+  flex: none;
+  border-radius: 5px; /* DRIFT: Figma literal, off scale */
+  background: var(--colors-utility-gray-utility-gray-300);
+}
+.scrollbar--vertical   .scrollbar__thumb { width: 100%; height: var(--thumb, 50%); }
+.scrollbar--horizontal .scrollbar__thumb { height: 100%; width: var(--thumb, 50%); }
+.scrollbar--end.scrollbar--vertical   .scrollbar__thumb { margin-top: auto; }
+.scrollbar--end.scrollbar--horizontal .scrollbar__thumb { margin-left: auto; }
+
+.scrollbar--bg { background: var(--colors-background-bg-primary); }
+.scrollbar--bg.scrollbar--vertical   { box-shadow: inset 1px 0 0 var(--colors-border-border-tertiary); }
+.scrollbar--bg.scrollbar--horizontal { box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary); }
+
+/* skin for real scroll containers */
+.scrollbar-styled { scrollbar-width: thin; scrollbar-color: var(--colors-utility-gray-utility-gray-300) transparent; }
+.scrollbar-styled::-webkit-scrollbar { width: 16px; height: 16px; }
+.scrollbar-styled::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-styled::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--colors-utility-gray-utility-gray-300) padding-box;
+}
+.scrollbar-styled--sm::-webkit-scrollbar { width: 8px; height: 8px; }
+.scrollbar-styled--sm::-webkit-scrollbar-thumb { border-width: 2px; }

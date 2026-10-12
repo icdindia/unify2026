@@ -1,0 +1,98 @@
+/* ----------------------------------------------------------------------------
+   stepper — DS "Progress steps + Timeline" page (53:1288, qT9zH1YYapGTwpJxwNEGzt)
+   Step icon base 1138:23 (Status Incomplete|Current|Complete|Error x Default|Hover|Focused)
+   Step base 1138:1954 (Types: Icon only|Icon left|Icon top L|Icon top C|
+     Featured icon left|top|Arrow stepper|Number left|Number only)
+   Timeline base 18038:2224 (Dot|Featured icon x Vertical|Horizontal x Start Connector)
+   Progress Steps Horizontal 1141:76669 / Vertical 1254:144290 / Icons 1139:79128 /
+   Minimal 1139:79149 · Timeline 18041:11993 · Activity 18913:15533.
+
+   Built: step icon (14px), vertical Icon-left step, Icon-top-C horizontal step,
+   dot timeline item. NOT built (read, not coded): Featured-icon steps, Arrow
+   stepper (a Button Brand pill + connector, use components/tabs .step-arrow),
+   Number left (16px ring in Jade green 500 - a primitive), Activity.
+
+   Icon: 14x14. Incomplete gray-200 + 6px gray-400 dot; Current bg-brand-secondary
+   ring with 14px bg-brand-primary core + 6px white dot; Complete same ring with
+   check; Error bg-error-primary with bg-error-solid core. Hover/Focus swap ring
+   (Incomplete: bg-disabled; Complete: bg-brand-tertiary). Focus = 4px ring.
+   Connector 1px utility-gray-300 radius 2 (timeline connector: bg-brand-solid).
+   Title 13/20 Medium (current: text-brand-secondary), supporting 12/16.
+   DRIFT: step title style read from Icon-top-C (13/20 Medium); Icon-left title
+   not sampled. Sub-items (32px rows, radius 6, p8, gap 8) are shell only.
+---------------------------------------------------------------------------- */
+
+.step-icon {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box;
+  width: 14px; height: 14px; flex: none;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-200);
+  color: var(--colors-background-bg-white);
+}
+.step-icon::before { content: ""; width: 6px; height: 6px; border-radius: var(--radius-full); background: var(--colors-utility-gray-utility-gray-400); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.step-icon svg { width: 7px; height: 7px; }
+.step-icon:has(svg)::before { display: none; }
+.step-icon--current,
+.step-icon--complete { background: var(--colors-background-bg-brand-secondary); }
+.step-icon--current::after,
+.step-icon--complete::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius-full); background: var(--colors-background-bg-brand-primary); z-index: 0; }
+.step-icon--current::before { position: relative; z-index: 1; background: var(--colors-background-bg-white); }
+.step-icon--complete svg { position: relative; z-index: 1; }
+.step-icon--error { background: var(--colors-background-bg-error-primary); }
+.step-icon--error::before { width: 14px; height: 14px; background: var(--colors-background-bg-error-solid); box-shadow: inset 0 0 0 1.5px var(--colors-border-border-error-solid); }
+.step-icon:hover:not(.step-icon--current):not(.step-icon--error),
+.step-icon[data-force="hover"] { background: var(--colors-background-bg-disabled); }
+.step-icon--complete:hover,
+.step-icon--complete[data-force="hover"] { background: var(--colors-background-bg-brand-tertiary); }
+.step-icon:focus-visible,
+.step-icon[data-force="focus"] { outline: none; box-shadow: 0 0 0 4px var(--colors-utility-gray-utility-gray-200); }
+
+/* ---- step (vertical, icon left): 14 + connector column, content column ---- */
+.steps { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.step { display: flex; align-items: stretch; }
+.step__rail { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-xxs); padding-top: var(--spacing-md); width: 14px; flex: none; } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.step__connector { flex: 1 0 0; width: 1px; min-height: 12px; border-radius: var(--radius-xxs); background: var(--colors-utility-gray-utility-gray-300); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.step:last-child .step__connector { display: none; }
+.step__content { display: flex; flex-direction: column; gap: var(--spacing-2xl); padding: 0 0 var(--spacing-3xl); min-width: 0; flex: 1 0 0; }
+.step__text { display: flex; flex-direction: column; gap: var(--spacing-xxs); padding: var(--spacing-xs) var(--spacing-md) var(--spacing-md); border-radius: var(--radius-md); }
+.step__title {
+  display: flex; align-items: center; gap: var(--spacing-md);
+  font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-secondary-700);
+}
+.step__supporting {
+  font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.step--current .step__title { color: var(--colors-text-text-brand-secondary-700); }
+.step--current .step__supporting { color: var(--colors-text-text-brand-tertiary-600); }
+.step--complete .step__connector { background: var(--colors-background-bg-brand-solid); }
+.step__sub { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.step__sub-item { display: flex; align-items: center; gap: var(--spacing-md); box-sizing: border-box; min-height: 32px; padding: var(--spacing-md); border-radius: var(--radius-sm); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+
+/* ---- horizontal, icon top centre: connector - icon - connector, text below ---- */
+.steps--horizontal { flex-direction: row; }
+.steps--horizontal .step { flex: 1 0 0; flex-direction: column; align-items: stretch; gap: var(--spacing-sm); }
+.steps--horizontal .step__rail { flex-direction: row; width: auto; height: 14px; padding: 0; gap: var(--spacing-md); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.steps--horizontal .step__connector { flex: 1 0 0; width: auto; height: 1px; min-height: 0; }
+.steps--horizontal .step:first-child .step__connector:first-child,
+.steps--horizontal .step:last-child .step__connector:last-child { background: transparent; }
+.steps--horizontal .step:last-child .step__connector { display: block; }
+.steps--horizontal .step__content { padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md); align-items: center; text-align: center; gap: var(--spacing-xxs); }
+.steps--horizontal .step__text { padding: var(--spacing-xs) 0 0; align-items: center; }
+
+/* ---- timeline (dot, vertical): 8px dot + 1px brand connector ---- */
+.timeline { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.timeline__item { display: flex; gap: var(--spacing-md); align-items: stretch; }
+.timeline__rail { display: flex; flex-direction: column; align-items: center; width: 8px; flex: none; padding-top: var(--spacing-xs); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.timeline__dot { width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--colors-background-bg-brand-solid); flex: none; } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.timeline__line { width: 1px; flex: 1 0 0; background: var(--colors-background-bg-brand-solid); }
+.timeline__item:last-child .timeline__line { display: none; }
+.timeline__body { flex: 1 0 0; min-width: 0; padding-bottom: var(--spacing-xl); }
+.timeline__title { font: var(--text-sm-semibold-font-weight) var(--text-sm-semibold-font-size)/var(--text-sm-semibold-line-height) var(--text-sm-semibold-font-family); color: var(--colors-text-text-secondary-700); }
+.timeline__date { font: var(--text-sm-regular-font-weight) var(--text-sm-regular-font-size)/var(--text-sm-regular-line-height) var(--text-sm-regular-font-family); color: var(--colors-text-text-quaternary-500); }
+.timeline__text { font: var(--text-sm-regular-font-weight) var(--text-sm-regular-font-size)/var(--text-sm-regular-line-height) var(--text-sm-regular-font-family); color: var(--colors-text-text-secondary-700); }

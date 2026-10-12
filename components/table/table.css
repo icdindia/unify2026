@@ -1,0 +1,81 @@
+/* ----------------------------------------------------------------------------
+   table — DS Tables page (214:0, qT9zH1YYapGTwpJxwNEGzt)
+   Table 1227:110587 (Size sm|md) · Table cell 1222:107305 (174 variants) ·
+   Col Header Cell 1221:107933 · _Col Header Text 1221:106788.
+
+   Frame = bg-white, 1px border-tertiary drawn INSIDE, radius 12 -> inset ring.
+   Header cell 36/44/48 tall (sm/md/lg-double), bg-secondary, p 8/12.
+   Body cell sm 36 / md 48 / lg 60, p 8/12, 1px bottom rule (border-tertiary,
+   bottom-only stroke), hover = bg-primary-hover.
+   Header label 10/12 Medium text-tertiary (md/lg) ; 11/12 Medium (sort text, 1221:106788).
+   Body text 13/20 Regular text-secondary, supporting 12/16 text-tertiary.
+
+   DRIFT: the Table frame composes Header (page-header), Filter Bar and a
+   Pagination instance (see components/pagination). Not repeated here.
+   NOT BUILT: the 20 cell Styles beyond Text/Checkbox/Badge/Avatar/Actions are
+   composed from other atoms (avatar, pill, button); only the cell shell is here.
+   DRIFT: Col Header sm vs md heights (36 in the live Table, 44 in the set) -
+   .table__th--md = 44 per component set; the Table sm/md instance uses 36.
+---------------------------------------------------------------------------- */
+
+.table {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-4xl);
+  background: var(--colors-background-bg-white);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+}
+.table__grid { width: 100%; border-collapse: collapse; table-layout: auto; }
+
+/* ---- header cell ---- */
+.table__th {
+  box-sizing: border-box;
+  height: 36px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--colors-background-bg-secondary);
+  text-align: left;
+  vertical-align: middle;
+  font-family: var(--text-xxxs-medium-font-family);
+  font-weight: var(--text-xxxs-medium-font-weight);
+  font-size: var(--text-xxxs-medium-font-size);
+  line-height: var(--text-xxxs-medium-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+}
+.table__th--md { height: 44px; }
+.table__th--double { height: 48px; white-space: normal; }
+.table__th--check { width: 28px; padding-inline-end: 0; }
+.table__th-inner { display: inline-flex; align-items: center; gap: var(--spacing-xs); }
+.table__sort { width: 13px; height: 13px; flex: none; color: var(--colors-icon-icon-secondary); }
+.table__th[aria-sort="descending"] .table__sort { transform: rotate(180deg); }
+.table__th:hover:not([aria-disabled="true"]) { color: var(--colors-text-text-secondary-700); }
+.table__th[aria-disabled="true"] { color: var(--colors-text-text-disabled); }
+
+/* ---- body cell ---- */
+.table__td {
+  box-sizing: border-box;
+  height: 48px;                      /* Size=md */
+  padding: var(--spacing-md) var(--spacing-lg);
+  vertical-align: middle;
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-secondary-700);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary);
+}
+.table--sm .table__td { height: 36px; }
+.table--lg .table__td { height: 60px; }
+.table__td--check { width: 28px; padding-inline-end: 0; }
+.table__supporting {
+  display: block;
+  font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.table__row:hover > .table__td,
+.table__row[data-force="hover"] > .table__td { background: var(--colors-background-bg-primary-hover); }
+.table__row[aria-selected="true"] > .table__td { background: var(--colors-utility-brand-secondary-utility-brand-secondary-25); }
+.table__row:last-child > .table__td { box-shadow: none; }

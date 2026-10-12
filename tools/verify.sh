@@ -35,8 +35,11 @@ fi
 
 # ------------------------------------------------- 3. every var is defined
 hdr "custom properties resolve"
-defined=$(grep -hoE '^\s*(--[a-z0-9-]+):' shared/tokens.css shared/tokens.live-overrides.css shared/typography.css 2>/dev/null | tr -d ' :' | sort -u)
-used=$(grep -rhoE 'var\((--[a-z0-9-]+)' $ALL_CSS 2>/dev/null | sed 's/var(//' | sort -u)
+# tokens + effect styles, plus component-scoped custom properties declared in any atom/prototype CSS
+# (e.g. .progress { --progress: 0% }); a var(--typo) with no declaration anywhere is still caught.
+defined=$( { grep -hoE '^\s*(--[a-z0-9-]+):' shared/tokens.css shared/tokens.live-overrides.css shared/typography.css shared/effects.css 2>/dev/null; grep -hoE '(^|[;{ ])(--[a-z0-9-]+):' $ALL_CSS 2>/dev/null; } | sed -E 's/^[;{ ]//; s/^[[:space:]]+//' | tr -d ' :' | sort -u)
+# vars written with a fallback, var(--thumb, 50%), are optional inputs and not required to be declared
+used=$(grep -rhoE 'var\((--[a-z0-9-]+)[[:space:]]*[,)]' $ALL_CSS 2>/dev/null | grep -v ',$' | sed -E 's/var\(//; s/[[:space:]]*\)$//' | sort -u)
 missing=$(comm -13 <(echo "$defined") <(echo "$used"))
 if [ -n "$missing" ]; then
   while read -r m; do [ -n "$m" ] && err "undefined custom property: $m"; done <<< "$missing"

@@ -1,0 +1,41 @@
+/* ----------------------------------------------------------------------------
+   section-footer — DS Section footers page (3275:371793, qT9zH1YYapGTwpJxwNEGzt)
+   Section footer 3275:372571 · Side panel footer 9501:33429 (Double Button|Message)
+   · Builder Footer 14600:87610 (Slide Up|Actions) · Changelog frame 67176:47264.
+
+   Section footer 52: bg-primary, 1px top divider border-tertiary (drawn on the
+   edge), content p 0/16/10/16 gap 20, lead Button Neutral tertiary left, actions
+   gap 12 right (secondary neutral, secondary brand, primary brand).
+   Side panel footer: 52 (Double Button) p 2/0 + inner 8/16/8/6 gap 16, buttons 28
+   radius 6; Message = 64, p16, input 32 + brand send button 32.
+   Builder footer: Actions 48 p 10/16, bg-primary, border-secondary all sides inside
+   + shadow; Slide Up 52 p 8/16 bg-secondary, divided stats + 24px chevron button.
+   DRIFT: footer drop shadows (fx1) approximated with shadow-xs; no shadow tokens.
+   Buttons are NOT redefined: compose components/button.
+---------------------------------------------------------------------------- */
+
+.section-footer {
+  display: flex; align-items: center; gap: var(--spacing-2xl);
+  box-sizing: border-box; width: 100%;
+  padding: 0 var(--spacing-xl) 10px; /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary);
+  padding-top: var(--spacing-md);   /* 10 gap between divider and content in Figma = 10 */
+}
+.section-footer__lead { margin-inline-end: auto; display: flex; align-items: center; gap: var(--spacing-md); }
+.section-footer__actions { display: flex; align-items: center; justify-content: flex-end; gap: var(--spacing-lg); flex: 1 0 0; }
+
+/* ---- side panel ---- */
+.section-footer--panel { padding: var(--spacing-xxs) var(--spacing-xl) var(--spacing-xxs) var(--spacing-sm); gap: var(--spacing-xl); box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary), inset 0 -1px 0 var(--colors-border-border-tertiary); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+.section-footer--panel .section-footer__actions { gap: var(--spacing-lg); }
+.section-footer--message { padding: var(--spacing-xl); gap: var(--spacing-lg); }
+.section-footer--message .section-footer__actions { justify-content: stretch; }
+
+/* ---- builder ---- */
+.section-footer--builder {
+  padding: 10px var(--spacing-xl); gap: var(--spacing-md); /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 1px 2px rgba(16, 24, 40, 0.05); /* DRIFT: fx1 */
+}
+.section-footer--slide-up { background: var(--colors-background-bg-secondary); padding: var(--spacing-md) var(--spacing-xl); }
+.section-footer__stat { display: flex; flex-direction: column; align-items: center; }
+.section-footer__divider { align-self: stretch; width: 1px; margin: var(--spacing-xs) var(--spacing-xs); background: var(--colors-border-border-secondary); } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */

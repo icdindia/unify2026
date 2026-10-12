@@ -1,0 +1,80 @@
+/* ----------------------------------------------------------------------------
+   modal — DS Modals page 172:4293, Modal Unit 26927:32589
+   Types: xs-nofields 360 (26927:34737; header 56, padding 12 8 8 12) · sm 440
+   (26927:34884) · md 600 (26927:34988) · lg 800 (35056:5407) · lg-with stepper
+   1024 · lg-with doc 1200 · lg-with side pane 1400 (the last three are widths
+   only here: compose body yourself). Modal header 4055:413620 · Modal actions
+   4057:414352 · Full screen 11566:11437 (not built).
+   Surface: bg-primary, radius 10 (token --radius-3xl; Figma wrapper frame is r12),
+   1px drop shadow rgb(237,235,232) blur 2 (below-edge hairline).
+   Header: padding 8 8 8 12, min-height 48, bottom rule border-tertiary (inset ring),
+   title text-lg-medium; optional back chevron (24 icon button) and close (32 r8).
+   Body: padding 0 12 8 12, gap 16. Actions: top 6 gap, padding 0 12 12 8, gap 12;
+   left slot = tertiary buttons, right slot = Cancel/Primary (button atom).
+   DRIFT: scrim/backdrop colour not on the page; .modal-backdrop uses utility-gray-950
+   at 40% as a placeholder - verify against the product screens.
+   DRIFT: lg fill bg-brand-secondary on the "Type=lg" wrapper not applied.
+---------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--colors-utility-gray-utility-gray-950) 40%, transparent);
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 440px;
+  max-width: 100%;
+  border-radius: var(--radius-3xl);
+  background: var(--colors-background-bg-primary);
+  box-shadow: 0 1px 2px var(--colors-utility-gray-utility-gray-200);
+  overflow: clip;
+}
+.modal--xs { width: 360px; }
+.modal--sm { width: 440px; }
+.modal--md { width: 600px; }
+.modal--lg { width: 800px; }
+.modal--stepper { width: 1024px; }
+.modal--doc { width: 1200px; }
+.modal--side-pane { width: 1400px; }
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary);
+}
+.modal--xs .modal__header { min-height: 56px; padding-top: var(--spacing-lg); align-items: flex-start; } /* DRIFT: Figma literal, off scale */
+.modal__heading { display: flex; flex: 1 0 0; align-items: center; gap: var(--spacing-xs); min-width: 0; }
+.modal__title { margin: 0; flex: 1 0 0; color: var(--colors-text-text-primary-900); font-family: var(--text-lg-medium-font-family); font-weight: var(--text-lg-medium-font-weight); font-size: var(--text-lg-medium-font-size); line-height: var(--text-lg-medium-line-height); }
+.modal__back, .modal__close {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none; border: 0; background: transparent; cursor: pointer;
+  color: var(--colors-icon-icon-tertiary);
+}
+.modal__back { width: var(--spacing-3xl); height: var(--spacing-3xl); padding: var(--spacing-xxs); border-radius: var(--radius-sm); } /* DRIFT: Figma literal, off scale */
+.modal__close { width: var(--spacing-4xl); height: var(--spacing-4xl); padding: var(--spacing-md); border-radius: var(--radius-md); } /* DRIFT: Figma literal, off scale */
+.modal__back svg { width: 20px; height: 20px; }
+.modal__close svg { width: 16px; height: 16px; }
+.modal__back:hover, .modal__close:hover, .modal__back[data-force="hover"], .modal__close[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.modal__back:focus-visible, .modal__close:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+
+.modal__tabs { padding: 0 var(--spacing-lg); }
+.modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xs) var(--spacing-lg) var(--spacing-md);
+}
+.modal__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+}
+.modal--xs .modal__footer { padding-left: var(--spacing-lg); }
+.modal__actions { display: flex; flex: 1 0 0; align-items: center; justify-content: flex-end; gap: var(--spacing-lg); }
