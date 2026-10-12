@@ -1,0 +1,204 @@
+/* ----------------------------------------------------------------------------
+   tabs — DS Tabs page (43:0, qT9zH1YYapGTwpJxwNEGzt)
+   Horizontal tabs 8102:114154 (underline styles) · _Tab base 8102:113493
+   Vertical tabs 8102:114435 · Filter Tabs Base 9445:44304
+   Button Tab base (pill style) lives in components/horizontal-tabs — not repeated.
+
+   NOT BUILT: Folder / Rounded Folder (44587:6646), Progress (_Progress Tab base),
+   Step Arrows (11773:19192), Double Line style, Size=xs underline/vertical.
+
+   State hooks: [aria-selected="true"] = Current, [aria-disabled="true"] = Disabled,
+   :hover / :focus-visible; [data-force] mirrors each for static previews.
+   Strokes: every Figma stroke here is free of layout (child offset == padding),
+   so rings and underlines are inset box-shadows, never borders.
+---------------------------------------------------------------------------- */
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.tabs--vertical {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-xs);
+}
+
+/* ---- underline tab (Horizontal, Size=sm: 32 = 4 + 20 + 8; 2px rule at y=30) */
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-sizing: border-box;
+  padding: var(--spacing-xs) var(--spacing-md) var(--spacing-md);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size);
+  line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+}
+
+.tab__icon {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  color: var(--colors-icon-icon-secondary);
+}
+
+/* Badge=True: "_Pill rounded" 20x20, gray-100 / gray-700, Text xs/Medium */
+.tab__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--spacing-xs);
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-gray-utility-gray-100);
+  color: var(--colors-utility-gray-utility-gray-700);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+}
+
+.tab:hover,
+.tab[data-force="hover"] {
+  box-shadow: inset 0 -2px 0 var(--component-buttons-neutral-primary-button-neutral-primary-bg-disabled);
+}
+
+.tab[aria-selected="true"],
+.tab[data-force="current"] {
+  color: var(--colors-text-text-brand-tertiary-600);
+  box-shadow: inset 0 -2px 0 var(--colors-background-bg-brand-primary);
+}
+
+.tab[aria-selected="true"] .tab__icon,
+.tab[data-force="current"] .tab__icon { color: var(--colors-text-text-brand-tertiary-600); }
+
+.tab:focus-visible,
+.tab[data-force="focus"] {
+  outline: none;
+  background: var(--colors-utility-brand-secondary-utility-brand-secondary-25);
+  box-shadow:
+    0 0 0 2px var(--colors-utility-gray-utility-gray-300),
+    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs second layer #1018280D, no shadow token */
+}
+
+.tab[aria-disabled="true"],
+.tab[data-force="disabled"] {
+  color: var(--colors-text-text-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.tab[aria-disabled="true"] .tab__icon,
+.tab[data-force="disabled"] .tab__icon { color: var(--colors-icon-icon-disabled); }
+
+/* Destructive=True: icon binds icon-error-600; rule/text unchanged in Default */
+.tab--destructive .tab__icon { color: var(--colors-icon-icon-error-600); }
+
+/* ---- vertical tab (36 = 8 + 20 + 8; text frame inset 8 inside an 8 outer pad)
+   Current binds border-brand-primary; which edge/width it draws on was not
+   readable from get_metadata/variable_defs. */
+.tab--vertical {
+  display: flex;
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-xl);
+}
+
+.tab--vertical[aria-selected="true"],
+.tab--vertical[data-force="current"] {
+  box-shadow: inset -2px 0 0 var(--colors-border-border-brand-primary); /* DRIFT: edge + 2px width not read from Figma */
+}
+
+.tab--vertical:hover,
+.tab--vertical[data-force="hover"] { box-shadow: none; background: var(--colors-background-bg-secondary-hover); }
+
+/* ---- filter tab (Filter Tabs Base 9445:44304) -----------------------------
+   lg 36 / md 32 radius-md, sm 28 / xs 24 radius-sm. Label=Off is square. */
+.filter-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  box-sizing: border-box;
+  padding: var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+  font-family: var(--text-sm-medium-font-family);
+  font-weight: var(--text-sm-medium-font-weight);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  color: var(--colors-text-text-tertiary-600);
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+}
+
+.filter-tab__icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--colors-icon-icon-secondary);
+}
+
+.filter-tab__count { margin-inline-start: calc(var(--spacing-xxs) - var(--spacing-sm)); } /* count 2px after label: gap 6 - 4 */
+
+.filter-tab--md { padding: var(--spacing-sm); }
+
+.filter-tab--sm,
+.filter-tab--xs {
+  gap: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  font-family: var(--text-xs-medium-font-family);
+  font-weight: var(--text-xs-medium-font-weight);
+  font-size: var(--text-xs-medium-font-size);
+  line-height: var(--text-xs-medium-line-height);
+}
+
+.filter-tab--sm { padding: var(--spacing-sm) var(--spacing-md); }
+.filter-tab--xs { padding: var(--spacing-xs) var(--spacing-sm); }
+
+.filter-tab--sm .filter-tab__icon { width: 16px; height: 16px; }
+.filter-tab--xs .filter-tab__icon { width: 12px; height: 12px; }
+
+.filter-tab--icon-only { aspect-ratio: 1; }
+
+.filter-tab:hover,
+.filter-tab[data-force="hover"] {
+  background: var(--colors-background-bg-secondary-hover);
+  color: var(--colors-text-text-secondary-700);
+}
+
+.filter-tab:hover .filter-tab__icon,
+.filter-tab[data-force="hover"] .filter-tab__icon { color: var(--colors-icon-icon-hover); }
+
+.filter-tab[aria-pressed="true"],
+.filter-tab[data-force="applied"] {
+  background: var(--colors-utility-gray-utility-gray-100);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  color: var(--colors-text-text-secondary-700);
+}
+
+.filter-tab[aria-pressed="true"]:hover,
+.filter-tab[data-force="applied-hover"] { background: var(--colors-utility-gray-utility-gray-200); }
+
+.filter-tab:focus-visible,
+.filter-tab[data-force="focus"] {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--colors-utility-gray-utility-gray-300),
+    0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs second layer, no shadow token */
+}

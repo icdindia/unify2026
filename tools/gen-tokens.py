@@ -1,7 +1,7 @@
 import json, re, os
 
-SRC = "/Users/lisarath/unify-ds/ds/tokens"
-OUT = "/Users/lisarath/Unify2026/shared/tokens.css"
+SRC = os.environ.get("TOKENS_SRC", "/Users/lisarath/unify-ds/ds/tokens")
+OUT = os.environ.get("TOKENS_OUT", "/Users/lisarath/Unify2026/shared/tokens.css")
 
 colors    = json.load(open(f"{SRC}/colors.json"))
 semantic  = json.load(open(f"{SRC}/semantic.json"))

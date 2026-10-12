@@ -22,7 +22,6 @@
      25-Jun JSON #f2f0ee   (resolves via alias -> utility-gray-100)
      The exported alias target is wrong, not just the value — the live token is
      a distinct warm grey, not gray-100. Re-stage ds/tokens/semantic.json. */
-  --component-nav-bar-navbar-bg: #efebe5;
 }
 
 :root[data-theme="dark"] {
@@ -45,8 +44,19 @@
 /* Enterprise Brain notification panels — live reading, node 14761:43871
    (Enterprise Brain Base 2026 - 1, lqKjNjyifEXCeywg69Knr2). Light theme only. */
 :root:not([data-theme="dark"]) {
-  --colors-border-border-primary: #e6e4e0;            /* css #dbd6d1 */
-  --colors-utility-gray-utility-gray-300: #e6e4e0;    /* css #dbd6d1 */
-  --colors-utility-gray-utility-gray-500: #8f8a85;    /* css #9f9993 */
-  --colors-text-text-quaternary-500: #8f8a85;         /* css #9f9993 */
+}
+
+/* Design System "Tabs" page — live reading, node 43:0
+   (❖ Unify2026 Design System, qT9zH1YYapGTwpJxwNEGzt), read 2026-10-12 with
+   get_variable_defs. Light theme only; dark values stay as generated.
+   ds/tokens/*.json is the 3-Jul export, so these are bug reports for the DS owner. */
+:root:not([data-theme="dark"]) {
+}
+
+/* Live reading of the Figma variables (Unify2026 Design System, qT9zH1YYapGTwpJxwNEGzt),
+   exported 2026-10-12 via the console bridge; diffed against tokens.css for the semantic
+   Colors set. Dark-mode corrections: */
+:root[data-theme="dark"] {
+}
+:root:not([data-theme="dark"]) {
 }
