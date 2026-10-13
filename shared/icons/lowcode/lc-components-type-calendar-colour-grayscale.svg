@@ -1,0 +1,13 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:luminosity">
+<path d="M8.87524 4H7.36969C4.4702 4 2.11969 6.21992 2.11969 8.95833V33.0417C2.11969 35.7801 4.4702 38 7.36969 38H32.8697C35.7692 38 38.1197 35.7801 38.1197 33.0417V8.95833C38.1197 6.21992 35.7692 4 32.8697 4H31.3127M15.3752 4H24.719M37.6074 12.6963H2.10742" stroke="#E6E4E0" stroke-width="1.5" stroke-miterlimit="10"/>
+<rect x="6" y="16" width="7.8" height="3" rx="1" fill="#112D06"/>
+<rect x="16.3496" y="16" width="7.8" height="3" rx="1" fill="#5E6E62"/>
+<rect x="26.7002" y="16" width="7.8" height="3" rx="1" fill="#5E6E62"/>
+<rect x="6" y="21" width="8" height="11" rx="1" fill="#5E6E62"/>
+<rect x="16.3496" y="21" width="8" height="5" rx="1" fill="#B4ADA7"/>
+<rect x="26.7002" y="24" width="7.8" height="8" rx="1" fill="#E6E4E0"/>
+<path d="M12.1074 1.875L12.1074 8.09375" stroke="#DED2BA" stroke-width="3.5" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M27.9199 1.875L27.9199 8.09375" stroke="#DED2BA" stroke-width="3.5" stroke-miterlimit="10" stroke-linecap="round"/>
+</g>
+</svg>
