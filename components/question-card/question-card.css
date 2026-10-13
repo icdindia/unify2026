@@ -249,3 +249,18 @@
   line-height: var(--text-xs-medium-line-height);   /* 16 */
   font-weight: 500;
 }
+
+/* ---- Additive pass 2 (Copilot page 70268:16200) -------------------------------------------------
+   Copilot_Question Card 70813:14943 : Default 760x184 (3 options), single question 760x148 (2 options + free-text),
+   next card 760x236, hover 760x280. Copilot_Side-pane Question Card 70331:26105: default/hover/forward 360 wide.
+   Audit: structure, radius 12, top bar 48, option hover (bg-workspace) already covered above. Missing, added here:
+   the side-pane width (top bar 64 for a 2-line 13px question, options 32 tall, trailing 52x24 Skip) and the
+   `forward` state (same fill as hover on the first row). DRIFT: Figma 13px question in the side pane is off scale. */
+.question-card--sidepane { width: 360px; max-width: 100%; }
+.question-card--sidepane .question-card__top { min-height: 64px; }
+.question-card--sidepane .question-card__q,
+.question-card--sidepane .question-card__question { font-size: 13px; line-height: 20px; } /* DRIFT: 13px */
+.question-card--sidepane .question-card__option { min-height: 32px; }
+.question-card--sidepane .question-card__nav { display: none; }
+.question-card--single { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.question-card__option[data-force="forward"] { background: var(--colors-background-bg-workspace); }

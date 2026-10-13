@@ -1,0 +1,86 @@
+/* ----------------------------------------------------------------------------
+   live-chat — DS Copilot page 70268:16200
+   Popup 73111:24448 (420x704): "Mobile" frame 420x640 bg-tertiary, 1px inset
+   border-primary, radius 20, shadow (two layers, y4 blur12 / y12 blur12 - colours not
+   read, DRIFT); header 44 (bg-primary, bottom border-tertiary, padding 12/12/8/16);
+   Body padding 16/12 gap 20; Input frame 0/12/16; close FAB 48x48 round icon-brand-600
+   with X icon white, 16px below (gap 16), right aligned.
+   New Live Chat_Message 73109:21497: Type Agent/User x Chat One-one/Multiple x Sender.
+   Message 350 wide max: Agent bubble bg-white (or bg-primary in Multiple) radius 12,
+   padding 4, body text-sm-regular text-primary-900 padding 0/8/0/6; User bubble
+   utility-brand-500, white text; Multiple shows a 24px letter avatar + name row.
+   Emoji reaction + Timestamp/Pin row sits under the bubble overlapping by 4 (gap -4).
+   _Emoji reaction Live Chat 73100:9848: pill r100, bg gray-50 (Default) / brand-50
+   (Clicked), 1px outside border-white, padding 2/6/2/4, gap 4, emojis 18px (gap 2),
+   count xxs-regular. Timestamp+Pin: Pinned 12px icon, read receipt, time xxs-regular
+   text-disabled.
+   _Read Recipients 73100:9841 12x12: Sent = check-slim tertiary; Delivered =
+   double-check-slim tertiary; Read = double-check-slim icon-brand-600.
+   Pinned Item sub Header 73100:9879 (420x52): Type Text / Image x Default / Hover;
+   bg-primary (Hover brand-25), 1px inset border-brand-primary, padding 12/12/12/20,
+   gap 12, featured pin icon 24 (brand-100, r6), text-sm-regular secondary-700,
+   3-segment vertical carousel (2x12 bars, active icon-primary, others icon-disabled),
+   Image type adds 52x52 thumbnail at the end and dots-vertical 20 action.
+   DRIFT: map/link/graph preview message bodies (hidden in Figma) are not built.
+   DRIFT: unicode glyphs are used for the sampled emoji (Figma uses Emoji pack
+   instances); mark for swap to shared/icons/emoji if exact art is needed.
+   DRIFT: popup header (Copilot_header, 73111:...) built only as title + close; its
+   agent selector content was not read.
+---------------------------------------------------------------------------- */
+.live-chat { display: flex; flex-direction: column; align-items: flex-end; gap: var(--spacing-xl); width: 420px; max-width: 100%; } /* DRIFT: Figma literal */
+.live-chat__window {
+  box-sizing: border-box; width: 100%; height: 640px; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--colors-background-bg-tertiary); box-shadow: inset 0 0 0 1px var(--colors-border-border-primary), 0 12px 12px color-mix(in srgb, var(--colors-text-text-primary-900) 8%, transparent); /* DRIFT: shadow colours not read */
+  border-radius: 20px; /* DRIFT: r20 literal */
+}
+.live-chat__header { box-sizing: border-box; flex: none; display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-lg); padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md) var(--spacing-xl); min-height: 44px; background: var(--colors-background-bg-primary); box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary); color: var(--colors-text-text-primary-900); font-family: var(--text-sm-semibold-font-family); font-weight: var(--text-sm-semibold-font-weight); font-size: var(--text-sm-semibold-font-size); line-height: var(--text-sm-semibold-line-height); } /* DRIFT: Figma literal */
+.live-chat__body { box-sizing: border-box; flex: 1 1 0; min-height: 0; overflow: auto; padding: var(--spacing-xl) var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-2xl); }
+.live-chat__group { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.live-chat__input { box-sizing: border-box; flex: none; padding: 0 var(--spacing-lg) var(--spacing-xl); }
+.live-chat__fab { box-sizing: border-box; width: 48px; height: 48px; padding: var(--spacing-lg); border: 0; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; background: var(--colors-icon-icon-brand-600); color: var(--colors-icon-icon-white); cursor: pointer; box-shadow: 0 8px 8px color-mix(in srgb, var(--colors-text-text-primary-900) 10%, transparent); } /* DRIFT: shadow literal */
+.live-chat__fab svg { width: 24px; height: 24px; }
+.live-chat__fab:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+
+/* message */
+.live-msg { box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; max-width: 350px; padding-right: 32px; gap: var(--spacing-xs); } /* DRIFT: 32 literal */
+.live-msg--user { align-self: flex-end; align-items: flex-end; padding-right: 0; }
+.live-msg__bubble {
+  box-sizing: border-box; display: flex; flex-direction: column; gap: var(--spacing-xs); padding: var(--spacing-xs);
+  border-radius: var(--radius-4xl); background: var(--colors-background-bg-white); color: var(--colors-text-text-primary-900);
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+}
+.live-msg--multi .live-msg__bubble { background: var(--colors-background-bg-primary); }
+.live-msg--user .live-msg__bubble { background: var(--colors-utility-brand-utility-brand-500); color: var(--colors-text-text-white); }
+.live-msg__text { margin: 0; padding: 0 var(--spacing-md) 0 var(--spacing-sm); }
+.live-msg__author { display: flex; align-items: center; gap: var(--spacing-sm); padding: 0 0 0 var(--spacing-sm); color: var(--colors-text-text-tertiary-600); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); font-weight: var(--text-xs-medium-font-weight); }
+.live-msg__avatar { width: 24px; height: 24px; border-radius: var(--radius-full); background: var(--colors-utility-mulberry-utility-mulberry-500); color: var(--colors-text-text-white); display: inline-flex; align-items: center; justify-content: center; font-size: var(--text-xs-semibold-font-size); font-weight: var(--text-xs-semibold-font-weight); flex: none; } /* DRIFT: Figma literal */
+.live-msg__meta { display: flex; align-items: center; gap: var(--spacing-xs); flex-wrap: wrap; }
+.live-msg--user .live-msg__meta { justify-content: flex-end; }
+
+/* _Emoji reaction Live Chat */
+.live-reaction { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--spacing-xs); padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xxs) var(--spacing-xs); border-radius: 100px; background: var(--colors-utility-gray-utility-gray-50); box-shadow: 0 0 0 1px var(--colors-border-border-white); color: var(--colors-text-text-secondary-700); } /* DRIFT: Figma literal */
+.live-reaction--clicked { background: var(--colors-utility-brand-utility-brand-50); }
+.live-reaction__emojis { display: inline-flex; gap: var(--spacing-xxs); }
+.live-reaction__emoji { width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; line-height: 1; } /* DRIFT: Figma literal */
+.live-reaction__count { font-family: var(--text-xxs-regular-font-family); font-weight: var(--text-xxs-regular-font-weight); font-size: var(--text-xxs-regular-font-size); line-height: var(--text-xxs-regular-line-height); }
+.live-reaction__stamp { display: inline-flex; align-items: center; gap: var(--spacing-xs); padding: var(--spacing-xxs) 0 var(--spacing-xxs) var(--spacing-xxs); color: var(--colors-text-text-disabled); font-family: var(--text-xxs-regular-font-family); font-weight: var(--text-xxs-regular-font-weight); font-size: var(--text-xxs-regular-font-size); line-height: var(--text-xxs-regular-line-height); }
+.live-reaction__pin { width: 12px; height: 12px; }
+
+/* _Read Recipients */
+.live-receipt { display: inline-flex; width: 12px; height: 12px; color: var(--colors-icon-icon-tertiary); }
+.live-receipt svg { width: 12px; height: 12px; display: block; }
+.live-receipt--read { color: var(--colors-icon-icon-brand-600); }
+
+/* Pinned Item sub Header */
+.live-pinned { box-sizing: border-box; display: flex; align-items: center; gap: var(--spacing-lg); width: 100%; padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) var(--spacing-2xl); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-primary); } /* DRIFT: Figma literal */
+.live-pinned:hover, .live-pinned[data-force="hover"] { background: var(--colors-utility-brand-utility-brand-25); }
+.live-pinned--image { padding-right: 0; }
+.live-pinned__icon { flex: none; width: 24px; height: 24px; border-radius: var(--radius-sm); background: var(--colors-utility-brand-utility-brand-100); color: var(--colors-icon-icon-brand-600); display: inline-flex; align-items: center; justify-content: center; } /* DRIFT: Figma literal */
+.live-pinned__icon svg { width: 16px; height: 16px; }
+.live-pinned__text { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.live-pinned__more { flex: none; width: 20px; height: 20px; padding: 0; border: 0; background: none; border-radius: var(--radius-xs); color: var(--colors-icon-icon-tertiary); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; } /* DRIFT: Figma literal */
+.live-pinned__more svg { width: 16px; height: 16px; }
+.live-pinned__carousel { flex: none; width: 2px; height: 40px; display: flex; flex-direction: column; gap: var(--spacing-xxs); } /* DRIFT: Figma literal */
+.live-pinned__carousel i { display: block; flex: 1 1 0; max-height: 12px; border-radius: 12px; background: var(--colors-icon-icon-disabled); } /* DRIFT: Figma literal */
+.live-pinned__carousel i:first-child { background: var(--colors-icon-icon-primary); }
+.live-pinned__thumb { flex: none; width: 52px; height: 52px; background: var(--colors-utility-gray-utility-gray-100); }

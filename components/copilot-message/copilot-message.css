@@ -1,0 +1,61 @@
+/* copilot-message — Copilot page 70268:16200.
+   User message: Copilot_User Message_Desktop full 70601:97676 (State Default/Hover x Type With Tag / With quote /
+   Consecutive msgs / No Tags; 562 wide), Copilot_User Message-side-pane 70298:17848 (State Default/State2, 311 wide).
+   AI message: Copilot_AI Message/Desktop-side pane 70298:20653 (358 wide), Response_Desktop full 70699:20070
+   (Assistant 760 / User), Attachments Desktop 70615:103005 (strip 620x58), in line Skills 70621:107903.
+   Desktop user bubble: bg-tertiary (hover bg-tertiary-hover), r12, padding 8/16, Text md/Regular 15/26 (Geist).
+   Sidepane user bubble: bg-secondary, r12, padding 8/8/8/12, Text sm/Regular 13/22. Tag "Body" = 46x16 gray-200 pill,
+   gray-300 ring, r4. Mentions and /skills = steel-blue-400. Timestamp xxs/Regular tertiary-600 (desktop) or
+   quaternary-500 (sidepane). Actions (copy, edit) are the copilot-feedback `--user` row shown on hover.
+   Compose with copilot-attachment, copilot-feedback, cot, copilot-suggestions (link their CSS yourself).
+   DRIFT: avatar 32x32 sits in the bubble frame with no layout mode; placed as a trailing flex sibling (inferred).
+   DRIFT: Hover variant is "Hove" in the Figma set name (typo kept out of class names).
+   DRIFT: Response strip shade (38x54 GRADIENT_LINEAR) stops not read; rendered transparent -> bg-primary.
+   DRIFT: Desktop user avatar fill is utility-brand-50 + brand-100 ring r8 (rounded square), sidepane is bg-brand-solid
+   circle; both are the avatar atom, only the wrapper is styled here. */
+.copilot-message { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-xs); box-sizing: border-box; width: 100%; }
+.copilot-message--user { align-items: flex-end; padding: var(--spacing-3xl) 0 var(--spacing-5xl); }
+.copilot-message--user.copilot-message--sidepane { padding: var(--spacing-xl) 0; } /* sidepane 16/0/16/0 */
+.copilot-message--consecutive { gap: var(--spacing-4xl); }
+.copilot-message__content { display: flex; flex-direction: column; align-items: flex-end; gap: var(--spacing-lg); max-width: 100%; }
+.copilot-message--sidepane .copilot-message__content { gap: var(--spacing-sm); }
+.copilot-message__attachments { display: flex; flex-direction: column; align-items: flex-end; gap: var(--spacing-md); }
+.copilot-message--sidepane .copilot-message__attachments { gap: 10px; align-items: flex-start; } /* DRIFT: gap 10 literal */
+.copilot-message__images, .copilot-message__files { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--spacing-md); }
+.copilot-message__thumb { width: 88px; height: 88px; border-radius: var(--radius-4xl); overflow: hidden; background: var(--colors-background-bg-secondary); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); } /* DRIFT: Figma literal sizes */
+.copilot-message__thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.copilot-message--sidepane .copilot-message__thumb { width: 72px; height: 72px; border-radius: var(--radius-md); } /* DRIFT: Figma literal sizes */
+.copilot-message__bubble { display: flex; align-items: flex-start; gap: var(--spacing-lg); box-sizing: border-box; padding: var(--spacing-md) var(--spacing-xl); background: var(--colors-background-bg-tertiary); border-radius: var(--radius-4xl); color: var(--colors-text-text-primary-900); }
+.copilot-message__bubble:hover, .copilot-message[data-force="hover"] .copilot-message__bubble { background: var(--colors-background-bg-tertiary-hover); }
+.copilot-message__text { flex: 1 1 auto; min-width: 0; margin: 0; font-family: var(--text-md-regular-font-family); font-weight: var(--text-md-regular-font-weight); font-size: var(--text-md-regular-font-size); line-height: 26px; overflow-wrap: anywhere; } /* DRIFT: Text md/Regular para = 15/26, token line-height is 24 */
+.copilot-message--sidepane .copilot-message__bubble { flex-direction: column; align-items: stretch; gap: var(--spacing-xxs); padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-lg); background: var(--colors-background-bg-secondary); }
+.copilot-message--sidepane .copilot-message__text { font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: 22px; } /* DRIFT: Text sm/Regular para 13/22 */
+.copilot-message--sidepane .copilot-message__bubble:hover { background: var(--colors-background-bg-secondary-hover, var(--colors-background-bg-tertiary)); } /* DRIFT: sidepane hover not drawn (State2 = longer text) */
+.copilot-message__quote { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-xxs); flex: 1 1 auto; min-width: 0; }
+.copilot-message__tag { display: inline-flex; align-items: center; gap: var(--spacing-xxs); box-sizing: border-box; height: 16px; padding: var(--spacing-xxs) var(--spacing-xs); border-radius: var(--radius-xs); background: var(--colors-utility-gray-utility-gray-200); box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-300); font-family: var(--text-xxs-regular-font-family); font-size: var(--text-xxs-regular-font-size); line-height: var(--text-xxs-regular-line-height); color: var(--colors-text-text-secondary-700); white-space: nowrap; } /* DRIFT: Figma literal sizes */
+.copilot-message__tag svg { width: 10px; height: 10px; flex: none; } /* DRIFT: Figma literal sizes */
+.copilot-message__mention, .copilot-message__skill { color: var(--colors-utility-steel-blue-utility-steel-blue-400); }
+.copilot-message__avatar { flex: none; width: 32px; height: 32px; } /* DRIFT: Figma literal sizes */
+.copilot-message__meta { display: flex; align-items: center; gap: var(--spacing-xs); height: 24px; } /* DRIFT: Figma literal sizes */
+.copilot-message__actions { display: none; }
+.copilot-message:hover > .copilot-message__meta .copilot-message__actions, .copilot-message[data-force="hover"] > .copilot-message__meta .copilot-message__actions { display: inline-flex; }
+.copilot-message__time { display: inline-flex; align-items: center; gap: var(--spacing-xs); font-family: var(--text-xxs-regular-font-family); font-size: var(--text-xxs-regular-font-size); line-height: var(--text-xxs-regular-line-height); color: var(--colors-text-text-tertiary-600); }
+.copilot-message--sidepane .copilot-message__time { color: var(--colors-text-text-quaternary-500); }
+.copilot-message__time svg { width: 12px; height: 12px; } /* DRIFT: Figma literal sizes */
+/* AI message (assistant) — Response_Desktop full / Assistant: gap 24 between thoughts, answer, suggestions */
+.copilot-message--ai { gap: var(--spacing-3xl); max-width: 760px; } /* DRIFT: Figma literal sizes */
+.copilot-message--ai.copilot-message--sidepane { gap: var(--spacing-2xl); max-width: 358px; } /* DRIFT: Figma literal sizes */
+.copilot-message__answer { display: flex; flex-direction: column; gap: var(--spacing-md); width: 100%; font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); line-height: 26px; color: var(--colors-text-text-primary-900); } /* DRIFT: Figma literal sizes */
+.copilot-message--sidepane .copilot-message__answer { gap: var(--spacing-xs); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: 22px; } /* DRIFT: Figma literal sizes */
+.copilot-message--ai .copilot-message__attachments { align-items: flex-start; width: 100%; }
+.copilot-message--ai .copilot-message__images, .copilot-message--ai .copilot-message__files { justify-content: flex-start; }
+.copilot-message--ai.copilot-message--sidepane .copilot-message__thumb { width: 88px; height: 88px; border-radius: var(--radius-md); } /* DRIFT: Figma literal sizes */
+/* Response attachments strip — Attachments Desktop 70615:103005: 620x58 row, gap 12, pad-top 6, fades out on the right */
+.copilot-message__strip { position: relative; display: flex; align-items: center; gap: var(--spacing-lg); box-sizing: border-box; max-width: 620px; padding: 6px 0 0; overflow: hidden; } /* DRIFT: pad 6 literal */
+.copilot-message__strip::after { content: ""; position: absolute; top: 0; right: 0; width: 38px; height: 100%; background: linear-gradient(to right, transparent, var(--colors-background-bg-primary)); pointer-events: none; } /* DRIFT: Figma literal sizes */
+.copilot-message__strip-item { flex: none; position: relative; width: 48px; height: 48px; border-radius: var(--radius-4xl); overflow: hidden; box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); } /* DRIFT: Figma literal sizes */
+.copilot-message__strip-item img { width: 100%; height: 100%; object-fit: cover; }
+.copilot-message__strip > .copilot-attachment { flex: none; }
+/* Inline skills — "in line Skills" 70621:107903: 184x26, "/" + name, steel-blue-400, 15/26 */
+.copilot-message__skills { display: inline-flex; flex-direction: column; gap: var(--spacing-xxs); }
+.copilot-message__skill { display: inline-flex; align-items: center; font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); line-height: 26px; white-space: nowrap; } /* DRIFT: Figma literal sizes */

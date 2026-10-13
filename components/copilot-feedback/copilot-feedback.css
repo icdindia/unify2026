@@ -13,3 +13,41 @@
 .copilot-feedback__cost { display: inline-flex; align-items: center; height: 24px; padding: 0 var(--spacing-sm) 0 var(--spacing-sm); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); color: var(--colors-text-text-tertiary-600); } /* DRIFT: Figma literal sizes */
 .copilot-feedback__sources { display: inline-flex; align-items: center; gap: var(--spacing-md); height: 24px; padding: 0 var(--spacing-sm); border: 0; border-radius: var(--radius-sm); background: transparent; font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); color: var(--colors-text-text-tertiary-600); cursor: pointer; } /* DRIFT: Figma literal sizes */
 .copilot-feedback__sources:hover { background: var(--colors-background-bg-primary-hover); }
+
+/* ---- Audit 2026-10-13 vs Feedback Array 70298:22853 (Full screen 760x24 / Sidepane / Mobile 760x28),
+   CopilotBase_Feeback Actions 70298:22362 (Desktop Agent 164 / Desktop User 52 / Mobile AI 156 / Mobile User 60),
+   _Cost 70764:11533 (Type Low/High/Over x State Default/Hover). Additive only; nothing above was changed.
+   Missing before: space-between layout, sidepane/mobile types, user row, cost types + loader, source avatar stack.
+   Figma button order: Full screen = [cost, forward, ?, copy, voice, read aloud, regenerate, ?] + All Sources (108);
+   Sidepane/Agent = thumbs-up, thumbs-down, dots, voice-mode(r6), branch, refresh-ccw-05. Icons 12, button 24 r4 (r6 on
+   the voice/branch/refresh buttons in Agent type).
+   DRIFT: __btn radius in Agent type is 6 on every button, 4 in Array Full screen; --round kept for Full-screen voice.
+   DRIFT: Full-screen buttons 3 and 8 are unnamed instances (not identifiable); not guessed.
+   DRIFT: cost dot (4x4 success-500, bg-white ring) position not sampled; "Loading..." text (Geist Medium 9.75/15) is the
+   loading state of the cost chip. Ring arc: low = border-brand-solid, high = border-warning-solid, over = border-error-solid. */
+.copilot-feedback--spread { justify-content: space-between; width: 100%; gap: 30px; } /* DRIFT: Figma literal sizes */
+.copilot-feedback--sidepane .copilot-feedback__sources { padding-right: var(--spacing-xxs); }
+.copilot-feedback--mobile { height: 28px; } /* DRIFT: Figma literal sizes */
+.copilot-feedback--mobile .copilot-feedback__btn { width: 20px; height: 20px; border-radius: var(--radius-sm); } /* DRIFT: Figma literal sizes */
+.copilot-feedback--mobile .copilot-feedback__btn svg { width: 16px; height: 16px; } /* DRIFT: Figma literal sizes */
+.copilot-feedback--user .copilot-feedback__group { gap: var(--spacing-xs); }
+.copilot-feedback--user .copilot-feedback__btn { border-radius: var(--radius-sm); }
+.copilot-feedback--agent .copilot-feedback__group { gap: var(--spacing-xs); }
+.copilot-feedback--agent .copilot-feedback__btn { border-radius: var(--radius-sm); }
+.copilot-feedback__cost { position: relative; gap: var(--spacing-sm); padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) 0; border-radius: var(--radius-xs); cursor: pointer; line-height: var(--text-xs-regular-line-height); }
+.copilot-feedback__cost:hover, .copilot-feedback__cost[data-force="hover"] { background: var(--colors-background-bg-tertiary-hover); }
+.copilot-feedback__cost-ring { display: none; flex: none; width: 14px; height: 14px; border-radius: var(--radius-full); box-shadow: inset 0 0 0 1.4px var(--colors-border-border-primary); position: relative; } /* DRIFT: Figma literal sizes */
+.copilot-feedback__cost-ring::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1.4px solid transparent; border-top-color: var(--colors-border-border-brand-solid); animation: copilot-cost-spin 1s linear infinite; } /* DRIFT: Figma literal sizes */
+.copilot-feedback__cost--high .copilot-feedback__cost-ring::after { border-top-color: var(--colors-border-border-warning-solid); }
+.copilot-feedback__cost--over .copilot-feedback__cost-ring::after { border-top-color: var(--colors-border-border-error-solid); }
+.copilot-feedback__cost--loading .copilot-feedback__cost-ring { display: inline-flex; }
+.copilot-feedback__cost--loading .copilot-feedback__cost-value { display: none; }
+.copilot-feedback__cost-loading { display: none; font-weight: 500; font-size: 9.75px; line-height: 15px; color: var(--colors-text-text-secondary-700); } /* DRIFT: 9.75px literal */
+.copilot-feedback__cost--loading .copilot-feedback__cost-loading { display: inline; }
+.copilot-feedback__cost-dot { flex: none; width: 4px; height: 4px; border-radius: var(--radius-full); background: var(--colors-utility-success-utility-success-500); box-shadow: 0 0 0 1.5px var(--colors-background-bg-white, #fff); } /* DRIFT: ring colour/weight inferred */
+.copilot-feedback__cost--loading .copilot-feedback__cost-dot { display: none; }
+@keyframes copilot-cost-spin { to { transform: rotate(360deg); } }
+.copilot-feedback__avatars { display: inline-flex; align-items: center; height: 16px; } /* DRIFT: Figma literal sizes */
+.copilot-feedback__avatars > * + * { margin-left: -6px; } /* DRIFT: Figma literal sizes */
+.copilot-feedback__avatars > * { width: 16px; height: 16px; border-radius: var(--radius-full); box-shadow: 0 0 0 1px var(--colors-background-bg-primary); overflow: hidden; background: var(--colors-background-bg-primary); } /* DRIFT: stack ring inferred */
+@media (prefers-reduced-motion: reduce) { .copilot-feedback__cost-ring::after { animation: none; } }

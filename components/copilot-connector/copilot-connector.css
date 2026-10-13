@@ -1,0 +1,29 @@
+/* copilot-connector — Connector buttons 70298:22421 (Default / Hover / Selected, 400x52 / 400x52 / 400x48)
+   and All Sources 70298:22892 (Default / Hover, 108x20 stacked-avatar chip "8 Sources").
+   Row: px16 py8, label + logo left (g12, 13/20 text-primary-900), optional "LLM" tag (pill squared 56x24, r4,
+   gray-50 fill, 1px gray-100 ring, 12/16 gray-700; hidden in all sampled states). Default: bottom hairline
+   border-tertiary. Hover: bg-primary-hover and a trailing "Use" button 52x24 (neutral secondary, r6, 12/16).
+   Selected: bg white, 1px ring border-tertiary, r8, trailing check 16 on success-secondary round.
+   All Sources: 3 avatars 16 overlapped by -6, ring border-tertiary .75, label 12/16 text-quaternary-500;
+   hover bg-tertiary-hover. DRIFT: stroke on Default is mixed per side (bottom only assumed); Hover/Default "Use"
+   button states beyond Default not sampled; "clock" and "expand-03" hidden variants of that button not built. */
+.copilot-connector { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-lg); box-sizing: border-box; width: 100%; min-height: 52px; padding: var(--spacing-md) var(--spacing-xl); border: 0; background: transparent; box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary); font: inherit; text-align: left; cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-connector__id { display: flex; align-items: center; gap: var(--spacing-lg); min-width: 0; font-size: 13px; line-height: 20px; color: var(--colors-text-text-primary-900); }   /* DRIFT: 13/20 = Text sm para, literal here */
+.copilot-connector__logo { display: inline-flex; flex: none; width: 20px; height: 20px; }
+.copilot-connector__logo svg, .copilot-connector__logo img { width: 100%; height: 100%; }
+.copilot-connector__tag { display: none; padding: var(--spacing-xxs) var(--spacing-sm); border-radius: var(--radius-xs); background: var(--colors-utility-gray-utility-gray-50); box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-200); font-size: var(--text-xs-regular-font-size); line-height: 16px; color: var(--colors-utility-gray-utility-gray-700); }   /* DRIFT: ring is gray-100 in Figma, gray-200 used */
+.copilot-connector--llm .copilot-connector__tag { display: inline-flex; }
+.copilot-connector__use { display: none; align-items: center; height: 24px; padding: var(--spacing-xs) var(--spacing-md); border: 0; border-radius: var(--radius-sm); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border); font: inherit; font-size: var(--text-xs-regular-font-size); line-height: 16px; color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg); cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-connector__check { display: none; flex: none; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: var(--radius-full); background: var(--colors-background-bg-success-secondary); color: var(--colors-utility-success-utility-success-600); } /* DRIFT: Figma literal sizes */
+.copilot-connector__check svg { width: 8px; height: 8px; }
+.copilot-connector:hover, .copilot-connector[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.copilot-connector:hover .copilot-connector__use, .copilot-connector[data-force="hover"] .copilot-connector__use { display: inline-flex; }
+.copilot-connector[aria-pressed="true"], .copilot-connector--selected { min-height: 48px; padding-right: var(--spacing-lg); border-radius: var(--radius-md); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); } /* DRIFT: Figma literal sizes */
+.copilot-connector[aria-pressed="true"] .copilot-connector__check, .copilot-connector--selected .copilot-connector__check { display: inline-flex; }
+.copilot-connector[aria-pressed="true"] .copilot-connector__use, .copilot-connector--selected .copilot-connector__use { display: none; }
+.copilot-all-sources { display: inline-flex; align-items: center; box-sizing: border-box; height: 20px; padding: var(--spacing-xxs) 0 var(--spacing-xxs) var(--spacing-xs); border: 0; border-radius: var(--radius-full); background: transparent; font: inherit; cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-all-sources:hover, .copilot-all-sources[data-force="hover"] { background: var(--colors-background-bg-tertiary-hover); }
+.copilot-all-sources__stack { display: flex; }
+.copilot-all-sources__stack > * { width: 16px; height: 16px; box-sizing: border-box; margin-left: -6px; border-radius: var(--radius-full); box-shadow: inset 0 0 0 .75px var(--colors-border-border-tertiary); overflow: hidden; background: var(--colors-background-bg-primary); }   /* DRIFT: .75px ring literal */
+.copilot-all-sources__stack > *:first-child { margin-left: 0; }
+.copilot-all-sources__label { padding: 3px var(--spacing-sm) var(--spacing-xxs); font-size: var(--text-xs-regular-font-size); line-height: 16px; color: var(--colors-text-text-quaternary-500); } /* DRIFT: Figma literal sizes */

@@ -18,6 +18,15 @@
    container (pt 2, Text md/Regular para 15/26); action bar justify-between:
    round `plus` on the left, then gap-4 Model (openai) · Mic · send (Button
    Neutral PRIMARY on radius-full). `.copilot-input--expanded`.
+
+   AUDIT 2026-10 — Copilot desktop Input Box 70588:39488 (44 variants: Type Landing Page 640 /
+   Bottom small 760x48 / Bottom large 760 x 90..444; State Default / Limit exceed / Generating;
+   Tools & Sources; Text Placeholder / One / Two / Max line; Attachment) and Copilot sidepane_Input Box
+   70298:23208 (14: Bottom small 404x44 / Bottom large 404x76..144; State Default / Typing / generating;
+   Tools & Sources; Attachment). Added, additively: --landing, --large, --sidepane, --generating,
+   --limit, __attachments, __limit, __tools, __tool, __skills, [disabled]. Existing classes untouched.
+   DRIFT: Figma has no Listening/voice-recording or Disabled variant; --listening and [disabled] below
+   are estimates. Max-line height 312 text = 12 lines x 26; the field scrolls beyond that.
 ---------------------------------------------------------------------------- */
 
 .copilot-input {
@@ -198,3 +207,47 @@
   justify-content: space-between;
   width: 100%;
 }
+
+/* ---- audit additions ---- */
+/* Large (761x90..444) and Landing (640x116..448): column, p10, g12, r24, ring inside — same geometry as --expanded */
+.copilot-input--large, .copilot-input--landing { gap: var(--spacing-lg); padding: 10px; border-radius: 24px; align-items: stretch; }   /* DRIFT: 10 / 24 off-scale, as --expanded */
+.copilot-input--landing { max-width: 640px; }
+.copilot-input--large { max-width: 760px; }
+.copilot-input--large .copilot-input__bar, .copilot-input--landing .copilot-input__bar { flex-direction: column; align-items: stretch; gap: var(--spacing-lg); }
+.copilot-input--large .copilot-input__message, .copilot-input--landing .copilot-input__message { display: flex; align-items: flex-start; gap: var(--spacing-xs); width: 100%; padding: 0 var(--spacing-md); overflow: hidden; }
+.copilot-input--large .copilot-input__message textarea, .copilot-input--landing .copilot-input__message textarea { flex: 1 0 0; min-width: 0; width: 100%; box-sizing: border-box; margin: 0; padding: var(--spacing-xxs) 0 0; border: 0; outline: 0; resize: none; background: transparent; font-family: var(--text-md-regular-para-font-family); font-size: var(--text-md-regular-para-font-size); line-height: var(--text-md-regular-para-line-height); color: var(--colors-text-text-primary-900); max-height: 312px; } /* DRIFT: Figma literal sizes */
+.copilot-input--large .copilot-input__action-bar, .copilot-input--landing .copilot-input__action-bar { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+/* Text axis: Placeholder 26 / One line 26 / Two line 52 / Max line 312 */
+.copilot-input[data-lines="1"] .copilot-input__message textarea { min-height: 26px; }
+.copilot-input[data-lines="2"] .copilot-input__message textarea { min-height: 52px; }
+.copilot-input[data-lines="max"] .copilot-input__message textarea { min-height: 312px; }
+/* Attachment axis: strip 58 high above the row, fade shade 38 wide on the right */
+.copilot-input__attachments { position: relative; display: flex; gap: var(--spacing-lg); width: 100%; box-sizing: border-box; padding: var(--spacing-sm) 0 0 var(--spacing-xs); overflow: hidden; }
+.copilot-input__attachments::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 38px; pointer-events: none; background: linear-gradient(to right, transparent, var(--colors-background-bg-primary)); }
+/* Tools & Sources = Yes: settings button (36) + tools pills before the field */
+.copilot-input__tools { display: flex; align-items: center; flex: none; }
+.copilot-input__tool { display: inline-flex; align-items: center; justify-content: center; gap: var(--spacing-xs); flex: none; box-sizing: border-box; height: 36px; padding: var(--spacing-md); border: 0; border-radius: var(--radius-full); background: var(--colors-background-bg-primary); color: #444ce7; font: inherit; font-size: var(--text-xs-regular-font-size); line-height: 20px; cursor: pointer; }   /* _Tools Close 101x36 pill */ /* DRIFT: Figma literal sizes; #444ce7 is Indigo-600 from an external library variable, no token in this DS */
+.copilot-input__tool svg { width: 16px; height: 16px; }
+.copilot-input__tool:hover { background: var(--palette-alpha-colors-black-alpha-black-05); } /* DRIFT: Figma literal sizes */
+.copilot-input__skills { display: inline-flex; align-items: center; flex: none; height: 26px; }
+/* State=Limit exceed: pill 50x24, error-25 fill, error-600 text (negative count) */
+.copilot-input__limit { display: inline-flex; align-items: center; box-sizing: border-box; height: 24px; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm); background: var(--colors-utility-error-utility-error-25); color: var(--colors-utility-error-utility-error-600); font-size: var(--text-xs-regular-font-size); line-height: 16px; font-weight: 500; } /* DRIFT: Figma literal sizes */
+.copilot-input--limit:focus-within, .copilot-input--limit { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 4px 8px rgba(215, 211, 208, 0.25); }   /* DRIFT: Limit exceed keeps the ring neutral in Figma; only the pill turns red */
+.copilot-input--limit .copilot-input__action--send, .copilot-input--limit .copilot-input__action--send:hover { opacity: .4; pointer-events: none; }   /* DRIFT: send looks disabled under limit; Figma shows arrow-up, opacity estimated */
+/* State=Generating: send becomes a stop-filled-2 glyph on the same neutral-primary round button */
+.copilot-input--generating .copilot-input__action--send { cursor: progress; }
+.copilot-input--generating .copilot-input__field textarea, .copilot-input--generating .copilot-input__message textarea { color: var(--colors-text-text-placeholder); }   /* DRIFT: text dim in generating is an estimate */
+/* Sidepane 404 wide: bottom small 404x44 (p8, r full), bottom large 404x76 (p0/8, g6, r16); actions 28 square */
+.copilot-input--sidepane { padding: var(--spacing-md); gap: var(--spacing-lg); max-width: 404px; } /* DRIFT: Figma literal sizes */
+.copilot-input--sidepane .copilot-input__bar { min-height: 28px; }
+.copilot-input--sidepane .copilot-input__field { padding-inline: var(--spacing-md) var(--spacing-xl); }
+.copilot-input--sidepane .copilot-input__field textarea, .copilot-input--sidepane .copilot-input__field input { font-size: 13px; line-height: 20px; }   /* DRIFT: sidepane placeholder is 13/20 (Text sm para), not 15/26 */
+.copilot-input--sidepane .copilot-input__action, .copilot-input--sidepane .copilot-input__btn { padding: 6px; }   /* DRIFT: 28 square = p6 + 16 */
+.copilot-input--sidepane.copilot-input--large { padding: var(--spacing-md) 0; gap: var(--spacing-sm); border-radius: var(--radius-xl); border-radius: 16px; }   /* DRIFT: r16 off-scale */
+.copilot-input--sidepane.copilot-input--large .copilot-input__action-bar { padding: 0 var(--spacing-md); }
+.copilot-input--sidepane.copilot-input--large .copilot-input__message { padding: 0 20px 0 16px; } /* DRIFT: Figma literal sizes */
+/* Voice: Figma ships the Voice (voice-mode) action in the trio but no listening state — DRIFT estimate */
+.copilot-input__action--voice[aria-pressed="true"], .copilot-input--listening .copilot-input__action--voice { background: var(--colors-utility-error-utility-error-25); color: var(--colors-utility-error-utility-error-600); }
+/* Disabled — DRIFT: no Disabled variant in Figma */
+.copilot-input[disabled], .copilot-input[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+.copilot-input__btn:disabled, .copilot-input__action:disabled, .copilot-input__tool:disabled { opacity: .4; cursor: not-allowed; }

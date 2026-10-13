@@ -1,0 +1,28 @@
+/* copilot-header — Copilot_header 73102:12749 (5 breakpoints) + Copilot side pane header 70296:16454. Page: Copilot 70268:16200.
+   Bar: bg-primary, 1px border-tertiary under (inset bottom), content row gap 12; icon buttons are the `button` atom (btn--icon-sm).
+   Desktop full 1384x52 (pad 8/16, 32px buttons, left Actions gap 8, centred agent selector 230x36 ring border-tertiary r8 pad 6/8, right Actions gap 12)
+   Mobile Center 400x52 (pad 14/12/10/12, 24px buttons, title Text md 15 text-primary-900 centred)
+   Side Pane Left aligned 400x52 (pad 16/12/12/16, title "Copilot", 4 x 24 buttons gap 8)
+   Side pane Left aligned, no avatar 640x52 (pad 14/20/10/20, 5 buttons)  Desktop Popup Live chat 400x44 (pad 12/12/8/16, 4 buttons)
+   Side pane header 70296:16454 376x40: avatar 24 brand-500 + title, optional search input 220x28, toggle group 78x28 (ring border-secondary r6, selected base gray-600 r4), 3 x 28 icon buttons gap 2.
+   DRIFT: icon glyph names inside the Small Icon Buttons were not read; consumers supply them. Title 15px = text-md. */
+.copilot-header { display: flex; align-items: center; gap: var(--spacing-lg); box-sizing: border-box; width: 100%; min-height: 52px; padding: var(--spacing-md) var(--spacing-xl); background: var(--colors-background-bg-primary); box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary); } /* DRIFT: Figma literal sizes */
+.copilot-header__actions { display: flex; align-items: center; gap: var(--spacing-md); flex: none; }
+.copilot-header__actions--right { gap: var(--spacing-lg); margin-left: auto; }
+.copilot-header__title { display: inline-flex; align-items: center; gap: var(--spacing-xs); min-width: 0; font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); line-height: var(--text-md-regular-line-height); color: var(--colors-text-text-primary-900); }
+.copilot-header__avatar { flex: none; width: 24px; height: 24px; border-radius: var(--radius-full); background: var(--colors-utility-brand-utility-brand-500); } /* DRIFT: Figma literal sizes */
+.copilot-header__selector { display: inline-flex; align-items: center; gap: var(--spacing-xs); box-sizing: border-box; height: 36px; padding: 6px var(--spacing-md); border: 0; border-radius: var(--radius-md); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); color: var(--colors-text-text-primary-900); font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); cursor: pointer; } /* DRIFT: pad 6 literal */
+.copilot-header__selector:hover, .copilot-header__selector[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.copilot-header__center { flex: 1 0 0; display: flex; justify-content: center; min-width: 0; }
+/* breakpoints */
+.copilot-header--mobile { min-height: 52px; padding: 14px var(--spacing-lg) 10px; } /* DRIFT: 14/10 literal */
+.copilot-header--mobile .copilot-header__title { flex: 1; justify-content: center; }
+.copilot-header--sidepane { padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg) var(--spacing-xl); }
+.copilot-header--sidepane .copilot-header__actions { gap: var(--spacing-md); margin-left: auto; }
+.copilot-header--sidepane-wide { padding: 14px 20px 10px; } /* DRIFT: Figma literal sizes */
+.copilot-header--popup { min-height: 44px; padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md) var(--spacing-xl); } /* DRIFT: Figma literal sizes */
+/* side pane header 70296:16454 */
+.copilot-header--compact { min-height: 40px; padding: 0 var(--spacing-md); gap: var(--spacing-lg); box-shadow: none; } /* DRIFT: Figma literal sizes */
+.copilot-header__toggle { display: inline-flex; gap: var(--spacing-xs); padding: var(--spacing-xxs); border-radius: var(--radius-sm); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); } /* DRIFT: Figma literal sizes */
+.copilot-header__toggle > button { width: 36px; height: 24px; border: 0; border-radius: var(--radius-xs); background: transparent; color: var(--colors-icon-icon-tertiary); cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-header__toggle > button[aria-pressed="true"] { background: var(--colors-utility-gray-utility-gray-600); color: var(--colors-text-text-white); }
