@@ -28,7 +28,9 @@ says what exists and what is missing.
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="unify-ds.css">   <!-- tokens + all atoms in one file -->
+  <link rel="stylesheet" href="unify-core.css">     <!-- tokens, type, effects -->
+  <link rel="stylesheet" href="unify-atoms-1.css">  <!-- atoms (more parts if the system grows: unify-atoms-2.css ...) -->
+  <link rel="stylesheet" href="unify-atoms-2.css">
   <link rel="stylesheet" href="screen.css">     <!-- layout glue only -->
 </head>
 <body> … </body></html>
@@ -39,14 +41,22 @@ empty state, snackbar and modal) and copy the pieces you need.
 
 ## In a new Claude artifact
 
-The bundle is a single file: `dist/unify-ds.css` (build it with `python3 tools/build-ds-bundle.py`; also kept in
-the Design System artifact as `project/unify-ds.css`, https://claude.ai/artifact/1wKgS8AZiSj1PLAjgA1reA).
-Publish the new artifact with that file copied in server-side, no download needed:
+`python3 tools/build-ds-bundle.py` writes `dist/unify-ds.css` (everything, for local pages) and `dist/parts/`
+(`unify-core.css` + `unify-atoms-N.css`, each under ~400 KB so they fit the Design System artifact).
+The parts live in the Design System artifact as `project/css/` (https://claude.ai/artifact/1wKgS8AZiSj1PLAjgA1reA).
+Publish the new artifact with them copied in server-side, no download needed:
 
-`files: { "unify-ds.css": { "artifact": "<design system url>", "path": "project/unify-ds.css" } }`
+```
+files: {
+  "unify-core.css":    { "artifact": "<design system url>", "path": "project/css/unify-core.css" },
+  "unify-atoms-1.css": { "artifact": "<design system url>", "path": "project/css/unify-atoms-1.css" },
+  "unify-atoms-2.css": { "artifact": "<design system url>", "path": "project/css/unify-atoms-2.css" }
+}
+```
 
-and link `unify-ds.css` from the page. Icons: inline the SVGs from `shared/svg-icons/` (they use `currentColor`).
-Fonts load from Google Fonts only.
+and link them in that order. Icons: `python3 tools/icon.py <name>` prints an inline SVG (2,708 icons, plus logos,
+flags, emoji and cursors); in an artifact, copy the needed chunk from `project/icons/` (see `ICONS.md`) and inline
+the SVG. Fonts load from Google Fonts only.
 
 ## Keeping things in sync
 
