@@ -65,3 +65,22 @@ Layout grids: desktop = 12 columns, gutter 32, margin 112, container 1216; table
 - Scrim colour of the modal, alert/snackbar warning and success surfaces, and a few offsets were assumed where Figma could not be read.
 - `text-quaternary-500` is `#716d69` in light mode (accessibility decision; Figma was changed to match).
 - Disabled labels in some Figma tab frames paint `#716d69` while bound to `text-disabled` (`#8f8a85`).
+
+## Pass 2 (2026-10-13)
+
+| Area | Result |
+|---|---|
+| Icons page 3463:407484 | built: 2,708 icons in `shared/icons/{lined,solid,lowcode,white}`; `tools/icon.py` |
+| Logos 1083:118533, Client Logos component set 8058:40531 | built: 492 files in `shared/logos` (4 oversized client logos exist in the repo but not in the artifact chunks); 40 embed raster images |
+| Misc icons 1025:31781 | built: `shared/icons/misc` (social, 434 flags, payment methods, file types, integrations); Featured icon, Agent avatar, Artifact icons etc. are treated as UI and not exported |
+| Emoji's, Cursor | emoji 27 (raster-embedding, repo only), cursor 10 |
+| Design annotations 1054:557 | documented in `shared/DESIGN-ANNOTATIONS.md` (Numeric key components + header/footer bands) |
+| Effect styles | cross-checked: all 33 styles match `shared/effects.css` (mockup shadows excluded) |
+| Headers 190:4871 | built: form-header Levels 1-3/3 Alt, Back, Tabs, sidepane and Automation sidepane header; `section-label` (Levels 0-4). Style=Toggle not built (use `button-group`) |
+| Navigation 82:1862 | built: `sidebar` (280/56/68, submenu), `header-nav`, `bottom-nav`; Back glyph and icon-only item box assumed |
+| Preview Modal 71561:14622 | built: `preview-modal` |
+| Copilot 70268:16200 | partial: `copilot-pill`, `copilot-suggestions`, `copilot-attachment`, `copilot-feedback`; ~60 component sets exist, existing copilot atoms not yet audited; Comment panel, Live Chat, Deep Research, message variants, shimmer, header set skipped |
+| Modals 172:4293 | full screen + double pane built; popover header skipped |
+| Inputs, Dropdowns, Date pickers, Tables, Checkboxes, Sliders, Selection pill, Progress, Stepper, Empty states, Tag, File upload | gaps closed (see each README "Gaps2"); Tabs Rounded Folder xs / Folder Destructive / Folder Badge, Tooltip code+link rows, small progress circles + trendline, spinner dots, empty-state Status, file-upload icons and error/complete, arrow stepper + Activity, tag flag + icon-leading, code-snippet syntax colours composed without sampling the exact node (DRIFT) |
+
+Still not started: Charts 65348:31489 (WIP in Figma), Thumbnail 44289:6384 (cover images, not UI), Change Log 65402:28116, Copilot page remainder.

@@ -1,0 +1,98 @@
+/* ----------------------------------------------------------------------------
+   sidebar — DS "LC_Sidebar Navigation" (Navigation page 82:1862)
+   Framed 34831:31478 · Stroke 40631:23299 · Icon Only 34836:68967
+   Items: "Base_LC_Sidebar Nav Unit_Framed" 34828:13688, sub rows "Nav Sub Unit".
+
+   Expanded (Open=Yes)  280x960, surface bg-brand-secondary
+     Header 48 (pad 16/12/0, logo 32) · Navigation pad 12/8, gap 12 · Footer 60 pad 12
+     item 40 tall, pad 0/8, gap 8, radius 8, 24px icon, label 13/20 SemiBold, 16px chevron
+     sub row 36 tall, pad 0/8/0/40, label 13/20 Medium text-tertiary-600; list gap 2
+   Collapsed (Open=No)  56x960; item 40x40 (icon only)
+   Icon Only 68x960 (Desktop Vertical): surface navbar-bg, Navigation pad 20/6/12/6, gap 20.
+   Item states: default (transparent, secondary text) · hover bg-primary-hover ·
+   focus bg-primary + icon-primary · selected bg-quaternary (hover bg-quaternary-hover) ·
+   selected Soft=On bg-brand-secondary + primary text + icon-brand-600.
+   Floating=Yes: radius 10, 1px navbar-border (inset ring), inset margin by consumer.
+   Style=Stroke: transparent surface with 1px navbar-border right edge.
+   DRIFT: Icon-Only item box inside the 56px column not read; 40x40 assumed. Framed-lg
+   (larger radius) variants not separately coded.
+---------------------------------------------------------------------------- */
+.sidebar {
+  display: flex; flex-direction: column;
+  flex: none; box-sizing: border-box;
+  width: 280px; height: 100%; min-height: 0;
+  background: var(--colors-background-bg-brand-secondary);
+}
+.sidebar__header { flex: none; display: flex; align-items: center; box-sizing: border-box; height: var(--spacing-6xl); padding: var(--spacing-xl) var(--spacing-lg) 0; gap: var(--spacing-lg); }
+.sidebar__logo { flex: none; width: 32px; height: 32px; display: block; border-radius: var(--radius-full); } /* DRIFT: Figma-measured value, no token */
+.sidebar__nav { flex: 1 0 0; display: flex; flex-direction: column; justify-content: space-between; gap: var(--spacing-lg); box-sizing: border-box; padding: var(--spacing-lg) var(--spacing-md); min-height: 0; overflow: auto; }
+.sidebar__group { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.sidebar__item { display: flex; flex-direction: column; gap: var(--spacing-xxs); }
+.sidebar__link {
+  display: flex; align-items: center; gap: var(--spacing-md);
+  box-sizing: border-box; width: 100%; height: var(--spacing-5xl); padding: 0 var(--spacing-md);
+  border: 0; border-radius: var(--radius-md); background: transparent;
+  font: inherit; text-align: left; cursor: pointer; text-decoration: none;
+  font-family: var(--text-sm-semibold-font-family);
+  font-weight: 600; font-size: 13px; line-height: 20px; /* DRIFT: Figma-measured value, no token */
+  color: var(--colors-text-text-secondary-700);
+}
+.sidebar__icon { flex: none; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; color: var(--colors-icon-icon-secondary); }
+.sidebar__icon svg { display: block; width: 24px; height: 24px; }
+.sidebar__label { flex: 1 0 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar__chevron { flex: none; width: 16px; height: 16px; color: var(--colors-icon-icon-secondary); transition: transform .15s ease; }
+.sidebar__chevron svg { display: block; width: 16px; height: 16px; }
+.sidebar__link:hover, .sidebar__link[data-force="hover"] { background: var(--colors-background-bg-primary-hover); color: var(--colors-text-text-primary-900); }
+.sidebar__link:hover .sidebar__icon, .sidebar__link[data-force="hover"] .sidebar__icon,
+.sidebar__link:hover .sidebar__chevron, .sidebar__link[data-force="hover"] .sidebar__chevron { color: var(--colors-icon-icon-primary); }
+.sidebar__link:focus-visible, .sidebar__link[data-force="focus"] { outline: 0; background: var(--colors-background-bg-primary); }
+.sidebar__link:focus-visible .sidebar__icon, .sidebar__link[data-force="focus"] .sidebar__icon { color: var(--colors-icon-icon-primary); }
+.sidebar__link[aria-current="page"], .sidebar__link[aria-selected="true"] { background: var(--colors-background-bg-quaternary); }
+.sidebar__link[aria-current="page"]:hover, .sidebar__link[aria-current="page"][data-force="hover"] { background: var(--colors-background-bg-quaternary-hover); color: var(--colors-text-text-secondary-700); }
+.sidebar__link[aria-current="page"]:hover .sidebar__icon { color: var(--colors-icon-icon-secondary); }
+.sidebar--soft .sidebar__link[aria-current="page"] { background: var(--colors-background-bg-brand-secondary); color: var(--colors-text-text-primary-900); }
+.sidebar--soft .sidebar__link[aria-current="page"] .sidebar__icon,
+.sidebar--soft .sidebar__link[aria-current="page"] .sidebar__chevron { color: var(--colors-icon-icon-brand-600); }
+.sidebar__item[data-open="true"] > .sidebar__link .sidebar__chevron { transform: rotate(180deg); }
+.sidebar__sub { display: none; flex-direction: column; }
+.sidebar__item[data-open="true"] > .sidebar__sub { display: flex; }
+.sidebar__sublink {
+  display: flex; align-items: center; box-sizing: border-box; width: 100%; height: 36px;
+  padding: 0 var(--spacing-md) 0 var(--spacing-5xl); border: 0; border-radius: var(--radius-md); background: transparent; /* DRIFT: Figma-measured value, no token */
+  font-family: var(--text-sm-medium-font-family); font-weight: 500; font-size: 13px; line-height: 20px; /* DRIFT: Figma-measured value, no token */
+  color: var(--colors-text-text-tertiary-600); text-align: left; cursor: pointer; text-decoration: none;
+}
+.sidebar__sublink:hover, .sidebar__sublink[data-force="hover"] { background: var(--colors-background-bg-primary-hover); color: var(--colors-text-text-primary-900); }
+.sidebar__sublink[aria-current="page"] { background: var(--colors-background-bg-quaternary); color: var(--colors-text-text-secondary-700); }
+.sidebar__footer { flex: none; display: flex; align-items: center; gap: var(--spacing-md); box-sizing: border-box; height: 60px; padding: var(--spacing-lg); } /* DRIFT: Figma-measured value, no token */
+.sidebar__avatar {
+  flex: none; width: 32px; height: 32px; box-sizing: border-box; border-radius: var(--radius-full); /* DRIFT: Figma-measured value, no token */
+  display: flex; align-items: center; justify-content: center;
+  background: var(--colors-utility-brand-utility-brand-50);
+  box-shadow: inset 0 0 0 1px var(--colors-utility-brand-utility-brand-100);
+  font-weight: 600; font-size: 13px; line-height: 20px; color: var(--colors-utility-brand-utility-brand-500); /* DRIFT: Figma-measured value, no token */
+}
+.sidebar__who { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; }
+.sidebar__name { font-weight: 600; font-size: 13px; line-height: 20px; color: var(--colors-text-text-primary-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } /* DRIFT: Figma-measured value, no token */
+.sidebar__role { font-size: 12px; line-height: 16px; color: var(--colors-text-text-tertiary-600); } /* DRIFT: Figma-measured value, no token */
+
+/* Open=No — 56px, items collapse to 40x40 icon buttons */
+.sidebar--collapsed { width: 56px; }
+.sidebar--collapsed .sidebar__header, .sidebar--collapsed .sidebar__footer { justify-content: center; padding-inline: var(--spacing-lg); }
+.sidebar--collapsed .sidebar__link { width: var(--spacing-5xl); padding: 0 var(--spacing-md); }
+.sidebar--collapsed .sidebar__label, .sidebar--collapsed .sidebar__chevron, .sidebar--collapsed .sidebar__sub,
+.sidebar--collapsed .sidebar__who { display: none; }
+
+/* Icon Only — 68px, Desktop Vertical */
+.sidebar--icon-only { width: 68px; background: var(--component-nav-bar-navbar-bg); }
+.sidebar--icon-only .sidebar__header, .sidebar--icon-only .sidebar__footer { justify-content: center; padding-inline: var(--spacing-lg); }
+.sidebar--icon-only .sidebar__nav { padding: var(--spacing-2xl) var(--spacing-sm) var(--spacing-lg); gap: var(--spacing-2xl); align-items: center; }
+.sidebar--icon-only .sidebar__group { gap: var(--spacing-2xl); align-items: center; }
+.sidebar--icon-only .sidebar__link { width: var(--spacing-5xl); padding: 0 var(--spacing-md); }
+.sidebar--icon-only .sidebar__label, .sidebar--icon-only .sidebar__chevron, .sidebar--icon-only .sidebar__sub,
+.sidebar--icon-only .sidebar__who { display: none; }
+
+/* Style=Stroke — transparent surface, navbar-border edge; Floating — inset card */
+.sidebar--stroke { background: transparent; box-shadow: inset -1px 0 0 var(--component-nav-bar-navbar-border); }
+.sidebar--floating { border-radius: var(--radius-lg); box-shadow: inset 0 0 0 1px var(--component-nav-bar-navbar-border); } /* DRIFT: Figma-measured value, no token */
+.sidebar--stroke.sidebar--floating { box-shadow: inset 0 0 0 1px var(--component-nav-bar-navbar-border); }

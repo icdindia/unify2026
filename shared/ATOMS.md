@@ -67,6 +67,11 @@ Figma: 16740:306222, 16740:306466
 - `.avatar`  elements: `__company`, `__icon`, `__img`, `__online`  modifiers: `--brand`, `--fs-2xl`, `--fs-lg`, `--fs-md`, `--fs-sm`, `--fs-xl`, `--fs-xs`, `--fs-xxs`, `--fs-xxxs`, `--gray`, `--md`, `--sm`, `--white`
 - `.avatar-group`  elements: `__more`  modifiers: `--md`, `--sm`
 
+## bottom-nav  
+bottom-nav — DS "LC_Bottom Navigation" (Navigation page 82:1862, set 45450:14108)
+Figma: 45450:14108, 82:1862
+- `.bottom-nav`  elements: `__content`, `__indicator`, `__item`, `__items`  modifiers: `--floating`, `--stroke`, `--tablet`
+
 ## breadcrumb  
 breadcrumb — DS Breadcrumbs page (43:3087, qT9zH1YYapGTwpJxwNEGzt)
 Figma: 1122:153, 16740:306222
@@ -89,6 +94,7 @@ checkbox — DS Checkboxes page (1097:63638, qT9zH1YYapGTwpJxwNEGzt)
 Figma: 1097:63638, 1097:63652
 - `.checkbox`  elements: `__check`, `__control`, `__hint`, `__input`, `__label`, `__minus`, `__text`  modifiers: `--md`, `--xs`
 - `.checkbox-group`  elements: `__list`  modifiers: `--double`
+- `.tick`  modifiers: `--on`
 
 ## citation-card  
 citation-card — DS "Copilot_Inline Citation Card" ("Your answers")
@@ -99,12 +105,35 @@ Figma: 905:301453, 905:301558
 code-snippet — DS Code snippets page (1221:106300, qT9zH1YYapGTwpJxwNEGzt)
 Figma: 1221:106300, 1234:243
 - `.code-snippet`  elements: `__action`, `__body`, `__box`, `__code`, `__gutter`, `__header`, `__hint`, `__label`, `__title`
+- `.tk-c`
+- `.tk-k`
+- `.tk-s`
+
+## copilot-attachment  
+copilot-attachment — Attachments 70298:23605 (Type Image/File/Image Thumbnail/Video Thumbnail x Size sm/md x
+Figma: 70298:23605
+- `.copilot-attachment`  elements: `__icon`, `__name`, `__remove`, `__retry`  modifiers: `--error`, `--loading`, `--md`, `--removable`, `--thumb`
+
+## copilot-feedback  
+copilot-feedback — Feedback Array 70298:22853 (Type Full screen / Sidepane / Mobile), _Cost 70764:9...
+Figma: 70298:22853
+- `.copilot-feedback`  elements: `__btn`, `__cost`, `__group`, `__sources`  modifiers: `--round`
 
 ## copilot-input  
 copilot-input — DS "Copilot desktop Input Box" (the composer)
 Figma: 5563:230560, 5771:489155
 - `.copilot-input`  elements: `__action`, `__action-bar`, `__actions`, `__bar`, `__btn`, `__field`, `__left`, `__message`, `__pill`, `__wrap`  modifiers: `--expanded`, `--send`, `--source`
 - `.copilot-input-frame`
+
+## copilot-pill  
+copilot-pill — Copilot page 70268:16200. Source Pill 70298:25319 (State x Sources x Size md/sm/xs),
+Figma: 70268:16200, 70298:25208
+- `.copilot-pill`  elements: `__close`, `__icon`  modifiers: `--header`, `--limit`, `--sm`, `--xs`
+
+## copilot-suggestions  
+copilot-suggestions — Suggest Prompts design 70699:17442 (desktop 361 / sidepane 316), Lines States 70815:15100.
+Figma: 70699:17442, 70815:15100
+- `.copilot-suggestions`  elements: `__chip`, `__line`  modifiers: `--lines`, `--sidepane`
 
 ## cot  
 cot — DS "COT" (chain of thought) rows and "COT - Steps"
@@ -114,7 +143,8 @@ Figma: 905:301453, 905:301482
 ## date-picker  
 date-picker — DS Date pickers page (1143:85678)
 Figma: 1143:85678, 1150:442
-- `.calendar`  elements: `__cell`, `__divider`, `__grid`  modifiers: `--dual`, `--range`, `--range-end`, `--range-start`
+- `.calendar`  elements: `__cell`, `__divider`, `__grid`, `__head`, `__nav`, `__price`, `__range-bar`, `__time`, `__time-label`, `__times`, `__title`, `__weekday`, `__weekdays`  modifiers: `--dual`, `--priced`, `--range`, `--range-end`, `--range-start`
+- `.input`
 
 ## detail-row  
 detail-row — metadata row inside the right-rail details card
@@ -125,13 +155,13 @@ Figma: 16740:306222, 16740:306401
 ## dropdown  
 dropdown — DS Dropdowns page (18:0)
 Figma: 11237:36141, 11242:25806
-- `.dropdown-item`  elements: `__badge`, `__check`, `__end`, `__lead`, `__shortcut`, `__text`  modifiers: `--avatar`, `--divider`, `--sm`
-- `.dropdown-menu`  elements: `__header`, `__items`
+- `.dropdown-item`  elements: `__badge`, `__check`, `__dot`, `__end`, `__lead`, `__shortcut`, `__sub`, `__text`  modifiers: `--avatar`, `--divider`, `--select`, `--sm`, `--stack`
+- `.dropdown-menu`  elements: `__footer`, `__header`, `__items`, `__search`  modifiers: `--avatar`, `--scroll`, `--sm`, `--wide`
 
 ## empty-state  
 empty-state — DS Empty states page 1172:31
 Figma: 1172:31, 1182:1085
-- `.empty-state`  elements: `__actions`, `__art`, `__body`, `__content`, `__icon`, `__section`, `__supporting`, `__text`, `__title`  modifiers: `--center`, `--descriptive`, `--sm`
+- `.empty-state`  elements: `__actions`, `__art`, `__body`, `__content`, `__icon`, `__item`, `__item-title`, `__items`, `__section`, `__status-icon`, `__supporting`, `__text`, `__title`, `__top`  modifiers: `--center`, `--chat`, `--descriptive`, `--error`, `--sm`, `--status`, `--stepper`, `--success`
 - `.empty-state-cta`  elements: `__icon`, `__text`  modifiers: `--sm`
 
 ## es-breadcrumb  
@@ -142,8 +172,9 @@ Figma: 5865:366539, 6424:330601
 ## file-upload  
 file-upload — DS File upload page (1157:90306)
 Figma: 1157:90306, 1175:100312
-- `.file-drop`  elements: `__action`, `__hint`, `__icon`, `__link`, `__text`  modifiers: `--md`
-- `.file-item`  elements: `__body`, `__icon`, `__main`, `__meta`, `__name`, `__percent`, `__progress`, `__remove`, `__track`  modifiers: `--error`
+- `.file-drop`  elements: `__action`, `__hint`, `__icon`, `__link`, `__text`  modifiers: `--lg`, `--md`
+- `.file-item`  elements: `__body`, `__icon`, `__main`, `__meta`, `__name`, `__percent`, `__progress`, `__remove`, `__status`, `__track`, `__type`  modifiers: `--complete`, `--doc`, `--error`, `--pdf`, `--xls`
+- `.file-queue`
 - `.is-dragover`
 
 ## filter-bar  
@@ -157,7 +188,14 @@ Figma: 1140:145376, 1140:145380
 ## form-header  
 form-header — DS "Form Header" (setKey per ds/components.md: 59836:85546)
 Figma: 16740:306222, 16740:306238
-- `.form-header`  elements: `__action`, `__actions`, `__content`, `__featured`, `__icon-title`, `__subtitle`, `__text`, `__title`, `__title-row`  modifiers: `--level-1`, `--strong`
+- `.form-header`  elements: `__action`, `__actions`, `__back`, `__content`, `__featured`, `__icon-btn`, `__icon-title`, `__meta`, `__subtitle`, `__tabs`, `__text`, `__title`, `__title-row`  modifiers: `--bar`, `--l1`, `--l2`, `--l3`, `--l3-alt`, `--level-1`, `--strong`, `--tabs`
+- `.sidepane-header`  elements: `__actions`, `__bar`, `__btn`, `__collapse`, `__content`, `__error`, `__featured`, `__heading`, `__lead`, `__meta`, `__subtitle`, `__tabs`, `__text`, `__title` …  modifiers: `--automation`, `--l1`, `--l3`, `--tabs`
+- `.tabs`
+
+## header-nav  
+header-nav — DS "LC_Header Navigation" (Navigation page 82:1862, set 39937:19674)
+Figma: 39912:20117, 39935:16725
+- `.header-nav`  elements: `__avatar`, `__chevron`, `__icon`, `__item`, `__items`, `__logo`, `__secondary`, `__tenant`  modifiers: `--floating`, `--solid`, `--stroke`
 
 ## horizontal-tabs  
 horizontal-tabs — DS "Horizontal tabs" (Button Tabs style)
@@ -172,8 +210,10 @@ Figma: 5717:486438, 5975:416193
 ## input  
 input — DS Inputs page (85:1269)
 Figma: 1090:57817, 1106:66560
+- `.code-input`  elements: `__box`
 - `.field`  elements: `__counter`, `__help`, `__hint`, `__label`, `__meta`  modifiers: `--error`, `--sm`, `--xs`
-- `.input`  elements: `__addon`, `__button`, `__control`, `__icon`, `__tags`  modifiers: `--addon`, `--error`, `--lg`, `--sm`, `--tags`, `--textarea`, `--xs`
+- `.field-group`
+- `.input`  elements: `__addon`, `__button`, `__control`, `__icon`, `__select`, `__tags`  modifiers: `--addon`, `--error`, `--lead-select`, `--lg`, `--payment`, `--sm`, `--tags`, `--textarea`, `--trail-select`, `--xs`
 
 ## key-value-row  
 key-value-row — DS "Key Value Horizontal"
@@ -188,8 +228,8 @@ Figma: 905:301453, 905:302681
 - `.list-item-group`
 
 ## main-nav  
-main-nav — DS "Main_nav" (dark product rail), items are "Nav_menu/Main"
-Figma: 7489:272501, 7489:272502
+NAV2: expanded sidebar + submenu, 68px icon-only, header nav and bottom nav (Navigation 82:1862) live in components/sidebar, header-nav, bottom-nav; this file i
+Figma: 82:1862
 - `.main-nav`  elements: `__avatar`, `__brand`, `__footer`, `__group`, `__item`, `__logo`, `__nav`, `__x-agent-avatar`, `__x-body`, `__x-brand`, `__x-divider`, `__x-footer`, `__x-group`, `__x-head` …  modifiers: `--1`, `--2`, `--3`, `--agent`, `--expanded`, `--history`, `--new`, `--nohover`, `--search`, `--toggle`
 
 ## message  
@@ -200,12 +240,12 @@ Figma: 10021:10301, 10021:11992
 ## modal  
 modal — DS Modals page 172:4293, Modal Unit 26927:32589
 Figma: 11566:11437, 172:4293
-- `.modal`  elements: `__actions`, `__back`, `__body`, `__close`, `__footer`, `__header`, `__heading`, `__tabs`, `__title`  modifiers: `--doc`, `--lg`, `--md`, `--side-pane`, `--sm`, `--stepper`, `--xs`
-- `.modal-backdrop`
+- `.modal`  elements: `__actions`, `__back`, `__body`, `__close`, `__footer`, `__header`, `__heading`, `__pane`, `__tabs`, `__title`  modifiers: `--doc`, `--double-pane`, `--fullscreen`, `--lg`, `--md`, `--side-pane`, `--sm`, `--stepper`, `--xs`
+- `.modal-backdrop`  modifiers: `--fullscreen`
 
 ## nav-rail  
-nav-rail — DS "New_Platform Navigation" / "LC_Sidebar Navigation_Icon Only"
-Figma: 16740:306222, 16740:306223
+NAV2: expanded sidebar + submenu, 68px icon-only, header nav and bottom nav (Navigation 82:1862) live in components/sidebar, header-nav, bottom-nav; this file i
+Figma: 82:1862
 - `.nav-rail`  elements: `__badge`, `__brand`, `__content`, `__footer`, `__group`, `__item`, `__item-content`, `__logo`, `__top`, `__user`
 
 ## page-header  
@@ -223,19 +263,26 @@ Figma: 1111:38, 1114:68174
 - `.dot`  modifiers: `--current`
 - `.dots`  modifiers: `--framed`, `--lg`, `--line`
 - `.page-num`  modifiers: `--circle`
-- `.pagination`  elements: `__info`, `__label`, `__pages`, `__rows`
+- `.pagination`  elements: `__info`, `__label`, `__pages`, `__rows`  modifiers: `--compact`
 
 ## pill  
 pill — DS "Pill solid" + "Pill squared"
 Figma: 16740:306222, 16740:306403
 - `.pill`  elements: `__avatar`, `__close`, `__dot`, `__flag`, `__icon`  modifiers: `--brand`, `--brand-secondary`, `--clear`, `--error`, `--error-solid`, `--full`, `--gray`, `--gray-solid`, `--lime`, `--mulberry`, `--only`, `--pigeon`, `--rounded`, `--solid`, `--squared`, `--status-success` …
 
+## preview-modal  
+preview-modal — Preview Modal page 71561:14622, Multi File View 71561:14707 (1440x900).
+Figma: 71561:14622, 71561:14707
+- `.preview-modal`  elements: `__btn`, `__content`, `__controls`, `__counter`, `__file`, `__header`, `__name`, `__nav`, `__stage`, `__zoom`  modifiers: `--next`, `--prev`
+
 ## progress  
 progress — DS Progress indicators page 1154:89940
 Figma: 1085:57382, 1154:89940
+- `.is-active`
 - `.progress`  elements: `__fill`, `__label`, `__tip`, `__track`  modifiers: `--bottom`, `--bottom-floating`, `--top-floating`
-- `.progress-circle`  elements: `__label`, `__value`  modifiers: `--lg`, `--md`, `--sm`, `--xs`
+- `.progress-circle`  elements: `__label`, `__value`  modifiers: `--half`, `--lg`, `--md`, `--sm`, `--xs`, `--xxs`, `--xxxs`
 - `.progress-dots`  elements: `__dot`
+- `.progress-trend`
 
 ## question-card  
 question-card — DS "Copilot_Question Card"
@@ -260,20 +307,31 @@ section-footer — DS Section footers page (3275:371793, qT9zH1YYapGTwpJxwNEGzt)
 Figma: 14600:87610, 3275:371793
 - `.section-footer`  elements: `__actions`, `__divider`, `__lead`, `__stat`  modifiers: `--builder`, `--message`, `--panel`, `--slide-up`
 
+## section-label  
+section-label — DS "Section label" (Headers page 190:4871, set 16764:49190)
+Figma: 16764:49190, 16764:49191
+- `.section-label`  elements: `__actions`, `__btn`, `__hint`, `__info`, `__lead`, `__row`, `__title`  modifiers: `--l0`, `--l1-alt`, `--l1-alt2`, `--l2`, `--l3`, `--l4`
+
 ## selection-pill  
 selection-pill — DS Selection Pill page (22081:8383)
 Figma: 17112:16030, 22081:15200
-- `.selection-pill`  elements: `__chevron`, `__counter`, `__icon`, `__label`  modifiers: `--icon-only`, `--md`, `--solid`, `--xs`
+- `.selection-pill`  elements: `__chevron`, `__counter`, `__icon`, `__label`, `__sub`  modifiers: `--double`, `--icon-only`, `--md`, `--solid`, `--xs`
+- `.selection-pill-group`  modifiers: `--vertical`
 
 ## side-panel  
 side-panel — DS Side Panel page 9501:2358
 Figma: 11604:4871, 30554:31409
 - `.side-panel`  elements: `__body`, `__card`, `__header`, `__icon`, `__section`, `__subtitle`, `__tabs`, `__title`, `__title-row`, `__titles`  modifiers: `--icon`, `--table`, `--tabs`
 
+## sidebar  
+sidebar — DS "LC_Sidebar Navigation" (Navigation page 82:1862)
+Figma: 34828:13688, 34831:31478
+- `.sidebar`  elements: `__avatar`, `__chevron`, `__footer`, `__group`, `__header`, `__icon`, `__item`, `__label`, `__link`, `__logo`, `__name`, `__nav`, `__role`, `__sub` …  modifiers: `--collapsed`, `--floating`, `--icon-only`, `--soft`, `--stroke`
+
 ## slider  
 slider — DS Sliders page (1086:1423)
 Figma: 1086:1423, 1086:534
-- `.slider`  elements: `__dots`, `__fill`, `__handle`, `__value`  modifiers: `--from`, `--label-bottom`, `--label-top`, `--single`, `--to`, `--xs`
+- `.slider`  elements: `__dots`, `__fill`, `__handle`, `__tip`, `__value`  modifiers: `--from`, `--label-bottom`, `--label-top`, `--single`, `--text`, `--to`, `--xs`
 
 ## snackbar  
 snackbar — DS Alerts & notifications page 176:4256, SnackbarNew 46477:18222
@@ -283,7 +341,7 @@ Figma: 1135:618, 13079:6170
 ## spinner  
 spinner — DS Loading indicators page 1172:32, set 1192:610
 Figma: 1172:32, 1192:610
-- `.spinner`  elements: `__label`, `__ring`  modifiers: `--lg`, `--md`, `--sm`, `--white`, `--xl`, `--xs`
+- `.spinner`  elements: `__dots`, `__label`, `__ring`  modifiers: `--dots`, `--lg`, `--md`, `--sm`, `--white`, `--xl`, `--xs`
 
 ## stat  
 stat — metric tile (number over ALL-CAPS mono label)
@@ -295,15 +353,16 @@ Figma: 16740:306222, 16740:306247
 ## stepper  
 stepper — DS "Progress steps + Timeline" page (53:1288, qT9zH1YYapGTwpJxwNEGzt)
 Figma: 1138:1954, 1138:23
-- `.step`  elements: `__connector`, `__content`, `__rail`, `__sub`, `__sub-item`, `__supporting`, `__text`, `__title`  modifiers: `--complete`, `--current`
-- `.step-icon`  modifiers: `--complete`, `--current`, `--error`
-- `.steps`  modifiers: `--horizontal`
+- `.activity`  elements: `__body`, `__item`, `__text`, `__time`
+- `.step`  elements: `__connector`, `__content`, `__rail`, `__sub`, `__sub-item`, `__supporting`, `__text`, `__title`  modifiers: `--arrow`, `--complete`, `--current`
+- `.step-icon`  modifiers: `--complete`, `--current`, `--error`, `--featured`, `--number`
+- `.steps`  modifiers: `--arrow`, `--horizontal`
 - `.timeline`  elements: `__body`, `__date`, `__dot`, `__item`, `__line`, `__rail`, `__text`, `__title`
 
 ## table  
 table — DS Tables page (214:0, qT9zH1YYapGTwpJxwNEGzt)
 Figma: 1221:106788, 1221:107933
-- `.table`  elements: `__grid`, `__row`, `__sort`, `__supporting`, `__td`, `__th`, `__th-inner`  modifiers: `--check`, `--double`, `--lg`, `--md`, `--sm`
+- `.table`  elements: `__avatars`, `__badge`, `__cell-flex`, `__cell-title`, `__grid`, `__row`, `__sort`, `__supporting`, `__td`, `__th`, `__th-inner`  modifiers: `--actions`, `--check`, `--double`, `--error`, `--gray`, `--lg`, `--md`, `--sm`
 
 ## tabs  
 tabs — DS Tabs page (43:0, qT9zH1YYapGTwpJxwNEGzt)
@@ -317,7 +376,7 @@ Figma: 11773:19192, 14432:13097
 ## tag  
 tag — DS Tags page (3306:403749, qT9zH1YYapGTwpJxwNEGzt)
 Figma: 3306:403749, 3307:417515
-- `.tag`  elements: `__avatar`, `__close`, `__count`, `__dot`, `__icon`  modifiers: `--avatar`, `--close`, `--count`, `--dot`, `--link`, `--solid`, `--xs`
+- `.tag`  elements: `__avatar`, `__close`, `__count`, `__dot`, `__flag`, `__icon`  modifiers: `--avatar`, `--close`, `--count`, `--country`, `--dot`, `--icon`, `--lg`, `--link`, `--outline`, `--selected`, `--solid`, `--xs`
 
 ## toggle  
 toggle — DS Toggles page (1102:4631)
@@ -329,4 +388,4 @@ Figma: 1102:4208, 1102:4631
 ## tooltip  
 tooltip — DS Tooltips page 1052:485, set 1052:489 (Supporting text x Arrow)
 Figma: 1052:485, 1052:489
-- `.tooltip`  elements: `__arrow`, `__content`, `__icon`, `__kbd`, `__text`, `__title`  modifiers: `--bottom`, `--end`, `--left`, `--right`, `--start`, `--support`, `--top`
+- `.tooltip`  elements: `__arrow`, `__code`, `__content`, `__icon`, `__kbd`, `__link`, `__text`, `__title`  modifiers: `--bottom`, `--end`, `--left`, `--right`, `--start`, `--support`, `--top`

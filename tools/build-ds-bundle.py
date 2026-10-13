@@ -4,7 +4,7 @@
   python3 tools/build-ds-bundle.py
 
 Writes
-  dist/unify-ds.css   tokens + overrides + typography + effects + every components/*/*.css (one file;
+  dist/unify-ds.css   (+ dist/parts/unify-core.css, unify-atoms-N.css, each under ~400 KB) tokens + overrides + typography + effects + every components/*/*.css (one file;
                       link it from any page or artifact, plus the Geist/Spectral/JetBrains Mono Google Fonts link)
   shared/ATOMS.md     every atom: what it is, its blocks, __elements and --modifiers (read this before building a screen)
 dist/ is gitignored build output; the Design System artifact carries a copy as project/unify-ds.css."""
@@ -20,6 +20,20 @@ for a in atoms:
     parts.append(f"/* ===== components/{a}/{a}.css ===== */\n" + open(f"components/{a}/{a}.css").read())
 os.makedirs("dist", exist_ok=True)
 open("dist/unify-ds.css", "w").write("\n".join(parts))
+# The Design System artifact keeps files under ~500 KB, so also write parts: core (tokens, type, effects)
+# plus the atoms split into chunks of at most ~380 KB. Link them in order: core, atoms-1, atoms-2, ...
+os.makedirs("dist/parts", exist_ok=True)
+for old in glob.glob("dist/parts/*.css"):
+    os.remove(old)
+open("dist/parts/unify-core.css", "w").write("\n".join(parts[:4]))
+chunks, cur, size = [], [], 0
+for part in parts[4:]:
+    if cur and size + len(part) > 380_000:
+        chunks.append(cur); cur, size = [], 0
+    cur.append(part); size += len(part)
+if cur: chunks.append(cur)
+for n, c in enumerate(chunks, 1):
+    open(f"dist/parts/unify-atoms-{n}.css", "w").write("\n".join(c))
 
 def strip(s):
     return re.sub(r"/\*.*?\*/", "", s, flags=re.S)
@@ -49,4 +63,4 @@ for a in atoms:
         lines.append(row)
     lines.append("")
 open("shared/ATOMS.md", "w").write("\n".join(lines))
-print(f"{len(atoms)} atoms; dist/unify-ds.css {os.path.getsize('dist/unify-ds.css')//1024} KB; shared/ATOMS.md")
+print(f"{len(chunks)} atom parts; {len(atoms)} atoms; dist/unify-ds.css {os.path.getsize('dist/unify-ds.css')//1024} KB; shared/ATOMS.md")

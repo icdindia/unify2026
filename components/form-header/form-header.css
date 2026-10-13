@@ -136,3 +136,179 @@
   outline-offset: 1px;
 }
 .form-header__action svg { display: block; width: 14px; height: 14px; }
+
+/* ============================================================================
+   ADDITIONS (nav2 batch) — Figma Headers page 190:4871, Form Header set
+   59836:85546. Figma numbering (measured): Level 1 h52 title 17/20 ·
+   Level 2 h52 title 15/24 (= this atom's BASE) · Level 3 h48 title 13/20 ·
+   Level 3 Alt h46 eyebrow 11/12 Medium UPPERCASE secondary.
+   DRIFT: the legacy `--level-1` above measures title 13/20 + h52 from the
+   Dashboard banner; Figma names that geometry Level 3 text on a Level 2 frame.
+   Left untouched (prototypes depend on it). New code uses --l1/--l2/--l3/--l3-alt.
+   Geometry shared by every Type: padding 6/12, inner Header gap 8-12,
+   1px border-tertiary divider at the bottom (inside the frame).
+   Types: Featured Icon (default), Back Button (62093:73170…), Tabs (68698:99888).
+   NOT BUILT: Style=Toggle (Figma swaps the actions for a 80px toggle group —
+   use components/button-group); Back Button glyph not read (DRIFT: chevron-left 16).
+============================================================================ */
+.form-header--bar {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary);
+}
+.form-header--bar .form-header__content { gap: var(--spacing-lg); }
+.form-header--bar .form-header__featured { margin-top: 0; }
+.form-header--bar .form-header__actions { gap: var(--spacing-lg); }
+/* Level 1 — h52, title 17/20 (Text xl/Medium family is 20; 17 is the live override) */
+.form-header--l1 .form-header__title { font-size: 17px; line-height: 20px; font-weight: 500; } /* DRIFT: Figma-measured size */
+/* Level 2 — h52 (40 content), title 15/24 = base title */
+.form-header--l2 .form-header__content { min-height: 40px; }
+/* Level 3 — h48 (36 content), title 13/20 */
+.form-header--l3 .form-header__content { min-height: 36px; }
+.form-header--l3 .form-header__title {
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+}
+/* Level 3 Alt — h46, eyebrow: 11/12 Medium UPPERCASE text-secondary-700, 2px gap */
+.form-header--l3-alt .form-header__content { min-height: 34px; }
+.form-header--l3-alt .form-header__text { gap: var(--spacing-xxs); }
+.form-header--l3-alt .form-header__title {
+  font-size: 11px; line-height: 12px; font-weight: 500; /* DRIFT: Figma-measured size */
+  text-transform: uppercase;
+  color: var(--colors-text-text-secondary-700);
+}
+/* supporting meta chips in the title row are 11/12 Regular secondary */
+.form-header__meta {
+  font-size: 11px; line-height: 12px; /* DRIFT: Figma-measured size */
+  color: var(--colors-text-text-secondary-700);
+  white-space: nowrap;
+}
+
+/* Type=Back Button — no featured icon; a 28px ghost icon button leads */
+.form-header__back {
+  flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; padding: 0; /* DRIFT: Figma-measured size */
+  box-sizing: border-box;
+  border: 0; border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--colors-icon-icon-secondary);
+  cursor: pointer;
+}
+.form-header__back:hover,
+.form-header__back[data-force="hover"] { background: var(--colors-background-bg-tertiary); color: var(--colors-icon-icon-primary); }
+.form-header__back:focus-visible { outline: 2px solid var(--colors-border-border-brand-solid); outline-offset: 1px; }
+.form-header__back svg { display: block; width: 16px; height: 16px; }
+
+/* 28px icon button used for search / more in the action cluster */
+.form-header__icon-btn {
+  flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; padding: 0; box-sizing: border-box; /* DRIFT: Figma-measured size */
+  border: 0; border-radius: var(--radius-md);
+  background: transparent; color: var(--colors-icon-icon-secondary); cursor: pointer;
+}
+.form-header__icon-btn:hover,
+.form-header__icon-btn[data-force="hover"] { background: var(--colors-background-bg-tertiary); }
+.form-header__icon-btn svg { display: block; width: 16px; height: 16px; }
+
+/* Type=Tabs (Level 1) — 68698:99888: one row, padding 8/16, no divider gap.
+   Title 17/20 Medium with count, supporting 12/16; tab strip sits at the
+   right of the title block, actions after it. */
+.form-header--tabs { padding: var(--spacing-md) var(--spacing-xl); }
+.form-header--tabs .form-header__content { gap: var(--spacing-xl); }
+.form-header__tabs { display: flex; align-items: center; flex: none; }
+.form-header__tabs .tabs { flex: none; }
+
+/* ============================================================================
+   SIDEPANE HEADER — Figma "Sidepane header" 16764:107179 (560 wide, 18 variants)
+   axes: Level 1|2|3 · Type Featured Icon|Default|Back · Tabs False|True.
+   Frame: padding 6/8/6/16, content row gap 8, actions = 32px Button Neutral
+   icons gap 2, 1px border-tertiary underline (inset). Level 1 title 17/20,
+   Level 2 15/24, Level 3 13/20 (h48). Tabs=True adds a 28px "Tabs Wrap"
+   (padding 0/16, gap 6) under the 52px content: total 86 (L1/L2) · 82 (L3).
+   "Automation sidepane Header" 15216:78139 is `.sidepane-header--automation`.
+============================================================================ */
+.sidepane-header {
+  display: flex; flex-direction: column; gap: var(--spacing-sm);
+  width: 100%; box-sizing: border-box; background: var(--colors-background-bg-primary);
+}
+.sidepane-header__bar {
+  display: flex; flex-direction: column; justify-content: center;
+  box-sizing: border-box; width: 100%;
+  min-height: 52px;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) var(--spacing-xl);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary);
+}
+.sidepane-header--tabs .sidepane-header__bar { box-shadow: none; }
+.sidepane-header__content { display: flex; align-items: center; gap: var(--spacing-md); width: 100%; min-height: 40px; } /* DRIFT: Figma-measured size */
+.sidepane-header__lead { display: flex; flex: 1 0 0; align-items: center; gap: var(--spacing-lg); min-width: 0; }
+.sidepane-header__text { display: flex; flex-direction: column; flex: 1 0 0; min-width: 0; }
+.sidepane-header__title-row { display: flex; align-items: center; gap: var(--spacing-xs); }
+.sidepane-header__title {
+  font-family: var(--text-md-medium-font-family); font-weight: 500;
+  font-size: 15px; line-height: 24px; color: var(--colors-text-text-primary-900); white-space: nowrap; /* DRIFT: Figma-measured size */
+}
+.sidepane-header__meta { font-size: 11px; line-height: 12px; color: var(--colors-text-text-secondary-700); white-space: nowrap; } /* DRIFT: Figma-measured size */
+.sidepane-header__subtitle {
+  font-family: var(--text-xs-regular-font-family); font-size: 12px; line-height: 16px; /* DRIFT: Figma-measured size */
+  color: var(--colors-text-text-tertiary-600); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sidepane-header--l1 .sidepane-header__title { font-size: 17px; line-height: 20px; } /* DRIFT: Figma-measured size */
+.sidepane-header--l3 .sidepane-header__bar { min-height: 48px; }
+.sidepane-header--l3 .sidepane-header__content { min-height: 36px; }
+.sidepane-header--l3 .sidepane-header__title { font-size: 13px; line-height: 20px; } /* DRIFT: Figma-measured size */
+.sidepane-header__featured {
+  flex: none; display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; box-sizing: border-box; margin-top: var(--spacing-xxs); /* DRIFT: Figma-measured size */
+  background: var(--colors-background-bg-white);
+  border: 1px solid var(--colors-border-border-secondary); border-radius: var(--radius-sm); /* DRIFT: Figma-measured size */
+  color: var(--colors-icon-icon-secondary);
+}
+.sidepane-header__featured svg { display: block; width: 16px; height: 16px; }
+.sidepane-header__actions { display: flex; align-items: center; gap: var(--spacing-xxs); flex: none; }
+.sidepane-header__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; padding: 0; box-sizing: border-box; /* DRIFT: Figma-measured size */
+  border: 0; border-radius: var(--radius-md); background: transparent;
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg); cursor: pointer;
+}
+.sidepane-header__btn:hover,
+.sidepane-header__btn[data-force="hover"] { background: var(--colors-background-bg-tertiary); }
+.sidepane-header__btn:focus-visible { outline: 2px solid var(--colors-border-border-brand-solid); outline-offset: 1px; }
+.sidepane-header__btn svg { display: block; width: 16px; height: 16px; }
+.sidepane-header__tabs {
+  box-sizing: border-box; width: 100%; padding: 0 var(--spacing-xl);
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary);
+}
+
+/* ---- Automation sidepane Header 15216:78139 (480 wide; Tab=On 116 · Off 84) ----
+   Heading band: bg utility-brand-secondary-50, padding 0/8/0/16, 44 tall:
+   24px small icon button, name + "v3.0" supporting 12/16 (gap -2), 32px actions.
+   Optional error strip (bg-error-primary, padding 8/16, 40) and tab strip
+   (padding 0/8, 32, border-secondary underline). */
+.sidepane-header--automation { gap: 0; background: var(--colors-background-bg-primary); }
+.sidepane-header--automation .sidepane-header__heading {
+  display: flex; align-items: center; gap: var(--spacing-xs);
+  box-sizing: border-box; min-height: 44px; width: 100%;
+  padding: 0 var(--spacing-md) 0 var(--spacing-xl);
+  background: var(--colors-utility-brand-secondary-utility-brand-secondary-50);
+}
+.sidepane-header--automation .sidepane-header__text { gap: 0; }
+.sidepane-header--automation .sidepane-header__title { line-height: 24px; } /* DRIFT: Figma-measured size */
+.sidepane-header__error {
+  display: flex; align-items: center; gap: var(--spacing-md);
+  box-sizing: border-box; width: 100%; min-height: 40px;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--colors-background-bg-error-primary);
+  font-size: 12px; line-height: 16px; color: var(--colors-text-text-error-primary-600); /* DRIFT: Figma-measured size */
+}
+.sidepane-header--automation .sidepane-header__tabs {
+  padding: 0 var(--spacing-md); box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+}
+.sidepane-header__collapse {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; padding: 0; border: 0; border-radius: var(--radius-sm); /* DRIFT: Figma-measured size */
+  background: transparent; color: var(--colors-icon-icon-secondary); cursor: pointer;
+}
+.sidepane-header__collapse:hover { background: var(--colors-background-bg-tertiary); }
+.sidepane-header__collapse svg { display: block; width: 16px; height: 16px; }

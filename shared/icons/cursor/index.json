@@ -1,0 +1,102 @@
+[
+{
+"name": "cursor-arrow",
+"group": "cursor",
+"figma": "1054:565",
+"w": 20.0,
+"h": 21.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1175
+},
+{
+"name": "cursor-pointer-hand",
+"group": "cursor",
+"figma": "1054:567",
+"w": 20.0,
+"h": 22.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5572
+},
+{
+"name": "cursor-grab",
+"group": "cursor",
+"figma": "34852:13205",
+"w": 20.0,
+"h": 21.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8331
+},
+{
+"name": "cursor-grabbed",
+"group": "cursor",
+"figma": "1054:559",
+"w": 20.0,
+"h": 20.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5162
+},
+{
+"name": "cursor-text",
+"group": "cursor",
+"figma": "27586:898",
+"w": 20.0,
+"h": 20.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4838
+},
+{
+"name": "cursor-plus",
+"group": "cursor",
+"figma": "31237:5976",
+"w": 20.0,
+"h": 20.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1842
+},
+{
+"name": "cursor-move",
+"group": "cursor",
+"figma": "34849:388",
+"w": 20.0,
+"h": 20.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1414
+},
+{
+"name": "cursor-not-allowed",
+"group": "cursor",
+"figma": "35192:388",
+"w": 27.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3143
+},
+{
+"name": "cursor-stretch",
+"group": "cursor",
+"figma": "50680:1376",
+"w": 23.0,
+"h": 21.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2289
+},
+{
+"name": "cursor-question",
+"group": "cursor",
+"figma": "70779:222005",
+"w": 20.0,
+"h": 21.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3724
+}
+]

@@ -45,3 +45,19 @@
 .spinner--lg { --sp-size: 56px; --sp-stroke: 6px; }
 .spinner--xl { --sp-size: 64px; --sp-stroke: 8px; --sp-gap: var(--spacing-2xl); }
 .spinner--lg .spinner__label, .spinner--xl .spinner__label { font-family: var(--text-lg-medium-font-family); font-weight: var(--text-lg-medium-font-weight); font-size: var(--text-lg-medium-font-size); line-height: var(--text-lg-medium-line-height); }
+
+/* ===== gaps2: dot style (Loading indicator 1192:610 Style=Dot circle, md 48x48 ring + 16 gap + "Loading..." 13/Medium) =====
+   8 dots on a ring, trailing fade rotated in steps. DRIFT: Figma uses an angular-gradient mask; this is an approximation via 8 faded dots. */
+.spinner--dots .spinner__ring { -webkit-mask: none; mask: none; background: none; border-radius: 0; }
+.spinner--dots .spinner__ring::after { display: none; }
+.spinner__dots { position: absolute; inset: 0; animation: spinner-rotate 1s steps(8) infinite; }
+.spinner__dots i { position: absolute; left: 50%; top: 0; width: calc(var(--sp-size) * .14); height: calc(var(--sp-size) * .14); margin-left: calc(var(--sp-size) * -.07); border-radius: var(--radius-full); background: var(--colors-border-border-brand-solid); transform-origin: 50% calc(var(--sp-size) / 2); }
+.spinner__dots i:nth-child(1) { transform: rotate(0);   opacity: 1; }
+.spinner__dots i:nth-child(2) { transform: rotate(-45deg);  opacity: .85; }
+.spinner__dots i:nth-child(3) { transform: rotate(-90deg);  opacity: .7; }
+.spinner__dots i:nth-child(4) { transform: rotate(-135deg); opacity: .55; }
+.spinner__dots i:nth-child(5) { transform: rotate(-180deg); opacity: .4; }
+.spinner__dots i:nth-child(6) { transform: rotate(-225deg); opacity: .3; }
+.spinner__dots i:nth-child(7) { transform: rotate(-270deg); opacity: .2; }
+.spinner__dots i:nth-child(8) { transform: rotate(-315deg); opacity: .1; }
+@media (prefers-reduced-motion: reduce) { .spinner__dots { animation-duration: 3s; } }

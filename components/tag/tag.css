@@ -41,3 +41,16 @@ a.tag--solid:hover, button.tag--solid:hover, .tag--solid[data-force="hover"] { b
 .tag__close { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 12px; height: 12px; padding: var(--spacing-xxs); border: 0; border-radius: var(--radius-xs); background: transparent; color: var(--colors-icon-icon-secondary); cursor: pointer; } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
 .tag__close:hover { background: var(--colors-background-bg-primary-hover); }
 .tag__close svg { width: 8px; height: 8px; }
+
+/* ===== gaps2: Country flag, icon leading, count chip colours (3307:417515 / _Tag count 3307:417827) =====
+   Country: 16px round flag slot in .tag__flag (left padding 4 like Avatar). Icon leading: .tag__icon first child.
+   _Tag count: 16x16, p0/4, r2, sm|md|lg x Selected; unselected = gray (default chip), Selected = brand.
+   DRIFT: flag artwork is consumer-provided (img/svg); count fill for Selected=True not read -> brand-50 / brand-700 assumed. */
+.tag--country, .tag--icon { padding-inline-start: var(--spacing-sm); }
+.tag--country { padding-inline-start: var(--spacing-xs); }
+.tag__flag { width: 16px; height: 16px; flex: none; border-radius: var(--radius-full); overflow: hidden; background: var(--colors-utility-gray-utility-gray-200); } /* DRIFT: Figma-measured size */
+.tag__flag > * { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tag__count--selected { background: var(--colors-utility-brand-utility-brand-50); color: var(--colors-utility-brand-utility-brand-700); }
+.tag__count--outline { background: transparent; box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.tag__count--lg { min-width: 20px; height: 20px; }
+.tag--solid .tag__count { background: var(--colors-background-bg-white); }

@@ -91,3 +91,16 @@
   cursor: not-allowed;
 }
 .selection-pill:disabled .selection-pill__icon { color: var(--colors-icon-icon-tertiary); }
+
+/* ===== gaps2: double-line pill (_Double Line Selection Pill 17112:16030) + group (22081:15200) =====
+   Double line xs: V p4/8/6/8 r6, Label 12/SemiBold text-tertiary + sub text 10/Regular text-quaternary; bg-white, 1px border-primary.
+   Group: H gap 8, pills sm 28 (p6/8) etc. Current = bg-workspace + gray-500 ring (same as .selection-pill[aria-pressed]). */
+.selection-pill--double {
+  flex-direction: column; align-items: flex-start; gap: 0; height: auto; padding: var(--spacing-xs) var(--spacing-md) var(--spacing-sm);
+  background: var(--colors-background-bg-white); box-shadow: inset 0 0 0 1px var(--colors-border-border-primary);
+}
+.selection-pill--double .selection-pill__label { font-weight: 600; }
+.selection-pill__sub { font-family: var(--text-xs-regular-font-family); font-weight: 400; font-size: 10px; line-height: 12px; color: var(--colors-text-text-quaternary-500); } /* DRIFT: 10/12 literal */
+.selection-pill--double.selection-pill--md { padding-block: var(--spacing-sm); } /* DRIFT: md/s double sizes not sampled */
+.selection-pill-group { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-md); }
+.selection-pill-group--vertical { flex-direction: column; align-items: stretch; }

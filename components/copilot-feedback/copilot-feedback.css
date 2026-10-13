@@ -1,0 +1,15 @@
+/* copilot-feedback — Feedback Array 70298:22853 (Type Full screen / Sidepane / Mobile), _Cost 70764:9...
+   Row of 24x24 icon buttons (padding 6, icon 12, r4; voice/regenerate r-full), cost chip first, then a
+   second group thumbs-up/down/more/voice/branch/refresh. Right: "All Sources" stack of avatars.
+   DRIFT: Mobile type and cost chip internals not sampled. */
+.copilot-feedback { display: flex; align-items: center; gap: 30px; } /* DRIFT: gap 30 literal */
+.copilot-feedback__group { display: flex; align-items: center; }
+.copilot-feedback__btn { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; box-sizing: border-box; padding: 0; border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--colors-icon-icon-tertiary); cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-feedback__btn--round { border-radius: var(--radius-full); }
+.copilot-feedback__btn svg { width: 12px; height: 12px; }
+.copilot-feedback__btn:hover, .copilot-feedback__btn[data-force="hover"] { background: var(--colors-background-bg-primary-hover); color: var(--colors-icon-icon-secondary); }
+.copilot-feedback__btn[aria-pressed="true"] { color: var(--colors-text-text-primary-900); }
+.copilot-feedback__btn:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+.copilot-feedback__cost { display: inline-flex; align-items: center; height: 24px; padding: 0 var(--spacing-sm) 0 var(--spacing-sm); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); color: var(--colors-text-text-tertiary-600); } /* DRIFT: Figma literal sizes */
+.copilot-feedback__sources { display: inline-flex; align-items: center; gap: var(--spacing-md); height: 24px; padding: 0 var(--spacing-sm); border: 0; border-radius: var(--radius-sm); background: transparent; font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); color: var(--colors-text-text-tertiary-600); cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-feedback__sources:hover { background: var(--colors-background-bg-primary-hover); }

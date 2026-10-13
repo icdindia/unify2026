@@ -35,3 +35,8 @@
 .code-snippet__body { display: flex; gap: var(--spacing-lg); min-height: 0; overflow: auto; }
 .code-snippet__gutter { display: flex; flex-direction: column; gap: var(--spacing-xxs); padding-right: var(--spacing-xs); font: var(--text-xxs-regular-font-weight) 10px/16px var(--text-xxs-regular-font-family); color: var(--colors-text-text-quaternary-500); text-align: right; user-select: none; } /* DRIFT: Figma-measured size (component dimension, not a spacing token) */
 .code-snippet__code { margin: 0; padding-top: var(--spacing-xxs); flex: 1 0 0; font: 400 var(--text-xs-regular-font-size)/var(--text-xs-regular-line-height) ui-monospace, "SF Mono", Menlo, monospace; color: var(--colors-utility-gray-utility-gray-700); white-space: pre; tab-size: 2; }
+
+/* ===== gaps2: syntax token colours (optional spans inside .code-snippet__code). DRIFT: Figma shows plain gray-700 code; palette is a composed convenience, not read. */
+.code-snippet__code .tk-k { color: var(--colors-text-text-brand-secondary-700); }
+.code-snippet__code .tk-s { color: var(--colors-utility-success-utility-success-600); }
+.code-snippet__code .tk-c { color: var(--colors-text-text-quaternary-500); }

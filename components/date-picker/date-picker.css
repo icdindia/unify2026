@@ -96,3 +96,33 @@
   background: var(--colors-background-bg-brand-solid);
 }
 .calendar__cell[aria-selected="true"][data-dot]::after { background: var(--colors-background-bg-white); }
+
+/* ===== gaps2 additions =====================================================
+   Month header: Buttons/Button Neutral 28 tall, prev/next chevrons + month label (Text sm/Medium) -> .calendar__head (DRIFT: label size not sampled)
+   Weekday row: 7 x 32 cells, Text xs/Medium text-tertiary -> .calendar__weekdays (DRIFT: styling assumed from cell metrics)
+   Time input _Date Time Input Base 13180:64514: [280x32 H g6: "From" Text xs/Medium text-secondary 29w + Actions g6: Input 120x28 + Dropdown 120x32] -> .calendar__time (use components/input)
+   Range flow 13433:22661: start/end cells use --range-start/--end (existing); .calendar__range-bar joins the inputs; 15-minute time list = .calendar__times
+   Priced DatePicker 59789:37249: desktop day cell 40x40 with price line -> .calendar__cell--priced (DRIFT: price colour assumed)         */
+.calendar__head { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-md); height: 28px; padding: 0 var(--spacing-md); } /* DRIFT: Figma-measured size */
+.calendar__nav {
+  display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--radius-md); /* DRIFT: Figma-measured size */
+  background: transparent; color: var(--colors-icon-icon-secondary); cursor: pointer;
+}
+.calendar__nav:hover { background: var(--colors-background-bg-primary-hover); }
+.calendar__nav svg { width: 16px; height: 16px; }
+.calendar__title { font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); color: var(--colors-text-text-primary-900); }
+.calendar__weekdays { display: grid; grid-template-columns: repeat(7, 32px); gap: var(--spacing-xs); } /* DRIFT: Figma-measured size */
+.calendar__weekday {
+  display: inline-flex; align-items: center; justify-content: center; height: 32px;
+  font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height);
+  color: var(--colors-text-text-tertiary-600);
+}
+.calendar__time { display: flex; align-items: center; gap: var(--spacing-sm); padding: 0 var(--spacing-md); }
+.calendar__time-label { font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); color: var(--colors-text-text-secondary-700); }
+.calendar__time .input { width: 120px; }
+.calendar__range-bar { display: flex; align-items: center; gap: var(--spacing-md); padding: 0 var(--spacing-md); }
+.calendar__times { display: flex; flex-direction: column; max-height: 228px; overflow-y: auto; scrollbar-width: thin; padding: var(--spacing-md) var(--spacing-xs); } /* DRIFT: Figma-measured size */
+.calendar__cell--priced { width: 40px; height: 40px; flex-direction: column; gap: 0; } /* DRIFT: Figma-measured size */
+.calendar__grid--priced { grid-template-columns: repeat(7, 40px); }
+.calendar__price { font-size: 10px; line-height: 12px; font-weight: 400; color: var(--colors-text-text-tertiary-600); } /* DRIFT: 10/12 literal */
+.calendar__cell[aria-selected="true"] .calendar__price { color: var(--colors-text-text-white); }

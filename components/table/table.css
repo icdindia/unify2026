@@ -79,3 +79,28 @@
 .table__row[data-force="hover"] > .table__td { background: var(--colors-background-bg-primary-hover); }
 .table__row[aria-selected="true"] > .table__td { background: var(--colors-utility-brand-secondary-utility-brand-secondary-25); }
 .table__row:last-child > .table__td { box-shadow: none; }
+
+/* ===== gaps2: cell styles (Table cell 1222:107305, p8/12, md 48) =====
+   Composition, no new atoms required (documented in README):
+     Text            <td class="table__td">Label</td>   (+ .table__supporting second line; Lead=Yes -> primary 15/Medium via .table__cell-title)
+     Checkbox        <td class="table__td table__td--check"><span class="checkbox ...">  (components/checkbox)
+     Badge           <td class="table__td"><span class="table__badge">Active</span>  (pill squared 24, p4/8, r6, success-25 / success-600 12/Regular)
+     Avatar          <td class="table__td"><div class="table__cell-flex"><img avatar 24/> Name</div>
+     Avatar group    <td class="table__td"><div class="table__avatars">… 24px circles, overlap -4, white ring</div> (+ 10 users text)
+     Actions         <td class="table__td table__td--actions"> icon buttons (components/button) right aligned                     */
+.table__cell-flex { display: flex; align-items: center; gap: var(--spacing-lg); }
+.table__cell-title { display: block; font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); color: var(--colors-text-text-primary-900); }
+.table__badge {
+  display: inline-flex; align-items: center; gap: var(--spacing-xs); box-sizing: border-box; height: 24px; /* DRIFT: Figma-measured size */
+  padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm);
+  background: var(--colors-utility-success-utility-success-25); color: var(--colors-utility-success-utility-success-600);
+  font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight);
+  font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+}
+.table__badge--error { background: var(--colors-utility-error-utility-error-25, var(--colors-background-bg-error-secondary)); color: var(--colors-utility-error-utility-error-600); }
+.table__badge--gray { background: var(--colors-utility-gray-utility-gray-100); color: var(--colors-utility-gray-utility-gray-700); }
+.table__avatars { display: inline-flex; align-items: center; }
+.table__avatars > * { width: 24px; height: 24px; box-sizing: border-box; border-radius: var(--radius-full); box-shadow: 0 0 0 1px var(--colors-border-border-white); margin-inline-start: calc(var(--spacing-xs) * -1); } /* DRIFT: Figma-measured size */
+.table__avatars > *:first-child { margin-inline-start: 0; }
+.table__td--actions { text-align: right; white-space: nowrap; }
+.table__td--actions > * + * { margin-inline-start: var(--spacing-xs); }

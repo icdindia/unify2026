@@ -96,3 +96,24 @@
 .timeline__title { font: var(--text-sm-semibold-font-weight) var(--text-sm-semibold-font-size)/var(--text-sm-semibold-line-height) var(--text-sm-semibold-font-family); color: var(--colors-text-text-secondary-700); }
 .timeline__date { font: var(--text-sm-regular-font-weight) var(--text-sm-regular-font-size)/var(--text-sm-regular-line-height) var(--text-sm-regular-font-family); color: var(--colors-text-text-quaternary-500); }
 .timeline__text { font: var(--text-sm-regular-font-weight) var(--text-sm-regular-font-size)/var(--text-sm-regular-line-height) var(--text-sm-regular-font-family); color: var(--colors-text-text-secondary-700); }
+
+/* ===== gaps2: featured-icon, number, arrow stepper, Activity =====
+   Step base 1138:1954 Types Featured icon left/top, Number left/only, Arrow stepper; Activity 18913:15533 (timeline rows with avatar/icon, text, time).
+   DRIFT: sizes composed from step-icon (14) + featured (32 round) conventions; Activity not sampled. */
+.step-icon--featured { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); background: var(--colors-background-bg-secondary); color: var(--colors-icon-icon-secondary); } /* DRIFT: Figma-measured size */
+.step-icon--featured.step-icon--current { background: var(--colors-utility-brand-utility-brand-50); color: var(--colors-icon-icon-brand-600); }
+.step-icon--featured.step-icon--complete { background: var(--colors-background-bg-brand-solid); color: var(--colors-icon-icon-white); }
+.step-icon--number { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); color: var(--colors-text-text-tertiary-600); } /* DRIFT: Figma-measured size */
+.step-icon--number.step-icon--current { background: var(--colors-background-bg-brand-solid); color: var(--colors-text-text-white); box-shadow: none; }
+.step-icon--number.step-icon--complete { background: var(--colors-background-bg-brand-solid); color: var(--colors-text-text-white); box-shadow: none; }
+.steps--arrow { display: inline-flex; }
+.step--arrow { position: relative; display: inline-flex; align-items: center; gap: var(--spacing-md); height: 36px; padding: 0 var(--spacing-xl) 0 var(--spacing-2xl); background: var(--colors-background-bg-secondary); color: var(--colors-text-text-tertiary-600); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%); margin-inline-start: -8px; } /* DRIFT: Figma-measured size */
+.step--arrow:first-child { margin-inline-start: 0; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
+.step--arrow.step--current { background: var(--colors-utility-brand-utility-brand-50); color: var(--colors-text-text-brand-secondary-700); }
+.step--arrow.step--complete { background: var(--colors-background-bg-brand-solid); color: var(--colors-text-text-white); }
+.activity { display: flex; flex-direction: column; }
+.activity__item { display: flex; gap: var(--spacing-lg); padding-bottom: var(--spacing-2xl); position: relative; }
+.activity__item:not(:last-child)::before { content: ""; position: absolute; left: 15px; top: 36px; bottom: 4px; width: 1px; background: var(--colors-border-border-secondary); }
+.activity__body { display: flex; flex-direction: column; gap: var(--spacing-xxs); min-width: 0; }
+.activity__text { font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-secondary-700); }
+.activity__time { font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-tertiary-600); }

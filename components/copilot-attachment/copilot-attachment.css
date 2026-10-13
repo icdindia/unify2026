@@ -1,0 +1,17 @@
+/* copilot-attachment — Attachments 70298:23605 (Type Image/File/Image Thumbnail/Video Thumbnail x Size sm/md x
+   State Default/Hover/Loading/Error x Placement). Sampled: File sm Default + Error (180x32, padding 8/6, r6,
+   border-tertiary ring; error ring border-error-solid + retry). Remove button 20 circle top-right.
+   DRIFT: md size, thumbnails, hover and loading not sampled -> md/thumb dimensions are estimates. */
+.copilot-attachment { position: relative; display: inline-flex; align-items: center; gap: var(--spacing-sm); box-sizing: border-box; width: 180px; height: 32px; padding: var(--spacing-md) var(--spacing-sm) var(--spacing-md) var(--spacing-md); border-radius: var(--radius-md); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-secondary-700); } /* DRIFT: gap 6 literal */
+.copilot-attachment--md { height: 40px; width: 220px; }
+.copilot-attachment__icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 20px; height: 20px; box-sizing: border-box; border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--colors-utility-success-utility-success-25); color: var(--colors-utility-success-utility-success-600); } /* DRIFT: Figma literal sizes */
+.copilot-attachment__icon svg { width: 14px; height: 14px; }
+.copilot-attachment__name { flex: 1 0 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.copilot-attachment__remove { position: absolute; top: -6px; right: -6px; display: none; align-items: center; justify-content: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: var(--radius-full); background: var(--colors-background-bg-quaternary); box-shadow: 0 0 0 1px var(--colors-border-border-white); color: var(--colors-icon-icon-secondary); cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-attachment__remove svg { width: 10px; height: 10px; }
+.copilot-attachment:hover > .copilot-attachment__remove, .copilot-attachment[data-force="hover"] > .copilot-attachment__remove, .copilot-attachment--removable > .copilot-attachment__remove { display: inline-flex; }
+.copilot-attachment__retry { display: inline-flex; flex: none; width: 16px; height: 16px; padding: 0; border: 0; background: transparent; color: var(--colors-utility-error-utility-error-600); cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-attachment--error { box-shadow: inset 0 0 0 1px var(--colors-border-border-error-solid); }
+.copilot-attachment--loading { opacity: .6; }
+.copilot-attachment--thumb { width: 64px; height: 64px; padding: 0; overflow: clip; } /* DRIFT: Figma literal sizes */
+.copilot-attachment--thumb img { width: 100%; height: 100%; object-fit: cover; }
