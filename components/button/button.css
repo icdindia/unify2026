@@ -135,3 +135,102 @@
   outline: 2px solid var(--colors-border-border-brand-solid);
   outline-offset: 1px;
 }
+
+/* ============================================================================
+   AUDIT 2026-10 (Figma 1:1183: Button Brand 3287:427074, Error 6218:85578,
+   Success 15787:92454, Neutral 17992:18140). Additive: size lg, full
+   hue x hierarchy matrix, focus ring, loading, dot, icon-only (--only).
+   Axes in Figma: Size xs/sm/md/lg - Hierarchy Primary/Secondary/Tertiary -
+   Icon Default/Dot leading/Only - State Default/Hover/Focused/Disabled/Loading.
+   ============================================================================ */
+
+.btn--lg {
+  min-width: 72px;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-lg) var(--spacing-xl);   /* 12/16 */
+  border-radius: var(--radius-3xl);   /* Figma binds radius-3xl (10), not --button-lg (8): DRIFT in the token */
+  font-size: var(--text-md-medium-font-size);
+  line-height: var(--text-md-medium-line-height);   /* 15/24 per Figma; 12+24+12 = 48 */
+}
+.btn--lg svg { width: 18px; height: 18px; }
+.btn--xs svg { width: 12px; height: 12px; }
+.btn--sm { font-size: var(--text-xs-medium-font-size); }   /* Figma sm text is 12/16 */
+.btn__dot { flex: none; width: 10px; height: 10px; color: currentColor; }   /* Icon=Dot leading */
+.btn__dot svg { width: 100%; height: 100%; }
+
+/* icon-only: square, padding per size (xs 24, sm 28, md 32, lg 48) */
+.btn--only { min-width: 0; gap: 0; }
+.btn--only.btn--xs { padding: 6px; } /* DRIFT: Figma geometry off the spacing scale */
+.btn--only.btn--sm { padding: 6px; } /* DRIFT: Figma geometry off the spacing scale */
+.btn--only.btn--md { padding: 8px; } /* DRIFT: Figma geometry off the spacing scale */
+.btn--only.btn--lg { padding: 14px; } /* DRIFT: Figma geometry off the spacing scale */
+.btn--only.btn--md svg, .btn--only.btn--sm svg { width: 16px; height: 16px; }
+.btn--only.btn--lg svg { width: 20px; height: 20px; }
+
+/* focus ring: Figma = 4px spread drop shadow, utility-gray-200 (all hues) */
+.btn:focus-visible, .btn[data-force="focus"] {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--colors-utility-gray-utility-gray-200);
+}
+.btn--neutral-secondary:focus-visible, .btn--neutral-secondary[data-force="focus"] {
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border), 0 0 0 4px var(--colors-utility-gray-utility-gray-200);
+}
+/* loading: bg/fg of hover, spinner replaces leading icon, no pointer events */
+.btn[data-loading], .btn--loading { pointer-events: none; cursor: default; }
+.btn__spinner {
+  flex: none; width: 14px; height: 14px; box-sizing: border-box;
+  border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; /* DRIFT: Figma geometry off the spacing scale */
+  animation: btn-spin .8s linear infinite;   /* DRIFT: Figma "Loading Icon" is a vector arc; ring approximates */
+}
+.btn--lg .btn__spinner { width: 18px; height: 18px; }
+.btn--xs .btn__spinner { width: 12px; height: 12px; }
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .btn__spinner { animation-duration: 2.4s; } }
+
+.btn--brand-secondary { background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--component-buttons-brand-secondary-button-brand-secondary-border); color: var(--component-buttons-brand-secondary-button-brand-secondary-fg); }
+.btn--brand-secondary:hover, .btn--brand-secondary[data-force="hover"], .btn--brand-secondary[data-loading] { background: var(--component-buttons-brand-secondary-button-brand-secondary-bg-hover); color: var(--component-buttons-brand-secondary-button-brand-secondary-fg-hover); box-shadow: inset 0 0 0 1px var(--component-buttons-brand-secondary-button-brand-secondary-border-hover); }
+.btn--brand-secondary[disabled], .btn--brand-secondary[data-force="disabled"] { background: var(--component-buttons-brand-secondary-button-brand-secondary-bg-disabled); color: var(--component-buttons-brand-secondary-button-brand-secondary-fg-disabled); cursor: default; box-shadow: inset 0 0 0 1px var(--component-buttons-brand-secondary-button-brand-secondary-border-disabled); }
+.btn--brand-tertiary { background: var(--component-buttons-brand-tertiary-button-brand-tertiary-bg); color: var(--component-buttons-brand-tertiary-button-brand-tertiary-fg); }
+.btn--brand-tertiary:hover, .btn--brand-tertiary[data-force="hover"], .btn--brand-tertiary[data-loading] { background: var(--component-buttons-brand-tertiary-button-brand-tertiary-bg-hover); color: var(--component-buttons-brand-tertiary-button-brand-tertiary-fg-hover); }
+.btn--brand-tertiary[disabled], .btn--brand-tertiary[data-force="disabled"] { background: var(--component-buttons-brand-tertiary-button-brand-tertiary-bg-disabled); color: var(--component-buttons-brand-tertiary-button-brand-tertiary-fg-disabled); cursor: default; }
+.btn--neutral-primary { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg); color: var(--component-buttons-neutral-primary-button-neutral-primary-fg); }
+.btn--neutral-primary:hover, .btn--neutral-primary[data-force="hover"], .btn--neutral-primary[data-loading] { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-hover); color: var(--component-buttons-neutral-primary-button-neutral-primary-fg-hover); }
+.btn--neutral-primary[disabled], .btn--neutral-primary[data-force="disabled"] { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-disabled); color: var(--component-buttons-neutral-primary-button-neutral-primary-fg-disabled); cursor: default; }
+.btn--error-primary { background: var(--component-buttons-error-primary-button-error-primary-bg); color: var(--component-buttons-error-primary-button-error-primary-fg); }
+.btn--error-primary:hover, .btn--error-primary[data-force="hover"], .btn--error-primary[data-loading] { background: var(--component-buttons-error-primary-button-error-primary-bg-hover); color: var(--component-buttons-error-primary-button-error-primary-fg-hover); }
+.btn--error-primary[disabled], .btn--error-primary[data-force="disabled"] { background: var(--component-buttons-error-primary-button-error-primary-bg-disabled); color: var(--component-buttons-error-primary-button-error-primary-fg-disabled); cursor: default; }
+.btn--error-secondary { background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--component-buttons-error-secondary-button-error-secondary-border); color: var(--component-buttons-error-secondary-button-error-secondary-fg); }
+.btn--error-secondary:hover, .btn--error-secondary[data-force="hover"], .btn--error-secondary[data-loading] { background: var(--component-buttons-error-secondary-button-error-secondary-bg-hover); color: var(--component-buttons-error-secondary-button-error-secondary-fg-hover); box-shadow: inset 0 0 0 1px var(--component-buttons-error-secondary-button-error-secondary-border-hover); }
+.btn--error-secondary[disabled], .btn--error-secondary[data-force="disabled"] { background: var(--component-buttons-error-secondary-button-error-secondary-bg-disabled); color: var(--component-buttons-error-secondary-button-error-secondary-fg-disabled); cursor: default; box-shadow: inset 0 0 0 1px var(--component-buttons-error-secondary-button-error-secondary-border-disabled); }
+.btn--error-tertiary { background: var(--component-buttons-error-tertiary-button-error-tertiary-bg); color: var(--component-buttons-error-tertiary-button-error-tertiary-fg); }
+.btn--error-tertiary:hover, .btn--error-tertiary[data-force="hover"], .btn--error-tertiary[data-loading] { background: var(--component-buttons-error-tertiary-button-error-tertiary-bg-hover); color: var(--component-buttons-error-tertiary-button-error-tertiary-fg-hover); }
+.btn--error-tertiary[disabled], .btn--error-tertiary[data-force="disabled"] { background: var(--component-buttons-error-tertiary-button-error-tertiary-bg-disabled); color: var(--component-buttons-error-tertiary-button-error-tertiary-fg-disabled); cursor: default; }
+.btn--success-primary { background: var(--component-buttons-success-primary-button-success-primary-bg); color: var(--component-buttons-success-primary-button-success-primary-fg); }
+.btn--success-primary:hover, .btn--success-primary[data-force="hover"], .btn--success-primary[data-loading] { background: var(--component-buttons-success-primary-button-success-primary-bg-hover); color: var(--component-buttons-success-primary-button-success-primary-fg-hover); }
+.btn--success-primary[disabled], .btn--success-primary[data-force="disabled"] { background: var(--component-buttons-success-primary-button-success-primary-bg-disabled); color: var(--component-buttons-success-primary-button-success-primary-fg-disabled); cursor: default; }
+.btn--success-secondary { background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--component-buttons-success-secondary-button-success-secondary-border); color: var(--component-buttons-success-secondary-button-success-secondary-fg); }
+.btn--success-secondary:hover, .btn--success-secondary[data-force="hover"], .btn--success-secondary[data-loading] { background: var(--component-buttons-success-secondary-button-success-secondary-bg-hover); color: var(--component-buttons-success-secondary-button-success-secondary-fg-hover); box-shadow: inset 0 0 0 1px var(--component-buttons-success-secondary-button-success-secondary-border-hover); }
+.btn--success-secondary[disabled], .btn--success-secondary[data-force="disabled"] { background: var(--component-buttons-success-secondary-button-success-secondary-bg-disabled); color: var(--component-buttons-success-secondary-button-success-secondary-fg-disabled); cursor: default; box-shadow: inset 0 0 0 1px var(--component-buttons-success-secondary-button-success-secondary-border-disabled); }
+.btn--success-tertiary { background: var(--component-buttons-success-tertiary-button-success-tertiary-bg); color: var(--component-buttons-success-tertiary-button-success-tertiary-fg); }
+.btn--success-tertiary:hover, .btn--success-tertiary[data-force="hover"], .btn--success-tertiary[data-loading] { background: var(--component-buttons-success-tertiary-button-success-tertiary-bg-hover); color: var(--component-buttons-success-tertiary-button-success-tertiary-fg-hover); }
+.btn--success-tertiary[disabled], .btn--success-tertiary[data-force="disabled"] { background: var(--component-buttons-success-tertiary-button-success-tertiary-bg-disabled); color: var(--component-buttons-success-tertiary-button-success-tertiary-fg-disabled); cursor: default; }
+.btn--brand-primary[data-loading] { background: var(--component-buttons-brand-primary-button-brand-primary-bg-hover); }
+.btn--neutral-secondary[disabled], .btn--neutral-secondary[data-force="disabled"] {
+  background: var(--component-buttons-neutral-secondary-button-neutral-secondary-bg-disabled);
+  box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-secondary-button-neutral-secondary-border-disabled);
+  color: var(--component-buttons-neutral-secondary-button-neutral-secondary-fg-disabled); cursor: default;
+}
+.btn--neutral-tertiary[disabled], .btn--neutral-tertiary[data-force="disabled"] {
+  color: var(--component-buttons-neutral-tertiary-button-neutral-tertiary-fg-disabled); cursor: default;
+}
+/* neutral primary (dark fill) - Figma 17992:18140 */
+.btn--neutral-primary { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg); color: var(--component-buttons-neutral-primary-button-neutral-primary-fg); box-shadow: inset 0 0 0 1px var(--component-buttons-neutral-primary-button-neutral-primary-border); }
+.btn--neutral-primary:hover, .btn--neutral-primary[data-force="hover"], .btn--neutral-primary[data-loading] { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-hover); }
+.btn--neutral-primary[disabled], .btn--neutral-primary[data-force="disabled"] { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-disabled); color: var(--component-buttons-neutral-primary-button-neutral-primary-fg-disabled); box-shadow: none; cursor: default; }
+/* brand secondary / tertiary - Figma 3287:427074 */
+.btn--brand-secondary { background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--component-buttons-brand-secondary-button-brand-secondary-border); color: var(--component-buttons-brand-secondary-button-brand-secondary-fg); }
+.btn--brand-secondary:hover, .btn--brand-secondary[data-force="hover"] { background: var(--component-buttons-brand-secondary-button-brand-secondary-bg-hover); color: var(--component-buttons-brand-secondary-button-brand-secondary-fg-hover); }
+.btn--brand-secondary[disabled] { box-shadow: inset 0 0 0 1px var(--component-buttons-brand-secondary-button-brand-secondary-border-disabled); color: var(--component-buttons-brand-secondary-button-brand-secondary-fg-disabled); cursor: default; }
+.btn--brand-tertiary { color: var(--component-buttons-brand-tertiary-button-brand-tertiary-fg); }
+.btn--brand-tertiary:hover, .btn--brand-tertiary[data-force="hover"] { background: var(--component-buttons-brand-tertiary-button-brand-tertiary-bg-hover); color: var(--component-buttons-brand-tertiary-button-brand-tertiary-fg-hover); }
+.btn--brand-tertiary[disabled] { color: var(--component-buttons-brand-tertiary-button-brand-tertiary-fg-disabled); cursor: default; }

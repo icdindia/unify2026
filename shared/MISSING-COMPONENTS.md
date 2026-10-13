@@ -160,3 +160,17 @@ Everything else is composed locally because the DS has no HTML atom for it yet:
 
 No `componentKey` is recorded for any of these in `ds/figma-keys.md`, so the
 build emits `data-figma-node`-style `data-node-id` addresses only.
+
+## 2026-10-12 — templates/screen-starter.html (list screen composed from atoms)
+
+Needs met by glue or left unstyled because no atom covers them:
+
+| Need | Where it showed up | Interim |
+|---|---|---|
+| Page-header actions slot (primary + secondary buttons beside the title) | `page-header` has stack only | `.screen-actions` sibling in `screen-starter.css` |
+| Modal body text style (paragraph in `.modal__body`) | `modal` has no text element; paragraph inherits browser defaults (16px) | left as plain `<p>` |
+| Check glyph asset for `checkbox__check` | not in `shared/svg-icons/`; inlined 8x6 path | inline in template |
+| Table cell compositions (name + supporting with avatar, tag list, owner) | `table` ships the shell only | `.cell*` glue in `screen-starter.css` |
+| Static (non-fixed) modal presentation | `.modal-backdrop` is `position:fixed` | `.modal-frame` glue wrapper |
+| Search input atom with 14px icon at filter-bar size | `input` (sm) used instead of `.search-input` (div, not an input) | `.input--sm` + `input__icon` |
+| `.table` background in dark mode | used `bg-white` (stays #fff in dark) | fixed in `components/table/table.css` -> `bg-primary` |

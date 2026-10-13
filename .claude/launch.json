@@ -179,6 +179,18 @@
         "dev"
       ],
       "port": 4190
+    },
+    {
+      "name": "templates",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4191",
+        "--directory",
+        "/Users/lisarath/Unify2026"
+      ],
+      "port": 4191
     }
   ]
 }

@@ -1,0 +1,60 @@
+/* ----------------------------------------------------------------------------
+   screen-starter.css — LAYOUT GLUE ONLY for templates/screen-starter.html.
+   No atom is restyled here. Tokens only: var(--spacing-*), var(--colors-*), var(--radius-*).
+   Anything off-scale is marked DRIFT.
+---------------------------------------------------------------------------- */
+* { box-sizing: border-box; }
+h1, h2, h3, h4, h5, h6, p, figure { margin: 0; }   /* semantic headings need an explicit reset */
+
+body {
+  margin: 0;
+  background: var(--colors-background-bg-primary);
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--font-family-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.theme-toggle { position: fixed; right: var(--spacing-xl); bottom: var(--spacing-xl); z-index: 10; }
+
+.app-shell { display: flex; align-items: stretch; min-height: 100vh; }
+.nav-rail { position: sticky; top: 0; height: 100vh; align-self: flex-start; }
+.app-main { display: flex; flex-direction: column; flex: 1 0 0; min-width: 0; }
+
+/* Page header: the atom has no actions slot, so actions sit beside the stack. */
+.page-header { align-items: flex-end; padding-right: var(--spacing-xl); }
+.screen-actions { display: flex; align-items: center; gap: var(--spacing-md); flex: none; padding-bottom: var(--spacing-md); }
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-4xl);
+}
+
+.filter-row { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-lg); flex-wrap: wrap; }
+.filter-row__start { display: flex; align-items: center; gap: var(--spacing-md); flex-wrap: wrap; }
+.filter-row__search { width: 240px; }   /* DRIFT: search width not specified in the DS */
+
+/* Table cell compositions (atoms inside table__td) */
+.cell { display: flex; align-items: center; gap: var(--spacing-md); }
+.cell--name { gap: var(--spacing-md); }
+.cell--tags { gap: var(--spacing-xs); flex-wrap: wrap; }
+.cell__text { display: flex; flex-direction: column; min-width: 0; }
+.cell__title { color: var(--colors-text-text-primary-900); font-weight: var(--text-sm-medium-font-weight); }
+.table__td--check, .table__th--check { width: var(--spacing-5xl); }
+
+/* States section */
+.states { display: flex; flex-direction: column; gap: var(--spacing-lg); padding-top: var(--spacing-3xl); border-top: 1px dashed var(--colors-border-border-primary); }
+.states__title { font-family: var(--text-md-semibold-font-family); font-weight: var(--text-md-semibold-font-weight); font-size: var(--text-md-semibold-font-size); line-height: var(--text-md-semibold-line-height); }
+.states__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-3xl); align-items: start; }
+.states__cell { display: flex; flex-direction: column; gap: var(--spacing-md); min-width: 0; }
+.states__cell--wide { grid-column: 1 / -1; }
+.states__stack { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.states__label { font-family: var(--text-xxs-regular-code-font-family); font-size: var(--text-xxs-regular-code-font-size); line-height: var(--text-xxs-regular-code-line-height); color: var(--colors-text-text-tertiary-600); text-transform: uppercase; }
+/* Static stand-in for .modal-backdrop (which is position:fixed) */
+.modal-frame {
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--spacing-7xl) var(--spacing-xl);
+  border-radius: var(--radius-4xl);
+  background: color-mix(in srgb, var(--colors-utility-gray-utility-gray-950) 40%, transparent);
+}
