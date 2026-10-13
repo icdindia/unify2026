@@ -36,3 +36,70 @@
 }
 
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ============================================================================
+   AUDIT 2026-10 (Figma 13931:29731). Avatar 13931:31146 axes: Size xxxs..2xl x
+   Type Icon/Letter x Colour Brand Solid/Gray/White x State Default/Hover/
+   Focused/Selected. Additive; legacy --sm (20) and --md (32) are KEPT because
+   prototypes use them. DRIFT: in Figma those are sizes xxs (20) and sm (32);
+   use the --fs-* (Figma size) classes below for new work.
+   ============================================================================ */
+.avatar { position: relative; overflow: visible; }                 /* rings + online dot sit outside the circle */
+.avatar > img, .avatar > .avatar__img { border-radius: inherit; }
+.avatar--fs-xxxs { width: 16px; height: 16px; font-size: 11px; line-height: 12px; font-weight: 500; }   /* DRIFT: Figma 11/12, no DS style */
+.avatar--fs-xxs  { width: 20px; height: 20px; font-size: 11px; line-height: 12px; font-weight: 500; } /* DRIFT: Figma geometry/type with no DS token */
+.avatar--fs-xs   { width: 24px; height: 24px; font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); font-weight: var(--text-xs-medium-font-weight); } /* DRIFT: Figma geometry/type with no DS token */
+.avatar--fs-sm   { width: 32px; height: 32px; font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); font-weight: var(--text-sm-medium-font-weight); } /* DRIFT: Figma geometry/type with no DS token */
+.avatar--fs-md   { width: 40px; height: 40px; font-size: var(--text-md-medium-font-size); line-height: var(--text-md-medium-line-height); font-weight: var(--text-md-medium-font-weight); } /* DRIFT: Figma geometry/type with no DS token */
+.avatar--fs-lg   { width: 48px; height: 48px; font-size: 17px; line-height: 20px; font-weight: 500; }   /* DRIFT: Figma 17/20 */
+.avatar--fs-xl   { width: 56px; height: 56px; font-size: 20px; line-height: 26px; font-weight: 600; }   /* DRIFT: Figma 20/26 SemiBold */
+.avatar--fs-2xl  { width: 64px; height: 64px; font-size: 24px; line-height: 32px; font-weight: 600; } /* DRIFT: Figma geometry/type with no DS token */
+.avatar--fs-xs, .avatar--fs-sm, .avatar--fs-md { background: var(--colors-utility-gray-utility-gray-200); }
+
+/* colour axis */
+.avatar--gray  { background: var(--colors-utility-gray-utility-gray-200); color: var(--colors-text-text-tertiary-600); }
+.avatar--brand { background: var(--colors-background-bg-brand-solid); color: var(--colors-text-text-white); }
+.avatar--white { background: var(--colors-background-bg-primary); color: var(--colors-utility-gray-utility-gray-500); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }
+.avatar__icon, .avatar > svg { width: 60%; height: 60%; display: block; }   /* Type=Icon: user glyph 24 in a 40 (md) */
+
+/* state axis: hover = 3px gap then 1px border-tertiary ring; selected = brand ring; focus = 4px outside ring */
+.avatar[data-force="hover"], .avatar:hover { box-shadow: 0 0 0 3px var(--colors-background-bg-primary), 0 0 0 4px var(--colors-border-border-tertiary); }
+.avatar[data-force="selected"], .avatar[aria-selected="true"] { box-shadow: 0 0 0 3px var(--colors-background-bg-primary), 0 0 0 4px var(--colors-border-border-brand-solid); }
+.avatar:focus-visible, .avatar[data-force="focus"] { outline: 0; box-shadow: 0 0 0 4px var(--colors-utility-gray-utility-gray-200); }   /* DRIFT: focus ring colour not resolved from Figma (4px OUTSIDE stroke, unbound); matches button focus */
+
+/* online dot (_Avatar online indicator 13931:30832): size per avatar size, 1.5px bg-white outside stroke */
+.avatar__online {
+  position: absolute; right: 0; bottom: 0;
+  width: 10px; height: 10px; box-sizing: content-box;
+  border-radius: var(--radius-full);
+  background: var(--colors-utility-success-utility-success-500);
+  box-shadow: 0 0 0 1.5px var(--colors-background-bg-white);
+  transform: translate(0, 0);
+}
+.avatar--fs-xs .avatar__online { width: 6px; height: 6px; }
+.avatar--fs-sm .avatar__online { width: 8px; height: 8px; }
+.avatar--fs-lg .avatar__online { width: 12px; height: 12px; }
+.avatar--fs-xl .avatar__online { width: 14px; height: 14px; }
+.avatar--fs-2xl .avatar__online { width: 16px; height: 16px; }
+
+/* company logo badge (_Avatar company icon 13931:31741), bottom-right: 10/12/14/16/18/20 for xs..2xl */
+.avatar__company {
+  position: absolute; right: -2px; bottom: -2px;
+  width: 14px; height: 14px; border-radius: var(--radius-full); overflow: hidden; /* DRIFT: Figma geometry/type with no DS token */
+  box-shadow: 0 0 0 1.5px var(--colors-background-bg-white); background: var(--colors-background-bg-white);
+}
+.avatar__company img, .avatar__company svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar--fs-xs .avatar__company { width: 10px; height: 10px; }
+.avatar--fs-sm .avatar__company { width: 12px; height: 12px; }
+.avatar--fs-lg .avatar__company { width: 16px; height: 16px; }
+.avatar--fs-xl .avatar__company { width: 18px; height: 18px; }
+.avatar--fs-2xl .avatar__company { width: 20px; height: 20px; }
+
+/* Avatar group 13931:31834: overlap -4 (xxs/xs), -8 (sm), -12 (md); ring 1 inside (xs) / 1.5 outside white (sm, md) */
+.avatar-group { display: inline-flex; align-items: center; }
+.avatar-group > .avatar + .avatar { margin-left: -4px; }
+.avatar-group > .avatar { box-shadow: inset 0 0 0 1px var(--colors-background-bg-primary); }
+.avatar-group--sm > .avatar + .avatar { margin-left: -8px; }
+.avatar-group--md > .avatar + .avatar { margin-left: -12px; }
+.avatar-group--sm > .avatar, .avatar-group--md > .avatar { box-shadow: 0 0 0 1.5px var(--colors-background-bg-white); }
+.avatar-group__more { margin-left: var(--spacing-md); }   /* "+" add button / overflow count sits 8 after the stack */

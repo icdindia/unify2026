@@ -95,3 +95,46 @@
 
 /* stacked stat rows are separated by a rule; the last row drops it */
 .stats-row--divided { border-bottom: 1px solid var(--colors-border-border-tertiary); }
+
+/* ============================================================================
+   AUDIT 2026-10 (Figma 9012:17245). The page's live component is "Stat Card"
+   25800:3698 (Size xs / sm / xs + icon x Label Position Top / Below / Bottom),
+   plus "Change" 9012:19224 (Type text/pill x Trend Positive/Negative) and
+   _Chart mini 9012:19159. The tile above (.stat) is the Dashboard composition;
+   the card below is the DS component. "Stat Card-old" 9012:18995 (xs-lg) is
+   superseded and not mapped. Additive.
+   ============================================================================ */
+.stat-card {
+  display: flex; flex-direction: column;
+  box-sizing: border-box; width: 100%;
+  padding: var(--spacing-lg);                 /* sm: 16 */
+  border-radius: var(--radius-lg);            /* 8 */
+  background: var(--colors-background-bg-primary);
+}
+.stat-card--xs { padding: var(--spacing-md); }   /* 12 */
+.stat-card--outline { box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); }   /* Stroke axis; colour assumed */
+.stat-card__row { display: flex; align-items: center; gap: var(--spacing-md); }   /* icon + body, 12 */
+.stat-card__body { display: flex; flex: 1 0 0; flex-direction: column; min-width: 0; }
+.stat-card--below .stat-card__body { flex-direction: column-reverse; }   /* Label Position=Below (label under value): DOM order label, value */
+.stat-card__top { display: flex; align-items: center; gap: var(--spacing-sm); }
+.stat-card__value {
+  font-family: var(--font-family-body);
+  font-size: 24px; line-height: 24px; font-weight: 600;   /* DRIFT: Figma Geist SemiBold 24/24, no DS style */
+  color: var(--colors-text-text-primary-900);
+}
+.stat-card__label {
+  font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size);
+  line-height: var(--text-xs-regular-line-height); font-weight: var(--text-xs-regular-font-weight);
+  color: var(--colors-text-text-tertiary-600);
+}
+/* xs: mono value + uppercase mono label */
+.stat-card--xs .stat-card__value { font-family: var(--font-family-code); font-size: 14px; line-height: 20px; font-weight: 700; }   /* DRIFT as .stat__value */
+.stat-card--xs .stat-card__label { font-family: var(--font-family-code); font-size: var(--text-xxs-regular-code-font-size); line-height: var(--text-xxs-regular-code-line-height); text-transform: uppercase; }
+/* Change (9012:19224): arrow + % in Text xs/Medium; pill type = white 11/12 Medium on a fill */
+.stat__change { display: inline-flex; align-items: center; gap: var(--spacing-xxs); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); font-weight: var(--text-xs-medium-font-weight); }
+.stat__change svg { width: 16px; height: 16px; }
+.stat__change--up { color: var(--colors-text-text-success-primary-600); }
+.stat__change--down { color: var(--colors-text-text-error-primary-600); }
+.stat__change--pill { padding: 0 var(--spacing-sm); border-radius: var(--radius-full); color: var(--colors-text-text-white); font-size: 11px; line-height: 12px; }   /* DRIFT: pill fill unread */
+.stat__change--pill.stat__change--up { background: var(--colors-utility-success-utility-success-500); }
+.stat__change--pill.stat__change--down { background: var(--colors-utility-error-utility-error-500); }
