@@ -1,0 +1,36 @@
+/* ----------------------------------------------------------------------------
+   bottom-nav — DS "LC_Bottom Navigation" (Navigation page 82:1862, set 45450:14108)
+   Breakpoint Mobile (360) | Tablet (720) x Style Framed | Framed-lg | Stroke x Floating.
+   Mobile Framed: 360x83 = Content 49 (pad 6/16/0/16, gap 8, six 48x48 icon units)
+   + 34 home-indicator strip (bg-workspace, 134x5 pill). Floating=Yes drops the
+   indicator (62 tall), adds pad-bottom 8, radius 12, navbar-border ring, shadow-md.
+   Tablet: 720 wide, 65 tall, same unit geometry.
+   Surface navbar-bg. DRIFT: icon-only unit internals (icon size 24, selected tint
+   icon-brand-600) were not read node-by-node; Framed-lg corner radius not distinguished.
+---------------------------------------------------------------------------- */
+.bottom-nav {
+  display: flex; flex-direction: column; box-sizing: border-box;
+  width: 360px; background: var(--component-nav-bar-navbar-bg);
+}
+.bottom-nav--tablet { width: 720px; }
+.bottom-nav__content { display: flex; box-sizing: border-box; padding: var(--spacing-sm) var(--spacing-xl) 0; }
+.bottom-nav__items { display: flex; flex: 1 0 0; align-items: center; justify-content: space-between; gap: var(--spacing-md); }
+.bottom-nav__item {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none; width: var(--spacing-6xl); height: var(--spacing-6xl); padding: 0; box-sizing: border-box;
+  border: 0; border-radius: var(--radius-md); background: transparent;
+  color: var(--component-nav-bar-main-navbar-main-default-icon); cursor: pointer;
+}
+.bottom-nav__item svg { display: block; width: 24px; height: 24px; }
+.bottom-nav__item:hover, .bottom-nav__item[data-force="hover"] { background: var(--component-nav-bar-main-navbar-main-default-bg-hover); color: var(--component-nav-bar-main-navbar-main-default-icon-hover); }
+.bottom-nav__item:focus-visible { outline: 2px solid var(--colors-border-border-brand-solid); outline-offset: -2px; }
+.bottom-nav__item[aria-current="page"] { color: var(--colors-icon-icon-brand-600); }
+.bottom-nav__indicator {
+  display: flex; align-items: flex-end; justify-content: center; box-sizing: border-box;
+  height: 34px; padding-bottom: var(--spacing-md); background: var(--colors-background-bg-workspace); /* DRIFT: Figma-measured value, no token */
+}
+.bottom-nav__indicator::after { content: ""; width: 134px; height: 5px; border-radius: 100px; background: var(--colors-text-text-primary-900); } /* DRIFT: Figma-measured value, no token */
+.bottom-nav--floating { border-radius: var(--radius-xl); box-shadow: var(--shadow-md), inset 0 0 0 1px var(--component-nav-bar-navbar-border); } /* DRIFT: Figma-measured value, no token */
+.bottom-nav--floating .bottom-nav__content { padding-bottom: var(--spacing-md); }
+.bottom-nav--stroke { box-shadow: inset 0 1px 0 var(--component-nav-bar-navbar-border); }
+.bottom-nav--stroke.bottom-nav--floating { box-shadow: inset 0 0 0 1px var(--component-nav-bar-navbar-border); }

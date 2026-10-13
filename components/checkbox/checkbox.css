@@ -173,3 +173,17 @@
 .checkbox-group { display: flex; flex-direction: column; gap: var(--spacing-md); }
 .checkbox-group__list { display: flex; flex-direction: column; gap: var(--spacing-lg); }
 .checkbox-group--double .checkbox-group__list { flex-direction: row; gap: var(--spacing-xl); }
+
+/* ===== gaps2: xs label sizes + Tick set (Tick 65827:44098: 14x14 circle, Check On|Off) =====
+   xs box 14 (_Checkbox base xs, r4, 0.875 stroke) pairs with Text xs labels; Tick = round indicator for list rows.
+   DRIFT: Tick On fill assumed bg-brand-solid with white check (Off read: 1px utility-gray-400 ring, no fill). */
+.checkbox--xs .checkbox__label { font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); }
+.checkbox--xs .checkbox__hint, .checkbox--xs .checkbox__text { font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+.tick {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 14px; height: 14px; flex: none;
+  border-radius: var(--radius-full); background: transparent; color: var(--colors-icon-icon-white);
+  box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-400);
+}
+.tick svg { width: 8px; height: 8px; display: none; }
+.tick[aria-checked="true"], .tick--on { background: var(--colors-background-bg-brand-solid); box-shadow: none; }
+.tick[aria-checked="true"] svg, .tick--on svg { display: block; }

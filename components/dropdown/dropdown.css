@@ -118,3 +118,35 @@
 .dropdown-item--sm .dropdown-item__shortcut { font-size: 10px; line-height: 12px; /* DRIFT: Text xxxs/Regular, no typography var read */ }
 
 .dropdown-item--divider { box-shadow: 0 1px 0 var(--colors-border-border-tertiary); } /* DRIFT: Divider placement not read */
+
+/* ===== gaps2 additions =====================================================
+   Footer 13317:29694 [State Default|Hover|Open; 240x40 p2/4 > Content p8/12/8/8 g12 r6, icon+text, shortcut text-quaternary]
+   -> .dropdown-menu__footer (rule on top) containing a .dropdown-item.
+   Search header _Input Dropdown List Search 11237:36141 [md 44 tall / sm, p12, bottom rule border-secondary, placeholder text-placeholder 13/Regular]
+   -> .dropdown-menu__search (input inside).
+   Avatar-group header 3281:382878 [240x64 p12, bottom rule border-tertiary, avatar 40 + name 13/Medium + supporting 13/Regular]
+   Input dropdown Menu Item 3281:380429 [320x40 p2/4 > Content p8 g6 r8; name 13/Regular + supporting 11/Regular tertiary; Stacking Single|Double line;
+   Types Default|Icon|Avatar|Dot leading|Pill|Divider] -> .dropdown-item--select (+ __sub, __dot)
+   Scrollbar: long menus use .dropdown-menu__items--scroll + components/scrollbar (native thin bar fallback below).   */
+.dropdown-menu__footer { display: flex; flex-direction: column; padding: var(--spacing-xxs) 0; box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary); } /* DRIFT: Figma-measured size */
+.dropdown-menu__search {
+  display: block; box-sizing: border-box; width: 100%; padding: var(--spacing-lg); margin: 0; border: 0; outline: 0;
+  background: transparent; box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.dropdown-menu__search::placeholder { color: var(--colors-text-text-placeholder); }
+.dropdown-menu__search--sm { padding: var(--spacing-md) var(--spacing-lg); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); } /* DRIFT: sm size not sampled */
+.dropdown-menu--wide { width: 320px; }
+.dropdown-menu__items--scroll { max-height: 240px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--colors-utility-gray-utility-gray-300) transparent; }
+.dropdown-item--select { border-radius: var(--radius-md); }
+.dropdown-item--select .dropdown-item__text { gap: var(--spacing-sm); }
+.dropdown-item__sub {
+  font-family: var(--text-xxs-regular-font-family, var(--text-xs-regular-font-family)); font-weight: 400; font-size: 11px; line-height: 12px; /* DRIFT: 11/Regular literal */
+  color: var(--colors-text-text-tertiary-600);
+}
+.dropdown-item--stack .dropdown-item__text { flex-direction: column; align-items: flex-start; gap: 0; }
+.dropdown-item--stack { height: auto; min-height: 40px; padding-block: var(--spacing-xs); } /* DRIFT: Figma-measured size */
+.dropdown-item__dot { width: 8px; height: 8px; flex: none; border-radius: var(--radius-full); background: var(--colors-utility-success-utility-success-500); } /* DRIFT: Figma-measured size */
+.dropdown-menu__header--avatar { display: flex; align-items: center; gap: var(--spacing-lg); height: 64px; } /* DRIFT: Figma-measured size */

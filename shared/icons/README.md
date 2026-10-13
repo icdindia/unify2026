@@ -18,3 +18,11 @@ Not exported: `calendar-schedule-solid` (59633:4927) does not render through the
 stay because components reference them by name.
 Regenerate: `tools/figma-icons-index.py` -> `tools/figma-icons-export.py` -> `tools/process-icons.py`
 (Figma API token read from the figma-console MCP config at run time).
+
+## Misc, emoji, cursor, logos (found2 batch)
+Exported by `tools/figma-misc-export.py` (Figma REST, SVG). Each folder has an `index.json` (name, group, Figma node id, size, multicolour, raster).
+- `shared/icons/misc/` social, country flags (`flag-xx`), payment (md), integration, file-type icons
+- `shared/icons/emoji/` Tone + Reactions (embedded raster inside SVG)
+- `shared/icons/cursor/` 10 cursor states
+- `shared/logos/` client logos, Unify logo/favicons, company logos, fictional, featured
+`python3 tools/icon.py <name> --family misc|emoji|cursor|logos` prints the inline SVG. Brand colours are kept exactly; only single-ink non-brand social icons use currentColor.

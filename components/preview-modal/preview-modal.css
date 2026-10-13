@@ -1,0 +1,22 @@
+/* preview-modal — Preview Modal page 71561:14622, Multi File View 71561:14707 (1440x900).
+   Full-viewport dark file viewer: header 56 (bg-base-dark, bottom rule border-tertiary),
+   stage with utility-gray-800 overlay, 96x96 neutral prev/next buttons.
+   DRIFT: Figma file-name text is 13px (off scale) -> --text-sm-regular. */
+.preview-modal { position: relative; display: flex; flex-direction: column; box-sizing: border-box; width: 100%; height: 100%; min-height: 360px; background: var(--colors-utility-gray-utility-gray-800); color: var(--colors-text-text-white); overflow: clip; }
+.preview-modal__header { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-lg); box-sizing: border-box; height: 56px; padding: var(--spacing-lg) 20px var(--spacing-lg) var(--spacing-xl); background: var(--colors-background-bg-base-dark); box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary); position: relative; z-index: 1; } /* DRIFT: padding 12/20/12/16 literal */
+.preview-modal__file { display: flex; align-items: center; gap: var(--spacing-md); min-width: 0; }
+.preview-modal__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-white); }
+.preview-modal__controls { display: flex; align-items: center; gap: var(--spacing-md); }
+.preview-modal__counter { display: inline-flex; gap: var(--spacing-sm); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); color: var(--colors-text-text-white); }
+.preview-modal__btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--radius-md); background: transparent; color: var(--colors-text-text-white); cursor: pointer; } /* DRIFT: Figma literal sizes */
+.preview-modal__btn svg { width: 16px; height: 16px; }
+.preview-modal__btn:hover, .preview-modal__btn[data-force="hover"] { background: color-mix(in srgb, var(--colors-text-text-white) 12%, transparent); }
+.preview-modal__btn:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+.preview-modal__zoom { display: inline-flex; align-items: center; gap: var(--spacing-md); height: 28px; box-sizing: border-box; padding: 0 var(--spacing-md); border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-700); font-family: var(--text-xs-medium-font-family); font-size: var(--text-xs-medium-font-size); color: var(--colors-text-text-white); } /* DRIFT: Figma literal sizes */
+.preview-modal__stage { position: relative; display: flex; flex: 1 0 0; align-items: center; justify-content: center; padding: var(--spacing-xl); }
+.preview-modal__content { max-width: 100%; max-height: 100%; border-radius: var(--radius-md); box-shadow: 0 0 0 3px var(--colors-utility-gray-utility-gray-50); object-fit: contain; background: var(--colors-background-bg-primary); } /* DRIFT: Figma stroke 28.8 is a scaled artefact; 3px used */
+.preview-modal__nav { position: absolute; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: 96px; height: 96px; border: 0; background: transparent; color: var(--colors-icon-icon-tertiary); cursor: pointer; border-radius: var(--radius-xs); } /* DRIFT: Figma literal sizes */
+.preview-modal__nav svg { width: 40px; height: 40px; }
+.preview-modal__nav--prev { left: 0; } .preview-modal__nav--next { right: 0; }
+.preview-modal__nav:hover, .preview-modal__nav[data-force="hover"] { color: var(--colors-text-text-white); }
+.preview-modal__nav:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }

@@ -101,3 +101,24 @@
 }
 .progress-dots__dot[aria-current], .progress-dots__dot[data-done] { background-color: var(--colors-utility-success-utility-success-500); }
 .progress-dots__dot[data-error] { background-color: var(--colors-utility-error-utility-error-500); }
+
+/* ===== gaps2: circle xxs/xxxs, half circle, trendline (Progress circle 1154:89981 Size xxxs..lg x Shape Circle|Half circle; Trendline 9628:21850) =====
+   Half circle xxs: 64x55, ring stroke 6 (border-tertiary track, border-brand-solid arc), value 13/SemiBold centered, label 12/Medium tertiary.
+   Drawn with SVG-free conic masks; set --pc-value (0-100). DRIFT: xxxs size and trendline geometry not sampled. */
+.progress-circle--xxs { --pc-size: 64px; --pc-stroke: 6px; }
+.progress-circle--xxxs { --pc-size: 40px; --pc-stroke: 4px; }
+.progress-circle--xxs, .progress-circle--xxxs { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--pc-size); height: var(--pc-size); }
+.progress-circle--xxs::before, .progress-circle--xxxs::before {
+  content: ""; position: absolute; inset: 0; border-radius: var(--radius-full);
+  background: conic-gradient(var(--colors-border-border-brand-solid) calc(var(--pc-value, 40) * 1%), var(--colors-border-border-tertiary) 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--pc-stroke)), #000 calc(100% - var(--pc-stroke) + .5px)); /* DRIFT: Figma-measured size */
+          mask: radial-gradient(farthest-side, transparent calc(100% - var(--pc-stroke)), #000 calc(100% - var(--pc-stroke) + .5px)); /* DRIFT: Figma-measured size */
+}
+.progress-circle--half { height: calc(var(--pc-size, 64px) * .5 + 4px); align-items: flex-end; overflow: hidden; }
+.progress-circle--half::before {
+  inset: 0 0 auto 0; height: var(--pc-size, 64px);
+  background: conic-gradient(from 270deg, var(--colors-border-border-brand-solid) calc(var(--pc-value, 40) * 1.8deg), var(--colors-border-border-tertiary) 0 180deg, transparent 0);
+}
+.progress-trend { display: flex; align-items: flex-end; gap: var(--spacing-xs); height: 32px; } /* DRIFT: Figma-measured size */
+.progress-trend > i { flex: 1; min-width: 4px; border-radius: var(--radius-xxs); background: var(--colors-utility-gray-utility-gray-200); height: calc(var(--h, 50) * 1%); } /* DRIFT: Figma-measured size */
+.progress-trend > i.is-active { background: var(--colors-background-bg-brand-solid); }

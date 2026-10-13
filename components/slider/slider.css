@@ -104,3 +104,14 @@
 }
 
 .slider[aria-disabled="true"] { opacity: .5; pointer-events: none; } /* DRIFT: no disabled state in Figma */
+
+/* ===== gaps2: tooltip handle (Control handle 3287:442783: Type False|Text|Tooltip, Size sm 24 / xs, handle white fill + 2px brand-solid stroke) =====
+   Text type shows value inside the 24px handle (15/Medium); Tooltip type floats a dark label above. DRIFT: tooltip body composed from components/tooltip metrics. */
+.slider__handle--text { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-family: var(--text-xs-medium-font-family); font-weight: 500; font-size: 10px; color: var(--colors-text-text-primary-900); } /* DRIFT: value font reduced to fit 24px */
+.slider__tip {
+  position: absolute; bottom: calc(100% + var(--spacing-md)); left: 50%; transform: translateX(-50%);
+  padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm); white-space: nowrap; pointer-events: none;
+  background: var(--colors-background-bg-base-dark); color: var(--colors-text-text-white);
+  font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height);
+}
+.slider__handle { position: relative; }

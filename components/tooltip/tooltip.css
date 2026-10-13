@@ -79,3 +79,16 @@
 .tooltip--end.tooltip--top,   .tooltip--end.tooltip--bottom   { align-items: flex-end; }
 .tooltip--start.tooltip--top .tooltip__arrow, .tooltip--start.tooltip--bottom .tooltip__arrow { margin-left: var(--tooltip-arrow-inset); }
 .tooltip--end.tooltip--top .tooltip__arrow,   .tooltip--end.tooltip--bottom .tooltip__arrow   { margin-right: var(--tooltip-arrow-inset); }
+
+/* ===== gaps2: code + link rows (Tooltip 1052:489 content: V p12 r6 bg-base-dark, ring utility-gray-700) =====
+   DRIFT: code/link row styling composed (no Figma variant sampled); mirrors tooltip__kbd metrics. */
+.tooltip__code {
+  display: block; margin-top: var(--spacing-md); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-xs);
+  background: var(--colors-utility-gray-utility-gray-800, rgba(255,255,255,.08)); color: var(--colors-text-text-white);
+  font-family: ui-monospace, "Geist Mono", Menlo, monospace; font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height);
+}
+.tooltip__link {
+  display: inline-block; margin-top: var(--spacing-md); color: var(--colors-text-text-white); text-decoration: underline;
+  font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height);
+}
+.tooltip__link:hover { opacity: .8; }

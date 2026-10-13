@@ -107,3 +107,6 @@
   cursor: pointer;
 }
 .carousel-arrow svg { width: 20px; height: 20px; }
+
+/* ===== gaps2: audit note - Pagination 225:7288 was marked built; no additional variants sampled this pass. Added .pagination--compact (prev/next + info only). */
+.pagination--compact .pagination__pages { display: none; }

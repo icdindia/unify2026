@@ -403,3 +403,18 @@
     0 0 0 2px var(--colors-utility-gray-utility-gray-300),
     0 1px 1px 1px rgba(16, 24, 40, 0.05); /* DRIFT: ring-gray-shadow-xs layer 2 (read 9445:64185) - no shadow token */
 }
+
+/* ===== gaps2: Rounded Folder xs, Folder Destructive + Badge (_Folder Tab base 44587:6646) =====
+   Rounded xs: 36 pill, featured icon 24, pad 6/12/6/6. Destructive: label + icon error colours, current keeps folder shape.
+   Badge: reuse .tab__badge (20px gray pill) after text. DRIFT: xs/destructive/badge sizes derived from the existing folder tab; not individually sampled. */
+.tab--rounded-folder.tab--xs { padding: var(--spacing-xs) var(--spacing-lg) var(--spacing-xs) var(--spacing-xs); margin-bottom: var(--spacing-sm); }
+.tab--rounded-folder.tab--xs .tab__featured { width: 24px; height: 24px; }
+.tab--rounded-folder.tab--xs .tab__featured svg { width: 12px; height: 12px; }
+.tab--folder.tab--destructive,
+.tab--folder.tab--destructive .tab__icon { color: var(--colors-text-text-error-primary-600); }
+.tab--folder.tab--destructive[aria-selected="true"],
+.tab--folder.tab--destructive[data-force="current"] { color: var(--colors-text-text-error-primary-600); }
+.tab--folder.tab--destructive[aria-selected="true"] .tab__icon,
+.tab--folder.tab--destructive[data-force="current"] .tab__icon { color: var(--colors-icon-icon-error-600); }
+.tab--folder .tab__badge { margin-inline-start: var(--spacing-xxs); }
+.tab--rounded-folder .tab__badge { margin-inline-start: var(--spacing-xxs); }

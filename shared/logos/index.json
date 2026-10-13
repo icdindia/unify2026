@@ -1,0 +1,4922 @@
+[
+{
+"name": "client-dummy-full",
+"group": "client-logos",
+"figma": "24384:25724",
+"w": 255.0,
+"h": 33.0,
+"multicolour": true,
+"raster": true,
+"bytes": 12790
+},
+{
+"name": "client-boat-full",
+"group": "client-logos",
+"figma": "11448:2467",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2164
+},
+{
+"name": "client-hdfc-full",
+"group": "client-logos",
+"figma": "11448:13577",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4401
+},
+{
+"name": "client-walkme-full",
+"group": "client-logos",
+"figma": "18729:14214",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5920
+},
+{
+"name": "client-lenskart-full",
+"group": "client-logos",
+"figma": "18793:15111",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5190
+},
+{
+"name": "client-walgreens-full",
+"group": "client-logos",
+"figma": "18793:21731",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5492
+},
+{
+"name": "client-deutsche-telekom-full",
+"group": "client-logos",
+"figma": "24384:41382",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9576
+},
+{
+"name": "client-phonepe-full",
+"group": "client-logos",
+"figma": "22414:38240",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5425
+},
+{
+"name": "client-logik-full",
+"group": "client-logos",
+"figma": "24069:3331",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6903
+},
+{
+"name": "client-ecom-full",
+"group": "client-logos",
+"figma": "24132:23762",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 13566
+},
+{
+"name": "client-phonepe-pincode-full",
+"group": "client-logos",
+"figma": "24384:2899",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4550
+},
+{
+"name": "client-fictionalhr-full",
+"group": "client-logos",
+"figma": "24628:38671",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7665
+},
+{
+"name": "client-decathlon-full",
+"group": "client-logos",
+"figma": "24815:24545",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2206
+},
+{
+"name": "client-belcorp-full",
+"group": "client-logos",
+"figma": "25114:23438",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4451
+},
+{
+"name": "client-wasl-full",
+"group": "client-logos",
+"figma": "25114:24110",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2433
+},
+{
+"name": "client-dp-world-dark-full",
+"group": "client-logos",
+"figma": "26107:27312",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5559
+},
+{
+"name": "client-keka-full",
+"group": "client-logos",
+"figma": "50129:1559",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4146
+},
+{
+"name": "client-gainsight-full",
+"group": "client-logos",
+"figma": "50129:7771",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6460
+},
+{
+"name": "client-vat-full",
+"group": "client-logos",
+"figma": "50191:534",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 513
+},
+{
+"name": "client-citi-bank-full",
+"group": "client-logos",
+"figma": "50206:816",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3674
+},
+{
+"name": "client-adani-full",
+"group": "client-logos",
+"figma": "50343:534",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3541
+},
+{
+"name": "client-delegate-full",
+"group": "client-logos",
+"figma": "34981:57575",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1658
+},
+{
+"name": "client-jubliant-foodworks-full",
+"group": "client-logos",
+"figma": "26139:22544",
+"w": 255.0,
+"h": 33.0,
+"multicolour": true,
+"raster": true,
+"bytes": 41884
+},
+{
+"name": "client-jubliant-pharmova-full",
+"group": "client-logos",
+"figma": "56399:5710",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 23160
+},
+{
+"name": "client-jubliant-ingrevia-full",
+"group": "client-logos",
+"figma": "56399:5739",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 24135
+},
+{
+"name": "client-jubliant-biosys-full",
+"group": "client-logos",
+"figma": "56399:5788",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 21741
+},
+{
+"name": "client-jubliant-generics-full",
+"group": "client-logos",
+"figma": "56399:6840",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 21356
+},
+{
+"name": "client-templafy-full",
+"group": "client-logos",
+"figma": "26652:22929",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3493
+},
+{
+"name": "client-godrej-full",
+"group": "client-logos",
+"figma": "26864:27617",
+"w": 255.0,
+"h": 38.0,
+"multicolour": true,
+"raster": false,
+"bytes": 393584
+},
+{
+"name": "client-tulane-full",
+"group": "client-logos",
+"figma": "27115:25852",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 33321
+},
+{
+"name": "client-general-mills-full",
+"group": "client-logos",
+"figma": "27432:3879",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6411
+},
+{
+"name": "client-smarte-full",
+"group": "client-logos",
+"figma": "28093:23981",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 12547
+},
+{
+"name": "client-policy-bazaar-partners-full",
+"group": "client-logos",
+"figma": "28183:1061",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 20812
+},
+{
+"name": "client-tredence-full",
+"group": "client-logos",
+"figma": "28783:1811",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 17830
+},
+{
+"name": "client-axis-bank-full",
+"group": "client-logos",
+"figma": "29056:24688",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3180
+},
+{
+"name": "client-starlink-full",
+"group": "client-logos",
+"figma": "29089:56879",
+"w": 255.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 14666
+},
+{
+"name": "client-contentstack-full",
+"group": "client-logos",
+"figma": "29134:4380",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7896
+},
+{
+"name": "client-contentstack-academy-full",
+"group": "client-logos",
+"figma": "29156:18981",
+"w": 320.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 16786
+},
+{
+"name": "client-airarabia-full",
+"group": "client-logos",
+"figma": "29190:2909",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8557
+},
+{
+"name": "client-airarabia-white-full",
+"group": "client-logos",
+"figma": "29193:18900",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8555
+},
+{
+"name": "client-thiqah-full",
+"group": "client-logos",
+"figma": "29214:2978",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 12164
+},
+{
+"name": "client-cgb-full",
+"group": "client-logos",
+"figma": "32066:8628",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 696292
+},
+{
+"name": "client-cgb-lightmode-full",
+"group": "client-logos",
+"figma": "34999:30302",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 693454
+},
+{
+"name": "client-mof-uae-full",
+"group": "client-logos",
+"figma": "35003:46018",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 108162
+},
+{
+"name": "client-sonypictures-full",
+"group": "client-logos",
+"figma": "35903:1521",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3782
+},
+{
+"name": "client-qdb-full",
+"group": "client-logos",
+"figma": "36050:2827",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 43575
+},
+{
+"name": "client-carrier-full",
+"group": "client-logos",
+"figma": "36375:24545",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 20398
+},
+{
+"name": "client-sas-full",
+"group": "client-logos",
+"figma": "36382:28958",
+"w": 255.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3331
+},
+{
+"name": "client-amn-full",
+"group": "client-logos",
+"figma": "36380:6225",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6352
+},
+{
+"name": "client-single-window-full",
+"group": "client-logos",
+"figma": "29755:2175",
+"w": 255.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 23030
+},
+{
+"name": "client-finlens-full",
+"group": "client-logos",
+"figma": "31328:24717",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6295
+},
+{
+"name": "client-finlens2-full",
+"group": "client-logos",
+"figma": "31385:25386",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 108220
+},
+{
+"name": "client-ajman-government-full",
+"group": "client-logos",
+"figma": "31401:26321",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 73526
+},
+{
+"name": "client-sabic-full",
+"group": "client-logos",
+"figma": "33176:14472",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4860
+},
+{
+"name": "client-mphasis-full",
+"group": "client-logos",
+"figma": "34127:799",
+"w": 100.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 18600
+},
+{
+"name": "client-iron-mountain-full",
+"group": "client-logos",
+"figma": "34240:25661",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4061
+},
+{
+"name": "client-gcb-full",
+"group": "client-logos",
+"figma": "34321:2854",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 16602
+},
+{
+"name": "client-wurknow-full",
+"group": "client-logos",
+"figma": "34347:4474",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 12502
+},
+{
+"name": "client-dubai-economy-and-tourism-full",
+"group": "client-logos",
+"figma": "34660:5098",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 24774
+},
+{
+"name": "client-ajmanone-full",
+"group": "client-logos",
+"figma": "34981:57775",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 60228
+},
+{
+"name": "client-marketplace-full",
+"group": "client-logos",
+"figma": "34987:85442",
+"w": 255.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10717
+},
+{
+"name": "client-dummy-icon",
+"group": "client-logos",
+"figma": "9388:28888",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 5825
+},
+{
+"name": "client-boat-icon",
+"group": "client-logos",
+"figma": "9388:28733",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2625
+},
+{
+"name": "client-hdfc-icon",
+"group": "client-logos",
+"figma": "9388:29065",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 886
+},
+{
+"name": "client-walkme-icon",
+"group": "client-logos",
+"figma": "18749:30526",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2940
+},
+{
+"name": "client-lenskart-icon",
+"group": "client-logos",
+"figma": "18793:21620",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2446
+},
+{
+"name": "client-walgreens-icon",
+"group": "client-logos",
+"figma": "18793:21741",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1071
+},
+{
+"name": "client-deutsche-telekom-icon",
+"group": "client-logos",
+"figma": "18851:3088",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 796
+},
+{
+"name": "client-phonepe-icon",
+"group": "client-logos",
+"figma": "22423:45341",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 89280
+},
+{
+"name": "client-logik-icon",
+"group": "client-logos",
+"figma": "24069:25709",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1615
+},
+{
+"name": "client-ecom-icon",
+"group": "client-logos",
+"figma": "24132:35235",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 804
+},
+{
+"name": "client-phonepe-pincode-icon",
+"group": "client-logos",
+"figma": "24384:18673",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1126
+},
+{
+"name": "client-fictionalhr-icon",
+"group": "client-logos",
+"figma": "24628:22590",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1655
+},
+{
+"name": "client-decathlon-icon",
+"group": "client-logos",
+"figma": "24815:3438",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 936
+},
+{
+"name": "client-belcorp-icon",
+"group": "client-logos",
+"figma": "25114:1892",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2214
+},
+{
+"name": "client-delegate-icon",
+"group": "client-logos",
+"figma": "25114:24091",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1661
+},
+{
+"name": "client-wasl-icon",
+"group": "client-logos",
+"figma": "25443:23461",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2467
+},
+{
+"name": "client-policy-bazaar-partners-icon",
+"group": "client-logos",
+"figma": "25561:7659",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6290
+},
+{
+"name": "client-keka-icon",
+"group": "client-logos",
+"figma": "50129:1575",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2281
+},
+{
+"name": "client-gainsight-icon",
+"group": "client-logos",
+"figma": "50129:7781",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1182
+},
+{
+"name": "client-vat-icon",
+"group": "client-logos",
+"figma": "50191:536",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 630
+},
+{
+"name": "client-citi-bank-icon",
+"group": "client-logos",
+"figma": "50206:819",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3658
+},
+{
+"name": "client-adani-icon",
+"group": "client-logos",
+"figma": "50343:541",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3575
+},
+{
+"name": "client-jubliant-foodworks-icon",
+"group": "client-logos",
+"figma": "26140:28811",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8955
+},
+{
+"name": "client-jubliant-pharmova-icon",
+"group": "client-logos",
+"figma": "56399:5717",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 17003
+},
+{
+"name": "client-jubliant-ingrevia-icon",
+"group": "client-logos",
+"figma": "56399:5744",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 17978
+},
+{
+"name": "client-jubliant-biosys-icon",
+"group": "client-logos",
+"figma": "56399:5793",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15584
+},
+{
+"name": "client-jubliant-generics-icon",
+"group": "client-logos",
+"figma": "56399:6845",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15199
+},
+{
+"name": "client-templafy-icon",
+"group": "client-logos",
+"figma": "26651:3446",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 739
+},
+{
+"name": "client-godrej-icon",
+"group": "client-logos",
+"figma": "26864:5729",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 393600
+},
+{
+"name": "client-tulane-icon",
+"group": "client-logos",
+"figma": "27115:4916",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7672
+},
+{
+"name": "client-general-mills-icon",
+"group": "client-logos",
+"figma": "27432:19101",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2702
+},
+{
+"name": "client-smarte-icon",
+"group": "client-logos",
+"figma": "28093:1973",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3123
+},
+{
+"name": "client-tredence-icon",
+"group": "client-logos",
+"figma": "28783:18063",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 352
+},
+{
+"name": "client-axis-bank-icon",
+"group": "client-logos",
+"figma": "29056:1271",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 274
+},
+{
+"name": "client-starlink-icon",
+"group": "client-logos",
+"figma": "29089:63924",
+"w": 33.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2056
+},
+{
+"name": "client-contentstack-icon",
+"group": "client-logos",
+"figma": "29134:21000",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3056
+},
+{
+"name": "client-contentstack-academy-icon",
+"group": "client-logos",
+"figma": "34981:57615",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3056
+},
+{
+"name": "client-thiqah-icon",
+"group": "client-logos",
+"figma": "29214:18863",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 940
+},
+{
+"name": "client-single-window-icon",
+"group": "client-logos",
+"figma": "29755:18298",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3303
+},
+{
+"name": "client-cgb-icon",
+"group": "client-logos",
+"figma": "31121:4818",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 696299
+},
+{
+"name": "client-finlens-icon",
+"group": "client-logos",
+"figma": "31328:1675",
+"w": 40.0,
+"h": 35.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1802
+},
+{
+"name": "client-finlens2-icon",
+"group": "client-logos",
+"figma": "31385:1671",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 108062
+},
+{
+"name": "client-ajman-government-icon",
+"group": "client-logos",
+"figma": "31400:858",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7279
+},
+{
+"name": "client-sabic-icon",
+"group": "client-logos",
+"figma": "31444:24825",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4804
+},
+{
+"name": "client-airarabia-icon",
+"group": "client-logos",
+"figma": "34981:57689",
+"w": 33.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2134
+},
+{
+"name": "client-airarabia-white-icon",
+"group": "client-logos",
+"figma": "34981:57693",
+"w": 33.0,
+"h": 35.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2101
+},
+{
+"name": "client-ajmanone-icon",
+"group": "client-logos",
+"figma": "34981:57714",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 57526
+},
+{
+"name": "client-dubai-economy-and-tourism-icon",
+"group": "client-logos",
+"figma": "34981:57697",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6659
+},
+{
+"name": "client-marketplace-icon",
+"group": "client-logos",
+"figma": "34987:85448",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1283
+},
+{
+"name": "client-mphasis-icon",
+"group": "client-logos",
+"figma": "33176:26199",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": true,
+"bytes": 11166
+},
+{
+"name": "client-iron-mountain-icon",
+"group": "client-logos",
+"figma": "34240:699",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 703
+},
+{
+"name": "client-gcb-icon",
+"group": "client-logos",
+"figma": "34321:19578",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9162
+},
+{
+"name": "client-wurknow-icon",
+"group": "client-logos",
+"figma": "34347:21012",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 689
+},
+{
+"name": "client-cgb-lightmode-icon",
+"group": "client-logos",
+"figma": "34999:3547",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 696320
+},
+{
+"name": "client-mof-uae-icon",
+"group": "client-logos",
+"figma": "35003:19307",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 85170
+},
+{
+"name": "client-qdb-icon",
+"group": "client-logos",
+"figma": "36050:2858",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2603
+},
+{
+"name": "client-sonypictures-icon",
+"group": "client-logos",
+"figma": "35903:1702",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10233
+},
+{
+"name": "client-carrier-icon",
+"group": "client-logos",
+"figma": "36375:24551",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1287
+},
+{
+"name": "client-sas-icon",
+"group": "client-logos",
+"figma": "36382:28979",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1030
+},
+{
+"name": "client-amn-icon",
+"group": "client-logos",
+"figma": "36380:6245",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1532
+},
+{
+"name": "client-ministry-of-hajj-icon",
+"group": "client-logos",
+"figma": "36742:2742",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9945
+},
+{
+"name": "client-truity-icon",
+"group": "client-logos",
+"figma": "36790:27617",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 600
+},
+{
+"name": "client-rcmc-icon",
+"group": "client-logos",
+"figma": "37059:9880",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5068
+},
+{
+"name": "client-usal-icon",
+"group": "client-logos",
+"figma": "37189:1183",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 588
+},
+{
+"name": "client-friedkingroup-icon",
+"group": "client-logos",
+"figma": "37291:728",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 316
+},
+{
+"name": "client-ministry-of-hajj-full",
+"group": "client-logos",
+"figma": "36742:30492",
+"w": 256.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 46074
+},
+{
+"name": "client-truity-full",
+"group": "client-logos",
+"figma": "36790:27707",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4478
+},
+{
+"name": "client-rcmc-full",
+"group": "client-logos",
+"figma": "37059:9873",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 60833
+},
+{
+"name": "client-usal-full",
+"group": "client-logos",
+"figma": "37189:1199",
+"w": 257.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3682
+},
+{
+"name": "client-friedkingroup-full",
+"group": "client-logos",
+"figma": "37291:732",
+"w": 256.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6897
+},
+{
+"name": "client-shelter-insurance-full",
+"group": "client-logos",
+"figma": "49741:12619",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10677
+},
+{
+"name": "client-lowe-s-full",
+"group": "client-logos",
+"figma": "49741:12625",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3183
+},
+{
+"name": "client-shelter-insurance-icon",
+"group": "client-logos",
+"figma": "37464:1608",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10675
+},
+{
+"name": "client-lowe-s-icon",
+"group": "client-logos",
+"figma": "37534:8894",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3200
+},
+{
+"name": "client-docebo-full",
+"group": "client-logos",
+"figma": "37663:1560",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3023
+},
+{
+"name": "client-max-insurance-full",
+"group": "client-logos",
+"figma": "37882:15413",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9541
+},
+{
+"name": "client-max-insurance-icon",
+"group": "client-logos",
+"figma": "37882:24029",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4386
+},
+{
+"name": "client-kpmg-icon",
+"group": "client-logos",
+"figma": "49754:7197",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7872
+},
+{
+"name": "client-kpmg-full",
+"group": "client-logos",
+"figma": "57009:3030",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7872
+},
+{
+"name": "client-fino-bank-icon",
+"group": "client-logos",
+"figma": "38830:2060",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10763
+},
+{
+"name": "client-sharek-icon",
+"group": "client-logos",
+"figma": "39311:594",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 142829
+},
+{
+"name": "client-fino-bank-full",
+"group": "client-logos",
+"figma": "38830:26554",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 34613
+},
+{
+"name": "client-sharek-full",
+"group": "client-logos",
+"figma": "39311:560",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 142828
+},
+{
+"name": "client-docebo-icon",
+"group": "client-logos",
+"figma": "38960:563",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1655
+},
+{
+"name": "client-ogaan-icon",
+"group": "client-logos",
+"figma": "39800:8994",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7904
+},
+{
+"name": "client-sirion-icon",
+"group": "client-logos",
+"figma": "39802:1560",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6375
+},
+{
+"name": "client-sirion-full",
+"group": "client-logos",
+"figma": "39802:25843",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9520
+},
+{
+"name": "client-ogaan-full",
+"group": "client-logos",
+"figma": "39838:1556",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7945
+},
+{
+"name": "client-virtusa-icon",
+"group": "client-logos",
+"figma": "40048:25853",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 338
+},
+{
+"name": "client-virtusa-full",
+"group": "client-logos",
+"figma": "40048:25905",
+"w": 257.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3061
+},
+{
+"name": "client-csp-icon",
+"group": "client-logos",
+"figma": "40308:1244",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4886
+},
+{
+"name": "client-dubaiai-icon",
+"group": "client-logos",
+"figma": "40936:17431",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 70526
+},
+{
+"name": "client-eastwest-icon",
+"group": "client-logos",
+"figma": "41178:20602",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 338
+},
+{
+"name": "client-aldar-icon",
+"group": "client-logos",
+"figma": "41761:12038",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 6963
+},
+{
+"name": "client-csp-full",
+"group": "client-logos",
+"figma": "40308:23066",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 22412
+},
+{
+"name": "client-dubaiai-full",
+"group": "client-logos",
+"figma": "40936:24127",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 72130
+},
+{
+"name": "client-eastwest-full",
+"group": "client-logos",
+"figma": "41178:20860",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 40401
+},
+{
+"name": "client-aldar-full",
+"group": "client-logos",
+"figma": "41781:555",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 6957
+},
+{
+"name": "client-niva-bupa-full",
+"group": "client-logos",
+"figma": "42251:19027",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10719
+},
+{
+"name": "client-assurant-full",
+"group": "client-logos",
+"figma": "42404:1311",
+"w": 256.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11464
+},
+{
+"name": "client-emarat-full",
+"group": "client-logos",
+"figma": "49689:1534",
+"w": 176.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7665
+},
+{
+"name": "client-shaw-industries-full",
+"group": "client-logos",
+"figma": "45548:5168",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4332
+},
+{
+"name": "client-pnb-full",
+"group": "client-logos",
+"figma": "42689:5677",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3270
+},
+{
+"name": "client-ansr-logos-full",
+"group": "client-logos",
+"figma": "45443:10135",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 26885
+},
+{
+"name": "client-dge-logo-full",
+"group": "client-logos",
+"figma": "42733:1064",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 148408
+},
+{
+"name": "client-digikey-full",
+"group": "client-logos",
+"figma": "43099:1682",
+"w": 256.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1782
+},
+{
+"name": "client-7-eleven-logo-full-full",
+"group": "client-logos",
+"figma": "45032:6518",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4858
+},
+{
+"name": "client-service-now-full",
+"group": "client-logos",
+"figma": "42251:22052",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5276
+},
+{
+"name": "client-niva-bupa-icon",
+"group": "client-logos",
+"figma": "42201:4625",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10712
+},
+{
+"name": "client-assurant-icon",
+"group": "client-logos",
+"figma": "42404:1353",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2774
+},
+{
+"name": "client-emarat-icon",
+"group": "client-logos",
+"figma": "49689:1522",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1953
+},
+{
+"name": "client-pnb-icon",
+"group": "client-logos",
+"figma": "42689:5752",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1480
+},
+{
+"name": "client-ansr-logos-icon",
+"group": "client-logos",
+"figma": "45443:5963",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 13162
+},
+{
+"name": "client-dge-logo-icon",
+"group": "client-logos",
+"figma": "42733:1060",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 70258
+},
+{
+"name": "client-ksahf-icon",
+"group": "client-logos",
+"figma": "43009:1530",
+"w": 34.0,
+"h": 33.0,
+"multicolour": true,
+"raster": true,
+"bytes": 169294
+},
+{
+"name": "client-kshaf-avatar-icon",
+"group": "client-logos",
+"figma": "43047:3962",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 169357
+},
+{
+"name": "client-digikey-icon",
+"group": "client-logos",
+"figma": "48303:3420",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 345
+},
+{
+"name": "client-service-now-icon",
+"group": "client-logos",
+"figma": "42251:21991",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 726
+},
+{
+"name": "client-vodafone-icon",
+"group": "client-logos",
+"figma": "43820:569",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 666
+},
+{
+"name": "client-british-telecom-icon",
+"group": "client-logos",
+"figma": "44210:1520",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1215
+},
+{
+"name": "client-british-telecom-full",
+"group": "client-logos",
+"figma": "49746:591",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1215
+},
+{
+"name": "client-gong-icon",
+"group": "client-logos",
+"figma": "43905:3934",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2165
+},
+{
+"name": "client-7-11-icon",
+"group": "client-logos",
+"figma": "44986:1618",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4428
+},
+{
+"name": "client-shaw-industries-icon",
+"group": "client-logos",
+"figma": "45546:1543",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 752
+},
+{
+"name": "client-vodafone-full",
+"group": "client-logos",
+"figma": "45147:6818",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4708
+},
+{
+"name": "client-gong-full",
+"group": "client-logos",
+"figma": "49754:534",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4728
+},
+{
+"name": "client-al-etihaad-full",
+"group": "client-logos",
+"figma": "46291:1576",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 13307
+},
+{
+"name": "client-ibyta-full",
+"group": "client-logos",
+"figma": "46943:3319",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 69773
+},
+{
+"name": "client-minitifi-full",
+"group": "client-logos",
+"figma": "47197:8450",
+"w": 256.0,
+"h": 34.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3353
+},
+{
+"name": "client-al-etihaad-icon",
+"group": "client-logos",
+"figma": "46291:8177",
+"w": 34.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1311
+},
+{
+"name": "client-minitifi-icon",
+"group": "client-logos",
+"figma": "47197:8452",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 441
+},
+{
+"name": "client-liva-icon",
+"group": "client-logos",
+"figma": "47979:8899",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8012
+},
+{
+"name": "client-liva-full",
+"group": "client-logos",
+"figma": "47979:8874",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7810
+},
+{
+"name": "client-quotapath-icon",
+"group": "client-logos",
+"figma": "48174:1812",
+"w": 33.0,
+"h": 34.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1450
+},
+{
+"name": "client-advance-auto-parts-icon",
+"group": "client-logos",
+"figma": "48235:1577",
+"w": 34.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3938
+},
+{
+"name": "client-digital-dubai-authority-icon",
+"group": "client-logos",
+"figma": "48557:1951",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1108
+},
+{
+"name": "client-quotapath-full",
+"group": "client-logos",
+"figma": "48174:1752",
+"w": 248.0,
+"h": 35.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4109
+},
+{
+"name": "client-advance-auto-parts-full",
+"group": "client-logos",
+"figma": "48235:1581",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6649
+},
+{
+"name": "client-digital-dubai-authority-full",
+"group": "client-logos",
+"figma": "48557:1967",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11562
+},
+{
+"name": "client-default-full",
+"group": "client-logos",
+"figma": "48589:8324",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 415068
+},
+{
+"name": "client-ibyta-icon",
+"group": "client-logos",
+"figma": "48589:1335",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 69830
+},
+{
+"name": "client-david-pieris-icon",
+"group": "client-logos",
+"figma": "48589:8229",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 74909
+},
+{
+"name": "client-academy-of-learning-full",
+"group": "client-logos",
+"figma": "48768:2732",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 16631
+},
+{
+"name": "client-locumtenens-full",
+"group": "client-logos",
+"figma": "48833:731",
+"w": 248.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 21984
+},
+{
+"name": "client-miral-full",
+"group": "client-logos",
+"figma": "48838:1823",
+"w": 181.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6524
+},
+{
+"name": "client-academy-of-learning-icon",
+"group": "client-logos",
+"figma": "48778:8752",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1722
+},
+{
+"name": "client-locumtenens-icon",
+"group": "client-logos",
+"figma": "48833:770",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1594
+},
+{
+"name": "client-golin-full",
+"group": "client-logos",
+"figma": "48958:1586",
+"w": 181.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1415
+},
+{
+"name": "client-golin-icon",
+"group": "client-logos",
+"figma": "48958:8981",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1761
+},
+{
+"name": "client-ixigo-full",
+"group": "client-logos",
+"figma": "49049:2746",
+"w": 181.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4922
+},
+{
+"name": "client-ixigo-icon",
+"group": "client-logos",
+"figma": "49049:9230",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4635
+},
+{
+"name": "client-headou-full",
+"group": "client-logos",
+"figma": "49049:9291",
+"w": 210.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4994
+},
+{
+"name": "client-headout-icon",
+"group": "client-logos",
+"figma": "49049:9313",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1369
+},
+{
+"name": "client-mashreq-icon",
+"group": "client-logos",
+"figma": "49149:8852",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11244
+},
+{
+"name": "client-gulftainer-icon",
+"group": "client-logos",
+"figma": "49179:7949",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4924
+},
+{
+"name": "client-goldcast-icon",
+"group": "client-logos",
+"figma": "49185:8269",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 334
+},
+{
+"name": "client-lightcast-icon",
+"group": "client-logos",
+"figma": "49589:1504",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 399
+},
+{
+"name": "client-revolut-icon",
+"group": "client-logos",
+"figma": "49746:577",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 627
+},
+{
+"name": "client-dp-world-light-icon",
+"group": "client-logos",
+"figma": "49602:1482",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2513
+},
+{
+"name": "client-sony-pictures-networks-icon",
+"group": "client-logos",
+"figma": "49247:527",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 26700
+},
+{
+"name": "client-dp-world-dark-icon",
+"group": "client-logos",
+"figma": "26107:27343",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3145
+},
+{
+"name": "client-mashreq-full",
+"group": "client-logos",
+"figma": "49155:1699",
+"w": 285.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11341
+},
+{
+"name": "client-gulftainer-full",
+"group": "client-logos",
+"figma": "49179:7964",
+"w": 181.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3501
+},
+{
+"name": "client-goldcast-full",
+"group": "client-logos",
+"figma": "49185:8231",
+"w": 181.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7192
+},
+{
+"name": "client-lightcast-full",
+"group": "client-logos",
+"figma": "49589:1509",
+"w": 181.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3627
+},
+{
+"name": "client-sony-pictures-networks-full",
+"group": "client-logos",
+"figma": "49746:1628",
+"w": 414.0,
+"h": 34.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4002
+},
+{
+"name": "client-revolut-full",
+"group": "client-logos",
+"figma": "49746:579",
+"w": 181.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4219
+},
+{
+"name": "client-dp-world-light-full",
+"group": "client-logos",
+"figma": "49602:1484",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4759
+},
+{
+"name": "client-flexcare-full",
+"group": "client-logos",
+"figma": "50456:12702",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 46613
+},
+{
+"name": "client-aspire-zone-full",
+"group": "client-logos",
+"figma": "50505:529",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8735
+},
+{
+"name": "client-infinite-electronics-full",
+"group": "client-logos",
+"figma": "50515:1407",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11023
+},
+{
+"name": "client-bigbasket-full",
+"group": "client-logos",
+"figma": "50608:549",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15276
+},
+{
+"name": "client-five-star-group-full",
+"group": "client-logos",
+"figma": "50671:1387",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 33444
+},
+{
+"name": "client-alternicq-full",
+"group": "client-logos",
+"figma": "55422:2549",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11389
+},
+{
+"name": "client-itc-full",
+"group": "client-logos",
+"figma": "50727:540",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15094
+},
+{
+"name": "client-ncgr-full",
+"group": "client-logos",
+"figma": "50515:4323",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 2225046
+},
+{
+"name": "client-flexcare-icon",
+"group": "client-logos",
+"figma": "50456:12701",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 46572
+},
+{
+"name": "client-aspire-zone-icon",
+"group": "client-logos",
+"figma": "50505:527",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8703
+},
+{
+"name": "client-infinite-electronics-icon",
+"group": "client-logos",
+"figma": "50515:1418",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 791
+},
+{
+"name": "client-bigbasket-icon",
+"group": "client-logos",
+"figma": "50608:547",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2542
+},
+{
+"name": "client-five-star-group-icon",
+"group": "client-logos",
+"figma": "50671:1417",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 33454
+},
+{
+"name": "client-itc-icon",
+"group": "client-logos",
+"figma": "50727:542",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15109
+},
+{
+"name": "client-ncgr-icon",
+"group": "client-logos",
+"figma": "50515:4325",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 2225035
+},
+{
+"name": "client-proman-icon",
+"group": "client-logos",
+"figma": "50734:1516",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9719
+},
+{
+"name": "client-allegis-group-icon",
+"group": "client-logos",
+"figma": "50968:6494",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 9842
+},
+{
+"name": "client-proman-full",
+"group": "client-logos",
+"figma": "50734:8718",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9823
+},
+{
+"name": "client-allegis-group-full",
+"group": "client-logos",
+"figma": "50968:549",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 9841
+},
+{
+"name": "client-happiest-icon",
+"group": "client-logos",
+"figma": "50991:1765",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1383
+},
+{
+"name": "client-tb-bank-icon",
+"group": "client-logos",
+"figma": "51154:2623",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 450
+},
+{
+"name": "client-welspun-icon",
+"group": "client-logos",
+"figma": "51187:2568",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1475
+},
+{
+"name": "client-happiest-full",
+"group": "client-logos",
+"figma": "50991:8737",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 26658
+},
+{
+"name": "client-tb-bank-full",
+"group": "client-logos",
+"figma": "51154:2545",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2369
+},
+{
+"name": "client-welspun-full",
+"group": "client-logos",
+"figma": "51187:456",
+"w": 118.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5729
+},
+{
+"name": "client-orascom-icon",
+"group": "client-logos",
+"figma": "51273:2577",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4077
+},
+{
+"name": "client-adani-icon-2",
+"group": "client-logos",
+"figma": "51404:1391",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1269
+},
+{
+"name": "client-revvity-icon",
+"group": "client-logos",
+"figma": "51640:560",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1143
+},
+{
+"name": "client-vodafone-idea-icon",
+"group": "client-logos",
+"figma": "51663:2734",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 580
+},
+{
+"name": "client-greif-icon",
+"group": "client-logos",
+"figma": "51718:2762",
+"w": 34.0,
+"h": 35.0,
+"multicolour": true,
+"raster": false,
+"bytes": 611
+},
+{
+"name": "client-tekion-icon",
+"group": "client-logos",
+"figma": "51909:23326",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 510
+},
+{
+"name": "client-maersk-icon",
+"group": "client-logos",
+"figma": "51977:12924",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1267
+},
+{
+"name": "client-viatris-icon",
+"group": "client-logos",
+"figma": "53335:1392",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3819
+},
+{
+"name": "client-pulse-icon",
+"group": "client-logos",
+"figma": "53352:1432",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 48062
+},
+{
+"name": "client-altria-icon",
+"group": "client-logos",
+"figma": "53374:3679",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1702
+},
+{
+"name": "client-sbc-icon",
+"group": "client-logos",
+"figma": "53655:3893",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 182616
+},
+{
+"name": "client-stowers-icon",
+"group": "client-logos",
+"figma": "53761:3841",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 14737
+},
+{
+"name": "client-nhc-icon",
+"group": "client-logos",
+"figma": "54156:1612",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8038
+},
+{
+"name": "client-fab-securities-icon",
+"group": "client-logos",
+"figma": "54239:2639",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 21751
+},
+{
+"name": "client-fab-icon",
+"group": "client-logos",
+"figma": "54421:2919",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6845
+},
+{
+"name": "client-fab-securities-full",
+"group": "client-logos",
+"figma": "54371:2940",
+"w": 255.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 20053
+},
+{
+"name": "client-aduiepyle-icon",
+"group": "client-logos",
+"figma": "54196:1589",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 66935
+},
+{
+"name": "client-altria-full",
+"group": "client-logos",
+"figma": "53374:3721",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4283
+},
+{
+"name": "client-sbc-full",
+"group": "client-logos",
+"figma": "53655:3920",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 90707
+},
+{
+"name": "client-stowers-full",
+"group": "client-logos",
+"figma": "53761:3843",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 22369
+},
+{
+"name": "client-nhc-full",
+"group": "client-logos",
+"figma": "54156:1617",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8786
+},
+{
+"name": "client-aduiepyle-full",
+"group": "client-logos",
+"figma": "54196:1591",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 99103
+},
+{
+"name": "client-swiggy-icon",
+"group": "client-logos",
+"figma": "51998:454",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1819
+},
+{
+"name": "client-hdfc-ergo-icon",
+"group": "client-logos",
+"figma": "52382:4957",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8903
+},
+{
+"name": "client-orascom-full",
+"group": "client-logos",
+"figma": "51273:2582",
+"w": 127.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 13211
+},
+{
+"name": "client-adani-full-2",
+"group": "client-logos",
+"figma": "51404:1393",
+"w": 127.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6813
+},
+{
+"name": "client-revvity-full",
+"group": "client-logos",
+"figma": "51640:2814",
+"w": 84.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2194
+},
+{
+"name": "client-vodafone-idea-full",
+"group": "client-logos",
+"figma": "51663:2749",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 568
+},
+{
+"name": "client-greif-full",
+"group": "client-logos",
+"figma": "51718:2766",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2686
+},
+{
+"name": "client-mhw-full",
+"group": "client-logos",
+"figma": "53183:2724",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 879
+},
+{
+"name": "client-airbus-full",
+"group": "client-logos",
+"figma": "53299:5129",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1977
+},
+{
+"name": "client-tekion-full",
+"group": "client-logos",
+"figma": "51909:23314",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3521
+},
+{
+"name": "client-maersk-full",
+"group": "client-logos",
+"figma": "51977:12928",
+"w": 256.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3023
+},
+{
+"name": "client-viatris-full",
+"group": "client-logos",
+"figma": "53335:1397",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6250
+},
+{
+"name": "client-pulse-full",
+"group": "client-logos",
+"figma": "53352:1438",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 47978
+},
+{
+"name": "client-swiggy-full",
+"group": "client-logos",
+"figma": "51998:2699",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6766
+},
+{
+"name": "client-hdfc-ergo-full",
+"group": "client-logos",
+"figma": "52382:4960",
+"w": 112.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8846
+},
+{
+"name": "client-manjushree-icon",
+"group": "client-logos",
+"figma": "52654:2780",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2246
+},
+{
+"name": "client-brown-university-icon",
+"group": "client-logos",
+"figma": "52814:448",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 921912
+},
+{
+"name": "client-3scsolution-icon",
+"group": "client-logos",
+"figma": "52948:2699",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 373
+},
+{
+"name": "client-dunnhumby-icon",
+"group": "client-logos",
+"figma": "53089:452",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1641
+},
+{
+"name": "client-mhw-icon",
+"group": "client-logos",
+"figma": "53183:2746",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 447
+},
+{
+"name": "client-airbus-icon",
+"group": "client-logos",
+"figma": "53299:5112",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 277
+},
+{
+"name": "client-manjushree-full",
+"group": "client-logos",
+"figma": "52654:2796",
+"w": 191.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 20185
+},
+{
+"name": "client-brown-university-full",
+"group": "client-logos",
+"figma": "52814:2703",
+"w": 191.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 921916
+},
+{
+"name": "client-3scsolution-full",
+"group": "client-logos",
+"figma": "52948:2704",
+"w": 191.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5253
+},
+{
+"name": "client-dunnhumby-full",
+"group": "client-logos",
+"figma": "53089:2697",
+"w": 140.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6115
+},
+{
+"name": "client-talent-500-icon",
+"group": "client-logos",
+"figma": "53320:2770",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 687
+},
+{
+"name": "client-sobha-full",
+"group": "client-logos",
+"figma": "54305:732",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3448
+},
+{
+"name": "client-taqa-full",
+"group": "client-logos",
+"figma": "55514:3158",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1575
+},
+{
+"name": "client-isuzu-full",
+"group": "client-logos",
+"figma": "54420:686",
+"w": 187.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4545
+},
+{
+"name": "client-maruti-suzuki-full",
+"group": "client-logos",
+"figma": "54966:2953",
+"w": 291.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3654
+},
+{
+"name": "client-computershare-full",
+"group": "client-logos",
+"figma": "55082:3866",
+"w": 171.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10918
+},
+{
+"name": "client-isuzu-icon",
+"group": "client-logos",
+"figma": "54421:2939",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4529
+},
+{
+"name": "client-maruti-suzuki-icon",
+"group": "client-logos",
+"figma": "54966:709",
+"w": 32.0,
+"h": 34.0,
+"multicolour": true,
+"raster": false,
+"bytes": 436
+},
+{
+"name": "client-computershare-icon",
+"group": "client-logos",
+"figma": "55082:3882",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2140
+},
+{
+"name": "client-alternicq-icon",
+"group": "client-logos",
+"figma": "55422:5032",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 780
+},
+{
+"name": "client-psg-icon",
+"group": "client-logos",
+"figma": "55589:6573",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2699
+},
+{
+"name": "client-cority-icon",
+"group": "client-logos",
+"figma": "55737:8758",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 670
+},
+{
+"name": "client-psg-full",
+"group": "client-logos",
+"figma": "55597:1518",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15277
+},
+{
+"name": "client-cority-full",
+"group": "client-logos",
+"figma": "55737:8766",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4298
+},
+{
+"name": "client-zain-full",
+"group": "client-logos",
+"figma": "55943:11036",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5570
+},
+{
+"name": "client-zain-icon",
+"group": "client-logos",
+"figma": "55943:11049",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10664
+},
+{
+"name": "client-tdra-full",
+"group": "client-logos",
+"figma": "56395:4750",
+"w": 275.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 67663
+},
+{
+"name": "client-nova-water-full",
+"group": "client-logos",
+"figma": "56439:5930",
+"w": 255.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 18173
+},
+{
+"name": "client-tdra-icon",
+"group": "client-logos",
+"figma": "56395:4978",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1825
+},
+{
+"name": "client-nova-water-icon",
+"group": "client-logos",
+"figma": "56439:3281",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 18200
+},
+{
+"name": "client-tricon-icon",
+"group": "client-logos",
+"figma": "56954:495",
+"w": 33.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2498
+},
+{
+"name": "client-mercedes-icon",
+"group": "client-logos",
+"figma": "56433:4367",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 13253
+},
+{
+"name": "client-mercedes-full",
+"group": "client-logos",
+"figma": "56433:4178",
+"w": 321.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 21035
+},
+{
+"name": "client-tricon-full",
+"group": "client-logos",
+"figma": "56954:3089",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2449
+},
+{
+"name": "client-bupa-insurance-icon",
+"group": "client-logos",
+"figma": "54460:1607",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4459
+},
+{
+"name": "client-miral-icon",
+"group": "client-logos",
+"figma": "48838:1874",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1307
+},
+{
+"name": "client-uae-ministry-of-defense-icon",
+"group": "client-logos",
+"figma": "49699:18700",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": true,
+"bytes": 96868
+},
+{
+"name": "client-chargepoint-full",
+"group": "client-logos",
+"figma": "71782:13363",
+"w": 256.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7659
+},
+{
+"name": "client-chargepoint-icon",
+"group": "client-logos",
+"figma": "71782:13362",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1474
+},
+{
+"name": "unify-icon",
+"group": "unify",
+"figma": "1083:50505",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181428
+},
+{
+"name": "unify-full",
+"group": "unify",
+"figma": "70491:51563",
+"w": 241.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 188921
+},
+{
+"name": "unify-full-plus-subtext",
+"group": "unify",
+"figma": "1019:33137",
+"w": 241.0,
+"h": 37.0,
+"multicolour": true,
+"raster": false,
+"bytes": 211907
+},
+{
+"name": "favicon-1-180",
+"group": "favicon",
+"figma": "10875:4239",
+"w": 180.0,
+"h": 180.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181772
+},
+{
+"name": "favicon-2-128",
+"group": "favicon",
+"figma": "10875:4240",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181482
+},
+{
+"name": "favicon-3-64",
+"group": "favicon",
+"figma": "10875:4241",
+"w": 64.0,
+"h": 64.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181291
+},
+{
+"name": "favicon-4-32",
+"group": "favicon",
+"figma": "10875:4242",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181476
+},
+{
+"name": "favicon-5-16",
+"group": "favicon",
+"figma": "10875:4243",
+"w": 16.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181609
+},
+{
+"name": "favicon-6-68",
+"group": "favicon",
+"figma": "10875:4244",
+"w": 68.0,
+"h": 49.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7265
+},
+{
+"name": "favicon-7-65",
+"group": "favicon",
+"figma": "10875:4247",
+"w": 63.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3094
+},
+{
+"name": "favicon-8-53",
+"group": "favicon",
+"figma": "10875:4248",
+"w": 52.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1888
+},
+{
+"name": "favicon-9-54",
+"group": "favicon",
+"figma": "10875:4249",
+"w": 52.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2499
+},
+{
+"name": "favicon-10-46",
+"group": "favicon",
+"figma": "10875:4250",
+"w": 45.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1792
+},
+{
+"name": "favicon-on-dark-1-180",
+"group": "favicon",
+"figma": "11874:1598",
+"w": 180.0,
+"h": 180.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181834
+},
+{
+"name": "favicon-on-dark-2-128",
+"group": "favicon",
+"figma": "11874:1599",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181406
+},
+{
+"name": "favicon-on-dark-3-64",
+"group": "favicon",
+"figma": "11874:1600",
+"w": 64.0,
+"h": 64.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181409
+},
+{
+"name": "favicon-on-dark-4-32",
+"group": "favicon",
+"figma": "11874:1601",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181537
+},
+{
+"name": "favicon-on-dark-5-16",
+"group": "favicon",
+"figma": "11874:1602",
+"w": 16.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 181479
+},
+{
+"name": "favicon-on-dark-6-68",
+"group": "favicon",
+"figma": "11874:1603",
+"w": 68.0,
+"h": 49.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7265
+},
+{
+"name": "favicon-on-dark-7-65",
+"group": "favicon",
+"figma": "11874:1606",
+"w": 63.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3094
+},
+{
+"name": "favicon-on-dark-8-53",
+"group": "favicon",
+"figma": "11874:1607",
+"w": 52.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1888
+},
+{
+"name": "favicon-on-dark-9-54",
+"group": "favicon",
+"figma": "11874:1608",
+"w": 52.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2499
+},
+{
+"name": "favicon-on-dark-10-46",
+"group": "favicon",
+"figma": "11874:1609",
+"w": 45.0,
+"h": 12.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1792
+},
+{
+"name": "fictional-layers-logotype",
+"group": "fictional-company",
+"figma": "1294:159596",
+"w": 97.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4676
+},
+{
+"name": "fictional-layers-mark",
+"group": "fictional-company",
+"figma": "1294:160471",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 698
+},
+{
+"name": "fictional-layers-logotype-white",
+"group": "fictional-company",
+"figma": "1377:14098",
+"w": 97.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4698
+},
+{
+"name": "fictional-layers-mark-white",
+"group": "fictional-company",
+"figma": "1377:14088",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 732
+},
+{
+"name": "fictional-sisyphus-logotype",
+"group": "fictional-company",
+"figma": "1294:159929",
+"w": 113.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7496
+},
+{
+"name": "fictional-sisyphus-mark",
+"group": "fictional-company",
+"figma": "1294:160439",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 626
+},
+{
+"name": "fictional-sisyphus-logotype-white",
+"group": "fictional-company",
+"figma": "1377:14150",
+"w": 113.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7548
+},
+{
+"name": "fictional-sisyphus-mark-white",
+"group": "fictional-company",
+"figma": "1377:14136",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 694
+},
+{
+"name": "fictional-capsule-logotype",
+"group": "fictional-company",
+"figma": "1294:159958",
+"w": 110.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4169
+},
+{
+"name": "fictional-capsule-mark",
+"group": "fictional-company",
+"figma": "1294:160424",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1143
+},
+{
+"name": "fictional-capsule-logotype-white",
+"group": "fictional-company",
+"figma": "1377:14197",
+"w": 110.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4200
+},
+{
+"name": "fictional-capsule-mark-white",
+"group": "fictional-company",
+"figma": "1377:14186",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1190
+},
+{
+"name": "fictional-catalog-logotype",
+"group": "fictional-company",
+"figma": "1294:159975",
+"w": 107.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4322
+},
+{
+"name": "fictional-catalog-mark",
+"group": "fictional-company",
+"figma": "1294:160448",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 932
+},
+{
+"name": "fictional-catalog-logotype-white",
+"group": "fictional-company",
+"figma": "1377:14219",
+"w": 107.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4340
+},
+{
+"name": "fictional-catalog-mark-white",
+"group": "fictional-company",
+"figma": "1377:14214",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 964
+},
+{
+"name": "fictional-quotient-logotype",
+"group": "fictional-company",
+"figma": "1294:160033",
+"w": 125.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6776
+},
+{
+"name": "fictional-quotient-mark",
+"group": "fictional-company",
+"figma": "1294:160412",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 948
+},
+{
+"name": "fictional-quotient-logotype-white",
+"group": "fictional-company",
+"figma": "1377:14092",
+"w": 125.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6806
+},
+{
+"name": "fictional-quotient-mark-white",
+"group": "fictional-company",
+"figma": "1377:14083",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 994
+},
+{
+"name": "fictional-command-plus-r-logotype",
+"group": "fictional-company",
+"figma": "1294:160009",
+"w": 144.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7259
+},
+{
+"name": "fictional-command-plus-r-mark",
+"group": "fictional-company",
+"figma": "1294:160459",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 459
+},
+{
+"name": "fictional-command-plus-r-logotype-white",
+"group": "fictional-company",
+"figma": "1377:14191",
+"w": 144.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7403
+},
+{
+"name": "fictional-command-plus-r-mark-white",
+"group": "fictional-company",
+"figma": "1377:14181",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 505
+},
+{
+"name": "fictional-hourglass-logotype",
+"group": "fictional-company",
+"figma": "1294:159991",
+"w": 129.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8881
+},
+{
+"name": "fictional-hourglass-mark",
+"group": "fictional-company",
+"figma": "1294:160394",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1237
+},
+{
+"name": "fictional-hourglass-logotype-white",
+"group": "fictional-company",
+"figma": "1377:14144",
+"w": 129.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8911
+},
+{
+"name": "fictional-hourglass-mark-white",
+"group": "fictional-company",
+"figma": "1377:14131",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1285
+},
+{
+"name": "fictional-globalbank-logotype",
+"group": "fictional-company",
+"figma": "4045:416041",
+"w": 131.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4369
+},
+{
+"name": "fictional-globalbank-mark",
+"group": "fictional-company",
+"figma": "4045:416491",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 409
+},
+{
+"name": "fictional-globalbank-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416079",
+"w": 131.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4371
+},
+{
+"name": "fictional-globalbank-mark-white",
+"group": "fictional-company",
+"figma": "4045:416495",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 431
+},
+{
+"name": "fictional-spherule-logotype",
+"group": "fictional-company",
+"figma": "4045:416039",
+"w": 111.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4137
+},
+{
+"name": "fictional-spherule-mark",
+"group": "fictional-company",
+"figma": "4045:416499",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1186
+},
+{
+"name": "fictional-spherule-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416089",
+"w": 111.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4139
+},
+{
+"name": "fictional-spherule-mark-white",
+"group": "fictional-company",
+"figma": "4045:416505",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1204
+},
+{
+"name": "fictional-lightbox-logotype",
+"group": "fictional-company",
+"figma": "4045:416026",
+"w": 111.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7057
+},
+{
+"name": "fictional-lightbox-mark",
+"group": "fictional-company",
+"figma": "4045:416511",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2023
+},
+{
+"name": "fictional-lightbox-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416101",
+"w": 111.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7063
+},
+{
+"name": "fictional-lightbox-mark-white",
+"group": "fictional-company",
+"figma": "4045:416515",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2045
+},
+{
+"name": "fictional-focalpoint-logotype",
+"group": "fictional-company",
+"figma": "4045:416105",
+"w": 133.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5274
+},
+{
+"name": "fictional-focalpoint-mark",
+"group": "fictional-company",
+"figma": "4045:416519",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2053
+},
+{
+"name": "fictional-focalpoint-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416110",
+"w": 133.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5276
+},
+{
+"name": "fictional-focalpoint-mark-white",
+"group": "fictional-company",
+"figma": "4045:416523",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2075
+},
+{
+"name": "fictional-luminous-logotype",
+"group": "fictional-company",
+"figma": "4045:416042",
+"w": 117.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3965
+},
+{
+"name": "fictional-luminous-mark",
+"group": "fictional-company",
+"figma": "4045:416527",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1351
+},
+{
+"name": "fictional-luminous-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416120",
+"w": 117.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3995
+},
+{
+"name": "fictional-luminous-mark-white",
+"group": "fictional-company",
+"figma": "4045:416533",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1397
+},
+{
+"name": "fictional-alt-plus-shift-logotype",
+"group": "fictional-company",
+"figma": "4045:416040",
+"w": 119.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10044
+},
+{
+"name": "fictional-alt-plus-shift-mark",
+"group": "fictional-company",
+"figma": "4045:416539",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5017
+},
+{
+"name": "fictional-alt-plus-shift-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416136",
+"w": 119.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 10036
+},
+{
+"name": "fictional-alt-plus-shift-mark-white",
+"group": "fictional-company",
+"figma": "4045:416549",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5027
+},
+{
+"name": "fictional-polymath-logotype",
+"group": "fictional-company",
+"figma": "4045:416031",
+"w": 119.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5058
+},
+{
+"name": "fictional-polymath-mark",
+"group": "fictional-company",
+"figma": "4045:416559",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 325
+},
+{
+"name": "fictional-polymath-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416150",
+"w": 119.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5064
+},
+{
+"name": "fictional-polymath-mark-white",
+"group": "fictional-company",
+"figma": "4045:416563",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 347
+},
+{
+"name": "fictional-nietzsche-logotype",
+"group": "fictional-company",
+"figma": "4045:416036",
+"w": 121.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4644
+},
+{
+"name": "fictional-nietzsche-mark",
+"group": "fictional-company",
+"figma": "4045:416567",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1595
+},
+{
+"name": "fictional-nietzsche-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416158",
+"w": 121.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4638
+},
+{
+"name": "fictional-nietzsche-mark-white",
+"group": "fictional-company",
+"figma": "4045:416571",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1607
+},
+{
+"name": "fictional-epicurious-logotype",
+"group": "fictional-company",
+"figma": "4045:416028",
+"w": 126.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8412
+},
+{
+"name": "fictional-epicurious-mark",
+"group": "fictional-company",
+"figma": "4045:416575",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1252
+},
+{
+"name": "fictional-epicurious-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416168",
+"w": 126.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8438
+},
+{
+"name": "fictional-epicurious-mark-white",
+"group": "fictional-company",
+"figma": "4045:416581",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1298
+},
+{
+"name": "fictional-boltshift-logotype",
+"group": "fictional-company",
+"figma": "4045:416037",
+"w": 113.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6322
+},
+{
+"name": "fictional-boltshift-mark",
+"group": "fictional-company",
+"figma": "4045:416587",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 626
+},
+{
+"name": "fictional-boltshift-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416178",
+"w": 113.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6326
+},
+{
+"name": "fictional-boltshift-mark-white",
+"group": "fictional-company",
+"figma": "4045:416591",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 648
+},
+{
+"name": "fictional-acme-corp-logotype",
+"group": "fictional-company",
+"figma": "4045:416025",
+"w": 135.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6685
+},
+{
+"name": "fictional-acme-corp-mark",
+"group": "fictional-company",
+"figma": "4045:416595",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 309
+},
+{
+"name": "fictional-acme-corp-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416186",
+"w": 135.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6691
+},
+{
+"name": "fictional-acme-corp-mark-white",
+"group": "fictional-company",
+"figma": "4045:416599",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 331
+},
+{
+"name": "fictional-segment-logotype",
+"group": "fictional-company",
+"figma": "4045:416038",
+"w": 118.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9827
+},
+{
+"name": "fictional-segment-mark",
+"group": "fictional-company",
+"figma": "4045:416603",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1574
+},
+{
+"name": "fictional-segment-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416197",
+"w": 118.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9857
+},
+{
+"name": "fictional-segment-mark-white",
+"group": "fictional-company",
+"figma": "4045:416610",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1618
+},
+{
+"name": "fictional-cloudwatch-logotype",
+"group": "fictional-company",
+"figma": "4045:416043",
+"w": 135.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6800
+},
+{
+"name": "fictional-cloudwatch-mark",
+"group": "fictional-company",
+"figma": "4045:416617",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 334
+},
+{
+"name": "fictional-cloudwatch-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416209",
+"w": 135.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6814
+},
+{
+"name": "fictional-cloudwatch-mark-white",
+"group": "fictional-company",
+"figma": "4045:416622",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 368
+},
+{
+"name": "fictional-featherdev-logotype",
+"group": "fictional-company",
+"figma": "4045:416044",
+"w": 132.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11252
+},
+{
+"name": "fictional-featherdev-mark",
+"group": "fictional-company",
+"figma": "4045:416627",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2331
+},
+{
+"name": "fictional-featherdev-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416223",
+"w": 132.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11300
+},
+{
+"name": "fictional-featherdev-mark-white",
+"group": "fictional-company",
+"figma": "4045:416636",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2399
+},
+{
+"name": "fictional-biosynthesis-logotype",
+"group": "fictional-company",
+"figma": "4045:416027",
+"w": 145.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 13951
+},
+{
+"name": "fictional-biosynthesis-mark",
+"group": "fictional-company",
+"figma": "4045:416645",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2837
+},
+{
+"name": "fictional-biosynthesis-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416244",
+"w": 145.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 14017
+},
+{
+"name": "fictional-biosynthesis-mark-white",
+"group": "fictional-company",
+"figma": "4045:416657",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2927
+},
+{
+"name": "fictional-galileo-logotype",
+"group": "fictional-company",
+"figma": "4045:416029",
+"w": 100.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2918
+},
+{
+"name": "fictional-galileo-mark",
+"group": "fictional-company",
+"figma": "4045:416669",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 621
+},
+{
+"name": "fictional-galileo-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416261",
+"w": 100.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2938
+},
+{
+"name": "fictional-galileo-mark-white",
+"group": "fictional-company",
+"figma": "4045:416674",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 655
+},
+{
+"name": "fictional-interlock-logotype",
+"group": "fictional-company",
+"figma": "4045:416281",
+"w": 109.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3095
+},
+{
+"name": "fictional-interlock-mark",
+"group": "fictional-company",
+"figma": "4045:416679",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 599
+},
+{
+"name": "fictional-interlock-logotype-white",
+"group": "fictional-company",
+"figma": "4045:416287",
+"w": 109.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3097
+},
+{
+"name": "fictional-interlock-mark-white",
+"group": "fictional-company",
+"figma": "4045:416684",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 619
+},
+{
+"name": "company-airtable",
+"group": "company-logos",
+"figma": "69742:18528",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1362
+},
+{
+"name": "company-whatsapp",
+"group": "company-logos",
+"figma": "69742:18510",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1957
+},
+{
+"name": "company-linkedin",
+"group": "company-logos",
+"figma": "69742:18507",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1426
+},
+{
+"name": "company-amazon",
+"group": "company-logos",
+"figma": "69742:18533",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1913
+},
+{
+"name": "company-meesho",
+"group": "company-logos",
+"figma": "69742:18504",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1266
+},
+{
+"name": "company-asana",
+"group": "company-logos",
+"figma": "69742:18538",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1156
+},
+{
+"name": "company-azure",
+"group": "company-logos",
+"figma": "69742:18545",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3009
+},
+{
+"name": "company-google-sheets",
+"group": "company-logos",
+"figma": "69742:18614",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2006
+},
+{
+"name": "company-slides",
+"group": "company-logos",
+"figma": "69742:18499",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1421
+},
+{
+"name": "company-doc",
+"group": "company-logos",
+"figma": "70204:9181",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2151
+},
+{
+"name": "company-pdf",
+"group": "company-logos",
+"figma": "70284:11382",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3269
+},
+{
+"name": "company-md",
+"group": "company-logos",
+"figma": "70321:6095",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4305
+},
+{
+"name": "company-zip",
+"group": "company-logos",
+"figma": "71759:27849",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1453
+},
+{
+"name": "company-google-drive",
+"group": "company-logos",
+"figma": "69742:18400",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1496
+},
+{
+"name": "company-facebook",
+"group": "company-logos",
+"figma": "69742:18550",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 792
+},
+{
+"name": "company-facebook-messanger",
+"group": "company-logos",
+"figma": "69742:18555",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1818
+},
+{
+"name": "company-shopfiy",
+"group": "company-logos",
+"figma": "69742:18564",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2550
+},
+{
+"name": "company-dropbox",
+"group": "company-logos",
+"figma": "69742:18558",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 572
+},
+{
+"name": "company-app",
+"group": "company-logos",
+"figma": "70204:9232",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1390
+},
+{
+"name": "company-ppt",
+"group": "company-logos",
+"figma": "70204:9065",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6841
+},
+{
+"name": "company-outlook",
+"group": "company-logos",
+"figma": "70204:9132",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9038
+},
+{
+"name": "company-docx",
+"group": "company-logos",
+"figma": "69742:18521",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4711
+},
+{
+"name": "company-excel",
+"group": "company-logos",
+"figma": "69742:18602",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5974
+},
+{
+"name": "company-sharepoint",
+"group": "company-logos",
+"figma": "70362:11725",
+"w": 129.0,
+"h": 129.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7520
+},
+{
+"name": "company-google-calendar",
+"group": "company-logos",
+"figma": "69793:32127",
+"w": 128.0,
+"h": 128.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3370
+},
+{
+"name": "featured-logo-xl-gray",
+"group": "featured-logo",
+"figma": "25672:63459",
+"w": 56.0,
+"h": 56.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1133
+},
+{
+"name": "featured-logo-2xl-gray",
+"group": "featured-logo",
+"figma": "25672:63461",
+"w": 62.0,
+"h": 62.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1131
+},
+{
+"name": "featured-logo-xl-white-framed",
+"group": "featured-logo",
+"figma": "25672:63463",
+"w": 56.0,
+"h": 56.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1347
+},
+{
+"name": "featured-logo-2xl-white-framed",
+"group": "featured-logo",
+"figma": "25672:63465",
+"w": 62.0,
+"h": 62.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1335
+},
+{
+"name": "featured-logo-xl-clear",
+"group": "featured-logo",
+"figma": "25672:63467",
+"w": 56.0,
+"h": 56.0,
+"multicolour": true,
+"raster": false,
+"bytes": 981
+},
+{
+"name": "featured-logo-2xl-clear",
+"group": "featured-logo",
+"figma": "25672:63469",
+"w": 62.0,
+"h": 62.0,
+"multicolour": true,
+"raster": false,
+"bytes": 979
+},
+{
+"name": "featured-logo-lg-white-framed",
+"group": "featured-logo",
+"figma": "25672:63497",
+"w": 48.0,
+"h": 48.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1329
+},
+{
+"name": "featured-logo-lg-gray",
+"group": "featured-logo",
+"figma": "25672:63499",
+"w": 48.0,
+"h": 48.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1120
+},
+{
+"name": "featured-logo-lg-clear",
+"group": "featured-logo",
+"figma": "25672:63501",
+"w": 48.0,
+"h": 48.0,
+"multicolour": true,
+"raster": false,
+"bytes": 973
+},
+{
+"name": "featured-logo-md-white-framed",
+"group": "featured-logo",
+"figma": "25672:63521",
+"w": 40.0,
+"h": 40.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1316
+},
+{
+"name": "featured-logo-md-gray",
+"group": "featured-logo",
+"figma": "25672:63525",
+"w": 40.0,
+"h": 40.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1117
+},
+{
+"name": "featured-logo-md-clear",
+"group": "featured-logo",
+"figma": "25672:63529",
+"w": 40.0,
+"h": 40.0,
+"multicolour": true,
+"raster": false,
+"bytes": 970
+},
+{
+"name": "featured-logo-sm-white-framed",
+"group": "featured-logo",
+"figma": "25672:63561",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1323
+},
+{
+"name": "featured-logo-xs-white-framed",
+"group": "featured-logo",
+"figma": "25672:63563",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1301
+},
+{
+"name": "featured-logo-sm-gray",
+"group": "featured-logo",
+"figma": "25672:63567",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1124
+},
+{
+"name": "featured-logo-xs-gray",
+"group": "featured-logo",
+"figma": "25672:63569",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1126
+},
+{
+"name": "featured-logo-sm-clear",
+"group": "featured-logo",
+"figma": "25672:63571",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 977
+},
+{
+"name": "featured-logo-xs-clear",
+"group": "featured-logo",
+"figma": "25672:63573",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 979
+}
+]

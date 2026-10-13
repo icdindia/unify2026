@@ -1,0 +1,7972 @@
+[
+{
+"name": "social-facebook-brand",
+"group": "social",
+"figma": "1027:1516",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 937
+},
+{
+"name": "social-twitter-brand",
+"group": "social",
+"figma": "1027:1519",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1237
+},
+{
+"name": "social-x-twitter-brand",
+"group": "social",
+"figma": "6071:473713",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 409
+},
+{
+"name": "social-instagram-brand",
+"group": "social",
+"figma": "1027:1521",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3147
+},
+{
+"name": "social-linkedin-brand",
+"group": "social",
+"figma": "1027:1526",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1528
+},
+{
+"name": "social-google-brand",
+"group": "social",
+"figma": "1027:1528",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1190
+},
+{
+"name": "social-youtube-brand",
+"group": "social",
+"figma": "1027:1533",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1112
+},
+{
+"name": "social-apple-brand",
+"group": "social",
+"figma": "1027:1536",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1590
+},
+{
+"name": "social-snapchat-brand",
+"group": "social",
+"figma": "1027:1538",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6110
+},
+{
+"name": "social-pinterest-brand",
+"group": "social",
+"figma": "1027:1541",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1600
+},
+{
+"name": "social-figma-brand",
+"group": "social",
+"figma": "1027:1544",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 981
+},
+{
+"name": "social-dribbble-brand",
+"group": "social",
+"figma": "1027:1550",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1777
+},
+{
+"name": "social-reddit-brand",
+"group": "social",
+"figma": "1027:1555",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2110
+},
+{
+"name": "social-discord-brand",
+"group": "social",
+"figma": "1027:1558",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1871
+},
+{
+"name": "social-tiktok-brand",
+"group": "social",
+"figma": "1027:1562",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2341
+},
+{
+"name": "social-tumblr-brand",
+"group": "social",
+"figma": "1027:1566",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 447
+},
+{
+"name": "social-telegram-brand",
+"group": "social",
+"figma": "1027:1569",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1549
+},
+{
+"name": "social-clubhouse-brand",
+"group": "social",
+"figma": "1027:1573",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 629
+},
+{
+"name": "social-signal-brand",
+"group": "social",
+"figma": "1027:1577",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3110
+},
+{
+"name": "social-facebook-gray",
+"group": "social",
+"figma": "1422:1140",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 626
+},
+{
+"name": "social-facebook-gray-hover",
+"group": "social",
+"figma": "1459:241921",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 630
+},
+{
+"name": "social-twitter-gray",
+"group": "social",
+"figma": "1422:1141",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1238
+},
+{
+"name": "social-x-twitter-gray",
+"group": "social",
+"figma": "6071:473715",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 414
+},
+{
+"name": "social-twitter-gray-hover",
+"group": "social",
+"figma": "1459:241916",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1238
+},
+{
+"name": "social-x-twitter-gray-hover",
+"group": "social",
+"figma": "6071:473717",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 414
+},
+{
+"name": "social-instagram-gray",
+"group": "social",
+"figma": "1422:1142",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3147
+},
+{
+"name": "social-instagram-gray-hover",
+"group": "social",
+"figma": "1459:241909",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3151
+},
+{
+"name": "social-linkedin-gray",
+"group": "social",
+"figma": "1422:1143",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 988
+},
+{
+"name": "social-linkedin-gray-hover",
+"group": "social",
+"figma": "1459:241918",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 992
+},
+{
+"name": "social-google-gray",
+"group": "social",
+"figma": "1422:1145",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1062
+},
+{
+"name": "social-google-gray-hover",
+"group": "social",
+"figma": "1459:241914",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1066
+},
+{
+"name": "social-youtube-gray",
+"group": "social",
+"figma": "1422:1147",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 942
+},
+{
+"name": "social-youtube-gray-hover",
+"group": "social",
+"figma": "1459:241904",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 942
+},
+{
+"name": "social-apple-gray",
+"group": "social",
+"figma": "1422:1149",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1597
+},
+{
+"name": "social-apple-gray-hover",
+"group": "social",
+"figma": "1459:241898",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1597
+},
+{
+"name": "social-snapchat-gray",
+"group": "social",
+"figma": "1422:1150",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 4366
+},
+{
+"name": "social-snapchat-gray-hover",
+"group": "social",
+"figma": "1459:241907",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 4366
+},
+{
+"name": "social-pinterest-gray",
+"group": "social",
+"figma": "1422:1144",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1417
+},
+{
+"name": "social-pinterest-gray-hover",
+"group": "social",
+"figma": "1459:241891",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1421
+},
+{
+"name": "social-figma-gray",
+"group": "social",
+"figma": "1422:1146",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 3289
+},
+{
+"name": "social-figma-gray-hover",
+"group": "social",
+"figma": "1459:241889",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 3289
+},
+{
+"name": "social-dribbble-gray",
+"group": "social",
+"figma": "1422:1148",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1589
+},
+{
+"name": "social-dribbble-gray-hover",
+"group": "social",
+"figma": "1459:241887",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1589
+},
+{
+"name": "social-reddit-gray",
+"group": "social",
+"figma": "1422:1152",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1982
+},
+{
+"name": "social-reddit-gray-hover",
+"group": "social",
+"figma": "1459:241883",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1982
+},
+{
+"name": "social-discord-gray",
+"group": "social",
+"figma": "1422:1153",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1881
+},
+{
+"name": "social-discord-gray-hover",
+"group": "social",
+"figma": "1459:241879",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 1881
+},
+{
+"name": "social-tiktok-gray",
+"group": "social",
+"figma": "1422:1154",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 523
+},
+{
+"name": "social-tiktok-gray-hover",
+"group": "social",
+"figma": "1459:241877",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 523
+},
+{
+"name": "social-tumblr-gray",
+"group": "social",
+"figma": "1422:1155",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 447
+},
+{
+"name": "social-tumblr-gray-hover",
+"group": "social",
+"figma": "1459:241874",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 451
+},
+{
+"name": "social-telegram-gray",
+"group": "social",
+"figma": "1422:1156",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1530
+},
+{
+"name": "social-telegram-gray-hover",
+"group": "social",
+"figma": "1459:241900",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1534
+},
+{
+"name": "social-clubhouse-gray",
+"group": "social",
+"figma": "1422:1151",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 639
+},
+{
+"name": "social-clubhouse-gray-hover",
+"group": "social",
+"figma": "1459:241894",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 639
+},
+{
+"name": "social-signal-gray",
+"group": "social",
+"figma": "1422:1157",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 3115
+},
+{
+"name": "social-signal-gray-hover",
+"group": "social",
+"figma": "1459:241872",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 3115
+},
+{
+"name": "social-github-gray",
+"group": "social",
+"figma": "1507:257962",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1417
+},
+{
+"name": "social-github-brand",
+"group": "social",
+"figma": "1507:257970",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1415
+},
+{
+"name": "social-outlook-brand",
+"group": "social",
+"figma": "71303:11720",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9044
+},
+{
+"name": "social-github-gray-hover",
+"group": "social",
+"figma": "1507:257966",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1417
+},
+{
+"name": "social-angellist-brand",
+"group": "social",
+"figma": "1507:257983",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2430
+},
+{
+"name": "social-microsoft-brand",
+"group": "social",
+"figma": "70365:73440",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 378
+},
+{
+"name": "social-angellist-gray",
+"group": "social",
+"figma": "1507:257987",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 2437
+},
+{
+"name": "social-microsoft-gray",
+"group": "social",
+"figma": "70365:87653",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 435
+},
+{
+"name": "social-angellist-gray-hover",
+"group": "social",
+"figma": "1507:257991",
+"w": 24.0,
+"h": 24.0,
+"multicolour": false,
+"raster": false,
+"bytes": 2437
+},
+{
+"name": "social-microsoft-gray-hover",
+"group": "social",
+"figma": "70365:87656",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 378
+},
+{
+"name": "flag-af",
+"group": "country",
+"figma": "1046:3551",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1383
+},
+{
+"name": "flag-ax",
+"group": "country",
+"figma": "1046:3552",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1512
+},
+{
+"name": "flag-al",
+"group": "country",
+"figma": "1046:3553",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1274
+},
+{
+"name": "flag-dz",
+"group": "country",
+"figma": "1046:3554",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1116
+},
+{
+"name": "flag-as",
+"group": "country",
+"figma": "1046:3555",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1414
+},
+{
+"name": "flag-ad",
+"group": "country",
+"figma": "1046:3556",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1910
+},
+{
+"name": "flag-ao",
+"group": "country",
+"figma": "1046:3557",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1380
+},
+{
+"name": "flag-ai",
+"group": "country",
+"figma": "1046:3558",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2698
+},
+{
+"name": "flag-ag",
+"group": "country",
+"figma": "1046:3559",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1247
+},
+{
+"name": "flag-ar",
+"group": "country",
+"figma": "1046:3560",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1047
+},
+{
+"name": "flag-am",
+"group": "country",
+"figma": "1046:3561",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 780
+},
+{
+"name": "flag-aw",
+"group": "country",
+"figma": "1046:3562",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1202
+},
+{
+"name": "flag-au",
+"group": "country",
+"figma": "1046:3563",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2693
+},
+{
+"name": "flag-at",
+"group": "country",
+"figma": "1046:3564",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 777
+},
+{
+"name": "flag-az",
+"group": "country",
+"figma": "1046:3565",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1538
+},
+{
+"name": "flag-bs",
+"group": "country",
+"figma": "1046:3566",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 882
+},
+{
+"name": "flag-bh",
+"group": "country",
+"figma": "1046:3567",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 797
+},
+{
+"name": "flag-bd",
+"group": "country",
+"figma": "1046:3568",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 623
+},
+{
+"name": "flag-bb",
+"group": "country",
+"figma": "1046:3569",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1307
+},
+{
+"name": "flag-by",
+"group": "country",
+"figma": "1046:3570",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1486
+},
+{
+"name": "flag-be",
+"group": "country",
+"figma": "1046:3571",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 819
+},
+{
+"name": "flag-bz",
+"group": "country",
+"figma": "1046:3572",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1673
+},
+{
+"name": "flag-bj",
+"group": "country",
+"figma": "1046:3573",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 720
+},
+{
+"name": "flag-bm",
+"group": "country",
+"figma": "1046:3574",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1845
+},
+{
+"name": "flag-bt",
+"group": "country",
+"figma": "1046:3575",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1678
+},
+{
+"name": "flag-vu",
+"group": "country",
+"figma": "1046:3776",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4271
+},
+{
+"name": "flag-ve",
+"group": "country",
+"figma": "1046:3777",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2444
+},
+{
+"name": "flag-vn",
+"group": "country",
+"figma": "1046:3778",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 573
+},
+{
+"name": "flag-vi",
+"group": "country",
+"figma": "1046:3779",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1734
+},
+{
+"name": "flag-eh",
+"group": "country",
+"figma": "1046:3780",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1468
+},
+{
+"name": "flag-ye",
+"group": "country",
+"figma": "1046:3781",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 703
+},
+{
+"name": "flag-zm",
+"group": "country",
+"figma": "1046:3782",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1177
+},
+{
+"name": "flag-zw",
+"group": "country",
+"figma": "1046:3783",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2537
+},
+{
+"name": "flag-earth",
+"group": "country",
+"figma": "3881:403954",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3017
+},
+{
+"name": "flag-bo",
+"group": "country",
+"figma": "1046:3576",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 810
+},
+{
+"name": "flag-bq",
+"group": "country",
+"figma": "1046:3577",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1474
+},
+{
+"name": "flag-ba",
+"group": "country",
+"figma": "1046:3578",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2084
+},
+{
+"name": "flag-bw",
+"group": "country",
+"figma": "1046:3579",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1076
+},
+{
+"name": "flag-br",
+"group": "country",
+"figma": "1046:3580",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1251
+},
+{
+"name": "flag-io",
+"group": "country",
+"figma": "1046:3581",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9285
+},
+{
+"name": "flag-vg",
+"group": "country",
+"figma": "1046:3582",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2251
+},
+{
+"name": "flag-bn",
+"group": "country",
+"figma": "1046:3583",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2066
+},
+{
+"name": "flag-bg",
+"group": "country",
+"figma": "1046:3584",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 819
+},
+{
+"name": "flag-bf",
+"group": "country",
+"figma": "1046:3585",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 674
+},
+{
+"name": "flag-bi",
+"group": "country",
+"figma": "1046:3586",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1701
+},
+{
+"name": "flag-kh",
+"group": "country",
+"figma": "1046:3587",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1045
+},
+{
+"name": "flag-cm",
+"group": "country",
+"figma": "1046:3588",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1009
+},
+{
+"name": "flag-ca",
+"group": "country",
+"figma": "1046:3589",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 963
+},
+{
+"name": "flag-ky",
+"group": "country",
+"figma": "1046:3590",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2676
+},
+{
+"name": "flag-cf",
+"group": "country",
+"figma": "1046:3591",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1698
+},
+{
+"name": "flag-td",
+"group": "country",
+"figma": "1046:3592",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 846
+},
+{
+"name": "flag-cl",
+"group": "country",
+"figma": "1046:3593",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 864
+},
+{
+"name": "flag-cn",
+"group": "country",
+"figma": "1046:3594",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1383
+},
+{
+"name": "flag-cx",
+"group": "country",
+"figma": "1046:3595",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2972
+},
+{
+"name": "flag-cc",
+"group": "country",
+"figma": "1046:3596",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2622
+},
+{
+"name": "flag-co",
+"group": "country",
+"figma": "1046:3597",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 657
+},
+{
+"name": "flag-km",
+"group": "country",
+"figma": "1046:3598",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2216
+},
+{
+"name": "flag-ck",
+"group": "country",
+"figma": "1046:3599",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2675
+},
+{
+"name": "flag-cr",
+"group": "country",
+"figma": "1046:3600",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 920
+},
+{
+"name": "flag-hr",
+"group": "country",
+"figma": "1046:3601",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2763
+},
+{
+"name": "flag-cu",
+"group": "country",
+"figma": "1046:3602",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1342
+},
+{
+"name": "flag-cw",
+"group": "country",
+"figma": "1046:3603",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1068
+},
+{
+"name": "flag-cy",
+"group": "country",
+"figma": "1046:3604",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1319
+},
+{
+"name": "flag-cz",
+"group": "country",
+"figma": "1046:3605",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 725
+},
+{
+"name": "flag-cd",
+"group": "country",
+"figma": "1046:3606",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1316
+},
+{
+"name": "flag-dk",
+"group": "country",
+"figma": "1046:3607",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 963
+},
+{
+"name": "flag-dj",
+"group": "country",
+"figma": "1046:3608",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 965
+},
+{
+"name": "flag-dm",
+"group": "country",
+"figma": "1046:3609",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4789
+},
+{
+"name": "flag-do",
+"group": "country",
+"figma": "1046:3610",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1371
+},
+{
+"name": "flag-tl",
+"group": "country",
+"figma": "1046:3611",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1031
+},
+{
+"name": "flag-ec",
+"group": "country",
+"figma": "1046:3612",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1598
+},
+{
+"name": "flag-eg",
+"group": "country",
+"figma": "1046:3613",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1167
+},
+{
+"name": "flag-gb-2",
+"group": "country",
+"figma": "1046:3614",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 836
+},
+{
+"name": "flag-gq",
+"group": "country",
+"figma": "1046:3615",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1502
+},
+{
+"name": "flag-er",
+"group": "country",
+"figma": "1046:3616",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1363
+},
+{
+"name": "flag-ee",
+"group": "country",
+"figma": "1046:3617",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 819
+},
+{
+"name": "flag-et",
+"group": "country",
+"figma": "1046:3618",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1472
+},
+{
+"name": "flag-fk",
+"group": "country",
+"figma": "1046:3619",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2313
+},
+{
+"name": "flag-fo",
+"group": "country",
+"figma": "1046:3620",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1398
+},
+{
+"name": "flag-fj",
+"group": "country",
+"figma": "1046:3621",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1847
+},
+{
+"name": "flag-fi",
+"group": "country",
+"figma": "1046:3622",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 792
+},
+{
+"name": "flag-fr",
+"group": "country",
+"figma": "1046:3623",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 664
+},
+{
+"name": "flag-pf",
+"group": "country",
+"figma": "1046:3624",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1294
+},
+{
+"name": "flag-ga",
+"group": "country",
+"figma": "1046:3625",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 815
+},
+{
+"name": "flag-gm",
+"group": "country",
+"figma": "1046:3726",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 929
+},
+{
+"name": "flag-ge",
+"group": "country",
+"figma": "1046:3727",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1400
+},
+{
+"name": "flag-de",
+"group": "country",
+"figma": "1046:3728",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 830
+},
+{
+"name": "flag-gh",
+"group": "country",
+"figma": "1046:3626",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 988
+},
+{
+"name": "flag-gi",
+"group": "country",
+"figma": "1046:3627",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1392
+},
+{
+"name": "flag-gr",
+"group": "country",
+"figma": "1046:3628",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1215
+},
+{
+"name": "flag-gl",
+"group": "country",
+"figma": "1046:3629",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 854
+},
+{
+"name": "flag-gd",
+"group": "country",
+"figma": "1046:3630",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3296
+},
+{
+"name": "flag-gu",
+"group": "country",
+"figma": "1046:3631",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1804
+},
+{
+"name": "flag-gt",
+"group": "country",
+"figma": "1046:3632",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1377
+},
+{
+"name": "flag-gg",
+"group": "country",
+"figma": "1046:3633",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1096
+},
+{
+"name": "flag-gw",
+"group": "country",
+"figma": "1046:3634",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1132
+},
+{
+"name": "flag-gn",
+"group": "country",
+"figma": "1046:3635",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 838
+},
+{
+"name": "flag-gy",
+"group": "country",
+"figma": "1046:3636",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1501
+},
+{
+"name": "flag-ht",
+"group": "country",
+"figma": "1046:3637",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1278
+},
+{
+"name": "flag-hn",
+"group": "country",
+"figma": "1046:3638",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1635
+},
+{
+"name": "flag-hk",
+"group": "country",
+"figma": "1046:3639",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1557
+},
+{
+"name": "flag-hu",
+"group": "country",
+"figma": "1046:3640",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 821
+},
+{
+"name": "flag-is",
+"group": "country",
+"figma": "1046:3641",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1327
+},
+{
+"name": "flag-in",
+"group": "country",
+"figma": "1046:3642",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1381
+},
+{
+"name": "flag-id",
+"group": "country",
+"figma": "1046:3643",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 474
+},
+{
+"name": "flag-ir",
+"group": "country",
+"figma": "1046:3644",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1562
+},
+{
+"name": "flag-iq",
+"group": "country",
+"figma": "1046:3645",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1336
+},
+{
+"name": "flag-ie",
+"group": "country",
+"figma": "1046:3646",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 661
+},
+{
+"name": "flag-im",
+"group": "country",
+"figma": "1046:3647",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 766
+},
+{
+"name": "flag-il",
+"group": "country",
+"figma": "1046:3729",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1341
+},
+{
+"name": "flag-it",
+"group": "country",
+"figma": "1046:3730",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 663
+},
+{
+"name": "flag-jm",
+"group": "country",
+"figma": "1046:3731",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1065
+},
+{
+"name": "flag-jp",
+"group": "country",
+"figma": "1046:3732",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 623
+},
+{
+"name": "flag-je",
+"group": "country",
+"figma": "1046:3733",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1309
+},
+{
+"name": "flag-jo",
+"group": "country",
+"figma": "1046:3734",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1149
+},
+{
+"name": "flag-kz",
+"group": "country",
+"figma": "1046:3648",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1252
+},
+{
+"name": "flag-ke",
+"group": "country",
+"figma": "1046:3649",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1999
+},
+{
+"name": "flag-ki",
+"group": "country",
+"figma": "1046:3650",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5606
+},
+{
+"name": "flag-kw",
+"group": "country",
+"figma": "1046:3651",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 983
+},
+{
+"name": "flag-kg",
+"group": "country",
+"figma": "1046:3652",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1911
+},
+{
+"name": "flag-la",
+"group": "country",
+"figma": "1046:3653",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1058
+},
+{
+"name": "flag-lv",
+"group": "country",
+"figma": "1046:3654",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 706
+},
+{
+"name": "flag-lb",
+"group": "country",
+"figma": "1046:3655",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 819
+},
+{
+"name": "flag-ls",
+"group": "country",
+"figma": "1046:3656",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 986
+},
+{
+"name": "flag-lr",
+"group": "country",
+"figma": "1046:3657",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2457
+},
+{
+"name": "flag-ly",
+"group": "country",
+"figma": "1046:3658",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1435
+},
+{
+"name": "flag-li",
+"group": "country",
+"figma": "1046:3659",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 940
+},
+{
+"name": "flag-lt",
+"group": "country",
+"figma": "1046:3660",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 813
+},
+{
+"name": "flag-lu",
+"group": "country",
+"figma": "1046:3661",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 707
+},
+{
+"name": "flag-mo",
+"group": "country",
+"figma": "1046:3662",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2295
+},
+{
+"name": "flag-mg",
+"group": "country",
+"figma": "1046:3663",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 801
+},
+{
+"name": "flag-mw",
+"group": "country",
+"figma": "1046:3664",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1026
+},
+{
+"name": "flag-my",
+"group": "country",
+"figma": "1046:3665",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1706
+},
+{
+"name": "flag-mv",
+"group": "country",
+"figma": "1046:3666",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 876
+},
+{
+"name": "flag-ml",
+"group": "country",
+"figma": "1046:3735",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 839
+},
+{
+"name": "flag-mt",
+"group": "country",
+"figma": "1046:3736",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 654
+},
+{
+"name": "flag-mh",
+"group": "country",
+"figma": "1046:3737",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1174
+},
+{
+"name": "flag-mq",
+"group": "country",
+"figma": "1046:3738",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3611
+},
+{
+"name": "flag-mr",
+"group": "country",
+"figma": "1046:3739",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 905
+},
+{
+"name": "flag-mu",
+"group": "country",
+"figma": "1046:3740",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 898
+},
+{
+"name": "flag-mx",
+"group": "country",
+"figma": "1046:3741",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1289
+},
+{
+"name": "flag-fm",
+"group": "country",
+"figma": "1046:3742",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1135
+},
+{
+"name": "flag-md",
+"group": "country",
+"figma": "1046:3667",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1618
+},
+{
+"name": "flag-mc",
+"group": "country",
+"figma": "1046:3668",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 474
+},
+{
+"name": "flag-mn",
+"group": "country",
+"figma": "1046:3669",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1794
+},
+{
+"name": "flag-me",
+"group": "country",
+"figma": "1046:3670",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1799
+},
+{
+"name": "flag-ms",
+"group": "country",
+"figma": "1046:3671",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1585
+},
+{
+"name": "flag-ma",
+"group": "country",
+"figma": "1046:3672",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 991
+},
+{
+"name": "flag-mz",
+"group": "country",
+"figma": "1046:3673",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1537
+},
+{
+"name": "flag-mm",
+"group": "country",
+"figma": "1046:3674",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1002
+},
+{
+"name": "flag-na",
+"group": "country",
+"figma": "1046:3675",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1329
+},
+{
+"name": "flag-nr",
+"group": "country",
+"figma": "1046:3676",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1206
+},
+{
+"name": "flag-np",
+"group": "country",
+"figma": "1046:3677",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1715
+},
+{
+"name": "flag-nl",
+"group": "country",
+"figma": "1046:3678",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 709
+},
+{
+"name": "flag-nz",
+"group": "country",
+"figma": "1046:3679",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1901
+},
+{
+"name": "flag-ni",
+"group": "country",
+"figma": "1046:3680",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1449
+},
+{
+"name": "flag-ne",
+"group": "country",
+"figma": "1046:3681",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1052
+},
+{
+"name": "flag-ng",
+"group": "country",
+"figma": "1046:3682",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 662
+},
+{
+"name": "flag-nu",
+"group": "country",
+"figma": "1046:3683",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2276
+},
+{
+"name": "flag-nf",
+"group": "country",
+"figma": "1046:3743",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 952
+},
+{
+"name": "flag-kp",
+"group": "country",
+"figma": "1046:3744",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1338
+},
+{
+"name": "flag-mp",
+"group": "country",
+"figma": "1046:3745",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4406
+},
+{
+"name": "flag-no",
+"group": "country",
+"figma": "1046:3746",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1326
+},
+{
+"name": "flag-om",
+"group": "country",
+"figma": "1046:3747",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1255
+},
+{
+"name": "flag-pk",
+"group": "country",
+"figma": "1046:3748",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1403
+},
+{
+"name": "flag-pw",
+"group": "country",
+"figma": "1046:3749",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 623
+},
+{
+"name": "flag-ps",
+"group": "country",
+"figma": "1046:3750",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 882
+},
+{
+"name": "flag-pa",
+"group": "country",
+"figma": "1046:3751",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1064
+},
+{
+"name": "flag-pg",
+"group": "country",
+"figma": "1046:3684",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2604
+},
+{
+"name": "flag-py",
+"group": "country",
+"figma": "1046:3685",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1299
+},
+{
+"name": "flag-pe",
+"group": "country",
+"figma": "1046:3686",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 661
+},
+{
+"name": "flag-ph",
+"group": "country",
+"figma": "1046:3687",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1644
+},
+{
+"name": "flag-pn",
+"group": "country",
+"figma": "1046:3688",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1836
+},
+{
+"name": "flag-pt",
+"group": "country",
+"figma": "1046:3689",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1159
+},
+{
+"name": "flag-pr",
+"group": "country",
+"figma": "1046:3690",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1318
+},
+{
+"name": "flag-qa",
+"group": "country",
+"figma": "1046:3691",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 803
+},
+{
+"name": "flag-mk",
+"group": "country",
+"figma": "1046:3692",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1854
+},
+{
+"name": "flag-pl",
+"group": "country",
+"figma": "1046:3693",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 502
+},
+{
+"name": "flag-cd-2",
+"group": "country",
+"figma": "1046:3694",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 768
+},
+{
+"name": "flag-ro",
+"group": "country",
+"figma": "1046:3695",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 840
+},
+{
+"name": "flag-ru",
+"group": "country",
+"figma": "1046:3696",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 776
+},
+{
+"name": "flag-rw",
+"group": "country",
+"figma": "1046:3697",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1113
+},
+{
+"name": "flag-bq-2",
+"group": "country",
+"figma": "1046:3698",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1130
+},
+{
+"name": "flag-kn",
+"group": "country",
+"figma": "1046:3699",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1378
+},
+{
+"name": "flag-sv",
+"group": "country",
+"figma": "1046:3752",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1341
+},
+{
+"name": "flag-ws",
+"group": "country",
+"figma": "1046:3753",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1427
+},
+{
+"name": "flag-sm",
+"group": "country",
+"figma": "1046:3754",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1975
+},
+{
+"name": "flag-st",
+"group": "country",
+"figma": "1046:3755",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1254
+},
+{
+"name": "flag-sa",
+"group": "country",
+"figma": "1046:3756",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1706
+},
+{
+"name": "flag-sn",
+"group": "country",
+"figma": "1046:3757",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1006
+},
+{
+"name": "flag-rs",
+"group": "country",
+"figma": "1046:3758",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1921
+},
+{
+"name": "flag-sc",
+"group": "country",
+"figma": "1046:3759",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1117
+},
+{
+"name": "flag-sl",
+"group": "country",
+"figma": "1046:3760",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 814
+},
+{
+"name": "flag-sg",
+"group": "country",
+"figma": "1046:3761",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1732
+},
+{
+"name": "flag-bq-3",
+"group": "country",
+"figma": "1046:3762",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2242
+},
+{
+"name": "flag-sx",
+"group": "country",
+"figma": "1046:3700",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1733
+},
+{
+"name": "flag-sk",
+"group": "country",
+"figma": "1046:3701",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1843
+},
+{
+"name": "flag-si",
+"group": "country",
+"figma": "1046:3702",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1033
+},
+{
+"name": "flag-sb",
+"group": "country",
+"figma": "1046:3703",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1794
+},
+{
+"name": "flag-so",
+"group": "country",
+"figma": "1046:3704",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 575
+},
+{
+"name": "flag-za",
+"group": "country",
+"figma": "1046:3705",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1395
+},
+{
+"name": "flag-kr",
+"group": "country",
+"figma": "1046:3706",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2657
+},
+{
+"name": "flag-ss",
+"group": "country",
+"figma": "1046:3707",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1238
+},
+{
+"name": "flag-es",
+"group": "country",
+"figma": "1046:3708",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 813
+},
+{
+"name": "flag-lk",
+"group": "country",
+"figma": "1046:3709",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1525
+},
+{
+"name": "flag-bl",
+"group": "country",
+"figma": "1046:3710",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1611
+},
+{
+"name": "flag-lc",
+"group": "country",
+"figma": "1046:3711",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 637
+},
+{
+"name": "flag-vc",
+"group": "country",
+"figma": "1046:3712",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1154
+},
+{
+"name": "flag-ds",
+"group": "country",
+"figma": "1046:3713",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 958
+},
+{
+"name": "flag-sr",
+"group": "country",
+"figma": "1046:3763",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1113
+},
+{
+"name": "flag-sz",
+"group": "country",
+"figma": "1046:3764",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2158
+},
+{
+"name": "flag-se",
+"group": "country",
+"figma": "1046:3765",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 967
+},
+{
+"name": "flag-ch",
+"group": "country",
+"figma": "1046:3766",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 524
+},
+{
+"name": "flag-sy",
+"group": "country",
+"figma": "1046:3767",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1082
+},
+{
+"name": "flag-tw",
+"group": "country",
+"figma": "1046:3768",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1315
+},
+{
+"name": "flag-tj",
+"group": "country",
+"figma": "1046:3769",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2258
+},
+{
+"name": "flag-tz",
+"group": "country",
+"figma": "1046:3770",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 969
+},
+{
+"name": "flag-th",
+"group": "country",
+"figma": "1046:3771",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 914
+},
+{
+"name": "flag-tg",
+"group": "country",
+"figma": "1046:3772",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1197
+},
+{
+"name": "flag-tk",
+"group": "country",
+"figma": "1046:3773",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1518
+},
+{
+"name": "flag-to",
+"group": "country",
+"figma": "1046:3774",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 675
+},
+{
+"name": "flag-tt",
+"group": "country",
+"figma": "1046:3775",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1129
+},
+{
+"name": "flag-tn",
+"group": "country",
+"figma": "1046:3714",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1250
+},
+{
+"name": "flag-tr",
+"group": "country",
+"figma": "1046:3715",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1023
+},
+{
+"name": "flag-tm",
+"group": "country",
+"figma": "1046:3716",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3968
+},
+{
+"name": "flag-tc",
+"group": "country",
+"figma": "1046:3717",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2294
+},
+{
+"name": "flag-tv",
+"group": "country",
+"figma": "1046:3718",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3081
+},
+{
+"name": "flag-ug",
+"group": "country",
+"figma": "1046:3719",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2058
+},
+{
+"name": "flag-ua",
+"group": "country",
+"figma": "1046:3720",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 474
+},
+{
+"name": "flag-ae",
+"group": "country",
+"figma": "1046:3721",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 851
+},
+{
+"name": "flag-gb",
+"group": "country",
+"figma": "1046:3722",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2336
+},
+{
+"name": "flag-us",
+"group": "country",
+"figma": "1046:3723",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2225
+},
+{
+"name": "flag-uy",
+"group": "country",
+"figma": "1046:3724",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1386
+},
+{
+"name": "flag-uz",
+"group": "country",
+"figma": "1046:3725",
+"w": 24.0,
+"h": 24.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3825
+},
+{
+"name": "flag-flags-zimbabwe",
+"group": "country",
+"figma": "45817:10032",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1541
+},
+{
+"name": "flag-flags-zambia",
+"group": "country",
+"figma": "45817:10040",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1036
+},
+{
+"name": "flag-flags-yemen",
+"group": "country",
+"figma": "45817:10046",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-virgin-islands",
+"group": "country",
+"figma": "45817:10050",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2696
+},
+{
+"name": "flag-flags-viet-nam",
+"group": "country",
+"figma": "45817:10064",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 531
+},
+{
+"name": "flag-flags-venezuela",
+"group": "country",
+"figma": "45817:10067",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1042
+},
+{
+"name": "flag-flags-vanuaty",
+"group": "country",
+"figma": "45817:10072",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1894
+},
+{
+"name": "flag-flags-uzbekistan",
+"group": "country",
+"figma": "45817:10081",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1575
+},
+{
+"name": "flag-flags-uruguay",
+"group": "country",
+"figma": "45817:10086",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1688
+},
+{
+"name": "flag-flags-united-states-of-america",
+"group": "country",
+"figma": "45817:10091",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2025
+},
+{
+"name": "flag-flags-united-kingdom",
+"group": "country",
+"figma": "45817:10095",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1425
+},
+{
+"name": "flag-flags-united-arab-emirates",
+"group": "country",
+"figma": "45817:10102",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1042
+},
+{
+"name": "flag-flags-ukraine",
+"group": "country",
+"figma": "45817:10107",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 426
+},
+{
+"name": "flag-flags-uganda",
+"group": "country",
+"figma": "45817:10109",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1353
+},
+{
+"name": "flag-flags-tuvalu",
+"group": "country",
+"figma": "45817:10116",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1297
+},
+{
+"name": "flag-flags-turkmenistan",
+"group": "country",
+"figma": "45817:10120",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2121
+},
+{
+"name": "flag-flags-turkey",
+"group": "country",
+"figma": "45817:10125",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 984
+},
+{
+"name": "flag-flags-tunisia",
+"group": "country",
+"figma": "45817:10128",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1010
+},
+{
+"name": "flag-flags-trinidad-and-tobago",
+"group": "country",
+"figma": "45817:10132",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 773
+},
+{
+"name": "flag-flags-tonga",
+"group": "country",
+"figma": "45817:10135",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1069
+},
+{
+"name": "flag-flags-togo",
+"group": "country",
+"figma": "45817:10139",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1062
+},
+{
+"name": "flag-flags-timor-leste",
+"group": "country",
+"figma": "45817:10143",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 785
+},
+{
+"name": "flag-flags-thailand",
+"group": "country",
+"figma": "45817:10147",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 785
+},
+{
+"name": "flag-flags-tanzania",
+"group": "country",
+"figma": "45817:10150",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1031
+},
+{
+"name": "flag-flags-tajikistan",
+"group": "country",
+"figma": "45817:10155",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1278
+},
+{
+"name": "flag-flags-syrian-arab-republic",
+"group": "country",
+"figma": "45817:10159",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1127
+},
+{
+"name": "flag-flags-switzerland",
+"group": "country",
+"figma": "45817:10163",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 482
+},
+{
+"name": "flag-flags-sweden",
+"group": "country",
+"figma": "45817:10165",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 679
+},
+{
+"name": "flag-flags-suriname",
+"group": "country",
+"figma": "45817:10167",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1197
+},
+{
+"name": "flag-flags-sudan",
+"group": "country",
+"figma": "45817:10172",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 862
+},
+{
+"name": "flag-flags-sri-lanka",
+"group": "country",
+"figma": "45817:10176",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 16125
+},
+{
+"name": "flag-flags-spain",
+"group": "country",
+"figma": "45817:10183",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2424
+},
+{
+"name": "flag-flags-south-sudan",
+"group": "country",
+"figma": "45817:10195",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1225
+},
+{
+"name": "flag-flags-south-korea",
+"group": "country",
+"figma": "45817:10201",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1373
+},
+{
+"name": "flag-flags-south-africa",
+"group": "country",
+"figma": "45817:10205",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1604
+},
+{
+"name": "flag-flags-somalia",
+"group": "country",
+"figma": "45817:10214",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 529
+},
+{
+"name": "flag-flags-solomon-islands",
+"group": "country",
+"figma": "45817:10216",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1679
+},
+{
+"name": "flag-flags-slovenia",
+"group": "country",
+"figma": "45817:10220",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1537
+},
+{
+"name": "flag-flags-slovakia",
+"group": "country",
+"figma": "45817:10227",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1698
+},
+{
+"name": "flag-flags-sint-maarten",
+"group": "country",
+"figma": "45817:10233",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1294
+},
+{
+"name": "flag-flags-singapore",
+"group": "country",
+"figma": "45817:10239",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1033
+},
+{
+"name": "flag-flags-sierra-leone",
+"group": "country",
+"figma": "45817:10242",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-seychelles",
+"group": "country",
+"figma": "45817:10245",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 996
+},
+{
+"name": "flag-flags-serbia",
+"group": "country",
+"figma": "45817:10250",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1766
+},
+{
+"name": "flag-flags-senegal",
+"group": "country",
+"figma": "45817:10258",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 962
+},
+{
+"name": "flag-flags-saudi-arabia",
+"group": "country",
+"figma": "45817:10262",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 24343
+},
+{
+"name": "flag-flags-sao-tome-and-principe",
+"group": "country",
+"figma": "45817:10264",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1194
+},
+{
+"name": "flag-flags-san-marino",
+"group": "country",
+"figma": "45817:10268",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1351
+},
+{
+"name": "flag-flags-samoa",
+"group": "country",
+"figma": "45817:10274",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1212
+},
+{
+"name": "flag-flags-saint-vicent-and-the-grenadines",
+"group": "country",
+"figma": "45817:10279",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 961
+},
+{
+"name": "flag-flags-saint-lucia",
+"group": "country",
+"figma": "45817:10283",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 663
+},
+{
+"name": "flag-flags-rwanda",
+"group": "country",
+"figma": "45817:10287",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1201
+},
+{
+"name": "flag-flags-russian-federation",
+"group": "country",
+"figma": "45817:10291",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-romania",
+"group": "country",
+"figma": "45817:10294",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 736
+},
+{
+"name": "flag-flags-qatar",
+"group": "country",
+"figma": "45817:10297",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 646
+},
+{
+"name": "flag-flags-portugal",
+"group": "country",
+"figma": "45817:10300",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1143
+},
+{
+"name": "flag-flags-poland",
+"group": "country",
+"figma": "45817:10307",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 424
+},
+{
+"name": "flag-flags-philippines",
+"group": "country",
+"figma": "45817:10310",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2193
+},
+{
+"name": "flag-flags-peru",
+"group": "country",
+"figma": "45817:10319",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 853
+},
+{
+"name": "flag-flags-paraguay",
+"group": "country",
+"figma": "45817:10323",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1307
+},
+{
+"name": "flag-flags-papua-new-guinea",
+"group": "country",
+"figma": "45817:10329",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2392
+},
+{
+"name": "flag-flags-panama",
+"group": "country",
+"figma": "45817:10339",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1937
+},
+{
+"name": "flag-flags-palestine",
+"group": "country",
+"figma": "45817:10345",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 862
+},
+{
+"name": "flag-flags-palau",
+"group": "country",
+"figma": "45817:10350",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 539
+},
+{
+"name": "flag-flags-pakistan",
+"group": "country",
+"figma": "45817:10353",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1745
+},
+{
+"name": "flag-flags-oman",
+"group": "country",
+"figma": "45817:10358",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1707
+},
+{
+"name": "flag-flags-norway",
+"group": "country",
+"figma": "45817:10363",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 860
+},
+{
+"name": "flag-flags-north-macedonia",
+"group": "country",
+"figma": "45817:10366",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1564
+},
+{
+"name": "flag-flags-north-korea",
+"group": "country",
+"figma": "45817:10371",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1117
+},
+{
+"name": "flag-flags-nigeria",
+"group": "country",
+"figma": "45817:10377",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 666
+},
+{
+"name": "flag-flags-niger",
+"group": "country",
+"figma": "45817:10379",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 953
+},
+{
+"name": "flag-flags-nicaragua",
+"group": "country",
+"figma": "45817:10383",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 971
+},
+{
+"name": "flag-flags-new-zealand",
+"group": "country",
+"figma": "45817:10387",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1670
+},
+{
+"name": "flag-flags-netherlands",
+"group": "country",
+"figma": "45817:10392",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-nepal",
+"group": "country",
+"figma": "45817:10395",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1333
+},
+{
+"name": "flag-flags-nauru",
+"group": "country",
+"figma": "45817:10401",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 650
+},
+{
+"name": "flag-flags-namibia",
+"group": "country",
+"figma": "45817:10404",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1255
+},
+{
+"name": "flag-flags-myanmar",
+"group": "country",
+"figma": "45817:10410",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 961
+},
+{
+"name": "flag-flags-mozambique",
+"group": "country",
+"figma": "45817:10414",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1714
+},
+{
+"name": "flag-flags-morocco",
+"group": "country",
+"figma": "45817:10423",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 533
+},
+{
+"name": "flag-flags-montenegro",
+"group": "country",
+"figma": "45817:10425",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1246
+},
+{
+"name": "flag-flags-mongolia",
+"group": "country",
+"figma": "45817:10430",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1488
+},
+{
+"name": "flag-flags-monaco",
+"group": "country",
+"figma": "45817:10437",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 420
+},
+{
+"name": "flag-flags-moldova",
+"group": "country",
+"figma": "45817:10439",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1499
+},
+{
+"name": "flag-flags-micronesia",
+"group": "country",
+"figma": "45817:10446",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2154
+},
+{
+"name": "flag-flags-mexico",
+"group": "country",
+"figma": "45817:10448",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1080
+},
+{
+"name": "flag-flags-mauritius",
+"group": "country",
+"figma": "45817:10455",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 854
+},
+{
+"name": "flag-flags-mauritania",
+"group": "country",
+"figma": "45817:10459",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1247
+},
+{
+"name": "flag-flags-marshall-islands",
+"group": "country",
+"figma": "45817:10464",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 981
+},
+{
+"name": "flag-flags-malta",
+"group": "country",
+"figma": "45817:10468",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 603
+},
+{
+"name": "flag-flags-mali",
+"group": "country",
+"figma": "45817:10471",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 736
+},
+{
+"name": "flag-flags-maldives",
+"group": "country",
+"figma": "45817:10474",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 777
+},
+{
+"name": "flag-flags-malaysia",
+"group": "country",
+"figma": "45817:10477",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1487
+},
+{
+"name": "flag-flags-malawi",
+"group": "country",
+"figma": "45817:10489",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 923
+},
+{
+"name": "flag-flags-madagascar",
+"group": "country",
+"figma": "45817:10493",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 732
+},
+{
+"name": "flag-flags-luxembourg",
+"group": "country",
+"figma": "45817:10496",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-lithuania",
+"group": "country",
+"figma": "45817:10499",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 736
+},
+{
+"name": "flag-flags-liechtenstein",
+"group": "country",
+"figma": "45817:10502",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1113
+},
+{
+"name": "flag-flags-libya",
+"group": "country",
+"figma": "45817:10506",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1218
+},
+{
+"name": "flag-flags-liberia",
+"group": "country",
+"figma": "45817:10511",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1335
+},
+{
+"name": "flag-flags-lesotho",
+"group": "country",
+"figma": "45817:10515",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1161
+},
+{
+"name": "flag-flags-lebanon",
+"group": "country",
+"figma": "45817:10519",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 815
+},
+{
+"name": "flag-flags-latvia",
+"group": "country",
+"figma": "45817:10522",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 666
+},
+{
+"name": "flag-flags-laos",
+"group": "country",
+"figma": "45817:10524",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 922
+},
+{
+"name": "flag-flags-kyrgyzstan",
+"group": "country",
+"figma": "45817:10527",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1379
+},
+{
+"name": "flag-flags-kuwait",
+"group": "country",
+"figma": "45817:10530",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 870
+},
+{
+"name": "flag-flags-kiribati",
+"group": "country",
+"figma": "45817:10534",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 979
+},
+{
+"name": "flag-flags-kenya",
+"group": "country",
+"figma": "45817:10539",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2638
+},
+{
+"name": "flag-flags-kazakhstan",
+"group": "country",
+"figma": "45817:10548",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2725
+},
+{
+"name": "flag-flags-jordan",
+"group": "country",
+"figma": "45817:10552",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1068
+},
+{
+"name": "flag-flags-japan",
+"group": "country",
+"figma": "45817:10557",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 527
+},
+{
+"name": "flag-flags-jamaica",
+"group": "country",
+"figma": "45817:10559",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 951
+},
+{
+"name": "flag-flags-ivory-coast",
+"group": "country",
+"figma": "45817:10562",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 921
+},
+{
+"name": "flag-flags-italy",
+"group": "country",
+"figma": "45817:10566",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-israel",
+"group": "country",
+"figma": "45817:10569",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 706
+},
+{
+"name": "flag-flags-ireland",
+"group": "country",
+"figma": "45817:10571",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 921
+},
+{
+"name": "flag-flags-iraq",
+"group": "country",
+"figma": "45817:10575",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1523
+},
+{
+"name": "flag-flags-iran",
+"group": "country",
+"figma": "45817:10579",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1393
+},
+{
+"name": "flag-flags-indonesia",
+"group": "country",
+"figma": "45817:10584",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 423
+},
+{
+"name": "flag-flags-india",
+"group": "country",
+"figma": "45817:10586",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1418
+},
+{
+"name": "flag-flags-iceland",
+"group": "country",
+"figma": "45817:10591",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 858
+},
+{
+"name": "flag-flags-hungary",
+"group": "country",
+"figma": "45817:10594",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-hong-kong",
+"group": "country",
+"figma": "45817:10597",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1458
+},
+{
+"name": "flag-flags-honduras",
+"group": "country",
+"figma": "45817:10599",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 895
+},
+{
+"name": "flag-flags-holy-see",
+"group": "country",
+"figma": "45817:10602",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1116
+},
+{
+"name": "flag-flags-haiti",
+"group": "country",
+"figma": "45817:10611",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 999
+},
+{
+"name": "flag-flags-guyana",
+"group": "country",
+"figma": "45817:10618",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1046
+},
+{
+"name": "flag-flags-guinea-bissau",
+"group": "country",
+"figma": "45817:10623",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1238
+},
+{
+"name": "flag-flags-guinea",
+"group": "country",
+"figma": "45817:10628",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 923
+},
+{
+"name": "flag-flags-guatemala",
+"group": "country",
+"figma": "45817:10632",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1319
+},
+{
+"name": "flag-flags-grenada",
+"group": "country",
+"figma": "45817:10637",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1565
+},
+{
+"name": "flag-flags-greece",
+"group": "country",
+"figma": "45817:10645",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 884
+},
+{
+"name": "flag-flags-ghana",
+"group": "country",
+"figma": "45817:10648",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 964
+},
+{
+"name": "flag-flags-germany",
+"group": "country",
+"figma": "45817:10652",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 736
+},
+{
+"name": "flag-flags-georgia",
+"group": "country",
+"figma": "45817:10655",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1189
+},
+{
+"name": "flag-flags-gambia",
+"group": "country",
+"figma": "45817:10658",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1040
+},
+{
+"name": "flag-flags-gabon",
+"group": "country",
+"figma": "45817:10663",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 736
+},
+{
+"name": "flag-flags-france",
+"group": "country",
+"figma": "45817:10666",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 734
+},
+{
+"name": "flag-flags-finland",
+"group": "country",
+"figma": "45817:10669",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 677
+},
+{
+"name": "flag-flags-fiji",
+"group": "country",
+"figma": "45817:10671",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1554
+},
+{
+"name": "flag-flags-ethiopia",
+"group": "country",
+"figma": "45817:10677",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1372
+},
+{
+"name": "flag-flags-eswatini",
+"group": "country",
+"figma": "45817:10683",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1875
+},
+{
+"name": "flag-flags-estonia",
+"group": "country",
+"figma": "45817:10692",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 921
+},
+{
+"name": "flag-flags-eritrea",
+"group": "country",
+"figma": "45817:10696",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1609
+},
+{
+"name": "flag-flags-equatorial-guinea",
+"group": "country",
+"figma": "45817:10701",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2101
+},
+{
+"name": "flag-flags-el-salvador",
+"group": "country",
+"figma": "45817:10709",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1275
+},
+{
+"name": "flag-flags-egypt",
+"group": "country",
+"figma": "45817:10714",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1125
+},
+{
+"name": "flag-flags-ecuador",
+"group": "country",
+"figma": "45817:10719",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1572
+},
+{
+"name": "flag-flags-dominican-republic",
+"group": "country",
+"figma": "45817:10726",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1270
+},
+{
+"name": "flag-flags-dominica",
+"group": "country",
+"figma": "45817:10737",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1769
+},
+{
+"name": "flag-flags-djibouti",
+"group": "country",
+"figma": "45817:10744",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 970
+},
+{
+"name": "flag-flags-denmark",
+"group": "country",
+"figma": "45817:10748",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 677
+},
+{
+"name": "flag-flags-dr-congo",
+"group": "country",
+"figma": "45817:10750",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1130
+},
+{
+"name": "flag-flags-czech-republic",
+"group": "country",
+"figma": "45817:10755",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 743
+},
+{
+"name": "flag-flags-cyprus",
+"group": "country",
+"figma": "45817:10758",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 821
+},
+{
+"name": "flag-flags-cura-ao",
+"group": "country",
+"figma": "45817:10761",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 956
+},
+{
+"name": "flag-flags-cuba",
+"group": "country",
+"figma": "45817:10764",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1098
+},
+{
+"name": "flag-flags-croatia",
+"group": "country",
+"figma": "45817:10769",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1651
+},
+{
+"name": "flag-flags-costa-rica",
+"group": "country",
+"figma": "45817:10778",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 658
+},
+{
+"name": "flag-flags-congo",
+"group": "country",
+"figma": "45817:10782",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 757
+},
+{
+"name": "flag-flags-comoros",
+"group": "country",
+"figma": "45817:10785",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1496
+},
+{
+"name": "flag-flags-colombia",
+"group": "country",
+"figma": "45817:10791",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 923
+},
+{
+"name": "flag-flags-china",
+"group": "country",
+"figma": "45817:10795",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1212
+},
+{
+"name": "flag-flags-chile",
+"group": "country",
+"figma": "45817:10798",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1231
+},
+{
+"name": "flag-flags-chad",
+"group": "country",
+"figma": "45817:10803",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 736
+},
+{
+"name": "flag-flags-central-african-republic",
+"group": "country",
+"figma": "45817:10806",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1536
+},
+{
+"name": "flag-flags-cape-verde",
+"group": "country",
+"figma": "45817:10814",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1104
+},
+{
+"name": "flag-flags-canada",
+"group": "country",
+"figma": "45817:10819",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1798
+},
+{
+"name": "flag-flags-cameroon",
+"group": "country",
+"figma": "45817:10823",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1151
+},
+{
+"name": "flag-flags-cambodia",
+"group": "country",
+"figma": "45817:10828",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2054
+},
+{
+"name": "flag-flags-burundi",
+"group": "country",
+"figma": "45817:10833",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1716
+},
+{
+"name": "flag-flags-burkina-faso",
+"group": "country",
+"figma": "45817:10838",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1115
+},
+{
+"name": "flag-flags-bulgaria",
+"group": "country",
+"figma": "45817:10842",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 921
+},
+{
+"name": "flag-flags-brunei-darussalam",
+"group": "country",
+"figma": "45817:10846",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1443
+},
+{
+"name": "flag-flags-brazil",
+"group": "country",
+"figma": "45817:10851",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1084
+},
+{
+"name": "flag-flags-bouvet-island",
+"group": "country",
+"figma": "45817:10856",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 857
+},
+{
+"name": "flag-flags-botswana",
+"group": "country",
+"figma": "45817:10859",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 658
+},
+{
+"name": "flag-flags-bosnia-and-herzegovina",
+"group": "country",
+"figma": "45817:10863",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1268
+},
+{
+"name": "flag-flags-bolivia",
+"group": "country",
+"figma": "45817:10867",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1836
+},
+{
+"name": "flag-flags-bhutan",
+"group": "country",
+"figma": "45817:10877",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1307
+},
+{
+"name": "flag-flags-benin",
+"group": "country",
+"figma": "45817:10881",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1008
+},
+{
+"name": "flag-flags-belize",
+"group": "country",
+"figma": "45817:10885",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1968
+},
+{
+"name": "flag-flags-belgium",
+"group": "country",
+"figma": "45817:10895",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 923
+},
+{
+"name": "flag-flags-belarus",
+"group": "country",
+"figma": "45817:10899",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1821
+},
+{
+"name": "flag-flags-barbados",
+"group": "country",
+"figma": "45817:10903",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1323
+},
+{
+"name": "flag-flags-bangladesh",
+"group": "country",
+"figma": "45817:10908",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1006
+},
+{
+"name": "flag-flags-bahrain",
+"group": "country",
+"figma": "45817:10911",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 711
+},
+{
+"name": "flag-flags-bahamas",
+"group": "country",
+"figma": "45817:10913",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 983
+},
+{
+"name": "flag-flags-azerbaijan",
+"group": "country",
+"figma": "45817:10917",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1405
+},
+{
+"name": "flag-flags-austria",
+"group": "country",
+"figma": "45817:10923",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 853
+},
+{
+"name": "flag-flags-aruba",
+"group": "country",
+"figma": "45817:10926",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2356
+},
+{
+"name": "flag-flags-armenia",
+"group": "country",
+"figma": "45817:10931",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 923
+},
+{
+"name": "flag-flags-argentina",
+"group": "country",
+"figma": "45817:10935",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1072
+},
+{
+"name": "flag-flags-australia",
+"group": "country",
+"figma": "45817:10939",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1870
+},
+{
+"name": "flag-flags-antigua-and-barbuda",
+"group": "country",
+"figma": "45817:10944",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1267
+},
+{
+"name": "flag-flags-angola",
+"group": "country",
+"figma": "45817:10951",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1505
+},
+{
+"name": "flag-flags-andorra",
+"group": "country",
+"figma": "45817:10955",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1629
+},
+{
+"name": "flag-flags-algeria",
+"group": "country",
+"figma": "45817:10962",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1559
+},
+{
+"name": "flag-flags-albania",
+"group": "country",
+"figma": "45817:10967",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1196
+},
+{
+"name": "flag-flags-afghanistan",
+"group": "country",
+"figma": "45817:10970",
+"w": 22.0,
+"h": 16.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1552
+},
+{
+"name": "payment-jcb",
+"group": "payment",
+"figma": "1142:85001",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3702
+},
+{
+"name": "payment-giropay",
+"group": "payment",
+"figma": "1142:85403",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4359
+},
+{
+"name": "payment-ideal",
+"group": "payment",
+"figma": "1142:83455",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1849
+},
+{
+"name": "payment-bancontact",
+"group": "payment",
+"figma": "1142:85132",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15263
+},
+{
+"name": "payment-unionpay",
+"group": "payment",
+"figma": "1142:85126",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 12387
+},
+{
+"name": "payment-sepa",
+"group": "payment",
+"figma": "1142:83586",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 19729
+},
+{
+"name": "payment-amazon",
+"group": "payment",
+"figma": "1142:85385",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7234
+},
+{
+"name": "payment-sofort",
+"group": "payment",
+"figma": "1142:83566",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6042
+},
+{
+"name": "payment-klarna",
+"group": "payment",
+"figma": "1142:85371",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2173
+},
+{
+"name": "payment-yandex",
+"group": "payment",
+"figma": "1142:85115",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1906
+},
+{
+"name": "payment-qiwi",
+"group": "payment",
+"figma": "1142:83544",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2003
+},
+{
+"name": "payment-alipay",
+"group": "payment",
+"figma": "1142:85088",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3463
+},
+{
+"name": "payment-wechat",
+"group": "payment",
+"figma": "1142:85079",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1574
+},
+{
+"name": "payment-etherium",
+"group": "payment",
+"figma": "1142:83535",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1266
+},
+{
+"name": "payment-bitpay",
+"group": "payment",
+"figma": "1142:85041",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5951
+},
+{
+"name": "payment-bitcoin",
+"group": "payment",
+"figma": "1142:85022",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1947
+},
+{
+"name": "payment-bitcoincash",
+"group": "payment",
+"figma": "1142:85012",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1933
+},
+{
+"name": "payment-paypal",
+"group": "payment",
+"figma": "1142:85006",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3300
+},
+{
+"name": "payment-stripe",
+"group": "payment",
+"figma": "1142:85152",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2639
+},
+{
+"name": "payment-skrill",
+"group": "payment",
+"figma": "1142:85117",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2017
+},
+{
+"name": "payment-googlepay",
+"group": "payment",
+"figma": "1142:85355",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2929
+},
+{
+"name": "payment-applepay",
+"group": "payment",
+"figma": "1142:83526",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2805
+},
+{
+"name": "payment-mastercard",
+"group": "payment",
+"figma": "1142:83515",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1508
+},
+{
+"name": "payment-discover",
+"group": "payment",
+"figma": "1142:85099",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2927
+},
+{
+"name": "payment-amex",
+"group": "payment",
+"figma": "1142:85081",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1231
+},
+{
+"name": "payment-dinersclub",
+"group": "payment",
+"figma": "1142:85348",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1167
+},
+{
+"name": "payment-visa",
+"group": "payment",
+"figma": "1142:83508",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1587
+},
+{
+"name": "payment-verifone",
+"group": "payment",
+"figma": "1142:85331",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4583
+},
+{
+"name": "payment-payoneer",
+"group": "payment",
+"figma": "1142:85056",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 9966
+},
+{
+"name": "payment-maestro",
+"group": "payment",
+"figma": "1142:85322",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1157
+},
+{
+"name": "payment-webmoney",
+"group": "payment",
+"figma": "1142:83477",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4436
+},
+{
+"name": "payment-interac",
+"group": "payment",
+"figma": "1142:83470",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8077
+},
+{
+"name": "payment-shop-pay",
+"group": "payment",
+"figma": "1142:83639",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5553
+},
+{
+"name": "payment-affirm",
+"group": "payment",
+"figma": "1142:85032",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2817
+},
+{
+"name": "payment-paysafe",
+"group": "payment",
+"figma": "1142:83550",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8310
+},
+{
+"name": "payment-citadele",
+"group": "payment",
+"figma": "1142:85320",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5850
+},
+{
+"name": "payment-forbrugsforeningen",
+"group": "payment",
+"figma": "1142:85314",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3553
+},
+{
+"name": "payment-elo",
+"group": "payment",
+"figma": "1142:85301",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2768
+},
+{
+"name": "payment-lightcoin",
+"group": "payment",
+"figma": "1142:85297",
+"w": 46.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 880
+},
+{
+"name": "integration-browsers-safari",
+"group": "integration-browsers",
+"figma": "1334:471",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 54386
+},
+{
+"name": "integration-browsers-chrome",
+"group": "integration-browsers",
+"figma": "1334:608",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2298
+},
+{
+"name": "integration-browsers-ie",
+"group": "integration-browsers",
+"figma": "1334:618",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1143
+},
+{
+"name": "integration-browsers-edge",
+"group": "integration-browsers",
+"figma": "1334:620",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 673
+},
+{
+"name": "integration-browsers-opera",
+"group": "integration-browsers",
+"figma": "1334:622",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1833
+},
+{
+"name": "integration-browsers-uc",
+"group": "integration-browsers",
+"figma": "1334:626",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6084
+},
+{
+"name": "integration-browsers-firefox",
+"group": "integration-browsers",
+"figma": "1334:628",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15166
+},
+{
+"name": "integration-browsers-tor",
+"group": "integration-browsers",
+"figma": "1334:641",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 5971
+},
+{
+"name": "integration-browsers-yandex",
+"group": "integration-browsers",
+"figma": "1334:654",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 583
+},
+{
+"name": "integration-social-networks-twitter",
+"group": "integration-social-networks",
+"figma": "1334:658",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 927
+},
+{
+"name": "integration-social-networks-linkedin",
+"group": "integration-social-networks",
+"figma": "1334:660",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 816
+},
+{
+"name": "integration-social-networks-instagram",
+"group": "integration-social-networks",
+"figma": "1334:663",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3294
+},
+{
+"name": "integration-social-networks-snapchat",
+"group": "integration-social-networks",
+"figma": "1334:668",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11702
+},
+{
+"name": "integration-social-networks-quora",
+"group": "integration-social-networks",
+"figma": "1334:672",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 973
+},
+{
+"name": "integration-social-networks-tinder",
+"group": "integration-social-networks",
+"figma": "1334:674",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 989
+},
+{
+"name": "integration-social-networks-reddit",
+"group": "integration-social-networks",
+"figma": "1334:678",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1847
+},
+{
+"name": "integration-social-networks-weibo",
+"group": "integration-social-networks",
+"figma": "1334:681",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2405
+},
+{
+"name": "integration-social-networks-qzone",
+"group": "integration-social-networks",
+"figma": "1334:687",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2181
+},
+{
+"name": "integration-social-networks-tumbler",
+"group": "integration-social-networks",
+"figma": "1334:693",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 473
+},
+{
+"name": "integration-social-networks-stack-overflow",
+"group": "integration-social-networks",
+"figma": "1334:699",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 861
+},
+{
+"name": "integration-social-networks-foursquare",
+"group": "integration-social-networks",
+"figma": "1334:702",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1082
+},
+{
+"name": "integration-social-networks-tiktok",
+"group": "integration-social-networks",
+"figma": "1334:705",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4716
+},
+{
+"name": "integration-social-networks-pinterest",
+"group": "integration-social-networks",
+"figma": "1334:711",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1426
+},
+{
+"name": "integration-social-networks-badoo",
+"group": "integration-social-networks",
+"figma": "1334:714",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1234
+},
+{
+"name": "integration-social-networks-facebook",
+"group": "integration-social-networks",
+"figma": "1334:718",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 743
+},
+{
+"name": "integration-social-networks-ok",
+"group": "integration-social-networks",
+"figma": "1334:721",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1392
+},
+{
+"name": "integration-social-networks-askfm",
+"group": "integration-social-networks",
+"figma": "1334:724",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 11608
+},
+{
+"name": "integration-social-networks-vk",
+"group": "integration-social-networks",
+"figma": "1334:727",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1354
+},
+{
+"name": "integration-social-networks-patreon",
+"group": "integration-social-networks",
+"figma": "1334:730",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 479
+},
+{
+"name": "integration-messengers-telegram",
+"group": "integration-messengers",
+"figma": "1334:735",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 820
+},
+{
+"name": "integration-messengers-viber",
+"group": "integration-messengers",
+"figma": "1334:738",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4758
+},
+{
+"name": "integration-messengers-slack",
+"group": "integration-messengers",
+"figma": "1334:743",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1520
+},
+{
+"name": "integration-messengers-fb-messenger",
+"group": "integration-messengers",
+"figma": "1334:749",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1113
+},
+{
+"name": "integration-messengers-line",
+"group": "integration-messengers",
+"figma": "1334:752",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2166
+},
+{
+"name": "integration-messengers-wechat",
+"group": "integration-messengers",
+"figma": "1334:759",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1924
+},
+{
+"name": "integration-messengers-kakao-talk",
+"group": "integration-messengers",
+"figma": "1334:761",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2155
+},
+{
+"name": "integration-messengers-ms-skype",
+"group": "integration-messengers",
+"figma": "1334:765",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1058
+},
+{
+"name": "integration-messengers-google-hangouts",
+"group": "integration-messengers",
+"figma": "1334:771",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 477
+},
+{
+"name": "integration-messengers-whatsapp",
+"group": "integration-messengers",
+"figma": "1334:774",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2389
+},
+{
+"name": "integration-messengers-messages",
+"group": "integration-messengers",
+"figma": "1334:779",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1133
+},
+{
+"name": "integration-messengers-spectrum",
+"group": "integration-messengers",
+"figma": "1334:782",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1261
+},
+{
+"name": "integration-messengers-discord",
+"group": "integration-messengers",
+"figma": "1334:785",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2250
+},
+{
+"name": "integration-messengers-zoom",
+"group": "integration-messengers",
+"figma": "1334:788",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1079
+},
+{
+"name": "integration-messengers-facetime",
+"group": "integration-messengers",
+"figma": "1334:794",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1713
+},
+{
+"name": "integration-messengers-google-meet",
+"group": "integration-messengers",
+"figma": "1334:1999",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2322
+},
+{
+"name": "integration-coding-git",
+"group": "integration-coding",
+"figma": "1334:1393",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1231
+},
+{
+"name": "integration-coding-css-3",
+"group": "integration-coding",
+"figma": "1334:1396",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 386
+},
+{
+"name": "integration-coding-html-5",
+"group": "integration-coding",
+"figma": "1334:1400",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 373
+},
+{
+"name": "integration-coding-js",
+"group": "integration-coding",
+"figma": "1334:1404",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1168
+},
+{
+"name": "integration-coding-node-js",
+"group": "integration-coding",
+"figma": "1334:1407",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3164
+},
+{
+"name": "integration-coding-bitbucket",
+"group": "integration-coding",
+"figma": "1334:1409",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1084
+},
+{
+"name": "integration-coding-codepen",
+"group": "integration-coding",
+"figma": "1334:1414",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 921
+},
+{
+"name": "integration-coding-jquery",
+"group": "integration-coding",
+"figma": "1334:1417",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1116
+},
+{
+"name": "integration-coding-jb-appcode",
+"group": "integration-coding",
+"figma": "1334:1420",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2299
+},
+{
+"name": "integration-coding-jb-clion",
+"group": "integration-coding",
+"figma": "1334:1430",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2713
+},
+{
+"name": "integration-coding-jb-rider",
+"group": "integration-coding",
+"figma": "1334:1440",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3009
+},
+{
+"name": "integration-coding-jb-resharper",
+"group": "integration-coding",
+"figma": "1334:1450",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3161
+},
+{
+"name": "integration-coding-jb-resharper-c-plus-plus",
+"group": "integration-coding",
+"figma": "1334:1460",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2490
+},
+{
+"name": "integration-coding-jb-datagrip",
+"group": "integration-coding",
+"figma": "1334:1472",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2862
+},
+{
+"name": "integration-coding-jb-goland",
+"group": "integration-coding",
+"figma": "1334:1485",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3599
+},
+{
+"name": "integration-coding-jb-phpstorm",
+"group": "integration-coding",
+"figma": "1334:1497",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3218
+},
+{
+"name": "integration-coding-jb-pycharm",
+"group": "integration-coding",
+"figma": "1334:1507",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4205
+},
+{
+"name": "integration-coding-jb-rubymine",
+"group": "integration-coding",
+"figma": "1334:1518",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2753
+},
+{
+"name": "integration-coding-jb-webstorm",
+"group": "integration-coding",
+"figma": "1334:1527",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2446
+},
+{
+"name": "integration-coding-jb-dotcover",
+"group": "integration-coding",
+"figma": "1334:1536",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2882
+},
+{
+"name": "integration-coding-jb-dotmemory",
+"group": "integration-coding",
+"figma": "1334:1546",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2621
+},
+{
+"name": "integration-coding-jb-dotpeek",
+"group": "integration-coding",
+"figma": "1334:1555",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3364
+},
+{
+"name": "integration-coding-jb-dottrace",
+"group": "integration-coding",
+"figma": "1334:1566",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1769
+},
+{
+"name": "integration-coding-atom",
+"group": "integration-coding",
+"figma": "1334:1575",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4807
+},
+{
+"name": "integration-coding-vs-code",
+"group": "integration-coding",
+"figma": "1334:1578",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1921
+},
+{
+"name": "integration-coding-sublime-text",
+"group": "integration-coding",
+"figma": "1334:1583",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1365
+},
+{
+"name": "integration-coding-jb-hub",
+"group": "integration-coding",
+"figma": "1334:1588",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3382
+},
+{
+"name": "integration-coding-weebly",
+"group": "integration-coding",
+"figma": "1334:1598",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1465
+},
+{
+"name": "integration-coding-yii-1",
+"group": "integration-coding",
+"figma": "1334:1600",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2313
+},
+{
+"name": "integration-coding-jb-pycharm-edu",
+"group": "integration-coding",
+"figma": "1334:1606",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3895
+},
+{
+"name": "integration-coding-jb-teamcity",
+"group": "integration-coding",
+"figma": "1334:1617",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4525
+},
+{
+"name": "integration-coding-jb-upsource",
+"group": "integration-coding",
+"figma": "1334:1627",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3967
+},
+{
+"name": "integration-coding-jb-youtrack",
+"group": "integration-coding",
+"figma": "1334:1641",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3144
+},
+{
+"name": "integration-coding-jb-intellij-idea",
+"group": "integration-coding",
+"figma": "1334:1650",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3652
+},
+{
+"name": "integration-coding-jb-kotlin",
+"group": "integration-coding",
+"figma": "1334:1660",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1492
+},
+{
+"name": "integration-coding-jb-toolbox-app",
+"group": "integration-coding",
+"figma": "1334:1665",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 798
+},
+{
+"name": "integration-coding-c-plus-plus",
+"group": "integration-coding",
+"figma": "1334:1669",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1372
+},
+{
+"name": "integration-coding-java",
+"group": "integration-coding",
+"figma": "1334:1677",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2263
+},
+{
+"name": "integration-coding-python",
+"group": "integration-coding",
+"figma": "1334:1681",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1911
+},
+{
+"name": "integration-coding-ruby",
+"group": "integration-coding",
+"figma": "1334:1685",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8412
+},
+{
+"name": "integration-coding-php",
+"group": "integration-coding",
+"figma": "1334:1705",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2011
+},
+{
+"name": "integration-coding-swift",
+"group": "integration-coding",
+"figma": "1334:1708",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1149
+},
+{
+"name": "integration-coding-r-lang",
+"group": "integration-coding",
+"figma": "1334:1710",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1597
+},
+{
+"name": "integration-coding-go",
+"group": "integration-coding",
+"figma": "1334:1714",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2927
+},
+{
+"name": "integration-coding-c",
+"group": "integration-coding",
+"figma": "1334:1716",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1419
+},
+{
+"name": "integration-coding-docker",
+"group": "integration-coding",
+"figma": "1334:1723",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 863
+},
+{
+"name": "integration-coding-angular",
+"group": "integration-coding",
+"figma": "1334:1726",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 423
+},
+{
+"name": "integration-coding-vue",
+"group": "integration-coding",
+"figma": "1334:1731",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 272
+},
+{
+"name": "integration-coding-wordpress",
+"group": "integration-coding",
+"figma": "1334:1735",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1852
+},
+{
+"name": "integration-coding-react",
+"group": "integration-coding",
+"figma": "1334:1738",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3453
+},
+{
+"name": "integration-coding-npm",
+"group": "integration-coding",
+"figma": "1334:1740",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 452
+},
+{
+"name": "integration-coding-redux",
+"group": "integration-coding",
+"figma": "1334:1743",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2206
+},
+{
+"name": "integration-coding-joomla",
+"group": "integration-coding",
+"figma": "1334:1745",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1945
+},
+{
+"name": "integration-coding-drupal",
+"group": "integration-coding",
+"figma": "1334:1751",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 535
+},
+{
+"name": "integration-coding-adobe-dreamweaver",
+"group": "integration-coding",
+"figma": "1334:1754",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1586
+},
+{
+"name": "integration-productivity-dropbox",
+"group": "integration-productivity",
+"figma": "1334:1109",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 405
+},
+{
+"name": "integration-productivity-evernote",
+"group": "integration-productivity",
+"figma": "1334:1112",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1751
+},
+{
+"name": "integration-productivity-amazon",
+"group": "integration-productivity",
+"figma": "1334:1115",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2318
+},
+{
+"name": "integration-productivity-asana",
+"group": "integration-productivity",
+"figma": "1334:1118",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1159
+},
+{
+"name": "integration-productivity-basecamp",
+"group": "integration-productivity",
+"figma": "1334:1121",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3169
+},
+{
+"name": "integration-productivity-atlassian",
+"group": "integration-productivity",
+"figma": "1334:1128",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1207
+},
+{
+"name": "integration-productivity-confluence",
+"group": "integration-productivity",
+"figma": "1334:1132",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1953
+},
+{
+"name": "integration-productivity-jira",
+"group": "integration-productivity",
+"figma": "1334:1136",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1356
+},
+{
+"name": "integration-productivity-trello",
+"group": "integration-productivity",
+"figma": "1334:1141",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 877
+},
+{
+"name": "integration-productivity-jira-service-desk",
+"group": "integration-productivity",
+"figma": "1334:1143",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1005
+},
+{
+"name": "integration-productivity-jira-ops",
+"group": "integration-productivity",
+"figma": "1334:1147",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 915
+},
+{
+"name": "integration-productivity-jira-core",
+"group": "integration-productivity",
+"figma": "1334:1151",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 807
+},
+{
+"name": "integration-productivity-statuspage",
+"group": "integration-productivity",
+"figma": "1334:1155",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1116
+},
+{
+"name": "integration-productivity-opsgenie",
+"group": "integration-productivity",
+"figma": "1334:1159",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1615
+},
+{
+"name": "integration-productivity-bamboo",
+"group": "integration-productivity",
+"figma": "1334:1164",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1767
+},
+{
+"name": "integration-productivity-sourcetree",
+"group": "integration-productivity",
+"figma": "1334:1170",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1320
+},
+{
+"name": "integration-productivity-flowmapp",
+"group": "integration-productivity",
+"figma": "1334:1174",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1288
+},
+{
+"name": "integration-productivity-mailchimp",
+"group": "integration-productivity",
+"figma": "1334:1177",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6498
+},
+{
+"name": "integration-productivity-gmail",
+"group": "integration-productivity",
+"figma": "1334:1180",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2257
+},
+{
+"name": "integration-productivity-ms-excel",
+"group": "integration-productivity",
+"figma": "1334:1190",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1397
+},
+{
+"name": "integration-productivity-ms-word",
+"group": "integration-productivity",
+"figma": "1334:1202",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1905
+},
+{
+"name": "integration-productivity-ms-onenote",
+"group": "integration-productivity",
+"figma": "1334:1211",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1215
+},
+{
+"name": "integration-productivity-ms-outlook",
+"group": "integration-productivity",
+"figma": "1334:1220",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2630
+},
+{
+"name": "integration-productivity-ms-powerpoint",
+"group": "integration-productivity",
+"figma": "1334:1235",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1639
+},
+{
+"name": "integration-productivity-ms-sharepoint",
+"group": "integration-productivity",
+"figma": "1334:1245",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2274
+},
+{
+"name": "integration-productivity-teams",
+"group": "integration-productivity",
+"figma": "1334:1255",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3034
+},
+{
+"name": "integration-productivity-ms-yammer",
+"group": "integration-productivity",
+"figma": "1334:1266",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1856
+},
+{
+"name": "integration-productivity-ms-onedrive",
+"group": "integration-productivity",
+"figma": "1334:1274",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2283
+},
+{
+"name": "integration-productivity-zendesk",
+"group": "integration-productivity",
+"figma": "1334:1281",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 444
+},
+{
+"name": "integration-productivity-kayako",
+"group": "integration-productivity",
+"figma": "1334:1283",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1696
+},
+{
+"name": "integration-productivity-intercom",
+"group": "integration-productivity",
+"figma": "1334:1293",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1830
+},
+{
+"name": "integration-productivity-treehouse",
+"group": "integration-productivity",
+"figma": "1334:1296",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1652
+},
+{
+"name": "integration-productivity-finder",
+"group": "integration-productivity",
+"figma": "1334:1299",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2843
+},
+{
+"name": "integration-productivity-zapier",
+"group": "integration-productivity",
+"figma": "1334:1303",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 941
+},
+{
+"name": "integration-productivity-notion",
+"group": "integration-productivity",
+"figma": "1334:1305",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2073
+},
+{
+"name": "integration-productivity-things",
+"group": "integration-productivity",
+"figma": "1334:1308",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1767
+},
+{
+"name": "integration-productivity-workflowy",
+"group": "integration-productivity",
+"figma": "1334:1313",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2162
+},
+{
+"name": "integration-productivity-google-drive",
+"group": "integration-productivity",
+"figma": "1334:1325",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3366
+},
+{
+"name": "integration-productivity-g-calendar",
+"group": "integration-productivity",
+"figma": "1334:1346",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4460
+},
+{
+"name": "integration-productivity-google-docs",
+"group": "integration-productivity",
+"figma": "1334:1362",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1977
+},
+{
+"name": "integration-productivity-google-meet",
+"group": "integration-productivity",
+"figma": "1334:1373",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2347
+},
+{
+"name": "integration-productivity-google-maps",
+"group": "integration-productivity",
+"figma": "1334:1384",
+"w": 32.0,
+"h": 33.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3283
+},
+{
+"name": "integration-productivity-loom",
+"group": "integration-productivity",
+"figma": "1334:2063",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1197
+},
+{
+"name": "integration-productivity-linear",
+"group": "integration-productivity",
+"figma": "1677:406626",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1530
+},
+{
+"name": "integration-productivity-gitlab",
+"group": "integration-productivity",
+"figma": "1677:406627",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 911
+},
+{
+"name": "integration-productivity-github",
+"group": "integration-productivity",
+"figma": "1677:406628",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1197
+},
+{
+"name": "integration-design-procreate",
+"group": "integration-design",
+"figma": "1334:799",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 7395
+},
+{
+"name": "integration-design-dribbble",
+"group": "integration-design",
+"figma": "1334:811",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1585
+},
+{
+"name": "integration-design-behance",
+"group": "integration-design",
+"figma": "1334:813",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1303
+},
+{
+"name": "integration-design-invision",
+"group": "integration-design",
+"figma": "1334:816",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1401
+},
+{
+"name": "integration-design-autodesk",
+"group": "integration-design",
+"figma": "1334:819",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1782
+},
+{
+"name": "integration-design-adobe-lightroom",
+"group": "integration-design",
+"figma": "1334:824",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 943
+},
+{
+"name": "integration-design-adobe-illustrator",
+"group": "integration-design",
+"figma": "1334:829",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1136
+},
+{
+"name": "integration-design-adobe-after-effects",
+"group": "integration-design",
+"figma": "1334:834",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1459
+},
+{
+"name": "integration-design-adobe-photoshop",
+"group": "integration-design",
+"figma": "1334:839",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1560
+},
+{
+"name": "integration-design-adobe-indesign",
+"group": "integration-design",
+"figma": "1334:844",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1061
+},
+{
+"name": "integration-design-adobe-xd",
+"group": "integration-design",
+"figma": "1334:849",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1499
+},
+{
+"name": "integration-design-sketch",
+"group": "integration-design",
+"figma": "1334:854",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 830
+},
+{
+"name": "integration-design-zeplin",
+"group": "integration-design",
+"figma": "1334:869",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3424
+},
+{
+"name": "integration-design-figma",
+"group": "integration-design",
+"figma": "1334:862",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 945
+},
+{
+"name": "integration-design-adobe",
+"group": "integration-design",
+"figma": "1334:879",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 539
+},
+{
+"name": "integration-design-framer",
+"group": "integration-design",
+"figma": "1334:882",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 510
+},
+{
+"name": "integration-design-marvel",
+"group": "integration-design",
+"figma": "1334:888",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 951
+},
+{
+"name": "integration-design-iconjar",
+"group": "integration-design",
+"figma": "3446:401256",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1393
+},
+{
+"name": "integration-os-ubuntu",
+"group": "integration-os",
+"figma": "1334:892",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1973
+},
+{
+"name": "integration-os-apple",
+"group": "integration-os",
+"figma": "1334:895",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1076
+},
+{
+"name": "integration-os-microsoft",
+"group": "integration-os",
+"figma": "1334:898",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 361
+},
+{
+"name": "integration-os-android",
+"group": "integration-os",
+"figma": "1334:904",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1404
+},
+{
+"name": "integration-os-ios",
+"group": "integration-os",
+"figma": "1334:906",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1551
+},
+{
+"name": "integration-os-macos",
+"group": "integration-os",
+"figma": "1334:909",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 676
+},
+{
+"name": "integration-os-freebsd",
+"group": "integration-os",
+"figma": "1334:912",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1137
+},
+{
+"name": "integration-os-linux",
+"group": "integration-os",
+"figma": "1334:916",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 14763
+},
+{
+"name": "integration-os-blackberry",
+"group": "integration-os",
+"figma": "1334:939",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1259
+},
+{
+"name": "integration-os-chrome-os",
+"group": "integration-os",
+"figma": "1334:942",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2301
+},
+{
+"name": "integration-os-elementary",
+"group": "integration-os",
+"figma": "1334:951",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2321
+},
+{
+"name": "integration-os-gnome",
+"group": "integration-os",
+"figma": "1334:953",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1841
+},
+{
+"name": "integration-os-linux-mint",
+"group": "integration-os",
+"figma": "1334:955",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 4336
+},
+{
+"name": "integration-os-fedora",
+"group": "integration-os",
+"figma": "1334:962",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2087
+},
+{
+"name": "integration-video-youtube",
+"group": "integration-video",
+"figma": "1334:967",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 706
+},
+{
+"name": "integration-video-vimeo",
+"group": "integration-video",
+"figma": "1334:970",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 772
+},
+{
+"name": "integration-video-twitch",
+"group": "integration-video",
+"figma": "1334:972",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 372
+},
+{
+"name": "integration-video-appearin",
+"group": "integration-video",
+"figma": "1334:974",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1501
+},
+{
+"name": "integration-video-igtv",
+"group": "integration-video",
+"figma": "1334:979",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8276
+},
+{
+"name": "integration-video-flickr",
+"group": "integration-video",
+"figma": "1334:981",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 453
+},
+{
+"name": "integration-video-netflix",
+"group": "integration-video",
+"figma": "1334:984",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2043
+},
+{
+"name": "integration-video-coub",
+"group": "integration-video",
+"figma": "1334:988",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1549
+},
+{
+"name": "integration-music-sound-cloud",
+"group": "integration-music",
+"figma": "1334:992",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 633
+},
+{
+"name": "integration-music-grooveshark",
+"group": "integration-music",
+"figma": "1334:995",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1188
+},
+{
+"name": "integration-music-spotify",
+"group": "integration-music",
+"figma": "1334:998",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1091
+},
+{
+"name": "integration-music-apple-music",
+"group": "integration-music",
+"figma": "1334:1001",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2334
+},
+{
+"name": "integration-music-google-play-music",
+"group": "integration-music",
+"figma": "1334:1004",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1175
+},
+{
+"name": "integration-music-shazam",
+"group": "integration-music",
+"figma": "1334:1009",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2291
+},
+{
+"name": "integration-music-youtube-music",
+"group": "integration-music",
+"figma": "1334:1012",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 637
+},
+{
+"name": "integration-music-yandex-music",
+"group": "integration-music",
+"figma": "1334:1016",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 912
+},
+{
+"name": "integration-finance-paypal",
+"group": "integration-finance",
+"figma": "1334:1842",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1530
+},
+{
+"name": "integration-finance-yandex-kassa",
+"group": "integration-finance",
+"figma": "1334:1847",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 659
+},
+{
+"name": "integration-finance-stripe",
+"group": "integration-finance",
+"figma": "1334:1851",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3369
+},
+{
+"name": "integration-finance-mastercard",
+"group": "integration-finance",
+"figma": "1334:1858",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 401
+},
+{
+"name": "integration-finance-visa",
+"group": "integration-finance",
+"figma": "1334:1862",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 703
+},
+{
+"name": "integration-finance-qiwi",
+"group": "integration-finance",
+"figma": "1334:1865",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1705
+},
+{
+"name": "integration-finance-alfa-bank",
+"group": "integration-finance",
+"figma": "1334:1868",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1050
+},
+{
+"name": "integration-finance-shopify",
+"group": "integration-finance",
+"figma": "1334:1871",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 30737
+},
+{
+"name": "integration-finance-sberbank",
+"group": "integration-finance",
+"figma": "1334:1930",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1071
+},
+{
+"name": "integration-finance-american-express",
+"group": "integration-finance",
+"figma": "1334:1933",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1091
+},
+{
+"name": "integration-finance-swift",
+"group": "integration-finance",
+"figma": "1334:1936",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 8722
+},
+{
+"name": "integration-finance-world-pay",
+"group": "integration-finance",
+"figma": "1334:1939",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6489
+},
+{
+"name": "integration-finance-tinkoff",
+"group": "integration-finance",
+"figma": "1334:1942",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 32727
+},
+{
+"name": "integration-finance-direct-debit",
+"group": "integration-finance",
+"figma": "1334:1948",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 755
+},
+{
+"name": "integration-finance-webmoney",
+"group": "integration-finance",
+"figma": "1334:1951",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1436
+},
+{
+"name": "integration-finance-jcb",
+"group": "integration-finance",
+"figma": "1334:1954",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3951
+},
+{
+"name": "integration-finance-western-union",
+"group": "integration-finance",
+"figma": "1334:1959",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 798
+},
+{
+"name": "integration-other-product-hunt",
+"group": "integration-other",
+"figma": "1334:1760",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 386
+},
+{
+"name": "integration-other-medium",
+"group": "integration-other",
+"figma": "1334:1763",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 464
+},
+{
+"name": "integration-other-angel-list",
+"group": "integration-other",
+"figma": "1334:1773",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3459
+},
+{
+"name": "integration-other-airbnb",
+"group": "integration-other",
+"figma": "1334:1776",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1535
+},
+{
+"name": "integration-other-google-ads",
+"group": "integration-other",
+"figma": "1334:1780",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 858
+},
+{
+"name": "integration-other-playstation",
+"group": "integration-other",
+"figma": "1334:1785",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1172
+},
+{
+"name": "integration-other-tripadvisor",
+"group": "integration-other",
+"figma": "1334:1787",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2073
+},
+{
+"name": "integration-other-envato",
+"group": "integration-other",
+"figma": "1334:1790",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 593
+},
+{
+"name": "integration-other-steam",
+"group": "integration-other",
+"figma": "1334:1793",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2124
+},
+{
+"name": "integration-other-app-store",
+"group": "integration-other",
+"figma": "1334:1796",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1580
+},
+{
+"name": "integration-other-google-play",
+"group": "integration-other",
+"figma": "1334:1799",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2059
+},
+{
+"name": "integration-other-tech-crunch",
+"group": "integration-other",
+"figma": "1334:1805",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 559
+},
+{
+"name": "integration-other-ms-xbox",
+"group": "integration-other",
+"figma": "1334:1808",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3515
+},
+{
+"name": "integration-other-amd",
+"group": "integration-other",
+"figma": "1334:1815",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 239
+},
+{
+"name": "integration-other-general-electric",
+"group": "integration-other",
+"figma": "1334:1817",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 15532
+},
+{
+"name": "integration-other-dell",
+"group": "integration-other",
+"figma": "1334:1820",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3212
+},
+{
+"name": "integration-other-ibm",
+"group": "integration-other",
+"figma": "1334:1822",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 3291
+},
+{
+"name": "integration-other-stumble-upon",
+"group": "integration-other",
+"figma": "1334:1824",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1045
+},
+{
+"name": "integration-other-kickstarter",
+"group": "integration-other",
+"figma": "1334:1827",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1171
+},
+{
+"name": "integration-other-bluetooth",
+"group": "integration-other",
+"figma": "1334:1830",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 768
+},
+{
+"name": "integration-other-google",
+"group": "integration-other",
+"figma": "1334:1833",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1203
+},
+{
+"name": "integration-other-intel",
+"group": "integration-other",
+"figma": "1334:1838",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1308
+},
+{
+"name": "file-type-solid-csv",
+"group": "file-type-solid",
+"figma": "43213:12016",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1122
+},
+{
+"name": "file-type-solid-xls",
+"group": "file-type-solid",
+"figma": "43213:12021",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1636
+},
+{
+"name": "file-type-solid-txt",
+"group": "file-type-solid",
+"figma": "43213:12033",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1193
+},
+{
+"name": "file-type-solid-ppt",
+"group": "file-type-solid",
+"figma": "43213:12042",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 988
+},
+{
+"name": "file-type-solid-pdf",
+"group": "file-type-solid",
+"figma": "43213:12051",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 13496
+},
+{
+"name": "file-type-solid-doc",
+"group": "file-type-solid",
+"figma": "43213:12069",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1511
+},
+{
+"name": "file-type-solid-file",
+"group": "file-type-solid",
+"figma": "43213:12080",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1446
+},
+{
+"name": "file-type-solid-mp3",
+"group": "file-type-solid",
+"figma": "43213:12089",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 893
+},
+{
+"name": "file-type-solid-zip",
+"group": "file-type-solid",
+"figma": "43213:12098",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1429
+},
+{
+"name": "file-type-solid-mp4",
+"group": "file-type-solid",
+"figma": "43213:12107",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1644
+},
+{
+"name": "file-type-solid-image",
+"group": "file-type-solid",
+"figma": "43213:12113",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1696
+},
+{
+"name": "file-type-solid-html",
+"group": "file-type-solid",
+"figma": "70179:6726",
+"w": 32.0,
+"h": 32.0,
+"multicolour": true,
+"raster": false,
+"bytes": 6198
+},
+{
+"name": "file-type-simple-image",
+"group": "file-type-simple",
+"figma": "4916:411639",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1865
+},
+{
+"name": "file-type-simple-video-missing",
+"group": "file-type-simple",
+"figma": "72252:31895",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2052
+},
+{
+"name": "file-type-simple-folder",
+"group": "file-type-simple",
+"figma": "4981:382935",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1503
+},
+{
+"name": "file-type-simple-missing",
+"group": "file-type-simple",
+"figma": "4980:382899",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 713
+},
+{
+"name": "file-type-simple-video-01",
+"group": "file-type-simple",
+"figma": "4916:411638",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1650
+},
+{
+"name": "file-type-simple-video-02",
+"group": "file-type-simple",
+"figma": "4916:411641",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1675
+},
+{
+"name": "file-type-simple-audio",
+"group": "file-type-simple",
+"figma": "4916:411637",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1672
+},
+{
+"name": "file-type-simple-pdf",
+"group": "file-type-simple",
+"figma": "4916:411568",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2295
+},
+{
+"name": "file-type-simple-document",
+"group": "file-type-simple",
+"figma": "4916:411635",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1063
+},
+{
+"name": "file-type-simple-spreadsheet",
+"group": "file-type-simple",
+"figma": "4916:411640",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 1624
+},
+{
+"name": "file-type-simple-code",
+"group": "file-type-simple",
+"figma": "4916:411636",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 877
+},
+{
+"name": "file-type-simple-image-missing",
+"group": "file-type-simple",
+"figma": "72252:31916",
+"w": 24.0,
+"h": 25.0,
+"multicolour": true,
+"raster": false,
+"bytes": 2356
+}
+]

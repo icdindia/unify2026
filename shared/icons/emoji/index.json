@@ -1,0 +1,272 @@
+[
+{
+"name": "emoji-tone-formal",
+"group": "tone",
+"figma": "59694:7996",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 9435
+},
+{
+"name": "emoji-tone-informal",
+"group": "tone",
+"figma": "59694:8000",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 10516
+},
+{
+"name": "emoji-tone-friendly",
+"group": "tone",
+"figma": "59694:8004",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 9766
+},
+{
+"name": "emoji-tone-empathetic",
+"group": "tone",
+"figma": "59694:8008",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 13222
+},
+{
+"name": "emoji-tone-neutral",
+"group": "tone",
+"figma": "59694:8012",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 9758
+},
+{
+"name": "emoji-tone-sarcastic",
+"group": "tone",
+"figma": "59694:8016",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 15432
+},
+{
+"name": "emoji-tone-enthusiastic",
+"group": "tone",
+"figma": "59694:8020",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 14600
+},
+{
+"name": "emoji-tone-optimistic",
+"group": "tone",
+"figma": "59694:8024",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 13503
+},
+{
+"name": "emoji-tone-sad",
+"group": "tone",
+"figma": "59694:8028",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 12789
+},
+{
+"name": "emoji-reactions-heart-red",
+"group": "reactions",
+"figma": "59694:8035",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 46517
+},
+{
+"name": "emoji-reactions-shakas",
+"group": "reactions",
+"figma": "59694:8039",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 36290
+},
+{
+"name": "emoji-reactions-thumbs-up",
+"group": "reactions",
+"figma": "59694:8043",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 34840
+},
+{
+"name": "emoji-reactions-slight-smile",
+"group": "reactions",
+"figma": "59694:8047",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 57938
+},
+{
+"name": "emoji-reactions-emoji-smile",
+"group": "reactions",
+"figma": "59694:8051",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 66760
+},
+{
+"name": "emoji-reactions-okay",
+"group": "reactions",
+"figma": "59694:8055",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 29333
+},
+{
+"name": "emoji-reactions-thumbs-down",
+"group": "reactions",
+"figma": "59694:8059",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 37409
+},
+{
+"name": "emoji-reactions-eyes",
+"group": "reactions",
+"figma": "59694:8063",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 27585
+},
+{
+"name": "emoji-reactions-heart-orange",
+"group": "reactions",
+"figma": "59694:8067",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 42014
+},
+{
+"name": "emoji-reactions-heart-yellow",
+"group": "reactions",
+"figma": "59694:8071",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 41671
+},
+{
+"name": "emoji-reactions-heart-green",
+"group": "reactions",
+"figma": "59694:8075",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 48464
+},
+{
+"name": "emoji-reactions-heart-blue",
+"group": "reactions",
+"figma": "59694:8079",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 40436
+},
+{
+"name": "emoji-reactions-heart-purple",
+"group": "reactions",
+"figma": "59694:8083",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 40000
+},
+{
+"name": "emoji-reactions-heart-brown",
+"group": "reactions",
+"figma": "59694:8087",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 27469
+},
+{
+"name": "emoji-reactions-heart-black",
+"group": "reactions",
+"figma": "59694:8091",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 32869
+},
+{
+"name": "emoji-reactions-heart-white",
+"group": "reactions",
+"figma": "59694:8095",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 20031
+},
+{
+"name": "emoji-reactions-sweat-smile",
+"group": "reactions",
+"figma": "59694:8099",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 65191
+},
+{
+"name": "emoji-reactions-wink",
+"group": "reactions",
+"figma": "59694:8103",
+"w": 210.0,
+"h": 24.0,
+"multicolour": true,
+"raster": true,
+"bytes": 51920
+}
+]

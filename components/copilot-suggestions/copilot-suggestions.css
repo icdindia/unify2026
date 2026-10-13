@@ -1,0 +1,12 @@
+/* copilot-suggestions — Suggest Prompts design 70699:17442 (desktop 361 / sidepane 316), Lines States 70815:15100.
+   Type=Button: stacked rounded-full chips (bg-white, border-tertiary ring, padding 8 12, gap 4, 40/36 tall).
+   Type=Lines: top rule then plain rows (8 gap). DRIFT: Lines-state row hover not sampled. */
+.copilot-suggestions { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-md); }
+.copilot-suggestions__chip { display: inline-flex; align-items: center; gap: var(--spacing-xs); box-sizing: border-box; min-height: 40px; max-width: 100%; padding: var(--spacing-md) var(--spacing-lg); border: 0; border-radius: var(--radius-full); background: var(--colors-background-bg-white); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); text-align: left; cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-suggestions--sidepane .copilot-suggestions__chip { min-height: 36px; }
+.copilot-suggestions__chip svg { width: 16px; height: 16px; flex: none; color: var(--colors-icon-icon-tertiary); }
+.copilot-suggestions__chip:hover, .copilot-suggestions__chip[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.copilot-suggestions__chip:focus-visible { outline: 0; box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary), 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+.copilot-suggestions--lines { gap: 0; align-items: stretch; box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary); padding-top: var(--spacing-md); } /* DRIFT: Figma literal sizes */
+.copilot-suggestions__line { display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-xs) 0; margin: 0; border: 0; background: transparent; color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); text-align: left; cursor: pointer; }
+.copilot-suggestions__line:hover, .copilot-suggestions__line[data-force="hover"] { color: var(--colors-text-text-primary-900); }

@@ -1,0 +1,18 @@
+/* copilot-pill — Copilot page 70268:16200. Source Pill 70298:25319 (State x Sources x Size md/sm/xs),
+   Tools Pill 70298:25208, Header Pill 70298:25382, Limit pill 70604:101019.
+   Steel-blue label on bg-primary, full radius. Hover swaps the leading icon for a close button.
+   DRIFT: label 13px (md/sm) is off scale -> --text-sm-regular; xs 12 -> --text-xs-regular. */
+.copilot-pill { display: inline-flex; align-items: center; gap: var(--spacing-xs); box-sizing: border-box; height: 32px; padding: var(--spacing-md) var(--spacing-lg) var(--spacing-md) var(--spacing-lg); border: 0; border-radius: var(--radius-full); background: var(--colors-background-bg-primary); color: var(--colors-utility-steel-blue-utility-steel-blue-400); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); cursor: pointer; white-space: nowrap; } /* DRIFT: padding 6/8 literal */
+.copilot-pill--sm { height: 28px; padding-top: var(--spacing-xs); padding-bottom: var(--spacing-xs); } /* DRIFT: Figma literal sizes */
+.copilot-pill--xs { height: 24px; padding: var(--spacing-xs) var(--spacing-md); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); } /* DRIFT: Figma literal sizes */
+.copilot-pill svg { width: 16px; height: 16px; flex: none; }
+.copilot-pill--xs svg { width: 14px; height: 14px; }
+.copilot-pill__close { display: none; align-items: center; justify-content: center; flex: none; width: 16px; height: 16px; padding: 0; border: 0; border-radius: var(--radius-full); background: var(--colors-utility-steel-blue-utility-steel-blue-50); color: inherit; } /* DRIFT: Figma literal sizes */
+.copilot-pill__close svg { width: 8px; height: 8px; }
+.copilot-pill:hover, .copilot-pill[data-force="hover"] { background: var(--colors-utility-steel-blue-utility-steel-blue-25); }
+.copilot-pill--header:hover, .copilot-pill--header[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.copilot-pill:hover > .copilot-pill__icon, .copilot-pill[data-force="hover"] > .copilot-pill__icon { display: none; }
+.copilot-pill:hover > .copilot-pill__close, .copilot-pill[data-force="hover"] > .copilot-pill__close { display: inline-flex; }
+.copilot-pill:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+/* Limit pill: error 25 / 600, tooltip on hover (use tooltip atom for the bubble) */
+.copilot-pill--limit { height: 24px; padding: var(--spacing-xs) var(--spacing-md); background: var(--colors-utility-error-utility-error-25); color: var(--colors-utility-error-utility-error-600); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); cursor: default; } /* DRIFT: Figma literal sizes */

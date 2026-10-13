@@ -1,0 +1,63 @@
+/* ----------------------------------------------------------------------------
+   header-nav — DS "LC_Header Navigation" (Navigation page 82:1862, set 39937:19674)
+   Floating Yes|No x Style Solid|Stroke, 1366x56. Units: "Base_LC_Header Nav Unit"
+   Framed 39935:16725 / Stroke 39912:20117 (Current x State Default|Focused|Hover|Open).
+   Bar: surface navbar-bg, padding 0/12/0/24, gap 24; Solid carries shadow-md
+   (0 2 4 -2 + 0 4 8 -2); Stroke uses a 1px navbar-border ring. Floating: radius 12.
+   Unit: 56 tall slot, 36 tall pill pad 8, gap 8, radius 8, 18px icon, 13/20 SemiBold,
+   optional 16px chevron. Current = text-brand-tertiary-600 + icon-brand-600.
+   Hover = navbar-main-default-bg-hover. Secondary cluster: 36px tenant buttons + avatar.
+---------------------------------------------------------------------------- */
+.header-nav {
+  display: flex; align-items: center; gap: var(--spacing-3xl);
+  box-sizing: border-box; width: 100%; height: 56px;
+  padding: 0 var(--spacing-lg) 0 var(--spacing-3xl);
+  background: var(--component-nav-bar-navbar-bg);
+}
+.header-nav--solid { box-shadow: var(--shadow-md); }
+.header-nav--stroke { box-shadow: inset 0 0 0 1px var(--component-nav-bar-navbar-border); }
+.header-nav--floating { border-radius: var(--radius-xl); }
+.header-nav__logo { flex: none; display: flex; align-items: center; width: 220px; height: var(--spacing-4xl); gap: var(--spacing-md); } /* DRIFT: Figma-measured value, no token */
+.header-nav__logo img, .header-nav__logo svg { display: block; height: 32px; width: auto; }
+.header-nav__items { display: flex; flex: 1 0 0; align-items: center; gap: var(--spacing-md); min-width: 0; height: 100%; }
+.header-nav__item {
+  display: inline-flex; align-items: center; gap: var(--spacing-md);
+  box-sizing: border-box; height: 36px; padding: var(--spacing-md); /* DRIFT: Figma-measured value, no token */
+  border: 0; border-radius: var(--radius-md); background: transparent;
+  font-family: var(--text-sm-semibold-font-family); font-weight: 600; font-size: 13px; line-height: 20px; /* DRIFT: Figma-measured value, no token */
+  color: var(--component-nav-bar-main-navbar-main-default-text); white-space: nowrap; cursor: pointer; text-decoration: none;
+}
+.header-nav__icon { flex: none; width: 18px; height: 18px; color: var(--component-nav-bar-main-navbar-main-default-icon); display: inline-flex; }
+.header-nav__icon svg { display: block; width: 18px; height: 18px; }
+.header-nav__chevron { flex: none; width: 16px; height: 16px; color: var(--component-nav-bar-main-navbar-main-default-icon); display: inline-flex; }
+.header-nav__chevron svg { display: block; width: 16px; height: 16px; }
+.header-nav__item:hover, .header-nav__item[data-force="hover"] {
+  background: var(--component-nav-bar-main-navbar-main-default-bg-hover); color: var(--component-nav-bar-main-navbar-main-default-text-hover);
+}
+.header-nav__item:hover .header-nav__icon, .header-nav__item[data-force="hover"] .header-nav__icon,
+.header-nav__item:hover .header-nav__chevron, .header-nav__item[data-force="hover"] .header-nav__chevron { color: var(--component-nav-bar-main-navbar-main-default-icon-hover); }
+.header-nav__item:focus-visible, .header-nav__item[data-force="focus"] {
+  outline: 0; background: var(--component-nav-bar-main-navbar-main-default-bg-focused); color: var(--component-nav-bar-main-navbar-main-default-text-focused);
+  box-shadow: inset 0 0 0 1px var(--component-nav-bar-main-navbar-main-default-border-focused);
+}
+.header-nav__item[aria-current="page"] { color: var(--colors-text-text-brand-tertiary-600); }
+.header-nav__item[aria-current="page"] .header-nav__icon,
+.header-nav__item[aria-current="page"] .header-nav__chevron { color: var(--colors-icon-icon-brand-600); }
+.header-nav__item[aria-expanded="true"], .header-nav__item[data-force="open"] { background: var(--component-nav-bar-main-navbar-main-selected-bg); }
+.header-nav__secondary {
+  flex: none; display: flex; align-items: center; gap: var(--spacing-lg);
+  box-sizing: border-box; height: 52px; padding: var(--spacing-md) var(--spacing-lg); /* DRIFT: Figma-measured value, no token */
+  background: var(--colors-background-bg-primary);
+}
+.header-nav__tenant {
+  display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: var(--spacing-md); box-sizing: border-box; /* DRIFT: Figma-measured value, no token */
+  border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--colors-icon-icon-secondary); cursor: pointer;
+}
+.header-nav__tenant:hover { background: var(--colors-background-bg-tertiary); }
+.header-nav__tenant svg { display: block; width: 18px; height: 18px; }
+.header-nav__avatar {
+  width: 32px; height: 32px; box-sizing: border-box; border-radius: var(--radius-full); /* DRIFT: Figma-measured value, no token */
+  display: flex; align-items: center; justify-content: center;
+  background: var(--colors-utility-brand-utility-brand-50); box-shadow: inset 0 0 0 1px var(--colors-utility-brand-utility-brand-100);
+  font-weight: 600; font-size: 13px; line-height: 20px; color: var(--colors-utility-brand-utility-brand-500); /* DRIFT: Figma-measured value, no token */
+}

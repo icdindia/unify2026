@@ -78,3 +78,12 @@
 }
 .modal--xs .modal__footer { padding-left: var(--spacing-lg); }
 .modal__actions { display: flex; flex: 1 0 0; align-items: center; justify-content: flex-end; gap: var(--spacing-lg); }
+
+/* ---- Full screen modal (Modal Full Screen 11566:11437; Type Fixed size / Double Pane modal, canvas 1440x800).
+   Double pane: 30 inset from viewport, unit 1380x740, panes side by side (gap 6). Added additively.
+   DRIFT: Popover header (Modals page) not built: not sampled in this pass. */
+.modal-backdrop--fullscreen { padding: 30px; box-sizing: border-box; } /* DRIFT: Figma literal sizes */
+.modal--fullscreen { width: 100%; height: 100%; max-width: 1380px; max-height: 740px; }
+.modal--fullscreen .modal__body { flex: 1 0 0; min-height: 0; overflow: auto; }
+.modal--double-pane { flex-direction: row; gap: 6px; background: transparent; box-shadow: none; } /* DRIFT: Figma literal sizes */
+.modal--double-pane > .modal__pane { display: flex; flex-direction: column; flex: 1 0 0; min-width: 0; border-radius: var(--radius-3xl); background: var(--colors-background-bg-primary); overflow: clip; }

@@ -161,3 +161,45 @@
 /* ---- textarea (1238:278): 56 tall at 2 lines, padding 8, bg-primary, counter row ---- */
 .input--textarea { height: auto; min-height: 56px; align-items: flex-start; }
 .input--textarea .input__control { resize: vertical; min-height: 40px; }
+
+/* ===== gaps2 additions (read from Figma 2026-10-13) =====================
+   Leading dropdown 1090:57817 [Dropdown 86x32 p8/4/8/8 g6, stroke border-tertiary right rule; text input p8/8/8/10]
+   Trailing dropdown [Content p8 + Dropdown 61x32 p8/4/8/8 g6]; Payment input [p6/8 g8, content 24 tall, Encryption + Help icons 16]
+   _Input field group 9315:186428 [Inputs row gap 6: dropdown 120 + input 194, 36 tall at md]
+   _Mega input field base 1106:66560 [52x52 r8 p2/4 bg-workspace stroke border-tertiary, digit Text 36/Medium text-placeholder]
+   Verification code 1106:66757 [4/5/6 boxes, gap 8, label + hint, gap 6]
+   Markup: .input.input--lead-select > .input__select + .input__control ; .input--trail-select ; .input--payment ;
+           .field-group > .input(--lead-select) + .input ; .code-input > .code-input__box*N                        */
+.input--lead-select, .input--trail-select { padding: 0; gap: 0; overflow: hidden; }
+.input--lead-select .input__control, .input--trail-select .input__control { align-self: stretch; padding: var(--spacing-md); }
+.input--lead-select .input__control { padding-inline-start: 10px; } /* DRIFT: Figma 10, no token */
+.input__select {
+  display: inline-flex; align-items: center; align-self: stretch; flex: none; gap: var(--spacing-sm);
+  box-sizing: border-box; padding: var(--spacing-md) var(--spacing-xs) var(--spacing-md) var(--spacing-md);
+  border: 0; background: transparent; cursor: pointer;
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  color: var(--colors-text-text-primary-900);
+}
+.input--lead-select .input__select { box-shadow: inset -1px 0 0 var(--colors-border-border-tertiary); }
+.input--trail-select .input__select { box-shadow: inset 1px 0 0 var(--colors-border-border-tertiary); }
+.input__select svg { width: 16px; height: 16px; color: var(--colors-icon-icon-secondary); }
+.input--payment { padding-block: 6px; gap: var(--spacing-md); } /* DRIFT: Figma 6 */
+.input--payment .input__control { height: 24px; }
+.field-group { display: flex; gap: var(--spacing-sm); align-items: flex-start; }
+.field-group > .input:first-child { width: 120px; flex: none; }
+.field-group > .input:last-child { flex: 1; }
+.code-input { display: flex; gap: var(--spacing-md); }
+.code-input__box {
+  box-sizing: border-box; width: 52px; height: 52px; padding: 2px var(--spacing-xs); margin: 0; /* DRIFT: Figma-measured size */
+  border: 0; border-radius: var(--radius-md); background: var(--colors-background-bg-workspace);
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary);
+  text-align: center; outline: 0;
+  font-family: var(--text-4xl-medium-font-family, var(--text-sm-medium-font-family)); font-weight: 500; font-size: 36px; line-height: 44px; /* DRIFT: 36/Medium literal */
+  color: var(--colors-text-text-primary-900);
+}
+.code-input__box::placeholder { color: var(--colors-text-text-placeholder); }
+.code-input__box:focus, .code-input__box[data-force="focus"] {
+  box-shadow: inset 0 0 0 1px var(--colors-border-border-brand-secondary), 0 0 0 2px var(--colors-border-border-secondary); /* DRIFT: focus layers assumed = Input focus */
+}
+.code-input__box:disabled { background: var(--colors-background-bg-disabled); color: var(--colors-text-text-disabled); box-shadow: inset 0 0 0 1px var(--colors-border-border-disabled); cursor: not-allowed; }

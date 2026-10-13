@@ -1,0 +1,47 @@
+/* ----------------------------------------------------------------------------
+   section-label — DS "Section label" (Headers page 190:4871, set 16764:49190)
+   Levels (all 434x36 = 20 label row + 16 hint; Level 4 is 32 with 10/12 hint):
+     L0 61342:60940  title 17/20 Medium, text-primary-900
+     L1 16764:49191  13/20 Regular primary          L1 Alt2 27737:17463  secondary
+     L1 Alt 20390:15447  10/12 SemiBold UPPERCASE primary (eyebrow)
+     L2 16764:49316  12/16 Regular primary          L3 16764:49352  12/16 secondary
+     L4 27737:4237   12/16 secondary, hint 10/12
+   Row: label (+ 12px info icon) at left, up to four 20px icon buttons (gap 6) right.
+   Hint: 12/16 Regular text-tertiary-600.
+---------------------------------------------------------------------------- */
+.section-label { display: flex; flex-direction: column; width: 100%; box-sizing: border-box; }
+.section-label__row { display: flex; align-items: center; gap: var(--spacing-md); min-height: var(--spacing-2xl); }
+.section-label__lead { display: flex; flex: 1 0 0; align-items: center; gap: var(--spacing-xs); min-width: 0; }
+.section-label__title {
+  font-family: var(--text-sm-regular-font-family);
+  font-weight: 400; font-size: 13px; line-height: 20px; /* DRIFT: Figma-measured value, no token */
+  color: var(--colors-text-text-primary-900); white-space: nowrap;
+}
+.section-label__info { flex: none; width: 12px; height: 12px; color: var(--colors-icon-icon-tertiary); }
+.section-label__info svg { display: block; width: 100%; height: 100%; }
+.section-label__actions { display: flex; align-items: center; gap: var(--spacing-sm); flex: none; }
+.section-label__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: var(--spacing-2xl); height: var(--spacing-2xl); padding: 0; box-sizing: border-box;
+  border: 0; border-radius: var(--radius-xs); background: transparent;
+  color: var(--colors-icon-icon-secondary); cursor: pointer;
+}
+.section-label__btn:hover,
+.section-label__btn[data-force="hover"] { background: var(--colors-background-bg-tertiary); }
+.section-label__btn:focus-visible { outline: 2px solid var(--colors-border-border-brand-solid); outline-offset: 1px; }
+.section-label__btn svg { display: block; width: 14px; height: 14px; }
+.section-label__hint {
+  font-family: var(--text-xs-regular-font-family);
+  font-size: 12px; line-height: 16px; font-weight: 400; /* DRIFT: Figma-measured value, no token */
+  color: var(--colors-text-text-tertiary-600);
+}
+.section-label--l0 .section-label__title { font-size: 17px; font-weight: 500; } /* DRIFT: Figma-measured value, no token */
+.section-label--l1-alt2 .section-label__title { color: var(--colors-text-text-secondary-700); }
+.section-label--l1-alt .section-label__row { min-height: 20px; }
+.section-label--l1-alt .section-label__title {
+  font-size: 10px; line-height: 12px; font-weight: 600; text-transform: uppercase; /* DRIFT: Figma-measured value, no token */
+}
+.section-label--l2 .section-label__title { font-size: 12px; line-height: 16px; } /* DRIFT: Figma-measured value, no token */
+.section-label--l3 .section-label__title,
+.section-label--l4 .section-label__title { font-size: 12px; line-height: 16px; color: var(--colors-text-text-secondary-700); } /* DRIFT: Figma-measured value, no token */
+.section-label--l4 .section-label__hint { font-size: 10px; line-height: 12px; } /* DRIFT: Figma-measured value, no token */
