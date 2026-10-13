@@ -1,0 +1,90 @@
+/* ----------------------------------------------------------------------------
+   comment-field — DS Copilot page 70268:16200, set "Comment field" 71083:38726
+   12 variants = State (Default / 1 line typing / 2 or more Typing) x WYSIWYG (No/Yes)
+   x Attachment (No/Yes). Width 300 in the set, fills its container here.
+   Default no-WYSIWYG 71083:38725: pill, padding 8/8/8/6, 1px inset border-secondary,
+   radius full, gap 12; action bar 28 high (space-between): attach button 28 round
+   tertiary + placeholder text-sm-regular text-placeholder (padding 0 6) | send button
+   28 round neutral primary (arrow-up 16), Disabled until text is typed.
+   Box (WYSIWYG=Yes, or 2+ lines) 71083:38722 / 72263:17053: "comment box" radius 12,
+   padding-bottom 8, gap 6-8, same ring; WYSIWYG toolbar 32 high (border-bottom
+   border-tertiary, 4.5px padded 32 square _WYSIWYG buttons, 1px border-secondary
+   dividers 24 high); attachment tray 48px chips (File = 264x48 bordered r8, image
+   thumbnail 48x48) with a 38px fade on the right edge; text area 60px (2+ lines).
+   DRIFT: _WYSIWYG button states (Default/Active) only sampled as Default/Off; the
+   mention/emoji buttons in the action bar are not shown in the sampled variants.
+   DRIFT: Figma bounds 28px send/attach buttons are literal; no spacing token.
+   DRIFT: text-sm-regular is bound for the text; caret/typed text uses
+   text-primary-900.
+---------------------------------------------------------------------------- */
+.comment-field {
+  --cf-ring: var(--colors-border-border-secondary);
+  box-sizing: border-box; display: flex; flex-direction: column; width: 100%;
+  background: var(--colors-background-bg-primary);
+  box-shadow: inset 0 0 0 1px var(--cf-ring);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 6px; /* DRIFT: Figma 8/8/8/6 */
+  gap: var(--spacing-lg);
+  font-family: var(--text-sm-regular-font-family);
+}
+.comment-field:focus-within, .comment-field[data-force="focus"] { --cf-ring: var(--colors-border-border-brand-primary); }
+.comment-field--box { border-radius: var(--radius-4xl); padding: 0 0 var(--spacing-md); gap: var(--spacing-sm); }
+.comment-field--box .comment-field__bar { padding: 0 var(--spacing-md) 0 var(--spacing-sm); }
+.comment-field--box .comment-field__body { padding: 8px 8px 0 6px; min-height: 20px; } /* DRIFT: 8/8/0/6 literal */
+.comment-field--lines .comment-field__body { min-height: 60px; }
+
+.comment-field__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-lg); }
+.comment-field__lead { display: flex; align-items: center; flex: 1 1 0; min-width: 0; }
+.comment-field__actions { display: flex; align-items: center; gap: var(--spacing-xs); flex: none; }
+.comment-field__body {
+  flex: 1 1 0; min-width: 0; box-sizing: border-box; padding: 0 var(--spacing-sm);
+  color: var(--colors-text-text-primary-900);
+  font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight);
+  font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height);
+  outline: 0; overflow-wrap: anywhere;
+}
+.comment-field__body:empty::before { content: attr(data-placeholder); color: var(--colors-text-text-placeholder); }
+
+.comment-field__btn {
+  box-sizing: border-box; flex: none; width: 28px; height: 28px; padding: 0; border: 0; cursor: pointer; /* DRIFT: Figma literal */
+  display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full);
+  background: transparent; color: var(--colors-icon-icon-tertiary);
+}
+.comment-field__btn svg { width: 16px; height: 16px; display: block; }
+.comment-field__btn:hover, .comment-field__btn[data-force="hover"] { background: var(--colors-background-bg-primary-hover); }
+.comment-field__btn:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+.comment-field__send {
+  background: var(--component-buttons-neutral-primary-button-neutral-primary-bg);
+  color: var(--colors-icon-icon-white);
+}
+.comment-field__send:hover { background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-hover); }
+.comment-field__send[disabled], .comment-field__send[aria-disabled="true"] {
+  background: var(--component-buttons-neutral-primary-button-neutral-primary-bg-disabled); cursor: not-allowed;
+}
+
+/* WYSIWYG toolbar */
+.comment-field__toolbar {
+  display: flex; align-items: center; padding: var(--spacing-xxs) 0; height: 32px; box-sizing: border-box; /* DRIFT: Figma literal */
+  border-bottom: 1px solid var(--colors-border-border-tertiary);
+}
+.comment-field__tool {
+  box-sizing: border-box; width: 32px; height: 32px; padding: 4.5px; border: 0; background: transparent; cursor: pointer; /* DRIFT: 4.5 literal */
+  display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; /* DRIFT: r3 literal */
+  color: var(--colors-icon-icon-tertiary);
+}
+.comment-field__tool svg { width: 16px; height: 16px; }
+.comment-field__tool:hover { background: var(--colors-background-bg-primary-hover); }
+.comment-field__tool[aria-pressed="true"] { color: var(--colors-icon-icon-brand-600); background: var(--colors-utility-brand-utility-brand-50); }
+.comment-field__divider { width: 1px; height: 24px; background: var(--colors-border-border-secondary); flex: none; }
+
+/* attachment tray */
+.comment-field__tray { position: relative; display: flex; align-items: center; gap: var(--spacing-lg); padding: var(--spacing-xxs) 0 var(--spacing-xs) var(--spacing-sm); overflow: hidden; }
+.comment-field__tray::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 38px; background: linear-gradient(to right, transparent, var(--colors-background-bg-primary)); pointer-events: none; }
+.comment-field__file {
+  box-sizing: border-box; flex: none; width: 264px; height: 48px; display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-md); /* DRIFT: Figma literal */
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); border-radius: var(--radius-md); /* DRIFT: Figma literal */
+  color: var(--colors-text-text-secondary-700); font-size: var(--text-sm-medium-font-size); line-height: var(--text-sm-medium-line-height); font-weight: var(--text-sm-medium-font-weight);
+}
+.comment-field__file svg { width: 24px; height: 24px; flex: none; color: var(--colors-icon-icon-tertiary); }
+.comment-field__file span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.comment-field__thumb { flex: none; width: 48px; height: 48px; border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); background: var(--colors-utility-gray-utility-gray-100); } /* DRIFT: Figma literal */

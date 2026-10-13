@@ -1,0 +1,63 @@
+/* copilot-shimmer — Copilot page 70268:16200.
+   Simple Shimmer 70298:25368 (State 1/2 = bar at x -384 vs 0 inside a 416x10 r8 clip; the bar is 800x12 with a
+   4-stop linear gradient f5f5f5 / e5e5e5 / f5f5f5 / e5e5e5 at 0, .3, .61, 1, 50% alpha) -> CSS keyframes slide the bar.
+   _Text animate Sidepane 70483:4714 + _Text animate Desktop 70594:41780 (prop 01-04 + Break1-4): a 368x20 window over
+   four placeholder lines (13/20 text-placeholder); Break frames are mid-transition -> a stepped vertical ticker.
+   CopilotBase_Deep Research Icon 70298:25300 (State Default/Hover x Breakpoint Desktop/Mobile), Icon 70298:25373
+   (4 rotation frames of a 14px angular-gradient ring), AI Copilot Chat Icon 73100:9835 (48px FAB, Default/Close).
+   prefers-reduced-motion: every animation here is switched off (shimmer static, ticker shows line 01, ring static).
+   DRIFT: shimmer gradient colours are raw #f5f5f5/#e5e5e5 (not bound to variables); mapped to bg-secondary/bg-tertiary
+   at 50% via color-mix.
+   DRIFT: ticker durations / easing are repo choices; Figma only gives the frames. Item box is 48/40 tall in Figma; the
+   20px window shows one line, so items are 20px and truncated.
+   DRIFT: ring stops are raw #898989 -> #fff at .1/.2; stroke weight unread (2px chosen). Mapped to icon-tertiary.
+   DRIFT: FAB unread-count badge is a Pill solid 24 error-400 with "3"; its position over the FAB is not sampled
+   (top/right -6 chosen). */
+.copilot-shimmer { position: relative; box-sizing: border-box; width: 416px; max-width: 100%; height: 10px; border-radius: var(--radius-md); overflow: hidden; } /* DRIFT: Figma literal sizes */
+.copilot-shimmer__bar { position: absolute; top: -1px; left: 0; width: 800px; height: 12px; background: linear-gradient(to right, color-mix(in srgb, var(--colors-background-bg-secondary) 50%, transparent) 0%, color-mix(in srgb, var(--colors-background-bg-tertiary) 50%, transparent) 30%, color-mix(in srgb, var(--colors-background-bg-secondary) 50%, transparent) 61%, color-mix(in srgb, var(--colors-background-bg-tertiary) 50%, transparent) 100%); transform: translateX(-384px); animation: copilot-shimmer-slide 1.6s ease-in-out infinite alternate; } /* DRIFT: Figma literal sizes */
+.copilot-shimmer[data-state="2"] .copilot-shimmer__bar { animation: none; transform: translateX(0); }
+.copilot-shimmer[data-state="1"] .copilot-shimmer__bar { animation: none; transform: translateX(-384px); } /* DRIFT: Figma literal sizes */
+@keyframes copilot-shimmer-slide { from { transform: translateX(-384px); } to { transform: translateX(0); } } /* DRIFT: Figma literal sizes */
+.copilot-shimmer-stack { display: flex; flex-direction: column; gap: var(--spacing-md); }
+/* Text ticker */
+.copilot-ticker { position: relative; box-sizing: border-box; width: 368px; max-width: 100%; height: 20px; overflow: hidden; font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: 20px; color: var(--colors-text-text-placeholder); } /* DRIFT: Figma literal sizes */
+.copilot-ticker__track { display: flex; flex-direction: column; animation: copilot-ticker-roll 12s infinite; }
+.copilot-ticker__item { flex: none; height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } /* DRIFT: Figma literal sizes */
+.copilot-ticker[data-step="1"] .copilot-ticker__track { animation: none; transform: translateY(0); }
+.copilot-ticker[data-step="2"] .copilot-ticker__track { animation: none; transform: translateY(-20px); } /* DRIFT: Figma literal sizes */
+.copilot-ticker[data-step="3"] .copilot-ticker__track { animation: none; transform: translateY(-40px); } /* DRIFT: Figma literal sizes */
+.copilot-ticker[data-step="4"] .copilot-ticker__track { animation: none; transform: translateY(-60px); } /* DRIFT: Figma literal sizes */
+@keyframes copilot-ticker-roll { 0%, 20% { transform: translateY(0); } 25%, 45% { transform: translateY(-20px); } 50%, 70% { transform: translateY(-40px); } 75%, 95% { transform: translateY(-60px); } 100% { transform: translateY(-80px); } } /* DRIFT: Figma literal sizes */
+/* ticker needs a 5th clone of line 1 as the last item for the seamless loop; static steps ignore it */
+/* Deep Research chip */
+.copilot-deep-research { display: inline-flex; align-items: center; justify-content: center; gap: var(--spacing-xs); box-sizing: border-box; height: 36px; padding: var(--spacing-md) var(--spacing-lg); border: 0; border-radius: var(--radius-md); background: var(--colors-component-buttons-neutral-secondary-button-neutral-secondary-bg, var(--colors-background-bg-secondary)); color: var(--colors-utility-steel-blue-utility-steel-blue-400); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); white-space: nowrap; cursor: pointer; } /* DRIFT: neutral-secondary-bg component token falls back to bg-secondary if not exported */
+.copilot-deep-research svg { flex: none; width: 14px; height: 14px; } /* DRIFT: Figma literal sizes */
+.copilot-deep-research__label { padding: 0 var(--spacing-xxs); }
+.copilot-deep-research__trail { display: inline-flex; color: var(--colors-icon-icon-secondary); }
+.copilot-deep-research__close { display: none; color: var(--colors-utility-steel-blue-utility-steel-blue-400); }
+.copilot-deep-research:hover, .copilot-deep-research[data-force="hover"] { gap: var(--spacing-sm); background: var(--colors-utility-steel-blue-utility-steel-blue-25); }
+.copilot-deep-research:hover .copilot-deep-research__trail, .copilot-deep-research[data-force="hover"] .copilot-deep-research__trail { display: none; }
+.copilot-deep-research:hover .copilot-deep-research__close, .copilot-deep-research[data-force="hover"] .copilot-deep-research__close { display: inline-flex; }
+.copilot-deep-research:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); } /* DRIFT: Figma literal sizes */
+.copilot-deep-research--mobile { width: 44px; height: 32px; padding: var(--spacing-sm) var(--spacing-lg); } /* DRIFT: Figma literal sizes */
+.copilot-deep-research--mobile .copilot-deep-research__label, .copilot-deep-research--mobile .copilot-deep-research__trail { display: none; }
+.copilot-deep-research--mobile svg { width: 20px; height: 20px; } /* DRIFT: Figma literal sizes */
+.copilot-deep-research--mobile .copilot-deep-research__close { display: none; }
+.copilot-deep-research--mobile:hover, .copilot-deep-research--mobile[data-force="hover"] { width: 64px; height: 36px; padding: var(--spacing-md); gap: var(--spacing-md); } /* DRIFT: Figma literal sizes */
+.copilot-deep-research--mobile:hover .copilot-deep-research__close, .copilot-deep-research--mobile[data-force="hover"] .copilot-deep-research__close { display: inline-flex; }
+/* Working ring (Icon 70298:25373) */
+.copilot-ring { display: inline-block; flex: none; width: 16px; height: 16px; border-radius: var(--radius-full); background: conic-gradient(from 36deg, transparent 0, var(--colors-icon-icon-tertiary) 10%, transparent 20%); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px)); mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px)); animation: copilot-ring-spin 1s linear infinite; } /* DRIFT: Figma literal sizes */
+.copilot-ring[data-frame="1"] { animation: none; transform: rotate(0deg); }
+.copilot-ring[data-frame="2"] { animation: none; transform: rotate(90deg); }
+.copilot-ring[data-frame="3"] { animation: none; transform: rotate(180deg); }
+.copilot-ring[data-frame="4"] { animation: none; transform: rotate(270deg); }
+@keyframes copilot-ring-spin { to { transform: rotate(360deg); } }
+/* Chat FAB */
+.copilot-fab { position: relative; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 48px; height: 48px; padding: 0; border: 0; border-radius: var(--radius-full); background: var(--colors-icon-icon-brand-600); color: var(--colors-icon-icon-white); box-shadow: 0 8px 8px -4px rgba(0, 0, 0, .04), 0 20px 24px -4px rgba(0, 0, 0, .08); cursor: pointer; } /* DRIFT: shadow literal */
+.copilot-fab svg { width: 24px; height: 24px; } /* DRIFT: Figma literal sizes */
+.copilot-fab__badge { position: absolute; top: -6px; right: -6px; display: inline-flex; align-items: center; box-sizing: border-box; height: 24px; min-width: 24px; padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); background: var(--colors-utility-error-utility-error-400); color: var(--colors-text-text-white); font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); } /* DRIFT: Figma literal sizes */
+.copilot-fab:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-background-bg-primary), 0 0 0 4px var(--colors-icon-icon-brand-600); } /* DRIFT: Figma literal sizes */
+@media (prefers-reduced-motion: reduce) {
+  .copilot-shimmer__bar, .copilot-ticker__track, .copilot-ring { animation: none !important; }
+  .copilot-shimmer__bar { transform: translateX(-192px); } /* DRIFT: Figma literal sizes */
+}

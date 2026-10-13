@@ -79,8 +79,8 @@ Layout grids: desktop = 12 columns, gutter 32, margin 112, container 1216; table
 | Headers 190:4871 | built: form-header Levels 1-3/3 Alt, Back, Tabs, sidepane and Automation sidepane header; `section-label` (Levels 0-4). Style=Toggle not built (use `button-group`) |
 | Navigation 82:1862 | built: `sidebar` (280/56/68, submenu), `header-nav`, `bottom-nav`; Back glyph and icon-only item box assumed |
 | Preview Modal 71561:14622 | built: `preview-modal` |
-| Copilot 70268:16200 | partial: `copilot-pill`, `copilot-suggestions`, `copilot-attachment`, `copilot-feedback`; ~60 component sets exist, existing copilot atoms not yet audited; Comment panel, Live Chat, Deep Research, message variants, shimmer, header set skipped |
+| Copilot 70268:16200 | mapped (pass 3, 13 Oct): copilot-input / -attachment / -pill / -suggestions / -feedback audited and extended; new copilot-sources-menu, -connector, -message, -citation, -shimmer, -header, comment-field, comment-panel, live-chat; cot and question-card extended (additive). Not built: Attachment Desktop image grids 73015:31094, L1+L2 flyout, Side-pane COT & Sources composites 73116:28682, mobile user row, map/link/graph chat previews. Previews not checked in a browser except live-chat and comment-panel |
 | Modals 172:4293 | full screen + double pane built; popover header skipped |
 | Inputs, Dropdowns, Date pickers, Tables, Checkboxes, Sliders, Selection pill, Progress, Stepper, Empty states, Tag, File upload | gaps closed (see each README "Gaps2"); Tabs Rounded Folder xs / Folder Destructive / Folder Badge, Tooltip code+link rows, small progress circles + trendline, spinner dots, empty-state Status, file-upload icons and error/complete, arrow stepper + Activity, tag flag + icon-leading, code-snippet syntax colours composed without sampling the exact node (DRIFT) |
 
-Still not started: Charts 65348:31489 (WIP in Figma), Thumbnail 44289:6384 (cover images, not UI), Change Log 65402:28116, Copilot page remainder.
+Still not started: Charts 65348:31489 (WIP in Figma), Thumbnail 44289:6384 (cover images, not UI), Change Log 65402:28116.

@@ -1,0 +1,82 @@
+/* ----------------------------------------------------------------------------
+   comment-panel — DS Copilot page 70268:16200
+   comment panel 71093:40653 (400x991): bg-primary, 1px inset border-secondary.
+   Side Panel header 400x40 (title 16 left pad), Items column padding 20/12 gap 8
+   (messages 376 wide, 1px border-tertiary dividers between threads), Input frame
+   padding 0/16/16/16 holding a Comment field (see components/comment-field).
+   _Comment_Message Unit 71093:39489: level 1 (374x138), level 2, level 3 (24px
+   avatar, 58), level 3+reply (80, embeds a comment field), Spacer top/between (10
+   high). Unit: padding 8 radius 8; Hover = bg-workspace + actions row visible.
+   Row: gap 8; connector column (avatar 32 / 24, 1px border-secondary line below the
+   avatar to the next level); content gap 2: heading (name text-sm-semibold
+   primary-900 + time xs-regular tertiary-600, gap 6), message text-sm-regular
+   secondary-700, optional attachments (file chip 132x32 r6 / thumb 88x88 r8).
+   Actions (20x20 icon buttons 16px glyph, gap 12): face-smile, corner-up-left, trash.
+   _Replies 71575:29966: State=Collapsed / Unread Collapsed (success dot 7px) / Open
+   (chevron-down-sm visible); link-brand-fg xs-medium, padding-left 36/38.
+   DRIFT: "Unread Collapsed" dot uses utility-success-500, as read in Figma, though the
+   spec labels it brand elsewhere (_Replies in the unit uses a brand dot, 8x8).
+   DRIFT: panel header breadcrumb instance is hidden in Figma; title text not sampled.
+---------------------------------------------------------------------------- */
+.comment-panel {
+  box-sizing: border-box; display: flex; flex-direction: column; width: 400px; max-width: 100%;
+  background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary);
+  color: var(--colors-text-text-primary-900);
+}
+.comment-panel__header {
+  box-sizing: border-box; height: 40px; flex: none; display: flex; align-items: center; padding: 0 var(--spacing-md) 0 var(--spacing-xl); /* DRIFT: Figma literal */
+  box-shadow: inset 0 -1px 0 var(--colors-border-border-secondary);
+  font-family: var(--text-sm-semibold-font-family); font-weight: var(--text-sm-semibold-font-weight); font-size: var(--text-sm-semibold-font-size); line-height: var(--text-sm-semibold-line-height);
+}
+.comment-panel__items { flex: 1 1 0; min-height: 0; overflow: auto; box-sizing: border-box; padding: var(--spacing-2xl) var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-md); }
+.comment-panel__divider { height: 0; border: 0; border-top: 1px solid var(--colors-border-border-tertiary); margin: 0; flex: none; } /* DRIFT: Figma literal */
+.comment-panel__input { box-sizing: border-box; flex: none; padding: 0 var(--spacing-xl) var(--spacing-xl); }
+
+.comment-unit { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--spacing-md); padding: var(--spacing-md); border-radius: var(--radius-md); }
+.comment-unit:hover, .comment-unit[data-force="hover"] { background: var(--colors-background-bg-workspace); }
+.comment-unit--spacer { height: 10px; padding: 0; } /* DRIFT: Figma literal */
+.comment-unit--spacer:hover { background: none; }
+.comment-unit__row { display: flex; gap: var(--spacing-md); align-items: flex-start; }
+.comment-unit__rail { flex: none; width: 32px; display: flex; flex-direction: column; align-items: center; padding-top: var(--spacing-xxs); align-self: stretch; } /* DRIFT: Figma literal */
+.comment-unit__avatar {
+  position: relative; flex: none; box-sizing: border-box; width: 32px; height: 32px; border-radius: var(--radius-full); /* DRIFT: Figma literal */
+  display: flex; align-items: center; justify-content: center;
+  background: var(--colors-utility-pigeon-blue-utility-pigeon-blue-400); color: var(--colors-text-text-white);
+  font-family: var(--text-sm-medium-font-family); font-weight: var(--text-sm-medium-font-weight); font-size: var(--text-sm-medium-font-size);
+}
+.comment-unit__avatar--brand { background: var(--colors-background-bg-brand-solid); }
+.comment-unit__online { position: absolute; right: -1px; bottom: -1px; width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--colors-utility-success-utility-success-500); box-shadow: 0 0 0 1.5px var(--colors-background-bg-white); } /* DRIFT: Figma literal */
+.comment-unit__connector { flex: 1 1 0; width: 1px; min-height: 8px; background: var(--colors-border-border-secondary); }
+.comment-unit__content { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--spacing-xxs); }
+.comment-unit__head { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-md); min-height: 20px; } /* DRIFT: Figma literal */
+.comment-unit__heading { display: flex; align-items: center; gap: var(--spacing-sm); min-width: 0; }
+.comment-unit__name { color: var(--colors-text-text-primary-900); font-family: var(--text-sm-semibold-font-family); font-weight: var(--text-sm-semibold-font-weight); font-size: var(--text-sm-semibold-font-size); line-height: var(--text-sm-semibold-line-height); }
+.comment-unit__time { color: var(--colors-text-text-tertiary-600); font-family: var(--text-xs-regular-font-family); font-weight: var(--text-xs-regular-font-weight); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); }
+.comment-unit__actions { display: none; align-items: center; gap: var(--spacing-lg); }
+.comment-unit:hover .comment-unit__actions, .comment-unit[data-force="hover"] .comment-unit__actions { display: flex; }
+.comment-unit__action { box-sizing: border-box; width: 20px; height: 20px; padding: 0; border: 0; background: transparent; border-radius: var(--radius-xs); color: var(--colors-icon-icon-tertiary); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; } /* DRIFT: Figma literal */
+.comment-unit__action svg { width: 16px; height: 16px; }
+.comment-unit__action:hover { background: var(--colors-background-bg-primary-hover); }
+.comment-unit__text { margin: 0; color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-regular-font-family); font-weight: var(--text-sm-regular-font-weight); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.comment-unit__attachments { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-top: var(--spacing-md); }
+.comment-unit__chip { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-md) var(--spacing-sm); height: 32px; background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); border-radius: var(--radius-sm); color: var(--colors-text-text-secondary-700); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); font-weight: var(--text-xs-medium-font-weight); } /* DRIFT: Figma literal */
+.comment-unit__chip svg { width: 16px; height: 16px; color: var(--colors-icon-icon-tertiary); }
+.comment-unit__thumb { width: 88px; height: 88px; border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); background: var(--colors-utility-gray-utility-gray-100); } /* DRIFT: Figma literal */
+
+/* level 3: smaller avatar, indented under the thread connector */
+.comment-unit--l3 { gap: 0; }
+.comment-unit--l3 .comment-unit__row { gap: var(--spacing-md); }
+.comment-unit--l3 .comment-unit__rail { width: 24px; margin-left: var(--spacing-2xl); } /* DRIFT: Figma literal */
+.comment-unit--l3 .comment-unit__avatar { width: 24px; height: 24px; font-size: var(--text-xs-medium-font-size); font-weight: var(--text-xs-medium-font-weight); } /* DRIFT: Figma literal */
+.comment-unit--l2 { padding-left: var(--spacing-md); }
+.comment-unit__reply-field { margin-top: var(--spacing-md); }
+
+/* _Replies */
+.comment-replies { display: flex; align-items: center; gap: var(--spacing-lg); padding-left: 36px; } /* DRIFT: 36/38 literal */
+.comment-replies__link { display: inline-flex; align-items: center; gap: var(--spacing-xs); padding: 0; border: 0; background: none; border-radius: var(--radius-xs); cursor: pointer; color: var(--component-link-brand-link-brand-fg); font-family: var(--text-xs-medium-font-family); font-weight: var(--text-xs-medium-font-weight); font-size: var(--text-xs-medium-font-size); line-height: var(--text-xs-medium-line-height); }
+.comment-replies__link:hover { color: var(--component-link-brand-link-brand-fg-hover); }
+.comment-replies__link:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
+.comment-replies__dot { width: 7px; height: 7px; border-radius: var(--radius-full); background: var(--colors-utility-success-utility-success-500); display: none; } /* DRIFT: Figma literal */
+.comment-replies--unread .comment-replies__dot { display: block; }
+.comment-replies__chev { width: 10px; height: 10px; display: none; }
+.comment-replies--open .comment-replies__chev { display: block; }

@@ -1,0 +1,58 @@
+/* copilot-citation — Copilot page 70268:16200.
+   Inline Citation Pill 70298:22318 (State Default/Hover x Count True/False/longest; 130x16, 112x16, 220x16),
+   Code Pill 70298:22466 (Type Default 261 / Right overflow 542 / left overflow 542), Source Links 71338:106121
+   (756x114 list) + 71350:107414 (72x32 "5 Sources" trigger), Analysed 71350:107446 (Default / Collapsed / Open, each +hover).
+   Pill: bg-tertiary (hover bg-tertiary-hover), r4, padding 2/4 (count: 2/2/2/4), JetBrains Mono 10/12 tertiary-600,
+   10px white round logo holding an 8px brand mark. Popover card = the citation-card atom (320 wide, r8, border-tertiary
+   ring); open it on hover/focus of the pill.
+   Code pill: bg utility-gray-100, r4, padding 2/6, mono 11/12 tertiary-600.
+   Source links: bg-primary, border-secondary ring, r8, padding 8, rows 20 tall r4 (hover row bg-primary-hover, label
+   -> secondary-700, kind -> tertiary-600), 4x40 gray-400 scroll thumb. Trigger: 72x32, "N Sources" 12/16 quaternary-500.
+   Analysed: 20px icon chip (pencil-ruler 12) + "Analysed" 13/20 tertiary-600, vertical rule border-secondary, body
+   indented 32. Collapsed body clips to 36px, Open shows 122px.
+   DRIFT: pill font 10px is off the DS scale (nearest Text xxs/Regular-Code 11).
+   DRIFT: _Tag count (20x12, Size=sm Selected=False) internals not sampled; rendered as a r4 chip, text xxs.
+   DRIFT: popover shadow = DROP_SHADOW 0 4 6 + 0 12 16, colours not read; --shadow-lg used.
+   DRIFT: Analysed hover (Open hover / Collapsed hover show a cursor only) -> label darkens to secondary-700, unread.
+   DRIFT: Source Links scroll thumb position (4x40 rect at end of list) taken as right inset 2. */
+.copilot-citation { position: relative; display: inline-flex; align-items: center; vertical-align: middle; box-sizing: border-box; height: 16px; padding: 2px var(--spacing-xs); gap: 3px; border: 0; border-radius: var(--radius-xs); background: var(--colors-background-bg-tertiary); color: var(--colors-text-text-tertiary-600); font-family: var(--font-family-code); font-size: 10px; line-height: 12px; cursor: pointer; max-width: 220px; } /* DRIFT: gap 3, font 10 literal */
+.copilot-citation--count { padding-right: 2px; gap: 0; } /* DRIFT: Figma literal sizes */
+.copilot-citation:hover, .copilot-citation[data-force="hover"] { background: var(--colors-background-bg-tertiary-hover); }
+.copilot-citation:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); } /* DRIFT: Figma literal sizes */
+.copilot-citation__logo { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 10px; height: 10px; margin-right: var(--spacing-xs); border-radius: var(--radius-full); background: var(--colors-background-bg-white, #fff); } /* DRIFT: fill is raw #fff in Figma */
+.copilot-citation__logo svg, .copilot-citation__logo img { width: 8px; height: 8px; } /* DRIFT: Figma literal sizes */
+.copilot-citation__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.copilot-citation__count { display: inline-flex; align-items: center; justify-content: center; flex: none; box-sizing: border-box; min-width: 20px; height: 12px; padding: 0 var(--spacing-xs); margin-left: var(--spacing-xxs); border-radius: var(--radius-xs); font-size: var(--text-xxs-regular-code-font-size); line-height: 12px; color: var(--colors-text-text-tertiary-600); } /* DRIFT: Figma literal sizes */
+.copilot-citation__popover { position: absolute; left: 0; top: calc(100% + 4px); z-index: 10; display: none; width: 320px; text-align: left; box-shadow: var(--shadow-lg); border-radius: var(--radius-md); } /* DRIFT: Figma literal sizes */
+.copilot-citation:hover > .copilot-citation__popover, .copilot-citation:focus-visible > .copilot-citation__popover, .copilot-citation[data-force="hover"] > .copilot-citation__popover { display: block; }
+/* Code pill */
+.copilot-code-pill { display: inline-flex; align-items: center; box-sizing: border-box; max-width: 100%; height: 16px; padding: var(--spacing-xxs) var(--spacing-sm); border-radius: var(--radius-xs); background: var(--colors-utility-gray-utility-gray-100); color: var(--colors-text-text-tertiary-600); font-family: var(--text-xxs-regular-code-font-family); font-size: var(--text-xxs-regular-code-font-size); line-height: var(--text-xxs-regular-code-line-height); } /* DRIFT: Figma literal sizes */
+.copilot-code-pill__text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.copilot-code-pill--right .copilot-code-pill__text { text-overflow: ellipsis; }
+.copilot-code-pill--left .copilot-code-pill__text { direction: rtl; text-align: left; unicode-bidi: plaintext; text-overflow: ellipsis; } /* clips the start, keeps the tail */
+/* Source links list */
+.copilot-sources { position: relative; display: flex; flex-direction: column; gap: var(--spacing-sm); box-sizing: border-box; width: 100%; padding: var(--spacing-md); background: var(--colors-background-bg-primary); border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); } /* DRIFT: Figma literal sizes */
+.copilot-sources__row { position: relative; display: flex; align-items: center; gap: var(--spacing-xs); box-sizing: border-box; height: 20px; padding: var(--spacing-xxs); border: 0; border-radius: var(--radius-xs); background: transparent; color: var(--colors-text-text-tertiary-600); text-align: left; text-decoration: none; cursor: pointer; font: inherit; } /* DRIFT: Figma literal sizes */
+.copilot-sources__row:hover, .copilot-sources__row[data-force="hover"] { background: var(--colors-background-bg-primary-hover); color: var(--colors-text-text-secondary-700); }
+.copilot-sources__icon { display: inline-flex; flex: none; width: 12px; height: 12px; margin-left: var(--spacing-xxs); border-radius: var(--radius-xs); overflow: hidden; } /* DRIFT: Figma has a 16 slot icon + 12 logo stacked; 12 logo only */
+.copilot-sources__icon svg, .copilot-sources__icon img { width: 12px; height: 12px; } /* DRIFT: Figma literal sizes */
+.copilot-sources__title { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.copilot-sources__kind { flex: none; color: var(--colors-text-text-quaternary-500); }
+.copilot-sources__row:hover .copilot-sources__kind, .copilot-sources__row[data-force="hover"] .copilot-sources__kind { color: var(--colors-text-text-tertiary-600); }
+.copilot-sources::after { content: ""; position: absolute; right: var(--spacing-xxs); top: var(--spacing-md); width: 4px; height: 40px; border-radius: var(--radius-full); background: var(--colors-utility-gray-utility-gray-400); } /* DRIFT: Figma literal sizes */
+.copilot-sources--static::after { display: none; }
+.copilot-sources-trigger { display: inline-flex; align-items: center; box-sizing: border-box; height: 32px; padding: var(--spacing-md); border: 0; border-radius: var(--radius-md); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); color: var(--colors-text-text-quaternary-500); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); white-space: nowrap; cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-sources-trigger:hover, .copilot-sources-trigger[data-force="hover"] { background: var(--colors-background-bg-primary-hover); color: var(--colors-text-text-tertiary-600); }
+.copilot-sources-trigger:focus-visible { outline: 0; box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary), 0 0 0 2px var(--colors-utility-gray-utility-gray-300); } /* DRIFT: Figma literal sizes */
+/* Analysed */
+.copilot-analysed { display: flex; flex-direction: column; gap: var(--spacing-xs); width: 100%; font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); }
+.copilot-analysed__head { display: flex; align-items: center; gap: var(--spacing-lg); height: 20px; padding: 0; border: 0; background: transparent; color: var(--colors-text-text-tertiary-600); font: inherit; text-align: left; cursor: pointer; } /* DRIFT: Figma literal sizes */
+.copilot-analysed__head:hover, .copilot-analysed[data-force="hover"] .copilot-analysed__head { color: var(--colors-text-text-secondary-700); }
+.copilot-analysed__head:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); border-radius: var(--radius-xs); } /* DRIFT: Figma literal sizes */
+.copilot-analysed__icon { display: inline-flex; align-items: center; justify-content: center; flex: none; box-sizing: border-box; width: 20px; height: 20px; padding: var(--spacing-xs); border-radius: var(--radius-4xl); color: var(--colors-icon-icon-secondary); } /* DRIFT: Figma literal sizes */
+.copilot-analysed__icon svg { width: 12px; height: 12px; } /* DRIFT: Figma literal sizes */
+.copilot-analysed__body { display: flex; gap: var(--spacing-2xl); padding-left: var(--spacing-4xl); }
+.copilot-analysed__body-inner { flex: 1 1 auto; min-width: 0; padding-bottom: var(--spacing-md); }
+.copilot-analysed[data-state="collapsed"] .copilot-analysed__body { max-height: 36px; overflow: hidden; } /* DRIFT: Figma literal sizes */
+.copilot-analysed[data-state="closed"] .copilot-analysed__body { display: none; }
+.copilot-analysed__rule { position: relative; flex: none; width: 10px; margin-left: calc(-1 * var(--spacing-4xl) + 10px); } /* DRIFT: rule drawn as a 10px frame holding a 1px vector; offset inferred */

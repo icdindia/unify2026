@@ -10,3 +10,15 @@
 .copilot-suggestions--lines { gap: 0; align-items: stretch; box-shadow: inset 0 1px 0 var(--colors-border-border-tertiary); padding-top: var(--spacing-md); } /* DRIFT: Figma literal sizes */
 .copilot-suggestions__line { display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-xs) 0; margin: 0; border: 0; background: transparent; color: var(--colors-text-text-secondary-700); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); text-align: left; cursor: pointer; }
 .copilot-suggestions__line:hover, .copilot-suggestions__line[data-force="hover"] { color: var(--colors-text-text-primary-900); }
+
+/* ---- Additive pass 2 -------------------------------------------------------------------------
+   Suggested prompts 70699:17443 (Button 246x40 chip / Lines 321 row 32), Sidepane 70699:17454 (316), Lines States 70699:17465 + 70815:15100
+   (Default, Default Hover, Custom, Custom Hover), Button States 70699:17478 (Default, Hover).
+   Audit: label is Text md 15/24 text-primary-900 in Figma; repo chip uses sm + secondary-700 (kept, not renamed). Opt in: */
+.copilot-suggestions--md .copilot-suggestions__chip,
+.copilot-suggestions--md .copilot-suggestions__line { font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); line-height: var(--text-md-regular-line-height); color: var(--colors-text-text-primary-900); }
+.copilot-suggestions--sidepane { width: 316px; max-width: 100%; }
+/* Lines: each row = 16 corner-down-right badge + label, then a 1px border-tertiary rule under it; gap 8 */
+.copilot-suggestions--lines .copilot-suggestions__line { box-shadow: inset 0 -1px 0 var(--colors-border-border-tertiary); padding: var(--spacing-xs) 0 var(--spacing-md); }
+.copilot-suggestions__line svg { width: 16px; height: 16px; flex: none; color: var(--colors-icon-icon-tertiary); }
+/* Custom row (70815:15100 Custom / Custom Hover): DRIFT not sampled, left as the default row. */

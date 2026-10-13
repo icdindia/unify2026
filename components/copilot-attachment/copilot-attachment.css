@@ -1,9 +1,14 @@
 /* copilot-attachment — Attachments 70298:23605 (Type Image/File/Image Thumbnail/Video Thumbnail x Size sm/md x
    State Default/Hover/Loading/Error x Placement). Sampled: File sm Default + Error (180x32, padding 8/6, r6,
    border-tertiary ring; error ring border-error-solid + retry). Remove button 20 circle top-right.
-   DRIFT: md size, thumbnails, hover and loading not sampled -> md/thumb dimensions are estimates. */
+   Audited 2026-10: File sm Hover (bg-primary-hover + border-primary ring), File sm Loading, File md Default,
+   Image Thumbnail sm 32 / md 48 (Reply Box) / md 88 (With Message), thumbnail Error + Loading, Video Thumbnail.
+   With Message placement is 160 wide (sm) instead of 180: `.copilot-attachment--message`.
+   Thumbnail Error: ring border-error-solid + retry button 20 (r4) in the middle; Loading: 20px spinner centred.
+   Overflow tile "+9": 18/28 white on alpha-black-70. Video tile: 24px play glyph, white.
+   DRIFT: thumbnail sizes 32/48/88 and md radius 12 are Figma literals (no size tokens). */
 .copilot-attachment { position: relative; display: inline-flex; align-items: center; gap: var(--spacing-sm); box-sizing: border-box; width: 180px; height: 32px; padding: var(--spacing-md) var(--spacing-sm) var(--spacing-md) var(--spacing-md); border-radius: var(--radius-md); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-secondary-700); } /* DRIFT: gap 6 literal */
-.copilot-attachment--md { height: 40px; width: 220px; }
+.copilot-attachment--md { height: 48px; width: 300px; padding: var(--spacing-md); gap: var(--spacing-md); border-radius: var(--radius-4xl); } /* CORRECTED from the 220x40 estimate: File md = 300x48, p8, g8, r12 (70298:23605) */ /* DRIFT: Figma literal sizes */
 .copilot-attachment__icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 20px; height: 20px; box-sizing: border-box; border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--colors-utility-success-utility-success-25); color: var(--colors-utility-success-utility-success-600); } /* DRIFT: Figma literal sizes */
 .copilot-attachment__icon svg { width: 14px; height: 14px; }
 .copilot-attachment__name { flex: 1 0 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -15,3 +20,29 @@
 .copilot-attachment--loading { opacity: .6; }
 .copilot-attachment--thumb { width: 64px; height: 64px; padding: 0; overflow: clip; } /* DRIFT: Figma literal sizes */
 .copilot-attachment--thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- additions (audit) ---- */
+.copilot-attachment--message { width: 160px; }
+.copilot-attachment:hover, .copilot-attachment[data-force="hover"] { background: var(--colors-background-bg-primary-hover); box-shadow: inset 0 0 0 1px var(--colors-border-border-primary); }
+.copilot-attachment--error:hover, .copilot-attachment--error[data-force="hover"] { box-shadow: inset 0 0 0 1px var(--colors-border-border-error-solid); }
+.copilot-attachment--loading { opacity: 1; }
+.copilot-attachment__spinner { display: inline-block; flex: none; box-sizing: border-box; width: 20px; height: 20px; border-radius: var(--radius-full); border: 2px solid var(--colors-border-border-primary); border-top-color: var(--colors-icon-icon-secondary); animation: copilot-attachment-spin .8s linear infinite; } /* DRIFT: spinner is the Loading indicator instance; arc colours estimated */
+@keyframes copilot-attachment-spin { to { transform: rotate(360deg); } }
+.copilot-attachment__body { display: flex; flex-direction: column; flex: 1 0 0; min-width: 0; }
+.copilot-attachment__meta { font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-tertiary-600); }
+.copilot-attachment--md .copilot-attachment__icon { width: 28px; height: 28px; border-radius: var(--radius-md); } /* DRIFT: Figma literal */
+.copilot-attachment--md .copilot-attachment__icon svg { width: 16px; height: 16px; }
+/* thumbnails: 32 / 48 (reply box), 88 (message) */
+.copilot-attachment--thumb { padding: 0; border-radius: var(--radius-4xl); box-shadow: inset 0 0 0 1px var(--colors-border-border-tertiary); } /* DRIFT: Figma literal sizes */
+.copilot-attachment--thumb-sm { width: 32px; height: 32px; }
+.copilot-attachment--thumb-md { width: 48px; height: 48px; }
+.copilot-attachment--thumb-lg { width: 88px; height: 88px; }
+.copilot-attachment--thumb.copilot-attachment--error { box-shadow: inset 0 0 0 1px var(--colors-border-border-error-solid); }
+.copilot-attachment--thumb .copilot-attachment__spinner,
+.copilot-attachment--thumb .copilot-attachment__retry { position: absolute; inset: 0; margin: auto; }
+.copilot-attachment--thumb .copilot-attachment__retry { width: 20px; height: 20px; border-radius: var(--radius-xs); } /* DRIFT: Figma literal sizes */
+.copilot-attachment__overflow { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--palette-alpha-colors-black-alpha-black-70); color: var(--colors-text-text-white); font-size: 18px; line-height: 28px; font-weight: 500; } /* DRIFT: 18/28 literal */
+.copilot-attachment__play { position: absolute; inset: 0; margin: auto; width: 24px; height: 24px; color: var(--colors-background-bg-primary); } /* DRIFT: Figma literal sizes */
+/* the horizontal strip above a composer: scrolls, with a fade shade on the right */
+.copilot-attachment-strip { position: relative; display: flex; gap: var(--spacing-lg); padding: var(--spacing-sm) 0 0 var(--spacing-xs); overflow: hidden; }
+.copilot-attachment-strip::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 38px; pointer-events: none; background: linear-gradient(to right, transparent, var(--colors-background-bg-primary)); }

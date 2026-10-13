@@ -16,3 +16,16 @@
 .copilot-pill:focus-visible { outline: 0; box-shadow: 0 0 0 2px var(--colors-utility-gray-utility-gray-300); }
 /* Limit pill: error 25 / 600, tooltip on hover (use tooltip atom for the bubble) */
 .copilot-pill--limit { height: 24px; padding: var(--spacing-xs) var(--spacing-md); background: var(--colors-utility-error-utility-error-25); color: var(--colors-utility-error-utility-error-600); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); cursor: default; } /* DRIFT: Figma literal sizes */
+
+/* ---- Additive pass 2 --------------------------------------------------------------------------
+   Source Pill "Sources=No" (70298:25319): transparent, label text-quaternary, building_off glyph, "No Sources".
+   Header Pill 70298:25382 hover md = 36 tall, pad 8, 15px label (md); xs 24, pad 4/6, close 14. Tools Pill 70298:25208 = same as
+   Source Pill (telescope "Research"), hover swaps icon for 16 close on steel-blue-50. */
+.copilot-pill--off, .copilot-pill--off:hover, .copilot-pill--off[data-force="hover"] { background: transparent; color: var(--colors-text-text-quaternary-500); cursor: default; }
+.copilot-pill--header { height: 36px; padding: var(--spacing-md); font-family: var(--text-md-regular-font-family); font-size: var(--text-md-regular-font-size); line-height: var(--text-md-regular-line-height); } /* DRIFT: Figma md header pill, literal sizes */
+.copilot-pill--header.copilot-pill--xs { height: 24px; padding: var(--spacing-xs) 6px; font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); } /* DRIFT: Figma literal sizes */
+.copilot-pill--header.copilot-pill--sm { height: 32px; }   /* DRIFT: sm header 32 inferred from set bbox, not sampled */
+.copilot-pill--limit:hover, .copilot-pill--limit[data-force="hover"] { background: var(--colors-utility-error-utility-error-25); } /* hover only reveals tooltip (257x50, bg-base-dark, ring gray-700, r6) */
+.copilot-pill--limit .copilot-pill__tip { display: none; position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); padding: 6px; border-radius: 6px; background: var(--colors-background-bg-base-dark); box-shadow: inset 0 0 0 1px var(--colors-utility-gray-utility-gray-700); } /* DRIFT: Figma literal sizes */
+.copilot-pill--limit { position: relative; }
+.copilot-pill--limit:hover .copilot-pill__tip, .copilot-pill--limit[data-force="hover"] .copilot-pill__tip { display: block; }

@@ -109,36 +109,91 @@ Figma: 1221:106300, 1234:243
 - `.tk-k`
 - `.tk-s`
 
+## comment-field  
+comment-field — DS Copilot page 70268:16200, set "Comment field" 71083:38726
+Figma: 70268:16200, 71083:38722
+- `.comment-field`  elements: `__actions`, `__bar`, `__body`, `__btn`, `__divider`, `__file`, `__lead`, `__send`, `__thumb`, `__tool`, `__toolbar`, `__tray`  modifiers: `--box`, `--lines`
+
+## comment-panel  
+comment-panel — DS Copilot page 70268:16200
+Figma: 70268:16200, 71093:39489
+- `.comment-panel`  elements: `__divider`, `__header`, `__input`, `__items`
+- `.comment-replies`  elements: `__chev`, `__dot`, `__link`  modifiers: `--open`, `--unread`
+- `.comment-unit`  elements: `__action`, `__actions`, `__attachments`, `__avatar`, `__chip`, `__connector`, `__content`, `__head`, `__heading`, `__name`, `__online`, `__rail`, `__reply-field`, `__row` …  modifiers: `--brand`, `--l2`, `--l3`, `--spacer`
+
 ## copilot-attachment  
 copilot-attachment — Attachments 70298:23605 (Type Image/File/Image Thumbnail/Video Thumbnail x Size sm/md x
 Figma: 70298:23605
-- `.copilot-attachment`  elements: `__icon`, `__name`, `__remove`, `__retry`  modifiers: `--error`, `--loading`, `--md`, `--removable`, `--thumb`
+- `.copilot-attachment`  elements: `__body`, `__icon`, `__meta`, `__name`, `__overflow`, `__play`, `__remove`, `__retry`, `__spinner`  modifiers: `--error`, `--loading`, `--md`, `--message`, `--removable`, `--thumb`, `--thumb-lg`, `--thumb-md`, `--thumb-sm`
+- `.copilot-attachment-strip`
+
+## copilot-citation  
+copilot-citation — Copilot page 70268:16200.
+Figma: 70268:16200, 70298:22318
+- `.copilot-analysed`  elements: `__body`, `__body-inner`, `__head`, `__icon`, `__rule`
+- `.copilot-citation`  elements: `__count`, `__label`, `__logo`, `__popover`  modifiers: `--count`
+- `.copilot-code-pill`  elements: `__text`  modifiers: `--left`, `--right`
+- `.copilot-sources`  elements: `__icon`, `__kind`, `__row`, `__title`  modifiers: `--static`
+- `.copilot-sources-trigger`
+
+## copilot-connector  
+copilot-connector — Connector buttons 70298:22421 (Default / Hover / Selected, 400x52 / 400x52 / 400x48)
+Figma: 70298:22421, 70298:22892
+- `.copilot-all-sources`  elements: `__label`, `__stack`
+- `.copilot-connector`  elements: `__check`, `__id`, `__logo`, `__tag`, `__use`  modifiers: `--llm`, `--selected`
 
 ## copilot-feedback  
 copilot-feedback — Feedback Array 70298:22853 (Type Full screen / Sidepane / Mobile), _Cost 70764:9...
 Figma: 70298:22853
-- `.copilot-feedback`  elements: `__btn`, `__cost`, `__group`, `__sources`  modifiers: `--round`
+- `.copilot-feedback`  elements: `__avatars`, `__btn`, `__cost`, `__cost-dot`, `__cost-loading`, `__cost-ring`, `__cost-value`, `__group`, `__sources`  modifiers: `--agent`, `--high`, `--loading`, `--mobile`, `--over`, `--round`, `--sidepane`, `--spread`, `--user`
+
+## copilot-header  
+copilot-header — Copilot_header 73102:12749 (5 breakpoints) + Copilot side pane header 70296:16454. Page: Copilot 70268:16200.
+Figma: 70268:16200, 70296:16454
+- `.copilot-header`  elements: `__actions`, `__avatar`, `__center`, `__selector`, `__title`, `__toggle`  modifiers: `--compact`, `--mobile`, `--popup`, `--right`, `--sidepane`, `--sidepane-wide`
 
 ## copilot-input  
 copilot-input — DS "Copilot desktop Input Box" (the composer)
 Figma: 5563:230560, 5771:489155
-- `.copilot-input`  elements: `__action`, `__action-bar`, `__actions`, `__bar`, `__btn`, `__field`, `__left`, `__message`, `__pill`, `__wrap`  modifiers: `--expanded`, `--send`, `--source`
+- `.copilot-input`  elements: `__action`, `__action-bar`, `__actions`, `__attachments`, `__bar`, `__btn`, `__field`, `__left`, `__limit`, `__message`, `__pill`, `__skills`, `__tool`, `__tools` …  modifiers: `--expanded`, `--generating`, `--landing`, `--large`, `--limit`, `--listening`, `--send`, `--sidepane`, `--source`, `--voice`
 - `.copilot-input-frame`
+
+## copilot-message  
+copilot-message — Copilot page 70268:16200.
+Figma: 70268:16200, 70298:17848
+- `.copilot-attachment`
+- `.copilot-message`  elements: `__actions`, `__answer`, `__attachments`, `__avatar`, `__bubble`, `__content`, `__files`, `__images`, `__mention`, `__meta`, `__quote`, `__skill`, `__skills`, `__strip` …  modifiers: `--ai`, `--consecutive`, `--sidepane`, `--user`
 
 ## copilot-pill  
 copilot-pill — Copilot page 70268:16200. Source Pill 70298:25319 (State x Sources x Size md/sm/xs),
 Figma: 70268:16200, 70298:25208
-- `.copilot-pill`  elements: `__close`, `__icon`  modifiers: `--header`, `--limit`, `--sm`, `--xs`
+- `.copilot-pill`  elements: `__close`, `__icon`, `__tip`  modifiers: `--header`, `--limit`, `--off`, `--sm`, `--xs`
+
+## copilot-shimmer  
+copilot-shimmer — Copilot page 70268:16200.
+Figma: 70268:16200, 70298:25300
+- `.copilot-deep-research`  elements: `__close`, `__label`, `__trail`  modifiers: `--mobile`
+- `.copilot-fab`  elements: `__badge`
+- `.copilot-ring`
+- `.copilot-shimmer`  elements: `__bar`
+- `.copilot-shimmer-stack`
+- `.copilot-ticker`  elements: `__item`, `__track`
+
+## copilot-sources-menu  
+copilot-sources-menu — Copilot "Tools & Sources" menu.
+Figma: 70268:16200, 70298:25147
+- `.copilot-my-sources`  elements: `__logo`, `__more`
+- `.copilot-sources-menu`  elements: `__check`, `__content`, `__divider`, `__header`, `__icon`, `__item`, `__label`, `__shortcut`, `__start`  modifiers: `--l1`, `--mobile`, `--xs`
 
 ## copilot-suggestions  
 copilot-suggestions — Suggest Prompts design 70699:17442 (desktop 361 / sidepane 316), Lines States 70815:15100.
 Figma: 70699:17442, 70815:15100
-- `.copilot-suggestions`  elements: `__chip`, `__line`  modifiers: `--lines`, `--sidepane`
+- `.copilot-suggestions`  elements: `__chip`, `__line`  modifiers: `--lines`, `--md`, `--sidepane`
 
 ## cot  
 cot — DS "COT" (chain of thought) rows and "COT - Steps"
 Figma: 905:301453, 905:301482
-- `.cot`  elements: `__avatar`, `__link`, `__result-box`, `__results`, `__row`, `__rule`, `__step`, `__step-dash`, `__step-icon`, `__step-label`, `__step-row`, `__steps`, `__thoughts`  modifiers: `--done`, `--rich`
+- `.cot`  elements: `__answer`, `__avatar`, `__link`, `__meta`, `__result-box`, `__results`, `__row`, `__rule`, `__sources`, `__sources-wrap`, `__step`, `__step-dash`, `__step-icon`, `__step-label` …  modifiers: `--done`, `--hover`, `--meta`, `--rich`, `--running`, `--sidepane`
 
 ## date-picker  
 date-picker — DS Date pickers page (1143:85678)
@@ -205,7 +260,7 @@ Figma: 16740:306222, 16740:306236
 ## inline-artifact-card  
 inline-artifact-card — the artifact chip inside an agent answer
 Figma: 5717:486438, 5975:416193
-- `.inline-artifact-card`  elements: `__actions`, `__back`, `__front`, `__glyph`, `__hover`, `__main`, `__stack`, `__sub`, `__text`, `__title`, `__title-row`
+- `.inline-artifact-card`  elements: `__actions`, `__back`, `__front`, `__glyph`, `__hover`, `__main`, `__peek`, `__peek-back`, `__peek-front`, `__peek-glyph`, `__stack`, `__status`, `__sub`, `__text` …  modifiers: `--active`, `--figma`
 
 ## input  
 input — DS Inputs page (85:1269)
@@ -226,6 +281,15 @@ list-item — DS "List Item" (connected-system row)
 Figma: 905:301453, 905:302681
 - `.list-item`  elements: `__content`, `__icon`, `__meta`, `__sub`, `__tag`, `__text`, `__title`  modifiers: `--interactive`, `--row`, `--xs`
 - `.list-item-group`
+
+## live-chat  
+live-chat — DS Copilot page 70268:16200
+Figma: 70268:16200, 73100:9841
+- `.live-chat`  elements: `__body`, `__fab`, `__group`, `__header`, `__input`, `__window`
+- `.live-msg`  elements: `__author`, `__avatar`, `__bubble`, `__meta`, `__text`  modifiers: `--multi`, `--user`
+- `.live-pinned`  elements: `__carousel`, `__icon`, `__more`, `__text`, `__thumb`  modifiers: `--image`
+- `.live-reaction`  elements: `__count`, `__emoji`, `__emojis`, `__pin`, `__stamp`  modifiers: `--clicked`
+- `.live-receipt`  modifiers: `--read`
 
 ## main-nav  
 NAV2: expanded sidebar + submenu, 68px icon-only, header nav and bottom nav (Navigation 82:1862) live in components/sidebar, header-nav, bottom-nav; this file i
@@ -288,7 +352,7 @@ Figma: 1085:57382, 1154:89940
 question-card — DS "Copilot_Question Card"
 Figma: 875:165812, 905:283982
 - `.btn`  modifiers: `--icon-sm`, `--xs`
-- `.question-card`  elements: `__arrow`, `__badge`, `__body`, `__close`, `__count`, `__evidence`, `__free`, `__free-in`, `__lead`, `__nav`, `__option`, `__q`, `__question`, `__rule` …  modifiers: `--edit`
+- `.question-card`  elements: `__arrow`, `__badge`, `__body`, `__close`, `__count`, `__evidence`, `__free`, `__free-in`, `__lead`, `__nav`, `__option`, `__q`, `__question`, `__rule` …  modifiers: `--edit`, `--sidepane`, `--single`
 
 ## scrollbar  
 scrollbar — DS Scrollbar page 30309:23743, set 30309:27872

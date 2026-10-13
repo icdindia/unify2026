@@ -133,3 +133,44 @@
   white-space: nowrap;
 }
 .cot__link:hover { background: var(--colors-background-bg-primary); }
+
+/* ---- Additive pass 2 (Copilot page 70268:16200) ------------------------------------------------
+   Agent COT 70372:25806 (788 wide; Step 1-7, Complete 1/2, All 1 line thoughts, With Answer),
+   Agent COTside pane 70374:9111 (360 wide), _Thoughts 70372:28028, _thinking state 70372:28044,
+   Side-pane COT & Sources 73116:28682 (13 types, mostly composites; NOT mapped: DRIFT).
+   DRIFT: Figma label size is 13 (Thoughts / step label), repo uses sm-regular 14 for the existing rules; kept.
+   DRIFT: _thinking state 1/2 shimmer is two bare rectangles (#737373 mask), animation not readable; the
+   shimmer below is an approximation. */
+/* _Thoughts Closed/Open x Default/Hover: hover = text tertiary-600 + chevron icon-secondary (no bg) */
+.cot__thoughts[data-force="hover"] { color: var(--colors-text-text-tertiary-600); }
+.cot__thoughts:hover { color: var(--colors-text-text-tertiary-600); }   /* Figma _Thoughts hover 70372:28034: colour only; the older bg-secondary-hover fill above is kept for existing consumers (DRIFT: Figma has no fill) */
+.cot__thoughts:hover svg, .cot__thoughts[data-force="hover"] svg { color: var(--colors-icon-icon-secondary); }
+/* _thinking state: "Thinking..." label, running */
+.cot__thinking { display: inline-flex; align-items: center; padding-left: var(--spacing-xs); font-family: var(--text-sm-regular-font-family); font-size: var(--text-sm-regular-font-size); line-height: var(--text-sm-regular-line-height); color: var(--colors-text-text-quaternary-500); }
+.cot__thinking::after { content: ""; }
+.cot--running .cot__avatar { animation: cot-pulse 1.4s ease-in-out infinite; }
+.cot--running .cot__thinking { animation: cot-pulse 1.4s ease-in-out infinite; animation-delay: 0.2s; }
+@keyframes cot-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) { .cot--running .cot__avatar, .cot--running .cot__thinking { animation: none; } }
+/* Complete: check-circle in place of the avatar, row only (Complete 1/2) */
+.cot__avatar--done { background: transparent; color: var(--colors-icon-icon-secondary); }
+.cot__avatar--done svg { width: 20px; height: 20px; }
+/* Step states: running (label quaternary), done (tertiary, existing), error (DRIFT: no error step in Figma) */
+.cot__step--running .cot__step-label { color: var(--colors-text-text-quaternary-500); }
+.cot__step--done .cot__step-icon { color: var(--colors-icon-icon-secondary); }   /* Figma done/active glyphs icon-secondary; pending stays icon-tertiary */
+/* step meta: "Vertex Sonnet • 2 results" Text xs/Regular quaternary with 14 model glyph, gap 4 */
+.cot__meta { display: inline-flex; align-items: center; gap: var(--spacing-xs); font-family: var(--text-xs-regular-font-family); font-size: var(--text-xs-regular-font-size); line-height: var(--text-xs-regular-line-height); color: var(--colors-text-text-quaternary-500); }
+.cot__meta svg { width: 14px; height: 14px; flex: none; }
+.cot__step-row--meta { gap: var(--spacing-lg); width: 100%; }   /* 790x20 row, gap 12 */
+/* Source Links box (73116 / 70372 Step 5+): bg-primary, 1px border-secondary ring, radius 8, pad 8, gap 6, pl 32 under the step, scroll thumb 4x40 gray-400 */
+.cot__sources { position: relative; display: flex; flex-direction: column; gap: var(--spacing-sm); box-sizing: border-box; padding: var(--spacing-md); border-radius: var(--radius-md); background: var(--colors-background-bg-primary); box-shadow: inset 0 0 0 1px var(--colors-border-border-secondary); max-height: 114px; overflow: hidden; } /* DRIFT: Figma literal sizes */
+.cot__sources::after { content: ""; position: absolute; right: 2px; top: 8px; width: 4px; height: 40px; border-radius: var(--radius-full); background: var(--colors-utility-gray-utility-gray-400); } /* DRIFT: Figma literal sizes */
+.cot__sources-wrap { padding-left: var(--spacing-4xl); width: 100%; box-sizing: border-box; }   /* 32 */
+.cot__link--hover, .cot__link[data-force="hover"] { background: var(--colors-background-bg-primary); }
+/* Done row: "Done" final step, check-circle + label (existing .cot__step--done) */
+/* Side pane (443 set, 360 content): same rows, narrower, avatar does not hang into the margin */
+.cot--sidepane { width: 360px; max-width: 100%; }
+.cot--sidepane .cot__row { margin-left: 0; }
+.cot--sidepane .cot__results { gap: var(--spacing-xl); }
+/* answer block under the COT ("With Answer"): 24 gap, content stack */
+.cot__answer { display: flex; flex-direction: column; gap: var(--spacing-xl); margin-top: var(--spacing-xs); }
