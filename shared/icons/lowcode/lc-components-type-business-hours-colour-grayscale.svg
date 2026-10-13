@@ -1,0 +1,12 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:luminosity" opacity="0.7">
+<path d="M32.75 2H7.25C4.35051 2 2 4.35051 2 7.25V32.75C2 35.6495 4.35051 38 7.25 38H32.75C35.6495 38 38 35.6495 38 32.75V7.25C38 4.35051 35.6495 2 32.75 2Z" fill="white" stroke="#E6E4E0" stroke-width="1.5" stroke-miterlimit="10"/>
+<rect x="7.9" y="11.1139" width="24.2" height="17.4857" rx="2.1" fill="#C2CBC4" stroke="#C2CBC4" stroke-width="1.8" stroke-miterlimit="10" stroke-linecap="round"/>
+<rect x="16.2861" y="7" width="7.71429" height="5.14286" rx="1" stroke="#87938A" stroke-width="1.8"/>
+<path d="M7 11.5C7 10.6716 7.67157 10 8.5 10H31.5C32.3284 10 33 10.6716 33 11.5V13.6758C33 14.3252 32.5821 14.9009 31.9647 15.102L20.4647 18.8486C20.1627 18.947 19.8373 18.947 19.5353 18.8486L8.03535 15.102C7.41789 14.9009 7 14.3252 7 13.6758V11.5Z" fill="#C2CBC4"/>
+<path d="M29 35C32.3137 35 35 32.3137 35 29C35 25.6863 32.3137 23 29 23C25.6863 23 23 25.6863 23 29C23 32.3137 25.6863 35 29 35Z" fill="white" stroke="#87938A" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M29 25.7695V29.1262L30.8462 30.3849" stroke="#C2CBC4" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M6 14.5L6.44721 15.3944C6.786 16.072 7.47852 16.5 8.23607 16.5H31.9296C32.5983 16.5 33.2228 16.1658 33.5937 15.6094L34 15" stroke="white" stroke-width="1.5"/>
+<rect x="18" y="14" width="5" height="5" rx="1" fill="white"/>
+</g>
+</svg>
